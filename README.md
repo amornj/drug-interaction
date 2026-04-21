@@ -6,7 +6,7 @@ A mobile-first PWA for bedside drug interaction checking, built for busy clinici
 
 ## Status
 
-**M4 — Patient modifiers.** Deterministic pair results can now be re-ranked locally by patient modifier chips, with Cockcroft–Gault renal input and explicit patient-modifier citations shown alongside the unchanged base DDInter/overlay citations.
+**M5 — Cumulative stacks.** Deterministic pair results still render unchanged, and the app now adds a separate local cumulative-stack section for QT, bleeding, serotonergic, anticholinergic, and nephrotoxic burden warnings with visible citations.
 
 ## Stack
 
@@ -17,6 +17,7 @@ A mobile-first PWA for bedside drug interaction checking, built for busy clinici
 - PWA manifest (real service worker deferred to M9)
 - RxNorm REST API (NIH) for drug normalization and autocomplete
 - Local deterministic patient-modifier rule layer for pregnancy, lactation, renal, hepatic, age ≥ 65, and G6PD
+- Local deterministic cumulative-stack rule layer for QT, bleeding, serotonergic, anticholinergic, and nephrotoxic burden
 
 ## Architecture rules
 
@@ -37,7 +38,7 @@ Open http://localhost:3000 on a phone viewport.
 
 `npm run build:data` refreshes the committed DDInter/RxNorm artifacts under `lib/data/`. `npm run build` uses those local files and does not need to fetch DDInter at build time.
 
-To enable the optional M3 explainer locally, set `ANTHROPIC_API_KEY` in `.env.local`. Without that key, deterministic pair checking and M4 patient modifiers still work and `/api/interactions/explain` returns a clean `503` explainer-unavailable response.
+To enable the optional M3 explainer locally, set `ANTHROPIC_API_KEY` in `.env.local`. Without that key, deterministic pair checking, M4 patient modifiers, and M5 cumulative stack warnings still work and `/api/interactions/explain` returns a clean `503` explainer-unavailable response.
 
 ## Roadmap
 
@@ -47,8 +48,8 @@ To enable the optional M3 explainer locally, set `ANTHROPIC_API_KEY` in `.env.lo
 | M2 | Deterministic pair check (DDInter + overlay), severity-sorted list, red/amber verdict |
 | M3 | Streamed Anthropic explainer that restates deterministic pair facts with citations |
 | M4 | Local patient modifier chips with Cockcroft–Gault renal input and deterministic pair re-ranking |
-| M5 | Cumulative stacks: QT, bleeding, serotonergic, anticholinergic, nephrotoxic |
-| M6 | Voice (Web Speech API), OCR (tesseract.js + Claude vision fallback), paste-block EMR parser |
+| M5 | Local deterministic cumulative stacks: QT, bleeding, serotonergic, anticholinergic, nephrotoxic |
+| M6 | Voice (Web Speech API), OCR (tesseract.js), paste-block EMR parser |
 | M7 | Shareable report: copy-to-EMR text, structured JSON, PDF |
 | M8 | Pharmacogenomics panel (CPIC): tests before prescribing, allele-based management |
 | M9 | Offline PWA service worker, haptics on Major/Contraindicated, dark mode polish, install prompt |
@@ -61,5 +62,6 @@ To enable the optional M3 explainer locally, set `ANTHROPIC_API_KEY` in `.env.lo
 | [DDInter 2.0](https://ddinter2.scbdd.com/) | Deterministic pairwise interaction seed | `2.0` | Ingest generated `2026-04-21` | `/api/interactions/check` |
 | `lib/data/overlay/*.yaml` | Hand-curated deterministic overrides / augmentations | `2026-04` | Generated `2026-04-21` | `/api/interactions/check` precedence layer |
 | `lib/modifiers.ts` local rules | Deterministic patient-context re-ranking and annotations | `2026-04` | Repo-managed | Client-side M4 modifier layer |
+| `lib/stacks.ts` local rules | Deterministic cumulative stack warnings and citations | `2026-04` | Repo-managed | Client-side M5 stack layer |
 
 See [docs/data-sources.md](/Users/home/projects/drug-interaction/docs/data-sources.md) for refresh cadence, artifact locations, and terms.

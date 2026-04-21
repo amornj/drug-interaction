@@ -6,7 +6,7 @@ Owner: `amornj`. Repo: https://github.com/amornj/drug-interaction. Deploy: Verce
 
 ---
 
-## Current state (M4 — DONE, on `main`)
+## Current state (M5 — DONE, on `main`)
 
 - Next.js 15 App Router + React 19 + TS + Tailwind v4
 - Mobile-first shell: `components/AppShell.tsx`, case switcher, thumb-zone bottom bar, safe-area insets
@@ -40,6 +40,11 @@ Owner: `amornj`. Repo: https://github.com/amornj/drug-interaction. Deploy: Verce
   - pregnancy, lactation, hepatic impairment, age ≥ 65, G6PD, and Cockcroft–Gault renal inputs
   - modifier state persisted locally with each case
   - deterministic client-side re-ranking and modifier citation blocks in the interaction list
+- Cumulative stack layer:
+  - `components/StackWarnings.tsx`
+  - `lib/stacks.ts`
+  - deterministic local stack warnings for QT, bleeding, serotonergic, anticholinergic, and nephrotoxic burden
+  - rendered as a separate cited section above pairwise results
 
 Verified:
 - `npm run lint` passes
@@ -47,6 +52,7 @@ Verified:
 - `/api/interactions/check` with `{"rxcuis":["11289","36567"]}` returns Warfarin ↔ Simvastatin with severity + citation
 - `/api/interactions/explain` accepts deterministic pair payloads and returns `503` with a clear error when Anthropic is not configured locally
 - Modifier state is stored inside each case record and used to re-rank displayed interaction urgency locally
+- Cumulative stack warnings stay visually separate from DDInter pair results and show local rule citations
 - Tested searches: warfarin, lipitor, paracetamol, amoxi return hits
 
 ### File map
@@ -67,10 +73,12 @@ components/
   InteractionList.tsx # severity-sorted list with citations + expanders
   InteractionExplanation.tsx # optional streamed explainer per pair
   PatientModifiers.tsx # local modifier chips + Cockcroft–Gault input panel
+  StackWarnings.tsx   # cumulative stack warning cards with citations
   SeverityBadge.tsx   # red/orange/amber/yellow severity variants
 lib/
   interactions.ts     # shared pair types, prompt builder, explanation parsing
   modifiers.ts        # deterministic patient modifier rules and re-ranking
+  stacks.ts           # deterministic cumulative stack detection rules
   rxnorm.ts           # searchRxNorm(term, max) -> DrugCandidate[]
   store.ts            # Zustand store: cases, activeCaseId, drugs; IndexedDB persist
   data/
@@ -104,42 +112,41 @@ docs/
 
 ---
 
-## Next task — M5: Cumulative risk stacks
+## Next task — M6: Input expansion
 
-Goal: add deterministic cumulative stack warnings across the active medication list without weakening the pair-based interaction layer.
+Goal: add faster medication capture paths without weakening the deterministic-first architecture.
 
 ### Build
 
-1. **Risk domains**
-   - Add stack detection for:
-     - QT prolongation
-     - bleeding
-     - serotonergic toxicity
-     - anticholinergic burden
-     - nephrotoxic burden
+1. **Voice input**
+   - Add bedside voice capture using the browser Web Speech API.
+   - Convert recognized phrases into candidate medication names for RxNorm normalization.
 
-2. **Deterministic integration**
-   - Stack rules must be deterministic and local.
-   - They supplement pair results; they do not replace pairwise DDInter/overlay output.
-   - If a stack warning is shown, its source/version must be visible.
+2. **OCR input**
+   - Add on-device OCR using `tesseract.js`.
+   - Extract candidate medication names from a captured or uploaded med list image.
 
-3. **UI**
-   - Present stack warnings as a separate section above or alongside pair results.
-   - Keep the mobile layout compact and scannable at 360px width.
-   - Make it clear when a warning is a cumulative stack versus a single pair interaction.
+3. **Paste-block parser**
+   - Add a compact paste area for EMR medication text blocks.
+   - Parse newline/comma/bullet-delimited med lists into candidate drug names before RxNorm normalization.
 
-### Acceptance criteria (M5)
+4. **Deterministic integration**
+   - Every new input path must still normalize through the existing RxNorm flow before a medication is added.
+   - No patient text or images should be sent to a server for parsing.
 
-- [ ] At least the five agreed stack domains are detected deterministically
-- [ ] Stack warnings are visually distinct from pair interactions
-- [ ] Citations remain visible for every displayed stack warning
+### Acceptance criteria (M6)
+
+- [ ] Voice capture produces candidate drug names that can be normalized locally through RxNorm
+- [ ] OCR extracts medication candidates locally with `tesseract.js`
+- [ ] Paste-block parsing splits common medication-list text formats into candidates
+- [ ] All accepted medications still flow through RxNorm normalization before entering the case
 - [ ] `npm run build` passes
 
 ### Do NOT in this milestone
 
-- Do not add voice, OCR, or paste parsing — that is M6.
+- Do not add shareable reports — that is M7.
 - Do not add accounts, analytics, or server-side patient storage.
-- Do not let stack logic suppress or rewrite underlying pair results.
+- Do not skip RxNorm normalization for any imported medication.
 
 ---
 
@@ -150,7 +157,7 @@ Milestones in order (from the agreed plan):
 - **M3** — LLM explainer endpoint (streaming, Anthropic via Vercel AI SDK). Prose only. Every claim cites the deterministic source that fed the prompt.
 - **M4** — Patient modifiers as chips: pregnancy, lactation, eGFR (Cockcroft–Gault), hepatic, age ≥ 65, G6PD. Re-rank interactions on toggle.
 - **M5** — Cumulative risk stacks: QT, bleeding, serotonergic, anticholinergic, nephrotoxic.
-- **M6** — Voice input (Web Speech API), OCR (tesseract.js + Claude vision fallback), paste-block EMR parser.
+- **M6** — Voice input (Web Speech API), OCR (tesseract.js), paste-block EMR parser.
 - **M7** — Shareable report: copy-to-EMR text, structured JSON, PDF.
 - **M8** — Pharmacogenomics (CPIC) panel.
 - **M9** — Offline PWA service worker (serwist), haptics, dark mode polish, install prompt.

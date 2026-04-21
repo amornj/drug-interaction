@@ -6,8 +6,10 @@ import { DrugSearch } from "@/components/DrugSearch";
 import { DrugChip } from "@/components/DrugChip";
 import { InteractionList } from "@/components/InteractionList";
 import { PatientModifiers } from "@/components/PatientModifiers";
+import { StackWarnings } from "@/components/StackWarnings";
 import type { InteractionCheckResponse } from "@/lib/interactions";
 import { applyPatientModifiers } from "@/lib/modifiers";
+import { detectCumulativeStacks } from "@/lib/stacks";
 import { useActiveCase, useStore } from "@/lib/store";
 
 export function AppShell() {
@@ -71,6 +73,10 @@ export function AppShell() {
         : null,
     [active, visibleResult]
   );
+  const stackWarnings = useMemo(
+    () => (active && visibleResult ? detectCumulativeStacks(active.drugs) : []),
+    [active, visibleResult]
+  );
 
   return (
     <div className="mx-auto flex w-full max-w-xl flex-1 flex-col px-4 pt-[max(env(safe-area-inset-top),0.5rem)] pb-[calc(env(safe-area-inset-bottom)+6rem)]">
@@ -80,7 +86,7 @@ export function AppShell() {
             Drug Interaction Checker
           </h1>
           <span className="text-[11px] uppercase tracking-wide text-zinc-500">
-            M4
+            M5
           </span>
         </div>
         <p className="text-xs text-zinc-500 mt-0.5">
@@ -126,6 +132,9 @@ export function AppShell() {
             ) : null}
             {visibleResult ? (
               <section className="mt-5">
+                <div className="mb-5">
+                  <StackWarnings warnings={stackWarnings} />
+                </div>
                 <div className="mb-3 flex items-center justify-between">
                   <div>
                     <h2 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
