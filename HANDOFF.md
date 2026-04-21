@@ -6,7 +6,7 @@ Owner: `amornj`. Repo: https://github.com/amornj/drug-interaction. Deploy: Verce
 
 ---
 
-## Current state (M2 — DONE, on `main`)
+## Current state (M3 — DONE, on `main`)
 
 - Next.js 15 App Router + React 19 + TS + Tailwind v4
 - Mobile-first shell: `components/AppShell.tsx`, case switcher, thumb-zone bottom bar, safe-area insets
@@ -25,11 +25,21 @@ Owner: `amornj`. Repo: https://github.com/amornj/drug-interaction. Deploy: Verce
   - `components/InteractionList.tsx`
   - `components/SeverityBadge.tsx`
   - wired bottom-bar CTA in `components/AppShell.tsx`
+- Streamed explainer route:
+  - `app/api/interactions/explain/route.ts`
+  - Anthropic via Vercel AI SDK
+  - prompt constrained to deterministic pair payload only
+  - returns clean `503` when `ANTHROPIC_API_KEY` is absent
+- Pair-level explainer UI:
+  - `components/InteractionExplanation.tsx`
+  - optional “Explain” affordance per pair
+  - streamed prose rendered below deterministic content, with deterministic citations shown per section
 
 Verified:
 - `npm run lint` passes
 - `npm run build` passes
 - `/api/interactions/check` with `{"rxcuis":["11289","36567"]}` returns Warfarin ↔ Simvastatin with severity + citation
+- `/api/interactions/explain` accepts deterministic pair payloads and returns `503` with a clear error when Anthropic is not configured locally
 - Tested searches: warfarin, lipitor, paracetamol, amoxi return hits
 
 ### File map
@@ -41,16 +51,18 @@ app/
   globals.css         # Tailwind v4 + theme tokens
   api/drugs/search/route.ts   # RxNorm proxy (edge)
   api/interactions/check/route.ts   # deterministic pair check (edge)
+  api/interactions/explain/route.ts # streamed Anthropic explainer
 components/
   AppShell.tsx        # composes the mobile UI
   CaseSwitcher.tsx    # horizontal chip row + new/rename
   DrugSearch.tsx      # debounced autocomplete input + dropdown
   DrugChip.tsx        # med list row with remove button
   InteractionList.tsx # severity-sorted list with citations + expanders
+  InteractionExplanation.tsx # optional streamed explainer per pair
   SeverityBadge.tsx   # red/orange/amber/yellow severity variants
 lib/
+  interactions.ts     # shared pair types, prompt builder, explanation parsing
   rxnorm.ts           # searchRxNorm(term, max) -> DrugCandidate[]
-  interactions.ts     # shared types, versions, deterministic pair lookup
   store.ts            # Zustand store: cases, activeCaseId, drugs; IndexedDB persist
   data/
     ddinter/
@@ -83,44 +95,44 @@ docs/
 
 ---
 
-## Next task — M3: LLM explainer endpoint
+## Next task — M4: Patient modifiers
 
-Goal: add an **optional** explainer layer that turns deterministic M2 pair results into concise bedside prose without ever inventing medical facts.
+Goal: add patient-context chips that re-rank or annotate deterministic interaction output without weakening the deterministic-first rule.
 
 ### Build
 
-1. **Explainer route**
-   - Add a new route for streamed explanation output using Anthropic via the Vercel AI SDK.
-   - Input should be the deterministic pair payload (or pair IDs) from M2, not free-form drug names alone.
-   - Output should include:
-     - a concise bedside explanation
-     - what to monitor
-     - when to avoid the combination
-     - explicit citations for every claim
-   - Temperature **must be `0`**.
+1. **Modifier state**
+   - Add patient modifier chips for:
+     - pregnancy
+     - lactation
+     - eGFR (Cockcroft–Gault)
+     - hepatic impairment
+     - age ≥ 65
+     - G6PD deficiency
+   - Keep state local-only in IndexedDB with the active case.
 
-2. **Prompting and safety**
-   - The prompt must only allow the model to summarize or restate facts already present in the deterministic inputs.
-   - If a needed fact is absent from DDInter/overlay input, the explainer must say it is unavailable rather than infer it.
-   - Keep prose short enough for phone use.
+2. **Deterministic integration**
+   - The modifier layer must be deterministic.
+   - It may re-rank or annotate M2 interaction output, but it must not invent base interactions.
+   - If a modifier changes urgency, the UI must make clear that the base pair came from DDInter/overlay and the modifier changed the displayed priority.
 
 3. **UI**
-   - Add an optional per-pair “Explain” affordance in the interaction list.
-   - The explainer output must be visually secondary to the deterministic severity/verdict/citation block.
-   - The deterministic result remains the source of truth.
+   - Add modifier chips above or near the interaction results without crowding the 360px layout.
+   - Keep touch targets at least 44 pt.
+   - Show when a modifier is affecting displayed ranking or management guidance.
 
-### Acceptance criteria (M3)
+### Acceptance criteria (M4)
 
-- [ ] No severity, contraindication, mechanism, or management fact is generated unless present in deterministic input
-- [ ] Every explanatory claim visibly cites its deterministic source
-- [ ] Streaming works on mobile without blocking the core interaction list
+- [ ] Modifier toggles are persisted locally per case
+- [ ] Deterministic pair output is re-ranked or annotated when a modifier applies
+- [ ] Base DDInter/overlay citations remain visible
 - [ ] `npm run build` passes
 
 ### Do NOT in this milestone
 
-- Do not add patient modifiers (pregnancy, eGFR, etc.) — that is M4.
+- Do not add cumulative risk stacks — that is M5.
 - Do not add accounts, analytics, or server-side patient storage.
-- Do not let the LLM change severity ordering or deterministic verdict text.
+- Do not let modifier logic bypass or replace the deterministic pair checker.
 
 ---
 

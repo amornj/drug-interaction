@@ -41,6 +41,12 @@ export type InteractionCheckResponse = {
   dataVersion: string;
 };
 
+export const explanationLabels = ["SUMMARY", "MONITOR", "AVOID"] as const;
+
+export type ExplanationLabel = (typeof explanationLabels)[number];
+
+export type InteractionExplanationSections = Record<ExplanationLabel, string>;
+
 const codeToSeverity: Record<number, InteractionSeverity> = {
   1: "Minor",
   2: "Moderate",
@@ -67,6 +73,16 @@ export const dataVersion = `DDInter ${ddinterVersion} · ${ddinterGeneratedAt.sl
   10
 )} · Overlay ${overlayVersion} · ${overlayGeneratedAt.slice(0, 10)}`;
 
+export function formatSources(sources: InteractionSource[]) {
+  return sources
+    .map((source) => `${source.name} · ${source.version}`)
+    .join(" · ");
+}
+
+export function pairKey(pair: Pick<InteractionPair, "a" | "b">) {
+  return sortedPairKey(pair.a.rxcui, pair.b.rxcui);
+}
+
 function sortedPairKey(a: string, b: string) {
   return [a, b].sort((left, right) => left.localeCompare(right)).join("|");
 }
@@ -77,6 +93,91 @@ function defaultVerdictForSeverity(severity: InteractionSeverity) {
 
 export function getRxcuiName(rxcui: string) {
   return ddinterRxcuiNames[rxcui];
+}
+
+function buildAvoidanceGuidance(pair: InteractionPair) {
+  if (pair.severity === "Contraindicated") {
+    return "Avoid this combination. The current deterministic data marks it as Contraindicated.";
+  }
+
+  const explicitAvoidSource = [pair.management, pair.verdict].find((value) =>
+    value ? /\b(avoid|alternative|contraindicat|unavoidable)\b/i.test(value) : false
+  );
+
+  if (explicitAvoidSource) {
+    return explicitAvoidSource;
+  }
+
+  return "Not available in current deterministic data.";
+}
+
+function buildMonitoringGuidance(pair: InteractionPair) {
+  if (pair.management) {
+    return pair.management;
+  }
+
+  return "Not available in current deterministic data.";
+}
+
+export function buildExplanationPrompt(
+  pair: InteractionPair,
+  currentDataVersion: string
+) {
+  const pairLabel = `${pair.a.name} ↔ ${pair.b.name}`;
+
+  return [
+    "You are a clinical copy editor for a bedside drug interaction checker.",
+    "Rewrite only the deterministic facts provided below.",
+    "Do not add any risks, organs, mechanisms, alternatives, severity upgrades, monitoring steps, or avoid recommendations unless they appear verbatim or by direct restatement in the facts.",
+    "If a fact is unavailable, say exactly: Not available in current deterministic data.",
+    "Return exactly 3 lines and nothing else.",
+    "Each line must be one short sentence and start with one of these labels exactly:",
+    "SUMMARY:",
+    "MONITOR:",
+    "AVOID:",
+    "",
+    `PAIR: ${pairLabel}`,
+    `DATA VERSION: ${currentDataVersion}`,
+    `SEVERITY: ${pair.severity}`,
+    `VERDICT: ${pair.verdict}`,
+    `MECHANISM: ${pair.mechanism_class ?? "Not available in current deterministic data."}`,
+    `MANAGEMENT: ${pair.management ?? "Not available in current deterministic data."}`,
+    `MONITOR FACT: ${buildMonitoringGuidance(pair)}`,
+    `AVOID FACT: ${buildAvoidanceGuidance(pair)}`,
+    `SOURCES: ${formatSources(pair.sources)}`,
+    "",
+    "Rewrite rules:",
+    "- SUMMARY may only restate the severity, verdict, and mechanism.",
+    "- MONITOR may only restate MONITOR FACT.",
+    "- AVOID may only restate AVOID FACT.",
+    "- Keep the drug names exactly as provided.",
+  ].join("\n");
+}
+
+export function parseExplanationText(
+  text: string
+): Partial<InteractionExplanationSections> {
+  const sections: Partial<InteractionExplanationSections> = {};
+
+  for (const label of explanationLabels) {
+    const marker = `${label}:`;
+    const start = text.indexOf(marker);
+    if (start === -1) {
+      continue;
+    }
+
+    const from = start + marker.length;
+    const nextStarts = explanationLabels
+      .filter((candidate) => candidate !== label)
+      .map((candidate) => text.indexOf(`${candidate}:`, from))
+      .filter((index) => index !== -1);
+    const end =
+      nextStarts.length > 0 ? Math.min(...nextStarts) : text.length;
+
+    sections[label] = text.slice(from, end).trim();
+  }
+
+  return sections;
 }
 
 export function checkInteractions(rxcuis: string[]): InteractionCheckResponse {

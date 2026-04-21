@@ -71,7 +71,7 @@ export function AppShell() {
             Drug Interaction Checker
           </h1>
           <span className="text-[11px] uppercase tracking-wide text-zinc-500">
-            M2
+            M3
           </span>
         </div>
         <p className="text-xs text-zinc-500 mt-0.5">

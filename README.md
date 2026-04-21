@@ -6,13 +6,14 @@ A mobile-first PWA for bedside drug interaction checking, built for busy clinici
 
 ## Status
 
-**M2 — Deterministic pair check.** Med-list screen now posts active RxCUIs to a deterministic DDInter-backed edge route and renders severity-sorted interaction pairs with visible citations.
+**M3 — LLM explainer.** M2 deterministic interaction pairs now have an optional streamed Anthropic explainer that rewrites only deterministic facts into bedside prose, with visible citations kept in the UI.
 
 ## Stack
 
 - Next.js 15 (App Router) + React 19 + TypeScript
 - Tailwind CSS v4
 - Zustand + idb-keyval (IndexedDB) for local-only state
+- Vercel AI SDK + Anthropic provider for streamed explanation prose
 - PWA manifest (real service worker deferred to M9)
 - RxNorm REST API (NIH) for drug normalization and autocomplete
 
@@ -35,13 +36,15 @@ Open http://localhost:3000 on a phone viewport.
 
 `npm run build:data` refreshes the committed DDInter/RxNorm artifacts under `lib/data/`. `npm run build` uses those local files and does not need to fetch DDInter at build time.
 
+To enable the optional M3 explainer locally, set `ANTHROPIC_API_KEY` in `.env.local`. Without that key, deterministic pair checking still works and `/api/interactions/explain` returns a clean `503` explainer-unavailable response.
+
 ## Roadmap
 
 | Milestone | Feature |
 | --- | --- |
 | M1 | Chip-based med list, RxNorm autocomplete, local persistence, multi-case switcher |
 | M2 | Deterministic pair check (DDInter + overlay), severity-sorted list, red/amber verdict |
-| M3 | LLM explainer endpoint (streaming) for mechanism, food/timing, alternatives — with citations |
+| M3 | Streamed Anthropic explainer that restates deterministic pair facts with citations |
 | M4 | Patient modifiers (pregnancy, lactation, eGFR, hepatic, age ≥ 65, G6PD) + Cockcroft–Gault |
 | M5 | Cumulative stacks: QT, bleeding, serotonergic, anticholinergic, nephrotoxic |
 | M6 | Voice (Web Speech API), OCR (tesseract.js + Claude vision fallback), paste-block EMR parser |

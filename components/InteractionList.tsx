@@ -1,13 +1,8 @@
 "use client";
 
+import { InteractionExplanation } from "@/components/InteractionExplanation";
 import { SeverityBadge } from "@/components/SeverityBadge";
-import type { InteractionCheckResponse } from "@/lib/interactions";
-
-function sourceLine(
-  sources: Array<{ name: string; version: string }>
-): string {
-  return sources.map((source) => `${source.name} · ${source.version}`).join(" · ");
-}
+import { formatSources, type InteractionCheckResponse } from "@/lib/interactions";
 
 export function InteractionList({
   result,
@@ -55,7 +50,7 @@ export function InteractionList({
                     {pair.verdict}
                   </p>
                   <p className="mt-2 text-xs text-zinc-500">
-                    {sourceLine(pair.sources)}
+                    {formatSources(pair.sources)}
                   </p>
                 </div>
                 <SeverityBadge severity={pair.severity} pulse={isPinned} />
@@ -84,8 +79,12 @@ export function InteractionList({
                   pair.mechanism_class || pair.management ? "mt-3" : "",
                 ].join(" ")}
               >
-                Sources: {sourceLine(pair.sources)}
+                Sources: {formatSources(pair.sources)}
               </p>
+              <InteractionExplanation
+                pair={pair}
+                dataVersion={result.dataVersion}
+              />
             </div>
           </details>
         );
