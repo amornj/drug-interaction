@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { CaseSwitcher } from "@/components/CaseSwitcher";
 import { DrugSearch } from "@/components/DrugSearch";
 import { DrugChip } from "@/components/DrugChip";
+import { InteractionList } from "@/components/InteractionList";
+import type { InteractionCheckResponse } from "@/lib/interactions";
 import { useActiveCase, useStore } from "@/lib/store";
 
 export function AppShell() {
@@ -11,10 +13,55 @@ export function AppShell() {
   const hydrated = useStore((s) => s.hydrated);
   const active = useActiveCase();
   const clearDrugs = useStore((s) => s.clearDrugs);
+  const [checking, setChecking] = useState(false);
+  const [result, setResult] = useState<InteractionCheckResponse | null>(null);
+  const [resultKey, setResultKey] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [errorKey, setErrorKey] = useState("");
 
   useEffect(() => {
     hydrate();
   }, [hydrate]);
+
+  const activeDrugKey =
+    active?.drugs.map((drug) => drug.rxcui).sort().join("|") ?? "";
+
+  async function checkInteractions() {
+    if (!active || active.drugs.length < 2) {
+      return;
+    }
+
+    setChecking(true);
+    setError(null);
+    setErrorKey("");
+
+    try {
+      const response = await fetch("/api/interactions/check", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          rxcuis: active.drugs.map((drug) => drug.rxcui),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      const json = (await response.json()) as InteractionCheckResponse;
+      setResult(json);
+      setResultKey(activeDrugKey);
+    } catch {
+      setError("Unable to check interactions right now.");
+      setErrorKey(activeDrugKey);
+    } finally {
+      setChecking(false);
+    }
+  }
+
+  const canCheck = Boolean(active && active.drugs.length >= 2);
+  const visibleResult = resultKey === activeDrugKey ? result : null;
+  const visibleError = errorKey === activeDrugKey ? error : null;
 
   return (
     <div className="mx-auto flex w-full max-w-xl flex-1 flex-col px-4 pt-[max(env(safe-area-inset-top),0.5rem)] pb-[calc(env(safe-area-inset-bottom)+6rem)]">
@@ -24,7 +71,7 @@ export function AppShell() {
             Drug Interaction Checker
           </h1>
           <span className="text-[11px] uppercase tracking-wide text-zinc-500">
-            M1
+            M2
           </span>
         </div>
         <p className="text-xs text-zinc-500 mt-0.5">
@@ -62,6 +109,27 @@ export function AppShell() {
                 <DrugChip key={d.rxcui} drug={d} />
               ))}
             </ul>
+            {visibleError ? (
+              <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-900 dark:text-red-100">
+                {visibleError}
+              </div>
+            ) : null}
+            {visibleResult ? (
+              <section className="mt-5">
+                <div className="mb-3 flex items-center justify-between">
+                  <h2 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                    Interaction results
+                  </h2>
+                  <span className="text-xs text-zinc-500">
+                    {new Date(visibleResult.checkedAt).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </span>
+                </div>
+                <InteractionList result={visibleResult} />
+              </section>
+            ) : null}
           </>
         ) : (
           <div className="mt-8 text-center text-sm text-zinc-500">
@@ -79,11 +147,21 @@ export function AppShell() {
         <div className="mx-auto max-w-xl px-4 py-3 flex gap-2">
           <button
             type="button"
-            disabled
-            className="flex-1 h-12 rounded-xl bg-sky-600/50 text-white font-medium cursor-not-allowed"
-            title="Interaction check arrives in M2"
+            onClick={checkInteractions}
+            disabled={!canCheck || checking}
+            className={[
+              "flex-1 h-12 rounded-xl text-white font-medium transition-colors",
+              canCheck && !checking
+                ? "bg-sky-600 active:bg-sky-700"
+                : "bg-sky-600/50 cursor-not-allowed",
+            ].join(" ")}
+            title={
+              canCheck
+                ? "Check deterministic DDInter pairs"
+                : "Add at least 2 medications"
+            }
           >
-            Check interactions (M2)
+            {checking ? "Checking…" : "Check interactions"}
           </button>
         </div>
       </nav>

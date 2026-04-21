@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build:data": "node scripts/generate-ddinter.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -13,6 +14,8 @@
     "next": "16.2.4",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "yaml": "^2.8.3",
+    "zod": "^4.3.6",
     "zustand": "^5.0.12"
   },
   "devDependencies": {

@@ -1,0 +1,7890 @@
+{
+  "generatedAt": "2026-04-21T16:47:38.733Z",
+  "ddinterVersion": "2.0",
+  "mappings": {
+    "Abiraterone": {
+      "rxcui": "1100072",
+      "query": "Abiraterone"
+    },
+    "Abacavir": {
+      "rxcui": "190521",
+      "query": "Abacavir"
+    },
+    "Acalabrutinib": {
+      "rxcui": "1986808",
+      "query": "Acalabrutinib"
+    },
+    "Abciximab": {
+      "rxcui": "83929",
+      "query": "Abciximab"
+    },
+    "Abaloparatide": {
+      "rxcui": "1921069",
+      "query": "Abaloparatide"
+    },
+    "Abatacept": {
+      "rxcui": "614391",
+      "query": "Abatacept"
+    },
+    "Abarelix": {
+      "rxcui": "301739",
+      "query": "Abarelix"
+    },
+    "Acarbose": {
+      "rxcui": "16681",
+      "query": "Acarbose"
+    },
+    "Acebutolol": {
+      "rxcui": "149",
+      "query": "Acebutolol"
+    },
+    "Acenocoumarol": {
+      "rxcui": "154",
+      "query": "Acenocoumarol"
+    },
+    "Acetazolamide": {
+      "rxcui": "167",
+      "query": "Acetazolamide"
+    },
+    "Acetohexamide": {
+      "rxcui": "173",
+      "query": "Acetohexamide"
+    },
+    "Abametapir (topical)": {
+      "rxcui": "2475532",
+      "query": "Abametapir"
+    },
+    "Acetaminophen": {
+      "rxcui": "161",
+      "query": "Acetaminophen"
+    },
+    "Acetohydroxamic acid": {
+      "rxcui": "16728",
+      "query": "Acetohydroxamic acid"
+    },
+    "Acamprosate": {
+      "rxcui": "82819",
+      "query": "Acamprosate"
+    },
+    "Abemaciclib": {
+      "rxcui": "1946825",
+      "query": "Abemaciclib"
+    },
+    "Acetylcholine": {
+      "rxcui": "194",
+      "query": "Acetylcholine"
+    },
+    "Acetylcysteine": {
+      "rxcui": "197",
+      "query": "Acetylcysteine"
+    },
+    "Acetylsalicylic acid": {
+      "rxcui": "1191",
+      "query": "Acetylsalicylic acid"
+    },
+    "Aclidinium": {
+      "rxcui": "1303098",
+      "query": "Aclidinium"
+    },
+    "Acrivastine": {
+      "rxcui": "19959",
+      "query": "Acrivastine"
+    },
+    "Acitretin": {
+      "rxcui": "16818",
+      "query": "Acitretin"
+    },
+    "Activated charcoal": {
+      "rxcui": "272",
+      "query": "Activated charcoal"
+    },
+    "Acyclovir": {
+      "rxcui": "281",
+      "query": "Acyclovir"
+    },
+    "Adalimumab": {
+      "rxcui": "327361",
+      "query": "Adalimumab"
+    },
+    "Adapalene": {
+      "rxcui": "60223",
+      "query": "Adapalene"
+    },
+    "Adefovir dipivoxil": {
+      "rxcui": "141400",
+      "query": "Adefovir dipivoxil"
+    },
+    "Adenosine": {
+      "rxcui": "296",
+      "query": "Adenosine"
+    },
+    "Afatinib": {
+      "rxcui": "1430438",
+      "query": "Afatinib"
+    },
+    "Aflibercept": {
+      "rxcui": "1232150",
+      "query": "Aflibercept"
+    },
+    "Agalsidase beta": {
+      "rxcui": "338817",
+      "query": "Agalsidase beta"
+    },
+    "Albendazole": {
+      "rxcui": "430",
+      "query": "Albendazole"
+    },
+    "Acyclovir (topical)": {
+      "rxcui": "281",
+      "query": "Acyclovir"
+    },
+    "Albiglutide": {
+      "rxcui": "1534763",
+      "query": "Albiglutide"
+    },
+    "Adapalene (topical)": {
+      "rxcui": "60223",
+      "query": "Adapalene"
+    },
+    "Aldesleukin": {
+      "rxcui": "70223",
+      "query": "Aldesleukin"
+    },
+    "Alectinib": {
+      "rxcui": "1727455",
+      "query": "Alectinib"
+    },
+    "Alefacept": {
+      "rxcui": "299635",
+      "query": "Alefacept"
+    },
+    "Alemtuzumab": {
+      "rxcui": "117055",
+      "query": "Alemtuzumab"
+    },
+    "Alendronic acid": {
+      "rxcui": "236083",
+      "query": "Alendronic acid"
+    },
+    "Alfentanil": {
+      "rxcui": "480",
+      "query": "Alfentanil"
+    },
+    "Alfuzosin": {
+      "rxcui": "17300",
+      "query": "Alfuzosin"
+    },
+    "Alimemazine": {
+      "rxcui": "10825",
+      "query": "Alimemazine"
+    },
+    "Alclometasone (topical)": {
+      "rxcui": "108088",
+      "query": "Alclometasone"
+    },
+    "Aliskiren": {
+      "rxcui": "325646",
+      "query": "Aliskiren"
+    },
+    "Allopurinol": {
+      "rxcui": "519",
+      "query": "Allopurinol"
+    },
+    "Almotriptan": {
+      "rxcui": "279645",
+      "query": "Almotriptan"
+    },
+    "Aloe Vera Leaf": {
+      "rxcui": "1306128",
+      "query": "Aloe Vera Leaf"
+    },
+    "Alogliptin": {
+      "rxcui": "1368001",
+      "query": "Alogliptin"
+    },
+    "Alosetron": {
+      "rxcui": "85248",
+      "query": "Alosetron"
+    },
+    "Alpelisib": {
+      "rxcui": "2169285",
+      "query": "Alpelisib"
+    },
+    "Alprazolam": {
+      "rxcui": "596",
+      "query": "Alprazolam"
+    },
+    "Alitretinoin (topical)": {
+      "rxcui": "81864",
+      "query": "Alitretinoin"
+    },
+    "Altretamine": {
+      "rxcui": "5296",
+      "query": "Altretamine"
+    },
+    "Alprostadil": {
+      "rxcui": "598",
+      "query": "Alprostadil"
+    },
+    "Alteplase": {
+      "rxcui": "8410",
+      "query": "Alteplase"
+    },
+    "Aluminum hydroxide": {
+      "rxcui": "612",
+      "query": "Aluminum hydroxide"
+    },
+    "Alvimopan": {
+      "rxcui": "480639",
+      "query": "Alvimopan"
+    },
+    "Amantadine": {
+      "rxcui": "620",
+      "query": "Amantadine"
+    },
+    "Ambenonium": {
+      "rxcui": "623",
+      "query": "Ambenonium"
+    },
+    "Ambrisentan": {
+      "rxcui": "358274",
+      "query": "Ambrisentan"
+    },
+    "Amcinonide": {
+      "rxcui": "17652",
+      "query": "Amcinonide"
+    },
+    "Amifampridine": {
+      "rxcui": "2106338",
+      "query": "Amifampridine"
+    },
+    "Amifostine": {
+      "rxcui": "4126",
+      "query": "Amifostine"
+    },
+    "Amikacin": {
+      "rxcui": "641",
+      "query": "Amikacin"
+    },
+    "Aminobenzoic acid": {
+      "rxcui": "74",
+      "query": "Aminobenzoic acid"
+    },
+    "Amiloride": {
+      "rxcui": "644",
+      "query": "Amiloride"
+    },
+    "Aminocaproic acid": {
+      "rxcui": "99",
+      "query": "Aminocaproic acid"
+    },
+    "Aminoglutethimide": {
+      "rxcui": "677",
+      "query": "Aminoglutethimide"
+    },
+    "Aminolevulinic acid": {
+      "rxcui": "683",
+      "query": "Aminolevulinic acid"
+    },
+    "Aminophylline": {
+      "rxcui": "689",
+      "query": "Aminophylline"
+    },
+    "Aminosalicylic acid": {
+      "rxcui": "7833",
+      "query": "Aminosalicylic acid"
+    },
+    "Amikacin (liposome)": {
+      "rxcui": "641",
+      "query": "Amikacin"
+    },
+    "Amiodarone": {
+      "rxcui": "703",
+      "query": "Amiodarone"
+    },
+    "Amisulpride": {
+      "rxcui": "46303",
+      "query": "Amisulpride"
+    },
+    "Amitriptyline": {
+      "rxcui": "704",
+      "query": "Amitriptyline"
+    },
+    "Amlodipine": {
+      "rxcui": "17767",
+      "query": "Amlodipine"
+    },
+    "Ammonium chloride": {
+      "rxcui": "712",
+      "query": "Ammonium chloride"
+    },
+    "Amobarbital": {
+      "rxcui": "719",
+      "query": "Amobarbital"
+    },
+    "Aminolevulinic acid (topical)": {
+      "rxcui": "683",
+      "query": "Aminolevulinic acid"
+    },
+    "Amoxapine": {
+      "rxcui": "722",
+      "query": "Amoxapine"
+    },
+    "Amoxicillin": {
+      "rxcui": "723",
+      "query": "Amoxicillin"
+    },
+    "Amphetamine": {
+      "rxcui": "725",
+      "query": "Amphetamine"
+    },
+    "Amphotericin B": {
+      "rxcui": "732",
+      "query": "Amphotericin B"
+    },
+    "Ampicillin": {
+      "rxcui": "733",
+      "query": "Ampicillin"
+    },
+    "Amprenavir": {
+      "rxcui": "228656",
+      "query": "Amprenavir"
+    },
+    "Amrinone": {
+      "rxcui": "738",
+      "query": "Amrinone"
+    },
+    "Anagrelide": {
+      "rxcui": "596724",
+      "query": "Anagrelide"
+    },
+    "Anakinra": {
+      "rxcui": "72435",
+      "query": "Anakinra"
+    },
+    "Anastrozole": {
+      "rxcui": "84857",
+      "query": "Anastrozole"
+    },
+    "Amyl Nitrite": {
+      "rxcui": "742",
+      "query": "Amyl Nitrite"
+    },
+    "Amphotericin B (lipid complex)": {
+      "rxcui": "732",
+      "query": "Amphotericin B"
+    },
+    "Amphotericin B (cholesteryl sulfate)": {
+      "rxcui": "732",
+      "query": "Amphotericin B"
+    },
+    "Amphotericin B (liposomal)": {
+      "rxcui": "732",
+      "query": "Amphotericin B"
+    },
+    "Anidulafungin": {
+      "rxcui": "341018",
+      "query": "Anidulafungin"
+    },
+    "Angiotensin II": {
+      "rxcui": "1999003",
+      "query": "Angiotensin II"
+    },
+    "Anisindione": {
+      "rxcui": "17941",
+      "query": "Anisindione"
+    },
+    "Anthrax vaccine": {
+      "rxcui": null,
+      "query": null
+    },
+    "Anistreplase": {
+      "rxcui": "40028",
+      "query": "Anistreplase"
+    },
+    "Anti-inhibitor coagulant complex": {
+      "rxcui": "314504",
+      "query": "Anti-inhibitor coagulant complex"
+    },
+    "Antihemophilic factor, human recombinant": {
+      "rxcui": "1300486",
+      "query": "Antihemophilic factor, human recombinant"
+    },
+    "Antilymphocyte immunoglobulin (horse)": {
+      "rxcui": "91601",
+      "query": "Antilymphocyte immunoglobulin (horse)"
+    },
+    "Antithrombin Alfa": {
+      "rxcui": "1427179",
+      "query": "Antithrombin Alfa"
+    },
+    "Antithrombin III human": {
+      "rxcui": "221062",
+      "query": "Antithrombin III human"
+    },
+    "Antithymocyte immunoglobulin (rabbit)": {
+      "rxcui": "107044",
+      "query": "Antithymocyte immunoglobulin (rabbit)"
+    },
+    "Apalutamide": {
+      "rxcui": "1999574",
+      "query": "Apalutamide"
+    },
+    "Apixaban": {
+      "rxcui": "1364430",
+      "query": "Apixaban"
+    },
+    "Apraclonidine": {
+      "rxcui": "14845",
+      "query": "Apraclonidine"
+    },
+    "Apomorphine": {
+      "rxcui": "1043",
+      "query": "Apomorphine"
+    },
+    "Aprepitant": {
+      "rxcui": "358255",
+      "query": "Aprepitant"
+    },
+    "Apremilast": {
+      "rxcui": "1492727",
+      "query": "Apremilast"
+    },
+    "Aprotinin": {
+      "rxcui": "1056",
+      "query": "Aprotinin"
+    },
+    "Arbutamine": {
+      "rxcui": "61609",
+      "query": "Arbutamine"
+    },
+    "Arformoterol": {
+      "rxcui": "304962",
+      "query": "Arformoterol"
+    },
+    "Ardeparin": {
+      "rxcui": "87866",
+      "query": "Ardeparin"
+    },
+    "Argatroban": {
+      "rxcui": "15202",
+      "query": "Argatroban"
+    },
+    "Aripiprazole": {
+      "rxcui": "89013",
+      "query": "Aripiprazole"
+    },
+    "Armodafinil": {
+      "rxcui": "641465",
+      "query": "Armodafinil"
+    },
+    "Arsenic trioxide": {
+      "rxcui": "18330",
+      "query": "Arsenic trioxide"
+    },
+    "Articaine": {
+      "rxcui": "592464",
+      "query": "Articaine"
+    },
+    "Artemether": {
+      "rxcui": "18343",
+      "query": "Artemether"
+    },
+    "Ascorbic acid": {
+      "rxcui": "1151",
+      "query": "Ascorbic acid"
+    },
+    "Artesunate": {
+      "rxcui": "18346",
+      "query": "Artesunate"
+    },
+    "Asenapine": {
+      "rxcui": "784649",
+      "query": "Asenapine"
+    },
+    "Asparaginase Erwinia chrysanthemi": {
+      "rxcui": "1431738",
+      "query": "Asparaginase Erwinia chrysanthemi"
+    },
+    "Asparaginase Escherichia coli": {
+      "rxcui": null,
+      "query": null
+    },
+    "Astemizole": {
+      "rxcui": "42328",
+      "query": "Astemizole"
+    },
+    "Atazanavir": {
+      "rxcui": "343047",
+      "query": "Atazanavir"
+    },
+    "Atenolol": {
+      "rxcui": "1202",
+      "query": "Atenolol"
+    },
+    "Atezolizumab": {
+      "rxcui": "1792776",
+      "query": "Atezolizumab"
+    },
+    "Atomoxetine": {
+      "rxcui": "38400",
+      "query": "Atomoxetine"
+    },
+    "Atorvastatin": {
+      "rxcui": "83367",
+      "query": "Atorvastatin"
+    },
+    "Atovaquone": {
+      "rxcui": "60212",
+      "query": "Atovaquone"
+    },
+    "Atropine": {
+      "rxcui": "1223",
+      "query": "Atropine"
+    },
+    "Atracurium": {
+      "rxcui": "1218",
+      "query": "Atracurium"
+    },
+    "Auranofin": {
+      "rxcui": "1227",
+      "query": "Auranofin"
+    },
+    "Attapulgite": {
+      "rxcui": "18516",
+      "query": "Attapulgite"
+    },
+    "Aurothioglucose": {
+      "rxcui": "4980",
+      "query": "Aurothioglucose"
+    },
+    "Avanafil": {
+      "rxcui": "1291301",
+      "query": "Avanafil"
+    },
+    "Avapritinib": {
+      "rxcui": "2272107",
+      "query": "Avapritinib"
+    },
+    "Avatrombopag": {
+      "rxcui": "2045726",
+      "query": "Avatrombopag"
+    },
+    "Avelumab": {
+      "rxcui": "1875534",
+      "query": "Avelumab"
+    },
+    "Avibactam": {
+      "rxcui": "1603834",
+      "query": "Avibactam"
+    },
+    "Axicabtagene ciloleucel": {
+      "rxcui": "1987398",
+      "query": "Axicabtagene ciloleucel"
+    },
+    "Atropine (ophthalmic)": {
+      "rxcui": "1223",
+      "query": "Atropine"
+    },
+    "Axitinib": {
+      "rxcui": "1242999",
+      "query": "Axitinib"
+    },
+    "Azacitidine": {
+      "rxcui": "1251",
+      "query": "Azacitidine"
+    },
+    "Azathioprine": {
+      "rxcui": "1256",
+      "query": "Azathioprine"
+    },
+    "Azelaic acid": {
+      "rxcui": "18602",
+      "query": "Azelaic acid"
+    },
+    "Azatadine": {
+      "rxcui": "18600",
+      "query": "Azatadine"
+    },
+    "Azelastine": {
+      "rxcui": "18603",
+      "query": "Azelastine"
+    },
+    "Azilsartan medoxomil": {
+      "rxcui": "1091642",
+      "query": "Azilsartan medoxomil"
+    },
+    "Azithromycin": {
+      "rxcui": "18631",
+      "query": "Azithromycin"
+    },
+    "Bacillus calmette-guerin substrain tice live antigen": {
+      "rxcui": "221050",
+      "query": "Bacillus calmette-guerin substrain tice live antigen"
+    },
+    "Bacampicillin": {
+      "rxcui": "18687",
+      "query": "Bacampicillin"
+    },
+    "Aztreonam": {
+      "rxcui": "1272",
+      "query": "Aztreonam"
+    },
+    "Azelaic acid (topical)": {
+      "rxcui": "18602",
+      "query": "Azelaic acid"
+    },
+    "Bacitracin": {
+      "rxcui": "1291",
+      "query": "Bacitracin"
+    },
+    "Baclofen": {
+      "rxcui": "1292",
+      "query": "Baclofen"
+    },
+    "Azelastine (ophthalmic)": {
+      "rxcui": "18603",
+      "query": "Azelastine"
+    },
+    "Azelastine (nasal)": {
+      "rxcui": "18603",
+      "query": "Azelastine"
+    },
+    "Baloxavir marboxil": {
+      "rxcui": "2099995",
+      "query": "Baloxavir marboxil"
+    },
+    "Balsalazide": {
+      "rxcui": "18747",
+      "query": "Balsalazide"
+    },
+    "Baricitinib": {
+      "rxcui": "2047232",
+      "query": "Baricitinib"
+    },
+    "Bazedoxifene": {
+      "rxcui": "1441386",
+      "query": "Bazedoxifene"
+    },
+    "Basiliximab": {
+      "rxcui": "196102",
+      "query": "Basiliximab"
+    },
+    "Beclomethasone dipropionate": {
+      "rxcui": "1348",
+      "query": "Beclomethasone dipropionate"
+    },
+    "Bedaquiline": {
+      "rxcui": "1364504",
+      "query": "Bedaquiline"
+    },
+    "Belantamab mafodotin": {
+      "rxcui": "2387834",
+      "query": "Belantamab mafodotin"
+    },
+    "Belatacept": {
+      "rxcui": "1112973",
+      "query": "Belatacept"
+    },
+    "Belimumab": {
+      "rxcui": "1092437",
+      "query": "Belimumab"
+    },
+    "Belinostat": {
+      "rxcui": "1543543",
+      "query": "Belinostat"
+    },
+    "Belladonna": {
+      "rxcui": "89781",
+      "query": "Belladonna"
+    },
+    "Bempedoic acid": {
+      "rxcui": "2282403",
+      "query": "Bempedoic acid"
+    },
+    "Benazepril": {
+      "rxcui": "18867",
+      "query": "Benazepril"
+    },
+    "Bendamustine": {
+      "rxcui": "134547",
+      "query": "Bendamustine"
+    },
+    "Beclomethasone dipropionate (nasal)": {
+      "rxcui": "1348",
+      "query": "Beclomethasone dipropionate"
+    },
+    "Bendroflumethiazide": {
+      "rxcui": "1369",
+      "query": "Bendroflumethiazide"
+    },
+    "Benzatropine": {
+      "rxcui": "1424",
+      "query": "Benzatropine"
+    },
+    "Benzhydrocodone": {
+      "rxcui": "2001352",
+      "query": "Benzhydrocodone"
+    },
+    "Benznidazole": {
+      "rxcui": "18994",
+      "query": "Benznidazole"
+    },
+    "Benzonatate": {
+      "rxcui": "18993",
+      "query": "Benzonatate"
+    },
+    "Benzphetamine": {
+      "rxcui": "1422",
+      "query": "Benzphetamine"
+    },
+    "Benzthiazide": {
+      "rxcui": "19008",
+      "query": "Benzthiazide"
+    },
+    "Benzylpenicillin": {
+      "rxcui": "7980",
+      "query": "Benzylpenicillin"
+    },
+    "Benzalkonium (topical)": {
+      "rxcui": "1378",
+      "query": "Benzalkonium"
+    },
+    "Bepridil": {
+      "rxcui": "1436",
+      "query": "Bepridil"
+    },
+    "Benzoyl peroxide (topical)": {
+      "rxcui": "1418",
+      "query": "Benzoyl peroxide"
+    },
+    "Berotralstat": {
+      "rxcui": "2467540",
+      "query": "Berotralstat"
+    },
+    "Benzocaine (topical)": {
+      "rxcui": "1399",
+      "query": "Benzocaine"
+    },
+    "Beta carotene": {
+      "rxcui": "19143",
+      "query": "Beta carotene"
+    },
+    "Betamethasone": {
+      "rxcui": "1514",
+      "query": "Betamethasone"
+    },
+    "Betaxolol": {
+      "rxcui": "1520",
+      "query": "Betaxolol"
+    },
+    "Benzylpenicillin (potassium)": {
+      "rxcui": "7980",
+      "query": "Benzylpenicillin"
+    },
+    "Bevacizumab": {
+      "rxcui": "253337",
+      "query": "Bevacizumab"
+    },
+    "Betrixaban": {
+      "rxcui": "1927851",
+      "query": "Betrixaban"
+    },
+    "Benzylpenicillin (sodium)": {
+      "rxcui": "7980",
+      "query": "Benzylpenicillin"
+    },
+    "Bexarotene": {
+      "rxcui": "233272",
+      "query": "Bexarotene"
+    },
+    "Bethanechol": {
+      "rxcui": "19257",
+      "query": "Bethanechol"
+    },
+    "Betamethasone (topical)": {
+      "rxcui": "1514",
+      "query": "Betamethasone"
+    },
+    "Bicalutamide": {
+      "rxcui": "83008",
+      "query": "Bicalutamide"
+    },
+    "Bictegravir": {
+      "rxcui": "1999660",
+      "query": "Bictegravir"
+    },
+    "Betaxolol (ophthalmic)": {
+      "rxcui": "1520",
+      "query": "Betaxolol"
+    },
+    "Bifidobacterium longum infantis": {
+      "rxcui": "100213",
+      "query": "Bifidobacterium longum infantis"
+    },
+    "Bimatoprost": {
+      "rxcui": "283810",
+      "query": "Bimatoprost"
+    },
+    "Binimetinib": {
+      "rxcui": "2049122",
+      "query": "Binimetinib"
+    },
+    "Bexarotene (topical)": {
+      "rxcui": "233272",
+      "query": "Bexarotene"
+    },
+    "Biperiden": {
+      "rxcui": "1589",
+      "query": "Biperiden"
+    },
+    "Bisacodyl": {
+      "rxcui": "1596",
+      "query": "Bisacodyl"
+    },
+    "Bismuth subcitrate potassium": {
+      "rxcui": "1294617",
+      "query": "Bismuth subcitrate potassium"
+    },
+    "Bismuth subgallate": {
+      "rxcui": "19476",
+      "query": "Bismuth subgallate"
+    },
+    "Bimatoprost (ophthalmic)": {
+      "rxcui": "283810",
+      "query": "Bimatoprost"
+    },
+    "Bismuth subsalicylate": {
+      "rxcui": "19478",
+      "query": "Bismuth subsalicylate"
+    },
+    "Bisoprolol": {
+      "rxcui": "19484",
+      "query": "Bisoprolol"
+    },
+    "Bimatoprost (topical ophthalmic)": {
+      "rxcui": "283810",
+      "query": "Bimatoprost"
+    },
+    "Bivalirudin": {
+      "rxcui": "60819",
+      "query": "Bivalirudin"
+    },
+    "Black widow spider antivenin (equine)": {
+      "rxcui": "89887",
+      "query": "Black widow spider antivenin (equine)"
+    },
+    "Bleomycin": {
+      "rxcui": "1622",
+      "query": "Bleomycin"
+    },
+    "Blinatumomab": {
+      "rxcui": "1597258",
+      "query": "Blinatumomab"
+    },
+    "Boceprevir": {
+      "rxcui": "1102129",
+      "query": "Boceprevir"
+    },
+    "Bortezomib": {
+      "rxcui": "358258",
+      "query": "Bortezomib"
+    },
+    "Bosentan": {
+      "rxcui": "75207",
+      "query": "Bosentan"
+    },
+    "Bosutinib": {
+      "rxcui": "1307619",
+      "query": "Bosutinib"
+    },
+    "Botulinum toxin type A": {
+      "rxcui": "1712",
+      "query": "Botulinum toxin type A"
+    },
+    "Botulinum Toxin Type B": {
+      "rxcui": "2167673",
+      "query": "Botulinum Toxin Type B"
+    },
+    "Bremelanotide": {
+      "rxcui": "2176312",
+      "query": "Bremelanotide"
+    },
+    "Brentuximab vedotin": {
+      "rxcui": "1147320",
+      "query": "Brentuximab vedotin"
+    },
+    "Bretylium": {
+      "rxcui": "19685",
+      "query": "Bretylium"
+    },
+    "Brexanolone": {
+      "rxcui": "2121777",
+      "query": "Brexanolone"
+    },
+    "Brexpiprazole": {
+      "rxcui": "1658314",
+      "query": "Brexpiprazole"
+    },
+    "Brigatinib": {
+      "rxcui": "1921217",
+      "query": "Brigatinib"
+    },
+    "Brexucabtagene autoleucel": {
+      "rxcui": "2387277",
+      "query": "Brexucabtagene autoleucel"
+    },
+    "Brimonidine": {
+      "rxcui": "134615",
+      "query": "Brimonidine"
+    },
+    "Brinzolamide": {
+      "rxcui": "194881",
+      "query": "Brinzolamide"
+    },
+    "Brodalumab": {
+      "rxcui": "1872251",
+      "query": "Brodalumab"
+    },
+    "Brivaracetam": {
+      "rxcui": "1739745",
+      "query": "Brivaracetam"
+    },
+    "Bromfenac": {
+      "rxcui": "19737",
+      "query": "Bromfenac"
+    },
+    "Bromocriptine": {
+      "rxcui": "1760",
+      "query": "Bromocriptine"
+    },
+    "Bromotheophylline": {
+      "rxcui": "1546386",
+      "query": "Bromotheophylline"
+    },
+    "Brimonidine (ophthalmic)": {
+      "rxcui": "134615",
+      "query": "Brimonidine"
+    },
+    "Brimonidine (topical)": {
+      "rxcui": "134615",
+      "query": "Brimonidine"
+    },
+    "Brompheniramine": {
+      "rxcui": "1767",
+      "query": "Brompheniramine"
+    },
+    "Brinzolamide (ophthalmic)": {
+      "rxcui": "194881",
+      "query": "Brinzolamide"
+    },
+    "Budesonide": {
+      "rxcui": "19831",
+      "query": "Budesonide"
+    },
+    "Bumetanide": {
+      "rxcui": "1808",
+      "query": "Bumetanide"
+    },
+    "Bromfenac (ophthalmic)": {
+      "rxcui": "19737",
+      "query": "Bromfenac"
+    },
+    "Bupivacaine": {
+      "rxcui": "1815",
+      "query": "Bupivacaine"
+    },
+    "Buprenorphine": {
+      "rxcui": "1819",
+      "query": "Buprenorphine"
+    },
+    "Bupropion": {
+      "rxcui": "42347",
+      "query": "Bupropion"
+    },
+    "Burosumab": {
+      "rxcui": "2043855",
+      "query": "Burosumab"
+    },
+    "Buspirone": {
+      "rxcui": "1827",
+      "query": "Buspirone"
+    },
+    "Busulfan": {
+      "rxcui": "1828",
+      "query": "Busulfan"
+    },
+    "Budesonide (nasal)": {
+      "rxcui": "19831",
+      "query": "Budesonide"
+    },
+    "Butabarbital": {
+      "rxcui": "477631",
+      "query": "Butabarbital"
+    },
+    "Butalbital": {
+      "rxcui": "19860",
+      "query": "Butalbital"
+    },
+    "Butorphanol": {
+      "rxcui": "1841",
+      "query": "Butorphanol"
+    },
+    "Bupivacaine (liposome)": {
+      "rxcui": "1815",
+      "query": "Bupivacaine"
+    },
+    "Cabazitaxel": {
+      "rxcui": "996051",
+      "query": "Cabazitaxel"
+    },
+    "Cabergoline": {
+      "rxcui": "47579",
+      "query": "Cabergoline"
+    },
+    "Cabotegravir": {
+      "rxcui": "2475077",
+      "query": "Cabotegravir"
+    },
+    "Cabozantinib": {
+      "rxcui": "1363268",
+      "query": "Cabozantinib"
+    },
+    "Caffeine": {
+      "rxcui": "1886",
+      "query": "Caffeine"
+    },
+    "Calaspargase pegol": {
+      "rxcui": "2121416",
+      "query": "Calaspargase pegol"
+    },
+    "Calcifediol": {
+      "rxcui": "1889",
+      "query": "Calcifediol"
+    },
+    "Calcitriol": {
+      "rxcui": "1894",
+      "query": "Calcitriol"
+    },
+    "Calcipotriol": {
+      "rxcui": "29365",
+      "query": "Calcipotriol"
+    },
+    "Calcium acetate": {
+      "rxcui": "214342",
+      "query": "Calcium acetate"
+    },
+    "Calcium chloride": {
+      "rxcui": "1901",
+      "query": "Calcium chloride"
+    },
+    "Calcium carbonate": {
+      "rxcui": "1897",
+      "query": "Calcium carbonate"
+    },
+    "Calcium citrate": {
+      "rxcui": "47613",
+      "query": "Calcium citrate"
+    },
+    "Calcium glubionate anhydrous": {
+      "rxcui": null,
+      "query": null
+    },
+    "Calcium glucoheptonate": {
+      "rxcui": "47618",
+      "query": "Calcium glucoheptonate"
+    },
+    "Calcipotriol (topical)": {
+      "rxcui": "29365",
+      "query": "Calcipotriol"
+    },
+    "Calcium gluconate": {
+      "rxcui": "1908",
+      "query": "Calcium gluconate"
+    },
+    "Calcium glycerophosphate": {
+      "rxcui": "1909",
+      "query": "Calcium glycerophosphate"
+    },
+    "Calcitriol (topical)": {
+      "rxcui": "1894",
+      "query": "Calcitriol"
+    },
+    "Calcium lactate": {
+      "rxcui": "47622",
+      "query": "Calcium lactate"
+    },
+    "Calcium Phosphate": {
+      "rxcui": "1919",
+      "query": "Calcium Phosphate"
+    },
+    "Canagliflozin": {
+      "rxcui": "1373458",
+      "query": "Canagliflozin"
+    },
+    "Canakinumab": {
+      "rxcui": "853491",
+      "query": "Canakinumab"
+    },
+    "Candida albicans": {
+      "rxcui": "1963",
+      "query": "Candida albicans"
+    },
+    "Cangrelor": {
+      "rxcui": "1656052",
+      "query": "Cangrelor"
+    },
+    "Cannabidiol": {
+      "rxcui": "2045371",
+      "query": "Cannabidiol"
+    },
+    "Capecitabine": {
+      "rxcui": "194000",
+      "query": "Capecitabine"
+    },
+    "Caplacizumab": {
+      "rxcui": "2110605",
+      "query": "Caplacizumab"
+    },
+    "Capmatinib": {
+      "rxcui": "2362165",
+      "query": "Capmatinib"
+    },
+    "Capreomycin": {
+      "rxcui": "78903",
+      "query": "Capreomycin"
+    },
+    "Capromab pendetide": {
+      "rxcui": "136300",
+      "query": "Capromab pendetide"
+    },
+    "Capsicum": {
+      "rxcui": "319780",
+      "query": "Capsicum"
+    },
+    "Captopril": {
+      "rxcui": "1998",
+      "query": "Captopril"
+    },
+    "Carbamazepine": {
+      "rxcui": "2002",
+      "query": "Carbamazepine"
+    },
+    "Carbenicillin": {
+      "rxcui": "2015",
+      "query": "Carbenicillin"
+    },
+    "Carbidopa": {
+      "rxcui": "2019",
+      "query": "Carbidopa"
+    },
+    "Carbinoxamine": {
+      "rxcui": "20220",
+      "query": "Carbinoxamine"
+    },
+    "Carboplatin": {
+      "rxcui": "40048",
+      "query": "Carboplatin"
+    },
+    "Carfilzomib": {
+      "rxcui": "1302966",
+      "query": "Carfilzomib"
+    },
+    "Capsaicin (topical)": {
+      "rxcui": "1992",
+      "query": "Capsaicin"
+    },
+    "Cariprazine": {
+      "rxcui": "1667655",
+      "query": "Cariprazine"
+    },
+    "Carisoprodol": {
+      "rxcui": "2101",
+      "query": "Carisoprodol"
+    },
+    "Carmustine": {
+      "rxcui": "2105",
+      "query": "Carmustine"
+    },
+    "Carteolol": {
+      "rxcui": "2116",
+      "query": "Carteolol"
+    },
+    "Carbamoylcholine (ophthalmic)": {
+      "rxcui": "1546387",
+      "query": "Carbamoylcholine"
+    },
+    "Carvedilol": {
+      "rxcui": "20352",
+      "query": "Carvedilol"
+    },
+    "Caspofungin": {
+      "rxcui": "140108",
+      "query": "Caspofungin"
+    },
+    "Castor oil": {
+      "rxcui": "2129",
+      "query": "Castor oil"
+    },
+    "Cedazuridine": {
+      "rxcui": "2384449",
+      "query": "Cedazuridine"
+    },
+    "Cefaclor": {
+      "rxcui": "2176",
+      "query": "Cefaclor"
+    },
+    "Cefadroxil": {
+      "rxcui": "2177",
+      "query": "Cefadroxil"
+    },
+    "Cefalotin": {
+      "rxcui": "2236",
+      "query": "Cefalotin"
+    },
+    "Cefamandole": {
+      "rxcui": "2178",
+      "query": "Cefamandole"
+    },
+    "Cefazolin": {
+      "rxcui": "2180",
+      "query": "Cefazolin"
+    },
+    "Cefapirin": {
+      "rxcui": "2238",
+      "query": "Cefapirin"
+    },
+    "Carteolol (ophthalmic)": {
+      "rxcui": "2116",
+      "query": "Carteolol"
+    },
+    "Cefdinir": {
+      "rxcui": "25037",
+      "query": "Cefdinir"
+    },
+    "Cefditoren": {
+      "rxcui": "83682",
+      "query": "Cefditoren"
+    },
+    "Cefepime": {
+      "rxcui": "20481",
+      "query": "Cefepime"
+    },
+    "Cefiderocol": {
+      "rxcui": "2265702",
+      "query": "Cefiderocol"
+    },
+    "Cefixime": {
+      "rxcui": "25033",
+      "query": "Cefixime"
+    },
+    "Cefmetazole": {
+      "rxcui": "2182",
+      "query": "Cefmetazole"
+    },
+    "Cefonicid": {
+      "rxcui": "2183",
+      "query": "Cefonicid"
+    },
+    "Cefoperazone": {
+      "rxcui": "2184",
+      "query": "Cefoperazone"
+    },
+    "Cefotaxime": {
+      "rxcui": "2186",
+      "query": "Cefotaxime"
+    },
+    "Cefotetan": {
+      "rxcui": "2187",
+      "query": "Cefotetan"
+    },
+    "Cefoxitin": {
+      "rxcui": "2189",
+      "query": "Cefoxitin"
+    },
+    "Cefpodoxime": {
+      "rxcui": "20489",
+      "query": "Cefpodoxime"
+    },
+    "Cefprozil": {
+      "rxcui": "19552",
+      "query": "Cefprozil"
+    },
+    "Cefradine": {
+      "rxcui": "2239",
+      "query": "Cefradine"
+    },
+    "Ceftaroline fosamil": {
+      "rxcui": "1040004",
+      "query": "Ceftaroline fosamil"
+    },
+    "Ceftazidime": {
+      "rxcui": "2191",
+      "query": "Ceftazidime"
+    },
+    "Ceftibuten": {
+      "rxcui": "20492",
+      "query": "Ceftibuten"
+    },
+    "Ceftolozane": {
+      "rxcui": "1597609",
+      "query": "Ceftolozane"
+    },
+    "Ceftizoxime": {
+      "rxcui": "2192",
+      "query": "Ceftizoxime"
+    },
+    "Ceftriaxone": {
+      "rxcui": "2193",
+      "query": "Ceftriaxone"
+    },
+    "Cefuroxime": {
+      "rxcui": "2194",
+      "query": "Cefuroxime"
+    },
+    "Celecoxib": {
+      "rxcui": "140587",
+      "query": "Celecoxib"
+    },
+    "Cemiplimab": {
+      "rxcui": "2058826",
+      "query": "Cemiplimab"
+    },
+    "Cenobamate": {
+      "rxcui": "2265690",
+      "query": "Cenobamate"
+    },
+    "Cephalexin": {
+      "rxcui": "2231",
+      "query": "Cephalexin"
+    },
+    "Ceritinib": {
+      "rxcui": "1535457",
+      "query": "Ceritinib"
+    },
+    "Certolizumab pegol": {
+      "rxcui": "709271",
+      "query": "Certolizumab pegol"
+    },
+    "Cerivastatin": {
+      "rxcui": "596723",
+      "query": "Cerivastatin"
+    },
+    "Cetuximab": {
+      "rxcui": "318341",
+      "query": "Cetuximab"
+    },
+    "Cetirizine": {
+      "rxcui": "20610",
+      "query": "Cetirizine"
+    },
+    "Cevimeline": {
+      "rxcui": "44281",
+      "query": "Cevimeline"
+    },
+    "Chamomile": {
+      "rxcui": "1309226",
+      "query": "Chamomile"
+    },
+    "Chenodeoxycholic acid": {
+      "rxcui": "2323",
+      "query": "Chenodeoxycholic acid"
+    },
+    "Chloral hydrate": {
+      "rxcui": "2344",
+      "query": "Chloral hydrate"
+    },
+    "Chlorambucil": {
+      "rxcui": "2346",
+      "query": "Chlorambucil"
+    },
+    "Chloramphenicol": {
+      "rxcui": "2348",
+      "query": "Chloramphenicol"
+    },
+    "Chlorcyclizine": {
+      "rxcui": "2354",
+      "query": "Chlorcyclizine"
+    },
+    "Cetylpyridinium (topical)": {
+      "rxcui": "2286",
+      "query": "Cetylpyridinium"
+    },
+    "Chlordiazepoxide": {
+      "rxcui": "2356",
+      "query": "Chlordiazepoxide"
+    },
+    "Chlorhexidine": {
+      "rxcui": "2358",
+      "query": "Chlorhexidine"
+    },
+    "Chlormezanone": {
+      "rxcui": "2373",
+      "query": "Chlormezanone"
+    },
+    "Chloroprocaine": {
+      "rxcui": "20859",
+      "query": "Chloroprocaine"
+    },
+    "Chloroquine": {
+      "rxcui": "2393",
+      "query": "Chloroquine"
+    },
+    "Chlorothiazide": {
+      "rxcui": "2396",
+      "query": "Chlorothiazide"
+    },
+    "Chlorphenesin": {
+      "rxcui": "2399",
+      "query": "Chlorphenesin"
+    },
+    "Chloramphenicol (ophthalmic)": {
+      "rxcui": "2348",
+      "query": "Chloramphenicol"
+    },
+    "Chloramphenicol (otic)": {
+      "rxcui": "2348",
+      "query": "Chloramphenicol"
+    },
+    "Chlorpheniramine": {
+      "rxcui": "2400",
+      "query": "Chlorpheniramine"
+    },
+    "Chlorpromazine": {
+      "rxcui": "2403",
+      "query": "Chlorpromazine"
+    },
+    "Chlorthalidone": {
+      "rxcui": "2409",
+      "query": "Chlorthalidone"
+    },
+    "Chlorpropamide": {
+      "rxcui": "2404",
+      "query": "Chlorpropamide"
+    },
+    "Chlorzoxazone": {
+      "rxcui": "2410",
+      "query": "Chlorzoxazone"
+    },
+    "Cholecalciferol": {
+      "rxcui": "2418",
+      "query": "Cholecalciferol"
+    },
+    "Cholestyramine": {
+      "rxcui": "2447",
+      "query": "Cholestyramine"
+    },
+    "Cholic Acid": {
+      "rxcui": "1440856",
+      "query": "Cholic Acid"
+    },
+    "Choline salicylate": {
+      "rxcui": "20974",
+      "query": "Choline salicylate"
+    },
+    "Chondroitin sulfate": {
+      "rxcui": "2473",
+      "query": "Chondroitin sulfate"
+    },
+    "Chorionic Gonadotropin (Human)": {
+      "rxcui": "340705",
+      "query": "Chorionic Gonadotropin (Human)"
+    },
+    "Chromic chloride": {
+      "rxcui": "21009",
+      "query": "Chromic chloride"
+    },
+    "Chromium picolinate": {
+      "rxcui": "59308",
+      "query": "Chromium picolinate"
+    },
+    "Ciclesonide": {
+      "rxcui": "274964",
+      "query": "Ciclesonide"
+    },
+    "Cilostazol": {
+      "rxcui": "21107",
+      "query": "Cilostazol"
+    },
+    "Ciclopirox": {
+      "rxcui": "21090",
+      "query": "Ciclopirox"
+    },
+    "Cinacalcet": {
+      "rxcui": "407990",
+      "query": "Cinacalcet"
+    },
+    "Cidofovir": {
+      "rxcui": "83171",
+      "query": "Cidofovir"
+    },
+    "Cimetidine": {
+      "rxcui": "2541",
+      "query": "Cimetidine"
+    },
+    "Cinoxacin": {
+      "rxcui": "2550",
+      "query": "Cinoxacin"
+    },
+    "Ciprofloxacin": {
+      "rxcui": "2551",
+      "query": "Ciprofloxacin"
+    },
+    "Cisapride": {
+      "rxcui": "35255",
+      "query": "Cisapride"
+    },
+    "Ciclesonide (nasal)": {
+      "rxcui": "274964",
+      "query": "Ciclesonide"
+    },
+    "Cisatracurium": {
+      "rxcui": "319864",
+      "query": "Cisatracurium"
+    },
+    "Cisplatin": {
+      "rxcui": "2555",
+      "query": "Cisplatin"
+    },
+    "Citalopram": {
+      "rxcui": "2556",
+      "query": "Citalopram"
+    },
+    "Cinchocaine (topical)": {
+      "rxcui": "3339",
+      "query": "Cinchocaine"
+    },
+    "Citicoline": {
+      "rxcui": "997602",
+      "query": "Citicoline"
+    },
+    "Citric acid": {
+      "rxcui": "21183",
+      "query": "Citric acid"
+    },
+    "Citrus bioflavonoids": {
+      "rxcui": null,
+      "query": null
+    },
+    "Cladribine": {
+      "rxcui": "44157",
+      "query": "Cladribine"
+    },
+    "Clarithromycin": {
+      "rxcui": "21212",
+      "query": "Clarithromycin"
+    },
+    "Clemastine": {
+      "rxcui": "2578",
+      "query": "Clemastine"
+    },
+    "Clavulanic acid": {
+      "rxcui": "21216",
+      "query": "Clavulanic acid"
+    },
+    "Clevidipine": {
+      "rxcui": "233603",
+      "query": "Clevidipine"
+    },
+    "Clidinium": {
+      "rxcui": "21232",
+      "query": "Clidinium"
+    },
+    "Clindamycin": {
+      "rxcui": "2582",
+      "query": "Clindamycin"
+    },
+    "Clobazam": {
+      "rxcui": "21241",
+      "query": "Clobazam"
+    },
+    "Clobetasol": {
+      "rxcui": "2590",
+      "query": "Clobetasol"
+    },
+    "Clofarabine": {
+      "rxcui": "44151",
+      "query": "Clofarabine"
+    },
+    "Clofazimine": {
+      "rxcui": "2592",
+      "query": "Clofazimine"
+    },
+    "Clofedanol": {
+      "rxcui": "21254",
+      "query": "Clofedanol"
+    },
+    "Clofibrate": {
+      "rxcui": "2594",
+      "query": "Clofibrate"
+    },
+    "Clindamycin (topical)": {
+      "rxcui": "2582",
+      "query": "Clindamycin"
+    },
+    "Clioquinol (topical)": {
+      "rxcui": "5942",
+      "query": "Clioquinol"
+    },
+    "Clomifene": {
+      "rxcui": "2596",
+      "query": "Clomifene"
+    },
+    "Clomipramine": {
+      "rxcui": "2597",
+      "query": "Clomipramine"
+    },
+    "Clobetasol (topical)": {
+      "rxcui": "2590",
+      "query": "Clobetasol"
+    },
+    "Clonazepam": {
+      "rxcui": "2598",
+      "query": "Clonazepam"
+    },
+    "Clopidogrel": {
+      "rxcui": "32968",
+      "query": "Clopidogrel"
+    },
+    "Clocortolone (topical)": {
+      "rxcui": "21249",
+      "query": "Clocortolone"
+    },
+    "Clonidine": {
+      "rxcui": "2599",
+      "query": "Clonidine"
+    },
+    "Clorazepic acid": {
+      "rxcui": "235408",
+      "query": "Clorazepic acid"
+    },
+    "Clostridium tetani toxoid antigen (formaldehyde inactivated)": {
+      "rxcui": "798306",
+      "query": "Clostridium tetani toxoid antigen (formaldehyde inactivated)"
+    },
+    "Clotrimazole": {
+      "rxcui": "2623",
+      "query": "Clotrimazole"
+    },
+    "Clove": {
+      "rxcui": "1364295",
+      "query": "Clove"
+    },
+    "Cloxacillin": {
+      "rxcui": "2625",
+      "query": "Cloxacillin"
+    },
+    "Clozapine": {
+      "rxcui": "2626",
+      "query": "Clozapine"
+    },
+    "Coagulation Factor IX Human": {
+      "rxcui": "221099",
+      "query": "Coagulation Factor IX Human"
+    },
+    "Coagulation factor VIIa Recombinant Human": {
+      "rxcui": "253149",
+      "query": "Coagulation factor VIIa Recombinant Human"
+    },
+    "Coagulation factor X human": {
+      "rxcui": "1426166",
+      "query": "Coagulation factor X human"
+    },
+    "Cobicistat": {
+      "rxcui": "1306284",
+      "query": "Cobicistat"
+    },
+    "Cobimetinib": {
+      "rxcui": "1722365",
+      "query": "Cobimetinib"
+    },
+    "Coccidioides immitis spherule": {
+      "rxcui": "1549330",
+      "query": "Coccidioides immitis spherule"
+    },
+    "Codeine": {
+      "rxcui": "2670",
+      "query": "Codeine"
+    },
+    "Coenzyme M": {
+      "rxcui": "1546354",
+      "query": "Coenzyme M"
+    },
+    "Colchicine": {
+      "rxcui": "2683",
+      "query": "Colchicine"
+    },
+    "Colesevelam": {
+      "rxcui": "141626",
+      "query": "Colesevelam"
+    },
+    "Coal tar (topical)": {
+      "rxcui": "2635",
+      "query": "Coal tar"
+    },
+    "Colestipol": {
+      "rxcui": "2685",
+      "query": "Colestipol"
+    },
+    "Colistimethate": {
+      "rxcui": "2708",
+      "query": "Colistimethate"
+    },
+    "Cocaine (topical)": {
+      "rxcui": "2653",
+      "query": "Cocaine"
+    },
+    "Cocaine (nasal)": {
+      "rxcui": "2653",
+      "query": "Cocaine"
+    },
+    "Collagenase clostridium histolyticum": {
+      "rxcui": "898492",
+      "query": "Collagenase clostridium histolyticum"
+    },
+    "Conivaptan": {
+      "rxcui": "302285",
+      "query": "Conivaptan"
+    },
+    "Conestat alfa": {
+      "rxcui": "1599831",
+      "query": "Conestat alfa"
+    },
+    "Conjugated estrogens": {
+      "rxcui": "4099",
+      "query": "Conjugated estrogens"
+    },
+    "Copanlisib": {
+      "rxcui": "1945077",
+      "query": "Copanlisib"
+    },
+    "Copper gluconate": {
+      "rxcui": "2839",
+      "query": "Copper gluconate"
+    },
+    "Copper oxodotreotide Cu-64": {
+      "rxcui": "2396442",
+      "query": "Copper oxodotreotide Cu-64"
+    },
+    "Coral snake (micrurus fulvius) immune globulin antivenin (equine)": {
+      "rxcui": "979384",
+      "query": "Coral snake (micrurus fulvius) immune globulin antivenin (equine)"
+    },
+    "Corticotropin": {
+      "rxcui": "376",
+      "query": "Corticotropin"
+    },
+    "Collagenase clostridium histolyticum (topical)": {
+      "rxcui": "898492",
+      "query": "Collagenase clostridium histolyticum"
+    },
+    "Creatine": {
+      "rxcui": "2907",
+      "query": "Creatine"
+    },
+    "Cranberry": {
+      "rxcui": "125933",
+      "query": "Cranberry"
+    },
+    "Conjugated estrogens (topical)": {
+      "rxcui": "4099",
+      "query": "Conjugated estrogens"
+    },
+    "Crizotinib": {
+      "rxcui": "1148495",
+      "query": "Crizotinib"
+    },
+    "Cromoglicic acid": {
+      "rxcui": "42612",
+      "query": "Cromoglicic acid"
+    },
+    "Crotalus scutulatus antivenin": {
+      "rxcui": "885189",
+      "query": "Crotalus scutulatus antivenin"
+    },
+    "Cyanocobalamin": {
+      "rxcui": "11248",
+      "query": "Cyanocobalamin"
+    },
+    "Cyclandelate": {
+      "rxcui": "2970",
+      "query": "Cyclandelate"
+    },
+    "Cyclizine": {
+      "rxcui": "2977",
+      "query": "Cyclizine"
+    },
+    "Cyclobenzaprine": {
+      "rxcui": "21949",
+      "query": "Cyclobenzaprine"
+    },
+    "Cyclophosphamide": {
+      "rxcui": "3002",
+      "query": "Cyclophosphamide"
+    },
+    "Cycloserine": {
+      "rxcui": "3007",
+      "query": "Cycloserine"
+    },
+    "Cyclosporine": {
+      "rxcui": "3008",
+      "query": "Cyclosporine"
+    },
+    "Cyproheptadine": {
+      "rxcui": "3013",
+      "query": "Cyproheptadine"
+    },
+    "Cytarabine": {
+      "rxcui": "3041",
+      "query": "Cytarabine"
+    },
+    "Dabrafenib": {
+      "rxcui": "1424911",
+      "query": "Dabrafenib"
+    },
+    "Dacarbazine": {
+      "rxcui": "3098",
+      "query": "Dacarbazine"
+    },
+    "Daclatasvir": {
+      "rxcui": "1606218",
+      "query": "Daclatasvir"
+    },
+    "Cyclopentolate (ophthalmic)": {
+      "rxcui": "3001",
+      "query": "Cyclopentolate"
+    },
+    "Dacomitinib": {
+      "rxcui": "2058849",
+      "query": "Dacomitinib"
+    },
+    "Dactinomycin": {
+      "rxcui": "3100",
+      "query": "Dactinomycin"
+    },
+    "Dalbavancin": {
+      "rxcui": "1539239",
+      "query": "Dalbavancin"
+    },
+    "Dalfampridine": {
+      "rxcui": "897018",
+      "query": "Dalfampridine"
+    },
+    "Dalfopristin": {
+      "rxcui": "229369",
+      "query": "Dalfopristin"
+    },
+    "Cytarabine (liposomal)": {
+      "rxcui": "3041",
+      "query": "Cytarabine"
+    },
+    "Dalteparin": {
+      "rxcui": "67109",
+      "query": "Dalteparin"
+    },
+    "Danaparoid": {
+      "rxcui": "78484",
+      "query": "Danaparoid"
+    },
+    "Danazol": {
+      "rxcui": "3102",
+      "query": "Danazol"
+    },
+    "Dapagliflozin": {
+      "rxcui": "1488564",
+      "query": "Dapagliflozin"
+    },
+    "Dapsone": {
+      "rxcui": "3108",
+      "query": "Dapsone"
+    },
+    "Daptomycin": {
+      "rxcui": "22299",
+      "query": "Daptomycin"
+    },
+    "Dantrolene": {
+      "rxcui": "3105",
+      "query": "Dantrolene"
+    },
+    "Daratumumab": {
+      "rxcui": "1721947",
+      "query": "Daratumumab"
+    },
+    "Darbepoetin alfa": {
+      "rxcui": "283838",
+      "query": "Darbepoetin alfa"
+    },
+    "Darifenacin": {
+      "rxcui": "136198",
+      "query": "Darifenacin"
+    },
+    "Darolutamide": {
+      "rxcui": "2180325",
+      "query": "Darolutamide"
+    },
+    "Dapsone (topical)": {
+      "rxcui": "3108",
+      "query": "Dapsone"
+    },
+    "Dasatinib": {
+      "rxcui": "475342",
+      "query": "Dasatinib"
+    },
+    "Daunorubicin": {
+      "rxcui": "3109",
+      "query": "Daunorubicin"
+    },
+    "Darunavir": {
+      "rxcui": "460132",
+      "query": "Darunavir"
+    },
+    "Decitabine": {
+      "rxcui": "15657",
+      "query": "Decitabine"
+    },
+    "Deferasirox": {
+      "rxcui": "614373",
+      "query": "Deferasirox"
+    },
+    "Deferiprone": {
+      "rxcui": "11645",
+      "query": "Deferiprone"
+    },
+    "Deferoxamine": {
+      "rxcui": "3131",
+      "query": "Deferoxamine"
+    },
+    "Defibrotide": {
+      "rxcui": "1311089",
+      "query": "Defibrotide"
+    },
+    "Daunorubicin (liposomal)": {
+      "rxcui": "3109",
+      "query": "Daunorubicin"
+    },
+    "Degarelix": {
+      "rxcui": "475230",
+      "query": "Degarelix"
+    },
+    "Deflazacort": {
+      "rxcui": "22396",
+      "query": "Deflazacort"
+    },
+    "Delafloxacin": {
+      "rxcui": "1927663",
+      "query": "Delafloxacin"
+    },
+    "Dehydrocholic acid": {
+      "rxcui": "3141",
+      "query": "Dehydrocholic acid"
+    },
+    "Delavirdine": {
+      "rxcui": "83816",
+      "query": "Delavirdine"
+    },
+    "Demeclocycline": {
+      "rxcui": "3154",
+      "query": "Demeclocycline"
+    },
+    "Denileukin diftitox": {
+      "rxcui": "214470",
+      "query": "Denileukin diftitox"
+    },
+    "Deserpidine": {
+      "rxcui": "62174",
+      "query": "Deserpidine"
+    },
+    "Deoxycholic acid": {
+      "rxcui": "3194",
+      "query": "Deoxycholic acid"
+    },
+    "Denosumab": {
+      "rxcui": "993449",
+      "query": "Denosumab"
+    },
+    "Desflurane": {
+      "rxcui": "27340",
+      "query": "Desflurane"
+    },
+    "Desirudin": {
+      "rxcui": "114934",
+      "query": "Desirudin"
+    },
+    "Desipramine": {
+      "rxcui": "3247",
+      "query": "Desipramine"
+    },
+    "Demecarium (ophthalmic)": {
+      "rxcui": "107771",
+      "query": "Demecarium"
+    },
+    "Desloratadine": {
+      "rxcui": "275635",
+      "query": "Desloratadine"
+    },
+    "Desmopressin": {
+      "rxcui": "3251",
+      "query": "Desmopressin"
+    },
+    "Desogestrel": {
+      "rxcui": "22656",
+      "query": "Desogestrel"
+    },
+    "Desvenlafaxine": {
+      "rxcui": "734064",
+      "query": "Desvenlafaxine"
+    },
+    "Deutetrabenazine": {
+      "rxcui": "1876905",
+      "query": "Deutetrabenazine"
+    },
+    "Dexamethasone": {
+      "rxcui": "3264",
+      "query": "Dexamethasone"
+    },
+    "Dexbrompheniramine": {
+      "rxcui": "22696",
+      "query": "Dexbrompheniramine"
+    },
+    "Desonide (topical)": {
+      "rxcui": "3254",
+      "query": "Desonide"
+    },
+    "Desoximetasone (topical)": {
+      "rxcui": "3255",
+      "query": "Desoximetasone"
+    },
+    "Dexfenfluramine": {
+      "rxcui": "3268",
+      "query": "Dexfenfluramine"
+    },
+    "Dexlansoprazole": {
+      "rxcui": "816346",
+      "query": "Dexlansoprazole"
+    },
+    "Dexmedetomidine": {
+      "rxcui": "48937",
+      "query": "Dexmedetomidine"
+    },
+    "Dexamethasone (ophthalmic)": {
+      "rxcui": "3264",
+      "query": "Dexamethasone"
+    },
+    "Dexamethasone (nasal)": {
+      "rxcui": "3264",
+      "query": "Dexamethasone"
+    },
+    "Dexmethylphenidate": {
+      "rxcui": "352372",
+      "query": "Dexmethylphenidate"
+    },
+    "Dexrazoxane": {
+      "rxcui": "42736",
+      "query": "Dexrazoxane"
+    },
+    "Dexamethasone (topical)": {
+      "rxcui": "3264",
+      "query": "Dexamethasone"
+    },
+    "Dextroamphetamine": {
+      "rxcui": "3288",
+      "query": "Dextroamphetamine"
+    },
+    "Dextromethorphan": {
+      "rxcui": "3289",
+      "query": "Dextromethorphan"
+    },
+    "Dextropropoxyphene": {
+      "rxcui": "8785",
+      "query": "Dextropropoxyphene"
+    },
+    "Dextrose, unspecified form": {
+      "rxcui": "4850",
+      "query": "Dextrose, unspecified form"
+    },
+    "Dextran (-1)": {
+      "rxcui": "42635",
+      "query": "Dextran"
+    },
+    "Dezocine": {
+      "rxcui": "22713",
+      "query": "Dezocine"
+    },
+    "Dextrothyroxine": {
+      "rxcui": "3292",
+      "query": "Dextrothyroxine"
+    },
+    "Dextran (high molecular weight)": {
+      "rxcui": "42635",
+      "query": "Dextran"
+    },
+    "Dextran (low molecular weight)": {
+      "rxcui": "42635",
+      "query": "Dextran"
+    },
+    "Diamorphine": {
+      "rxcui": "3304",
+      "query": "Diamorphine"
+    },
+    "Diatrizoate": {
+      "rxcui": "3319",
+      "query": "Diatrizoate"
+    },
+    "Diazepam": {
+      "rxcui": "3322",
+      "query": "Diazepam"
+    },
+    "Diazoxide": {
+      "rxcui": "3327",
+      "query": "Diazoxide"
+    },
+    "Dichloralphenazone": {
+      "rxcui": "22892",
+      "query": "Dichloralphenazone"
+    },
+    "Diclofenac": {
+      "rxcui": "3355",
+      "query": "Diclofenac"
+    },
+    "Diclofenamide": {
+      "rxcui": "3353",
+      "query": "Diclofenamide"
+    },
+    "Dicloxacillin": {
+      "rxcui": "3356",
+      "query": "Dicloxacillin"
+    },
+    "Dicoumarol": {
+      "rxcui": "1598",
+      "query": "Dicoumarol"
+    },
+    "Dicyclomine": {
+      "rxcui": "3361",
+      "query": "Dicyclomine"
+    },
+    "Didanosine": {
+      "rxcui": "3364",
+      "query": "Didanosine"
+    },
+    "Dienogest": {
+      "rxcui": "22968",
+      "query": "Dienogest"
+    },
+    "Diethylpropion": {
+      "rxcui": "3389",
+      "query": "Diethylpropion"
+    },
+    "Diclofenac (topical)": {
+      "rxcui": "3355",
+      "query": "Diclofenac"
+    },
+    "Diethylstilbestrol": {
+      "rxcui": "3390",
+      "query": "Diethylstilbestrol"
+    },
+    "Difenoxin": {
+      "rxcui": "23024",
+      "query": "Difenoxin"
+    },
+    "Diflunisal": {
+      "rxcui": "3393",
+      "query": "Diflunisal"
+    },
+    "Digitoxin": {
+      "rxcui": "3403",
+      "query": "Digitoxin"
+    },
+    "Dienestrol (topical)": {
+      "rxcui": "3368",
+      "query": "Dienestrol"
+    },
+    "Digoxin": {
+      "rxcui": "3407",
+      "query": "Digoxin"
+    },
+    "Digoxin Immune Fab (Ovine)": {
+      "rxcui": "1745257",
+      "query": "Digoxin Immune Fab (Ovine)"
+    },
+    "Dihydrocodeine": {
+      "rxcui": "23088",
+      "query": "Dihydrocodeine"
+    },
+    "Diflorasone (topical)": {
+      "rxcui": "91311",
+      "query": "Diflorasone"
+    },
+    "Dihydroergotamine": {
+      "rxcui": "3418",
+      "query": "Dihydroergotamine"
+    },
+    "Diclofenac (ophthalmic)": {
+      "rxcui": "3355",
+      "query": "Diclofenac"
+    },
+    "Diiodohydroxyquinoline": {
+      "rxcui": "3435",
+      "query": "Diiodohydroxyquinoline"
+    },
+    "Difluprednate (ophthalmic)": {
+      "rxcui": "23043",
+      "query": "Difluprednate"
+    },
+    "Dihydrotachysterol": {
+      "rxcui": "3429",
+      "query": "Dihydrotachysterol"
+    },
+    "Dasabuvir": {
+      "rxcui": "1597381",
+      "query": "Dasabuvir"
+    },
+    "Dimenhydrinate": {
+      "rxcui": "3444",
+      "query": "Dimenhydrinate"
+    },
+    "Diltiazem": {
+      "rxcui": "3443",
+      "query": "Diltiazem"
+    },
+    "Dimercaprol": {
+      "rxcui": "3445",
+      "query": "Dimercaprol"
+    },
+    "Dimethyl fumarate": {
+      "rxcui": "1373478",
+      "query": "Dimethyl fumarate"
+    },
+    "Dimethyl sulfoxide": {
+      "rxcui": "3455",
+      "query": "Dimethyl sulfoxide"
+    },
+    "Dinoprostone": {
+      "rxcui": "3478",
+      "query": "Dinoprostone"
+    },
+    "Dinutuximab": {
+      "rxcui": "1606274",
+      "query": "Dinutuximab"
+    },
+    "Diphenhydramine": {
+      "rxcui": "3498",
+      "query": "Diphenhydramine"
+    },
+    "Diiodohydroxyquinoline (topical)": {
+      "rxcui": "3435",
+      "query": "Diiodohydroxyquinoline"
+    },
+    "Diphenoxylate": {
+      "rxcui": "3500",
+      "query": "Diphenoxylate"
+    },
+    "Dipyridamole": {
+      "rxcui": "3521",
+      "query": "Dipyridamole"
+    },
+    "Diroximel fumarate": {
+      "rxcui": "2261783",
+      "query": "Diroximel fumarate"
+    },
+    "Disopyramide": {
+      "rxcui": "3541",
+      "query": "Disopyramide"
+    },
+    "Disulfiram": {
+      "rxcui": "3554",
+      "query": "Disulfiram"
+    },
+    "Dobutamine": {
+      "rxcui": "3616",
+      "query": "Dobutamine"
+    },
+    "Dinoprostone (topical)": {
+      "rxcui": "3478",
+      "query": "Dinoprostone"
+    },
+    "Docetaxel": {
+      "rxcui": "72962",
+      "query": "Docetaxel"
+    },
+    "Diphenhydramine (topical)": {
+      "rxcui": "3498",
+      "query": "Diphenhydramine"
+    },
+    "Docusate": {
+      "rxcui": "82003",
+      "query": "Docusate"
+    },
+    "Dofetilide": {
+      "rxcui": "49247",
+      "query": "Dofetilide"
+    },
+    "Dolutegravir": {
+      "rxcui": "1433868",
+      "query": "Dolutegravir"
+    },
+    "Dolasetron": {
+      "rxcui": "68091",
+      "query": "Dolasetron"
+    },
+    "Dipivefrin (ophthalmic)": {
+      "rxcui": "23410",
+      "query": "Dipivefrin"
+    },
+    "Doravirine": {
+      "rxcui": "2055755",
+      "query": "Doravirine"
+    },
+    "Donepezil": {
+      "rxcui": "135447",
+      "query": "Donepezil"
+    },
+    "Dopamine": {
+      "rxcui": "3628",
+      "query": "Dopamine"
+    },
+    "Doripenem": {
+      "rxcui": "119771",
+      "query": "Doripenem"
+    },
+    "Dornase alfa": {
+      "rxcui": "337623",
+      "query": "Dornase alfa"
+    },
+    "Dotatate": {
+      "rxcui": "1797118",
+      "query": "Dotatate"
+    },
+    "Doxacurium": {
+      "rxcui": "23651",
+      "query": "Doxacurium"
+    },
+    "Doxepin": {
+      "rxcui": "3638",
+      "query": "Doxepin"
+    },
+    "Doxapram": {
+      "rxcui": "3637",
+      "query": "Doxapram"
+    },
+    "Doxercalciferol": {
+      "rxcui": "11516",
+      "query": "Doxercalciferol"
+    },
+    "Doxazosin": {
+      "rxcui": "49276",
+      "query": "Doxazosin"
+    },
+    "Doxorubicin": {
+      "rxcui": "3639",
+      "query": "Doxorubicin"
+    },
+    "Dorzolamide (ophthalmic)": {
+      "rxcui": "60207",
+      "query": "Dorzolamide"
+    },
+    "Doxycycline": {
+      "rxcui": "3640",
+      "query": "Doxycycline"
+    },
+    "Doxylamine": {
+      "rxcui": "3642",
+      "query": "Doxylamine"
+    },
+    "Doxepin (topical)": {
+      "rxcui": "3638",
+      "query": "Doxepin"
+    },
+    "Dronedarone": {
+      "rxcui": "233698",
+      "query": "Dronedarone"
+    },
+    "Droperidol": {
+      "rxcui": "3648",
+      "query": "Droperidol"
+    },
+    "Dronabinol": {
+      "rxcui": "10402",
+      "query": "Dronabinol"
+    },
+    "Drospirenone": {
+      "rxcui": "11636",
+      "query": "Drospirenone"
+    },
+    "Doxorubicin (liposomal)": {
+      "rxcui": "3639",
+      "query": "Doxorubicin"
+    },
+    "Drotrecogin alfa": {
+      "rxcui": "352374",
+      "query": "Drotrecogin alfa"
+    },
+    "Droxidopa": {
+      "rxcui": "1489913",
+      "query": "Droxidopa"
+    },
+    "Dulaglutide": {
+      "rxcui": "1551291",
+      "query": "Dulaglutide"
+    },
+    "Duloxetine": {
+      "rxcui": "72625",
+      "query": "Duloxetine"
+    },
+    "Doxycycline (topical)": {
+      "rxcui": "3640",
+      "query": "Doxycycline"
+    },
+    "Dupilumab": {
+      "rxcui": "1876376",
+      "query": "Dupilumab"
+    },
+    "Durvalumab": {
+      "rxcui": "1919503",
+      "query": "Durvalumab"
+    },
+    "Dutasteride": {
+      "rxcui": "228790",
+      "query": "Dutasteride"
+    },
+    "Duvelisib": {
+      "rxcui": "2058509",
+      "query": "Duvelisib"
+    },
+    "Dyphylline": {
+      "rxcui": "3714",
+      "query": "Dyphylline"
+    },
+    "Echinacea": {
+      "rxcui": "228041",
+      "query": "Echinacea"
+    },
+    "Econazole": {
+      "rxcui": "3743",
+      "query": "Econazole"
+    },
+    "Eculizumab": {
+      "rxcui": "591781",
+      "query": "Eculizumab"
+    },
+    "Edetate calcium disodium anhydrous": {
+      "rxcui": "1371967",
+      "query": "Edetate calcium disodium anhydrous"
+    },
+    "Edetate disodium anhydrous": {
+      "rxcui": "1299924",
+      "query": "Edetate disodium anhydrous"
+    },
+    "Edoxaban": {
+      "rxcui": "1599538",
+      "query": "Edoxaban"
+    },
+    "Edrophonium": {
+      "rxcui": "3752",
+      "query": "Edrophonium"
+    },
+    "Efalizumab": {
+      "rxcui": "356988",
+      "query": "Efalizumab"
+    },
+    "Efavirenz": {
+      "rxcui": "195085",
+      "query": "Efavirenz"
+    },
+    "Echothiophate (ophthalmic)": {
+      "rxcui": "89778",
+      "query": "Echothiophate"
+    },
+    "Elagolix": {
+      "rxcui": "2049846",
+      "query": "Elagolix"
+    },
+    "Elbasvir": {
+      "rxcui": "1734628",
+      "query": "Elbasvir"
+    },
+    "Econazole (topical)": {
+      "rxcui": "3743",
+      "query": "Econazole"
+    },
+    "Eletriptan": {
+      "rxcui": "231049",
+      "query": "Eletriptan"
+    },
+    "Elexacaftor": {
+      "rxcui": "2256951",
+      "query": "Elexacaftor"
+    },
+    "Eliglustat": {
+      "rxcui": "1547220",
+      "query": "Eliglustat"
+    },
+    "Elotuzumab": {
+      "rxcui": "1726104",
+      "query": "Elotuzumab"
+    },
+    "Eltrombopag": {
+      "rxcui": "711942",
+      "query": "Eltrombopag"
+    },
+    "Eluxadoline": {
+      "rxcui": "1653781",
+      "query": "Eluxadoline"
+    },
+    "Elvitegravir": {
+      "rxcui": "1306286",
+      "query": "Elvitegravir"
+    },
+    "Emapalumab": {
+      "rxcui": "2104604",
+      "query": "Emapalumab"
+    },
+    "Emicizumab": {
+      "rxcui": "1989794",
+      "query": "Emicizumab"
+    },
+    "Empagliflozin": {
+      "rxcui": "1545653",
+      "query": "Empagliflozin"
+    },
+    "Emtricitabine": {
+      "rxcui": "276237",
+      "query": "Emtricitabine"
+    },
+    "Enalapril": {
+      "rxcui": "3827",
+      "query": "Enalapril"
+    },
+    "Enasidenib": {
+      "rxcui": "1940332",
+      "query": "Enasidenib"
+    },
+    "Encorafenib": {
+      "rxcui": "2049106",
+      "query": "Encorafenib"
+    },
+    "Enflurane": {
+      "rxcui": "3920",
+      "query": "Enflurane"
+    },
+    "Entecavir": {
+      "rxcui": "306266",
+      "query": "Entecavir"
+    },
+    "Enoxacin": {
+      "rxcui": "3925",
+      "query": "Enoxacin"
+    },
+    "Enfuvirtide": {
+      "rxcui": "139896",
+      "query": "Enfuvirtide"
+    },
+    "Enoxaparin": {
+      "rxcui": "67108",
+      "query": "Enoxaparin"
+    },
+    "Entacapone": {
+      "rxcui": "60307",
+      "query": "Entacapone"
+    },
+    "Enfortumab vedotin": {
+      "rxcui": "2277607",
+      "query": "Enfortumab vedotin"
+    },
+    "Entrectinib": {
+      "rxcui": "2197862",
+      "query": "Entrectinib"
+    },
+    "Enzalutamide": {
+      "rxcui": "1307298",
+      "query": "Enzalutamide"
+    },
+    "Ephedrine": {
+      "rxcui": "3966",
+      "query": "Ephedrine"
+    },
+    "Epinephrine": {
+      "rxcui": "3992",
+      "query": "Epinephrine"
+    },
+    "Epirubicin": {
+      "rxcui": "3995",
+      "query": "Epirubicin"
+    },
+    "Eplerenone": {
+      "rxcui": "298869",
+      "query": "Eplerenone"
+    },
+    "Epoprostenol": {
+      "rxcui": "8814",
+      "query": "Epoprostenol"
+    },
+    "Eprosartan": {
+      "rxcui": "83515",
+      "query": "Eprosartan"
+    },
+    "Eravacycline": {
+      "rxcui": "2055906",
+      "query": "Eravacycline"
+    },
+    "Eptifibatide": {
+      "rxcui": "75635",
+      "query": "Eptifibatide"
+    },
+    "Ephedrine (nasal)": {
+      "rxcui": "3966",
+      "query": "Ephedrine"
+    },
+    "Erdafitinib": {
+      "rxcui": "2123125",
+      "query": "Erdafitinib"
+    },
+    "Epinephrine (ophthalmic)": {
+      "rxcui": "3992",
+      "query": "Epinephrine"
+    },
+    "Ergocalciferol": {
+      "rxcui": "4018",
+      "query": "Ergocalciferol"
+    },
+    "Ergoloid mesylate": {
+      "rxcui": "4024",
+      "query": "Ergoloid mesylate"
+    },
+    "Epinephrine (topical)": {
+      "rxcui": "3992",
+      "query": "Epinephrine"
+    },
+    "Ergometrine": {
+      "rxcui": "4021",
+      "query": "Ergometrine"
+    },
+    "Ergotamine": {
+      "rxcui": "4025",
+      "query": "Ergotamine"
+    },
+    "Eribulin": {
+      "rxcui": "1045453",
+      "query": "Eribulin"
+    },
+    "Erlotinib": {
+      "rxcui": "337525",
+      "query": "Erlotinib"
+    },
+    "Ertapenem": {
+      "rxcui": "325642",
+      "query": "Ertapenem"
+    },
+    "Erythromycin": {
+      "rxcui": "4053",
+      "query": "Erythromycin"
+    },
+    "Ertugliflozin": {
+      "rxcui": "1992672",
+      "query": "Ertugliflozin"
+    },
+    "Erythropoietin": {
+      "rxcui": "105694",
+      "query": "Erythropoietin"
+    },
+    "Escitalopram": {
+      "rxcui": "321988",
+      "query": "Escitalopram"
+    },
+    "Esketamine": {
+      "rxcui": "2119365",
+      "query": "Esketamine"
+    },
+    "Eslicarbazepine": {
+      "rxcui": "1482502",
+      "query": "Eslicarbazepine"
+    },
+    "Estazolam": {
+      "rxcui": "4077",
+      "query": "Estazolam"
+    },
+    "Esmolol": {
+      "rxcui": "49737",
+      "query": "Esmolol"
+    },
+    "Esomeprazole": {
+      "rxcui": "283742",
+      "query": "Esomeprazole"
+    },
+    "Esterified estrogens": {
+      "rxcui": "214549",
+      "query": "Esterified estrogens"
+    },
+    "Estradiol": {
+      "rxcui": "4083",
+      "query": "Estradiol"
+    },
+    "Estramustine": {
+      "rxcui": "4089",
+      "query": "Estramustine"
+    },
+    "Estrone": {
+      "rxcui": "4103",
+      "query": "Estrone"
+    },
+    "Estrone sulfate": {
+      "rxcui": null,
+      "query": null
+    },
+    "Etelcalcetide": {
+      "rxcui": "1876119",
+      "query": "Etelcalcetide"
+    },
+    "Etacrynic acid": {
+      "rxcui": "4109",
+      "query": "Etacrynic acid"
+    },
+    "Etanercept": {
+      "rxcui": "214555",
+      "query": "Etanercept"
+    },
+    "Eszopiclone": {
+      "rxcui": "461016",
+      "query": "Eszopiclone"
+    },
+    "Ethambutol": {
+      "rxcui": "4110",
+      "query": "Ethambutol"
+    },
+    "Estradiol (topical)": {
+      "rxcui": "4083",
+      "query": "Estradiol"
+    },
+    "Ethchlorvynol": {
+      "rxcui": "4118",
+      "query": "Ethchlorvynol"
+    },
+    "Ethanol": {
+      "rxcui": "448",
+      "query": "Ethanol"
+    },
+    "Ethinylestradiol": {
+      "rxcui": "4124",
+      "query": "Ethinylestradiol"
+    },
+    "Ethiodized oil": {
+      "rxcui": "4125",
+      "query": "Ethiodized oil"
+    },
+    "Ethionamide": {
+      "rxcui": "4127",
+      "query": "Ethionamide"
+    },
+    "Ethotoin": {
+      "rxcui": "4136",
+      "query": "Ethotoin"
+    },
+    "Ethosuximide": {
+      "rxcui": "4135",
+      "query": "Ethosuximide"
+    },
+    "Estrone sulfate (topical)": {
+      "rxcui": null,
+      "query": null
+    },
+    "Etidocaine": {
+      "rxcui": "4171",
+      "query": "Etidocaine"
+    },
+    "Etidronic acid": {
+      "rxcui": "1356715",
+      "query": "Etidronic acid"
+    },
+    "Etravirine": {
+      "rxcui": "475969",
+      "query": "Etravirine"
+    },
+    "Etonogestrel": {
+      "rxcui": "14584",
+      "query": "Etonogestrel"
+    },
+    "Etoposide": {
+      "rxcui": "4179",
+      "query": "Etoposide"
+    },
+    "Everolimus": {
+      "rxcui": "141704",
+      "query": "Everolimus"
+    },
+    "Etomidate": {
+      "rxcui": "4177",
+      "query": "Etomidate"
+    },
+    "Exemestane": {
+      "rxcui": "258494",
+      "query": "Exemestane"
+    },
+    "Etodolac": {
+      "rxcui": "24605",
+      "query": "Etodolac"
+    },
+    "Exenatide": {
+      "rxcui": "60548",
+      "query": "Exenatide"
+    },
+    "Ezetimibe": {
+      "rxcui": "341248",
+      "query": "Ezetimibe"
+    },
+    "Factor IX Complex (Human)": {
+      "rxcui": "1670383",
+      "query": "Factor IX Complex (Human)"
+    },
+    "Ezogabine": {
+      "rxcui": "1112990",
+      "query": "Ezogabine"
+    },
+    "Factor XIII (human)": {
+      "rxcui": "1091605",
+      "query": "Factor XIII (human)"
+    },
+    "Famciclovir": {
+      "rxcui": "68099",
+      "query": "Famciclovir"
+    },
+    "Famotidine": {
+      "rxcui": "4278",
+      "query": "Famotidine"
+    },
+    "Fedratinib": {
+      "rxcui": "2197490",
+      "query": "Fedratinib"
+    },
+    "Febuxostat": {
+      "rxcui": "73689",
+      "query": "Febuxostat"
+    },
+    "Felbamate": {
+      "rxcui": "24812",
+      "query": "Felbamate"
+    },
+    "Felodipine": {
+      "rxcui": "4316",
+      "query": "Felodipine"
+    },
+    "Fenoprofen": {
+      "rxcui": "4331",
+      "query": "Fenoprofen"
+    },
+    "Fenofibric acid": {
+      "rxcui": "24852",
+      "query": "Fenofibric acid"
+    },
+    "Fenofibrate": {
+      "rxcui": "8703",
+      "query": "Fenofibrate"
+    },
+    "Fentanyl": {
+      "rxcui": "4337",
+      "query": "Fentanyl"
+    },
+    "Fenoldopam": {
+      "rxcui": "24853",
+      "query": "Fenoldopam"
+    },
+    "Fenfluramine": {
+      "rxcui": "4328",
+      "query": "Fenfluramine"
+    },
+    "Ferric derisomaltose": {
+      "rxcui": "2274394",
+      "query": "Ferric derisomaltose"
+    },
+    "Ferric carboxymaltose": {
+      "rxcui": "1433693",
+      "query": "Ferric carboxymaltose"
+    },
+    "Ferrous gluconate": {
+      "rxcui": "24942",
+      "query": "Ferrous gluconate"
+    },
+    "Ferrous fumarate": {
+      "rxcui": "24941",
+      "query": "Ferrous fumarate"
+    },
+    "Ferumoxsil": {
+      "rxcui": "77754",
+      "query": "Ferumoxsil"
+    },
+    "Fexofenadine": {
+      "rxcui": "87636",
+      "query": "Fexofenadine"
+    },
+    "Ferrous sulfate anhydrous": {
+      "rxcui": "259346",
+      "query": "Ferrous sulfate anhydrous"
+    },
+    "Fesoterodine": {
+      "rxcui": "797195",
+      "query": "Fesoterodine"
+    },
+    "Filgrastim": {
+      "rxcui": "68442",
+      "query": "Filgrastim"
+    },
+    "Ferumoxides": {
+      "rxcui": "72901",
+      "query": "Ferumoxides"
+    },
+    "Fidaxomicin": {
+      "rxcui": "1111103",
+      "query": "Fidaxomicin"
+    },
+    "Finasteride": {
+      "rxcui": "25025",
+      "query": "Finasteride"
+    },
+    "Ferumoxytol": {
+      "rxcui": "473387",
+      "query": "Ferumoxytol"
+    },
+    "Fibrinogen human": {
+      "rxcui": "2264108",
+      "query": "Fibrinogen human"
+    },
+    "Fingolimod": {
+      "rxcui": "1012892",
+      "query": "Fingolimod"
+    },
+    "Fluconazole": {
+      "rxcui": "4450",
+      "query": "Fluconazole"
+    },
+    "Fludarabine": {
+      "rxcui": "24698",
+      "query": "Fludarabine"
+    },
+    "Flecainide": {
+      "rxcui": "4441",
+      "query": "Flecainide"
+    },
+    "Floxuridine": {
+      "rxcui": "4488",
+      "query": "Floxuridine"
+    },
+    "Flucytosine": {
+      "rxcui": "4451",
+      "query": "Flucytosine"
+    },
+    "Fludeoxyglucose (18F)": {
+      "rxcui": "1362737",
+      "query": "Fludeoxyglucose (18F)"
+    },
+    "Flax seed": {
+      "rxcui": "318224",
+      "query": "Flax seed"
+    },
+    "Flavoxate": {
+      "rxcui": "4440",
+      "query": "Flavoxate"
+    },
+    "Flibanserin": {
+      "rxcui": "1665509",
+      "query": "Flibanserin"
+    },
+    "Fludrocortisone": {
+      "rxcui": "4452",
+      "query": "Fludrocortisone"
+    },
+    "Flumazenil": {
+      "rxcui": "4457",
+      "query": "Flumazenil"
+    },
+    "Flunisolide": {
+      "rxcui": "25120",
+      "query": "Flunisolide"
+    },
+    "Fluocinolone acetonide": {
+      "rxcui": "4461",
+      "query": "Fluocinolone acetonide"
+    },
+    "Fluorescein": {
+      "rxcui": "25138",
+      "query": "Fluorescein"
+    },
+    "Fluorometholone": {
+      "rxcui": "4491",
+      "query": "Fluorometholone"
+    },
+    "Fluocinonide": {
+      "rxcui": "4462",
+      "query": "Fluocinonide"
+    },
+    "Fluoxetine": {
+      "rxcui": "4493",
+      "query": "Fluoxetine"
+    },
+    "Fluorouracil": {
+      "rxcui": "4492",
+      "query": "Fluorouracil"
+    },
+    "Fluoxymesterone": {
+      "rxcui": "4494",
+      "query": "Fluoxymesterone"
+    },
+    "Fluphenazine": {
+      "rxcui": "4496",
+      "query": "Fluphenazine"
+    },
+    "Flunisolide (nasal)": {
+      "rxcui": "25120",
+      "query": "Flunisolide"
+    },
+    "Fluorometholone (ophthalmic)": {
+      "rxcui": "4491",
+      "query": "Fluorometholone"
+    },
+    "Flurazepam": {
+      "rxcui": "4501",
+      "query": "Flurazepam"
+    },
+    "Fluocinonide (topical)": {
+      "rxcui": "4462",
+      "query": "Fluocinonide"
+    },
+    "Flurbiprofen": {
+      "rxcui": "4502",
+      "query": "Flurbiprofen"
+    },
+    "Flutamide": {
+      "rxcui": "4508",
+      "query": "Flutamide"
+    },
+    "Fluticasone": {
+      "rxcui": "41126",
+      "query": "Fluticasone"
+    },
+    "Fluvastatin": {
+      "rxcui": "41127",
+      "query": "Fluvastatin"
+    },
+    "Flurandrenolide (topical)": {
+      "rxcui": "4500",
+      "query": "Flurandrenolide"
+    },
+    "Folic acid": {
+      "rxcui": "4511",
+      "query": "Folic acid"
+    },
+    "Fluvoxamine": {
+      "rxcui": "42355",
+      "query": "Fluvoxamine"
+    },
+    "Follitropin": {
+      "rxcui": "227518",
+      "query": "Follitropin"
+    },
+    "Fomepizole": {
+      "rxcui": "15226",
+      "query": "Fomepizole"
+    },
+    "Flurbiprofen (ophthalmic)": {
+      "rxcui": "4502",
+      "query": "Flurbiprofen"
+    },
+    "Fluticasone (nasal)": {
+      "rxcui": "41126",
+      "query": "Fluticasone"
+    },
+    "Fondaparinux": {
+      "rxcui": "321208",
+      "query": "Fondaparinux"
+    },
+    "Formoterol": {
+      "rxcui": "25255",
+      "query": "Formoterol"
+    },
+    "Fluticasone (topical)": {
+      "rxcui": "41126",
+      "query": "Fluticasone"
+    },
+    "Fosamprenavir": {
+      "rxcui": "358262",
+      "query": "Fosamprenavir"
+    },
+    "Fosaprepitant": {
+      "rxcui": "1731071",
+      "query": "Fosaprepitant"
+    },
+    "Foscarnet": {
+      "rxcui": "33562",
+      "query": "Foscarnet"
+    },
+    "Fosfomycin": {
+      "rxcui": "4550",
+      "query": "Fosfomycin"
+    },
+    "Fosinopril": {
+      "rxcui": "50166",
+      "query": "Fosinopril"
+    },
+    "Fosnetupitant": {
+      "rxcui": "2044417",
+      "query": "Fosnetupitant"
+    },
+    "Fomivirsen (ophthalmic)": {
+      "rxcui": "85763",
+      "query": "Fomivirsen"
+    },
+    "Fosphenytoin": {
+      "rxcui": "72236",
+      "query": "Fosphenytoin"
+    },
+    "Fospropofol": {
+      "rxcui": "828682",
+      "query": "Fospropofol"
+    },
+    "Fostamatinib": {
+      "rxcui": "2044896",
+      "query": "Fostamatinib"
+    },
+    "Frangula purshiana bark": {
+      "rxcui": "1350209",
+      "query": "Frangula purshiana bark"
+    },
+    "Fostemsavir": {
+      "rxcui": "2380373",
+      "query": "Fostemsavir"
+    },
+    "Frovatriptan": {
+      "rxcui": "228783",
+      "query": "Frovatriptan"
+    },
+    "Fulvestrant": {
+      "rxcui": "282357",
+      "query": "Fulvestrant"
+    },
+    "Furosemide": {
+      "rxcui": "4603",
+      "query": "Furosemide"
+    },
+    "Gabapentin": {
+      "rxcui": "25480",
+      "query": "Gabapentin"
+    },
+    "Gadobenic acid": {
+      "rxcui": null,
+      "query": null
+    },
+    "Gadofosveset trisodium": {
+      "rxcui": "1364289",
+      "query": "Gadofosveset trisodium"
+    },
+    "Gadodiamide": {
+      "rxcui": "41144",
+      "query": "Gadodiamide"
+    },
+    "Gadobutrol": {
+      "rxcui": "84990",
+      "query": "Gadobutrol"
+    },
+    "Gadopentetic acid": {
+      "rxcui": null,
+      "query": null
+    },
+    "Gadoteric acid": {
+      "rxcui": null,
+      "query": null
+    },
+    "Gadoteridol": {
+      "rxcui": "25483",
+      "query": "Gadoteridol"
+    },
+    "Gadoversetamide": {
+      "rxcui": "228833",
+      "query": "Gadoversetamide"
+    },
+    "Gadoxetic acid": {
+      "rxcui": null,
+      "query": null
+    },
+    "Galactose": {
+      "rxcui": "4626",
+      "query": "Galactose"
+    },
+    "Galantamine": {
+      "rxcui": "4637",
+      "query": "Galantamine"
+    },
+    "Gallium chloride Ga-67": {
+      "rxcui": "314639",
+      "query": "Gallium chloride Ga-67"
+    },
+    "Gallium nitrate": {
+      "rxcui": "25544",
+      "query": "Gallium nitrate"
+    },
+    "gamma-Aminobutyric acid": {
+      "rxcui": "4617",
+      "query": "gamma-Aminobutyric acid"
+    },
+    "Ganciclovir": {
+      "rxcui": "4678",
+      "query": "Ganciclovir"
+    },
+    "Ganirelix": {
+      "rxcui": "35825",
+      "query": "Ganirelix"
+    },
+    "Garlic": {
+      "rxcui": "265647",
+      "query": "Garlic"
+    },
+    "Gatifloxacin": {
+      "rxcui": "228476",
+      "query": "Gatifloxacin"
+    },
+    "Gefitinib": {
+      "rxcui": "328134",
+      "query": "Gefitinib"
+    },
+    "Gemcitabine": {
+      "rxcui": "12574",
+      "query": "Gemcitabine"
+    },
+    "Gemfibrozil": {
+      "rxcui": "4719",
+      "query": "Gemfibrozil"
+    },
+    "Gemtuzumab ozogamicin": {
+      "rxcui": "1294580",
+      "query": "Gemtuzumab ozogamicin"
+    },
+    "Gemifloxacin": {
+      "rxcui": "138099",
+      "query": "Gemifloxacin"
+    },
+    "Gentamicin": {
+      "rxcui": "1596450",
+      "query": "Gentamicin"
+    },
+    "Ginkgo biloba": {
+      "rxcui": "236809",
+      "query": "Ginkgo biloba"
+    },
+    "Gilteritinib": {
+      "rxcui": "2105806",
+      "query": "Gilteritinib"
+    },
+    "Ginger": {
+      "rxcui": "285241",
+      "query": "Ginger"
+    },
+    "Ginseng": {
+      "rxcui": "325526",
+      "query": "Ginseng"
+    },
+    "Givosiran": {
+      "rxcui": "2265712",
+      "query": "Givosiran"
+    },
+    "Glasdegib": {
+      "rxcui": "2105845",
+      "query": "Glasdegib"
+    },
+    "Glecaprevir": {
+      "rxcui": "1940635",
+      "query": "Glecaprevir"
+    },
+    "Glatiramer": {
+      "rxcui": "214582",
+      "query": "Glatiramer"
+    },
+    "Glimepiride": {
+      "rxcui": "25789",
+      "query": "Glimepiride"
+    },
+    "Gentamicin (topical)": {
+      "rxcui": "1596450",
+      "query": "Gentamicin"
+    },
+    "Glipizide": {
+      "rxcui": "4821",
+      "query": "Glipizide"
+    },
+    "Glucagon": {
+      "rxcui": "4832",
+      "query": "Glucagon"
+    },
+    "Glucarpidase": {
+      "rxcui": "1242127",
+      "query": "Glucarpidase"
+    },
+    "Glucosamine": {
+      "rxcui": "4845",
+      "query": "Glucosamine"
+    },
+    "Glyburide": {
+      "rxcui": "4815",
+      "query": "Glyburide"
+    },
+    "Glutamic acid": {
+      "rxcui": "25916",
+      "query": "Glutamic acid"
+    },
+    "Glycerin": {
+      "rxcui": "4910",
+      "query": "Glycerin"
+    },
+    "Glycerol phenylbutyrate": {
+      "rxcui": "1368451",
+      "query": "Glycerol phenylbutyrate"
+    },
+    "Glycopyrronium": {
+      "rxcui": "1546438",
+      "query": "Glycopyrronium"
+    },
+    "Goldenseal": {
+      "rxcui": "1372255",
+      "query": "Goldenseal"
+    },
+    "Golimumab": {
+      "rxcui": "819300",
+      "query": "Golimumab"
+    },
+    "Gonadorelin": {
+      "rxcui": "6384",
+      "query": "Gonadorelin"
+    },
+    "Goserelin": {
+      "rxcui": "50610",
+      "query": "Goserelin"
+    },
+    "Granisetron": {
+      "rxcui": "26237",
+      "query": "Granisetron"
+    },
+    "Grazoprevir": {
+      "rxcui": "1734630",
+      "query": "Grazoprevir"
+    },
+    "Grepafloxacin": {
+      "rxcui": "83719",
+      "query": "Grepafloxacin"
+    },
+    "Griseofulvin": {
+      "rxcui": "5021",
+      "query": "Griseofulvin"
+    },
+    "Guanabenz": {
+      "rxcui": "5033",
+      "query": "Guanabenz"
+    },
+    "Guanadrel": {
+      "rxcui": "26296",
+      "query": "Guanadrel"
+    },
+    "Glycopyrronium (topical)": {
+      "rxcui": "1546438",
+      "query": "Glycopyrronium"
+    },
+    "Guanethidine": {
+      "rxcui": "5036",
+      "query": "Guanethidine"
+    },
+    "Guanidine": {
+      "rxcui": "50675",
+      "query": "Guanidine"
+    },
+    "Guanfacine": {
+      "rxcui": "40114",
+      "query": "Guanfacine"
+    },
+    "Halazepam": {
+      "rxcui": "26412",
+      "query": "Halazepam"
+    },
+    "Guselkumab": {
+      "rxcui": "1928588",
+      "query": "Guselkumab"
+    },
+    "Halofantrine": {
+      "rxcui": "50749",
+      "query": "Halofantrine"
+    },
+    "Haloperidol": {
+      "rxcui": "5093",
+      "query": "Haloperidol"
+    },
+    "Halothane": {
+      "rxcui": "5095",
+      "query": "Halothane"
+    },
+    "Hemin": {
+      "rxcui": "5175",
+      "query": "Hemin"
+    },
+    "Heparin": {
+      "rxcui": "235473",
+      "query": "Heparin"
+    },
+    "Hepatitis A Vaccine": {
+      "rxcui": null,
+      "query": null
+    },
+    "Hepatitis B Immune Globulin": {
+      "rxcui": "26744",
+      "query": "Hepatitis B Immune Globulin"
+    },
+    "Halcinonide (topical)": {
+      "rxcui": "5084",
+      "query": "Halcinonide"
+    },
+    "Hexaminolevulinate": {
+      "rxcui": "1426872",
+      "query": "Hexaminolevulinate"
+    },
+    "Histrelin": {
+      "rxcui": "50975",
+      "query": "Histrelin"
+    },
+    "Histamine": {
+      "rxcui": "5333",
+      "query": "Histamine"
+    },
+    "Homatropine": {
+      "rxcui": "27084",
+      "query": "Homatropine"
+    },
+    "Heparin (flush)": {
+      "rxcui": "235473",
+      "query": "Heparin"
+    },
+    "Hepatitis B Vaccine (Recombinant)": {
+      "rxcui": "797752",
+      "query": "Hepatitis B Vaccine"
+    },
+    "Human adenovirus e serotype 4 strain cl-68578 antigen": {
+      "rxcui": "1299785",
+      "query": "Human adenovirus e serotype 4 strain cl-68578 antigen"
+    },
+    "Hexachlorophene (topical)": {
+      "rxcui": "5293",
+      "query": "Hexachlorophene"
+    },
+    "Human botulinum neurotoxin A/B immune globulin": {
+      "rxcui": "544488",
+      "query": "Human botulinum neurotoxin A/B immune globulin"
+    },
+    "Human C1-esterase inhibitor": {
+      "rxcui": "809864",
+      "query": "Human C1-esterase inhibitor"
+    },
+    "Human cytomegalovirus immune globulin": {
+      "rxcui": "1997443",
+      "query": "Human cytomegalovirus immune globulin"
+    },
+    "Homatropine (ophthalmic)": {
+      "rxcui": "27084",
+      "query": "Homatropine"
+    },
+    "Human papillomavirus type 11 L1 capsid protein antigen": {
+      "rxcui": "798262",
+      "query": "Human papillomavirus type 11 L1 capsid protein antigen"
+    },
+    "Human Rho(D) immune globulin": {
+      "rxcui": "1789837",
+      "query": "Human Rho(D) immune globulin"
+    },
+    "Human rabies virus immune globulin": {
+      "rxcui": "89886",
+      "query": "Human rabies virus immune globulin"
+    },
+    "Human vaccinia virus immune globulin": {
+      "rxcui": "597392",
+      "query": "Human vaccinia virus immune globulin"
+    },
+    "Human Varicella-Zoster Immune Globulin": {
+      "rxcui": "485576",
+      "query": "Human Varicella-Zoster Immune Globulin"
+    },
+    "Hyaluronic acid": {
+      "rxcui": "5463",
+      "query": "Hyaluronic acid"
+    },
+    "Human immunoglobulin G (intramuscular)": {
+      "rxcui": "1426680",
+      "query": "Human immunoglobulin G"
+    },
+    "Human immunoglobulin G (intravenous and subcutaneous)": {
+      "rxcui": "1426680",
+      "query": "Human immunoglobulin G"
+    },
+    "Human immunoglobulin G (intravenous)": {
+      "rxcui": "1426680",
+      "query": "Human immunoglobulin G"
+    },
+    "Human immunoglobulin G (subcutaneous)": {
+      "rxcui": "1426680",
+      "query": "Human immunoglobulin G"
+    },
+    "Hyaluronidase": {
+      "rxcui": "5464",
+      "query": "Hyaluronidase"
+    },
+    "Hydrochlorothiazide": {
+      "rxcui": "5487",
+      "query": "Hydrochlorothiazide"
+    },
+    "Hydralazine": {
+      "rxcui": "5470",
+      "query": "Hydralazine"
+    },
+    "Hydrocodone": {
+      "rxcui": "5489",
+      "query": "Hydrocodone"
+    },
+    "Hydrocortisone": {
+      "rxcui": "5492",
+      "query": "Hydrocortisone"
+    },
+    "Hydroflumethiazide": {
+      "rxcui": "5495",
+      "query": "Hydroflumethiazide"
+    },
+    "Hydrocortisone butyrate": {
+      "rxcui": "103468",
+      "query": "Hydrocortisone butyrate"
+    },
+    "Hydroxocobalamin": {
+      "rxcui": "5514",
+      "query": "Hydroxocobalamin"
+    },
+    "Hydromorphone": {
+      "rxcui": "3423",
+      "query": "Hydromorphone"
+    },
+    "Hydroxychloroquine": {
+      "rxcui": "5521",
+      "query": "Hydroxychloroquine"
+    },
+    "Hydroxyurea": {
+      "rxcui": "5552",
+      "query": "Hydroxyurea"
+    },
+    "Hydroxyzine": {
+      "rxcui": "5553",
+      "query": "Hydroxyzine"
+    },
+    "Hydrocortisone (ophthalmic)": {
+      "rxcui": "5492",
+      "query": "Hydrocortisone"
+    },
+    "Hydrocortisone (topical)": {
+      "rxcui": "5492",
+      "query": "Hydrocortisone"
+    },
+    "Ibandronate": {
+      "rxcui": "115264",
+      "query": "Ibandronate"
+    },
+    "Hyoscyamine": {
+      "rxcui": "153970",
+      "query": "Hyoscyamine"
+    },
+    "Ibrutinib": {
+      "rxcui": "1442981",
+      "query": "Ibrutinib"
+    },
+    "Ibritumomab tiuxetan": {
+      "rxcui": "262323",
+      "query": "Ibritumomab tiuxetan"
+    },
+    "Ibuprofen": {
+      "rxcui": "5640",
+      "query": "Ibuprofen"
+    },
+    "Hydroxyamphetamine (ophthalmic)": {
+      "rxcui": "7839",
+      "query": "Hydroxyamphetamine"
+    },
+    "Ibutilide": {
+      "rxcui": "41289",
+      "query": "Ibutilide"
+    },
+    "Icatibant": {
+      "rxcui": "1148138",
+      "query": "Icatibant"
+    },
+    "Icosapent": {
+      "rxcui": "90",
+      "query": "Icosapent"
+    },
+    "Idarubicin": {
+      "rxcui": "5650",
+      "query": "Idarubicin"
+    },
+    "Ifosfamide": {
+      "rxcui": "5657",
+      "query": "Ifosfamide"
+    },
+    "Idelalisib": {
+      "rxcui": "1544460",
+      "query": "Idelalisib"
+    },
+    "Iloperidone": {
+      "rxcui": "73178",
+      "query": "Iloperidone"
+    },
+    "Iloprost": {
+      "rxcui": "40138",
+      "query": "Iloprost"
+    },
+    "Imatinib": {
+      "rxcui": "282388",
+      "query": "Imatinib"
+    },
+    "Imiglucerase": {
+      "rxcui": "84959",
+      "query": "Imiglucerase"
+    },
+    "Imipenem": {
+      "rxcui": "5690",
+      "query": "Imipenem"
+    },
+    "Imipramine": {
+      "rxcui": "5691",
+      "query": "Imipramine"
+    },
+    "Imiquimod": {
+      "rxcui": "59943",
+      "query": "Imiquimod"
+    },
+    "Indapamide": {
+      "rxcui": "5764",
+      "query": "Indapamide"
+    },
+    "Indacaterol": {
+      "rxcui": "1114326",
+      "query": "Indacaterol"
+    },
+    "Indinavir": {
+      "rxcui": "114289",
+      "query": "Indinavir"
+    },
+    "Indium In-111 oxyquinoline": {
+      "rxcui": "1314372",
+      "query": "Indium In-111 oxyquinoline"
+    },
+    "Indium In-111 pentetate": {
+      "rxcui": null,
+      "query": null
+    },
+    "Indium In-111 pentetreotide": {
+      "rxcui": "1724429",
+      "query": "Indium In-111 pentetreotide"
+    },
+    "Inebilizumab": {
+      "rxcui": "2373951",
+      "query": "Inebilizumab"
+    },
+    "Indomethacin": {
+      "rxcui": "5781",
+      "query": "Indomethacin"
+    },
+    "Infliximab": {
+      "rxcui": "191831",
+      "query": "Infliximab"
+    },
+    "Imiquimod (topical)": {
+      "rxcui": "59943",
+      "query": "Imiquimod"
+    },
+    "Inotuzumab ozogamicin": {
+      "rxcui": "1942950",
+      "query": "Inotuzumab ozogamicin"
+    },
+    "Inotersen": {
+      "rxcui": "2099289",
+      "query": "Inotersen"
+    },
+    "Insulin detemir": {
+      "rxcui": "139825",
+      "query": "Insulin detemir"
+    },
+    "Insulin degludec": {
+      "rxcui": "1670007",
+      "query": "Insulin degludec"
+    },
+    "Insulin glargine": {
+      "rxcui": "274783",
+      "query": "Insulin glargine"
+    },
+    "Insulin glulisine": {
+      "rxcui": "400008",
+      "query": "Insulin glulisine"
+    },
+    "Influenza A virus A/California/7/2009 (H1N1)-like antigen (propiolactone inactivated)": {
+      "rxcui": null,
+      "query": null
+    },
+    "Influenza A virus A/Vietnam/1194/2004 (H5N1) antigen (formaldehyde inactivated)": {
+      "rxcui": null,
+      "query": null
+    },
+    "Insulin aspart (aspart protamine)": {
+      "rxcui": "51428",
+      "query": "Insulin aspart"
+    },
+    "Insulin aspart (aspart)": {
+      "rxcui": "51428",
+      "query": "Insulin aspart"
+    },
+    "Insulin human": {
+      "rxcui": "253182",
+      "query": "Insulin human"
+    },
+    "Interferon alfa-2a, Recombinant": {
+      "rxcui": "5879",
+      "query": "Interferon alfa-2a, Recombinant"
+    },
+    "Insulin lispro": {
+      "rxcui": "86009",
+      "query": "Insulin lispro"
+    },
+    "Interferon alfa-2b": {
+      "rxcui": "5880",
+      "query": "Interferon alfa-2b"
+    },
+    "Interferon alfa-n1": {
+      "rxcui": "202912",
+      "query": "Interferon alfa-n1"
+    },
+    "Insulin human (inhalation, rapid acting)": {
+      "rxcui": "253182",
+      "query": "Insulin human"
+    },
+    "Insulin human (isophane)": {
+      "rxcui": "253182",
+      "query": "Insulin human"
+    },
+    "Insulin human (regular)": {
+      "rxcui": "253182",
+      "query": "Insulin human"
+    },
+    "Insulin human (zinc extended)": {
+      "rxcui": "253182",
+      "query": "Insulin human"
+    },
+    "Insulin human (zinc)": {
+      "rxcui": "253182",
+      "query": "Insulin human"
+    },
+    "Insulin lispro (protamine)": {
+      "rxcui": "86009",
+      "query": "Insulin lispro"
+    },
+    "Interferon beta-1a": {
+      "rxcui": "75917",
+      "query": "Interferon beta-1a"
+    },
+    "Interferon alfacon-1": {
+      "rxcui": "59744",
+      "query": "Interferon alfacon-1"
+    },
+    "Interferon alfa-n3": {
+      "rxcui": "612937",
+      "query": "Interferon alfa-n3"
+    },
+    "Interferon beta-1b": {
+      "rxcui": "72257",
+      "query": "Interferon beta-1b"
+    },
+    "Interferon gamma-1b": {
+      "rxcui": "5882",
+      "query": "Interferon gamma-1b"
+    },
+    "Inulin": {
+      "rxcui": "5924",
+      "query": "Inulin"
+    },
+    "Iodide I-131": {
+      "rxcui": "1546394",
+      "query": "Iodide I-131"
+    },
+    "Iodide I-123": {
+      "rxcui": "1361657",
+      "query": "Iodide I-123"
+    },
+    "Iodine": {
+      "rxcui": "5933",
+      "query": "Iodine"
+    },
+    "Iodipamide": {
+      "rxcui": "5936",
+      "query": "Iodipamide"
+    },
+    "Ioflupane I-123": {
+      "rxcui": "1426874",
+      "query": "Ioflupane I-123"
+    },
+    "Iodixanol": {
+      "rxcui": "27729",
+      "query": "Iodixanol"
+    },
+    "Iohexol": {
+      "rxcui": "5956",
+      "query": "Iohexol"
+    },
+    "Iobenguane (I-131)": {
+      "rxcui": "14448",
+      "query": "Iobenguane"
+    },
+    "Iobenguane (I-123)": {
+      "rxcui": "14448",
+      "query": "Iobenguane"
+    },
+    "Iopamidol": {
+      "rxcui": "5966",
+      "query": "Iopamidol"
+    },
+    "Iopanoic acid": {
+      "rxcui": "5967",
+      "query": "Iopanoic acid"
+    },
+    "Iopodic acid": {
+      "rxcui": null,
+      "query": null
+    },
+    "Iodine (topical)": {
+      "rxcui": "5933",
+      "query": "Iodine"
+    },
+    "Iopromide": {
+      "rxcui": "27781",
+      "query": "Iopromide"
+    },
+    "Ioversol": {
+      "rxcui": "27792",
+      "query": "Ioversol"
+    },
+    "Iothalamic acid": {
+      "rxcui": "1546451",
+      "query": "Iothalamic acid"
+    },
+    "Ioxilan": {
+      "rxcui": "27793",
+      "query": "Ioxilan"
+    },
+    "Ipecac": {
+      "rxcui": "5975",
+      "query": "Ipecac"
+    },
+    "Ipilimumab": {
+      "rxcui": "1094833",
+      "query": "Ipilimumab"
+    },
+    "Ipratropium": {
+      "rxcui": "7213",
+      "query": "Ipratropium"
+    },
+    "Irbesartan": {
+      "rxcui": "83818",
+      "query": "Irbesartan"
+    },
+    "Irinotecan": {
+      "rxcui": "51499",
+      "query": "Irinotecan"
+    },
+    "Iron": {
+      "rxcui": "90176",
+      "query": "Iron"
+    },
+    "Iron Dextran": {
+      "rxcui": "5992",
+      "query": "Iron Dextran"
+    },
+    "Iron sucrose": {
+      "rxcui": "24909",
+      "query": "Iron sucrose"
+    },
+    "Iron protein succinylate": {
+      "rxcui": "27823",
+      "query": "Iron protein succinylate"
+    },
+    "Isatuximab": {
+      "rxcui": "2282018",
+      "query": "Isatuximab"
+    },
+    "Ipratropium (nasal)": {
+      "rxcui": "7213",
+      "query": "Ipratropium"
+    },
+    "Isavuconazonium": {
+      "rxcui": "1608322",
+      "query": "Isavuconazonium"
+    },
+    "Isocarboxazid": {
+      "rxcui": "6011",
+      "query": "Isocarboxazid"
+    },
+    "Isoetharine": {
+      "rxcui": "6023",
+      "query": "Isoetharine"
+    },
+    "Isoflurane": {
+      "rxcui": "6026",
+      "query": "Isoflurane"
+    },
+    "Irinotecan (liposomal)": {
+      "rxcui": "51499",
+      "query": "Irinotecan"
+    },
+    "Isometheptene": {
+      "rxcui": "27946",
+      "query": "Isometheptene"
+    },
+    "Isoniazid": {
+      "rxcui": "6038",
+      "query": "Isoniazid"
+    },
+    "Isoprenaline": {
+      "rxcui": "6054",
+      "query": "Isoprenaline"
+    },
+    "Isosorbide": {
+      "rxcui": "6057",
+      "query": "Isosorbide"
+    },
+    "Isosorbide dinitrate": {
+      "rxcui": "6058",
+      "query": "Isosorbide dinitrate"
+    },
+    "Isosorbide mononitrate": {
+      "rxcui": "28004",
+      "query": "Isosorbide mononitrate"
+    },
+    "Isotretinoin": {
+      "rxcui": "6064",
+      "query": "Isotretinoin"
+    },
+    "Isoxsuprine": {
+      "rxcui": "6066",
+      "query": "Isoxsuprine"
+    },
+    "Isradipine": {
+      "rxcui": "33910",
+      "query": "Isradipine"
+    },
+    "Isoflurophate (ophthalmic)": {
+      "rxcui": "6027",
+      "query": "Isoflurophate"
+    },
+    "Itraconazole": {
+      "rxcui": "28031",
+      "query": "Itraconazole"
+    },
+    "Istradefylline": {
+      "rxcui": "2199015",
+      "query": "Istradefylline"
+    },
+    "Ivabradine": {
+      "rxcui": "1649480",
+      "query": "Ivabradine"
+    },
+    "Ivacaftor": {
+      "rxcui": "1243041",
+      "query": "Ivacaftor"
+    },
+    "Ivermectin": {
+      "rxcui": "6069",
+      "query": "Ivermectin"
+    },
+    "Ivosidenib": {
+      "rxcui": "2049873",
+      "query": "Ivosidenib"
+    },
+    "Ixabepilone": {
+      "rxcui": "337523",
+      "query": "Ixabepilone"
+    },
+    "Ixazomib": {
+      "rxcui": "1723735",
+      "query": "Ixazomib"
+    },
+    "Ixekizumab": {
+      "rxcui": "1745099",
+      "query": "Ixekizumab"
+    },
+    "Kanamycin": {
+      "rxcui": "6099",
+      "query": "Kanamycin"
+    },
+    "Kaolin": {
+      "rxcui": "6102",
+      "query": "Kaolin"
+    },
+    "Kava": {
+      "rxcui": "285228",
+      "query": "Kava"
+    },
+    "Ketamine": {
+      "rxcui": "6130",
+      "query": "Ketamine"
+    },
+    "Ketoconazole": {
+      "rxcui": "6135",
+      "query": "Ketoconazole"
+    },
+    "Ivermectin (topical)": {
+      "rxcui": "6069",
+      "query": "Ivermectin"
+    },
+    "Ketoprofen": {
+      "rxcui": "6142",
+      "query": "Ketoprofen"
+    },
+    "Ketorolac": {
+      "rxcui": "35827",
+      "query": "Ketorolac"
+    },
+    "Lactic acid": {
+      "rxcui": "28393",
+      "query": "Lactic acid"
+    },
+    "Lacosamide": {
+      "rxcui": "623400",
+      "query": "Lacosamide"
+    },
+    "Labetalol": {
+      "rxcui": "6185",
+      "query": "Labetalol"
+    },
+    "Ketotifen": {
+      "rxcui": "6146",
+      "query": "Ketotifen"
+    },
+    "Lactitol": {
+      "rxcui": "28395",
+      "query": "Lactitol"
+    },
+    "Lactobacillus acidophilus": {
+      "rxcui": "6205",
+      "query": "Lactobacillus acidophilus"
+    },
+    "Lactulose": {
+      "rxcui": "6218",
+      "query": "Lactulose"
+    },
+    "Lamivudine": {
+      "rxcui": "68244",
+      "query": "Lamivudine"
+    },
+    "Lamotrigine": {
+      "rxcui": "28439",
+      "query": "Lamotrigine"
+    },
+    "Lanreotide": {
+      "rxcui": "68092",
+      "query": "Lanreotide"
+    },
+    "Lansoprazole": {
+      "rxcui": "17128",
+      "query": "Lansoprazole"
+    },
+    "Lanthanum carbonate": {
+      "rxcui": "234416",
+      "query": "Lanthanum carbonate"
+    },
+    "Lapatinib": {
+      "rxcui": "480167",
+      "query": "Lapatinib"
+    },
+    "Ketorolac (ophthalmic)": {
+      "rxcui": "35827",
+      "query": "Ketorolac"
+    },
+    "Laronidase": {
+      "rxcui": "392509",
+      "query": "Laronidase"
+    },
+    "Larotrectinib": {
+      "rxcui": "2105628",
+      "query": "Larotrectinib"
+    },
+    "Lasmiditan": {
+      "rxcui": "2256930",
+      "query": "Lasmiditan"
+    },
+    "Latanoprost": {
+      "rxcui": "43611",
+      "query": "Latanoprost"
+    },
+    "Lefamulin": {
+      "rxcui": "2198944",
+      "query": "Lefamulin"
+    },
+    "Ledipasvir": {
+      "rxcui": "1591922",
+      "query": "Ledipasvir"
+    },
+    "Leflunomide": {
+      "rxcui": "27169",
+      "query": "Leflunomide"
+    },
+    "Lemborexant": {
+      "rxcui": "2272403",
+      "query": "Lemborexant"
+    },
+    "Lenalidomide": {
+      "rxcui": "342369",
+      "query": "Lenalidomide"
+    },
+    "Lenvatinib": {
+      "rxcui": "1603296",
+      "query": "Lenvatinib"
+    },
+    "Lesinurad": {
+      "rxcui": "1731031",
+      "query": "Lesinurad"
+    },
+    "Lepirudin": {
+      "rxcui": "237057",
+      "query": "Lepirudin"
+    },
+    "Latanoprost (ophthalmic)": {
+      "rxcui": "43611",
+      "query": "Latanoprost"
+    },
+    "Letermovir": {
+      "rxcui": "1988648",
+      "query": "Letermovir"
+    },
+    "Letrozole": {
+      "rxcui": "72965",
+      "query": "Letrozole"
+    },
+    "Latanoprostene bunod (ophthalmic)": {
+      "rxcui": "1988390",
+      "query": "Latanoprostene bunod"
+    },
+    "Leucovorin": {
+      "rxcui": "6313",
+      "query": "Leucovorin"
+    },
+    "Leuprolide": {
+      "rxcui": "42375",
+      "query": "Leuprolide"
+    },
+    "Levacetylmethadol": {
+      "rxcui": null,
+      "query": null
+    },
+    "Levamisole": {
+      "rxcui": "6371",
+      "query": "Levamisole"
+    },
+    "Levetiracetam": {
+      "rxcui": "114477",
+      "query": "Levetiracetam"
+    },
+    "Levamlodipine": {
+      "rxcui": "2376944",
+      "query": "Levamlodipine"
+    },
+    "Levobunolol": {
+      "rxcui": "1813",
+      "query": "Levobunolol"
+    },
+    "Levobupivacaine": {
+      "rxcui": "259453",
+      "query": "Levobupivacaine"
+    },
+    "Levocarnitine": {
+      "rxcui": "42955",
+      "query": "Levocarnitine"
+    },
+    "Levocetirizine": {
+      "rxcui": "356887",
+      "query": "Levocetirizine"
+    },
+    "Levodopa": {
+      "rxcui": "6375",
+      "query": "Levodopa"
+    },
+    "Levoleucovorin": {
+      "rxcui": "877015",
+      "query": "Levoleucovorin"
+    },
+    "Levofloxacin": {
+      "rxcui": "82122",
+      "query": "Levofloxacin"
+    },
+    "Levmetamfetamine (nasal)": {
+      "rxcui": "1314416",
+      "query": "Levmetamfetamine"
+    },
+    "Levomefolic acid": {
+      "rxcui": "1025342",
+      "query": "Levomefolic acid"
+    },
+    "Levobetaxolol (ophthalmic)": {
+      "rxcui": "353497",
+      "query": "Levobetaxolol"
+    },
+    "Levobunolol (ophthalmic)": {
+      "rxcui": "1813",
+      "query": "Levobunolol"
+    },
+    "Levomilnacipran": {
+      "rxcui": "1433212",
+      "query": "Levomilnacipran"
+    },
+    "Levonorgestrel": {
+      "rxcui": "6373",
+      "query": "Levonorgestrel"
+    },
+    "Levonordefrin": {
+      "rxcui": "132889",
+      "query": "Levonordefrin"
+    },
+    "Levosalbutamol": {
+      "rxcui": "237159",
+      "query": "Levosalbutamol"
+    },
+    "Levorphanol": {
+      "rxcui": "6378",
+      "query": "Levorphanol"
+    },
+    "Licorice": {
+      "rxcui": "1010954",
+      "query": "Licorice"
+    },
+    "Lidocaine": {
+      "rxcui": "6387",
+      "query": "Lidocaine"
+    },
+    "Levothyroxine": {
+      "rxcui": "10582",
+      "query": "Levothyroxine"
+    },
+    "Levomefolic acid (calcium)": {
+      "rxcui": "1025342",
+      "query": "Levomefolic acid"
+    },
+    "Linagliptin": {
+      "rxcui": "1100699",
+      "query": "Linagliptin"
+    },
+    "Linaclotide": {
+      "rxcui": "1307404",
+      "query": "Linaclotide"
+    },
+    "Lindane": {
+      "rxcui": "1388",
+      "query": "Lindane"
+    },
+    "Lincomycin": {
+      "rxcui": "6398",
+      "query": "Lincomycin"
+    },
+    "Liothyronine": {
+      "rxcui": "10814",
+      "query": "Liothyronine"
+    },
+    "Linezolid": {
+      "rxcui": "190376",
+      "query": "Linezolid"
+    },
+    "Liotrix": {
+      "rxcui": null,
+      "query": null
+    },
+    "Lidocaine (ophthalmic)": {
+      "rxcui": "6387",
+      "query": "Lidocaine"
+    },
+    "Lipoic acid": {
+      "rxcui": "6417",
+      "query": "Lipoic acid"
+    },
+    "Lidocaine (topical)": {
+      "rxcui": "6387",
+      "query": "Lidocaine"
+    },
+    "Liraglutide": {
+      "rxcui": "475968",
+      "query": "Liraglutide"
+    },
+    "Lisdexamfetamine": {
+      "rxcui": "700810",
+      "query": "Lisdexamfetamine"
+    },
+    "Lisinopril": {
+      "rxcui": "29046",
+      "query": "Lisinopril"
+    },
+    "Lisocabtagene maraleucel": {
+      "rxcui": "2479136",
+      "query": "Lisocabtagene maraleucel"
+    },
+    "Lomefloxacin": {
+      "rxcui": "28872",
+      "query": "Lomefloxacin"
+    },
+    "Lofexidine": {
+      "rxcui": "28863",
+      "query": "Lofexidine"
+    },
+    "Lithium carbonate": {
+      "rxcui": "42351",
+      "query": "Lithium carbonate"
+    },
+    "Lixisenatide": {
+      "rxcui": "1440051",
+      "query": "Lixisenatide"
+    },
+    "Lomitapide": {
+      "rxcui": "1364479",
+      "query": "Lomitapide"
+    },
+    "Lomustine": {
+      "rxcui": "6466",
+      "query": "Lomustine"
+    },
+    "Lonafarnib": {
+      "rxcui": "2467553",
+      "query": "Lonafarnib"
+    },
+    "Loperamide": {
+      "rxcui": "6468",
+      "query": "Loperamide"
+    },
+    "Lopinavir": {
+      "rxcui": "195088",
+      "query": "Lopinavir"
+    },
+    "Loracarbef": {
+      "rxcui": "28981",
+      "query": "Loracarbef"
+    },
+    "Loratadine": {
+      "rxcui": "28889",
+      "query": "Loratadine"
+    },
+    "Lorazepam": {
+      "rxcui": "6470",
+      "query": "Lorazepam"
+    },
+    "Lorcaserin": {
+      "rxcui": "1300701",
+      "query": "Lorcaserin"
+    },
+    "Lorlatinib": {
+      "rxcui": "2103164",
+      "query": "Lorlatinib"
+    },
+    "Lovastatin": {
+      "rxcui": "6472",
+      "query": "Lovastatin"
+    },
+    "Loteprednol etabonate": {
+      "rxcui": "52177",
+      "query": "Loteprednol etabonate"
+    },
+    "Losartan": {
+      "rxcui": "52175",
+      "query": "Losartan"
+    },
+    "Loxapine": {
+      "rxcui": "6475",
+      "query": "Loxapine"
+    },
+    "Lubiprostone": {
+      "rxcui": "623033",
+      "query": "Lubiprostone"
+    },
+    "Lumacaftor": {
+      "rxcui": "1655922",
+      "query": "Lumacaftor"
+    },
+    "Lumateperone": {
+      "rxcui": "2275602",
+      "query": "Lumateperone"
+    },
+    "Lumefantrine": {
+      "rxcui": "847728",
+      "query": "Lumefantrine"
+    },
+    "Lurasidone": {
+      "rxcui": "1040028",
+      "query": "Lurasidone"
+    },
+    "Lurbinectedin": {
+      "rxcui": "2374729",
+      "query": "Lurbinectedin"
+    },
+    "Lusutrombopag": {
+      "rxcui": "2054984",
+      "query": "Lusutrombopag"
+    },
+    "Loteprednol (ophthalmic)": {
+      "rxcui": "237027",
+      "query": "Loteprednol"
+    },
+    "Lyme disease vaccine (recombinant OspA)": {
+      "rxcui": "54214",
+      "query": "Lyme disease vaccine (recombinant OspA)"
+    },
+    "Lutein": {
+      "rxcui": "11359",
+      "query": "Lutein"
+    },
+    "Lutetium Lu 177 dotatate": {
+      "rxcui": "1999335",
+      "query": "Lutetium Lu 177 dotatate"
+    },
+    "Macimorelin": {
+      "rxcui": "1999420",
+      "query": "Macimorelin"
+    },
+    "Macitentan": {
+      "rxcui": "1442132",
+      "query": "Macitentan"
+    },
+    "Magaldrate": {
+      "rxcui": "29151",
+      "query": "Magaldrate"
+    },
+    "Magnesium carbonate": {
+      "rxcui": "29155",
+      "query": "Magnesium carbonate"
+    },
+    "Magnesium chloride": {
+      "rxcui": "6579",
+      "query": "Magnesium chloride"
+    },
+    "Magnesium citrate": {
+      "rxcui": "52356",
+      "query": "Magnesium citrate"
+    },
+    "Magnesium gluconate": {
+      "rxcui": "52358",
+      "query": "Magnesium gluconate"
+    },
+    "Magnesium glycinate": {
+      "rxcui": "476818",
+      "query": "Magnesium glycinate"
+    },
+    "Magnesium hydroxide": {
+      "rxcui": "6581",
+      "query": "Magnesium hydroxide"
+    },
+    "Magnesium oxide": {
+      "rxcui": "6582",
+      "query": "Magnesium oxide"
+    },
+    "Magnesium sulfate": {
+      "rxcui": "6585",
+      "query": "Magnesium sulfate"
+    },
+    "Mannitol": {
+      "rxcui": "6628",
+      "query": "Mannitol"
+    },
+    "Maprotiline": {
+      "rxcui": "6646",
+      "query": "Maprotiline"
+    },
+    "Maraviroc": {
+      "rxcui": "620216",
+      "query": "Maraviroc"
+    },
+    "Mazindol": {
+      "rxcui": "6664",
+      "query": "Mazindol"
+    },
+    "Measles virus vaccine live attenuated": {
+      "rxcui": "804179",
+      "query": "Measles virus vaccine live attenuated"
+    },
+    "Mebendazole": {
+      "rxcui": "6672",
+      "query": "Mebendazole"
+    },
+    "Mebrofenin": {
+      "rxcui": "1311500",
+      "query": "Mebrofenin"
+    },
+    "Manganese (chloride)": {
+      "rxcui": "6623",
+      "query": "Manganese"
+    },
+    "Mecamylamine": {
+      "rxcui": "6673",
+      "query": "Mecamylamine"
+    },
+    "Manganese (sulfate)": {
+      "rxcui": "6623",
+      "query": "Manganese"
+    },
+    "Mecasermin": {
+      "rxcui": "274403",
+      "query": "Mecasermin"
+    },
+    "Mechlorethamine": {
+      "rxcui": "6674",
+      "query": "Mechlorethamine"
+    },
+    "Mecasermin rinfabate": {
+      "rxcui": "616877",
+      "query": "Mecasermin rinfabate"
+    },
+    "Meclofenamic acid": {
+      "rxcui": "6678",
+      "query": "Meclofenamic acid"
+    },
+    "Meclizine": {
+      "rxcui": "6676",
+      "query": "Meclizine"
+    },
+    "Mecobalamin": {
+      "rxcui": "29421",
+      "query": "Mecobalamin"
+    },
+    "Medroxyprogesterone acetate": {
+      "rxcui": "1000112",
+      "query": "Medroxyprogesterone acetate"
+    },
+    "Mefloquine": {
+      "rxcui": "6694",
+      "query": "Mefloquine"
+    },
+    "Mefenamic acid": {
+      "rxcui": "6693",
+      "query": "Mefenamic acid"
+    },
+    "Megestrol acetate": {
+      "rxcui": "29451",
+      "query": "Megestrol acetate"
+    },
+    "Meloxicam": {
+      "rxcui": "41493",
+      "query": "Meloxicam"
+    },
+    "Melatonin": {
+      "rxcui": "6711",
+      "query": "Melatonin"
+    },
+    "Melphalan": {
+      "rxcui": "6718",
+      "query": "Melphalan"
+    },
+    "Melphalan flufenamide": {
+      "rxcui": "2531369",
+      "query": "Melphalan flufenamide"
+    },
+    "Memantine": {
+      "rxcui": "6719",
+      "query": "Memantine"
+    },
+    "Meningococcal polysaccharide vaccine group C": {
+      "rxcui": "29503",
+      "query": "Meningococcal polysaccharide vaccine group C"
+    },
+    "Menotropins": {
+      "rxcui": null,
+      "query": null
+    },
+    "Medrysone (ophthalmic)": {
+      "rxcui": "29439",
+      "query": "Medrysone"
+    },
+    "Mepenzolate": {
+      "rxcui": "107770",
+      "query": "Mepenzolate"
+    },
+    "Meperidine": {
+      "rxcui": "6754",
+      "query": "Meperidine"
+    },
+    "Mephenytoin": {
+      "rxcui": "6757",
+      "query": "Mephenytoin"
+    },
+    "Mephentermine": {
+      "rxcui": "6756",
+      "query": "Mephentermine"
+    },
+    "Meprobamate": {
+      "rxcui": "6760",
+      "query": "Meprobamate"
+    },
+    "Mepivacaine": {
+      "rxcui": "6759",
+      "query": "Mepivacaine"
+    },
+    "Mepyramine": {
+      "rxcui": "9009",
+      "query": "Mepyramine"
+    },
+    "Mercaptopurine": {
+      "rxcui": "103",
+      "query": "Mercaptopurine"
+    },
+    "Meropenem": {
+      "rxcui": "29561",
+      "query": "Meropenem"
+    },
+    "Mesalazine": {
+      "rxcui": "52582",
+      "query": "Mesalazine"
+    },
+    "Mesoridazine": {
+      "rxcui": "6779",
+      "query": "Mesoridazine"
+    },
+    "Mestranol": {
+      "rxcui": "6782",
+      "query": "Mestranol"
+    },
+    "Metaraminol": {
+      "rxcui": "6805",
+      "query": "Metaraminol"
+    },
+    "Metaxalone": {
+      "rxcui": "59078",
+      "query": "Metaxalone"
+    },
+    "Metformin": {
+      "rxcui": "6809",
+      "query": "Metformin"
+    },
+    "Metamfetamine": {
+      "rxcui": "6816",
+      "query": "Metamfetamine"
+    },
+    "Methacholine": {
+      "rxcui": "155080",
+      "query": "Methacholine"
+    },
+    "Methadone": {
+      "rxcui": "6813",
+      "query": "Methadone"
+    },
+    "Methazolamide": {
+      "rxcui": "6826",
+      "query": "Methazolamide"
+    },
+    "Methdilazine": {
+      "rxcui": "29648",
+      "query": "Methdilazine"
+    },
+    "Methenamine": {
+      "rxcui": "6832",
+      "query": "Methenamine"
+    },
+    "Methimazole": {
+      "rxcui": "6835",
+      "query": "Methimazole"
+    },
+    "Methionine": {
+      "rxcui": "6837",
+      "query": "Methionine"
+    },
+    "Methohexital": {
+      "rxcui": "6847",
+      "query": "Methohexital"
+    },
+    "Methocarbamol": {
+      "rxcui": "6845",
+      "query": "Methocarbamol"
+    },
+    "Methotrexate": {
+      "rxcui": "6851",
+      "query": "Methotrexate"
+    },
+    "Methotrimeprazine": {
+      "rxcui": "6852",
+      "query": "Methotrimeprazine"
+    },
+    "Methoxamine": {
+      "rxcui": "6853",
+      "query": "Methoxamine"
+    },
+    "Methoxsalen": {
+      "rxcui": "6854",
+      "query": "Methoxsalen"
+    },
+    "Methoxyflurane": {
+      "rxcui": "6857",
+      "query": "Methoxyflurane"
+    },
+    "Methscopolamine": {
+      "rxcui": "89785",
+      "query": "Methscopolamine"
+    },
+    "Methsuximide": {
+      "rxcui": "47858",
+      "query": "Methsuximide"
+    },
+    "Methylcellulose": {
+      "rxcui": "6873",
+      "query": "Methylcellulose"
+    },
+    "Methylene blue": {
+      "rxcui": "6878",
+      "query": "Methylene blue"
+    },
+    "Methyldopa": {
+      "rxcui": "6876",
+      "query": "Methyldopa"
+    },
+    "Methylergometrine": {
+      "rxcui": "6883",
+      "query": "Methylergometrine"
+    },
+    "Methoxsalen (topical)": {
+      "rxcui": "6854",
+      "query": "Methoxsalen"
+    },
+    "Methylnaltrexone": {
+      "rxcui": "29899",
+      "query": "Methylnaltrexone"
+    },
+    "Methylphenidate": {
+      "rxcui": "6901",
+      "query": "Methylphenidate"
+    },
+    "Methylphenobarbital": {
+      "rxcui": "6758",
+      "query": "Methylphenobarbital"
+    },
+    "Methyl aminolevulinate (topical)": {
+      "rxcui": "337068",
+      "query": "Methyl aminolevulinate"
+    },
+    "Methylprednisolone": {
+      "rxcui": "6902",
+      "query": "Methylprednisolone"
+    },
+    "Methyl salicylate (topical)": {
+      "rxcui": "29787",
+      "query": "Methyl salicylate"
+    },
+    "Methysergide": {
+      "rxcui": "6911",
+      "query": "Methysergide"
+    },
+    "Meticillin": {
+      "rxcui": "2181306",
+      "query": "Meticillin"
+    },
+    "Methyltestosterone": {
+      "rxcui": "6904",
+      "query": "Methyltestosterone"
+    },
+    "Metoclopramide": {
+      "rxcui": "6915",
+      "query": "Metoclopramide"
+    },
+    "Metocurine": {
+      "rxcui": "29950",
+      "query": "Metocurine"
+    },
+    "Metolazone": {
+      "rxcui": "6916",
+      "query": "Metolazone"
+    },
+    "Metreleptin": {
+      "rxcui": "1491625",
+      "query": "Metreleptin"
+    },
+    "Metoprolol": {
+      "rxcui": "6918",
+      "query": "Metoprolol"
+    },
+    "Metronidazole": {
+      "rxcui": "6922",
+      "query": "Metronidazole"
+    },
+    "Metipranolol (ophthalmic)": {
+      "rxcui": "10824",
+      "query": "Metipranolol"
+    },
+    "Methylprednisolone (topical)": {
+      "rxcui": "6902",
+      "query": "Methylprednisolone"
+    },
+    "Metyrapone": {
+      "rxcui": "6923",
+      "query": "Metyrapone"
+    },
+    "Metyrosine": {
+      "rxcui": "266604",
+      "query": "Metyrosine"
+    },
+    "Mexiletine": {
+      "rxcui": "6926",
+      "query": "Mexiletine"
+    },
+    "Micafungin": {
+      "rxcui": "325887",
+      "query": "Micafungin"
+    },
+    "Mezlocillin": {
+      "rxcui": "6927",
+      "query": "Mezlocillin"
+    },
+    "Miconazole": {
+      "rxcui": "6932",
+      "query": "Miconazole"
+    },
+    "Microcrystalline cellulose": {
+      "rxcui": "1000577",
+      "query": "Microcrystalline cellulose"
+    },
+    "Metronidazole (topical)": {
+      "rxcui": "6922",
+      "query": "Metronidazole"
+    },
+    "Midazolam": {
+      "rxcui": "6960",
+      "query": "Midazolam"
+    },
+    "Midodrine": {
+      "rxcui": "6963",
+      "query": "Midodrine"
+    },
+    "Midostaurin": {
+      "rxcui": "1919083",
+      "query": "Midostaurin"
+    },
+    "Mifepristone": {
+      "rxcui": "6964",
+      "query": "Mifepristone"
+    },
+    "Miglitol": {
+      "rxcui": "30009",
+      "query": "Miglitol"
+    },
+    "Migalastat": {
+      "rxcui": "2054252",
+      "query": "Migalastat"
+    },
+    "Miglustat": {
+      "rxcui": "402316",
+      "query": "Miglustat"
+    },
+    "Miconazole (topical)": {
+      "rxcui": "6932",
+      "query": "Miconazole"
+    },
+    "Milk thistle": {
+      "rxcui": "259274",
+      "query": "Milk thistle"
+    },
+    "Milnacipran": {
+      "rxcui": "588250",
+      "query": "Milnacipran"
+    },
+    "Miltefosine": {
+      "rxcui": "1494066",
+      "query": "Miltefosine"
+    },
+    "Milrinone": {
+      "rxcui": "52769",
+      "query": "Milrinone"
+    },
+    "Mineral oil": {
+      "rxcui": "6972",
+      "query": "Mineral oil"
+    },
+    "Minocycline": {
+      "rxcui": "6980",
+      "query": "Minocycline"
+    },
+    "Minoxidil": {
+      "rxcui": "6984",
+      "query": "Minoxidil"
+    },
+    "Mirabegron": {
+      "rxcui": "1300786",
+      "query": "Mirabegron"
+    },
+    "Mipomersen": {
+      "rxcui": "1367839",
+      "query": "Mipomersen"
+    },
+    "Mirtazapine": {
+      "rxcui": "15996",
+      "query": "Mirtazapine"
+    },
+    "Mitomycin": {
+      "rxcui": "632",
+      "query": "Mitomycin"
+    },
+    "Misoprostol": {
+      "rxcui": "42331",
+      "query": "Misoprostol"
+    },
+    "Mitotane": {
+      "rxcui": "7004",
+      "query": "Mitotane"
+    },
+    "Minocycline (topical)": {
+      "rxcui": "6980",
+      "query": "Minocycline"
+    },
+    "Mitoxantrone": {
+      "rxcui": "7005",
+      "query": "Mitoxantrone"
+    },
+    "Mivacurium": {
+      "rxcui": "30077",
+      "query": "Mivacurium"
+    },
+    "Minoxidil (topical)": {
+      "rxcui": "6984",
+      "query": "Minoxidil"
+    },
+    "Modafinil": {
+      "rxcui": "30125",
+      "query": "Modafinil"
+    },
+    "Moexipril": {
+      "rxcui": "30131",
+      "query": "Moexipril"
+    },
+    "Mogamulizumab": {
+      "rxcui": "2054068",
+      "query": "Mogamulizumab"
+    },
+    "Molindone": {
+      "rxcui": "7019",
+      "query": "Molindone"
+    },
+    "Monomethyl fumarate": {
+      "rxcui": "1546433",
+      "query": "Monomethyl fumarate"
+    },
+    "Montelukast": {
+      "rxcui": "88249",
+      "query": "Montelukast"
+    },
+    "Monopotassium phosphate": {
+      "rxcui": "55019",
+      "query": "Monopotassium phosphate"
+    },
+    "Morphine": {
+      "rxcui": "7052",
+      "query": "Morphine"
+    },
+    "Moricizine": {
+      "rxcui": "40169",
+      "query": "Moricizine"
+    },
+    "Moxifloxacin": {
+      "rxcui": "139462",
+      "query": "Moxifloxacin"
+    },
+    "Moxetumomab Pasudotox": {
+      "rxcui": "2099295",
+      "query": "Moxetumomab Pasudotox"
+    },
+    "Mumps virus strain B level jeryl lynn live antigen": {
+      "rxcui": "798372",
+      "query": "Mumps virus strain B level jeryl lynn live antigen"
+    },
+    "Mupirocin": {
+      "rxcui": "42372",
+      "query": "Mupirocin"
+    },
+    "Muromonab": {
+      "rxcui": "42405",
+      "query": "Muromonab"
+    },
+    "Mycophenolate mofetil": {
+      "rxcui": "68149",
+      "query": "Mycophenolate mofetil"
+    },
+    "Mycophenolic acid": {
+      "rxcui": "7145",
+      "query": "Mycophenolic acid"
+    },
+    "Morphine (liposomal)": {
+      "rxcui": "7052",
+      "query": "Morphine"
+    },
+    "Nabilone": {
+      "rxcui": "31447",
+      "query": "Nabilone"
+    },
+    "Nabumetone": {
+      "rxcui": "31448",
+      "query": "Nabumetone"
+    },
+    "Nafcillin": {
+      "rxcui": "7233",
+      "query": "Nafcillin"
+    },
+    "Nadolol": {
+      "rxcui": "7226",
+      "query": "Nadolol"
+    },
+    "Nalbuphine": {
+      "rxcui": "7238",
+      "query": "Nalbuphine"
+    },
+    "Naldemedine": {
+      "rxcui": "1876597",
+      "query": "Naldemedine"
+    },
+    "Nalidixic acid": {
+      "rxcui": "7240",
+      "query": "Nalidixic acid"
+    },
+    "Nalmefene": {
+      "rxcui": "31479",
+      "query": "Nalmefene"
+    },
+    "Naloxegol": {
+      "rxcui": "1551777",
+      "query": "Naloxegol"
+    },
+    "Naloxone": {
+      "rxcui": "7242",
+      "query": "Naloxone"
+    },
+    "Naltrexone": {
+      "rxcui": "7243",
+      "query": "Naltrexone"
+    },
+    "Naproxen": {
+      "rxcui": "7258",
+      "query": "Naproxen"
+    },
+    "Naratriptan": {
+      "rxcui": "141366",
+      "query": "Naratriptan"
+    },
+    "Natalizumab": {
+      "rxcui": "354770",
+      "query": "Natalizumab"
+    },
+    "Nateglinide": {
+      "rxcui": "274332",
+      "query": "Nateglinide"
+    },
+    "Naxitamab": {
+      "rxcui": "2474039",
+      "query": "Naxitamab"
+    },
+    "Necitumumab": {
+      "rxcui": "1723738",
+      "query": "Necitumumab"
+    },
+    "Nebivolol": {
+      "rxcui": "31555",
+      "query": "Nebivolol"
+    },
+    "Nedocromil": {
+      "rxcui": "31563",
+      "query": "Nedocromil"
+    },
+    "Naphazoline (nasal)": {
+      "rxcui": "7247",
+      "query": "Naphazoline"
+    },
+    "Naphazoline (ophthalmic)": {
+      "rxcui": "7247",
+      "query": "Naphazoline"
+    },
+    "Nefazodone": {
+      "rxcui": "31565",
+      "query": "Nefazodone"
+    },
+    "Nelarabine": {
+      "rxcui": "274771",
+      "query": "Nelarabine"
+    },
+    "Neostigmine": {
+      "rxcui": "7315",
+      "query": "Neostigmine"
+    },
+    "Nelfinavir": {
+      "rxcui": "134527",
+      "query": "Nelfinavir"
+    },
+    "Neratinib": {
+      "rxcui": "1940643",
+      "query": "Neratinib"
+    },
+    "Neomycin": {
+      "rxcui": "7299",
+      "query": "Neomycin"
+    },
+    "Nesiritide": {
+      "rxcui": "19666",
+      "query": "Nesiritide"
+    },
+    "Netilmicin": {
+      "rxcui": "7337",
+      "query": "Netilmicin"
+    },
+    "Netupitant": {
+      "rxcui": "1552337",
+      "query": "Netupitant"
+    },
+    "Nevirapine": {
+      "rxcui": "53654",
+      "query": "Nevirapine"
+    },
+    "Niacin": {
+      "rxcui": "7393",
+      "query": "Niacin"
+    },
+    "Nepafenac (ophthalmic)": {
+      "rxcui": "298665",
+      "query": "Nepafenac"
+    },
+    "Nicotinamide": {
+      "rxcui": "7405",
+      "query": "Nicotinamide"
+    },
+    "Neomycin (topical)": {
+      "rxcui": "7299",
+      "query": "Neomycin"
+    },
+    "Niclosamide": {
+      "rxcui": "7402",
+      "query": "Niclosamide"
+    },
+    "Nicardipine": {
+      "rxcui": "7396",
+      "query": "Nicardipine"
+    },
+    "Nicotine": {
+      "rxcui": "7407",
+      "query": "Nicotine"
+    },
+    "Nifedipine": {
+      "rxcui": "7417",
+      "query": "Nifedipine"
+    },
+    "Nifurtimox": {
+      "rxcui": "7421",
+      "query": "Nifurtimox"
+    },
+    "Nilotinib": {
+      "rxcui": "662281",
+      "query": "Nilotinib"
+    },
+    "Nilutamide": {
+      "rxcui": "31805",
+      "query": "Nilutamide"
+    },
+    "Nintedanib": {
+      "rxcui": "1592737",
+      "query": "Nintedanib"
+    },
+    "Nimodipine": {
+      "rxcui": "7426",
+      "query": "Nimodipine"
+    },
+    "Niraparib": {
+      "rxcui": "1918231",
+      "query": "Niraparib"
+    },
+    "Nitazoxanide": {
+      "rxcui": "31819",
+      "query": "Nitazoxanide"
+    },
+    "Nisoldipine": {
+      "rxcui": "7435",
+      "query": "Nisoldipine"
+    },
+    "Nitisinone": {
+      "rxcui": "61805",
+      "query": "Nitisinone"
+    },
+    "Nitrazepam": {
+      "rxcui": "7440",
+      "query": "Nitrazepam"
+    },
+    "Nitric Oxide": {
+      "rxcui": "7442",
+      "query": "Nitric Oxide"
+    },
+    "Nitrofurantoin": {
+      "rxcui": "7454",
+      "query": "Nitrofurantoin"
+    },
+    "Nitroglycerin": {
+      "rxcui": "4917",
+      "query": "Nitroglycerin"
+    },
+    "Nitroprusside": {
+      "rxcui": "7476",
+      "query": "Nitroprusside"
+    },
+    "Nitrous acid": {
+      "rxcui": null,
+      "query": null
+    },
+    "Nitrous oxide": {
+      "rxcui": "7486",
+      "query": "Nitrous oxide"
+    },
+    "Nizatidine": {
+      "rxcui": "42319",
+      "query": "Nizatidine"
+    },
+    "Nivolumab": {
+      "rxcui": "1597876",
+      "query": "Nivolumab"
+    },
+    "Norelgestromin": {
+      "rxcui": "326374",
+      "query": "Norelgestromin"
+    },
+    "Norepinephrine": {
+      "rxcui": "7512",
+      "query": "Norepinephrine"
+    },
+    "Norethisterone": {
+      "rxcui": "7514",
+      "query": "Norethisterone"
+    },
+    "Norfloxacin": {
+      "rxcui": "7517",
+      "query": "Norfloxacin"
+    },
+    "Norgestimate": {
+      "rxcui": "31994",
+      "query": "Norgestimate"
+    },
+    "Norgestrel": {
+      "rxcui": "7518",
+      "query": "Norgestrel"
+    },
+    "Novobiocin": {
+      "rxcui": "7538",
+      "query": "Novobiocin"
+    },
+    "Nortriptyline": {
+      "rxcui": "7531",
+      "query": "Nortriptyline"
+    },
+    "Nystatin": {
+      "rxcui": "7597",
+      "query": "Nystatin"
+    },
+    "Obeticholic acid": {
+      "rxcui": "1798288",
+      "query": "Obeticholic acid"
+    },
+    "Obinutuzumab": {
+      "rxcui": "974779",
+      "query": "Obinutuzumab"
+    },
+    "Ocrelizumab": {
+      "rxcui": "1876366",
+      "query": "Ocrelizumab"
+    },
+    "Octreotide": {
+      "rxcui": "7617",
+      "query": "Octreotide"
+    },
+    "Ofatumumab": {
+      "rxcui": "712566",
+      "query": "Ofatumumab"
+    },
+    "Ofloxacin": {
+      "rxcui": "7623",
+      "query": "Ofloxacin"
+    },
+    "Olanzapine": {
+      "rxcui": "61381",
+      "query": "Olanzapine"
+    },
+    "Olaparib": {
+      "rxcui": "1597582",
+      "query": "Olaparib"
+    },
+    "Olaratumab": {
+      "rxcui": "1855735",
+      "query": "Olaratumab"
+    },
+    "Oliceridine": {
+      "rxcui": "2392230",
+      "query": "Oliceridine"
+    },
+    "Olmesartan": {
+      "rxcui": "321064",
+      "query": "Olmesartan"
+    },
+    "Octasulfur (topical)": {
+      "rxcui": null,
+      "query": null
+    },
+    "Olodaterol": {
+      "rxcui": "1546059",
+      "query": "Olodaterol"
+    },
+    "Olopatadine": {
+      "rxcui": "135391",
+      "query": "Olopatadine"
+    },
+    "Olsalazine": {
+      "rxcui": "32385",
+      "query": "Olsalazine"
+    },
+    "Omadacycline": {
+      "rxcui": "2059269",
+      "query": "Omadacycline"
+    },
+    "Omacetaxine mepesuccinate": {
+      "rxcui": "27100",
+      "query": "Omacetaxine mepesuccinate"
+    },
+    "Omalizumab": {
+      "rxcui": "302379",
+      "query": "Omalizumab"
+    },
+    "Ombitasvir": {
+      "rxcui": "1597371",
+      "query": "Ombitasvir"
+    },
+    "Omega-3 fatty acids": {
+      "rxcui": "4301",
+      "query": "Omega-3 fatty acids"
+    },
+    "Onasemnogene abeparvovec": {
+      "rxcui": "2170226",
+      "query": "Onasemnogene abeparvovec"
+    },
+    "Omeprazole": {
+      "rxcui": "7646",
+      "query": "Omeprazole"
+    },
+    "Ondansetron": {
+      "rxcui": "26225",
+      "query": "Ondansetron"
+    },
+    "Olopatadine (nasal)": {
+      "rxcui": "135391",
+      "query": "Olopatadine"
+    },
+    "Opicapone": {
+      "rxcui": "2362167",
+      "query": "Opicapone"
+    },
+    "Opium": {
+      "rxcui": "7676",
+      "query": "Opium"
+    },
+    "Oprelvekin": {
+      "rxcui": "139994",
+      "query": "Oprelvekin"
+    },
+    "Oritavancin": {
+      "rxcui": "1547611",
+      "query": "Oritavancin"
+    },
+    "Orciprenaline": {
+      "rxcui": "7688",
+      "query": "Orciprenaline"
+    },
+    "Orlistat": {
+      "rxcui": "37925",
+      "query": "Orlistat"
+    },
+    "Orphenadrine": {
+      "rxcui": "7715",
+      "query": "Orphenadrine"
+    },
+    "Oseltamivir": {
+      "rxcui": "260101",
+      "query": "Oseltamivir"
+    },
+    "Osilodrostat": {
+      "rxcui": "2286252",
+      "query": "Osilodrostat"
+    },
+    "Ospemifene": {
+      "rxcui": "1370971",
+      "query": "Ospemifene"
+    },
+    "Oxacillin": {
+      "rxcui": "7773",
+      "query": "Oxacillin"
+    },
+    "Oxaliplatin": {
+      "rxcui": "32592",
+      "query": "Oxaliplatin"
+    },
+    "Osimertinib": {
+      "rxcui": "1721560",
+      "query": "Osimertinib"
+    },
+    "Oxidronic acid": {
+      "rxcui": "1546448",
+      "query": "Oxidronic acid"
+    },
+    "Oxcarbazepine": {
+      "rxcui": "32624",
+      "query": "Oxcarbazepine"
+    },
+    "Oxamniquine": {
+      "rxcui": "7778",
+      "query": "Oxamniquine"
+    },
+    "Oxaprozin": {
+      "rxcui": "32613",
+      "query": "Oxaprozin"
+    },
+    "Oxazepam": {
+      "rxcui": "7781",
+      "query": "Oxazepam"
+    },
+    "Oxandrolone": {
+      "rxcui": "7779",
+      "query": "Oxandrolone"
+    },
+    "Oxitriptan": {
+      "rxcui": "94",
+      "query": "Oxitriptan"
+    },
+    "Oxtriphylline": {
+      "rxcui": "20976",
+      "query": "Oxtriphylline"
+    },
+    "Oxybutynin": {
+      "rxcui": "32675",
+      "query": "Oxybutynin"
+    },
+    "Oxycodone": {
+      "rxcui": "7804",
+      "query": "Oxycodone"
+    },
+    "Oxymetholone": {
+      "rxcui": "7813",
+      "query": "Oxymetholone"
+    },
+    "Oxygen": {
+      "rxcui": "7806",
+      "query": "Oxygen"
+    },
+    "Oxymorphone": {
+      "rxcui": "7814",
+      "query": "Oxymorphone"
+    },
+    "Oxybuprocaine (ophthalmic)": {
+      "rxcui": "18889",
+      "query": "Oxybuprocaine"
+    },
+    "Oxytetracycline": {
+      "rxcui": "7821",
+      "query": "Oxytetracycline"
+    },
+    "Oxytocin": {
+      "rxcui": "7824",
+      "query": "Oxytocin"
+    },
+    "Ozanimod": {
+      "rxcui": "2288236",
+      "query": "Ozanimod"
+    },
+    "Paclitaxel": {
+      "rxcui": "56946",
+      "query": "Paclitaxel"
+    },
+    "Oxymetazoline (topical)": {
+      "rxcui": "7812",
+      "query": "Oxymetazoline"
+    },
+    "Oxymetazoline (nasal)": {
+      "rxcui": "7812",
+      "query": "Oxymetazoline"
+    },
+    "Oxymetazoline (ophthalmic)": {
+      "rxcui": "7812",
+      "query": "Oxymetazoline"
+    },
+    "Palifermin": {
+      "rxcui": "196319",
+      "query": "Palifermin"
+    },
+    "Oxyquinoline (topical)": {
+      "rxcui": "110",
+      "query": "Oxyquinoline"
+    },
+    "Palbociclib": {
+      "rxcui": "1601374",
+      "query": "Palbociclib"
+    },
+    "Pamidronic acid": {
+      "rxcui": "1546406",
+      "query": "Pamidronic acid"
+    },
+    "Papaverine": {
+      "rxcui": "7895",
+      "query": "Papaverine"
+    },
+    "Panitumumab": {
+      "rxcui": "263034",
+      "query": "Panitumumab"
+    },
+    "Panobinostat": {
+      "rxcui": "1603350",
+      "query": "Panobinostat"
+    },
+    "Pantoprazole": {
+      "rxcui": "40790",
+      "query": "Pantoprazole"
+    },
+    "Paliperidone": {
+      "rxcui": "679314",
+      "query": "Paliperidone"
+    },
+    "Palonosetron": {
+      "rxcui": "70561",
+      "query": "Palonosetron"
+    },
+    "Pancuronium": {
+      "rxcui": "7883",
+      "query": "Pancuronium"
+    },
+    "Pancrelipase": {
+      "rxcui": "392491",
+      "query": "Pancrelipase"
+    },
+    "Paclitaxel (protein-bound)": {
+      "rxcui": "56946",
+      "query": "Paclitaxel"
+    },
+    "Paraldehyde": {
+      "rxcui": "7909",
+      "query": "Paraldehyde"
+    },
+    "Papaya": {
+      "rxcui": "1011426",
+      "query": "Papaya"
+    },
+    "Parathyroid hormone": {
+      "rxcui": "1427222",
+      "query": "Parathyroid hormone"
+    },
+    "Paricalcitol": {
+      "rxcui": "73710",
+      "query": "Paricalcitol"
+    },
+    "Paramethadione": {
+      "rxcui": "32894",
+      "query": "Paramethadione"
+    },
+    "Paritaprevir": {
+      "rxcui": "1597373",
+      "query": "Paritaprevir"
+    },
+    "Paromomycin": {
+      "rxcui": "7934",
+      "query": "Paromomycin"
+    },
+    "Pasireotide": {
+      "rxcui": "1364105",
+      "query": "Pasireotide"
+    },
+    "Patiromer": {
+      "rxcui": "1716203",
+      "query": "Patiromer"
+    },
+    "Paroxetine": {
+      "rxcui": "32937",
+      "query": "Paroxetine"
+    },
+    "Pazopanib": {
+      "rxcui": "714438",
+      "query": "Pazopanib"
+    },
+    "Pectin": {
+      "rxcui": "32987",
+      "query": "Pectin"
+    },
+    "Pegademase": {
+      "rxcui": "59768",
+      "query": "Pegademase"
+    },
+    "Pegaspargase": {
+      "rxcui": "34132",
+      "query": "Pegaspargase"
+    },
+    "Pegfilgrastim": {
+      "rxcui": "338036",
+      "query": "Pegfilgrastim"
+    },
+    "Peginesatide": {
+      "rxcui": "1248798",
+      "query": "Peginesatide"
+    },
+    "Peginterferon alfa-2a": {
+      "rxcui": "120608",
+      "query": "Peginterferon alfa-2a"
+    },
+    "Peginterferon alfa-2b": {
+      "rxcui": "253453",
+      "query": "Peginterferon alfa-2b"
+    },
+    "Peginterferon beta-1a": {
+      "rxcui": "1546168",
+      "query": "Peginterferon beta-1a"
+    },
+    "Pegloticase": {
+      "rxcui": "1011650",
+      "query": "Pegloticase"
+    },
+    "Pegvaliase": {
+      "rxcui": "2046360",
+      "query": "Pegvaliase"
+    },
+    "Pegaptanib (ophthalmic)": {
+      "rxcui": "498509",
+      "query": "Pegaptanib"
+    },
+    "Pegvisomant": {
+      "rxcui": "278739",
+      "query": "Pegvisomant"
+    },
+    "Pembrolizumab": {
+      "rxcui": "1547545",
+      "query": "Pembrolizumab"
+    },
+    "Pemetrexed": {
+      "rxcui": "68446",
+      "query": "Pemetrexed"
+    },
+    "Pemigatinib": {
+      "rxcui": "2359268",
+      "query": "Pemigatinib"
+    },
+    "Pemoline": {
+      "rxcui": "7966",
+      "query": "Pemoline"
+    },
+    "Penbutolol": {
+      "rxcui": "7973",
+      "query": "Penbutolol"
+    },
+    "Pentobarbital": {
+      "rxcui": "8004",
+      "query": "Pentobarbital"
+    },
+    "Pentamidine": {
+      "rxcui": "7994",
+      "query": "Pentamidine"
+    },
+    "Pentazocine": {
+      "rxcui": "8001",
+      "query": "Pentazocine"
+    },
+    "Pentetic acid": {
+      "rxcui": "3690",
+      "query": "Pentetic acid"
+    },
+    "Penicillamine": {
+      "rxcui": "7975",
+      "query": "Penicillamine"
+    },
+    "Pentosan polysulfate": {
+      "rxcui": "155046",
+      "query": "Pentosan polysulfate"
+    },
+    "Pentostatin": {
+      "rxcui": "8011",
+      "query": "Pentostatin"
+    },
+    "Pentoxifylline": {
+      "rxcui": "8013",
+      "query": "Pentoxifylline"
+    },
+    "Pentoxyverine": {
+      "rxcui": "20217",
+      "query": "Pentoxyverine"
+    },
+    "Penciclovir (topical)": {
+      "rxcui": "59839",
+      "query": "Penciclovir"
+    },
+    "Perampanel": {
+      "rxcui": "1356552",
+      "query": "Perampanel"
+    },
+    "Perflutren": {
+      "rxcui": "283753",
+      "query": "Perflutren"
+    },
+    "Perindopril": {
+      "rxcui": "54552",
+      "query": "Perindopril"
+    },
+    "Perphenazine": {
+      "rxcui": "8076",
+      "query": "Perphenazine"
+    },
+    "Pergolide": {
+      "rxcui": "8047",
+      "query": "Pergolide"
+    },
+    "Pertuzumab": {
+      "rxcui": "1298944",
+      "query": "Pertuzumab"
+    },
+    "Pexidartinib": {
+      "rxcui": "2183102",
+      "query": "Pexidartinib"
+    },
+    "Pfizer-BioNTech Covid-19 Vaccine": {
+      "rxcui": "2468230",
+      "query": "Pfizer-BioNTech Covid-19 Vaccine"
+    },
+    "Phenacemide": {
+      "rxcui": "33253",
+      "query": "Phenacemide"
+    },
+    "Phenazopyridine": {
+      "rxcui": "8120",
+      "query": "Phenazopyridine"
+    },
+    "Phendimetrazine": {
+      "rxcui": "33272",
+      "query": "Phendimetrazine"
+    },
+    "Phenelzine": {
+      "rxcui": "8123",
+      "query": "Phenelzine"
+    },
+    "Phenindamine": {
+      "rxcui": "33283",
+      "query": "Phenindamine"
+    },
+    "Phenolphthalein": {
+      "rxcui": "155122",
+      "query": "Phenolphthalein"
+    },
+    "Phenobarbital": {
+      "rxcui": "8134",
+      "query": "Phenobarbital"
+    },
+    "Phenoxybenzamine": {
+      "rxcui": "8149",
+      "query": "Phenoxybenzamine"
+    },
+    "Phenoxymethylpenicillin": {
+      "rxcui": "7984",
+      "query": "Phenoxymethylpenicillin"
+    },
+    "Phensuximide": {
+      "rxcui": "33309",
+      "query": "Phensuximide"
+    },
+    "Phentermine": {
+      "rxcui": "8152",
+      "query": "Phentermine"
+    },
+    "Phentolamine": {
+      "rxcui": "8153",
+      "query": "Phentolamine"
+    },
+    "Phenyl salicylate": {
+      "rxcui": "36122",
+      "query": "Phenyl salicylate"
+    },
+    "Phenylacetic acid": {
+      "rxcui": "33332",
+      "query": "Phenylacetic acid"
+    },
+    "Phenylbutyric acid": {
+      "rxcui": "1546447",
+      "query": "Phenylbutyric acid"
+    },
+    "Phenylephrine": {
+      "rxcui": "8163",
+      "query": "Phenylephrine"
+    },
+    "Phenylbutazone": {
+      "rxcui": "8160",
+      "query": "Phenylbutazone"
+    },
+    "Phenylpropanolamine": {
+      "rxcui": "8175",
+      "query": "Phenylpropanolamine"
+    },
+    "Phenylephrine (nasal)": {
+      "rxcui": "8163",
+      "query": "Phenylephrine"
+    },
+    "Phenytoin": {
+      "rxcui": "8183",
+      "query": "Phenytoin"
+    },
+    "Phylloquinone": {
+      "rxcui": "8308",
+      "query": "Phylloquinone"
+    },
+    "Phenyltoloxamine": {
+      "rxcui": "33408",
+      "query": "Phenyltoloxamine"
+    },
+    "Physostigmine": {
+      "rxcui": "8299",
+      "query": "Physostigmine"
+    },
+    "Phenylephrine (ophthalmic)": {
+      "rxcui": "8163",
+      "query": "Phenylephrine"
+    },
+    "Phenylephrine (otic)": {
+      "rxcui": "8163",
+      "query": "Phenylephrine"
+    },
+    "Phenylephrine (topical)": {
+      "rxcui": "8163",
+      "query": "Phenylephrine"
+    },
+    "Picosulfuric acid": {
+      "rxcui": "1546457",
+      "query": "Picosulfuric acid"
+    },
+    "Pilocarpine": {
+      "rxcui": "8328",
+      "query": "Pilocarpine"
+    },
+    "Pimavanserin": {
+      "rxcui": "1791685",
+      "query": "Pimavanserin"
+    },
+    "Pimecrolimus": {
+      "rxcui": "321952",
+      "query": "Pimecrolimus"
+    },
+    "Physostigmine (ophthalmic)": {
+      "rxcui": "8299",
+      "query": "Physostigmine"
+    },
+    "Pimozide": {
+      "rxcui": "8331",
+      "query": "Pimozide"
+    },
+    "Pindolol": {
+      "rxcui": "8332",
+      "query": "Pindolol"
+    },
+    "Pioglitazone": {
+      "rxcui": "33738",
+      "query": "Pioglitazone"
+    },
+    "Pipecuronium": {
+      "rxcui": "33742",
+      "query": "Pipecuronium"
+    },
+    "Pilocarpine (ophthalmic)": {
+      "rxcui": "8328",
+      "query": "Pilocarpine"
+    },
+    "Piperacillin": {
+      "rxcui": "8339",
+      "query": "Piperacillin"
+    },
+    "Piperazine": {
+      "rxcui": "8340",
+      "query": "Piperazine"
+    },
+    "Pirbuterol": {
+      "rxcui": "33767",
+      "query": "Pirbuterol"
+    },
+    "Pimecrolimus (topical)": {
+      "rxcui": "321952",
+      "query": "Pimecrolimus"
+    },
+    "Pirfenidone": {
+      "rxcui": "1592254",
+      "query": "Pirfenidone"
+    },
+    "Piroxicam": {
+      "rxcui": "8356",
+      "query": "Piroxicam"
+    },
+    "Pitavastatin": {
+      "rxcui": "861634",
+      "query": "Pitavastatin"
+    },
+    "Pitolisant": {
+      "rxcui": "2197878",
+      "query": "Pitolisant"
+    },
+    "Plantago seed": {
+      "rxcui": "82088",
+      "query": "Plantago seed"
+    },
+    "Plazomicin": {
+      "rxcui": "2049549",
+      "query": "Plazomicin"
+    },
+    "Plecanatide": {
+      "rxcui": "1873752",
+      "query": "Plecanatide"
+    },
+    "Poliovirus type 1 antigen (formaldehyde inactivated)": {
+      "rxcui": "763096",
+      "query": "Poliovirus type 1 antigen (formaldehyde inactivated)"
+    },
+    "Plicamycin": {
+      "rxcui": "6995",
+      "query": "Plicamycin"
+    },
+    "Polatuzumab vedotin": {
+      "rxcui": "2174090",
+      "query": "Polatuzumab vedotin"
+    },
+    "Polymyxin B": {
+      "rxcui": "8536",
+      "query": "Polymyxin B"
+    },
+    "Polythiazide": {
+      "rxcui": "8565",
+      "query": "Polythiazide"
+    },
+    "Pomalidomide": {
+      "rxcui": "1369713",
+      "query": "Pomalidomide"
+    },
+    "Porfimer sodium": {
+      "rxcui": "333848",
+      "query": "Porfimer sodium"
+    },
+    "Ponatinib": {
+      "rxcui": "1364347",
+      "query": "Ponatinib"
+    },
+    "Potassium acetate": {
+      "rxcui": "54987",
+      "query": "Potassium acetate"
+    },
+    "Posaconazole": {
+      "rxcui": "282446",
+      "query": "Posaconazole"
+    },
+    "Polyethylene glycol (3350 with electrolytes)": {
+      "rxcui": "8516",
+      "query": "Polyethylene glycol"
+    },
+    "Polyethylene glycol (3350)": {
+      "rxcui": "8516",
+      "query": "Polyethylene glycol"
+    },
+    "Potassium bicarbonate": {
+      "rxcui": "34296",
+      "query": "Potassium bicarbonate"
+    },
+    "Potassium chloride": {
+      "rxcui": "8591",
+      "query": "Potassium chloride"
+    },
+    "Potassium citrate": {
+      "rxcui": "54993",
+      "query": "Potassium citrate"
+    },
+    "Potassium gluconate": {
+      "rxcui": "89903",
+      "query": "Potassium gluconate"
+    },
+    "Potassium perchlorate": {
+      "rxcui": "34318",
+      "query": "Potassium perchlorate"
+    },
+    "Potassium Iodide": {
+      "rxcui": "8597",
+      "query": "Potassium Iodide"
+    },
+    "Pralsetinib": {
+      "rxcui": "2394936",
+      "query": "Pralsetinib"
+    },
+    "Pralatrexate": {
+      "rxcui": "662019",
+      "query": "Pralatrexate"
+    },
+    "Pralidoxime": {
+      "rxcui": "34345",
+      "query": "Pralidoxime"
+    },
+    "Pramipexole": {
+      "rxcui": "746741",
+      "query": "Pramipexole"
+    },
+    "Pramlintide": {
+      "rxcui": "139953",
+      "query": "Pramlintide"
+    },
+    "Prasterone enantate": {
+      "rxcui": null,
+      "query": null
+    },
+    "Prasugrel": {
+      "rxcui": "613391",
+      "query": "Prasugrel"
+    },
+    "Pravastatin": {
+      "rxcui": "42463",
+      "query": "Pravastatin"
+    },
+    "Praziquantel": {
+      "rxcui": "8628",
+      "query": "Praziquantel"
+    },
+    "Prazosin": {
+      "rxcui": "8629",
+      "query": "Prazosin"
+    },
+    "Prednisone": {
+      "rxcui": "8640",
+      "query": "Prednisone"
+    },
+    "Prednisolone": {
+      "rxcui": "8638",
+      "query": "Prednisolone"
+    },
+    "Pregabalin": {
+      "rxcui": "187832",
+      "query": "Pregabalin"
+    },
+    "Pretomanid": {
+      "rxcui": "2198359",
+      "query": "Pretomanid"
+    },
+    "Prilocaine": {
+      "rxcui": "8686",
+      "query": "Prilocaine"
+    },
+    "Primaquine": {
+      "rxcui": "8687",
+      "query": "Primaquine"
+    },
+    "Primidone": {
+      "rxcui": "8691",
+      "query": "Primidone"
+    },
+    "Prednicarbate (topical)": {
+      "rxcui": "34369",
+      "query": "Prednicarbate"
+    },
+    "Probucol": {
+      "rxcui": "8699",
+      "query": "Probucol"
+    },
+    "Probenecid": {
+      "rxcui": "8698",
+      "query": "Probenecid"
+    },
+    "Prednisolone (ophthalmic)": {
+      "rxcui": "8638",
+      "query": "Prednisolone"
+    },
+    "Procainamide": {
+      "rxcui": "8700",
+      "query": "Procainamide"
+    },
+    "Procaine": {
+      "rxcui": "8701",
+      "query": "Procaine"
+    },
+    "Procarbazine": {
+      "rxcui": "8702",
+      "query": "Procarbazine"
+    },
+    "Prilocaine (topiclal)": {
+      "rxcui": "8686",
+      "query": "Prilocaine"
+    },
+    "Procyclidine": {
+      "rxcui": "8718",
+      "query": "Procyclidine"
+    },
+    "Prochlorperazine": {
+      "rxcui": "8704",
+      "query": "Prochlorperazine"
+    },
+    "Progesterone": {
+      "rxcui": "8727",
+      "query": "Progesterone"
+    },
+    "Proguanil": {
+      "rxcui": "2382",
+      "query": "Proguanil"
+    },
+    "Promazine": {
+      "rxcui": "8742",
+      "query": "Promazine"
+    },
+    "Promethazine": {
+      "rxcui": "8745",
+      "query": "Promethazine"
+    },
+    "Propafenone": {
+      "rxcui": "8754",
+      "query": "Propafenone"
+    },
+    "Propantheline": {
+      "rxcui": "8761",
+      "query": "Propantheline"
+    },
+    "Propofol": {
+      "rxcui": "8782",
+      "query": "Propofol"
+    },
+    "Propiomazine": {
+      "rxcui": "8770",
+      "query": "Propiomazine"
+    },
+    "Propranolol": {
+      "rxcui": "8787",
+      "query": "Propranolol"
+    },
+    "Progesterone (topical)": {
+      "rxcui": "8727",
+      "query": "Progesterone"
+    },
+    "Propylthiouracil": {
+      "rxcui": "8794",
+      "query": "Propylthiouracil"
+    },
+    "Protein C": {
+      "rxcui": "723868",
+      "query": "Protein C"
+    },
+    "Protriptyline": {
+      "rxcui": "8886",
+      "query": "Protriptyline"
+    },
+    "Prucalopride": {
+      "rxcui": "2107310",
+      "query": "Prucalopride"
+    },
+    "Proparacaine (ophthalmic)": {
+      "rxcui": "34905",
+      "query": "Proparacaine"
+    },
+    "Pseudoephedrine": {
+      "rxcui": "8896",
+      "query": "Pseudoephedrine"
+    },
+    "Pyrantel": {
+      "rxcui": "8984",
+      "query": "Pyrantel"
+    },
+    "Pyrazinamide": {
+      "rxcui": "8987",
+      "query": "Pyrazinamide"
+    },
+    "Propylhexedrine (nasal)": {
+      "rxcui": "8792",
+      "query": "Propylhexedrine"
+    },
+    "Pyridostigmine": {
+      "rxcui": "9000",
+      "query": "Pyridostigmine"
+    },
+    "Pyridoxine": {
+      "rxcui": "684879",
+      "query": "Pyridoxine"
+    },
+    "Pyrimethamine": {
+      "rxcui": "9010",
+      "query": "Pyrimethamine"
+    },
+    "Pyrophosphoric acid": {
+      "rxcui": "1546425",
+      "query": "Pyrophosphoric acid"
+    },
+    "Quazepam": {
+      "rxcui": "35185",
+      "query": "Quazepam"
+    },
+    "Quetiapine": {
+      "rxcui": "51272",
+      "query": "Quetiapine"
+    },
+    "Quinapril": {
+      "rxcui": "35208",
+      "query": "Quinapril"
+    },
+    "Quinestrol": {
+      "rxcui": "9066",
+      "query": "Quinestrol"
+    },
+    "Quinidine": {
+      "rxcui": "9068",
+      "query": "Quinidine"
+    },
+    "Quinine": {
+      "rxcui": "9071",
+      "query": "Quinine"
+    },
+    "Quinupristin": {
+      "rxcui": "229367",
+      "query": "Quinupristin"
+    },
+    "Rabeprazole": {
+      "rxcui": "114979",
+      "query": "Rabeprazole"
+    },
+    "Racepinephrine": {
+      "rxcui": "66887",
+      "query": "Racepinephrine"
+    },
+    "Radium Ra 223 dichloride": {
+      "rxcui": "1424174",
+      "query": "Radium Ra 223 dichloride"
+    },
+    "Raloxifene": {
+      "rxcui": "72143",
+      "query": "Raloxifene"
+    },
+    "Ramipril": {
+      "rxcui": "35296",
+      "query": "Ramipril"
+    },
+    "Ramelteon": {
+      "rxcui": "596205",
+      "query": "Ramelteon"
+    },
+    "Ranitidine": {
+      "rxcui": "9143",
+      "query": "Ranitidine"
+    },
+    "Ramucirumab": {
+      "rxcui": "1535922",
+      "query": "Ramucirumab"
+    },
+    "Raltegravir": {
+      "rxcui": "719872",
+      "query": "Raltegravir"
+    },
+    "Ranolazine": {
+      "rxcui": "35829",
+      "query": "Ranolazine"
+    },
+    "Rapacuronium": {
+      "rxcui": "262100",
+      "query": "Rapacuronium"
+    },
+    "Rasagiline": {
+      "rxcui": "134748",
+      "query": "Rasagiline"
+    },
+    "Rasburicase": {
+      "rxcui": "283821",
+      "query": "Rasburicase"
+    },
+    "Ravulizumab": {
+      "rxcui": "2107301",
+      "query": "Ravulizumab"
+    },
+    "Regadenoson": {
+      "rxcui": "640062",
+      "query": "Regadenoson"
+    },
+    "Ranibizumab (ophthalmic)": {
+      "rxcui": "595060",
+      "query": "Ranibizumab"
+    },
+    "Regorafenib": {
+      "rxcui": "1312397",
+      "query": "Regorafenib"
+    },
+    "Ranitidine (bismuth citrate)": {
+      "rxcui": "9143",
+      "query": "Ranitidine"
+    },
+    "Remdesivir": {
+      "rxcui": "2284718",
+      "query": "Remdesivir"
+    },
+    "Relugolix": {
+      "rxcui": "2472778",
+      "query": "Relugolix"
+    },
+    "Remifentanil": {
+      "rxcui": "73032",
+      "query": "Remifentanil"
+    },
+    "Remimazolam": {
+      "rxcui": "2383941",
+      "query": "Remimazolam"
+    },
+    "Repaglinide": {
+      "rxcui": "73044",
+      "query": "Repaglinide"
+    },
+    "Reserpine": {
+      "rxcui": "9260",
+      "query": "Reserpine"
+    },
+    "Reteplase": {
+      "rxcui": "76895",
+      "query": "Reteplase"
+    },
+    "Revefenacin": {
+      "rxcui": "2102775",
+      "query": "Revefenacin"
+    },
+    "Ribavirin": {
+      "rxcui": "9344",
+      "query": "Ribavirin"
+    },
+    "Ribociclib": {
+      "rxcui": "1873916",
+      "query": "Ribociclib"
+    },
+    "Rifabutin": {
+      "rxcui": "55672",
+      "query": "Rifabutin"
+    },
+    "Rifampicin": {
+      "rxcui": "9384",
+      "query": "Rifampicin"
+    },
+    "Rifamycin": {
+      "rxcui": "35616",
+      "query": "Rifamycin"
+    },
+    "Rifapentine": {
+      "rxcui": "35617",
+      "query": "Rifapentine"
+    },
+    "Resorcinol (topical)": {
+      "rxcui": "35382",
+      "query": "Resorcinol"
+    },
+    "Rifaximin": {
+      "rxcui": "35619",
+      "query": "Rifaximin"
+    },
+    "Rilonacept": {
+      "rxcui": "763450",
+      "query": "Rilonacept"
+    },
+    "Rilpivirine": {
+      "rxcui": "1102270",
+      "query": "Rilpivirine"
+    },
+    "Retapamulin (topical)": {
+      "rxcui": "642274",
+      "query": "Retapamulin"
+    },
+    "Riluzole": {
+      "rxcui": "35623",
+      "query": "Riluzole"
+    },
+    "Rimantadine": {
+      "rxcui": "9386",
+      "query": "Rimantadine"
+    },
+    "Rimegepant": {
+      "rxcui": "2282307",
+      "query": "Rimegepant"
+    },
+    "Riociguat": {
+      "rxcui": "1439816",
+      "query": "Riociguat"
+    },
+    "Ripretinib": {
+      "rxcui": "2369389",
+      "query": "Ripretinib"
+    },
+    "Risankizumab": {
+      "rxcui": "2166040",
+      "query": "Risankizumab"
+    },
+    "Risdiplam": {
+      "rxcui": "2390935",
+      "query": "Risdiplam"
+    },
+    "Risedronic acid": {
+      "rxcui": "55685",
+      "query": "Risedronic acid"
+    },
+    "Risperidone": {
+      "rxcui": "35636",
+      "query": "Risperidone"
+    },
+    "Ritodrine": {
+      "rxcui": "9392",
+      "query": "Ritodrine"
+    },
+    "Ritonavir": {
+      "rxcui": "85762",
+      "query": "Ritonavir"
+    },
+    "Rituximab": {
+      "rxcui": "121191",
+      "query": "Rituximab"
+    },
+    "Rimexolone (ophthalmic)": {
+      "rxcui": "55681",
+      "query": "Rimexolone"
+    },
+    "Rivaroxaban": {
+      "rxcui": "1114195",
+      "query": "Rivaroxaban"
+    },
+    "Rizatriptan": {
+      "rxcui": "88014",
+      "query": "Rizatriptan"
+    },
+    "Rivastigmine": {
+      "rxcui": "183379",
+      "query": "Rivastigmine"
+    },
+    "Rocuronium": {
+      "rxcui": "68139",
+      "query": "Rocuronium"
+    },
+    "Rofecoxib": {
+      "rxcui": "232158",
+      "query": "Rofecoxib"
+    },
+    "Roflumilast": {
+      "rxcui": "1091836",
+      "query": "Roflumilast"
+    },
+    "Rolapitant": {
+      "rxcui": "1665496",
+      "query": "Rolapitant"
+    },
+    "Romidepsin": {
+      "rxcui": "877510",
+      "query": "Romidepsin"
+    },
+    "Romiplostim": {
+      "rxcui": "805452",
+      "query": "Romiplostim"
+    },
+    "Ropinirole": {
+      "rxcui": "72302",
+      "query": "Ropinirole"
+    },
+    "Romosozumab": {
+      "rxcui": "2123126",
+      "query": "Romosozumab"
+    },
+    "Rosiglitazone": {
+      "rxcui": "84108",
+      "query": "Rosiglitazone"
+    },
+    "Rosuvastatin": {
+      "rxcui": "301542",
+      "query": "Rosuvastatin"
+    },
+    "Ropivacaine": {
+      "rxcui": "35780",
+      "query": "Ropivacaine"
+    },
+    "Rotavirus vaccine": {
+      "rxcui": null,
+      "query": null
+    },
+    "Rotigotine": {
+      "rxcui": "616739",
+      "query": "Rotigotine"
+    },
+    "Rucaparib": {
+      "rxcui": "1862579",
+      "query": "Rucaparib"
+    },
+    "Rubella virus vaccine": {
+      "rxcui": "762817",
+      "query": "Rubella virus vaccine"
+    },
+    "Rufinamide": {
+      "rxcui": "69036",
+      "query": "Rufinamide"
+    },
+    "Ruxolitinib": {
+      "rxcui": "1193326",
+      "query": "Ruxolitinib"
+    },
+    "Sacituzumab govitecan": {
+      "rxcui": "2360232",
+      "query": "Sacituzumab govitecan"
+    },
+    "Salbutamol": {
+      "rxcui": "435",
+      "query": "Salbutamol"
+    },
+    "Sacubitril": {
+      "rxcui": "1656328",
+      "query": "Sacubitril"
+    },
+    "Safinamide": {
+      "rxcui": "1922448",
+      "query": "Safinamide"
+    },
+    "Salmon calcitonin": {
+      "rxcui": "36118",
+      "query": "Salmon calcitonin"
+    },
+    "Salmeterol": {
+      "rxcui": "36117",
+      "query": "Salmeterol"
+    },
+    "Salsalate": {
+      "rxcui": "36108",
+      "query": "Salsalate"
+    },
+    "Salicylic acid (sodium)": {
+      "rxcui": "9525",
+      "query": "Salicylic acid"
+    },
+    "Sapropterin": {
+      "rxcui": "753340",
+      "query": "Sapropterin"
+    },
+    "Sarecycline": {
+      "rxcui": "2059018",
+      "query": "Sarecycline"
+    },
+    "Saquinavir": {
+      "rxcui": "83395",
+      "query": "Saquinavir"
+    },
+    "Samarium (153Sm) lexidronam": {
+      "rxcui": "177906",
+      "query": "Samarium (153Sm) lexidronam"
+    },
+    "Sargramostim": {
+      "rxcui": "69634",
+      "query": "Sargramostim"
+    },
+    "Salicylic acid (topical)": {
+      "rxcui": "9525",
+      "query": "Salicylic acid"
+    },
+    "Satralizumab": {
+      "rxcui": "2391541",
+      "query": "Satralizumab"
+    },
+    "Sarilumab": {
+      "rxcui": "1923319",
+      "query": "Sarilumab"
+    },
+    "Saw palmetto": {
+      "rxcui": "236344",
+      "query": "Saw palmetto"
+    },
+    "Scopolamine": {
+      "rxcui": "9601",
+      "query": "Scopolamine"
+    },
+    "Saxagliptin": {
+      "rxcui": "857974",
+      "query": "Saxagliptin"
+    },
+    "Secnidazole": {
+      "rxcui": "36314",
+      "query": "Secnidazole"
+    },
+    "Secobarbital": {
+      "rxcui": "9624",
+      "query": "Secobarbital"
+    },
+    "Secretin human": {
+      "rxcui": "606396",
+      "query": "Secretin human"
+    },
+    "Secukinumab": {
+      "rxcui": "1599788",
+      "query": "Secukinumab"
+    },
+    "Selenium": {
+      "rxcui": "9641",
+      "query": "Selenium"
+    },
+    "Selegiline": {
+      "rxcui": "9639",
+      "query": "Selegiline"
+    },
+    "Selenium Sulfide": {
+      "rxcui": "36345",
+      "query": "Selenium Sulfide"
+    },
+    "Selpercatinib": {
+      "rxcui": "2370147",
+      "query": "Selpercatinib"
+    },
+    "Selexipag": {
+      "rxcui": "1729002",
+      "query": "Selexipag"
+    },
+    "Scopolamine (ophthalmic)": {
+      "rxcui": "9601",
+      "query": "Scopolamine"
+    },
+    "Selumetinib": {
+      "rxcui": "2289380",
+      "query": "Selumetinib"
+    },
+    "Selinexor": {
+      "rxcui": "2178390",
+      "query": "Selinexor"
+    },
+    "Semaglutide": {
+      "rxcui": "1991302",
+      "query": "Semaglutide"
+    },
+    "Sermorelin": {
+      "rxcui": "56188",
+      "query": "Sermorelin"
+    },
+    "Sevelamer": {
+      "rxcui": "214824",
+      "query": "Sevelamer"
+    },
+    "Sertraline": {
+      "rxcui": "36437",
+      "query": "Sertraline"
+    },
+    "Sevoflurane": {
+      "rxcui": "36453",
+      "query": "Sevoflurane"
+    },
+    "Sibutramine": {
+      "rxcui": "36514",
+      "query": "Sibutramine"
+    },
+    "Sildenafil": {
+      "rxcui": "136411",
+      "query": "Sildenafil"
+    },
+    "Siltuximab": {
+      "rxcui": "1535218",
+      "query": "Siltuximab"
+    },
+    "Silodosin": {
+      "rxcui": "720825",
+      "query": "Silodosin"
+    },
+    "Simeprevir": {
+      "rxcui": "1482790",
+      "query": "Simeprevir"
+    },
+    "Silver nitrate (ophthalmic)": {
+      "rxcui": "9789",
+      "query": "Silver nitrate"
+    },
+    "Simvastatin": {
+      "rxcui": "36567",
+      "query": "Simvastatin"
+    },
+    "Simethicone": {
+      "rxcui": "9796",
+      "query": "Simethicone"
+    },
+    "Sipuleucel-T": {
+      "rxcui": "997261",
+      "query": "Sipuleucel-T"
+    },
+    "Siponimod": {
+      "rxcui": "2121085",
+      "query": "Siponimod"
+    },
+    "Sirolimus": {
+      "rxcui": "35302",
+      "query": "Sirolimus"
+    },
+    "Silver (topical)": {
+      "rxcui": "2606543",
+      "query": "Silver"
+    },
+    "Silver nitrate (topical)": {
+      "rxcui": "9789",
+      "query": "Silver nitrate"
+    },
+    "Silver sulfadiazine (topical)": {
+      "rxcui": "9793",
+      "query": "Silver sulfadiazine"
+    },
+    "Sitagliptin": {
+      "rxcui": "593411",
+      "query": "Sitagliptin"
+    },
+    "Sodium aurothiomalate": {
+      "rxcui": "4981",
+      "query": "Sodium aurothiomalate"
+    },
+    "Smallpox (Vaccinia) Vaccine, Live": {
+      "rxcui": "1492300",
+      "query": "Smallpox (Vaccinia) Vaccine, Live"
+    },
+    "Sodium bicarbonate": {
+      "rxcui": "36676",
+      "query": "Sodium bicarbonate"
+    },
+    "Sodium acetate": {
+      "rxcui": "56443",
+      "query": "Sodium acetate"
+    },
+    "Sodium cellulose phosphate": {
+      "rxcui": "342965",
+      "query": "Sodium cellulose phosphate"
+    },
+    "Sodium chloride": {
+      "rxcui": "9863",
+      "query": "Sodium chloride"
+    },
+    "Sodium ferric gluconate complex": {
+      "rxcui": "261435",
+      "query": "Sodium ferric gluconate complex"
+    },
+    "Sodium citrate": {
+      "rxcui": "56466",
+      "query": "Sodium citrate"
+    },
+    "Sodium glycerophosphate": {
+      "rxcui": "1595589",
+      "query": "Sodium glycerophosphate"
+    },
+    "Sodium iodide": {
+      "rxcui": "9884",
+      "query": "Sodium iodide"
+    },
+    "Sodium phosphate, monobasic": {
+      "rxcui": "235496",
+      "query": "Sodium phosphate, monobasic"
+    },
+    "Sodium oxybate": {
+      "rxcui": "9899",
+      "query": "Sodium oxybate"
+    },
+    "Sodium sulfate": {
+      "rxcui": "36721",
+      "query": "Sodium sulfate"
+    },
+    "Sodium zirconium cyclosilicate": {
+      "rxcui": "2047628",
+      "query": "Sodium zirconium cyclosilicate"
+    },
+    "Sofosbuvir": {
+      "rxcui": "1484911",
+      "query": "Sofosbuvir"
+    },
+    "Solifenacin": {
+      "rxcui": "322167",
+      "query": "Solifenacin"
+    },
+    "Solriamfetol": {
+      "rxcui": "2121751",
+      "query": "Solriamfetol"
+    },
+    "Somapacitan": {
+      "rxcui": "2557373",
+      "query": "Somapacitan"
+    },
+    "Somatotropin": {
+      "rxcui": "61148",
+      "query": "Somatotropin"
+    },
+    "Sonidegib": {
+      "rxcui": "1659191",
+      "query": "Sonidegib"
+    },
+    "Somatrem": {
+      "rxcui": "56570",
+      "query": "Somatrem"
+    },
+    "Sorafenib": {
+      "rxcui": "495881",
+      "query": "Sorafenib"
+    },
+    "Sorbitol": {
+      "rxcui": "9945",
+      "query": "Sorbitol"
+    },
+    "Sodium phosphate, monobasic (p32)": {
+      "rxcui": "235496",
+      "query": "Sodium phosphate, monobasic"
+    },
+    "Sotalol": {
+      "rxcui": "9947",
+      "query": "Sotalol"
+    },
+    "Sparfloxacin": {
+      "rxcui": "18469",
+      "query": "Sparfloxacin"
+    },
+    "Spectinomycin": {
+      "rxcui": "270",
+      "query": "Spectinomycin"
+    },
+    "Spironolactone": {
+      "rxcui": "9997",
+      "query": "Spironolactone"
+    },
+    "St. John's Wort": {
+      "rxcui": "258326",
+      "query": "St. John's Wort"
+    },
+    "Stavudine": {
+      "rxcui": "59763",
+      "query": "Stavudine"
+    },
+    "Stanozolol": {
+      "rxcui": "10032",
+      "query": "Stanozolol"
+    },
+    "Streptokinase": {
+      "rxcui": "10106",
+      "query": "Streptokinase"
+    },
+    "Stiripentol": {
+      "rxcui": "2054968",
+      "query": "Stiripentol"
+    },
+    "Streptomycin": {
+      "rxcui": "10109",
+      "query": "Streptomycin"
+    },
+    "Streptozocin": {
+      "rxcui": "10114",
+      "query": "Streptozocin"
+    },
+    "Strontium chloride Sr-89": {
+      "rxcui": "281890",
+      "query": "Strontium chloride Sr-89"
+    },
+    "Succinylcholine": {
+      "rxcui": "10154",
+      "query": "Succinylcholine"
+    },
+    "Sucralfate": {
+      "rxcui": "10156",
+      "query": "Sucralfate"
+    },
+    "Sufentanil": {
+      "rxcui": "56795",
+      "query": "Sufentanil"
+    },
+    "Sugammadex": {
+      "rxcui": "1726988",
+      "query": "Sugammadex"
+    },
+    "Sulfadiazine": {
+      "rxcui": "10171",
+      "query": "Sulfadiazine"
+    },
+    "Sulfamethizole": {
+      "rxcui": "10179",
+      "query": "Sulfamethizole"
+    },
+    "Sulfadoxine": {
+      "rxcui": "10173",
+      "query": "Sulfadoxine"
+    },
+    "Sulfamethoxazole": {
+      "rxcui": "10180",
+      "query": "Sulfamethoxazole"
+    },
+    "Sulfasalazine": {
+      "rxcui": "9524",
+      "query": "Sulfasalazine"
+    },
+    "Sulfinpyrazone": {
+      "rxcui": "10205",
+      "query": "Sulfinpyrazone"
+    },
+    "Sulfisoxazole": {
+      "rxcui": "10207",
+      "query": "Sulfisoxazole"
+    },
+    "Sulfur hexafluoride": {
+      "rxcui": "1599276",
+      "query": "Sulfur hexafluoride"
+    },
+    "Sulfacetamide (ophthalmic)": {
+      "rxcui": "10169",
+      "query": "Sulfacetamide"
+    },
+    "Sulindac": {
+      "rxcui": "10237",
+      "query": "Sulindac"
+    },
+    "Sumatriptan": {
+      "rxcui": "37418",
+      "query": "Sumatriptan"
+    },
+    "Sunitinib": {
+      "rxcui": "357977",
+      "query": "Sunitinib"
+    },
+    "Suvorexant": {
+      "rxcui": "1547099",
+      "query": "Suvorexant"
+    },
+    "Tacrine": {
+      "rxcui": "10318",
+      "query": "Tacrine"
+    },
+    "Tacrolimus": {
+      "rxcui": "42316",
+      "query": "Tacrolimus"
+    },
+    "Tadalafil": {
+      "rxcui": "358263",
+      "query": "Tadalafil"
+    },
+    "Tafamidis": {
+      "rxcui": "1545063",
+      "query": "Tafamidis"
+    },
+    "Tafasitamab": {
+      "rxcui": "2387211",
+      "query": "Tafasitamab"
+    },
+    "Tafenoquine": {
+      "rxcui": "2054023",
+      "query": "Tafenoquine"
+    },
+    "Tagraxofusp": {
+      "rxcui": "2109055",
+      "query": "Tagraxofusp"
+    },
+    "Suprofen (ophthalmic)": {
+      "rxcui": "10255",
+      "query": "Suprofen"
+    },
+    "Talazoparib": {
+      "rxcui": "2099704",
+      "query": "Talazoparib"
+    },
+    "Talimogene laherparepvec": {
+      "rxcui": "1721264",
+      "query": "Talimogene laherparepvec"
+    },
+    "Tamoxifen": {
+      "rxcui": "10324",
+      "query": "Tamoxifen"
+    },
+    "Tamsulosin": {
+      "rxcui": "77492",
+      "query": "Tamsulosin"
+    },
+    "Tapentadol": {
+      "rxcui": "787390",
+      "query": "Tapentadol"
+    },
+    "Tasimelteon": {
+      "rxcui": "1490468",
+      "query": "Tasimelteon"
+    },
+    "Tafluprost (ophthalmic)": {
+      "rxcui": "1244607",
+      "query": "Tafluprost"
+    },
+    "Tazemetostat": {
+      "rxcui": "2274378",
+      "query": "Tazemetostat"
+    },
+    "Tazarotene": {
+      "rxcui": "83947",
+      "query": "Tazarotene"
+    },
+    "Tazobactam": {
+      "rxcui": "37617",
+      "query": "Tazobactam"
+    },
+    "Tedizolid": {
+      "rxcui": "1540825",
+      "query": "Tedizolid"
+    },
+    "Teduglutide": {
+      "rxcui": "1364468",
+      "query": "Teduglutide"
+    },
+    "Tegaserod": {
+      "rxcui": "139778",
+      "query": "Tegaserod"
+    },
+    "Telaprevir": {
+      "rxcui": "1102261",
+      "query": "Telaprevir"
+    },
+    "Telavancin": {
+      "rxcui": "473837",
+      "query": "Telavancin"
+    },
+    "Tazarotene (topical)": {
+      "rxcui": "83947",
+      "query": "Tazarotene"
+    },
+    "Telmisartan": {
+      "rxcui": "73494",
+      "query": "Telmisartan"
+    },
+    "Telbivudine": {
+      "rxcui": "474128",
+      "query": "Telbivudine"
+    },
+    "Telithromycin": {
+      "rxcui": "274786",
+      "query": "Telithromycin"
+    },
+    "Temazepam": {
+      "rxcui": "10355",
+      "query": "Temazepam"
+    },
+    "Telotristat ethyl": {
+      "rxcui": "1872441",
+      "query": "Telotristat ethyl"
+    },
+    "Temozolomide": {
+      "rxcui": "37776",
+      "query": "Temozolomide"
+    },
+    "Temsirolimus": {
+      "rxcui": "657797",
+      "query": "Temsirolimus"
+    },
+    "Tenecteplase": {
+      "rxcui": "259280",
+      "query": "Tenecteplase"
+    },
+    "Teniposide": {
+      "rxcui": "10362",
+      "query": "Teniposide"
+    },
+    "Teprotumumab": {
+      "rxcui": "2274803",
+      "query": "Teprotumumab"
+    },
+    "Terbinafine": {
+      "rxcui": "37801",
+      "query": "Terbinafine"
+    },
+    "Terazosin": {
+      "rxcui": "37798",
+      "query": "Terazosin"
+    },
+    "Terbutaline": {
+      "rxcui": "10368",
+      "query": "Terbutaline"
+    },
+    "Terfenadine": {
+      "rxcui": "42330",
+      "query": "Terfenadine"
+    },
+    "Teriflunomide": {
+      "rxcui": "1310520",
+      "query": "Teriflunomide"
+    },
+    "Teriparatide": {
+      "rxcui": "32915",
+      "query": "Teriparatide"
+    },
+    "Tesamorelin": {
+      "rxcui": "1044584",
+      "query": "Tesamorelin"
+    },
+    "Testolactone": {
+      "rxcui": "10378",
+      "query": "Testolactone"
+    },
+    "Testosterone": {
+      "rxcui": "10379",
+      "query": "Testosterone"
+    },
+    "Tetracaine": {
+      "rxcui": "10391",
+      "query": "Tetracaine"
+    },
+    "Tetrabenazine": {
+      "rxcui": "10390",
+      "query": "Tetrabenazine"
+    },
+    "Tetanus Immune Globulin": {
+      "rxcui": "1727875",
+      "query": "Tetanus Immune Globulin"
+    },
+    "Tetracosactide": {
+      "rxcui": "2890",
+      "query": "Tetracosactide"
+    },
+    "Tetracycline": {
+      "rxcui": "10395",
+      "query": "Tetracycline"
+    },
+    "Testosterone (topical)": {
+      "rxcui": "10379",
+      "query": "Testosterone"
+    },
+    "Tetrofosmin": {
+      "rxcui": "1311569",
+      "query": "Tetrofosmin"
+    },
+    "Tetracaine (ophthalmic)": {
+      "rxcui": "10391",
+      "query": "Tetracaine"
+    },
+    "Tetraferric tricitrate decahydrate": {
+      "rxcui": null,
+      "query": null
+    },
+    "Tetracaine (topical)": {
+      "rxcui": "10391",
+      "query": "Tetracaine"
+    },
+    "Thalidomide": {
+      "rxcui": "10432",
+      "query": "Thalidomide"
+    },
+    "Thallous Chloride": {
+      "rxcui": null,
+      "query": null
+    },
+    "Theophylline": {
+      "rxcui": "10438",
+      "query": "Theophylline"
+    },
+    "Tetracycline (topical)": {
+      "rxcui": "10395",
+      "query": "Tetracycline"
+    },
+    "Tetryzoline (ophthalmic)": {
+      "rxcui": "37935",
+      "query": "Tetryzoline"
+    },
+    "Tetryzoline (nasal)": {
+      "rxcui": "37935",
+      "query": "Tetryzoline"
+    },
+    "Thiabendazole": {
+      "rxcui": "10450",
+      "query": "Thiabendazole"
+    },
+    "Thiethylperazine": {
+      "rxcui": "10471",
+      "query": "Thiethylperazine"
+    },
+    "Thiopental": {
+      "rxcui": "10493",
+      "query": "Thiopental"
+    },
+    "Thioridazine": {
+      "rxcui": "10502",
+      "query": "Thioridazine"
+    },
+    "Thiotepa": {
+      "rxcui": "10473",
+      "query": "Thiotepa"
+    },
+    "Thyrotropin alfa": {
+      "rxcui": "4952",
+      "query": "Thyrotropin alfa"
+    },
+    "Thimerosal (topical)": {
+      "rxcui": "10472",
+      "query": "Thimerosal"
+    },
+    "Ticagrelor": {
+      "rxcui": "1116632",
+      "query": "Ticagrelor"
+    },
+    "Thiothixene": {
+      "rxcui": "10510",
+      "query": "Thiothixene"
+    },
+    "Ticarcillin": {
+      "rxcui": "10591",
+      "query": "Ticarcillin"
+    },
+    "Ticlopidine": {
+      "rxcui": "10594",
+      "query": "Ticlopidine"
+    },
+    "Thyroid, porcine": {
+      "rxcui": "235479",
+      "query": "Thyroid, porcine"
+    },
+    "Tiagabine": {
+      "rxcui": "31914",
+      "query": "Tiagabine"
+    },
+    "Tigecycline": {
+      "rxcui": "384455",
+      "query": "Tigecycline"
+    },
+    "Tildrakizumab": {
+      "rxcui": "2053436",
+      "query": "Tildrakizumab"
+    },
+    "Tinidazole": {
+      "rxcui": "10612",
+      "query": "Tinidazole"
+    },
+    "Timolol": {
+      "rxcui": "10600",
+      "query": "Timolol"
+    },
+    "Tiludronic acid": {
+      "rxcui": "11476",
+      "query": "Tiludronic acid"
+    },
+    "Tilmanocept": {
+      "rxcui": null,
+      "query": null
+    },
+    "Tioguanine": {
+      "rxcui": "10485",
+      "query": "Tioguanine"
+    },
+    "Tinzaparin": {
+      "rxcui": "69646",
+      "query": "Tinzaparin"
+    },
+    "Tioconazole": {
+      "rxcui": "38298",
+      "query": "Tioconazole"
+    },
+    "Tiotropium": {
+      "rxcui": "69120",
+      "query": "Tiotropium"
+    },
+    "Tipiracil": {
+      "rxcui": "1670304",
+      "query": "Tipiracil"
+    },
+    "Tipranavir": {
+      "rxcui": "190548",
+      "query": "Tipranavir"
+    },
+    "Tirofiban": {
+      "rxcui": "73137",
+      "query": "Tirofiban"
+    },
+    "Tisagenlecleucel": {
+      "rxcui": "1986438",
+      "query": "Tisagenlecleucel"
+    },
+    "Tivozanib": {
+      "rxcui": "2534233",
+      "query": "Tivozanib"
+    },
+    "Timolol (ophthalmic)": {
+      "rxcui": "10600",
+      "query": "Timolol"
+    },
+    "Tizanidine": {
+      "rxcui": "57258",
+      "query": "Tizanidine"
+    },
+    "Tobramycin": {
+      "rxcui": "10627",
+      "query": "Tobramycin"
+    },
+    "Tocainide": {
+      "rxcui": "42359",
+      "query": "Tocainide"
+    },
+    "Tocilizumab": {
+      "rxcui": "612865",
+      "query": "Tocilizumab"
+    },
+    "Tofacitinib": {
+      "rxcui": "1357536",
+      "query": "Tofacitinib"
+    },
+    "Tolazamide": {
+      "rxcui": "10633",
+      "query": "Tolazamide"
+    },
+    "Tolazoline": {
+      "rxcui": "10634",
+      "query": "Tolazoline"
+    },
+    "Tolbutamide": {
+      "rxcui": "10635",
+      "query": "Tolbutamide"
+    },
+    "Tolcapone": {
+      "rxcui": "72937",
+      "query": "Tolcapone"
+    },
+    "Tolevamer": {
+      "rxcui": null,
+      "query": null
+    },
+    "Tolmetin": {
+      "rxcui": "10636",
+      "query": "Tolmetin"
+    },
+    "Tolterodine": {
+      "rxcui": "119565",
+      "query": "Tolterodine"
+    },
+    "Tolvaptan": {
+      "rxcui": "358257",
+      "query": "Tolvaptan"
+    },
+    "Topiramate": {
+      "rxcui": "38404",
+      "query": "Topiramate"
+    },
+    "Topotecan": {
+      "rxcui": "57308",
+      "query": "Topotecan"
+    },
+    "Torasemide": {
+      "rxcui": "38413",
+      "query": "Torasemide"
+    },
+    "Toremifene": {
+      "rxcui": "38409",
+      "query": "Toremifene"
+    },
+    "Tositumomab": {
+      "rxcui": "263010",
+      "query": "Tositumomab"
+    },
+    "Trabectedin": {
+      "rxcui": "1716278",
+      "query": "Trabectedin"
+    },
+    "Tramadol": {
+      "rxcui": "10689",
+      "query": "Tramadol"
+    },
+    "Trametinib": {
+      "rxcui": "1425099",
+      "query": "Trametinib"
+    },
+    "Trandolapril": {
+      "rxcui": "38454",
+      "query": "Trandolapril"
+    },
+    "Tranexamic acid": {
+      "rxcui": "10691",
+      "query": "Tranexamic acid"
+    },
+    "Trastuzumab deruxtecan": {
+      "rxcui": "2267582",
+      "query": "Trastuzumab deruxtecan"
+    },
+    "Trastuzumab": {
+      "rxcui": "224905",
+      "query": "Trastuzumab"
+    },
+    "Tranylcypromine": {
+      "rxcui": "10734",
+      "query": "Tranylcypromine"
+    },
+    "Trastuzumab emtansine": {
+      "rxcui": "1371041",
+      "query": "Trastuzumab emtansine"
+    },
+    "Travoprost": {
+      "rxcui": "283809",
+      "query": "Travoprost"
+    },
+    "Tositumomab (I-131)": {
+      "rxcui": "263010",
+      "query": "Tositumomab"
+    },
+    "Trazodone": {
+      "rxcui": "10737",
+      "query": "Trazodone"
+    },
+    "Treprostinil": {
+      "rxcui": "343048",
+      "query": "Treprostinil"
+    },
+    "Tretinoin": {
+      "rxcui": "10753",
+      "query": "Tretinoin"
+    },
+    "Triamcinolone": {
+      "rxcui": "10759",
+      "query": "Triamcinolone"
+    },
+    "Triamterene": {
+      "rxcui": "10763",
+      "query": "Triamterene"
+    },
+    "Travoprost (ophthalmic)": {
+      "rxcui": "283809",
+      "query": "Travoprost"
+    },
+    "Triazolam": {
+      "rxcui": "10767",
+      "query": "Triazolam"
+    },
+    "Trichlormethiazide": {
+      "rxcui": "10772",
+      "query": "Trichlormethiazide"
+    },
+    "Trichophyton mentagrophytes": {
+      "rxcui": "867357",
+      "query": "Trichophyton mentagrophytes"
+    },
+    "Tretinoin (topical)": {
+      "rxcui": "10753",
+      "query": "Tretinoin"
+    },
+    "Triclabendazole": {
+      "rxcui": "2118525",
+      "query": "Triclabendazole"
+    },
+    "Triamcinolone (ophthalmic)": {
+      "rxcui": "10759",
+      "query": "Triamcinolone"
+    },
+    "Triamcinolone (topical)": {
+      "rxcui": "10759",
+      "query": "Triamcinolone"
+    },
+    "Triethylenetetramine": {
+      "rxcui": "10798",
+      "query": "Triethylenetetramine"
+    },
+    "Trifluoperazine": {
+      "rxcui": "10800",
+      "query": "Trifluoperazine"
+    },
+    "Triamcinolone (nasal)": {
+      "rxcui": "10759",
+      "query": "Triamcinolone"
+    },
+    "Trifluridine": {
+      "rxcui": "10803",
+      "query": "Trifluridine"
+    },
+    "Triflupromazine": {
+      "rxcui": "10805",
+      "query": "Triflupromazine"
+    },
+    "Triheptanoin": {
+      "rxcui": "1313234",
+      "query": "Triheptanoin"
+    },
+    "Trihexyphenidyl": {
+      "rxcui": "10811",
+      "query": "Trihexyphenidyl"
+    },
+    "Trimethaphan": {
+      "rxcui": "10828",
+      "query": "Trimethaphan"
+    },
+    "Trimethadione": {
+      "rxcui": "10827",
+      "query": "Trimethadione"
+    },
+    "Trimethobenzamide": {
+      "rxcui": "38685",
+      "query": "Trimethobenzamide"
+    },
+    "Trimethoprim": {
+      "rxcui": "10829",
+      "query": "Trimethoprim"
+    },
+    "Trifarotene (topical)": {
+      "rxcui": "2205637",
+      "query": "Trifarotene"
+    },
+    "Trimetrexate": {
+      "rxcui": "42333",
+      "query": "Trimetrexate"
+    },
+    "Trimipramine": {
+      "rxcui": "10834",
+      "query": "Trimipramine"
+    },
+    "Trioxsalen": {
+      "rxcui": "10844",
+      "query": "Trioxsalen"
+    },
+    "Triptorelin": {
+      "rxcui": "38782",
+      "query": "Triptorelin"
+    },
+    "Troglitazone": {
+      "rxcui": "72610",
+      "query": "Troglitazone"
+    },
+    "Tripelennamine": {
+      "rxcui": "10847",
+      "query": "Tripelennamine"
+    },
+    "Triprolidine": {
+      "rxcui": "10849",
+      "query": "Triprolidine"
+    },
+    "Troleandomycin": {
+      "rxcui": "10864",
+      "query": "Troleandomycin"
+    },
+    "Tromethamine": {
+      "rxcui": "10865",
+      "query": "Tromethamine"
+    },
+    "Tropicamide": {
+      "rxcui": "10869",
+      "query": "Tropicamide"
+    },
+    "Tucatinib": {
+      "rxcui": "2361285",
+      "query": "Tucatinib"
+    },
+    "Tuberculin purified protein derivative": {
+      "rxcui": "8948",
+      "query": "Tuberculin purified protein derivative"
+    },
+    "Trovafloxacin": {
+      "rxcui": "115552",
+      "query": "Trovafloxacin"
+    },
+    "Tubocurarine": {
+      "rxcui": "10917",
+      "query": "Tubocurarine"
+    },
+    "Tryptophan": {
+      "rxcui": "10898",
+      "query": "Tryptophan"
+    },
+    "Trospium": {
+      "rxcui": "236778",
+      "query": "Trospium"
+    },
+    "Turmeric": {
+      "rxcui": "1114883",
+      "query": "Turmeric"
+    },
+    "Tropicamide (ophthalmic)": {
+      "rxcui": "10869",
+      "query": "Tropicamide"
+    },
+    "Tyropanoic acid": {
+      "rxcui": null,
+      "query": null
+    },
+    "Ubrogepant": {
+      "rxcui": "2268216",
+      "query": "Ubrogepant"
+    },
+    "Ulipristal": {
+      "rxcui": "1005921",
+      "query": "Ulipristal"
+    },
+    "Umeclidinium": {
+      "rxcui": "1487514",
+      "query": "Umeclidinium"
+    },
+    "Upadacitinib": {
+      "rxcui": "2196092",
+      "query": "Upadacitinib"
+    },
+    "Typhoid vaccine (inactivated)": {
+      "rxcui": null,
+      "query": null
+    },
+    "Uracil mustard": {
+      "rxcui": "10996",
+      "query": "Uracil mustard"
+    },
+    "Typhoid vaccine (live)": {
+      "rxcui": null,
+      "query": null
+    },
+    "Urofollitropin": {
+      "rxcui": "134404",
+      "query": "Urofollitropin"
+    },
+    "Urea": {
+      "rxcui": "11002",
+      "query": "Urea"
+    },
+    "Urokinase": {
+      "rxcui": "11055",
+      "query": "Urokinase"
+    },
+    "Ulobetasol (topical)": {
+      "rxcui": "41208",
+      "query": "Ulobetasol"
+    },
+    "Ursodeoxycholic acid": {
+      "rxcui": "11065",
+      "query": "Ursodeoxycholic acid"
+    },
+    "Unoprostone (ophthalmic)": {
+      "rxcui": "1546408",
+      "query": "Unoprostone"
+    },
+    "Ustekinumab": {
+      "rxcui": "847083",
+      "query": "Ustekinumab"
+    },
+    "Valaciclovir": {
+      "rxcui": "73645",
+      "query": "Valaciclovir"
+    },
+    "Valdecoxib": {
+      "rxcui": "278567",
+      "query": "Valdecoxib"
+    },
+    "Valbenazine": {
+      "rxcui": "1918219",
+      "query": "Valbenazine"
+    },
+    "Valerian": {
+      "rxcui": "253206",
+      "query": "Valerian"
+    },
+    "Valganciclovir": {
+      "rxcui": "275891",
+      "query": "Valganciclovir"
+    },
+    "Valproic acid": {
+      "rxcui": "11118",
+      "query": "Valproic acid"
+    },
+    "Valrubicin": {
+      "rxcui": "31435",
+      "query": "Valrubicin"
+    },
+    "Valsartan": {
+      "rxcui": "69749",
+      "query": "Valsartan"
+    },
+    "Vancomycin": {
+      "rxcui": "11124",
+      "query": "Vancomycin"
+    },
+    "Vandetanib": {
+      "rxcui": "1098413",
+      "query": "Vandetanib"
+    },
+    "Vardenafil": {
+      "rxcui": "306674",
+      "query": "Vardenafil"
+    },
+    "Varicella Zoster Vaccine (Recombinant)": {
+      "rxcui": "1986820",
+      "query": "Varicella Zoster Vaccine (Recombinant)"
+    },
+    "Varenicline": {
+      "rxcui": "591622",
+      "query": "Varenicline"
+    },
+    "Vasopressin": {
+      "rxcui": "11149",
+      "query": "Vasopressin"
+    },
+    "Velpatasvir": {
+      "rxcui": "1799206",
+      "query": "Velpatasvir"
+    },
+    "Vecuronium": {
+      "rxcui": "71535",
+      "query": "Vecuronium"
+    },
+    "Vedolizumab": {
+      "rxcui": "1538097",
+      "query": "Vedolizumab"
+    },
+    "Venetoclax": {
+      "rxcui": "1747556",
+      "query": "Venetoclax"
+    },
+    "Vemurafenib": {
+      "rxcui": "1147220",
+      "query": "Vemurafenib"
+    },
+    "Venlafaxine": {
+      "rxcui": "39786",
+      "query": "Venlafaxine"
+    },
+    "Verapamil": {
+      "rxcui": "11170",
+      "query": "Verapamil"
+    },
+    "Vibegron": {
+      "rxcui": "2472254",
+      "query": "Vibegron"
+    },
+    "Verteporfin": {
+      "rxcui": "118886",
+      "query": "Verteporfin"
+    },
+    "Vibrio cholerae CVD 103-HgR strain live antigen": {
+      "rxcui": "1812935",
+      "query": "Vibrio cholerae CVD 103-HgR strain live antigen"
+    },
+    "Vigabatrin": {
+      "rxcui": "14851",
+      "query": "Vigabatrin"
+    },
+    "Vilanterol": {
+      "rxcui": "1424884",
+      "query": "Vilanterol"
+    },
+    "Vinblastine": {
+      "rxcui": "11198",
+      "query": "Vinblastine"
+    },
+    "Vilazodone": {
+      "rxcui": "1086769",
+      "query": "Vilazodone"
+    },
+    "Vincristine": {
+      "rxcui": "11202",
+      "query": "Vincristine"
+    },
+    "Vinorelbine": {
+      "rxcui": "39541",
+      "query": "Vinorelbine"
+    },
+    "Vismodegib": {
+      "rxcui": "1242987",
+      "query": "Vismodegib"
+    },
+    "Vitamin A": {
+      "rxcui": "11246",
+      "query": "Vitamin A"
+    },
+    "Vibrio cholerae CVD 103-HgR strain live antigen (live)": {
+      "rxcui": "1812935",
+      "query": "Vibrio cholerae CVD 103-HgR strain live antigen"
+    },
+    "Vitamin D": {
+      "rxcui": "11253",
+      "query": "Vitamin D"
+    },
+    "Vitamin E": {
+      "rxcui": "11256",
+      "query": "Vitamin E"
+    },
+    "Vorapaxar": {
+      "rxcui": "1537034",
+      "query": "Vorapaxar"
+    },
+    "Von Willebrand Factor Human": {
+      "rxcui": "826072",
+      "query": "Von Willebrand Factor Human"
+    },
+    "Voriconazole": {
+      "rxcui": "121243",
+      "query": "Voriconazole"
+    },
+    "Vincristine (liposome)": {
+      "rxcui": "11202",
+      "query": "Vincristine"
+    },
+    "Vorinostat": {
+      "rxcui": "194337",
+      "query": "Vorinostat"
+    },
+    "Vortioxetine": {
+      "rxcui": "1455099",
+      "query": "Vortioxetine"
+    },
+    "Voxelotor": {
+      "rxcui": "2265678",
+      "query": "Voxelotor"
+    },
+    "Voxilaprevir": {
+      "rxcui": "1939323",
+      "query": "Voxilaprevir"
+    },
+    "Warfarin": {
+      "rxcui": "11289",
+      "query": "Warfarin"
+    },
+    "Yellow Fever Vaccine": {
+      "rxcui": "804187",
+      "query": "Yellow Fever Vaccine"
+    },
+    "Yohimbine": {
+      "rxcui": "220982",
+      "query": "Yohimbine"
+    },
+    "Zafirlukast": {
+      "rxcui": "114970",
+      "query": "Zafirlukast"
+    },
+    "Zalcitabine": {
+      "rxcui": "3363",
+      "query": "Zalcitabine"
+    },
+    "Zaleplon": {
+      "rxcui": "74667",
+      "query": "Zaleplon"
+    },
+    "Zanamivir": {
+      "rxcui": "69722",
+      "query": "Zanamivir"
+    },
+    "Xylometazoline (nasal)": {
+      "rxcui": "39841",
+      "query": "Xylometazoline"
+    },
+    "Zanubrutinib": {
+      "rxcui": "2262435",
+      "query": "Zanubrutinib"
+    },
+    "Zidovudine": {
+      "rxcui": "11413",
+      "query": "Zidovudine"
+    },
+    "Ziconotide": {
+      "rxcui": "68503",
+      "query": "Ziconotide"
+    },
+    "Zileuton": {
+      "rxcui": "40575",
+      "query": "Zileuton"
+    },
+    "Zinc acetate": {
+      "rxcui": "58295",
+      "query": "Zinc acetate"
+    },
+    "Zinc chloride": {
+      "rxcui": "39937",
+      "query": "Zinc chloride"
+    },
+    "Zinc gluconate": {
+      "rxcui": "58300",
+      "query": "Zinc gluconate"
+    },
+    "Zinc sulfate": {
+      "rxcui": "39954",
+      "query": "Zinc sulfate"
+    },
+    "Ziprasidone": {
+      "rxcui": "115698",
+      "query": "Ziprasidone"
+    },
+    "Zolmitriptan": {
+      "rxcui": "135775",
+      "query": "Zolmitriptan"
+    },
+    "Zoledronic acid": {
+      "rxcui": "77655",
+      "query": "Zoledronic acid"
+    },
+    "Zolpidem": {
+      "rxcui": "39993",
+      "query": "Zolpidem"
+    },
+    "Zonisamide": {
+      "rxcui": "39998",
+      "query": "Zonisamide"
+    },
+    "Zopiclone": {
+      "rxcui": "40001",
+      "query": "Zopiclone"
+    }
+  }
+}

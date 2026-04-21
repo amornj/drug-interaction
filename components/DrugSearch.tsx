@@ -11,12 +11,10 @@ export function DrugSearch() {
   const [open, setOpen] = useState(false);
   const addDrug = useStore((s) => s.addDrug);
   const abortRef = useRef<AbortController | null>(null);
+  const term = q.trim();
 
   useEffect(() => {
-    const term = q.trim();
     if (term.length < 2) {
-      setResults([]);
-      setLoading(false);
       return;
     }
     const t = setTimeout(async () => {
@@ -38,7 +36,7 @@ export function DrugSearch() {
       }
     }, 200);
     return () => clearTimeout(t);
-  }, [q]);
+  }, [term]);
 
   function pick(c: DrugCandidate) {
     addDrug({ rxcui: c.rxcui, name: c.name });
@@ -59,7 +57,13 @@ export function DrugSearch() {
         spellCheck={false}
         value={q}
         onChange={(e) => {
-          setQ(e.target.value);
+          const nextQ = e.target.value;
+          setQ(nextQ);
+          if (nextQ.trim().length < 2) {
+            abortRef.current?.abort();
+            setResults([]);
+            setLoading(false);
+          }
           setOpen(true);
         }}
         onFocus={() => setOpen(true)}

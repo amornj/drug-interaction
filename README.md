@@ -6,7 +6,7 @@ A mobile-first PWA for bedside drug interaction checking, built for busy clinici
 
 ## Status
 
-**M1 — Skeleton PWA.** Med-list screen with RxNorm autocomplete, local persistence, multi-case switcher. No interaction check yet (M2).
+**M2 — Deterministic pair check.** Med-list screen now posts active RxCUIs to a deterministic DDInter-backed edge route and renders severity-sorted interaction pairs with visible citations.
 
 ## Stack
 
@@ -27,10 +27,13 @@ A mobile-first PWA for bedside drug interaction checking, built for busy clinici
 
 ```bash
 npm install
+npm run build:data
 npm run dev
 ```
 
 Open http://localhost:3000 on a phone viewport.
+
+`npm run build:data` refreshes the committed DDInter/RxNorm artifacts under `lib/data/`. `npm run build` uses those local files and does not need to fetch DDInter at build time.
 
 ## Roadmap
 
@@ -48,8 +51,10 @@ Open http://localhost:3000 on a phone viewport.
 
 ## Data sources
 
-- [RxNorm](https://lhncbc.nlm.nih.gov/RxNav/APIs/RxNormAPIs.html) (NIH) — drug normalization & autocomplete (free)
-- [openFDA drug labeling](https://open.fda.gov/apis/drug/label/) — labels, CYP info, warnings (free)
-- [DDInter 2.0](https://ddinter2.scbdd.com/) — pairwise interactions seed (academic)
-- [CPIC guidelines](https://cpicpgx.org/) — pharmacogenomics
-- `/lib/data/overlay/*.yaml` — hand-curated local brand names and formulary notes (added in M2)
+| Source | Purpose | Version | Generated / refreshed | Runtime use |
+| --- | --- | --- | --- | --- |
+| [RxNorm](https://lhncbc.nlm.nih.gov/RxNav/APIs/RxNormAPIs.html) | Drug normalization, autocomplete, DDInter name-to-RxCUI mapping | Live API | Mapping generated `2026-04-21` | Autocomplete + build-time DDInter mapping |
+| [DDInter 2.0](https://ddinter2.scbdd.com/) | Deterministic pairwise interaction seed | `2.0` | Ingest generated `2026-04-21` | `/api/interactions/check` |
+| `lib/data/overlay/*.yaml` | Hand-curated deterministic overrides / augmentations | `2026-04` | Generated `2026-04-21` | `/api/interactions/check` precedence layer |
+
+See [docs/data-sources.md](/Users/home/projects/drug-interaction/docs/data-sources.md) for refresh cadence, artifact locations, and terms.

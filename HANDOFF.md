@@ -6,7 +6,7 @@ Owner: `amornj`. Repo: https://github.com/amornj/drug-interaction. Deploy: Verce
 
 ---
 
-## Current state (M1 — DONE, on `main`)
+## Current state (M2 — DONE, on `main`)
 
 - Next.js 15 App Router + React 19 + TS + Tailwind v4
 - Mobile-first shell: `components/AppShell.tsx`, case switcher, thumb-zone bottom bar, safe-area insets
@@ -14,8 +14,23 @@ Owner: `amornj`. Repo: https://github.com/amornj/drug-interaction. Deploy: Verce
 - Local-only persistence: `lib/store.ts` (Zustand + idb-keyval, `STORAGE_KEY = "di.state.v1"`)
 - PWA manifest + icon; real service worker deferred to M9
 - Decision-support footer on every screen
+- Deterministic pair-check route: `app/api/interactions/check/route.ts` (edge runtime, in-memory response cache)
+- DDInter ingest artifacts:
+  - `scripts/generate-ddinter.mjs`
+  - `lib/data/ddinter/index.json`
+  - `lib/data/ddinter/rxcui-map.json`
+  - `lib/data/ddinter/build-report.json`
+  - `lib/data/overlay/*.yaml` + generated `lib/data/overlay/index.json`
+- Interaction UI:
+  - `components/InteractionList.tsx`
+  - `components/SeverityBadge.tsx`
+  - wired bottom-bar CTA in `components/AppShell.tsx`
 
-Verified: `npm run build` passes. Tested searches: warfarin, lipitor, paracetamol, amoxi return hits.
+Verified:
+- `npm run lint` passes
+- `npm run build` passes
+- `/api/interactions/check` with `{"rxcuis":["11289","36567"]}` returns Warfarin ↔ Simvastatin with severity + citation
+- Tested searches: warfarin, lipitor, paracetamol, amoxi return hits
 
 ### File map
 
@@ -25,17 +40,34 @@ app/
   page.tsx            # renders <AppShell />
   globals.css         # Tailwind v4 + theme tokens
   api/drugs/search/route.ts   # RxNorm proxy (edge)
+  api/interactions/check/route.ts   # deterministic pair check (edge)
 components/
   AppShell.tsx        # composes the mobile UI
   CaseSwitcher.tsx    # horizontal chip row + new/rename
   DrugSearch.tsx      # debounced autocomplete input + dropdown
   DrugChip.tsx        # med list row with remove button
+  InteractionList.tsx # severity-sorted list with citations + expanders
+  SeverityBadge.tsx   # red/orange/amber/yellow severity variants
 lib/
   rxnorm.ts           # searchRxNorm(term, max) -> DrugCandidate[]
+  interactions.ts     # shared types, versions, deterministic pair lookup
   store.ts            # Zustand store: cases, activeCaseId, drugs; IndexedDB persist
+  data/
+    ddinter/
+      index.json      # committed RxCUI-pair severity index
+      rxcui-map.json  # DDInter name -> RxCUI mapping
+      build-report.json  # unresolved-name log + ingest stats
+      index.ts        # exports runtime DDInter map/helpers
+    overlay/
+      *.yaml          # hand-curated deterministic overrides
+      index.json      # generated runtime overlay payload
 public/
   manifest.webmanifest
   icon.svg
+scripts/
+  generate-ddinter.mjs  # refresh DDInter + RxNorm generated artifacts
+docs/
+  data-sources.md    # source list, cadence, and terms
 ```
 
 ---
@@ -51,75 +83,44 @@ public/
 
 ---
 
-## Next task — M2: Deterministic pair check
+## Next task — M3: LLM explainer endpoint
 
-Goal: when the user has ≥2 drugs in the active case and taps the **Check interactions** button, render a severity-sorted list of interacting pairs with one-line verdicts and visible citations.
+Goal: add an **optional** explainer layer that turns deterministic M2 pair results into concise bedside prose without ever inventing medical facts.
 
 ### Build
 
-1. **Data files**
-   - `lib/data/ddinter/` — download DDInter 2.0 interaction CSV (https://ddinter2.scbdd.com/), commit as JSON/SQLite, or parse at build into `lib/data/ddinter/index.ts` exporting `Map<string, Interaction>` keyed by sorted `"rxcuiA|rxcuiB"`.
-   - `lib/data/overlay/*.yaml` — hand-curated schema-validated (zod) overlay that *augments or overrides* DDInter. Shape:
-     ```yaml
-     - pair: [rxcuiA, rxcuiB]
-       severity: Contraindicated | Major | Moderate | Minor
-       verdict: "Avoid — risk of serotonin syndrome"
-       mechanism_class: "Pharmacodynamic — serotonergic additive"
-       management: "Use alternative; if unavoidable, monitor for hyperthermia/clonus"
-       sources:
-         - name: "Curated overlay"
-           version: "2026-04"
-     ```
-   - DDInter identifiers are NOT RxCUIs. You must map DDInter drug names → RxCUIs at build time (use RxNorm `/rxcui.json?name=...`). Store the mapping in `lib/data/ddinter/rxcui-map.json`. Skip pairs that don't resolve; log them in a build report.
+1. **Explainer route**
+   - Add a new route for streamed explanation output using Anthropic via the Vercel AI SDK.
+   - Input should be the deterministic pair payload (or pair IDs) from M2, not free-form drug names alone.
+   - Output should include:
+     - a concise bedside explanation
+     - what to monitor
+     - when to avoid the combination
+     - explicit citations for every claim
+   - Temperature **must be `0`**.
 
-2. **API route** `app/api/interactions/check/route.ts` (edge)
-   - Input: `{ rxcuis: string[] }`
-   - Output:
-     ```ts
-     {
-       pairs: Array<{
-         a: { rxcui: string; name: string };
-         b: { rxcui: string; name: string };
-         severity: "Contraindicated" | "Major" | "Moderate" | "Minor";
-         verdict: string;
-         mechanism_class?: string;
-         management?: string;
-         sources: Array<{ name: string; version: string }>;
-       }>;
-       unknown: string[];   // rxcuis with no resolved name
-       checkedAt: string;   // ISO
-       dataVersion: string; // DDInter version + overlay version
-     }
-     ```
-   - Deterministic only. No LLM here. Cache results in Vercel KV (key: sorted-rxcui-pair) once available; for now, in-memory cache is fine.
-   - Overlay overrides DDInter when both match the same pair.
+2. **Prompting and safety**
+   - The prompt must only allow the model to summarize or restate facts already present in the deterministic inputs.
+   - If a needed fact is absent from DDInter/overlay input, the explainer must say it is unavailable rather than infer it.
+   - Keep prose short enough for phone use.
 
 3. **UI**
-   - New component `components/InteractionList.tsx`
-   - New component `components/SeverityBadge.tsx` (4 variants: red/orange/amber/yellow)
-   - Wire the bottom-bar "Check interactions" button (currently disabled) to POST to the route and render the list below the med chips.
-   - Sort: Contraindicated → Major → Moderate → Minor. Red pairs pinned at top with a subtle pulse.
-   - Each row: `A ↔ B`, severity badge, one-line verdict. Tap-to-expand reveals mechanism_class, management, and source citations (name + version).
-   - Empty state when no interactions: a green "No known interactions found in current data sources" banner with the same citation line (e.g. "DDInter 2.0 · 2024-XX").
+   - Add an optional per-pair “Explain” affordance in the interaction list.
+   - The explainer output must be visually secondary to the deterministic severity/verdict/citation block.
+   - The deterministic result remains the source of truth.
 
-### Acceptance criteria (M2)
+### Acceptance criteria (M3)
 
+- [ ] No severity, contraindication, mechanism, or management fact is generated unless present in deterministic input
+- [ ] Every explanatory claim visibly cites its deterministic source
+- [ ] Streaming works on mobile without blocking the core interaction list
 - [ ] `npm run build` passes
-- [ ] Hitting `/api/interactions/check` with `{rxcuis: ["11289", "36567"]}` (warfarin + simvastatin) returns a populated `pairs` array with severity and at least one source
-- [ ] No LLM call anywhere in this milestone
-- [ ] Every rendered pair shows a citation (source name + version)
-- [ ] Empty state also shows the data-source name and version
-- [ ] Lighthouse mobile performance ≥ 90 on the deployed Vercel preview
-- [ ] README updated: data source table gets DDInter version + overlay version columns
-- [ ] `docs/data-sources.md` created, listing every source + refresh cadence + license
 
 ### Do NOT in this milestone
 
-- Do not add an LLM explainer — that is M3.
 - Do not add patient modifiers (pregnancy, eGFR, etc.) — that is M4.
-- Do not add user accounts, analytics, or server-side patient storage.
-- Do not invent Thai brand mappings — overlay stays hand-curated.
-- Do not relax the severity rule: DDInter + overlay are authoritative. If a pair isn't in either source, omit it (don't guess).
+- Do not add accounts, analytics, or server-side patient storage.
+- Do not let the LLM change severity ordering or deterministic verdict text.
 
 ---
 
