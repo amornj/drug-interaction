@@ -2,6 +2,12 @@
 
 import { create } from "zustand";
 import { get as idbGet, set as idbSet } from "idb-keyval";
+import {
+  createDefaultPatientModifiers,
+  type PatientModifierKey,
+  type PatientModifiers,
+  type RenalInputs,
+} from "@/lib/modifiers";
 
 export type Drug = {
   rxcui: string;
@@ -13,6 +19,7 @@ export type Case = {
   id: string;
   label: string;
   drugs: Drug[];
+  patientModifiers: PatientModifiers;
   createdAt: number;
 };
 
@@ -31,6 +38,15 @@ type Store = PersistedState & {
   addDrug: (drug: Omit<Drug, "addedAt">) => void;
   removeDrug: (rxcui: string) => void;
   clearDrugs: () => void;
+  setModifierFlag: (
+    modifier: Exclude<PatientModifierKey, "renal">,
+    value: boolean
+  ) => void;
+  updateRenalInput: <K extends keyof RenalInputs>(
+    field: K,
+    value: RenalInputs[K]
+  ) => void;
+  resetPatientModifiers: () => void;
 };
 
 const STORAGE_KEY = "di.state.v1";
@@ -47,9 +63,37 @@ function defaultState(): PersistedState {
     id: newId(),
     label: "Case 1",
     drugs: [],
+    patientModifiers: createDefaultPatientModifiers(),
     createdAt: Date.now(),
   };
   return { cases: [first], activeCaseId: first.id };
+}
+
+function normalizeCase(nextCase: Case): Case {
+  return {
+    ...nextCase,
+    patientModifiers: {
+      ...createDefaultPatientModifiers(),
+      ...nextCase.patientModifiers,
+      renal: {
+        ...createDefaultPatientModifiers().renal,
+        ...nextCase.patientModifiers?.renal,
+      },
+    },
+  };
+}
+
+function normalizePersistedState(
+  state: PersistedState | undefined
+): PersistedState | undefined {
+  if (!state?.cases?.length) {
+    return undefined;
+  }
+
+  return {
+    ...state,
+    cases: state.cases.map(normalizeCase),
+  };
 }
 
 async function persist(state: PersistedState) {
@@ -67,7 +111,9 @@ export const useStore = create<Store>((set, get) => ({
   hydrate: async () => {
     if (get().hydrated) return;
     try {
-      const loaded = (await idbGet(STORAGE_KEY)) as PersistedState | undefined;
+      const loaded = normalizePersistedState(
+        (await idbGet(STORAGE_KEY)) as PersistedState | undefined
+      );
       if (loaded && loaded.cases?.length) {
         set({ ...loaded, hydrated: true });
         return;
@@ -83,6 +129,7 @@ export const useStore = create<Store>((set, get) => ({
       id: newId(),
       label: `Case ${get().cases.length + 1}`,
       drugs: [],
+      patientModifiers: createDefaultPatientModifiers(),
       createdAt: Date.now(),
     };
     const next = { cases: [...get().cases, c], activeCaseId: c.id };
@@ -139,6 +186,57 @@ export const useStore = create<Store>((set, get) => ({
     const { cases, activeCaseId } = get();
     const nextCases = cases.map((c) =>
       c.id !== activeCaseId ? c : { ...c, drugs: [] }
+    );
+    set({ cases: nextCases });
+    persist({ cases: nextCases, activeCaseId });
+  },
+
+  setModifierFlag: (modifier, value) => {
+    const { cases, activeCaseId } = get();
+    const nextCases = cases.map((c) =>
+      c.id !== activeCaseId
+        ? c
+        : {
+            ...c,
+            patientModifiers: {
+              ...c.patientModifiers,
+              [modifier]: value,
+            },
+          }
+    );
+    set({ cases: nextCases });
+    persist({ cases: nextCases, activeCaseId });
+  },
+
+  updateRenalInput: (field, value) => {
+    const { cases, activeCaseId } = get();
+    const nextCases = cases.map((c) =>
+      c.id !== activeCaseId
+        ? c
+        : {
+            ...c,
+            patientModifiers: {
+              ...c.patientModifiers,
+              renal: {
+                ...c.patientModifiers.renal,
+                [field]: value,
+              },
+            },
+          }
+    );
+    set({ cases: nextCases });
+    persist({ cases: nextCases, activeCaseId });
+  },
+
+  resetPatientModifiers: () => {
+    const { cases, activeCaseId } = get();
+    const nextCases = cases.map((c) =>
+      c.id !== activeCaseId
+        ? c
+        : {
+            ...c,
+            patientModifiers: createDefaultPatientModifiers(),
+          }
     );
     set({ cases: nextCases });
     persist({ cases: nextCases, activeCaseId });

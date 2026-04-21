@@ -6,7 +6,7 @@ Owner: `amornj`. Repo: https://github.com/amornj/drug-interaction. Deploy: Verce
 
 ---
 
-## Current state (M3 — DONE, on `main`)
+## Current state (M4 — DONE, on `main`)
 
 - Next.js 15 App Router + React 19 + TS + Tailwind v4
 - Mobile-first shell: `components/AppShell.tsx`, case switcher, thumb-zone bottom bar, safe-area insets
@@ -34,12 +34,19 @@ Owner: `amornj`. Repo: https://github.com/amornj/drug-interaction. Deploy: Verce
   - `components/InteractionExplanation.tsx`
   - optional “Explain” affordance per pair
   - streamed prose rendered below deterministic content, with deterministic citations shown per section
+- Patient modifier layer:
+  - `components/PatientModifiers.tsx`
+  - `lib/modifiers.ts`
+  - pregnancy, lactation, hepatic impairment, age ≥ 65, G6PD, and Cockcroft–Gault renal inputs
+  - modifier state persisted locally with each case
+  - deterministic client-side re-ranking and modifier citation blocks in the interaction list
 
 Verified:
 - `npm run lint` passes
 - `npm run build` passes
 - `/api/interactions/check` with `{"rxcuis":["11289","36567"]}` returns Warfarin ↔ Simvastatin with severity + citation
 - `/api/interactions/explain` accepts deterministic pair payloads and returns `503` with a clear error when Anthropic is not configured locally
+- Modifier state is stored inside each case record and used to re-rank displayed interaction urgency locally
 - Tested searches: warfarin, lipitor, paracetamol, amoxi return hits
 
 ### File map
@@ -59,9 +66,11 @@ components/
   DrugChip.tsx        # med list row with remove button
   InteractionList.tsx # severity-sorted list with citations + expanders
   InteractionExplanation.tsx # optional streamed explainer per pair
+  PatientModifiers.tsx # local modifier chips + Cockcroft–Gault input panel
   SeverityBadge.tsx   # red/orange/amber/yellow severity variants
 lib/
   interactions.ts     # shared pair types, prompt builder, explanation parsing
+  modifiers.ts        # deterministic patient modifier rules and re-ranking
   rxnorm.ts           # searchRxNorm(term, max) -> DrugCandidate[]
   store.ts            # Zustand store: cases, activeCaseId, drugs; IndexedDB persist
   data/
@@ -95,44 +104,42 @@ docs/
 
 ---
 
-## Next task — M4: Patient modifiers
+## Next task — M5: Cumulative risk stacks
 
-Goal: add patient-context chips that re-rank or annotate deterministic interaction output without weakening the deterministic-first rule.
+Goal: add deterministic cumulative stack warnings across the active medication list without weakening the pair-based interaction layer.
 
 ### Build
 
-1. **Modifier state**
-   - Add patient modifier chips for:
-     - pregnancy
-     - lactation
-     - eGFR (Cockcroft–Gault)
-     - hepatic impairment
-     - age ≥ 65
-     - G6PD deficiency
-   - Keep state local-only in IndexedDB with the active case.
+1. **Risk domains**
+   - Add stack detection for:
+     - QT prolongation
+     - bleeding
+     - serotonergic toxicity
+     - anticholinergic burden
+     - nephrotoxic burden
 
 2. **Deterministic integration**
-   - The modifier layer must be deterministic.
-   - It may re-rank or annotate M2 interaction output, but it must not invent base interactions.
-   - If a modifier changes urgency, the UI must make clear that the base pair came from DDInter/overlay and the modifier changed the displayed priority.
+   - Stack rules must be deterministic and local.
+   - They supplement pair results; they do not replace pairwise DDInter/overlay output.
+   - If a stack warning is shown, its source/version must be visible.
 
 3. **UI**
-   - Add modifier chips above or near the interaction results without crowding the 360px layout.
-   - Keep touch targets at least 44 pt.
-   - Show when a modifier is affecting displayed ranking or management guidance.
+   - Present stack warnings as a separate section above or alongside pair results.
+   - Keep the mobile layout compact and scannable at 360px width.
+   - Make it clear when a warning is a cumulative stack versus a single pair interaction.
 
-### Acceptance criteria (M4)
+### Acceptance criteria (M5)
 
-- [ ] Modifier toggles are persisted locally per case
-- [ ] Deterministic pair output is re-ranked or annotated when a modifier applies
-- [ ] Base DDInter/overlay citations remain visible
+- [ ] At least the five agreed stack domains are detected deterministically
+- [ ] Stack warnings are visually distinct from pair interactions
+- [ ] Citations remain visible for every displayed stack warning
 - [ ] `npm run build` passes
 
 ### Do NOT in this milestone
 
-- Do not add cumulative risk stacks — that is M5.
+- Do not add voice, OCR, or paste parsing — that is M6.
 - Do not add accounts, analytics, or server-side patient storage.
-- Do not let modifier logic bypass or replace the deterministic pair checker.
+- Do not let stack logic suppress or rewrite underlying pair results.
 
 ---
 

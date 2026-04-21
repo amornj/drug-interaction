@@ -2,12 +2,13 @@
 
 import { InteractionExplanation } from "@/components/InteractionExplanation";
 import { SeverityBadge } from "@/components/SeverityBadge";
-import { formatSources, type InteractionCheckResponse } from "@/lib/interactions";
+import { formatSources } from "@/lib/interactions";
+import type { ModifiedInteractionResult } from "@/lib/modifiers";
 
 export function InteractionList({
   result,
 }: {
-  result: InteractionCheckResponse;
+  result: ModifiedInteractionResult;
 }) {
   if (result.pairs.length === 0) {
     return (
@@ -30,7 +31,7 @@ export function InteractionList({
   return (
     <div className="space-y-3">
       {result.pairs.map((pair) => {
-        const isPinned = pair.severity === "Contraindicated";
+        const isPinned = pair.displaySeverity === "Contraindicated";
         return (
           <details
             key={`${pair.a.rxcui}|${pair.b.rxcui}`}
@@ -49,14 +50,39 @@ export function InteractionList({
                   <p className="mt-1 text-sm text-zinc-700 dark:text-zinc-300">
                     {pair.verdict}
                   </p>
+                  {pair.displaySeverity !== pair.baseSeverity ? (
+                    <p className="mt-1 text-xs font-medium text-sky-700 dark:text-sky-300">
+                      Patient modifiers raise displayed urgency from {pair.baseSeverity} to{" "}
+                      {pair.displaySeverity}.
+                    </p>
+                  ) : null}
                   <p className="mt-2 text-xs text-zinc-500">
                     {formatSources(pair.sources)}
                   </p>
                 </div>
-                <SeverityBadge severity={pair.severity} pulse={isPinned} />
+                <SeverityBadge severity={pair.displaySeverity} pulse={isPinned} />
               </div>
             </summary>
             <div className="mt-3 border-t border-zinc-200 pt-3 text-sm text-zinc-700 dark:border-zinc-800 dark:text-zinc-300">
+              {pair.modifierEffects.length > 0 ? (
+                <div className="mb-3 rounded-xl border border-sky-500/25 bg-sky-500/10 px-3 py-2">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-sky-700 dark:text-sky-300">
+                    Patient modifier impact
+                  </p>
+                  {pair.modifierEffects.map((effect, index) => (
+                    <div key={`${effect.modifier}-${index}`} className="mt-2">
+                      <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                        {effect.title}
+                        {effect.adjustedSeverity ? ` → ${effect.adjustedSeverity}` : ""}
+                      </p>
+                      <p className="mt-1 text-sm">{effect.summary}</p>
+                      <p className="mt-1 text-xs text-zinc-500">
+                        Sources: {formatSources([effect.source])}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
               {pair.mechanism_class ? (
                 <p>
                   <span className="font-medium text-zinc-900 dark:text-zinc-100">
@@ -82,7 +108,15 @@ export function InteractionList({
                 Sources: {formatSources(pair.sources)}
               </p>
               <InteractionExplanation
-                pair={pair}
+                pair={{
+                  a: pair.a,
+                  b: pair.b,
+                  severity: pair.baseSeverity,
+                  verdict: pair.verdict,
+                  mechanism_class: pair.mechanism_class,
+                  management: pair.management,
+                  sources: pair.sources,
+                }}
                 dataVersion={result.dataVersion}
               />
             </div>

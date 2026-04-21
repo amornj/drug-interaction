@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CaseSwitcher } from "@/components/CaseSwitcher";
 import { DrugSearch } from "@/components/DrugSearch";
 import { DrugChip } from "@/components/DrugChip";
 import { InteractionList } from "@/components/InteractionList";
+import { PatientModifiers } from "@/components/PatientModifiers";
 import type { InteractionCheckResponse } from "@/lib/interactions";
+import { applyPatientModifiers } from "@/lib/modifiers";
 import { useActiveCase, useStore } from "@/lib/store";
 
 export function AppShell() {
@@ -62,6 +64,13 @@ export function AppShell() {
   const canCheck = Boolean(active && active.drugs.length >= 2);
   const visibleResult = resultKey === activeDrugKey ? result : null;
   const visibleError = errorKey === activeDrugKey ? error : null;
+  const modifiedResult = useMemo(
+    () =>
+      active && visibleResult
+        ? applyPatientModifiers(visibleResult, active.patientModifiers)
+        : null,
+    [active, visibleResult]
+  );
 
   return (
     <div className="mx-auto flex w-full max-w-xl flex-1 flex-col px-4 pt-[max(env(safe-area-inset-top),0.5rem)] pb-[calc(env(safe-area-inset-bottom)+6rem)]">
@@ -71,7 +80,7 @@ export function AppShell() {
             Drug Interaction Checker
           </h1>
           <span className="text-[11px] uppercase tracking-wide text-zinc-500">
-            M3
+            M4
           </span>
         </div>
         <p className="text-xs text-zinc-500 mt-0.5">
@@ -109,6 +118,7 @@ export function AppShell() {
                 <DrugChip key={d.rxcui} drug={d} />
               ))}
             </ul>
+            <PatientModifiers modifiers={active.patientModifiers} />
             {visibleError ? (
               <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-900 dark:text-red-100">
                 {visibleError}
@@ -117,9 +127,16 @@ export function AppShell() {
             {visibleResult ? (
               <section className="mt-5">
                 <div className="mb-3 flex items-center justify-between">
-                  <h2 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                    Interaction results
-                  </h2>
+                  <div>
+                    <h2 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                      Interaction results
+                    </h2>
+                    {modifiedResult && modifiedResult.modifierSummary.length > 0 ? (
+                      <p className="mt-1 text-xs text-zinc-500">
+                        Active modifiers: {modifiedResult.modifierSummary.join(", ")}
+                      </p>
+                    ) : null}
+                  </div>
                   <span className="text-xs text-zinc-500">
                     {new Date(visibleResult.checkedAt).toLocaleTimeString([], {
                       hour: "2-digit",
@@ -127,7 +144,7 @@ export function AppShell() {
                     })}
                   </span>
                 </div>
-                <InteractionList result={visibleResult} />
+                {modifiedResult ? <InteractionList result={modifiedResult} /> : null}
               </section>
             ) : null}
           </>
