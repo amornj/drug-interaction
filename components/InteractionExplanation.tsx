@@ -19,8 +19,10 @@ export function InteractionExplanation({
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [copyLabel, setCopyLabel] = useState("Copy");
   const sections = parseExplanationText(text);
   const citationLine = formatSources(pair.sources);
+  const copyPrompt = `Check drug interaction between ${pair.a.name} and ${pair.b.name}`;
 
   async function explain() {
     setLoading(true);
@@ -69,6 +71,18 @@ export function InteractionExplanation({
     }
   }
 
+  async function copyPromptToClipboard() {
+    try {
+      await navigator.clipboard.writeText(copyPrompt);
+      setCopyLabel("Copied");
+      setError(null);
+      window.setTimeout(() => setCopyLabel("Copy"), 1600);
+    } catch {
+      setCopyLabel("Copy failed");
+      window.setTimeout(() => setCopyLabel("Copy"), 1600);
+    }
+  }
+
   return (
     <div className="mt-3 rounded-2xl border border-zinc-200/80 bg-zinc-50/80 p-3 dark:border-zinc-800 dark:bg-zinc-900/60">
       <div className="flex items-center justify-between gap-3">
@@ -80,19 +94,29 @@ export function InteractionExplanation({
             AI prose only. Deterministic result above remains authoritative.
           </p>
         </div>
-        <button
-          type="button"
-          onClick={explain}
-          disabled={loading}
-          className={[
-            "min-h-11 rounded-xl px-3 text-sm font-medium transition-colors",
-            loading
-              ? "bg-zinc-300 text-zinc-700 dark:bg-zinc-700 dark:text-zinc-200"
-              : "bg-zinc-900 text-white active:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:active:bg-zinc-200",
-          ].join(" ")}
-        >
-          {loading ? "Explaining…" : text ? "Re-explain" : "Explain"}
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={explain}
+            disabled={loading}
+            className={[
+              "min-h-11 rounded-xl px-3 text-sm font-medium transition-colors",
+              loading
+                ? "bg-zinc-300 text-zinc-700 dark:bg-zinc-700 dark:text-zinc-200"
+                : "bg-zinc-900 text-white active:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:active:bg-zinc-200",
+            ].join(" ")}
+          >
+            {loading ? "Explaining…" : text ? "Re-explain" : "Explain"}
+          </button>
+          <button
+            type="button"
+            onClick={copyPromptToClipboard}
+            className="min-h-11 rounded-xl border border-zinc-300 bg-white px-3 text-sm font-medium text-zinc-700 transition-colors active:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-200 dark:active:bg-zinc-900"
+            title={copyPrompt}
+          >
+            {copyLabel}
+          </button>
+        </div>
       </div>
 
       {error ? (
