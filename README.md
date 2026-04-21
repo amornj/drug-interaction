@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Drug Interaction Checker
 
-## Getting Started
+A mobile-first PWA for bedside drug interaction checking, built for busy clinicians.
 
-First, run the development server:
+**Decision-support only — verify in primary references before prescribing.**
+
+## Status
+
+**M1 — Skeleton PWA.** Med-list screen with RxNorm autocomplete, local persistence, multi-case switcher. No interaction check yet (M2).
+
+## Stack
+
+- Next.js 15 (App Router) + React 19 + TypeScript
+- Tailwind CSS v4
+- Zustand + idb-keyval (IndexedDB) for local-only state
+- PWA manifest (real service worker deferred to M9)
+- RxNorm REST API (NIH) for drug normalization and autocomplete
+
+## Architecture rules
+
+1. LLMs never invent severity, contraindication, or dosing. Deterministic layer first; LLMs only summarize/explain with citations. Temperature 0.
+2. Every interaction claim must carry a source + version/date citation.
+3. Patient data stays on device (IndexedDB). No server-side patient storage or accounts in v1.
+4. Mobile-first: design at 360px width first, expand up. Thumb-zone action bar. Min 44 pt touch targets. Dark mode required.
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 on a phone viewport.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Roadmap
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Milestone | Feature |
+| --- | --- |
+| M1 | Chip-based med list, RxNorm autocomplete, local persistence, multi-case switcher |
+| M2 | Deterministic pair check (DDInter + overlay), severity-sorted list, red/amber verdict |
+| M3 | LLM explainer endpoint (streaming) for mechanism, food/timing, alternatives — with citations |
+| M4 | Patient modifiers (pregnancy, lactation, eGFR, hepatic, age ≥ 65, G6PD) + Cockcroft–Gault |
+| M5 | Cumulative stacks: QT, bleeding, serotonergic, anticholinergic, nephrotoxic |
+| M6 | Voice (Web Speech API), OCR (tesseract.js + Claude vision fallback), paste-block EMR parser |
+| M7 | Shareable report: copy-to-EMR text, structured JSON, PDF |
+| M8 | Pharmacogenomics panel (CPIC): tests before prescribing, allele-based management |
+| M9 | Offline PWA service worker, haptics on Major/Contraindicated, dark mode polish, install prompt |
 
-## Learn More
+## Data sources
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [RxNorm](https://lhncbc.nlm.nih.gov/RxNav/APIs/RxNormAPIs.html) (NIH) — drug normalization & autocomplete (free)
+- [openFDA drug labeling](https://open.fda.gov/apis/drug/label/) — labels, CYP info, warnings (free)
+- [DDInter 2.0](https://ddinter2.scbdd.com/) — pairwise interactions seed (academic)
+- [CPIC guidelines](https://cpicpgx.org/) — pharmacogenomics
+- `/lib/data/overlay/*.yaml` — hand-curated local brand names and formulary notes (added in M2)

@@ -1,0 +1,19 @@
+{
+  "name": "Drug Interaction Checker",
+  "short_name": "DI Checker",
+  "description": "Bedside drug interaction checker for clinicians. Decision-support only.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#0ea5e9",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
