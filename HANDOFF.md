@@ -6,7 +6,9 @@ Owner: `amornj`. Repo: https://github.com/amornj/drug-interaction. Deploy: Verce
 
 ---
 
-## Current state (M5 — DONE, on `main`)
+## Current state (M8 — DONE, on `main`)
+
+Owner intentionally skipped M6 and M7 for now and moved directly to M8.
 
 - Next.js 15 App Router + React 19 + TS + Tailwind v4
 - Mobile-first shell: `components/AppShell.tsx`, case switcher, thumb-zone bottom bar, safe-area insets
@@ -45,6 +47,11 @@ Owner: `amornj`. Repo: https://github.com/amornj/drug-interaction. Deploy: Verce
   - `lib/stacks.ts`
   - deterministic local stack warnings for QT, bleeding, serotonergic, anticholinergic, and nephrotoxic burden
   - rendered as a separate cited section above pairwise results
+- Pharmacogenomics layer:
+  - `components/PharmacogenomicsPanel.tsx`
+  - `lib/pgx.ts`
+  - deterministic local CPIC-style gene prompts for CYP2C19, CYP2D6, SLCO1B1, HLA-B*15:02, HLA-B*57:01, DPYD, TPMT, and NUDT15
+  - phenotype selections are stored locally with each case and rendered as a cited section separate from pairwise interactions
 
 Verified:
 - `npm run lint` passes
@@ -53,6 +60,7 @@ Verified:
 - `/api/interactions/explain` accepts deterministic pair payloads and returns `503` with a clear error when Anthropic is not configured locally
 - Modifier state is stored inside each case record and used to re-rank displayed interaction urgency locally
 - Cumulative stack warnings stay visually separate from DDInter pair results and show local rule citations
+- Pharmacogenomics guidance stays local, cites the repo-managed rule layer, and does not rewrite the pairwise interaction results
 - Tested searches: warfarin, lipitor, paracetamol, amoxi return hits
 
 ### File map
@@ -73,11 +81,13 @@ components/
   InteractionList.tsx # severity-sorted list with citations + expanders
   InteractionExplanation.tsx # optional streamed explainer per pair
   PatientModifiers.tsx # local modifier chips + Cockcroft–Gault input panel
+  PharmacogenomicsPanel.tsx # local PGx test prompts and phenotype-aware guidance
   StackWarnings.tsx   # cumulative stack warning cards with citations
   SeverityBadge.tsx   # red/orange/amber/yellow severity variants
 lib/
   interactions.ts     # shared pair types, prompt builder, explanation parsing
   modifiers.ts        # deterministic patient modifier rules and re-ranking
+  pgx.ts              # deterministic pharmacogenomics rules and phenotype-aware alerts
   stacks.ts           # deterministic cumulative stack detection rules
   rxnorm.ts           # searchRxNorm(term, max) -> DrugCandidate[]
   store.ts            # Zustand store: cases, activeCaseId, drugs; IndexedDB persist
@@ -112,41 +122,41 @@ docs/
 
 ---
 
-## Next task — M6: Input expansion
+## Next task — M9: Offline polish
 
-Goal: add faster medication capture paths without weakening the deterministic-first architecture.
+Goal: harden the bedside experience for low-connectivity use, installability, and final mobile polish without changing the deterministic clinical logic.
 
 ### Build
 
-1. **Voice input**
-   - Add bedside voice capture using the browser Web Speech API.
-   - Convert recognized phrases into candidate medication names for RxNorm normalization.
+1. **Offline PWA**
+   - Add a real service worker using `serwist`.
+   - Cache the app shell and deterministic local assets needed for repeat visits.
 
-2. **OCR input**
-   - Add on-device OCR using `tesseract.js`.
-   - Extract candidate medication names from a captured or uploaded med list image.
+2. **Installability**
+   - Add an install prompt flow that works cleanly on supported mobile browsers.
+   - Keep the prompt unobtrusive and easy to dismiss.
 
-3. **Paste-block parser**
-   - Add a compact paste area for EMR medication text blocks.
-   - Parse newline/comma/bullet-delimited med lists into candidate drug names before RxNorm normalization.
+3. **Mobile polish**
+   - Add haptic feedback for Major and Contraindicated results where supported.
+   - Tighten dark-mode contrast and finish any rough edges in the 360px layout.
 
 4. **Deterministic integration**
-   - Every new input path must still normalize through the existing RxNorm flow before a medication is added.
-   - No patient text or images should be sent to a server for parsing.
+   - Do not move clinical decision logic into the service worker.
+   - Keep all existing local deterministic layers functioning unchanged.
 
-### Acceptance criteria (M6)
+### Acceptance criteria (M9)
 
-- [ ] Voice capture produces candidate drug names that can be normalized locally through RxNorm
-- [ ] OCR extracts medication candidates locally with `tesseract.js`
-- [ ] Paste-block parsing splits common medication-list text formats into candidates
-- [ ] All accepted medications still flow through RxNorm normalization before entering the case
+- [ ] Repeat visits can load the app shell offline after the first successful session
+- [ ] Install prompt behavior works on supported browsers
+- [ ] Major / Contraindicated result states trigger supported haptics
+- [ ] Dark mode remains legible and polished at 360px width
 - [ ] `npm run build` passes
 
 ### Do NOT in this milestone
 
-- Do not add shareable reports — that is M7.
+- Do not add new clinical rule engines beyond polish work.
 - Do not add accounts, analytics, or server-side patient storage.
-- Do not skip RxNorm normalization for any imported medication.
+- Do not reopen M6 or M7 as part of M9.
 
 ---
 
@@ -159,7 +169,7 @@ Milestones in order (from the agreed plan):
 - **M5** — Cumulative risk stacks: QT, bleeding, serotonergic, anticholinergic, nephrotoxic.
 - **M6** — Voice input (Web Speech API), OCR (tesseract.js), paste-block EMR parser.
 - **M7** — Shareable report: copy-to-EMR text, structured JSON, PDF.
-- **M8** — Pharmacogenomics (CPIC) panel.
+- **M8** — Pharmacogenomics (CPIC-style local panel).
 - **M9** — Offline PWA service worker (serwist), haptics, dark mode polish, install prompt.
 
 Full feature brief with rationale lives in `/Users/home/projects/obsidian/Journal/Drug-interaction-checker.md` (owner's machine). The condensed version is this file plus the README.

@@ -6,6 +6,7 @@ import { DrugSearch } from "@/components/DrugSearch";
 import { DrugChip } from "@/components/DrugChip";
 import { InteractionList } from "@/components/InteractionList";
 import { PatientModifiers } from "@/components/PatientModifiers";
+import { PharmacogenomicsPanel } from "@/components/PharmacogenomicsPanel";
 import { StackWarnings } from "@/components/StackWarnings";
 import type { InteractionCheckResponse } from "@/lib/interactions";
 import { applyPatientModifiers } from "@/lib/modifiers";
@@ -86,7 +87,7 @@ export function AppShell() {
             Drug Interaction Checker
           </h1>
           <span className="text-[11px] uppercase tracking-wide text-zinc-500">
-            M5
+            M8
           </span>
         </div>
         <p className="text-xs text-zinc-500 mt-0.5">
@@ -125,6 +126,10 @@ export function AppShell() {
               ))}
             </ul>
             <PatientModifiers modifiers={active.patientModifiers} />
+            <PharmacogenomicsPanel
+              drugs={active.drugs}
+              profile={active.pgxProfile}
+            />
             {visibleError ? (
               <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-900 dark:text-red-100">
                 {visibleError}

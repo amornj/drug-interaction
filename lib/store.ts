@@ -8,6 +8,11 @@ import {
   type PatientModifiers,
   type RenalInputs,
 } from "@/lib/modifiers";
+import {
+  createDefaultPgxProfile,
+  type PgxGene,
+  type PgxProfile,
+} from "@/lib/pgx";
 
 export type Drug = {
   rxcui: string;
@@ -20,6 +25,7 @@ export type Case = {
   label: string;
   drugs: Drug[];
   patientModifiers: PatientModifiers;
+  pgxProfile: PgxProfile;
   createdAt: number;
 };
 
@@ -47,6 +53,8 @@ type Store = PersistedState & {
     value: RenalInputs[K]
   ) => void;
   resetPatientModifiers: () => void;
+  setPgxPhenotype: (gene: PgxGene, value: string) => void;
+  resetPgxProfile: () => void;
 };
 
 const STORAGE_KEY = "di.state.v1";
@@ -64,6 +72,7 @@ function defaultState(): PersistedState {
     label: "Case 1",
     drugs: [],
     patientModifiers: createDefaultPatientModifiers(),
+    pgxProfile: createDefaultPgxProfile(),
     createdAt: Date.now(),
   };
   return { cases: [first], activeCaseId: first.id };
@@ -79,6 +88,10 @@ function normalizeCase(nextCase: Case): Case {
         ...createDefaultPatientModifiers().renal,
         ...nextCase.patientModifiers?.renal,
       },
+    },
+    pgxProfile: {
+      ...createDefaultPgxProfile(),
+      ...nextCase.pgxProfile,
     },
   };
 }
@@ -130,6 +143,7 @@ export const useStore = create<Store>((set, get) => ({
       label: `Case ${get().cases.length + 1}`,
       drugs: [],
       patientModifiers: createDefaultPatientModifiers(),
+      pgxProfile: createDefaultPgxProfile(),
       createdAt: Date.now(),
     };
     const next = { cases: [...get().cases, c], activeCaseId: c.id };
@@ -236,6 +250,37 @@ export const useStore = create<Store>((set, get) => ({
         : {
             ...c,
             patientModifiers: createDefaultPatientModifiers(),
+          }
+    );
+    set({ cases: nextCases });
+    persist({ cases: nextCases, activeCaseId });
+  },
+
+  setPgxPhenotype: (gene, value) => {
+    const { cases, activeCaseId } = get();
+    const nextCases = cases.map((c) =>
+      c.id !== activeCaseId
+        ? c
+        : {
+            ...c,
+            pgxProfile: {
+              ...c.pgxProfile,
+              [gene]: value,
+            },
+          }
+    );
+    set({ cases: nextCases });
+    persist({ cases: nextCases, activeCaseId });
+  },
+
+  resetPgxProfile: () => {
+    const { cases, activeCaseId } = get();
+    const nextCases = cases.map((c) =>
+      c.id !== activeCaseId
+        ? c
+        : {
+            ...c,
+            pgxProfile: createDefaultPgxProfile(),
           }
     );
     set({ cases: nextCases });
