@@ -27,14 +27,20 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
   - `components/InteractionList.tsx`
   - `components/SeverityBadge.tsx`
   - wired bottom-bar CTA in `components/AppShell.tsx`
+  - optional clipboard fallback prompt per interaction pair for use in external AI chat apps
 - Streamed explainer route:
   - `app/api/interactions/explain/route.ts`
   - Anthropic via Vercel AI SDK
   - prompt constrained to deterministic pair payload only
   - returns clean `503` when `ANTHROPIC_API_KEY` is absent
+- Search input enhancements:
+  - `components/DrugSearch.tsx`
+  - supports pasting medication-list text like `Med: Hydrochlorothiazine 1/2*1, atorvastatin 40 1*1, ezetimibe 10 1/2*1`
+  - extracts candidate drug names locally and bulk-adds matched RxNorm results through the existing search route
 - Pair-level explainer UI:
   - `components/InteractionExplanation.tsx`
   - optional “Explain” affordance per pair
+  - added “Copy” button that copies `Check drug interaction between <Drug A> and <Drug B>` to the clipboard
   - streamed prose rendered below deterministic content, with deterministic citations shown per section
 - Patient modifier layer:
   - `components/PatientModifiers.tsx`
@@ -61,6 +67,8 @@ Verified:
 - Modifier state is stored inside each case record and used to re-rank displayed interaction urgency locally
 - Cumulative stack warnings stay visually separate from DDInter pair results and show local rule citations
 - Pharmacogenomics guidance stays local, cites the repo-managed rule layer, and does not rewrite the pairwise interaction results
+- Pasted medication-list text can bulk-add matched drugs through the existing RxNorm flow
+- Pair cards include a clipboard fallback prompt for external AI chat use when Anthropic is unavailable
 - Tested searches: warfarin, lipitor, paracetamol, amoxi return hits
 
 ### File map
@@ -76,10 +84,10 @@ app/
 components/
   AppShell.tsx        # composes the mobile UI
   CaseSwitcher.tsx    # horizontal chip row + new/rename
-  DrugSearch.tsx      # debounced autocomplete input + dropdown
+  DrugSearch.tsx      # debounced autocomplete input + dropdown + pasted med-list bulk import
   DrugChip.tsx        # med list row with remove button
   InteractionList.tsx # severity-sorted list with citations + expanders
-  InteractionExplanation.tsx # optional streamed explainer per pair
+  InteractionExplanation.tsx # optional streamed explainer + copy prompt per pair
   PatientModifiers.tsx # local modifier chips + Cockcroft–Gault input panel
   PharmacogenomicsPanel.tsx # local PGx test prompts and phenotype-aware guidance
   StackWarnings.tsx   # cumulative stack warning cards with citations

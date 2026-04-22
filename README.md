@@ -6,7 +6,7 @@ A mobile-first PWA for bedside drug interaction checking, built for busy clinici
 
 ## Status
 
-**M8 — Pharmacogenomics panel.** The app now adds a separate local pharmacogenomics section that suggests CPIC-style gene tests for matched drugs, stores phenotype selections per case, and renders deterministic cited recommendations without changing the pairwise interaction layer.
+**M8 — Pharmacogenomics panel, plus recent bedside input/output polish.** The app includes a separate local pharmacogenomics section for CPIC-style gene guidance, and it now also supports pasted medication-list bulk import plus a per-pair copy prompt for external AI chat fallback.
 
 ## Stack
 
@@ -19,6 +19,8 @@ A mobile-first PWA for bedside drug interaction checking, built for busy clinici
 - Local deterministic patient-modifier rule layer for pregnancy, lactation, renal, hepatic, age ≥ 65, and G6PD
 - Local deterministic cumulative-stack rule layer for QT, bleeding, serotonergic, anticholinergic, and nephrotoxic burden
 - Local deterministic pharmacogenomics rule layer for CPIC-style test prompts and phenotype-aware guidance
+- Search-box paste importer for comma/newline medication chunks routed through RxNorm normalization
+- Per-pair clipboard fallback prompt when the optional Anthropic explainer is unavailable
 
 ## Architecture rules
 
@@ -40,6 +42,11 @@ Open http://localhost:3000 on a phone viewport.
 `npm run build:data` refreshes the committed DDInter/RxNorm artifacts under `lib/data/`. `npm run build` uses those local files and does not need to fetch DDInter at build time.
 
 To enable the optional M3 explainer locally, set `ANTHROPIC_API_KEY` in `.env.local`. Without that key, deterministic pair checking, M4 patient modifiers, M5 cumulative stack warnings, and M8 pharmacogenomics guidance still work and `/api/interactions/explain` returns a clean `503` explainer-unavailable response.
+
+Recent additions after the M8 panel:
+
+- Pasting medication text such as `Med: Hydrochlorothiazine 1/2*1, atorvastatin 40 1*1, ezetimibe 10 1/2*1` into the search box now bulk-adds matched drugs through the existing RxNorm route.
+- Each interaction card now has a `Copy` button next to `Explain` that copies `Check drug interaction between <Drug A> and <Drug B>` so clinicians can paste the pair into another AI chat tool when the built-in explainer is not configured.
 
 ## Roadmap
 
