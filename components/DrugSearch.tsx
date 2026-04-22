@@ -91,6 +91,7 @@ export function DrugSearch({
   const addDrug = useStore((s) => s.addDrug);
   const abortRef = useRef<AbortController | null>(null);
   const listRef = useRef<HTMLDivElement | null>(null);
+  const proposalRequestRef = useRef(0);
   const term = q.trim();
   const parsedAliasInput = useMemo(() => parseAliasInput(q), [q]);
   const localAlias = useMemo(() => resolveAlias(term, aliases), [aliases, term]);
@@ -106,6 +107,7 @@ export function DrugSearch({
     setQ("");
     setResults([]);
     setProposal(null);
+    setProposalLoading(false);
     setOpen(false);
     setBulkMessage(null);
   }
@@ -128,13 +130,15 @@ export function DrugSearch({
 
   useEffect(() => {
     if (!parsedAliasInput) {
+      proposalRequestRef.current += 1;
       return;
     }
 
+    proposalRequestRef.current += 1;
+    const requestId = proposalRequestRef.current;
     let cancelled = false;
 
     const timeout = window.setTimeout(async () => {
-      setProposalLoading(true);
       const resolvedComponents: AliasComponent[] = [];
       const unresolvedTerms: string[] = [];
 
@@ -151,7 +155,7 @@ export function DrugSearch({
         }
       }
 
-      if (!cancelled) {
+      if (!cancelled && requestId === proposalRequestRef.current) {
         setProposal({
           term: parsedAliasInput.term,
           components: dedupeComponents(resolvedComponents),
@@ -198,6 +202,8 @@ export function DrugSearch({
     addDrug({ rxcui: candidate.rxcui, name: candidate.name });
     setQ("");
     setResults([]);
+    setProposal(null);
+    setProposalLoading(false);
     setOpen(false);
     setBulkMessage(null);
   }
@@ -227,6 +233,8 @@ export function DrugSearch({
     setLoading(true);
     setOpen(false);
     setResults([]);
+    setProposal(null);
+    setProposalLoading(false);
     setQ("");
     setBulkMessage(null);
 
@@ -433,9 +441,12 @@ export function DrugSearch({
           value={q}
           onChange={(event) => {
             const nextQ = event.target.value;
+            const nextParsedAliasInput = parseAliasInput(nextQ);
             setQ(nextQ);
             setBulkMessage(null);
             setActiveIndex(-1);
+            setProposal(null);
+            setProposalLoading(Boolean(nextParsedAliasInput));
             if (nextQ.trim().length < 2) {
               abortRef.current?.abort();
               setResults([]);
