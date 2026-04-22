@@ -130,55 +130,128 @@ docs/
 
 ---
 
-## Next task — M9: Offline polish
+## Next task — M9: Brand & alias resolution
 
-Goal: harden the bedside experience for low-connectivity use, installability, and final mobile polish without changing the deterministic clinical logic.
+Goal: resolve commercial/brand names (especially Thai combos like "Galvusmet") into their ingredient-level drugs so the deterministic interaction check, M5 stacks, M4 modifiers, and M8 PGx panel all see every active component. Three layers, checked in priority order: **user aliases → curated brand overlay → RxNorm**.
+
+### Why this is load-bearing (read before starting)
+
+Brands that expand to multiple ingredients **must** become multiple drug chips, not a single brand-named chip. Example:
+
+```
+"Galvusmet" → [vildagliptin, metformin]
+```
+
+If a multi-ingredient brand reached `/api/interactions/check` as a single chip, the DDInter layer would miss every pair involving either ingredient, M5 stack detection would miss both contributions, and M4 modifier re-ranking would operate on the wrong drug list. Ingredient-level expansion happens at input time, not at check time.
 
 ### Build
 
-1. **Offline PWA**
-   - Add a real service worker using `serwist`.
-   - Cache the app shell and deterministic local assets needed for repeat visits.
+1. **Resolution order (highest priority first)**
+   1. **User aliases** — device-local IndexedDB store at key `di.aliases.v1` (separate from `di.state.v1`).
+   2. **Curated brand overlay** — new directory `lib/data/brands/*.yaml`, same zod-validated pattern as `lib/data/overlay/*.yaml`. Generated into `lib/data/brands/index.json` via `npm run build:data`.
+   3. **RxNorm** — existing `/api/drugs/search` route, unchanged.
 
-2. **Installability**
-   - Add an install prompt flow that works cleanly on supported mobile browsers.
-   - Keep the prompt unobtrusive and easy to dismiss.
+2. **Types**
 
-3. **Mobile polish**
-   - Add haptic feedback for Major and Contraindicated results where supported.
-   - Tighten dark-mode contrast and finish any rough edges in the 360px layout.
+   ```ts
+   // lib/aliases.ts
+   export type AliasComponent = { rxcui: string; name: string };
+   export type Alias = {
+     term: string;                    // normalized lowercase
+     components: AliasComponent[];    // 1..N
+     source: "user" | "overlay";
+     createdAt?: number;
+     note?: string;
+   };
+   ```
 
-4. **Deterministic integration**
-   - Do not move clinical decision logic into the service worker.
-   - Keep all existing local deterministic layers functioning unchanged.
+   YAML file (`lib/data/brands/thai.yaml`) example:
+
+   ```yaml
+   - term: "Galvusmet"
+     components:
+       - rxcui: "857331"
+         name: "metformin"
+       - rxcui: "1036133"
+         name: "vildagliptin"
+     sources:
+       - name: "Curated brand overlay"
+         version: "2026-04"
+   ```
+
+3. **Chip model change**
+
+   Extend `Drug` in `lib/store.ts` with an optional `viaBrand?: string`:
+
+   ```ts
+   export type Drug = {
+     rxcui: string;
+     name: string;
+     addedAt: number;
+     viaBrand?: string;   // e.g. "Galvusmet"
+   };
+   ```
+
+   Render the tag as muted secondary text in `DrugChip`: `Metformin · via Galvusmet`. Keep touch target ≥ 44 pt.
+
+4. **Search behavior**
+
+   `DrugSearch` checks layers 1 and 2 synchronously on each keystroke (no network). If the normalized term matches:
+   - Pin an "Expand to N ingredients" row at the top of the dropdown, listing the components.
+   - Tapping it bulk-adds every component to the active case, all sharing the same `viaBrand` tag, and closes the dropdown.
+
+5. **Teach flow** (the clinician-speed feature — invest time here)
+
+   Two entry points:
+
+   a. **Empty-result hint.** When the debounced RxNorm call and both local layers return nothing, render a single dropdown row: `Teach: "galvusmet" = ?`. Tap opens a modal where the user picks each component via the existing RxNorm autocomplete. Save → alias persisted → ingredients added to the active case.
+
+   b. **Inline equals syntax.** If the user types `galvusmet = vildagliptin + metformin` (case-insensitive; `=` separates the term from components; `+` separates components), resolve each RHS token through RxNorm live. Show the proposed expansion in the dropdown with a one-tap "Save alias and add". Every RHS token must resolve to an RxCUI (or an existing alias) before the alias can be saved — no typo-based aliases.
+
+6. **Alias management**
+
+   Add a modal accessed from a top-bar overflow menu. Rows: term, components, `Remove`. Footer buttons: **Export JSON**, **Import JSON**. Local only — no network. Exported schema matches `Alias[]` so users can share with colleagues or seed the curated overlay later.
+
+7. **Precedence edge case**
+
+   If both a user alias and a curated brand entry define the same term, the **user alias wins** (the clinician's device-local choice overrides ship-defaults). Document this in an inline comment where the resolution chain is implemented.
 
 ### Acceptance criteria (M9)
 
-- [ ] Repeat visits can load the app shell offline after the first successful session
-- [ ] Install prompt behavior works on supported browsers
-- [ ] Major / Contraindicated result states trigger supported haptics
-- [ ] Dark mode remains legible and polished at 360px width
-- [ ] `npm run build` passes
+- [ ] `npm run build` and `npm run lint` pass
+- [ ] `npm run build:data` regenerates `lib/data/brands/index.json` from YAML
+- [ ] Typing a seeded curated term (e.g. "Janumet") offers expansion and adds both ingredient chips with `via Janumet` tags
+- [ ] Typing `galvusmet = vildagliptin + metformin` saves an alias and adds both ingredient chips
+- [ ] Typing `galvusmet` in a later session (after a full reload) resolves silently via the saved alias
+- [ ] `/api/interactions/check` receives ingredient RxCUIs, not brand terms (verify in DevTools Network)
+- [ ] Removing an alias via the management modal makes that term fall back to the overlay or RxNorm
+- [ ] Export JSON → clear IndexedDB → Import JSON restores aliases identically
+- [ ] "Teach this" hint is keyboard-accessible and ≥ 44 pt tall
+- [ ] Brand tags render in `DrugChip` and survive case switching / rename
+- [ ] Decision-support footer remains visible on every screen
+- [ ] No alias, brand, or patient data is sent to any server (grep the API routes to confirm)
 
 ### Do NOT in this milestone
 
-- Do not add new clinical rule engines beyond polish work.
-- Do not add accounts, analytics, or server-side patient storage.
-- Do not reopen M6 or M7 as part of M9.
+- Do not add an LLM-based brand resolver — aliases are deterministic name → RxCUI mapping only.
+- Do not let aliases carry severity, mechanism, or management text. Clinical facts stay in DDInter + interaction overlay.
+- Do not auto-accept typos. RHS tokens in the equals syntax must resolve through RxNorm (or an existing alias) before save.
+- Do not sync aliases to any server in v1. No accounts.
+- Do not regenerate or touch DDInter / interaction overlay artifacts.
+- Do not reopen M6 / M7. Offline polish has moved to M10.
 
 ---
 
-## After M2
+## Milestone order
 
-Milestones in order (from the agreed plan):
-
-- **M3** — LLM explainer endpoint (streaming, Anthropic via Vercel AI SDK). Prose only. Every claim cites the deterministic source that fed the prompt.
-- **M4** — Patient modifiers as chips: pregnancy, lactation, eGFR (Cockcroft–Gault), hepatic, age ≥ 65, G6PD. Re-rank interactions on toggle.
-- **M5** — Cumulative risk stacks: QT, bleeding, serotonergic, anticholinergic, nephrotoxic.
-- **M6** — Voice input (Web Speech API), OCR (tesseract.js), paste-block EMR parser.
-- **M7** — Shareable report: copy-to-EMR text, structured JSON, PDF.
-- **M8** — Pharmacogenomics (CPIC-style local panel).
-- **M9** — Offline PWA service worker (serwist), haptics, dark mode polish, install prompt.
+- **M3** — LLM explainer endpoint (streaming, Anthropic via Vercel AI SDK) — **done**.
+- **M4** — Patient modifiers as chips — **done**.
+- **M5** — Cumulative risk stacks — **done**.
+- **M6** — Voice input (Web Speech API), OCR (tesseract.js), paste-block EMR parser — *paste-block done as part of M8 session; voice and OCR still deferred.*
+- **M7** — Shareable report: copy-to-EMR text, structured JSON, PDF — *deferred.*
+- **M8** — Pharmacogenomics (CPIC-style local panel) — **done**.
+- **M9** — Brand & alias resolution — *next (see above).*
+- **M10** — Offline PWA service worker (serwist), haptics, dark-mode polish, install prompt.
 
 Full feature brief with rationale lives in `/Users/home/projects/obsidian/Journal/Drug-interaction-checker.md` (owner's machine). The condensed version is this file plus the README.
 
