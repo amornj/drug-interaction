@@ -7,8 +7,13 @@ export function DrugChip({ drug }: { drug: Drug }) {
   const removeDrug = useStore((s) => s.removeDrug);
   return (
     <li className="flex items-center gap-2 rounded-xl bg-zinc-100 dark:bg-zinc-900 pl-4 pr-2 py-2 min-h-12">
-      <span className="flex-1 text-base leading-tight truncate">
-        {drug.name}
+      <span className="flex-1 min-w-0">
+        <span className="block truncate text-base leading-tight">{drug.name}</span>
+        {drug.viaBrand ? (
+          <span className="mt-0.5 block truncate text-xs text-zinc-500">
+            via {drug.viaBrand}
+          </span>
+        ) : null}
       </span>
       <button
         type="button"

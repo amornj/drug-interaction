@@ -9,14 +9,17 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
 const DDINTER_DIR = path.join(ROOT, "lib", "data", "ddinter");
 const OVERLAY_DIR = path.join(ROOT, "lib", "data", "overlay");
+const BRANDS_DIR = path.join(ROOT, "lib", "data", "brands");
 const RXCUI_MAP_PATH = path.join(DDINTER_DIR, "rxcui-map.json");
 const DDINTER_INDEX_PATH = path.join(DDINTER_DIR, "index.json");
 const DDINTER_REPORT_PATH = path.join(DDINTER_DIR, "build-report.json");
 const OVERLAY_INDEX_PATH = path.join(OVERLAY_DIR, "index.json");
+const BRANDS_INDEX_PATH = path.join(BRANDS_DIR, "index.json");
 
 const DDINTER_CODES = ["A", "B", "C", "D", "G", "H", "J", "L", "M", "N", "P", "R", "S", "V"];
 const DDINTER_VERSION = "2.0";
 const OVERLAY_VERSION = "2026-04";
+const BRANDS_VERSION = "2026-04";
 const RXNAV = "https://rxnav.nlm.nih.gov/REST/rxcui.json?name=";
 
 const severityToCode = {
@@ -43,6 +46,27 @@ const overlayEntrySchema = z.object({
 });
 
 const overlayFileSchema = z.array(overlayEntrySchema);
+const brandEntrySchema = z.object({
+  term: z.string().trim().min(1),
+  components: z
+    .array(
+      z.object({
+        rxcui: z.string().trim().min(1),
+        name: z.string().trim().min(1),
+      })
+    )
+    .min(1),
+  sources: z
+    .array(
+      z.object({
+        name: z.string().trim().min(1),
+        version: z.string().trim().min(1),
+      })
+    )
+    .min(1),
+});
+
+const brandFileSchema = z.array(brandEntrySchema);
 
 function csvToRows(text) {
   const rows = [];
@@ -140,6 +164,15 @@ async function loadExistingMap() {
   }
 }
 
+async function pathExists(targetPath) {
+  try {
+    await readFile(targetPath, "utf8");
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 async function resolveName(name, existingMap) {
   if (existingMap[name]) {
     return existingMap[name];
@@ -203,150 +236,217 @@ async function loadOverlayEntries() {
   return entries;
 }
 
-async function main() {
-  await mkdir(DDINTER_DIR, { recursive: true });
-  await mkdir(OVERLAY_DIR, { recursive: true });
+function normalizeBrandTerm(term) {
+  return term.toLowerCase().replace(/\s+/g, " ").trim();
+}
 
-  const existingMap = await loadExistingMap();
-  const csvRows = [];
-  const names = new Set();
+async function loadBrandEntries() {
+  const files = (await readdir(BRANDS_DIR))
+    .filter((name) => name.endsWith(".yaml"))
+    .sort((left, right) => left.localeCompare(right));
 
-  for (const code of DDINTER_CODES) {
-    const csv = await fetchText(
-      `https://ddinter2.scbdd.com/static/media/download/ddinter_downloads_code_${code}.csv`
-    );
-    const rows = csvToRows(csv);
-    const [, ...body] = rows;
-    for (const row of body) {
-      const [ddinterIdA, drugA, ddinterIdB, drugB, level] = row;
-      if (!ddinterIdA || !drugA || !ddinterIdB || !drugB || !level) {
-        continue;
-      }
-      names.add(drugA);
-      names.add(drugB);
-      csvRows.push({
-        ddinterIdA,
-        drugA,
-        ddinterIdB,
-        drugB,
-        level,
-        code,
+  const entries = [];
+  for (const fileName of files) {
+    const fullPath = path.join(BRANDS_DIR, fileName);
+    const raw = await readFile(fullPath, "utf8");
+    const parsed = parseYaml(raw) ?? [];
+    const validated = brandFileSchema.parse(parsed);
+    for (const entry of validated) {
+      entries.push({
+        term: entry.term,
+        normalizedTerm: normalizeBrandTerm(entry.term),
+        components: entry.components,
+        sources: entry.sources,
+        file: fileName,
       });
     }
   }
 
-  const mappings = await mapNamesToRxcuis([...names].sort((a, b) => a.localeCompare(b)), existingMap);
-  const pairIndex = {};
-  const rxcuiNames = {};
-  const unresolvedNames = [];
-  let skippedUnknownLevel = 0;
-  let skippedUnresolvedPairCount = 0;
+  return entries;
+}
 
-  for (const [name, value] of Object.entries(mappings)) {
-    if (!value?.rxcui) {
-      unresolvedNames.push(name);
-      continue;
-    }
-    const current = rxcuiNames[value.rxcui];
-    if (!current || name.length < current.length) {
-      rxcuiNames[value.rxcui] = name;
-    }
-  }
+async function main() {
+  await mkdir(DDINTER_DIR, { recursive: true });
+  await mkdir(OVERLAY_DIR, { recursive: true });
+  await mkdir(BRANDS_DIR, { recursive: true });
 
-  for (const row of csvRows) {
-    const severityCode = severityToCode[row.level];
-    if (!severityCode) {
-      skippedUnknownLevel += 1;
-      continue;
-    }
-
-    const mappedA = mappings[row.drugA]?.rxcui ?? null;
-    const mappedB = mappings[row.drugB]?.rxcui ?? null;
-    if (!mappedA || !mappedB) {
-      skippedUnresolvedPairCount += 1;
-      continue;
-    }
-
-    const key = sortedPairKey(mappedA, mappedB);
-    pairIndex[key] = Math.max(pairIndex[key] ?? 0, severityCode);
-  }
-
-  const overlayEntries = await loadOverlayEntries();
+  const shouldRefreshDdinter =
+    process.env.REFRESH_DDINTER === "1" ||
+    !(await pathExists(RXCUI_MAP_PATH)) ||
+    !(await pathExists(DDINTER_INDEX_PATH)) ||
+    !(await pathExists(DDINTER_REPORT_PATH)) ||
+    !(await pathExists(OVERLAY_INDEX_PATH));
+  const brandEntries = await loadBrandEntries();
   const generatedAt = new Date().toISOString();
 
+  if (shouldRefreshDdinter) {
+    const existingMap = await loadExistingMap();
+    const csvRows = [];
+    const names = new Set();
+
+    for (const code of DDINTER_CODES) {
+      const csv = await fetchText(
+        `https://ddinter2.scbdd.com/static/media/download/ddinter_downloads_code_${code}.csv`
+      );
+      const rows = csvToRows(csv);
+      const [, ...body] = rows;
+      for (const row of body) {
+        const [ddinterIdA, drugA, ddinterIdB, drugB, level] = row;
+        if (!ddinterIdA || !drugA || !ddinterIdB || !drugB || !level) {
+          continue;
+        }
+        names.add(drugA);
+        names.add(drugB);
+        csvRows.push({
+          ddinterIdA,
+          drugA,
+          ddinterIdB,
+          drugB,
+          level,
+          code,
+        });
+      }
+    }
+
+    const mappings = await mapNamesToRxcuis(
+      [...names].sort((a, b) => a.localeCompare(b)),
+      existingMap
+    );
+    const pairIndex = {};
+    const rxcuiNames = {};
+    const unresolvedNames = [];
+    let skippedUnknownLevel = 0;
+    let skippedUnresolvedPairCount = 0;
+
+    for (const [name, value] of Object.entries(mappings)) {
+      if (!value?.rxcui) {
+        unresolvedNames.push(name);
+        continue;
+      }
+      const current = rxcuiNames[value.rxcui];
+      if (!current || name.length < current.length) {
+        rxcuiNames[value.rxcui] = name;
+      }
+    }
+
+    for (const row of csvRows) {
+      const severityCode = severityToCode[row.level];
+      if (!severityCode) {
+        skippedUnknownLevel += 1;
+        continue;
+      }
+
+      const mappedA = mappings[row.drugA]?.rxcui ?? null;
+      const mappedB = mappings[row.drugB]?.rxcui ?? null;
+      if (!mappedA || !mappedB) {
+        skippedUnresolvedPairCount += 1;
+        continue;
+      }
+
+      const key = sortedPairKey(mappedA, mappedB);
+      pairIndex[key] = Math.max(pairIndex[key] ?? 0, severityCode);
+    }
+
+    const overlayEntries = await loadOverlayEntries();
+
+    await writeFile(
+      RXCUI_MAP_PATH,
+      JSON.stringify(
+        {
+          generatedAt,
+          ddinterVersion: DDINTER_VERSION,
+          mappings,
+        },
+        null,
+        2
+      ) + "\n"
+    );
+
+    await writeFile(
+      DDINTER_INDEX_PATH,
+      JSON.stringify(
+        {
+          generatedAt,
+          ddinterVersion: DDINTER_VERSION,
+          pairIndex,
+          rxcuiNames,
+        },
+        null,
+        2
+      ) + "\n"
+    );
+
+    await writeFile(
+      OVERLAY_INDEX_PATH,
+      JSON.stringify(
+        {
+          generatedAt,
+          overlayVersion: OVERLAY_VERSION,
+          entries: overlayEntries,
+        },
+        null,
+        2
+      ) + "\n"
+    );
+
+    await writeFile(
+      DDINTER_REPORT_PATH,
+      JSON.stringify(
+        {
+          generatedAt,
+          ddinterVersion: DDINTER_VERSION,
+          overlayVersion: OVERLAY_VERSION,
+          sourceCodes: DDINTER_CODES,
+          totalCsvRows: csvRows.length,
+          uniqueDrugNames: names.size,
+          resolvedDrugNames: names.size - unresolvedNames.length,
+          unresolvedDrugNames: unresolvedNames.length,
+          unresolvedNameList: unresolvedNames,
+          skippedUnknownLevel,
+          skippedUnresolvedPairCount,
+          totalResolvedPairs: Object.keys(pairIndex).length,
+        },
+        null,
+        2
+      ) + "\n"
+    );
+
+    console.log(
+      JSON.stringify(
+        {
+          totalCsvRows: csvRows.length,
+          uniqueDrugNames: names.size,
+          resolvedPairs: Object.keys(pairIndex).length,
+          unresolvedDrugNames: unresolvedNames.length,
+        },
+        null,
+        2
+      )
+    );
+  } else {
+    console.log(
+      JSON.stringify(
+        {
+          ddinter: "preserved",
+          overlay: "preserved",
+        },
+        null,
+        2
+      )
+    );
+  }
+
   await writeFile(
-    RXCUI_MAP_PATH,
+    BRANDS_INDEX_PATH,
     JSON.stringify(
       {
         generatedAt,
-        ddinterVersion: DDINTER_VERSION,
-        mappings,
+        brandsVersion: BRANDS_VERSION,
+        entries: brandEntries,
       },
       null,
       2
     ) + "\n"
-  );
-
-  await writeFile(
-    DDINTER_INDEX_PATH,
-    JSON.stringify(
-      {
-        generatedAt,
-        ddinterVersion: DDINTER_VERSION,
-        pairIndex,
-        rxcuiNames,
-      },
-      null,
-      2
-    ) + "\n"
-  );
-
-  await writeFile(
-    OVERLAY_INDEX_PATH,
-    JSON.stringify(
-      {
-        generatedAt,
-        overlayVersion: OVERLAY_VERSION,
-        entries: overlayEntries,
-      },
-      null,
-      2
-    ) + "\n"
-  );
-
-  await writeFile(
-    DDINTER_REPORT_PATH,
-    JSON.stringify(
-      {
-        generatedAt,
-        ddinterVersion: DDINTER_VERSION,
-        overlayVersion: OVERLAY_VERSION,
-        sourceCodes: DDINTER_CODES,
-        totalCsvRows: csvRows.length,
-        uniqueDrugNames: names.size,
-        resolvedDrugNames: names.size - unresolvedNames.length,
-        unresolvedDrugNames: unresolvedNames.length,
-        unresolvedNameList: unresolvedNames,
-        skippedUnknownLevel,
-        skippedUnresolvedPairCount,
-        totalResolvedPairs: Object.keys(pairIndex).length,
-      },
-      null,
-      2
-    ) + "\n"
-  );
-
-  console.log(
-    JSON.stringify(
-      {
-        totalCsvRows: csvRows.length,
-        uniqueDrugNames: names.size,
-        resolvedPairs: Object.keys(pairIndex).length,
-        unresolvedDrugNames: unresolvedNames.length,
-      },
-      null,
-      2
-    )
   );
 }
 

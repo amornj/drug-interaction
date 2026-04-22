@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { AliasManagerModal } from "@/components/AliasManagerModal";
+import { loadUserAliases, type Alias } from "@/lib/aliases";
 import { CaseSwitcher } from "@/components/CaseSwitcher";
 import { DrugSearch } from "@/components/DrugSearch";
 import { DrugChip } from "@/components/DrugChip";
@@ -18,6 +20,8 @@ export function AppShell() {
   const hydrated = useStore((s) => s.hydrated);
   const active = useActiveCase();
   const clearDrugs = useStore((s) => s.clearDrugs);
+  const [aliases, setAliases] = useState<Alias[]>([]);
+  const [aliasManagerOpen, setAliasManagerOpen] = useState(false);
   const [checking, setChecking] = useState(false);
   const [result, setResult] = useState<InteractionCheckResponse | null>(null);
   const [resultKey, setResultKey] = useState("");
@@ -27,6 +31,10 @@ export function AppShell() {
   useEffect(() => {
     hydrate();
   }, [hydrate]);
+
+  useEffect(() => {
+    loadUserAliases().then(setAliases);
+  }, []);
 
   const activeDrugKey =
     active?.drugs.map((drug) => drug.rxcui).sort().join("|") ?? "";
@@ -87,7 +95,7 @@ export function AppShell() {
             Drug Interaction Checker
           </h1>
           <span className="text-[11px] uppercase tracking-wide text-zinc-500">
-            M8
+            M9
           </span>
         </div>
         <p className="text-xs text-zinc-500 mt-0.5">
@@ -96,11 +104,11 @@ export function AppShell() {
       </header>
 
       <div className="sticky top-0 z-10 -mx-4 px-4 py-2 bg-[var(--background)]/90 backdrop-blur">
-        <CaseSwitcher />
+        <CaseSwitcher onManageAliases={() => setAliasManagerOpen(true)} />
       </div>
 
       <section className="mt-4">
-        <DrugSearch />
+        <DrugSearch aliases={aliases} onAliasesChange={setAliases} />
       </section>
 
       <section className="mt-5 flex-1">
@@ -196,6 +204,13 @@ export function AppShell() {
           </button>
         </div>
       </nav>
+
+      <AliasManagerModal
+        open={aliasManagerOpen}
+        aliases={aliases}
+        onClose={() => setAliasManagerOpen(false)}
+        onAliasesChange={setAliases}
+      />
     </div>
   );
 }

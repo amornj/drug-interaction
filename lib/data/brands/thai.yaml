@@ -1,0 +1,19 @@
+- term: "Galvusmet"
+  components:
+    - rxcui: "596554"
+      name: "vildagliptin"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Curated brand overlay"
+      version: "2026-04"
+
+- term: "Janumet"
+  components:
+    - rxcui: "593411"
+      name: "sitagliptin"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Curated brand overlay"
+      version: "2026-04"

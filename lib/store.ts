@@ -18,6 +18,7 @@ export type Drug = {
   rxcui: string;
   name: string;
   addedAt: number;
+  viaBrand?: string;
 };
 
 export type Case = {

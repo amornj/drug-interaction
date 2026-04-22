@@ -6,7 +6,7 @@ A mobile-first PWA for bedside drug interaction checking, built for busy clinici
 
 ## Status
 
-**M8 — Pharmacogenomics panel, plus recent bedside input/output polish.** The app includes a separate local pharmacogenomics section for CPIC-style gene guidance, and it now also supports pasted medication-list bulk import plus a per-pair copy prompt for external AI chat fallback.
+**M9 — Brand and alias resolution.** The app now expands saved aliases and curated brand names into ingredient chips before interaction checking, supports teach/save alias flows, and preserves `via brand` tags across local case state.
 
 ## Stack
 
@@ -21,6 +21,8 @@ A mobile-first PWA for bedside drug interaction checking, built for busy clinici
 - Local deterministic pharmacogenomics rule layer for CPIC-style test prompts and phenotype-aware guidance
 - Search-box paste importer for comma/newline medication chunks routed through RxNorm normalization
 - Per-pair clipboard fallback prompt when the optional Anthropic explainer is unavailable
+- Local alias database with user-overrides-first precedence over the curated brand overlay
+- Curated brand overlay generated from `lib/data/brands/*.yaml`
 
 ## Architecture rules
 
@@ -41,12 +43,15 @@ Open http://localhost:3000 on a phone viewport.
 
 `npm run build:data` refreshes the committed DDInter/RxNorm artifacts under `lib/data/`. `npm run build` uses those local files and does not need to fetch DDInter at build time.
 
-To enable the optional M3 explainer locally, set `ANTHROPIC_API_KEY` in `.env.local`. Without that key, deterministic pair checking, M4 patient modifiers, M5 cumulative stack warnings, and M8 pharmacogenomics guidance still work and `/api/interactions/explain` returns a clean `503` explainer-unavailable response.
+To enable the optional M3 explainer locally, set `ANTHROPIC_API_KEY` in `.env.local`. Without that key, deterministic pair checking, M4 patient modifiers, M5 cumulative stack warnings, M8 pharmacogenomics guidance, and M9 alias/brand expansion still work and `/api/interactions/explain` returns a clean `503` explainer-unavailable response.
 
-Recent additions after the M8 panel:
+Recent additions in M9:
 
 - Pasting medication text such as `Med: Hydrochlorothiazine 1/2*1, atorvastatin 40 1*1, ezetimibe 10 1/2*1` into the search box now bulk-adds matched drugs through the existing RxNorm route.
 - Each interaction card now has a `Copy` button next to `Explain` that copies `Check drug interaction between <Drug A> and <Drug B>` so clinicians can paste the pair into another AI chat tool when the built-in explainer is not configured.
+- Typing a curated brand like `Janumet` offers one-tap ingredient expansion and adds both chips with `via Janumet`.
+- Typing `galvusmet = vildagliptin + metformin` saves a local alias and adds both ingredients.
+- A local alias database is available from the top-bar overflow with remove, export JSON, and import JSON actions.
 
 ## Roadmap
 
@@ -60,7 +65,8 @@ Recent additions after the M8 panel:
 | M6 | Voice (Web Speech API), OCR (tesseract.js), paste-block EMR parser |
 | M7 | Shareable report: copy-to-EMR text, structured JSON, PDF |
 | M8 | Local pharmacogenomics panel (CPIC-style): tests before prescribing, phenotype-aware management |
-| M9 | Offline PWA service worker, haptics on Major/Contraindicated, dark mode polish, install prompt |
+| M9 | Brand and alias resolution: user alias DB, curated brand overlay, via-brand chips |
+| M10 | Offline PWA service worker, haptics on Major/Contraindicated, dark mode polish, install prompt |
 
 ## Data sources
 
@@ -69,8 +75,10 @@ Recent additions after the M8 panel:
 | [RxNorm](https://lhncbc.nlm.nih.gov/RxNav/APIs/RxNormAPIs.html) | Drug normalization, autocomplete, DDInter name-to-RxCUI mapping | Live API | Mapping generated `2026-04-21` | Autocomplete + build-time DDInter mapping |
 | [DDInter 2.0](https://ddinter2.scbdd.com/) | Deterministic pairwise interaction seed | `2.0` | Ingest generated `2026-04-21` | `/api/interactions/check` |
 | `lib/data/overlay/*.yaml` | Hand-curated deterministic overrides / augmentations | `2026-04` | Generated `2026-04-21` | `/api/interactions/check` precedence layer |
+| `lib/data/brands/*.yaml` | Curated commercial / combo brand expansions | `2026-04` | Generated `2026-04-22` | Client-side M9 brand overlay layer |
 | `lib/modifiers.ts` local rules | Deterministic patient-context re-ranking and annotations | `2026-04` | Repo-managed | Client-side M4 modifier layer |
 | `lib/stacks.ts` local rules | Deterministic cumulative stack warnings and citations | `2026-04` | Repo-managed | Client-side M5 stack layer |
 | `lib/pgx.ts` local rules | Deterministic pharmacogenomics prompts and phenotype-aware guidance | `2026-04` | Repo-managed | Client-side M8 pharmacogenomics layer |
+| `lib/aliases.ts` local rules | Deterministic alias persistence and precedence chain | `2026-04` | Repo-managed | Client-side M9 user alias database |
 
 See [docs/data-sources.md](/Users/home/projects/drug-interaction/docs/data-sources.md) for refresh cadence, artifact locations, and terms.
