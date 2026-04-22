@@ -13,79 +13,100 @@ function validateSyncId(syncId: string) {
   return /^[a-zA-Z0-9_-]{8,}$/.test(syncId);
 }
 
+function errorMessage(error: unknown) {
+  if (error instanceof Error && error.message.trim()) {
+    return error.message;
+  }
+  return "Unexpected alias backup storage error.";
+}
+
 export async function GET(
   _request: NextRequest,
   context: { params: Promise<{ syncId: string }> }
 ) {
-  if (!isBlobConfigured()) {
+  try {
+    if (!isBlobConfigured()) {
+      return NextResponse.json(
+        { error: "Alias backup storage is not configured." },
+        { status: 503 }
+      );
+    }
+
+    const { syncId } = await context.params;
+    if (!validateSyncId(syncId)) {
+      return NextResponse.json({ error: "Invalid sync identifier." }, { status: 400 });
+    }
+
+    const { blobs } = await list({
+      prefix: blobPath(syncId),
+      limit: 5,
+    });
+
+    const blob = blobs
+      .filter((entry) => entry.pathname === blobPath(syncId))
+      .sort(
+        (left, right) => right.uploadedAt.getTime() - left.uploadedAt.getTime()
+      )[0];
+
+    if (!blob) {
+      return NextResponse.json({ error: "Alias backup not found." }, { status: 404 });
+    }
+
+    const response = await fetch(blob.url, {
+      headers: { accept: "application/json" },
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      return NextResponse.json(
+        { error: "Could not fetch alias backup payload." },
+        { status: 502 }
+      );
+    }
+
+    const json = await response.json();
+    return NextResponse.json(json);
+  } catch (error) {
     return NextResponse.json(
-      { error: "Alias backup storage is not configured." },
-      { status: 503 }
+      { error: `Alias backup fetch failed: ${errorMessage(error)}` },
+      { status: 500 }
     );
   }
-
-  const { syncId } = await context.params;
-  if (!validateSyncId(syncId)) {
-    return NextResponse.json({ error: "Invalid sync identifier." }, { status: 400 });
-  }
-
-  const { blobs } = await list({
-    prefix: blobPath(syncId),
-    limit: 5,
-  });
-
-  const blob = blobs
-    .filter((entry) => entry.pathname === blobPath(syncId))
-    .sort(
-      (left, right) => right.uploadedAt.getTime() - left.uploadedAt.getTime()
-    )[0];
-
-  if (!blob) {
-    return NextResponse.json({ error: "Alias backup not found." }, { status: 404 });
-  }
-
-  const response = await fetch(blob.url, {
-    headers: { accept: "application/json" },
-    cache: "no-store",
-  });
-
-  if (!response.ok) {
-    return NextResponse.json(
-      { error: "Could not fetch alias backup payload." },
-      { status: 502 }
-    );
-  }
-
-  const json = await response.json();
-  return NextResponse.json(json);
 }
 
 export async function PUT(
   request: NextRequest,
   context: { params: Promise<{ syncId: string }> }
 ) {
-  if (!isBlobConfigured()) {
+  try {
+    if (!isBlobConfigured()) {
+      return NextResponse.json(
+        { error: "Alias backup storage is not configured." },
+        { status: 503 }
+      );
+    }
+
+    const { syncId } = await context.params;
+    if (!validateSyncId(syncId)) {
+      return NextResponse.json({ error: "Invalid sync identifier." }, { status: 400 });
+    }
+
+    const payload = await request.text();
+    const uploaded = await put(blobPath(syncId), payload, {
+      access: "public",
+      addRandomSuffix: false,
+      contentType: "application/json",
+      allowOverwrite: true,
+    });
+
+    return NextResponse.json({
+      url: uploaded.url,
+      updatedAt: new Date().toISOString(),
+    });
+  } catch (error) {
     return NextResponse.json(
-      { error: "Alias backup storage is not configured." },
-      { status: 503 }
+      { error: `Alias backup upload failed: ${errorMessage(error)}` },
+      { status: 500 }
     );
   }
-
-  const { syncId } = await context.params;
-  if (!validateSyncId(syncId)) {
-    return NextResponse.json({ error: "Invalid sync identifier." }, { status: 400 });
-  }
-
-  const payload = await request.text();
-  const uploaded = await put(blobPath(syncId), payload, {
-    access: "public",
-    addRandomSuffix: false,
-    contentType: "application/json",
-    allowOverwrite: true,
-  });
-
-  return NextResponse.json({
-    url: uploaded.url,
-    updatedAt: new Date().toISOString(),
-  });
 }

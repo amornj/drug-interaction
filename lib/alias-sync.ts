@@ -85,16 +85,33 @@ export function parseRecoveryKey(value: string) {
   return parsed;
 }
 
+async function readApiError(response: Response, fallback: string) {
+  const contentType = response.headers.get("content-type") ?? "";
+
+  if (contentType.includes("application/json")) {
+    const payload = (await response.json().catch(() => null)) as
+      | { error?: string }
+      | null;
+    if (payload?.error?.trim()) {
+      return payload.error;
+    }
+  }
+
+  const text = await response.text().catch(() => "");
+  if (text.trim()) {
+    return text.trim();
+  }
+
+  return fallback;
+}
+
 async function fetchRemoteBundle(syncId: string) {
   const response = await fetch(`/api/aliases/backup/${encodeURIComponent(syncId)}`);
   if (response.status === 404) {
     return null;
   }
   if (!response.ok) {
-    const payload = (await response.json().catch(() => null)) as
-      | { error?: string }
-      | null;
-    throw new Error(payload?.error ?? "Unable to fetch alias backup");
+    throw new Error(await readApiError(response, "Unable to fetch alias backup"));
   }
   return (await response.json()) as EncryptedAliasBundle;
 }
@@ -106,10 +123,7 @@ async function uploadRemoteBundle(syncId: string, bundle: EncryptedAliasBundle) 
     body: JSON.stringify(bundle),
   });
   if (!response.ok) {
-    const payload = (await response.json().catch(() => null)) as
-      | { error?: string }
-      | null;
-    throw new Error(payload?.error ?? "Unable to upload alias backup");
+    throw new Error(await readApiError(response, "Unable to upload alias backup"));
   }
   return (await response.json()) as { updatedAt: string };
 }
