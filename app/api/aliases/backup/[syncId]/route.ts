@@ -1,4 +1,4 @@
-import { list, put } from "@vercel/blob";
+import { get, put } from "@vercel/blob";
 import { NextRequest, NextResponse } from "next/server";
 
 function blobPath(syncId: string) {
@@ -37,34 +37,24 @@ export async function GET(
       return NextResponse.json({ error: "Invalid sync identifier." }, { status: 400 });
     }
 
-    const { blobs } = await list({
-      prefix: blobPath(syncId),
-      limit: 5,
+    const blob = await get(blobPath(syncId), {
+      access: "private",
+      useCache: false,
     });
-
-    const blob = blobs
-      .filter((entry) => entry.pathname === blobPath(syncId))
-      .sort(
-        (left, right) => right.uploadedAt.getTime() - left.uploadedAt.getTime()
-      )[0];
 
     if (!blob) {
       return NextResponse.json({ error: "Alias backup not found." }, { status: 404 });
     }
 
-    const response = await fetch(blob.url, {
-      headers: { accept: "application/json" },
-      cache: "no-store",
-    });
-
-    if (!response.ok) {
+    if (blob.statusCode !== 200) {
       return NextResponse.json(
         { error: "Could not fetch alias backup payload." },
         { status: 502 }
       );
     }
 
-    const json = await response.json();
+    const text = await new Response(blob.stream).text();
+    const json = JSON.parse(text);
     return NextResponse.json(json);
   } catch (error) {
     return NextResponse.json(
@@ -93,7 +83,7 @@ export async function PUT(
 
     const payload = await request.text();
     const uploaded = await put(blobPath(syncId), payload, {
-      access: "public",
+      access: "private",
       addRandomSuffix: false,
       contentType: "application/json",
       allowOverwrite: true,
