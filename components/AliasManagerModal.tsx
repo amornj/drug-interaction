@@ -22,7 +22,7 @@ export function AliasManagerModal({
   onAliasesChange,
   onSyncConfigChange,
   onSyncStatusChange,
-  onBackgroundSync,
+  onManualSync,
 }: {
   open: boolean;
   aliases: Alias[];
@@ -32,13 +32,12 @@ export function AliasManagerModal({
   onAliasesChange: (aliases: Alias[]) => void;
   onSyncConfigChange: (config: AliasSyncConfig | null) => void;
   onSyncStatusChange: (status: string | null) => void;
-  onBackgroundSync: () => Promise<void>;
+  onManualSync: () => Promise<void>;
 }) {
   const [message, setMessage] = useState<string | null>(null);
   const [deviceName, setDeviceName] = useState(syncConfig?.deviceName ?? "");
   const [passphrase, setPassphrase] = useState(syncConfig?.passphrase ?? "");
   const [syncId, setSyncId] = useState(syncConfig?.syncId ?? "");
-  const [autoSync, setAutoSync] = useState(syncConfig?.autoSync ?? true);
   const [recoveryKey, setRecoveryKey] = useState("");
   const [busy, setBusy] = useState(false);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -94,7 +93,7 @@ export function AliasManagerModal({
         syncId: syncId.trim() || undefined,
         deviceName,
         passphrase,
-        autoSync,
+        autoSync: false,
         lastBackupAt: syncConfig?.lastBackupAt,
         lastRestoreAt: syncConfig?.lastRestoreAt,
         lastRemoteUpdatedAt: syncConfig?.lastRemoteUpdatedAt,
@@ -122,7 +121,7 @@ export function AliasManagerModal({
           syncId: syncId.trim() || undefined,
           deviceName,
           passphrase,
-          autoSync,
+          autoSync: false,
         });
       const persistedConfig = await saveAliasSyncConfig(baseConfig);
       onSyncConfigChange(persistedConfig);
@@ -154,7 +153,7 @@ export function AliasManagerModal({
           syncId: baseSyncId,
           deviceName,
           passphrase,
-          autoSync,
+          autoSync: false,
           lastBackupAt: syncConfig?.lastBackupAt,
           lastRestoreAt: syncConfig?.lastRestoreAt,
           lastRemoteUpdatedAt: syncConfig?.lastRemoteUpdatedAt,
@@ -253,7 +252,7 @@ export function AliasManagerModal({
             Encrypted alias backup
           </h3>
           <p className="mt-1 text-xs text-zinc-500">
-            Aliases only. Case data and patient data are never uploaded. Backup is encrypted in the browser before upload.
+            Aliases only. Case data and patient data are never uploaded. Backup is encrypted in the browser before upload. Sync runs only when you press a button.
           </p>
 
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
@@ -284,15 +283,6 @@ export function AliasManagerModal({
             </label>
           </div>
 
-          <label className="mt-3 flex items-center gap-2 text-xs text-zinc-500">
-            <input
-              type="checkbox"
-              checked={autoSync}
-              onChange={(event) => setAutoSync(event.target.checked)}
-            />
-            Enable automatic background sync on this device
-          </label>
-
           <div className="mt-3 flex flex-wrap gap-2">
             <button
               type="button"
@@ -320,7 +310,7 @@ export function AliasManagerModal({
             </button>
             <button
               type="button"
-              onClick={onBackgroundSync}
+              onClick={() => void onManualSync()}
               disabled={busy || !syncConfig}
               className="min-h-11 rounded-xl border border-zinc-300 px-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"
             >

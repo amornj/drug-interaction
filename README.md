@@ -6,7 +6,7 @@ A mobile-first PWA for bedside drug interaction checking, built for busy clinici
 
 ## Status
 
-**M9 — Brand and alias resolution, plus encrypted alias backup/sync.** The app expands saved aliases and curated brand names into ingredient chips before interaction checking, and user aliases can now be backed up and restored as an encrypted remote blob with optional background sync.
+**M9 — Brand and alias resolution, plus encrypted alias backup/sync.** The app expands saved aliases and curated brand names into ingredient chips before interaction checking, and user aliases can now be backed up and restored as an encrypted remote blob with manual-only sync controls.
 
 ## Stack
 
@@ -23,7 +23,7 @@ A mobile-first PWA for bedside drug interaction checking, built for busy clinici
 - Per-pair clipboard fallback prompt when the optional Anthropic explainer is unavailable
 - Local alias database with user-overrides-first precedence over the curated brand overlay
 - Curated brand overlay generated from `lib/data/brands/*.yaml`
-- Encrypted alias-only backup/restore and optional background sync via remote blob storage
+- Encrypted alias-only backup/restore and manual sync via remote blob storage
 
 ## Architecture rules
 
@@ -46,7 +46,7 @@ Open http://localhost:3000 on a phone viewport.
 
 To enable the optional M3 explainer locally, set `ANTHROPIC_API_KEY` in `.env.local`. Without that key, deterministic pair checking, M4 patient modifiers, M5 cumulative stack warnings, M8 pharmacogenomics guidance, and M9 alias/brand expansion still work and `/api/interactions/explain` returns a clean `503` explainer-unavailable response.
 
-To enable encrypted alias backup and background sync, configure `BLOB_READ_WRITE_TOKEN` for the alias backup route. Without that token, the alias sync UI still renders but backup/restore returns a clean `503` storage-unavailable response.
+To enable encrypted alias backup and manual sync, configure `BLOB_READ_WRITE_TOKEN` for the alias backup route. Without that token, the alias sync UI still renders but backup/restore returns a clean `503` storage-unavailable response.
 
 Recent additions in M9:
 
@@ -55,7 +55,7 @@ Recent additions in M9:
 - Typing a curated brand like `Janumet` offers one-tap ingredient expansion and adds both chips with `via Janumet`.
 - Typing `galvusmet = vildagliptin + metformin` saves a local alias and adds both ingredients.
 - A local alias database is available from the top-bar overflow with remove, export JSON, and import JSON actions.
-- The alias database can now create an encrypted backup, restore from a recovery key plus passphrase, and background-sync aliases across devices without syncing any patient or case data.
+- The alias database can now create an encrypted backup, restore from a recovery key plus passphrase, and manually sync aliases across devices without syncing any patient or case data.
 
 ## Roadmap
 
