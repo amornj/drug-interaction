@@ -1,7 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AliasManagerModal } from "@/components/AliasManagerModal";
+import {
+  loadAliasSyncConfig,
+  syncAliasesWithRemote,
+  type AliasSyncConfig,
+} from "@/lib/alias-sync";
 import { loadUserAliases, type Alias } from "@/lib/aliases";
 import { CaseSwitcher } from "@/components/CaseSwitcher";
 import { DrugSearch } from "@/components/DrugSearch";
@@ -23,12 +28,17 @@ export function AppShell() {
   const clearDrugs = useStore((s) => s.clearDrugs);
   const [aliases, setAliases] = useState<Alias[]>([]);
   const [aliasManagerOpen, setAliasManagerOpen] = useState(false);
+  const [syncConfig, setSyncConfig] = useState<AliasSyncConfig | null>(null);
+  const [syncStatus, setSyncStatus] = useState<string | null>(null);
   const [checking, setChecking] = useState(false);
   const [result, setResult] = useState<InteractionCheckResponse | null>(null);
   const [resultKey, setResultKey] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [errorKey, setErrorKey] = useState("");
   const [retryNonce, setRetryNonce] = useState(0);
+  const aliasSignatureRef = useRef("");
+  const syncTimerRef = useRef<number | null>(null);
+  const syncInFlightRef = useRef(false);
 
   useEffect(() => {
     hydrate();
@@ -36,7 +46,91 @@ export function AppShell() {
 
   useEffect(() => {
     loadUserAliases().then(setAliases);
+    loadAliasSyncConfig().then(setSyncConfig);
   }, []);
+
+  const runAliasSync = useCallback(async (force = false) => {
+    if (
+      syncInFlightRef.current ||
+      !syncConfig?.syncId ||
+      !syncConfig.passphrase ||
+      (!force && !syncConfig.autoSync)
+    ) {
+      return;
+    }
+
+    syncInFlightRef.current = true;
+    setSyncStatus("Syncing aliases…");
+    try {
+      const synced = await syncAliasesWithRemote(syncConfig);
+      setAliases(synced.aliases);
+      setSyncConfig(synced.config);
+      aliasSignatureRef.current = JSON.stringify(synced.aliases);
+      setSyncStatus(
+        `Synced at ${new Date(
+          synced.config.lastSyncedAt ?? Date.now()
+        ).toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        })}.`
+      );
+    } catch (error) {
+      setSyncStatus(
+        error instanceof Error ? error.message : "Alias sync failed."
+      );
+    } finally {
+      syncInFlightRef.current = false;
+    }
+  }, [syncConfig]);
+
+  useEffect(() => {
+    if (!syncConfig?.autoSync || !syncConfig.passphrase) {
+      return;
+    }
+    const timer = window.setTimeout(() => {
+      void runAliasSync();
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [runAliasSync, syncConfig?.autoSync, syncConfig?.passphrase, syncConfig?.syncId]);
+
+  useEffect(() => {
+    if (!syncConfig?.autoSync || !syncConfig.passphrase) {
+      return;
+    }
+
+    const handleFocus = () => {
+      void runAliasSync();
+    };
+
+    window.addEventListener("focus", handleFocus);
+    return () => window.removeEventListener("focus", handleFocus);
+  }, [runAliasSync, syncConfig?.autoSync, syncConfig?.passphrase]);
+
+  useEffect(() => {
+    if (!syncConfig?.autoSync || !syncConfig.passphrase) {
+      return;
+    }
+
+    const nextSignature = JSON.stringify(aliases);
+    if (!nextSignature || nextSignature === aliasSignatureRef.current) {
+      return;
+    }
+
+    if (syncTimerRef.current !== null) {
+      window.clearTimeout(syncTimerRef.current);
+    }
+
+    syncTimerRef.current = window.setTimeout(() => {
+      aliasSignatureRef.current = nextSignature;
+      void runAliasSync();
+    }, 900);
+
+    return () => {
+      if (syncTimerRef.current !== null) {
+        window.clearTimeout(syncTimerRef.current);
+      }
+    };
+  }, [aliases, runAliasSync, syncConfig?.autoSync, syncConfig?.passphrase]);
 
   const activeDrugKey =
     active?.drugs.map((drug) => drug.rxcui).sort().join("|") ?? "";
@@ -218,12 +312,20 @@ export function AppShell() {
         )}
       </section>
 
-      <AliasManagerModal
-        open={aliasManagerOpen}
-        aliases={aliases}
-        onClose={() => setAliasManagerOpen(false)}
-        onAliasesChange={setAliases}
-      />
+      {aliasManagerOpen ? (
+        <AliasManagerModal
+          key={`${syncConfig?.syncId ?? "new"}-${syncConfig?.lastSyncedAt ?? "none"}`}
+          open={aliasManagerOpen}
+          aliases={aliases}
+          syncConfig={syncConfig}
+          syncStatus={syncStatus}
+          onClose={() => setAliasManagerOpen(false)}
+          onAliasesChange={setAliases}
+          onSyncConfigChange={setSyncConfig}
+          onSyncStatusChange={setSyncStatus}
+          onBackgroundSync={() => runAliasSync(true)}
+        />
+      ) : null}
     </div>
   );
 }

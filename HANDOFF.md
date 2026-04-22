@@ -50,9 +50,17 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
   - user aliases persist locally in IndexedDB key `di.aliases.v1`
   - curated brand overlay currently seeds `Galvusmet` and `Janumet`
   - multi-ingredient brands expand at input time into ingredient chips tagged with `viaBrand`
+- Encrypted alias backup / restore layer:
+  - `lib/alias-sync.ts`
+  - `lib/alias-sync-crypto.ts`
+  - `app/api/aliases/backup/[syncId]/route.ts`
+  - alias backups are encrypted in-browser before upload
+  - recovery key holds the sync ID only; passphrase is device-local
+  - optional background sync runs on startup, focus, and alias changes when configured
 - Alias management UI:
   - `components/AliasManagerModal.tsx`
   - top-bar overflow entry for remove / export JSON / import JSON
+  - sync setup, encrypted backup, restore, recovery-key export/import, and manual sync actions
 - Teach-alias flow:
   - `components/AliasTeachModal.tsx`
   - empty-result hint opens a local modal where each component is selected through RxNorm before save
@@ -86,6 +94,8 @@ Verified:
 - `npm run build:data` now regenerates `lib/data/brands/index.json` while preserving DDInter and interaction-overlay artifacts unless `REFRESH_DDINTER=1`
 - Brand and alias resolution expands ingredient chips before `/api/interactions/check`, so the check route still receives RxCUIs only
 - User alias precedence over curated brand defaults is implemented locally and no alias data is sent to API routes
+- Alias backup route stores only encrypted alias blobs; patient/case data never enters `/api/aliases/backup/[syncId]`
+- Background sync is alias-only and depends on `BLOB_READ_WRITE_TOKEN`; without it, backup/restore fails cleanly with `503`
 - Tested searches: warfarin, lipitor, paracetamol, amoxi return hits
 
 ### File map
@@ -95,6 +105,7 @@ app/
   layout.tsx          # metadata, viewport, manifest link
   page.tsx            # renders <AppShell />
   globals.css         # Tailwind v4 + theme tokens
+  api/aliases/backup/[syncId]/route.ts # encrypted alias blob backup/restore
   api/drugs/search/route.ts   # RxNorm proxy (edge)
   api/interactions/check/route.ts   # deterministic pair check (edge)
   api/interactions/explain/route.ts # streamed Anthropic explainer
@@ -114,6 +125,8 @@ components/
 lib/
   interactions.ts     # shared pair types, prompt builder, explanation parsing
   aliases.ts          # local alias persistence, precedence chain, inline alias parsing
+  alias-sync.ts       # local alias backup/restore/sync orchestration
+  alias-sync-crypto.ts # Web Crypto helpers for encrypted alias bundles
   modifiers.ts        # deterministic patient modifier rules and re-ranking
   pgx.ts              # deterministic pharmacogenomics rules and phenotype-aware alerts
   stacks.ts           # deterministic cumulative stack detection rules
@@ -147,7 +160,7 @@ docs/
 
 1. **Deterministic first, LLM-only-for-prose.** LLMs never invent severity, contraindication, or dosing. They only summarize/rephrase data returned by the deterministic layer. Temperature 0.
 2. **Cite everything.** Every interaction claim shown to the user carries a source name + version/date from the deterministic layer.
-3. **No patient data leaves the device.** Persistence is IndexedDB on the client. Server routes are stateless. No DB of patient lists. No auth in v1.
+3. **No patient or case data leaves the device.** Persistence is IndexedDB on the client. The only remote payload allowed in v1 is the client-side encrypted alias blob. No DB of patient lists. No auth in v1.
 4. **Safety footer.** "Decision-support only. Verify in primary references." must stay visible on every result screen.
 5. **Mobile-first.** Design at 360px width first. Thumb-zone action bar. Min 44 pt touch targets. Dark mode required.
 6. **Thai brand names via curated overlay only** — never LLM-invented.

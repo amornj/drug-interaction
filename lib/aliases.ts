@@ -11,6 +11,8 @@ export type Alias = {
   components: AliasComponent[];
   source: "user" | "overlay";
   createdAt?: number;
+  updatedAt?: number;
+  deletedAt?: number | null;
   note?: string;
 };
 
@@ -32,6 +34,8 @@ const aliasSchema = z.object({
     .min(1),
   source: z.enum(["user", "overlay"]),
   createdAt: z.number().optional(),
+  updatedAt: z.number().optional(),
+  deletedAt: z.number().nullable().optional(),
   note: z.string().trim().optional(),
 });
 
@@ -52,62 +56,133 @@ export function dedupeAliasComponents(components: AliasComponent[]) {
   });
 }
 
-export async function loadUserAliases(): Promise<Alias[]> {
+function normalizeAliasRecord(alias: Alias): Alias {
+  const normalizedCreatedAt = alias.createdAt ?? alias.updatedAt ?? Date.now();
+  const normalizedUpdatedAt = alias.updatedAt ?? normalizedCreatedAt;
+
+  return {
+    ...alias,
+    term: normalizeAliasTerm(alias.term),
+    components: dedupeAliasComponents(alias.components),
+    source: "user",
+    createdAt: normalizedCreatedAt,
+    updatedAt: normalizedUpdatedAt,
+    deletedAt: alias.deletedAt ?? null,
+  };
+}
+
+function sortAliases(aliases: Alias[]) {
+  return [...aliases].sort((left, right) => left.term.localeCompare(right.term));
+}
+
+export function isAliasDeleted(alias: Alias) {
+  return alias.deletedAt !== null && alias.deletedAt !== undefined;
+}
+
+export function activeAliases(aliases: Alias[]) {
+  return aliases.filter((alias) => !isAliasDeleted(alias));
+}
+
+export function aliasUpdatedAt(alias: Alias) {
+  return alias.updatedAt ?? alias.createdAt ?? 0;
+}
+
+export function mergeAliasRecords(localAliases: Alias[], remoteAliases: Alias[]) {
+  const merged = new Map<string, Alias>();
+
+  for (const alias of [...localAliases, ...remoteAliases]) {
+    const normalized = normalizeAliasRecord(alias);
+    const existing = merged.get(normalized.term);
+    if (!existing || aliasUpdatedAt(normalized) >= aliasUpdatedAt(existing)) {
+      merged.set(normalized.term, normalized);
+    }
+  }
+
+  return sortAliases([...merged.values()]);
+}
+
+export async function loadStoredAliases(): Promise<Alias[]> {
   try {
     const loaded = (await idbGet(ALIAS_STORAGE_KEY)) as unknown;
     const parsed = aliasArraySchema.parse(loaded ?? []);
-    return parsed.map((alias) => ({
-      ...alias,
-      term: normalizeAliasTerm(alias.term),
-      components: dedupeAliasComponents(alias.components),
-      source: "user",
-    }));
+    return sortAliases(parsed.map(normalizeAliasRecord));
   } catch {
     return [];
   }
 }
 
-export async function saveUserAliases(aliases: Alias[]) {
+export async function loadUserAliases(): Promise<Alias[]> {
+  return activeAliases(await loadStoredAliases());
+}
+
+async function saveStoredAliases(aliases: Alias[]) {
   const normalized = aliasArraySchema.parse(
-    aliases.map((alias) => ({
-      ...alias,
-      term: normalizeAliasTerm(alias.term),
-      components: dedupeAliasComponents(alias.components),
-      source: "user",
-    }))
+    sortAliases(aliases.map(normalizeAliasRecord))
   );
   await idbSet(ALIAS_STORAGE_KEY, normalized);
   return normalized;
 }
 
-export async function upsertUserAlias(
-  alias: Omit<Alias, "source" | "createdAt"> & { createdAt?: number },
-  currentAliases: Alias[]
-) {
-  const nextAlias: Alias = {
-    term: normalizeAliasTerm(alias.term),
-    components: dedupeAliasComponents(alias.components),
-    source: "user",
-    createdAt: alias.createdAt ?? Date.now(),
-    note: alias.note,
-  };
-  const remaining = currentAliases.filter(
-    (existing) => normalizeAliasTerm(existing.term) !== nextAlias.term
+export async function saveUserAliases(aliases: Alias[]) {
+  return activeAliases(
+    await saveStoredAliases(
+      aliases.map((alias) => ({
+        ...alias,
+        source: "user",
+        deletedAt: null,
+        updatedAt: alias.updatedAt ?? Date.now(),
+      }))
+    )
   );
-  const nextAliases = [...remaining, nextAlias].sort((left, right) =>
-    left.term.localeCompare(right.term)
-  );
-  await saveUserAliases(nextAliases);
-  return nextAliases;
 }
 
-export async function removeUserAlias(term: string, currentAliases: Alias[]) {
+export async function upsertUserAlias(
+  alias: Omit<Alias, "source" | "createdAt" | "updatedAt" | "deletedAt"> & {
+    createdAt?: number;
+    updatedAt?: number;
+  }
+) {
+  const storedAliases = await loadStoredAliases();
+  const normalizedTerm = normalizeAliasTerm(alias.term);
+  const existing = storedAliases.find((record) => record.term === normalizedTerm);
+  const now = Date.now();
+  const nextAlias: Alias = {
+    term: normalizedTerm,
+    components: dedupeAliasComponents(alias.components),
+    source: "user",
+    createdAt: existing?.createdAt ?? alias.createdAt ?? now,
+    updatedAt: alias.updatedAt ?? now,
+    deletedAt: null,
+    note: alias.note,
+  };
+  const remaining = storedAliases.filter(
+    (record) => normalizeAliasTerm(record.term) !== nextAlias.term
+  );
+  return activeAliases(await saveStoredAliases([...remaining, nextAlias]));
+}
+
+export async function removeUserAlias(term: string) {
+  const storedAliases = await loadStoredAliases();
   const normalized = normalizeAliasTerm(term);
-  const nextAliases = currentAliases.filter(
+  const now = Date.now();
+  const existing = storedAliases.find((alias) => alias.term === normalized);
+  const tombstone: Alias = {
+    term: normalized,
+    components: existing?.components ?? [],
+    source: "user",
+    createdAt: existing?.createdAt ?? now,
+    updatedAt: now,
+    deletedAt: now,
+    note: existing?.note,
+  };
+  const remaining = storedAliases.filter(
     (alias) => normalizeAliasTerm(alias.term) !== normalized
   );
-  await saveUserAliases(nextAliases);
-  return nextAliases;
+  return activeAliases(await saveStoredAliases([...remaining, tombstone]));
+}
+
+export async function replaceStoredAliases(aliases: Alias[]) {
+  return activeAliases(await saveStoredAliases(aliases));
 }
 
 export function resolveAlias(term: string, userAliases: Alias[]): ResolvedAlias | null {

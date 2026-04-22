@@ -124,14 +124,12 @@ function RxNormPicker({
 export function AliasTeachModal({
   open,
   initialTerm,
-  aliases,
   onClose,
   onAliasesChange,
   onAddComponents,
 }: {
   open: boolean;
   initialTerm: string;
-  aliases: Alias[];
   onClose: () => void;
   onAliasesChange: (aliases: Alias[]) => void;
   onAddComponents: (
@@ -168,8 +166,7 @@ export function AliasTeachModal({
       {
         term,
         components,
-      },
-      aliases
+      }
     );
 
     onAliasesChange(nextAliases);

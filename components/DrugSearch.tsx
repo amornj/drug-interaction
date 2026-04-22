@@ -211,8 +211,7 @@ export function DrugSearch({
       {
         term: proposal.term,
         components: proposal.components,
-      },
-      aliases
+      }
     );
     onAliasesChange(nextAliases);
     addComponents(proposal.components, proposal.term.trim());
@@ -527,7 +526,6 @@ export function DrugSearch({
         key={`${teachOpen ? term : "closed"}-${aliases.length}`}
         open={teachOpen}
         initialTerm={term}
-        aliases={aliases}
         onClose={() => setTeachOpen(false)}
         onAliasesChange={onAliasesChange}
         onAddComponents={(components, viaBrand) => addComponents(components, viaBrand)}
