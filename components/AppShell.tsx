@@ -7,6 +7,7 @@ import { CaseSwitcher } from "@/components/CaseSwitcher";
 import { DrugSearch } from "@/components/DrugSearch";
 import { DrugChip } from "@/components/DrugChip";
 import { InteractionList } from "@/components/InteractionList";
+import { InteractionSummary } from "@/components/InteractionSummary";
 import { PatientModifiers } from "@/components/PatientModifiers";
 import { PharmacogenomicsPanel } from "@/components/PharmacogenomicsPanel";
 import { StackWarnings } from "@/components/StackWarnings";
@@ -27,6 +28,7 @@ export function AppShell() {
   const [resultKey, setResultKey] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [errorKey, setErrorKey] = useState("");
+  const [retryNonce, setRetryNonce] = useState(0);
 
   useEffect(() => {
     hydrate();
@@ -39,40 +41,47 @@ export function AppShell() {
   const activeDrugKey =
     active?.drugs.map((drug) => drug.rxcui).sort().join("|") ?? "";
 
-  async function checkInteractions() {
-    if (!active || active.drugs.length < 2) {
-      return;
-    }
+  useEffect(() => {
+    if (!hydrated) return;
+    if (!active || active.drugs.length < 2) return;
 
-    setChecking(true);
-    setError(null);
-    setErrorKey("");
+    const rxcuis = active.drugs.map((drug) => drug.rxcui);
+    const expectedKey = activeDrugKey;
 
-    try {
-      const response = await fetch("/api/interactions/check", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          rxcuis: active.drugs.map((drug) => drug.rxcui),
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Request failed");
+    let cancelled = false;
+    const timer = window.setTimeout(async () => {
+      setChecking(true);
+      try {
+        const response = await fetch("/api/interactions/check", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ rxcuis }),
+        });
+        if (!response.ok) throw new Error("Request failed");
+        const json = (await response.json()) as InteractionCheckResponse;
+        if (!cancelled) {
+          setResult(json);
+          setResultKey(expectedKey);
+          setError(null);
+          setErrorKey("");
+        }
+      } catch {
+        if (!cancelled) {
+          setError("Unable to check interactions right now.");
+          setErrorKey(expectedKey);
+        }
+      } finally {
+        if (!cancelled) setChecking(false);
       }
+    }, 250);
 
-      const json = (await response.json()) as InteractionCheckResponse;
-      setResult(json);
-      setResultKey(activeDrugKey);
-    } catch {
-      setError("Unable to check interactions right now.");
-      setErrorKey(activeDrugKey);
-    } finally {
-      setChecking(false);
-    }
-  }
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeDrugKey, hydrated, retryNonce]);
 
-  const canCheck = Boolean(active && active.drugs.length >= 2);
   const visibleResult = resultKey === activeDrugKey ? result : null;
   const visibleError = errorKey === activeDrugKey ? error : null;
   const modifiedResult = useMemo(
@@ -88,7 +97,7 @@ export function AppShell() {
   );
 
   return (
-    <div className="mx-auto flex w-full max-w-xl flex-1 flex-col px-4 pt-[max(env(safe-area-inset-top),0.5rem)] pb-[calc(env(safe-area-inset-bottom)+6rem)]">
+    <div className="mx-auto flex w-full max-w-xl flex-1 flex-col px-4 pt-[max(env(safe-area-inset-top),0.5rem)] pb-[max(env(safe-area-inset-bottom),1rem)]">
       <header className="pt-2 pb-3">
         <div className="flex items-baseline justify-between">
           <h1 className="text-xl font-semibold tracking-tight">
@@ -111,6 +120,37 @@ export function AppShell() {
         <DrugSearch aliases={aliases} onAliasesChange={setAliases} />
       </section>
 
+      {modifiedResult ? (
+        <section className="mt-3">
+          <InteractionSummary
+            pairs={modifiedResult.pairs}
+            stackCount={stackWarnings.length}
+            dataVersion={modifiedResult.dataVersion}
+          />
+        </section>
+      ) : checking && active && active.drugs.length >= 2 && resultKey !== activeDrugKey ? (
+        <section className="mt-3">
+          <div className="rounded-2xl border border-zinc-200 bg-white/60 px-4 py-3 text-sm text-zinc-500 dark:border-zinc-800 dark:bg-zinc-950/60">
+            Checking interactions…
+          </div>
+        </section>
+      ) : null}
+
+      {visibleError ? (
+        <section className="mt-3">
+          <div className="flex items-center justify-between gap-3 rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-900 dark:text-red-100">
+            <span>{visibleError}</span>
+            <button
+              type="button"
+              onClick={() => setRetryNonce((n) => n + 1)}
+              className="h-8 shrink-0 rounded-full bg-red-600/90 px-3 text-xs font-medium text-white hover:bg-red-600"
+            >
+              Retry
+            </button>
+          </div>
+        </section>
+      ) : null}
+
       <section className="mt-5 flex-1">
         {!hydrated ? (
           <p className="text-sm text-zinc-500">Loading…</p>
@@ -119,6 +159,11 @@ export function AppShell() {
             <div className="flex items-center justify-between mb-2">
               <h2 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
                 Medications ({active.drugs.length})
+                {active.drugs.length < 2 ? (
+                  <span className="ml-2 text-xs font-normal text-zinc-500">
+                    · add one more to check interactions
+                  </span>
+                ) : null}
               </h2>
               <button
                 type="button"
@@ -138,12 +183,7 @@ export function AppShell() {
               drugs={active.drugs}
               profile={active.pgxProfile}
             />
-            {visibleError ? (
-              <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-900 dark:text-red-100">
-                {visibleError}
-              </div>
-            ) : null}
-            {visibleResult ? (
+            {modifiedResult ? (
               <section className="mt-5">
                 <div className="mb-5">
                   <StackWarnings warnings={stackWarnings} />
@@ -153,20 +193,20 @@ export function AppShell() {
                     <h2 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
                       Interaction results
                     </h2>
-                    {modifiedResult && modifiedResult.modifierSummary.length > 0 ? (
+                    {modifiedResult.modifierSummary.length > 0 ? (
                       <p className="mt-1 text-xs text-zinc-500">
                         Active modifiers: {modifiedResult.modifierSummary.join(", ")}
                       </p>
                     ) : null}
                   </div>
                   <span className="text-xs text-zinc-500">
-                    {new Date(visibleResult.checkedAt).toLocaleTimeString([], {
+                    {new Date(modifiedResult.checkedAt).toLocaleTimeString([], {
                       hour: "2-digit",
                       minute: "2-digit",
                     })}
                   </span>
                 </div>
-                {modifiedResult ? <InteractionList result={modifiedResult} /> : null}
+                <InteractionList result={modifiedResult} />
               </section>
             ) : null}
           </>
@@ -177,33 +217,6 @@ export function AppShell() {
           </div>
         )}
       </section>
-
-      <nav
-        aria-label="Primary actions"
-        className="fixed bottom-0 inset-x-0 border-t border-zinc-200 dark:border-zinc-800 bg-[var(--background)]/95 backdrop-blur"
-        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
-      >
-        <div className="mx-auto max-w-xl px-4 py-3 flex gap-2">
-          <button
-            type="button"
-            onClick={checkInteractions}
-            disabled={!canCheck || checking}
-            className={[
-              "flex-1 h-12 rounded-xl text-white font-medium transition-colors",
-              canCheck && !checking
-                ? "bg-sky-600 active:bg-sky-700"
-                : "bg-sky-600/50 cursor-not-allowed",
-            ].join(" ")}
-            title={
-              canCheck
-                ? "Check deterministic DDInter pairs"
-                : "Add at least 2 medications"
-            }
-          >
-            {checking ? "Checking…" : "Check interactions"}
-          </button>
-        </div>
-      </nav>
 
       <AliasManagerModal
         open={aliasManagerOpen}
