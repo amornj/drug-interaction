@@ -25,26 +25,24 @@ export function PatientModifiers({
   const renalEstimate = calculateCockcroftGault(modifiers.renal);
 
   return (
-    <section className="mt-5 rounded-2xl border border-zinc-200/80 bg-white/80 p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-950/70">
-      <div className="flex items-start justify-between gap-3">
+    <section>
+      <div className="flex items-baseline justify-between border-b border-rule pb-2">
         <div>
-          <h2 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-            Patient modifiers
-          </h2>
-          <p className="mt-1 text-xs text-zinc-500">
-            Local-only deterministic modifiers can re-rank displayed pair urgency.
+          <p className="eyebrow">Patient Modifiers</p>
+          <p className="mt-0.5 text-[11px] italic text-ink-mute">
+            Local rules re-rank displayed urgency.
           </p>
         </div>
         <button
           type="button"
           onClick={resetPatientModifiers}
-          className="min-h-11 rounded-xl px-3 text-xs font-medium text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300"
+          className="text-[11px] uppercase tracking-[0.12em] text-ink-mute hover:text-accent"
         >
           Reset
         </button>
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-2">
+      <div className="mt-3 flex flex-wrap gap-x-1 gap-y-2">
         {flagModifiers.map((modifier) => {
           const enabled = modifiers[modifier.key];
           return (
@@ -54,12 +52,13 @@ export function PatientModifiers({
               aria-pressed={enabled}
               onClick={() => setModifierFlag(modifier.key, !enabled)}
               className={[
-                "min-h-11 rounded-full border px-3 text-sm font-medium transition-colors",
+                "min-h-11 border px-3 text-[13px] font-medium tracking-[0.02em] transition-colors",
                 enabled
-                  ? "border-sky-500 bg-sky-500/10 text-sky-800 dark:text-sky-100"
-                  : "border-zinc-300 bg-transparent text-zinc-700 dark:border-zinc-700 dark:text-zinc-300",
+                  ? "border-accent bg-accent-soft text-accent"
+                  : "border-rule text-ink-soft hover:border-rule-strong hover:text-ink",
               ].join(" ")}
             >
+              {enabled ? "▪ " : ""}
               {modifier.label}
             </button>
           );
@@ -69,80 +68,83 @@ export function PatientModifiers({
           aria-pressed={modifiers.renal.enabled}
           onClick={() => updateRenalInput("enabled", !modifiers.renal.enabled)}
           className={[
-            "min-h-11 rounded-full border px-3 text-sm font-medium transition-colors",
+            "min-h-11 border px-3 text-[13px] font-medium tracking-[0.02em] transition-colors",
             modifiers.renal.enabled
-              ? "border-sky-500 bg-sky-500/10 text-sky-800 dark:text-sky-100"
-              : "border-zinc-300 bg-transparent text-zinc-700 dark:border-zinc-700 dark:text-zinc-300",
+              ? "border-accent bg-accent-soft text-accent"
+              : "border-rule text-ink-soft hover:border-rule-strong hover:text-ink",
           ].join(" ")}
         >
-          eGFR / Cockcroft–Gault
+          {modifiers.renal.enabled ? "▪ " : ""}eGFR · Cockcroft–Gault
         </button>
       </div>
 
       {modifiers.renal.enabled ? (
-        <div className="mt-4 rounded-2xl border border-zinc-200 bg-zinc-50/80 p-3 dark:border-zinc-800 dark:bg-zinc-900/60">
+        <div className="mt-4 border border-rule border-l-2 border-l-accent bg-paper-raised p-3">
+          <p className="eyebrow mb-3">Cockcroft–Gault Inputs</p>
           <div className="grid grid-cols-2 gap-3">
-            <label className="text-xs text-zinc-500">
+            <label className="stamp block">
               Sex
               <select
                 value={modifiers.renal.sex}
                 onChange={(event) =>
                   updateRenalInput("sex", event.target.value as "male" | "female")
                 }
-                className="mt-1 h-11 w-full rounded-xl border border-zinc-300 bg-white px-3 text-sm text-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100"
+                className="mt-1 h-11 w-full border border-rule bg-paper px-3 text-[14px] text-ink"
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
             </label>
-            <label className="text-xs text-zinc-500">
+            <label className="stamp block">
               Age (years)
               <input
                 inputMode="decimal"
                 value={modifiers.renal.ageYears}
                 onChange={(event) => updateRenalInput("ageYears", event.target.value)}
-                className="mt-1 h-11 w-full rounded-xl border border-zinc-300 bg-white px-3 text-sm text-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100"
+                className="mt-1 h-11 w-full border border-rule bg-paper px-3 font-mono text-[14px] tabular-nums text-ink"
               />
             </label>
-            <label className="text-xs text-zinc-500">
+            <label className="stamp block">
               Weight (kg)
               <input
                 inputMode="decimal"
                 value={modifiers.renal.weightKg}
                 onChange={(event) => updateRenalInput("weightKg", event.target.value)}
-                className="mt-1 h-11 w-full rounded-xl border border-zinc-300 bg-white px-3 text-sm text-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100"
+                className="mt-1 h-11 w-full border border-rule bg-paper px-3 font-mono text-[14px] tabular-nums text-ink"
               />
             </label>
-            <label className="text-xs text-zinc-500">
-              Serum creatinine (mg/dL)
+            <label className="stamp block">
+              Creatinine (mg/dL)
               <input
                 inputMode="decimal"
                 value={modifiers.renal.serumCreatinineMgDl}
                 onChange={(event) =>
                   updateRenalInput("serumCreatinineMgDl", event.target.value)
                 }
-                className="mt-1 h-11 w-full rounded-xl border border-zinc-300 bg-white px-3 text-sm text-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100"
+                className="mt-1 h-11 w-full border border-rule bg-paper px-3 font-mono text-[14px] tabular-nums text-ink"
               />
             </label>
           </div>
-          <div className="mt-3 rounded-xl border border-zinc-200 bg-white/80 px-3 py-2 text-sm dark:border-zinc-800 dark:bg-zinc-950/70">
+          <div className="mt-3 border-t border-rule pt-3">
             {renalEstimate.value !== null ? (
               <>
-                <p className="font-medium text-zinc-900 dark:text-zinc-100">
-                  Cockcroft–Gault: {renalEstimate.value.toFixed(0)} mL/min
+                <p className="font-serif text-[20px] italic text-ink">
+                  {renalEstimate.value.toFixed(0)}
+                  <span className="ml-1 font-mono text-[11px] not-italic text-ink-mute">
+                    mL/min
+                  </span>
                 </p>
-                <p className="mt-1 text-xs text-zinc-500">
+                <p className="mt-1 text-[12px] italic text-ink-mute">
                   {renalEstimate.band === "lt30"
-                    ? "Modifier rules for reduced renal function below 30 mL/min are active."
+                    ? "Rules for < 30 mL/min are active."
                     : renalEstimate.band === "30to59"
-                      ? "Modifier rules for reduced renal function 30–59 mL/min are active."
-                      : "No renal modifier rules are active above 60 mL/min."}
+                    ? "Rules for 30–59 mL/min are active."
+                    : "No renal modifier rules active above 60 mL/min."}
                 </p>
               </>
             ) : (
-              <p className="text-xs text-zinc-500">
-                Enter age, sex, weight, and serum creatinine to activate renal
-                modifier rules.
+              <p className="text-[12px] italic text-ink-mute">
+                Enter age, sex, weight, and creatinine to activate rules.
               </p>
             )}
           </div>

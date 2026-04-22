@@ -3,29 +3,38 @@
 import type { Drug } from "@/lib/store";
 import { useStore } from "@/lib/store";
 
-export function DrugChip({ drug }: { drug: Drug }) {
+export function DrugChip({ drug, index }: { drug: Drug; index: number }) {
   const removeDrug = useStore((s) => s.removeDrug);
+  const number = String(index + 1).padStart(2, "0");
   return (
-    <li className="flex items-center gap-2 rounded-xl bg-zinc-100 dark:bg-zinc-900 pl-4 pr-2 py-2 min-h-12">
-      <span className="flex-1 min-w-0">
-        <span className="block truncate text-base leading-tight">{drug.name}</span>
-        {drug.viaBrand ? (
-          <span className="mt-0.5 block truncate text-xs text-zinc-500">
-            via {drug.viaBrand}
-          </span>
-        ) : null}
+    <li className="group flex items-baseline gap-3 border-b border-rule py-3 last:border-b-0">
+      <span
+        className="shrink-0 font-mono text-[11px] tabular-nums text-ink-mute"
+        aria-hidden
+      >
+        {number}
       </span>
+      <div className="flex-1 min-w-0">
+        <p className="truncate text-[15px] leading-snug text-ink">
+          {drug.name}
+        </p>
+        {drug.viaBrand ? (
+          <p className="mt-0.5 text-[11px] uppercase tracking-[0.12em] text-ink-mute">
+            via {drug.viaBrand}
+          </p>
+        ) : null}
+      </div>
       <button
         type="button"
         aria-label={`Remove ${drug.name}`}
         onClick={() => removeDrug(drug.rxcui)}
-        className="h-9 w-9 grid place-items-center rounded-full text-zinc-500 hover:bg-zinc-200 dark:hover:bg-zinc-800 active:bg-zinc-300 dark:active:bg-zinc-700"
+        className="h-9 w-9 shrink-0 grid place-items-center rounded-full text-ink-mute transition-colors hover:bg-accent-soft hover:text-accent active:bg-accent-soft"
       >
-        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden>
+        <svg viewBox="0 0 20 20" width="14" height="14" aria-hidden>
           <path
-            d="M6 6l8 8M14 6l-8 8"
+            d="M5 5l10 10M15 5l-10 10"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="1.5"
             strokeLinecap="round"
             fill="none"
           />

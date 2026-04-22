@@ -12,101 +12,114 @@ export function InteractionList({
 }) {
   if (result.pairs.length === 0) {
     return (
-      <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3">
-        <p className="text-sm font-medium text-emerald-900 dark:text-emerald-100">
+      <div
+        className="border border-rule border-l-2 bg-good-soft px-4 py-3"
+        style={{ borderLeftColor: "var(--good)" }}
+      >
+        <p className="eyebrow" style={{ color: "var(--good)" }}>
+          Clear
+        </p>
+        <p className="mt-1 text-[14px] text-ink">
           No known interactions found in current data sources.
         </p>
-        <p className="mt-1 text-xs text-emerald-900/70 dark:text-emerald-100/70">
-          {result.dataVersion}
-        </p>
+        <p className="stamp mt-2">{result.dataVersion}</p>
         {result.unknown.length > 0 ? (
-          <p className="mt-2 text-xs text-emerald-900/70 dark:text-emerald-100/70">
-            Unmapped RxCUIs: {result.unknown.join(", ")}
-          </p>
+          <p className="stamp mt-1">Unmapped RxCUIs: {result.unknown.join(", ")}</p>
         ) : null}
       </div>
     );
   }
 
   return (
-    <div className="space-y-3">
-      {result.pairs.map((pair) => {
+    <div>
+      {result.pairs.map((pair, index) => {
         const isPinned = pair.displaySeverity === "Contraindicated";
+        const severityToken =
+          pair.displaySeverity === "Contraindicated"
+            ? "var(--sev-contra)"
+            : pair.displaySeverity === "Major"
+            ? "var(--sev-major)"
+            : pair.displaySeverity === "Moderate"
+            ? "var(--sev-moderate)"
+            : "var(--sev-minor)";
         return (
           <details
             key={`${pair.a.rxcui}|${pair.b.rxcui}`}
-            className={[
-              "group rounded-2xl border border-zinc-200/80 bg-white/80 p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-950/70",
-              isPinned ? "ring-1 ring-red-500/30" : "",
-            ].join(" ")}
+            className="group border-b border-rule last:border-b-0"
           >
-            <summary className="list-none cursor-pointer">
+            <summary
+              className="list-none cursor-pointer border-l-2 py-4 pl-4 pr-2 transition-colors hover:bg-surface/60"
+              style={{ borderLeftColor: isPinned ? severityToken : "transparent" }}
+            >
               <div className="flex items-start justify-between gap-3">
-                <div className="min-w-0">
-                  <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-                    {pair.a.name} <span className="text-zinc-400">↔</span>{" "}
-                    {pair.b.name}
-                  </p>
-                  <p className="mt-1 text-sm text-zinc-700 dark:text-zinc-300">
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-baseline gap-3">
+                    <span
+                      className="shrink-0 font-mono text-[11px] tabular-nums text-ink-mute"
+                      aria-hidden
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <p className="text-[15px] leading-snug text-ink">
+                      <span className="font-serif italic">{pair.a.name}</span>
+                      <span className="mx-1.5 text-ink-mute">↔</span>
+                      <span className="font-serif italic">{pair.b.name}</span>
+                    </p>
+                  </div>
+                  <p className="mt-1.5 pl-8 text-[13.5px] leading-snug text-ink-soft">
                     {pair.verdict}
                   </p>
                   {pair.displaySeverity !== pair.baseSeverity ? (
-                    <p className="mt-1 text-xs font-medium text-sky-700 dark:text-sky-300">
-                      Patient modifiers raise displayed urgency from {pair.baseSeverity} to{" "}
-                      {pair.displaySeverity}.
+                    <p
+                      className="mt-1 pl-8 text-[11px] uppercase tracking-[0.1em]"
+                      style={{ color: "var(--accent)" }}
+                    >
+                      Modifiers raised {pair.baseSeverity} → {pair.displaySeverity}
                     </p>
                   ) : null}
-                  <p className="mt-2 text-xs text-zinc-500">
-                    {formatSources(pair.sources)}
-                  </p>
+                  <p className="mt-2 pl-8 stamp">{formatSources(pair.sources)}</p>
                 </div>
                 <SeverityBadge severity={pair.displaySeverity} pulse={isPinned} />
               </div>
             </summary>
-            <div className="mt-3 border-t border-zinc-200 pt-3 text-sm text-zinc-700 dark:border-zinc-800 dark:text-zinc-300">
+            <div className="border-l-2 border-rule pb-4 pl-8 pr-2 text-[13.5px] text-ink-soft">
               {pair.modifierEffects.length > 0 ? (
-                <div className="mb-3 rounded-xl border border-sky-500/25 bg-sky-500/10 px-3 py-2">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-sky-700 dark:text-sky-300">
+                <div
+                  className="mb-3 border border-rule border-l-2 bg-accent-soft/40 px-3 py-2"
+                  style={{ borderLeftColor: "var(--accent)" }}
+                >
+                  <p className="eyebrow" style={{ color: "var(--accent)" }}>
                     Patient modifier impact
                   </p>
-                  {pair.modifierEffects.map((effect, index) => (
-                    <div key={`${effect.modifier}-${index}`} className="mt-2">
-                      <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                        {effect.title}
-                        {effect.adjustedSeverity ? ` → ${effect.adjustedSeverity}` : ""}
+                  {pair.modifierEffects.map((effect, i) => (
+                    <div key={`${effect.modifier}-${i}`} className="mt-2">
+                      <p className="text-[13.5px] text-ink">
+                        <span className="font-serif italic">{effect.title}</span>
+                        {effect.adjustedSeverity
+                          ? `  →  ${effect.adjustedSeverity}`
+                          : ""}
                       </p>
-                      <p className="mt-1 text-sm">{effect.summary}</p>
-                      <p className="mt-1 text-xs text-zinc-500">
-                        Sources: {formatSources([effect.source])}
+                      <p className="mt-1 text-[13px] leading-snug">{effect.summary}</p>
+                      <p className="stamp mt-1">
+                        Source: {formatSources([effect.source])}
                       </p>
                     </div>
                   ))}
                 </div>
               ) : null}
               {pair.mechanism_class ? (
-                <p>
-                  <span className="font-medium text-zinc-900 dark:text-zinc-100">
-                    Mechanism:
-                  </span>{" "}
+                <p className="mt-2">
+                  <span className="eyebrow mr-2">Mechanism</span>
                   {pair.mechanism_class}
                 </p>
               ) : null}
               {pair.management ? (
-                <p className={pair.mechanism_class ? "mt-2" : ""}>
-                  <span className="font-medium text-zinc-900 dark:text-zinc-100">
-                    Management:
-                  </span>{" "}
+                <p className="mt-2">
+                  <span className="eyebrow mr-2">Management</span>
                   {pair.management}
                 </p>
               ) : null}
-              <p
-                className={[
-                  "text-xs text-zinc-500",
-                  pair.mechanism_class || pair.management ? "mt-3" : "",
-                ].join(" ")}
-              >
-                Sources: {formatSources(pair.sources)}
-              </p>
+              <p className="stamp mt-3">Sources · {formatSources(pair.sources)}</p>
               <InteractionExplanation
                 pair={{
                   a: pair.a,
@@ -124,7 +137,7 @@ export function InteractionList({
         );
       })}
       {result.unknown.length > 0 ? (
-        <p className="text-xs text-zinc-500">
+        <p className="stamp mt-3">
           Unmapped RxCUIs: {result.unknown.join(", ")}
         </p>
       ) : null}

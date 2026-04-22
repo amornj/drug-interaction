@@ -10,11 +10,18 @@ const severityOrder: InteractionSeverity[] = [
   "Minor",
 ];
 
-const severityDot: Record<InteractionSeverity, string> = {
-  Contraindicated: "bg-red-500",
-  Major: "bg-orange-500",
-  Moderate: "bg-amber-500",
-  Minor: "bg-yellow-400",
+const severityMark: Record<InteractionSeverity, string> = {
+  Contraindicated: "var(--sev-contra)",
+  Major: "var(--sev-major)",
+  Moderate: "var(--sev-moderate)",
+  Minor: "var(--sev-minor)",
+};
+
+const severityShort: Record<InteractionSeverity, string> = {
+  Contraindicated: "Contra",
+  Major: "Major",
+  Moderate: "Mod",
+  Minor: "Minor",
 };
 
 export function InteractionSummary({
@@ -28,13 +35,17 @@ export function InteractionSummary({
 }) {
   if (pairs.length === 0 && stackCount === 0) {
     return (
-      <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3">
-        <p className="text-sm font-medium text-emerald-900 dark:text-emerald-100">
+      <div
+        className="border border-rule border-l-2 border-l-[var(--good)] bg-good-soft px-4 py-3"
+        style={{ borderLeftColor: "var(--good)" }}
+      >
+        <p className="eyebrow mb-1" style={{ color: "var(--good)" }}>
+          Clear
+        </p>
+        <p className="text-[14px] leading-snug text-ink">
           No known pairwise interactions.
         </p>
-        <p className="mt-0.5 text-[11px] text-emerald-900/70 dark:text-emerald-100/70">
-          {dataVersion}
-        </p>
+        <p className="stamp mt-2">{dataVersion}</p>
       </div>
     );
   }
@@ -51,50 +62,58 @@ export function InteractionSummary({
 
   const hasContra = counts.Contraindicated > 0;
   const top = pairs[0];
+  const leftBorder = hasContra
+    ? "var(--sev-contra)"
+    : counts.Major > 0
+    ? "var(--sev-major)"
+    : "var(--rule-strong)";
 
   return (
     <div
-      className={[
-        "rounded-2xl border px-4 py-3",
-        hasContra
-          ? "border-red-500/40 bg-red-500/10"
-          : "border-zinc-200 bg-white/70 dark:border-zinc-800 dark:bg-zinc-950/60",
-      ].join(" ")}
+      className="border border-rule border-l-2 bg-paper-raised px-4 py-3"
+      style={{ borderLeftColor: leftBorder }}
       aria-live="polite"
     >
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+      <div className="flex items-baseline justify-between gap-3">
+        <p className="eyebrow">Summary</p>
+        {stackCount > 0 ? (
+          <p className="stamp">
+            + {stackCount} stack{stackCount === 1 ? "" : "s"}
+          </p>
+        ) : null}
+      </div>
+
+      <div className="mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-1.5">
         {severityOrder.map((severity) =>
           counts[severity] > 0 ? (
             <span
               key={severity}
-              className="inline-flex items-center gap-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-300"
+              className="inline-flex items-baseline gap-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft"
             >
               <span
-                className={[
-                  "h-2 w-2 rounded-full",
-                  severityDot[severity],
-                  severity === "Contraindicated" ? "animate-pulse" : "",
-                ].join(" ")}
+                className={`sev-mark ${severity === "Contraindicated" ? "breath" : ""}`}
+                style={{ background: severityMark[severity] }}
                 aria-hidden
               />
-              {counts[severity]} {severity}
+              <span className="tabular-nums text-ink">{counts[severity]}</span>{" "}
+              {severityShort[severity]}
             </span>
           ) : null
         )}
-        {stackCount > 0 ? (
-          <span className="inline-flex items-center text-xs font-medium text-zinc-600 dark:text-zinc-400">
-            · {stackCount} stack warning{stackCount === 1 ? "" : "s"}
-          </span>
-        ) : null}
       </div>
 
       {top ? (
-        <p className="mt-2 truncate text-sm text-zinc-900 dark:text-zinc-100">
-          <span className="text-zinc-500">Top:</span>{" "}
-          <span className="font-medium">
-            {top.a.name} <span className="text-zinc-400">↔</span> {top.b.name}
-          </span>{" "}
-          — {top.displaySeverity}
+        <p className="mt-3 border-t border-rule pt-2 text-[14px] leading-snug text-ink">
+          <span className="eyebrow mr-2">Top</span>
+          <span className="font-serif italic">
+            {top.a.name}
+          </span>
+          <span className="mx-1.5 text-ink-mute">↔</span>
+          <span className="font-serif italic">{top.b.name}</span>
+          <span className="mx-2 text-ink-mute">—</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">
+            {top.displaySeverity}
+          </span>
         </p>
       ) : null}
     </div>

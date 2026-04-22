@@ -27,11 +27,13 @@ function RxNormPicker({
   onChange,
   onRemove,
   canRemove,
+  index,
 }: {
   row: PickerRow;
   onChange: (next: PickerRow) => void;
   onRemove: () => void;
   canRemove: boolean;
+  index: number;
 }) {
   const [results, setResults] = useState<DrugCandidate[]>([]);
   const [loading, setLoading] = useState(false);
@@ -61,8 +63,11 @@ function RxNormPicker({
   }, [query, row.selected?.name, row.query]);
 
   return (
-    <div className="rounded-2xl border border-zinc-200/80 p-3 dark:border-zinc-800">
-      <div className="flex items-center gap-2">
+    <div className="border border-rule bg-paper-raised p-3">
+      <div className="flex items-baseline gap-3">
+        <span className="shrink-0 font-mono text-[11px] tabular-nums text-ink-mute">
+          {String(index + 1).padStart(2, "0")}
+        </span>
         <input
           value={row.query}
           onChange={(event) =>
@@ -74,28 +79,28 @@ function RxNormPicker({
             })
           }
           placeholder="Search component"
-          className="h-11 flex-1 rounded-xl border border-zinc-300 bg-white px-3 text-sm text-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100"
+          className="h-10 flex-1 border-b border-rule bg-transparent py-1 text-[14px] text-ink outline-none placeholder:italic placeholder:text-ink-mute focus:border-accent"
         />
         {canRemove ? (
           <button
             type="button"
             onClick={onRemove}
-            className="min-h-11 rounded-xl px-3 text-xs font-medium text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-900"
+            className="text-[11px] uppercase tracking-[0.12em] text-ink-mute hover:text-accent"
           >
             Remove
           </button>
         ) : null}
       </div>
       {row.selected ? (
-        <p className="mt-2 text-xs text-zinc-500">
-          Selected: {row.selected.name} · RxCUI {row.selected.rxcui}
+        <p className="stamp mt-2 pl-6">
+          ✓ {row.selected.name} · RxCUI {row.selected.rxcui}
         </p>
       ) : null}
       {loading ? (
-        <p className="mt-2 text-xs text-zinc-500">Searching…</p>
+        <p className="stamp mt-2 pl-6 italic">Searching RxNorm…</p>
       ) : null}
       {results.length > 0 ? (
-        <div className="mt-2 overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800">
+        <div className="mt-2 border border-rule">
           {results.map((result) => (
             <button
               key={result.rxcui}
@@ -107,12 +112,10 @@ function RxNormPicker({
                   selected: result,
                 })
               }
-              className="block min-h-11 w-full border-t border-zinc-200 px-3 py-2 text-left first:border-t-0 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900"
+              className="block w-full border-b border-rule px-3 py-2 text-left last:border-b-0 hover:bg-surface"
             >
-              <p className="text-sm text-zinc-900 dark:text-zinc-100">
-                {result.name}
-              </p>
-              <p className="mt-0.5 text-xs text-zinc-500">RxCUI {result.rxcui}</p>
+              <p className="text-[14px] text-ink">{result.name}</p>
+              <p className="stamp mt-0.5">RxCUI {result.rxcui}</p>
             </button>
           ))}
         </div>
@@ -162,12 +165,10 @@ export function AliasTeachModal({
       .filter((row): row is DrugCandidate => row !== null)
       .map((row) => ({ rxcui: row.rxcui, name: row.name }));
 
-    const nextAliases = await upsertUserAlias(
-      {
-        term,
-        components,
-      }
-    );
+    const nextAliases = await upsertUserAlias({
+      term,
+      components,
+    });
 
     onAliasesChange(nextAliases);
     onAddComponents(components, term.trim());
@@ -175,32 +176,36 @@ export function AliasTeachModal({
   }
 
   return (
-    <div className="fixed inset-0 z-40 bg-black/40 px-4 py-6">
-      <div className="mx-auto max-w-xl rounded-3xl bg-white p-4 shadow-xl dark:bg-zinc-950">
-        <div className="flex items-start justify-between gap-3">
+    <div className="fixed inset-0 z-40 bg-ink/60 px-4 py-6 backdrop-blur-sm">
+      <div className="mx-auto max-w-xl border border-rule-strong bg-paper p-5 shadow-2xl">
+        <div className="flex items-start justify-between gap-3 border-b border-rule pb-3">
           <div>
-            <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
-              Teach alias
+            <p className="eyebrow" style={{ color: "var(--sev-major)" }}>
+              Teach Alias
+            </p>
+            <h2 className="serif-display mt-1 text-[22px] text-ink">
+              New <span className="italic">alias</span>
             </h2>
-            <p className="mt-1 text-xs text-zinc-500">
-              Save a local brand-to-ingredient alias using RxNorm-confirmed components only.
+            <p className="mt-1 text-[12px] italic text-ink-mute">
+              RxNorm-confirmed components only.
             </p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="min-h-11 rounded-xl px-3 text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300"
+            aria-label="Close"
+            className="text-[11px] uppercase tracking-[0.12em] text-ink-mute hover:text-accent"
           >
             Close
           </button>
         </div>
 
-        <label className="mt-4 block text-xs text-zinc-500">
+        <label className="stamp mt-4 block">
           Alias term
           <input
             value={term}
             onChange={(event) => setTerm(event.target.value)}
-            className="mt-1 h-11 w-full rounded-xl border border-zinc-300 bg-white px-3 text-sm text-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100"
+            className="mt-1 h-11 w-full border-b border-rule-strong bg-transparent py-1 font-serif text-[18px] italic text-ink outline-none focus:border-accent"
           />
         </label>
 
@@ -209,6 +214,7 @@ export function AliasTeachModal({
             <RxNormPicker
               key={row.id}
               row={row}
+              index={index}
               onChange={(nextRow) =>
                 setRows((current) =>
                   current.map((existing) =>
@@ -227,25 +233,30 @@ export function AliasTeachModal({
         <button
           type="button"
           onClick={() => setRows((current) => [...current, newRow()])}
-          className="mt-3 min-h-11 rounded-xl border border-zinc-300 px-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"
+          className="eyebrow mt-3 border border-rule px-3 py-2 text-ink-soft hover:border-rule-strong hover:text-ink"
         >
-          Add component
+          + Add component
         </button>
 
-        <div className="mt-4 flex items-center gap-2">
+        <div className="mt-5 flex items-center gap-3 border-t border-rule pt-4">
           <button
             type="button"
             onClick={saveAlias}
             disabled={!canSave}
             className={[
-              "min-h-11 rounded-xl px-3 text-sm font-medium transition-colors",
+              "min-h-11 px-4 text-[12px] uppercase tracking-[0.12em] transition-colors",
               canSave
-                ? "bg-sky-600 text-white active:bg-sky-700"
-                : "bg-sky-600/50 text-white/80",
+                ? "border border-accent bg-accent text-paper hover:bg-accent/90"
+                : "border border-rule text-ink-mute",
             ].join(" ")}
           >
-            Save alias and add
+            Save alias & add
           </button>
+          {!canSave ? (
+            <p className="text-[11px] italic text-ink-mute">
+              Resolve all components to enable save
+            </p>
+          ) : null}
         </div>
       </div>
     </div>

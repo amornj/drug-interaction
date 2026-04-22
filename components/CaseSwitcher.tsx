@@ -82,9 +82,9 @@ export function CaseSwitcher({
   }
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-3">
       <div className="flex-1 overflow-x-auto">
-        <div className="flex gap-2">
+        <div className="flex items-baseline gap-5">
           {cases.map((c) => {
             const isActive = c.id === activeCaseId;
             return (
@@ -118,53 +118,59 @@ export function CaseSwitcher({
                 onTouchCancel={clearPressTimer}
                 style={{ WebkitTouchCallout: "none" }}
                 className={[
-                  "shrink-0 select-none px-3 h-9 rounded-full text-sm font-medium",
+                  "shrink-0 select-none pb-1.5 text-[13px] tracking-[0.04em] transition-colors",
+                  "border-b-[1.5px]",
                   isActive
-                    ? "bg-sky-600 text-white"
-                    : "bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300",
+                    ? "border-accent text-ink"
+                    : "border-transparent text-ink-mute hover:text-ink-soft",
                 ].join(" ")}
                 title="Tap to switch · long-press or right-click for options"
               >
-                {c.label}
-                {isActive ? ` · ${c.drugs.length}` : ""}
+                <span className={isActive ? "font-medium" : ""}>{c.label}</span>
+                {isActive ? (
+                  <span className="ml-1.5 font-mono text-[10.5px] tabular-nums text-accent">
+                    · {c.drugs.length}
+                  </span>
+                ) : null}
               </button>
             );
           })}
         </div>
       </div>
-      <button
-        type="button"
-        onClick={() => {
-          if (!active) return addCase();
-          renameFlow(active.id);
-        }}
-        className="h-9 px-3 rounded-full text-xs text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900"
-      >
-        Rename
-      </button>
       <div className="relative">
         <button
           type="button"
           onClick={() => setMenuOpen((current) => !current)}
           aria-label="More actions"
-          className="h-9 w-9 grid place-items-center rounded-full bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300"
+          className="h-9 w-9 grid place-items-center rounded-full border border-rule text-ink-soft hover:text-ink hover:border-rule-strong"
         >
-          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden>
+          <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden>
             <path
-              d="M5 10a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"
+              d="M5 10a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"
               fill="currentColor"
             />
           </svg>
         </button>
         {menuOpen ? (
-          <div className="absolute right-0 z-30 mt-2 w-52 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-lg dark:border-zinc-800 dark:bg-zinc-950">
+          <div className="absolute right-0 z-30 mt-2 w-60 overflow-hidden rounded-md border border-rule-strong bg-paper-raised shadow-xl">
+            <button
+              type="button"
+              onClick={() => {
+                if (!active) return addCase();
+                setMenuOpen(false);
+                renameFlow(active.id);
+              }}
+              className="block min-h-11 w-full border-b border-rule px-4 py-2.5 text-left text-[13px] text-ink hover:bg-surface"
+            >
+              Rename current case
+            </button>
             <button
               type="button"
               onClick={() => {
                 setMenuOpen(false);
                 onManageAliases();
               }}
-              className="block min-h-11 w-full px-3 py-2 text-left text-sm text-zinc-700 hover:bg-zinc-50 dark:text-zinc-200 dark:hover:bg-zinc-900"
+              className="block min-h-11 w-full border-b border-rule px-4 py-2.5 text-left text-[13px] text-ink hover:bg-surface"
             >
               Manage aliases
             </button>
@@ -175,13 +181,13 @@ export function CaseSwitcher({
                   setMenuOpen(false);
                   deleteFlow(active.id);
                 }}
-                className="block min-h-11 w-full px-3 py-2 text-left text-sm text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-500/10"
+                className="block min-h-11 w-full px-4 py-2.5 text-left text-[13px] text-accent hover:bg-accent-soft"
               >
                 Delete current case
               </button>
             ) : null}
-            <p className="border-t border-zinc-200 px-3 py-2 text-[11px] text-zinc-500 dark:border-zinc-800">
-              Tip: long-press a case chip (or right-click) to rename or delete.
+            <p className="border-t border-rule px-4 py-2 text-[10px] uppercase tracking-[0.12em] text-ink-mute">
+              Long-press or right-click a case for quick actions
             </p>
           </div>
         ) : null}
@@ -190,13 +196,13 @@ export function CaseSwitcher({
         type="button"
         onClick={addCase}
         aria-label="New case"
-        className="h-9 w-9 grid place-items-center rounded-full bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300"
+        className="h-9 w-9 grid place-items-center rounded-full border border-rule text-ink-soft hover:text-ink hover:border-rule-strong"
       >
-        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden>
+        <svg viewBox="0 0 20 20" width="14" height="14" aria-hidden>
           <path
             d="M10 4v12M4 10h12"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="1.5"
             strokeLinecap="round"
           />
         </svg>
@@ -214,10 +220,10 @@ export function CaseSwitcher({
           <div
             onClick={(e) => e.stopPropagation()}
             style={{ top: chipMenu.y, left: chipMenu.x }}
-            className="absolute w-40 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-lg dark:border-zinc-800 dark:bg-zinc-950"
+            className="absolute w-44 overflow-hidden rounded-md border border-rule-strong bg-paper-raised shadow-xl"
             role="menu"
           >
-            <p className="truncate border-b border-zinc-200 px-3 py-2 text-[11px] text-zinc-500 dark:border-zinc-800">
+            <p className="truncate border-b border-rule px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-mute">
               {chipMenuCase.label}
             </p>
             <button
@@ -227,7 +233,7 @@ export function CaseSwitcher({
                 setChipMenu(null);
                 renameFlow(id);
               }}
-              className="block min-h-11 w-full px-3 py-2 text-left text-sm text-zinc-700 hover:bg-zinc-50 dark:text-zinc-200 dark:hover:bg-zinc-900"
+              className="block min-h-11 w-full px-3 py-2 text-left text-[13px] text-ink hover:bg-surface"
               role="menuitem"
             >
               Rename
@@ -239,7 +245,7 @@ export function CaseSwitcher({
                 setChipMenu(null);
                 deleteFlow(id);
               }}
-              className="block min-h-11 w-full px-3 py-2 text-left text-sm text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-500/10"
+              className="block min-h-11 w-full px-3 py-2 text-left text-[13px] text-accent hover:bg-accent-soft"
               role="menuitem"
             >
               Delete

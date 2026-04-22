@@ -128,7 +128,9 @@ export function AliasManagerModal({
       const result = await backupAliasesToRemote(persistedConfig);
       onSyncConfigChange(result.config);
       setRecoveryKey(buildRecoveryKey(result.config));
-      onSyncStatusChange(`Backed up aliases at ${new Date(result.config.lastBackupAt ?? Date.now()).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}.`);
+      onSyncStatusChange(
+        `Backed up · ${new Date(result.config.lastBackupAt ?? Date.now()).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`
+      );
       setMessage("Encrypted alias backup uploaded.");
     } catch (error) {
       const text = error instanceof Error ? error.message : "Backup failed";
@@ -165,8 +167,10 @@ export function AliasManagerModal({
       onAliasesChange(restored.aliases);
       onSyncConfigChange(restored.config);
       setRecoveryKey(buildRecoveryKey(restored.config));
-      onSyncStatusChange(`Restored aliases at ${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}.`);
-      setMessage(`Restored ${restored.aliases.length} aliases from encrypted backup.`);
+      onSyncStatusChange(
+        `Restored · ${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`
+      );
+      setMessage(`Restored ${restored.aliases.length} aliases from backup.`);
     } catch (error) {
       const text = error instanceof Error ? error.message : "Restore failed";
       onSyncStatusChange(text);
@@ -186,99 +190,104 @@ export function AliasManagerModal({
     }
   }
 
+  const fieldInput =
+    "mt-1 h-11 w-full border border-rule bg-paper-raised px-3 font-mono text-[13px] text-ink outline-none focus:border-accent";
+  const smallButton =
+    "min-h-11 border border-rule px-3 text-[11.5px] uppercase tracking-[0.12em] text-ink-soft transition-colors hover:border-rule-strong hover:text-ink disabled:opacity-50";
+
   return (
-    <div className="fixed inset-0 z-40 bg-black/40 px-4 py-6">
-      <div className="mx-auto max-w-xl rounded-3xl bg-white p-4 shadow-xl dark:bg-zinc-950">
-        <div className="flex items-start justify-between gap-3">
+    <div className="fixed inset-0 z-40 overflow-y-auto bg-ink/60 px-4 py-6 backdrop-blur-sm">
+      <div className="mx-auto max-w-xl border border-rule-strong bg-paper p-5 shadow-2xl">
+        <div className="flex items-start justify-between gap-3 border-b border-rule pb-3">
           <div>
-            <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
-              Alias database
+            <p className="eyebrow text-accent">Alias Database</p>
+            <h2 className="serif-display mt-1 text-[24px] text-ink">
+              Personal <span className="italic">dictionary</span>
             </h2>
-            <p className="mt-1 text-xs text-zinc-500">
-              User aliases stay local first and override the curated brand overlay on this device.
+            <p className="mt-1 text-[12px] italic text-ink-mute">
+              Local first. Overrides the curated brand overlay on this device.
             </p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="min-h-11 rounded-xl px-3 text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300"
+            className="text-[11px] uppercase tracking-[0.12em] text-ink-mute hover:text-accent"
           >
             Close
           </button>
         </div>
 
-        <div className="mt-4 max-h-[55vh] space-y-2 overflow-y-auto">
+        <div className="mt-4 max-h-[42vh] overflow-y-auto border border-rule">
           {aliases.length > 0 ? (
-            aliases.map((alias) => (
+            aliases.map((alias, index) => (
               <div
                 key={alias.term}
-                className="rounded-2xl border border-zinc-200/80 px-3 py-3 dark:border-zinc-800"
+                className="flex items-baseline gap-3 border-b border-rule px-3 py-3 last:border-b-0"
               >
-                <div className="flex items-start justify-between gap-3">
-                  <div className="min-w-0">
-                    <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                      {alias.term}
-                    </p>
-                    <p className="mt-1 text-xs text-zinc-500">
-                      {alias.components.map((component) => component.name).join(" + ")}
-                    </p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => removeAlias(alias.term)}
-                    className="min-h-11 rounded-xl px-3 text-xs font-medium text-red-600 hover:bg-red-500/10"
-                  >
-                    Remove
-                  </button>
+                <span className="shrink-0 font-mono text-[10.5px] tabular-nums text-ink-mute">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="font-serif text-[16px] italic text-ink">
+                    {alias.term}
+                  </p>
+                  <p className="stamp mt-0.5">
+                    {alias.components.map((c) => c.name).join(" + ")}
+                  </p>
                 </div>
+                <button
+                  type="button"
+                  onClick={() => removeAlias(alias.term)}
+                  className="text-[11px] uppercase tracking-[0.12em] text-ink-mute hover:text-accent"
+                >
+                  Remove
+                </button>
               </div>
             ))
           ) : (
-            <div className="rounded-2xl border border-zinc-200/80 px-3 py-4 text-sm text-zinc-500 dark:border-zinc-800">
+            <p className="px-3 py-6 text-center text-[12px] italic text-ink-mute">
               No saved aliases yet.
-            </div>
+            </p>
           )}
         </div>
 
-        {message ? (
-          <p className="mt-3 text-xs text-zinc-500">{message}</p>
-        ) : null}
-        {syncStatus ? (
-          <p className="mt-1 text-xs text-zinc-500">{syncStatus}</p>
+        {(message || syncStatus) ? (
+          <p className="stamp mt-3">
+            {message ?? syncStatus}
+          </p>
         ) : null}
 
-        <div className="mt-4 rounded-2xl border border-zinc-200/80 px-3 py-3 dark:border-zinc-800">
-          <h3 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-            Encrypted alias backup
-          </h3>
-          <p className="mt-1 text-xs text-zinc-500">
-            Aliases only. Case data and patient data are never uploaded. Backup is encrypted in the browser before upload. Sync runs only when you press a button.
+        <div className="mt-5 border border-rule p-3">
+          <p className="eyebrow">Encrypted Cross-Device Backup</p>
+          <p className="mt-1 text-[11.5px] italic text-ink-mute">
+            Aliases only. Encrypted in-browser before upload. Runs on press, never
+            automatic.
           </p>
 
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
-            <label className="text-xs text-zinc-500">
+            <label className="stamp block">
               Device name
               <input
                 value={deviceName}
                 onChange={(event) => setDeviceName(event.target.value)}
-                className="mt-1 h-11 w-full rounded-xl border border-zinc-300 bg-white px-3 text-sm text-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100"
+                className={fieldInput}
               />
             </label>
-            <label className="text-xs text-zinc-500">
+            <label className="stamp block">
               Sync ID
               <input
                 value={syncId}
                 onChange={(event) => setSyncId(event.target.value)}
-                className="mt-1 h-11 w-full rounded-xl border border-zinc-300 bg-white px-3 text-sm text-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100"
+                className={fieldInput}
               />
             </label>
-            <label className="text-xs text-zinc-500 sm:col-span-2">
+            <label className="stamp block sm:col-span-2">
               Passphrase
               <input
                 type="password"
                 value={passphrase}
                 onChange={(event) => setPassphrase(event.target.value)}
-                className="mt-1 h-11 w-full rounded-xl border border-zinc-300 bg-white px-3 text-sm text-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100"
+                className={fieldInput}
               />
             </label>
           </div>
@@ -288,15 +297,15 @@ export function AliasManagerModal({
               type="button"
               onClick={saveSyncSetup}
               disabled={busy}
-              className="min-h-11 rounded-xl border border-zinc-300 px-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"
+              className={smallButton}
             >
-              Save sync setup
+              Save setup
             </button>
             <button
               type="button"
               onClick={backupNow}
               disabled={busy}
-              className="min-h-11 rounded-xl border border-zinc-300 px-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"
+              className={smallButton}
             >
               Backup now
             </button>
@@ -304,27 +313,27 @@ export function AliasManagerModal({
               type="button"
               onClick={restoreNow}
               disabled={busy}
-              className="min-h-11 rounded-xl border border-zinc-300 px-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"
+              className={smallButton}
             >
-              Restore from backup
+              Restore
             </button>
             <button
               type="button"
               onClick={() => void onManualSync()}
               disabled={busy || !syncConfig}
-              className="min-h-11 rounded-xl border border-zinc-300 px-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"
+              className={smallButton}
             >
-              Sync now
+              Sync
             </button>
           </div>
 
-          <label className="mt-3 block text-xs text-zinc-500">
+          <label className="stamp mt-3 block">
             Recovery key
             <textarea
               value={recoveryKey}
               onChange={(event) => setRecoveryKey(event.target.value)}
-              rows={3}
-              className="mt-1 w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100"
+              rows={2}
+              className="mt-1 w-full border border-rule bg-paper-raised px-3 py-2 font-mono text-[12px] text-ink outline-none focus:border-accent"
             />
           </label>
           <div className="mt-2 flex flex-wrap gap-2">
@@ -340,32 +349,32 @@ export function AliasManagerModal({
                 navigator.clipboard.writeText(nextRecoveryKey).catch(() => {});
                 setMessage("Recovery key copied.");
               }}
-              className="min-h-11 rounded-xl border border-zinc-300 px-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"
+              className={smallButton}
             >
-              Export recovery key
+              Export key
             </button>
             <button
               type="button"
               onClick={importRecoveryKey}
-              className="min-h-11 rounded-xl border border-zinc-300 px-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"
+              className={smallButton}
             >
-              Import recovery key
+              Import key
             </button>
           </div>
         </div>
 
-        <div className="mt-4 flex items-center gap-2">
+        <div className="mt-5 flex items-center gap-2 border-t border-rule pt-4">
           <button
             type="button"
             onClick={exportJson}
-            className="min-h-11 rounded-xl border border-zinc-300 px-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"
+            className={smallButton}
           >
             Export JSON
           </button>
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="min-h-11 rounded-xl border border-zinc-300 px-3 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"
+            className={smallButton}
           >
             Import JSON
           </button>

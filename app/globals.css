@@ -1,35 +1,213 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: "Segoe UI", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --paper: #f7f3ea;
+  --paper-raised: #fdfbf5;
+  --surface: #efe8d9;
+  --ink: #1a1611;
+  --ink-soft: #4a3f2f;
+  --ink-mute: #8a7e68;
+  --rule: rgba(26, 22, 17, 0.12);
+  --rule-strong: rgba(26, 22, 17, 0.22);
+  --accent: #7a1c1c;
+  --accent-soft: rgba(122, 28, 28, 0.08);
+  --sev-contra: #8a1c1c;
+  --sev-major: #b8501a;
+  --sev-moderate: #a67a1f;
+  --sev-minor: #8c8540;
+  --good: #3d5c3a;
+  --good-soft: rgba(61, 92, 58, 0.1);
+  --warn-soft: rgba(138, 28, 28, 0.08);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --paper: #0b0d12;
+    --paper-raised: #13151c;
+    --surface: #181a22;
+    --ink: #e8e2d3;
+    --ink-soft: #b4ac99;
+    --ink-mute: #7a7263;
+    --rule: rgba(232, 226, 211, 0.12);
+    --rule-strong: rgba(232, 226, 211, 0.22);
+    --accent: #d06a6a;
+    --accent-soft: rgba(208, 106, 106, 0.1);
+    --sev-contra: #d56060;
+    --sev-major: #e68a52;
+    --sev-moderate: #d7b057;
+    --sev-minor: #b8b474;
+    --good: #9ab497;
+    --good-soft: rgba(154, 180, 151, 0.1);
+    --warn-soft: rgba(213, 96, 96, 0.12);
   }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-mute: var(--ink-mute);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-sev-contra: var(--sev-contra);
+  --color-sev-major: var(--sev-major);
+  --color-sev-moderate: var(--sev-moderate);
+  --color-sev-minor: var(--sev-minor);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-warn-soft: var(--warn-soft);
+  --font-serif: var(--font-instrument-serif), "Iowan Old Style", "Palatino",
+    "Georgia", serif;
+  --font-sans: var(--font-plex-sans), "Helvetica Neue", "Arial", sans-serif;
+  --font-mono: var(--font-plex-mono), "SFMono-Regular", "Consolas", monospace;
 }
 
 html,
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--paper);
+  color: var(--ink);
 }
 
 body {
-  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-plex-sans), "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: "ss01", "cv01";
   -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
 }
 
 input[type="search"]::-webkit-search-cancel-button {
   appearance: none;
+}
+
+/* utility: a centered em-dash ornament between major sections */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ink-mute);
+  font-family: var(--font-serif), serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+}
+.ornament::before,
+.ornament::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* small-caps label style used for section headers */
+.eyebrow {
+  font-family: var(--font-plex-sans), sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+/* monospace "stamp" look for RxCUIs, timestamps, versions */
+.stamp {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  color: var(--ink-mute);
+}
+
+/* serif display heading */
+.serif-display {
+  font-family: var(--font-instrument-serif), "Georgia", serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.02;
+}
+
+/* severity square-mark */
+.sev-mark {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  transform: translateY(-0.02em);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+/* a very soft grain texture for the paper ground — optional */
+.paper-grain {
+  background-image: radial-gradient(
+    rgba(26, 22, 17, 0.035) 1px,
+    transparent 1px
+  );
+  background-size: 3px 3px;
+}
+@media (prefers-color-scheme: dark) {
+  .paper-grain {
+    background-image: radial-gradient(
+      rgba(232, 226, 211, 0.03) 1px,
+      transparent 1px
+    );
+  }
+}
+
+/* app entrance cadence: staggered reveal on first paint */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise {
+  animation: rise 520ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.rise-1 {
+  animation-delay: 0ms;
+}
+.rise-2 {
+  animation-delay: 70ms;
+}
+.rise-3 {
+  animation-delay: 140ms;
+}
+.rise-4 {
+  animation-delay: 210ms;
+}
+
+/* slow breathing pulse for Contraindicated severity */
+@keyframes breath {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+.breath {
+  animation: breath 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .breath {
+    animation: none !important;
+  }
 }

@@ -19,7 +19,7 @@ export function InteractionExplanation({
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [copyLabel, setCopyLabel] = useState("Copy");
+  const [copyLabel, setCopyLabel] = useState("Copy prompt");
   const sections = parseExplanationText(text);
   const citationLine = formatSources(pair.sources);
   const copyPrompt = `Check drug interaction between ${pair.a.name} and ${pair.b.name}`;
@@ -74,44 +74,42 @@ export function InteractionExplanation({
   async function copyPromptToClipboard() {
     try {
       await navigator.clipboard.writeText(copyPrompt);
-      setCopyLabel("Copied");
+      setCopyLabel("Copied ✓");
       setError(null);
-      window.setTimeout(() => setCopyLabel("Copy"), 1600);
+      window.setTimeout(() => setCopyLabel("Copy prompt"), 1600);
     } catch {
       setCopyLabel("Copy failed");
-      window.setTimeout(() => setCopyLabel("Copy"), 1600);
+      window.setTimeout(() => setCopyLabel("Copy prompt"), 1600);
     }
   }
 
   return (
-    <div className="mt-3 rounded-2xl border border-zinc-200/80 bg-zinc-50/80 p-3 dark:border-zinc-800 dark:bg-zinc-900/60">
-      <div className="flex items-center justify-between gap-3">
+    <div className="mt-4 border border-rule bg-paper-raised p-3">
+      <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-xs font-medium uppercase tracking-wide text-zinc-500">
-            Optional explainer
-          </p>
-          <p className="mt-1 text-xs text-zinc-500">
+          <p className="eyebrow">Optional Explainer</p>
+          <p className="mt-0.5 text-[11px] italic text-ink-mute">
             AI prose only. Deterministic result above remains authoritative.
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
             onClick={explain}
             disabled={loading}
             className={[
-              "min-h-11 rounded-xl px-3 text-sm font-medium transition-colors",
+              "min-h-9 border px-3 text-[11.5px] uppercase tracking-[0.12em] transition-colors",
               loading
-                ? "bg-zinc-300 text-zinc-700 dark:bg-zinc-700 dark:text-zinc-200"
-                : "bg-zinc-900 text-white active:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:active:bg-zinc-200",
+                ? "border-rule text-ink-mute"
+                : "border-accent bg-accent text-paper hover:bg-accent/90",
             ].join(" ")}
           >
-            {loading ? "Explaining…" : text ? "Re-explain" : "Explain"}
+            {loading ? "…" : text ? "Re-explain" : "Explain"}
           </button>
           <button
             type="button"
             onClick={copyPromptToClipboard}
-            className="min-h-11 rounded-xl border border-zinc-300 bg-white px-3 text-sm font-medium text-zinc-700 transition-colors active:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-200 dark:active:bg-zinc-900"
+            className="min-h-9 border border-rule px-3 text-[11.5px] uppercase tracking-[0.12em] text-ink-soft transition-colors hover:border-rule-strong hover:text-ink"
             title={copyPrompt}
           >
             {copyLabel}
@@ -120,40 +118,37 @@ export function InteractionExplanation({
       </div>
 
       {error ? (
-        <div className="mt-3 rounded-xl border border-red-500/30 bg-red-500/10 px-3 py-2 text-sm text-red-900 dark:text-red-100">
+        <div
+          className="mt-3 border border-rule border-l-2 bg-warn-soft px-3 py-2 text-[13px] text-ink"
+          style={{ borderLeftColor: "var(--sev-contra)" }}
+        >
           {error}
         </div>
       ) : null}
 
       {loading || text ? (
-        <div className="mt-3 space-y-3">
+        <div className="mt-3 space-y-2">
           {Object.keys(sections).length > 0 ? (
             explanationLabels.map((label) =>
               sections[label] ? (
                 <div
                   key={`${pairKey(pair)}-${label}`}
-                  className="rounded-xl border border-zinc-200 bg-white/80 px-3 py-2 dark:border-zinc-800 dark:bg-zinc-950/70"
+                  className="border border-rule border-l-2 border-l-rule-strong bg-paper px-3 py-2"
                 >
-                  <p className="text-[11px] font-semibold uppercase tracking-wide text-zinc-500">
-                    {label}
-                  </p>
-                  <p className="mt-1 text-sm text-zinc-800 dark:text-zinc-200">
+                  <p className="eyebrow">{label}</p>
+                  <p className="mt-1 text-[13.5px] leading-snug text-ink">
                     {sections[label]}
                   </p>
-                  <p className="mt-2 text-xs text-zinc-500">
-                    Sources: {citationLine}
-                  </p>
+                  <p className="stamp mt-2">Sources · {citationLine}</p>
                 </div>
               ) : null
             )
           ) : (
-            <div className="rounded-xl border border-zinc-200 bg-white/80 px-3 py-2 dark:border-zinc-800 dark:bg-zinc-950/70">
-              <p className="whitespace-pre-wrap text-sm text-zinc-800 dark:text-zinc-200">
+            <div className="border border-rule bg-paper px-3 py-2">
+              <p className="whitespace-pre-wrap text-[13.5px] leading-snug text-ink">
                 {text || "Starting stream…"}
               </p>
-              <p className="mt-2 text-xs text-zinc-500">
-                Sources: {citationLine}
-              </p>
+              <p className="stamp mt-2">Sources · {citationLine}</p>
             </div>
           )}
         </div>

@@ -27,6 +27,7 @@ type Row = {
   id: string;
   title: string;
   subtitle?: string;
+  kind?: "alias" | "result" | "teach" | "info";
   onActivate?: () => void | Promise<void>;
   disabled?: boolean;
 };
@@ -213,12 +214,10 @@ export function DrugSearch({
       return;
     }
 
-    const nextAliases = await upsertUserAlias(
-      {
-        term: proposal.term,
-        components: proposal.components,
-      }
-    );
+    const nextAliases = await upsertUserAlias({
+      term: proposal.term,
+      components: proposal.components,
+    });
     onAliasesChange(nextAliases);
     addComponents(proposal.components, proposal.term.trim());
   }
@@ -277,7 +276,7 @@ export function DrugSearch({
 
     if (added > 0) {
       setBulkMessage(
-        `Added ${added} medication${added === 1 ? "" : "s"}. Could not match: ${unresolved.join(", ")}.`
+        `Added ${added}. Could not match: ${unresolved.join(", ")}.`
       );
       return true;
     }
@@ -300,6 +299,7 @@ export function DrugSearch({
       .join(" + ");
     rows.push({
       id: `alias-expand-${localAlias.label}`,
+      kind: "alias",
       title: `Expand to ${localAlias.components.length} ingredient${localAlias.components.length === 1 ? "" : "s"}`,
       subtitle: `${localAlias.label} → ${componentsLabel}`,
       onActivate: () => addComponents(localAlias.components, localAlias.label),
@@ -309,6 +309,7 @@ export function DrugSearch({
     if (proposalLoading) {
       rows.push({
         id: "alias-loading",
+        kind: "info",
         title: "Resolving alias components…",
         disabled: true,
       });
@@ -319,6 +320,7 @@ export function DrugSearch({
           .join(" + ");
         rows.push({
           id: "alias-save",
+          kind: "alias",
           title: "Save alias and add",
           subtitle: `${proposal.term} → ${componentsLabel}`,
           onActivate: saveProposalAndAdd,
@@ -326,6 +328,7 @@ export function DrugSearch({
       } else {
         rows.push({
           id: "alias-unresolved",
+          kind: "info",
           title: `Resolve all RHS terms before saving. Unmatched: ${proposal.unresolvedTerms.join(", ")}`,
           disabled: true,
         });
@@ -333,11 +336,17 @@ export function DrugSearch({
     }
   }
   if (loading && !parsedAliasInput) {
-    rows.push({ id: "searching", title: "Searching…", disabled: true });
+    rows.push({
+      id: "searching",
+      kind: "info",
+      title: "Searching RxNorm…",
+      disabled: true,
+    });
   }
   for (const result of results) {
     rows.push({
       id: `result-${result.rxcui}`,
+      kind: "result",
       title: result.name,
       subtitle: `RxCUI ${result.rxcui}`,
       onActivate: () => pick(result),
@@ -346,8 +355,9 @@ export function DrugSearch({
   if (shouldShowTeachHint) {
     rows.push({
       id: "teach",
+      kind: "teach",
       title: `Teach: "${term}" = ?`,
-      subtitle: "Save a local alias by choosing ingredient components through RxNorm.",
+      subtitle: "Save a local alias by choosing ingredient components.",
       onActivate: () => setTeachOpen(true),
     });
   }
@@ -430,54 +440,75 @@ export function DrugSearch({
   return (
     <>
       <div className="relative">
-        <input
-          type="search"
-          inputMode="search"
-          enterKeyHint="search"
-          autoComplete="off"
-          autoCorrect="off"
-          autoCapitalize="off"
-          spellCheck={false}
-          value={q}
-          onChange={(event) => {
-            const nextQ = event.target.value;
-            const nextParsedAliasInput = parseAliasInput(nextQ);
-            setQ(nextQ);
-            setBulkMessage(null);
-            setActiveIndex(-1);
-            setProposal(null);
-            setProposalLoading(Boolean(nextParsedAliasInput));
-            if (nextQ.trim().length < 2) {
-              abortRef.current?.abort();
-              setResults([]);
-              setLoading(false);
-            }
-            setOpen(true);
-          }}
-          onKeyDown={onKeyDown}
-          onPaste={async (event) => {
-            const pastedText = event.clipboardData.getData("text");
-            if (extractBulkDrugTerms(pastedText).length < 2) {
-              return;
-            }
+        <div className="flex items-center gap-3 border-b border-rule-strong pb-2">
+          <svg
+            viewBox="0 0 20 20"
+            width="15"
+            height="15"
+            aria-hidden
+            className="shrink-0 text-ink-mute"
+          >
+            <circle
+              cx="9"
+              cy="9"
+              r="5.25"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.3"
+            />
+            <path
+              d="M13 13l4 4"
+              stroke="currentColor"
+              strokeWidth="1.3"
+              strokeLinecap="round"
+            />
+          </svg>
+          <input
+            type="search"
+            inputMode="search"
+            enterKeyHint="search"
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck={false}
+            value={q}
+            onChange={(event) => {
+              const nextQ = event.target.value;
+              setQ(nextQ);
+              setBulkMessage(null);
+              setActiveIndex(-1);
+              if (nextQ.trim().length < 2) {
+                abortRef.current?.abort();
+                setResults([]);
+                setLoading(false);
+              }
+              setOpen(true);
+            }}
+            onKeyDown={onKeyDown}
+            onPaste={async (event) => {
+              const pastedText = event.clipboardData.getData("text");
+              if (extractBulkDrugTerms(pastedText).length < 2) {
+                return;
+              }
 
-            event.preventDefault();
-            await bulkAddDrugs(pastedText);
-          }}
-          onFocus={() => setOpen(true)}
-          placeholder="Search drug (generic or brand)…"
-          role="combobox"
-          aria-expanded={showList}
-          aria-controls="drug-search-list"
-          aria-autocomplete="list"
-          aria-activedescendant={
-            effectiveActive >= 0 ? `drug-search-row-${effectiveActive}` : undefined
-          }
-          className="w-full h-12 px-4 rounded-xl bg-zinc-100 dark:bg-zinc-900 text-base outline-none ring-0 focus:ring-2 focus:ring-sky-500 placeholder:text-zinc-500"
-        />
+              event.preventDefault();
+              await bulkAddDrugs(pastedText);
+            }}
+            onFocus={() => setOpen(true)}
+            placeholder="Add a medication — generic or brand"
+            role="combobox"
+            aria-expanded={showList}
+            aria-controls="drug-search-list"
+            aria-autocomplete="list"
+            aria-activedescendant={
+              effectiveActive >= 0 ? `drug-search-row-${effectiveActive}` : undefined
+            }
+            className="h-11 w-full border-0 bg-transparent py-1 text-[15.5px] font-normal text-ink outline-none placeholder:text-ink-mute placeholder:italic focus:ring-0"
+          />
+        </div>
 
         {bulkMessage ? (
-          <p className="mt-2 text-xs text-zinc-500">{bulkMessage}</p>
+          <p className="mt-2 stamp">{bulkMessage}</p>
         ) : null}
 
         {showList ? (
@@ -485,24 +516,24 @@ export function DrugSearch({
             id="drug-search-list"
             ref={listRef}
             role="listbox"
-            className="absolute z-20 mt-2 max-h-80 w-full divide-y divide-zinc-200 overflow-auto rounded-xl border border-zinc-200 bg-white shadow-lg dark:divide-zinc-800 dark:border-zinc-800 dark:bg-zinc-900"
+            className="absolute z-20 mt-2 max-h-80 w-full overflow-auto border border-rule-strong bg-paper-raised shadow-2xl"
           >
             {rows.map((row, index) => {
               const isActive = index === effectiveActive;
-              const baseClass =
-                "block min-h-12 w-full px-4 py-3 text-left";
               if (!row.onActivate || row.disabled) {
                 return (
                   <div
                     key={row.id}
                     id={`drug-search-row-${index}`}
                     data-row-index={index}
-                    className="px-4 py-3 text-sm text-zinc-500"
+                    className="border-b border-rule px-4 py-3 text-[13px] italic text-ink-mute last:border-b-0"
                   >
                     {row.title}
                   </div>
                 );
               }
+              const isAlias = row.kind === "alias";
+              const isTeach = row.kind === "teach";
               return (
                 <button
                   key={row.id}
@@ -514,18 +545,34 @@ export function DrugSearch({
                   onClick={() => void row.onActivate?.()}
                   onMouseEnter={() => setActiveIndex(index)}
                   className={[
-                    baseClass,
-                    isActive
-                      ? "bg-zinc-100 dark:bg-zinc-800"
-                      : "hover:bg-zinc-50 dark:hover:bg-zinc-800",
+                    "block w-full border-b border-rule px-4 py-3 text-left transition-colors last:border-b-0",
+                    isActive ? "bg-accent-soft" : "hover:bg-surface",
                   ].join(" ")}
                 >
-                  <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                    {row.title}
-                  </p>
-                  {row.subtitle ? (
-                    <p className="mt-0.5 text-xs text-zinc-500">{row.subtitle}</p>
-                  ) : null}
+                  <div className="flex items-baseline gap-3">
+                    {isAlias ? (
+                      <span className="eyebrow mt-0.5 shrink-0 text-accent">
+                        Alias
+                      </span>
+                    ) : isTeach ? (
+                      <span className="eyebrow mt-0.5 shrink-0" style={{ color: "var(--sev-major)" }}>
+                        Teach
+                      </span>
+                    ) : (
+                      <span className="stamp mt-0.5 shrink-0">Rx</span>
+                    )}
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-[14.5px] text-ink">{row.title}</p>
+                      {row.subtitle ? (
+                        <p className="mt-0.5 stamp truncate">{row.subtitle}</p>
+                      ) : null}
+                    </div>
+                    {isActive ? (
+                      <span className="shrink-0 text-ink-mute font-mono text-[11px]">
+                        ↵
+                      </span>
+                    ) : null}
+                  </div>
                 </button>
               );
             })}

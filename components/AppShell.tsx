@@ -55,11 +55,7 @@ export function AppShell() {
   const runAliasSync = useCallback(async () => {
     const config = syncConfigRef.current;
 
-    if (
-      syncInFlightRef.current ||
-      !config?.syncId ||
-      !config.passphrase
-    ) {
+    if (syncInFlightRef.current || !config?.syncId || !config.passphrase) {
       return;
     }
 
@@ -70,12 +66,12 @@ export function AppShell() {
       setAliases(synced.aliases);
       setSyncConfig(synced.config);
       setSyncStatus(
-        `Synced at ${new Date(
+        `Synced · ${new Date(
           synced.config.lastSyncedAt ?? Date.now()
         ).toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
-        })}.`
+        })}`
       );
     } catch (error) {
       setSyncStatus(
@@ -144,54 +140,81 @@ export function AppShell() {
     [active, visibleResult]
   );
 
+  const now = new Date();
+  const stamp = `${String(now.getFullYear()).slice(2)}.${String(
+    now.getMonth() + 1
+  ).padStart(2, "0")}.${String(now.getDate()).padStart(2, "0")}`;
+
   return (
-    <div className="mx-auto flex w-full max-w-xl flex-1 flex-col px-4 pt-[max(env(safe-area-inset-top),0.5rem)] pb-[max(env(safe-area-inset-bottom),1rem)]">
-      <header className="pt-2 pb-3">
-        <div className="flex items-baseline justify-between">
-          <h1 className="text-xl font-semibold tracking-tight">
-            Drug Interaction Checker
-          </h1>
-          <span className="text-[11px] uppercase tracking-wide text-zinc-500">
-            M9
-          </span>
+    <div className="relative mx-auto flex w-full max-w-xl flex-1 flex-col px-5 pt-[max(env(safe-area-inset-top),0.5rem)] pb-[max(env(safe-area-inset-bottom),2rem)]">
+      <header className="rise rise-1 border-b border-rule-strong pb-5 pt-4">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="eyebrow mb-1.5">Bedside Decision Support</p>
+            <h1 className="serif-display text-[34px] text-ink">
+              Drug <span className="italic">Interaction</span> Checker
+            </h1>
+          </div>
+          <div className="text-right">
+            <p className="font-mono text-[10.5px] tabular-nums text-ink-mute">
+              v.M9 · {stamp}
+            </p>
+            <p className="stamp mt-0.5" style={{ color: "var(--accent)" }}>
+              ▪ LIVE
+            </p>
+          </div>
         </div>
-        <p className="text-xs text-zinc-500 mt-0.5">
-          Decision-support only. Verify in primary references.
+        <p className="mt-3 max-w-md text-[12px] italic leading-snug text-ink-mute">
+          Decision-support only. Verify in primary references before prescribing.
         </p>
       </header>
 
-      <div className="sticky top-0 z-10 -mx-4 px-4 py-2 bg-[var(--background)]/90 backdrop-blur">
+      <div className="rise rise-2 sticky top-0 z-10 -mx-5 border-b border-rule bg-paper/95 px-5 py-3 backdrop-blur">
         <CaseSwitcher onManageAliases={() => setAliasManagerOpen(true)} />
       </div>
 
-      <section className="mt-4">
+      <section className="rise rise-3 mt-5">
         <DrugSearch aliases={aliases} onAliasesChange={setAliases} />
       </section>
 
       {modifiedResult ? (
-        <section className="mt-3">
+        <section className="mt-4">
           <InteractionSummary
             pairs={modifiedResult.pairs}
             stackCount={stackWarnings.length}
             dataVersion={modifiedResult.dataVersion}
           />
         </section>
-      ) : checking && active && active.drugs.length >= 2 && resultKey !== activeDrugKey ? (
-        <section className="mt-3">
-          <div className="rounded-2xl border border-zinc-200 bg-white/60 px-4 py-3 text-sm text-zinc-500 dark:border-zinc-800 dark:bg-zinc-950/60">
-            Checking interactions…
+      ) : checking &&
+        active &&
+        active.drugs.length >= 2 &&
+        resultKey !== activeDrugKey ? (
+        <section className="mt-4">
+          <div className="border border-rule border-l-2 border-l-ink-mute bg-paper-raised px-4 py-3">
+            <p className="eyebrow">Checking</p>
+            <p className="mt-1 text-[13.5px] italic text-ink-soft">
+              Running deterministic check…
+            </p>
           </div>
         </section>
       ) : null}
 
       {visibleError ? (
-        <section className="mt-3">
-          <div className="flex items-center justify-between gap-3 rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-900 dark:text-red-100">
-            <span>{visibleError}</span>
+        <section className="mt-4">
+          <div
+            className="flex items-start justify-between gap-3 border border-rule border-l-2 bg-warn-soft px-4 py-3"
+            style={{ borderLeftColor: "var(--sev-contra)" }}
+          >
+            <div>
+              <p className="eyebrow" style={{ color: "var(--sev-contra)" }}>
+                Error
+              </p>
+              <p className="mt-1 text-[13.5px] text-ink">{visibleError}</p>
+            </div>
             <button
               type="button"
               onClick={() => setRetryNonce((n) => n + 1)}
-              className="h-8 shrink-0 rounded-full bg-red-600/90 px-3 text-xs font-medium text-white hover:bg-red-600"
+              className="eyebrow shrink-0 self-center border border-rule-strong px-3 py-1.5 text-ink hover:bg-accent-soft"
             >
               Retry
             </button>
@@ -199,87 +222,123 @@ export function AppShell() {
         </section>
       ) : null}
 
-      <section className="mt-5 flex-1">
+      {syncStatus ? (
+        <p className="stamp mt-3">{syncStatus}</p>
+      ) : null}
+
+      <section className="rise rise-4 mt-8 flex-1">
         {!hydrated ? (
-          <p className="text-sm text-zinc-500">Loading…</p>
+          <p className="stamp">Loading…</p>
         ) : active && active.drugs.length > 0 ? (
           <>
-            <div className="flex items-center justify-between mb-2">
-              <h2 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                Medications ({active.drugs.length})
+            <div className="flex items-baseline justify-between border-b border-rule pb-2">
+              <div className="flex items-baseline gap-3">
+                <p className="eyebrow">
+                  Medications <span className="text-ink">· {active.drugs.length}</span>
+                </p>
                 {active.drugs.length < 2 ? (
-                  <span className="ml-2 text-xs font-normal text-zinc-500">
-                    · add one more to check interactions
+                  <span className="text-[11px] italic text-ink-mute">
+                    add one more to check
                   </span>
                 ) : null}
-              </h2>
+              </div>
               <button
                 type="button"
                 onClick={clearDrugs}
-                className="text-xs text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300"
+                className="text-[11px] uppercase tracking-[0.12em] text-ink-mute hover:text-accent"
               >
-                Clear all
+                Clear
               </button>
             </div>
-            <ul className="space-y-2">
-              {active.drugs.map((d) => (
-                <DrugChip key={d.rxcui} drug={d} />
+            <ul className="mt-1">
+              {active.drugs.map((d, i) => (
+                <DrugChip key={d.rxcui} drug={d} index={i} />
               ))}
             </ul>
-            <PatientModifiers modifiers={active.patientModifiers} />
-            <PharmacogenomicsPanel
-              drugs={active.drugs}
-              profile={active.pgxProfile}
-            />
+
+            <div className="mt-6">
+              <PatientModifiers modifiers={active.patientModifiers} />
+            </div>
+            <div className="mt-6">
+              <PharmacogenomicsPanel
+                drugs={active.drugs}
+                profile={active.pgxProfile}
+              />
+            </div>
+
             {modifiedResult ? (
-              <section className="mt-5">
-                <div className="mb-5">
-                  <StackWarnings warnings={stackWarnings} />
-                </div>
-                <div className="mb-3 flex items-center justify-between">
-                  <div>
-                    <h2 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                      Interaction results
-                    </h2>
-                    {modifiedResult.modifierSummary.length > 0 ? (
-                      <p className="mt-1 text-xs text-zinc-500">
-                        Active modifiers: {modifiedResult.modifierSummary.join(", ")}
-                      </p>
-                    ) : null}
+              <>
+                {stackWarnings.length > 0 ? (
+                  <div className="mt-8">
+                    <p className="ornament mb-4">Cumulative Load</p>
+                    <StackWarnings warnings={stackWarnings} />
                   </div>
-                  <span className="text-xs text-zinc-500">
-                    {new Date(modifiedResult.checkedAt).toLocaleTimeString([], {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
-                  </span>
+                ) : null}
+
+                <div className="mt-8">
+                  <p className="ornament mb-4">Pairwise Interactions</p>
+                  <div className="flex items-baseline justify-between">
+                    <div>
+                      <p className="eyebrow">Results</p>
+                      {modifiedResult.modifierSummary.length > 0 ? (
+                        <p className="mt-1 text-[11.5px] italic text-ink-mute">
+                          with {modifiedResult.modifierSummary.join(", ")}
+                        </p>
+                      ) : null}
+                    </div>
+                    <span className="stamp">
+                      Checked ·{" "}
+                      {new Date(modifiedResult.checkedAt).toLocaleTimeString(
+                        [],
+                        {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        }
+                      )}
+                    </span>
+                  </div>
+                  <div className="mt-3">
+                    <InteractionList result={modifiedResult} />
+                  </div>
                 </div>
-                <InteractionList result={modifiedResult} />
-              </section>
+              </>
             ) : null}
           </>
         ) : (
-          <div className="mt-8 text-center text-sm text-zinc-500">
-            <p>No medications yet.</p>
-            <p className="mt-1">Search above to add this case&rsquo;s meds.</p>
+          <div className="mt-16 text-center">
+            <p className="ornament mx-auto mb-6 max-w-[14rem]">No Case Data</p>
+            <p className="font-serif text-[22px] italic text-ink">
+              An empty prescription pad.
+            </p>
+            <p className="mt-2 text-[13px] text-ink-mute">
+              Search above to add medications to this case.
+            </p>
           </div>
         )}
       </section>
 
-      {aliasManagerOpen ? (
-        <AliasManagerModal
-          key={`${syncConfig?.syncId ?? "new"}-${syncConfig?.lastSyncedAt ?? "none"}`}
-          open={aliasManagerOpen}
-          aliases={aliases}
-          syncConfig={syncConfig}
-          syncStatus={syncStatus}
-          onClose={() => setAliasManagerOpen(false)}
-          onAliasesChange={setAliases}
-          onSyncConfigChange={setSyncConfig}
-          onSyncStatusChange={setSyncStatus}
-          onManualSync={() => runAliasSync()}
-        />
-      ) : null}
+      <footer className="mt-12 border-t border-rule pt-4">
+        <p className="eyebrow">
+          Footnote
+        </p>
+        <p className="mt-1 text-[11.5px] leading-relaxed text-ink-mute">
+          This tool assists clinical judgment; it does not replace it. Severity,
+          mechanism, and management are derived from DDInter 2.0 and a
+          hand-curated overlay. Patient data never leaves this device.
+        </p>
+      </footer>
+
+      <AliasManagerModal
+        open={aliasManagerOpen}
+        aliases={aliases}
+        onClose={() => setAliasManagerOpen(false)}
+        onAliasesChange={setAliases}
+        syncConfig={syncConfig}
+        syncStatus={syncStatus}
+        onSyncConfigChange={setSyncConfig}
+        onSyncStatusChange={setSyncStatus}
+        onManualSync={runAliasSync}
+      />
     </div>
   );
 }

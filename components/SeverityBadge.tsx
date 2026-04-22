@@ -1,14 +1,17 @@
 import type { InteractionSeverity } from "@/lib/interactions";
 
-const styles: Record<InteractionSeverity, string> = {
-  Contraindicated:
-    "bg-red-600/15 text-red-200 border-red-500/40 dark:bg-red-500/20 dark:text-red-100 dark:border-red-400/30",
-  Major:
-    "bg-orange-500/15 text-orange-800 border-orange-500/40 dark:bg-orange-500/20 dark:text-orange-100 dark:border-orange-400/30",
-  Moderate:
-    "bg-amber-500/15 text-amber-800 border-amber-500/40 dark:bg-amber-500/20 dark:text-amber-100 dark:border-amber-400/30",
-  Minor:
-    "bg-yellow-400/20 text-yellow-900 border-yellow-500/30 dark:bg-yellow-400/15 dark:text-yellow-100 dark:border-yellow-400/25",
+const labels: Record<InteractionSeverity, string> = {
+  Contraindicated: "Contra",
+  Major: "Major",
+  Moderate: "Mod",
+  Minor: "Minor",
+};
+
+const markColor: Record<InteractionSeverity, string> = {
+  Contraindicated: "var(--sev-contra)",
+  Major: "var(--sev-major)",
+  Moderate: "var(--sev-moderate)",
+  Minor: "var(--sev-minor)",
 };
 
 export function SeverityBadge({
@@ -20,13 +23,15 @@ export function SeverityBadge({
 }) {
   return (
     <span
-      className={[
-        "inline-flex min-h-7 items-center rounded-full border px-2.5 text-[11px] font-semibold uppercase tracking-wide",
-        styles[severity],
-        pulse ? "animate-pulse" : "",
-      ].join(" ")}
+      className="inline-flex items-center gap-1.5 whitespace-nowrap font-mono text-[10.5px] font-medium uppercase tracking-[0.14em] text-ink-soft"
+      aria-label={`Severity: ${severity}`}
     >
-      {severity}
+      <span
+        className={`sev-mark ${pulse ? "breath" : ""}`}
+        style={{ background: markColor[severity] }}
+        aria-hidden
+      />
+      {labels[severity]}
     </span>
   );
 }
