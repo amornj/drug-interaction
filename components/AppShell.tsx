@@ -21,6 +21,8 @@ import { applyPatientModifiers } from "@/lib/modifiers";
 import { detectCumulativeStacks } from "@/lib/stacks";
 import { useActiveCase, useStore } from "@/lib/store";
 
+const AUTO_SYNC_COOLDOWN_MS = 2 * 60 * 1000;
+
 export function AppShell() {
   const hydrate = useStore((s) => s.hydrate);
   const hydrated = useStore((s) => s.hydrated);
@@ -37,32 +39,59 @@ export function AppShell() {
   const [errorKey, setErrorKey] = useState("");
   const [retryNonce, setRetryNonce] = useState(0);
   const aliasSignatureRef = useRef("");
+  const syncConfigRef = useRef<AliasSyncConfig | null>(null);
   const syncTimerRef = useRef<number | null>(null);
   const syncInFlightRef = useRef(false);
+  const lastAutoSyncStartedAtRef = useRef(0);
+  const startupSyncKeyRef = useRef<string | null>(null);
 
   useEffect(() => {
     hydrate();
   }, [hydrate]);
 
   useEffect(() => {
-    loadUserAliases().then(setAliases);
+    loadUserAliases().then((loadedAliases) => {
+      aliasSignatureRef.current = JSON.stringify(loadedAliases);
+      setAliases(loadedAliases);
+    });
     loadAliasSyncConfig().then(setSyncConfig);
   }, []);
 
-  const runAliasSync = useCallback(async (force = false) => {
+  useEffect(() => {
+    syncConfigRef.current = syncConfig;
+  }, [syncConfig]);
+
+  const runAliasSync = useCallback(async (options?: {
+    force?: boolean;
+    reason?: "startup" | "focus" | "change" | "manual";
+  }) => {
+    const config = syncConfigRef.current;
+    const force = options?.force ?? false;
+    const reason = options?.reason ?? "manual";
+
     if (
       syncInFlightRef.current ||
-      !syncConfig?.syncId ||
-      !syncConfig.passphrase ||
-      (!force && !syncConfig.autoSync)
+      !config?.syncId ||
+      !config.passphrase ||
+      (!force && !config.autoSync)
+    ) {
+      return;
+    }
+
+    const now = Date.now();
+    if (
+      !force &&
+      reason !== "change" &&
+      now - lastAutoSyncStartedAtRef.current < AUTO_SYNC_COOLDOWN_MS
     ) {
       return;
     }
 
     syncInFlightRef.current = true;
+    lastAutoSyncStartedAtRef.current = now;
     setSyncStatus("Syncing aliases…");
     try {
-      const synced = await syncAliasesWithRemote(syncConfig);
+      const synced = await syncAliasesWithRemote(config);
       setAliases(synced.aliases);
       setSyncConfig(synced.config);
       aliasSignatureRef.current = JSON.stringify(synced.aliases);
@@ -81,14 +110,21 @@ export function AppShell() {
     } finally {
       syncInFlightRef.current = false;
     }
-  }, [syncConfig]);
+  }, []);
 
   useEffect(() => {
     if (!syncConfig?.autoSync || !syncConfig.passphrase) {
       return;
     }
+
+    const startupKey = `${syncConfig.syncId}:${syncConfig.passphrase}`;
+    if (startupSyncKeyRef.current === startupKey) {
+      return;
+    }
+    startupSyncKeyRef.current = startupKey;
+
     const timer = window.setTimeout(() => {
-      void runAliasSync();
+      void runAliasSync({ reason: "startup" });
     }, 0);
     return () => window.clearTimeout(timer);
   }, [runAliasSync, syncConfig?.autoSync, syncConfig?.passphrase, syncConfig?.syncId]);
@@ -99,7 +135,7 @@ export function AppShell() {
     }
 
     const handleFocus = () => {
-      void runAliasSync();
+      void runAliasSync({ reason: "focus" });
     };
 
     window.addEventListener("focus", handleFocus);
@@ -122,7 +158,7 @@ export function AppShell() {
 
     syncTimerRef.current = window.setTimeout(() => {
       aliasSignatureRef.current = nextSignature;
-      void runAliasSync();
+      void runAliasSync({ reason: "change" });
     }, 900);
 
     return () => {
@@ -323,7 +359,7 @@ export function AppShell() {
           onAliasesChange={setAliases}
           onSyncConfigChange={setSyncConfig}
           onSyncStatusChange={setSyncStatus}
-          onBackgroundSync={() => runAliasSync(true)}
+          onBackgroundSync={() => runAliasSync({ force: true, reason: "manual" })}
         />
       ) : null}
     </div>
