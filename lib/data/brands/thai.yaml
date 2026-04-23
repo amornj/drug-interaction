@@ -17,3 +17,51 @@
   sources:
     - name: "Curated brand overlay"
       version: "2026-04"
+
+- term: "Glucophage"
+  components:
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Curated brand overlay"
+      version: "2026-04"
+
+- term: "Exforge"
+  components:
+    - rxcui: "17767"
+      name: "amlodipine"
+    - rxcui: "69749"
+      name: "valsartan"
+  sources:
+    - name: "Curated brand overlay"
+      version: "2026-04"
+
+- term: "Jardiance Duo"
+  components:
+    - rxcui: "1545653"
+      name: "empagliflozin"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Curated brand overlay"
+      version: "2026-04"
+
+- term: "JardianceDuo"
+  components:
+    - rxcui: "1545653"
+      name: "empagliflozin"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Curated brand overlay"
+      version: "2026-04"
+
+- term: "Co-Diovan"
+  components:
+    - rxcui: "69749"
+      name: "valsartan"
+    - rxcui: "5487"
+      name: "hydrochlorothiazide"
+  sources:
+    - name: "Curated brand overlay"
+      version: "2026-04"

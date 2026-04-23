@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-22T01:41:57.238Z",
+  "generatedAt": "2026-04-23T15:01:40.679Z",
   "brandsVersion": "2026-04",
   "entries": [
     {
@@ -34,6 +34,107 @@
         {
           "rxcui": "6809",
           "name": "metformin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Curated brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Glucophage",
+      "normalizedTerm": "glucophage",
+      "components": [
+        {
+          "rxcui": "6809",
+          "name": "metformin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Curated brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Exforge",
+      "normalizedTerm": "exforge",
+      "components": [
+        {
+          "rxcui": "17767",
+          "name": "amlodipine"
+        },
+        {
+          "rxcui": "69749",
+          "name": "valsartan"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Curated brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Jardiance Duo",
+      "normalizedTerm": "jardiance duo",
+      "components": [
+        {
+          "rxcui": "1545653",
+          "name": "empagliflozin"
+        },
+        {
+          "rxcui": "6809",
+          "name": "metformin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Curated brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "JardianceDuo",
+      "normalizedTerm": "jardianceduo",
+      "components": [
+        {
+          "rxcui": "1545653",
+          "name": "empagliflozin"
+        },
+        {
+          "rxcui": "6809",
+          "name": "metformin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Curated brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Co-Diovan",
+      "normalizedTerm": "co-diovan",
+      "components": [
+        {
+          "rxcui": "69749",
+          "name": "valsartan"
+        },
+        {
+          "rxcui": "5487",
+          "name": "hydrochlorothiazide"
         }
       ],
       "sources": [

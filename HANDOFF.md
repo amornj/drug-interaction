@@ -46,7 +46,7 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
   - `lib/aliases.ts`
   - `lib/data/brands/*.yaml` + generated `lib/data/brands/index.json`
   - user aliases persist locally in IndexedDB key `di.aliases.v1`
-  - curated brand overlay currently seeds `Galvusmet` and `Janumet`
+  - curated brand overlay currently seeds `Galvusmet`, `Janumet`, `Glucophage`, `Exforge`, `Jardiance Duo`, and `Co-Diovan`
   - multi-ingredient brands expand at input time into ingredient chips tagged with `viaBrand`
 - Encrypted alias backup / restore layer:
   - `lib/alias-sync.ts`

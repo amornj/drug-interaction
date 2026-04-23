@@ -52,7 +52,7 @@ Recent additions in M9:
 
 - Pasting medication text such as `Med: Hydrochlorothiazine 1/2*1, atorvastatin 40 1*1, ezetimibe 10 1/2*1` into the search box now bulk-adds matched drugs through the existing RxNorm route.
 - Each interaction card has a `Copy prompt` button that copies `Check drug interaction between <Drug A> and <Drug B>` so clinicians can paste the pair into another AI chat tool.
-- Typing a curated brand like `Janumet` offers one-tap ingredient expansion and adds both chips with `via Janumet`.
+- Typing a curated brand or combo like `Janumet`, `Exforge`, or `JardianceDuo` offers one-tap ingredient expansion and adds generic ingredient chips.
 - Typing `galvusmet = vildagliptin + metformin` saves a local alias and adds both ingredients.
 - A local alias database is available from the top-bar overflow with remove, export JSON, and import JSON actions.
 - The alias database can now create an encrypted backup, restore from a recovery key plus passphrase, and manually sync aliases across devices without syncing any patient or case data.
@@ -82,7 +82,7 @@ Recent additions in M9:
 | [RxNorm](https://lhncbc.nlm.nih.gov/RxNav/APIs/RxNormAPIs.html) | Drug normalization, autocomplete, DDInter name-to-RxCUI mapping | Live API | Mapping generated `2026-04-21` | Autocomplete + build-time DDInter mapping |
 | [DDInter 2.0](https://ddinter2.scbdd.com/) | Deterministic pairwise interaction seed | `2.0` | Ingest generated `2026-04-21` | `/api/interactions/check` |
 | `lib/data/overlay/*.yaml` | Hand-curated deterministic overrides / augmentations | `2026-04` | Generated `2026-04-21` | `/api/interactions/check` precedence layer |
-| `lib/data/brands/*.yaml` | Curated commercial / combo brand expansions | `2026-04` | Generated `2026-04-22` | Client-side M9 brand overlay layer |
+| `lib/data/brands/*.yaml` | Curated commercial / combo brand expansions | `2026-04` | Generated `2026-04-23` | Client-side M9 brand overlay layer |
 | `lib/modifiers.ts` local rules | Deterministic patient-context re-ranking and annotations | `2026-04` | Repo-managed | Client-side M4 modifier layer |
 | `lib/stacks.ts` local rules | Deterministic cumulative stack warnings and citations | `2026-04-metabolic-electrolyte` | Repo-managed | Client-side M5 stack layer |
 | `lib/pgx.ts` local rules | Deterministic pharmacogenomics prompts and phenotype-aware guidance | `2026-04` | Repo-managed | Client-side M8 pharmacogenomics layer |

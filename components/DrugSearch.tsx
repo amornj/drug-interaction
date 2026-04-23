@@ -145,8 +145,7 @@ export function DrugSearch({
 
   const addDrug = useStore((s) => s.addDrug);
   const activeCase = useActiveCase();
-  const drugs = activeCase?.drugs ?? [];
-
+  const drugs = useMemo(() => activeCase?.drugs ?? [], [activeCase?.drugs]);
   const abortRef = useRef<AbortController | null>(null);
   const listRef = useRef<HTMLDivElement | null>(null);
   const proposalRequestRef = useRef(0);
@@ -165,21 +164,6 @@ export function DrugSearch({
     if (!drugs.some((d) => d.rxcui === localNorm.rxcui)) return null;
     return { typed: localNorm.brand, existing: localNorm.name };
   }, [localNorm, drugs]);
-
-  // Clear event-driven state when the query changes.
-  useEffect(() => {
-    setDuplicateWarning(null);
-    setCombinationPending(null);
-  }, [q]);
-
-  // When localNorm is set, abort any in-flight RxNorm search and clear stale results.
-  useEffect(() => {
-    if (localNorm) {
-      abortRef.current?.abort();
-      setResults([]);
-      setLoading(false);
-    }
-  }, [localNorm]);
 
   function clearSearch() {
     setQ("");
@@ -635,9 +619,10 @@ export function DrugSearch({
         });
         return;
       }
-      if (!open || activeIndex < 0) return;
-      const row = rows[activeIndex];
-      if (canActivate(activeIndex)) {
+      if (!open) return;
+      const targetIndex = activeIndex >= 0 ? activeIndex : firstSelectable(1);
+      const row = rows[targetIndex];
+      if (canActivate(targetIndex)) {
         event.preventDefault();
         activateRow(row);
       }
@@ -692,8 +677,15 @@ export function DrugSearch({
               const nextQ = event.target.value;
               setQ(nextQ);
               setBulkMessage(null);
+              setDuplicateWarning(null);
+              setCombinationPending(null);
               setActiveIndex(-1);
               if (nextQ.trim().length < 2) {
+                abortRef.current?.abort();
+                setResults([]);
+                setLoading(false);
+              }
+              if (normalizeTerm(nextQ.trim(), aliases)) {
                 abortRef.current?.abort();
                 setResults([]);
                 setLoading(false);

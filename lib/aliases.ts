@@ -45,6 +45,10 @@ export function normalizeAliasTerm(term: string) {
   return term.toLowerCase().replace(/\s+/g, " ").trim();
 }
 
+function compactAliasTerm(term: string) {
+  return normalizeAliasTerm(term).replace(/[^a-z0-9]/g, "");
+}
+
 export function dedupeAliasComponents(components: AliasComponent[]) {
   const seen = new Set<string>();
   return components.filter((component) => {
@@ -187,12 +191,15 @@ export async function replaceStoredAliases(aliases: Alias[]) {
 
 export function resolveAlias(term: string, userAliases: Alias[]): ResolvedAlias | null {
   const normalized = normalizeAliasTerm(term);
+  const compact = compactAliasTerm(term);
   if (!normalized) {
     return null;
   }
 
   const userAlias = userAliases.find(
-    (alias) => normalizeAliasTerm(alias.term) === normalized
+    (alias) =>
+      normalizeAliasTerm(alias.term) === normalized ||
+      compactAliasTerm(alias.term) === compact
   );
   if (userAlias) {
     // User aliases intentionally override shipped curated defaults.
@@ -202,7 +209,11 @@ export function resolveAlias(term: string, userAliases: Alias[]): ResolvedAlias 
     };
   }
 
-  const overlayAlias = brandIndex.get(normalized);
+  const overlayAlias =
+    brandIndex.get(normalized) ??
+    [...brandIndex.values()].find(
+      (entry) => compactAliasTerm(entry.term) === compact
+    );
   if (!overlayAlias) {
     return null;
   }
