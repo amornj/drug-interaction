@@ -12,8 +12,13 @@ export type StackDomain =
   | "nephrotoxic"
   | "hyperkalemia"
   | "hypokalemia"
+  | "hypercalcemia"
+  | "hypocalcemia"
+  | "hyponatremia"
+  | "hypernatremia"
   | "hypoglycemia"
-  | "hyperglycemia";
+  | "hyperglycemia"
+  | "normalgapacidosis";
 
 export type StackWarning = {
   domain: StackDomain;
@@ -40,7 +45,7 @@ type StackRule = {
 
 const STACK_RULE_SOURCE: InteractionSource = {
   name: "Cumulative stack rules",
-  version: "2026-04-cardiometabolic",
+  version: "2026-04-electrolyte-acid-base",
 };
 
 const stackRules: StackRule[] = [
@@ -192,6 +197,174 @@ const stackRules: StackRule[] = [
       `Hypokalemia-promoting drugs are stacking: ${matched.join(", ")}. Recheck potassium, magnesium, and arrhythmia risk if diuresis or intracellular potassium shift is expected.`,
   },
   {
+    domain: "hypercalcemia",
+    title: "Hypercalcemia risk stack",
+    matches: [
+      "hydrochlorothiazide",
+      "chlorthalidone",
+      "indapamide",
+      "metolazone",
+      "calcium carbonate",
+      "calcium citrate",
+      "calcium acetate",
+      "calcitriol",
+      "cholecalciferol",
+      "ergocalciferol",
+      "alfacalcidol",
+      "lithium",
+      "teriparatide",
+      "abaloparatide",
+    ],
+    highRiskMatches: [
+      "calcium carbonate",
+      "calcium citrate",
+      "calcium acetate",
+      "calcitriol",
+      "alfacalcidol",
+      "lithium",
+      "teriparatide",
+      "abaloparatide",
+    ],
+    summary: (matched) =>
+      `Hypercalcemia-promoting drugs are stacking: ${matched.join(", ")}. Recheck calcium, renal function, and calcium/vitamin D exposure, especially with thiazides or lithium.`,
+  },
+  {
+    domain: "hypocalcemia",
+    title: "Hypocalcemia risk stack",
+    matches: [
+      "alendronate",
+      "risedronate",
+      "ibandronate",
+      "zoledronic acid",
+      "pamidronate",
+      "denosumab",
+      "cinacalcet",
+      "etelcalcetide",
+      "foscarnet",
+      "phenytoin",
+      "phenobarbital",
+      "carbamazepine",
+      "furosemide",
+      "bumetanide",
+      "torsemide",
+    ],
+    highRiskMatches: [
+      "zoledronic acid",
+      "pamidronate",
+      "denosumab",
+      "cinacalcet",
+      "etelcalcetide",
+      "foscarnet",
+    ],
+    summary: (matched) =>
+      `Hypocalcemia-promoting drugs are stacking: ${matched.join(", ")}. Recheck calcium, magnesium, vitamin D status, renal function, and symptoms such as paresthesias or tetany.`,
+  },
+  {
+    domain: "hyponatremia",
+    title: "Hyponatremia risk stack",
+    matches: [
+      "hydrochlorothiazide",
+      "chlorthalidone",
+      "indapamide",
+      "metolazone",
+      "desmopressin",
+      "carbamazepine",
+      "oxcarbazepine",
+      "eslicarbazepine",
+      "fluoxetine",
+      "sertraline",
+      "paroxetine",
+      "citalopram",
+      "escitalopram",
+      "fluvoxamine",
+      "venlafaxine",
+      "desvenlafaxine",
+      "duloxetine",
+      "mirtazapine",
+      "trazodone",
+      "haloperidol",
+      "risperidone",
+      "olanzapine",
+      "quetiapine",
+      "cyclophosphamide",
+      "vincristine",
+    ],
+    highRiskMatches: [
+      "hydrochlorothiazide",
+      "chlorthalidone",
+      "indapamide",
+      "metolazone",
+      "desmopressin",
+      "carbamazepine",
+      "oxcarbazepine",
+      "cyclophosphamide",
+      "vincristine",
+    ],
+    summary: (matched) =>
+      `Hyponatremia-promoting drugs are stacking: ${matched.join(", ")}. Recheck sodium trend, fluid intake, neurologic symptoms, and SIADH risk before continuing the full regimen.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const hasThiazide = ["hydrochlorothiazide", "chlorthalidone", "indapamide", "metolazone"].some((keyword) =>
+        matchedKeywords.includes(keyword)
+      );
+      const hasDesmopressin = matchedKeywords.includes("desmopressin");
+      const hasAntiseizureSiadh = ["carbamazepine", "oxcarbazepine", "eslicarbazepine"].some((keyword) =>
+        matchedKeywords.includes(keyword)
+      );
+
+      if (hasDesmopressin || (hasThiazide && hasAntiseizureSiadh) || matchedDrugs.length >= 3) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
+  },
+  {
+    domain: "hypernatremia",
+    title: "Hypernatremia risk stack",
+    matches: [
+      "sodium bicarbonate",
+      "sodium chloride",
+      "hypertonic saline",
+      "lithium",
+      "demeclocycline",
+      "mannitol",
+      "lactulose",
+      "furosemide",
+      "bumetanide",
+      "torsemide",
+      "prednisone",
+      "prednisolone",
+      "hydrocortisone",
+      "fludrocortisone",
+      "dexamethasone",
+    ],
+    highRiskMatches: [
+      "sodium bicarbonate",
+      "sodium chloride",
+      "hypertonic saline",
+      "lithium",
+      "demeclocycline",
+      "mannitol",
+      "fludrocortisone",
+    ],
+    summary: (matched) =>
+      `Hypernatremia-promoting drugs are stacking: ${matched.join(", ")}. Recheck sodium, free-water balance, osmotic diuresis, and sodium load exposure.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const hasSodiumLoad = ["sodium bicarbonate", "sodium chloride", "hypertonic saline"].some((keyword) =>
+        matchedKeywords.includes(keyword)
+      );
+      const hasDiWaterLoss = ["lithium", "demeclocycline", "mannitol", "furosemide", "bumetanide", "torsemide", "lactulose"].some((keyword) =>
+        matchedKeywords.includes(keyword)
+      );
+
+      if ((hasSodiumLoad && hasDiWaterLoss) || matchedDrugs.length >= 3) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
+  },
+  {
     domain: "hypoglycemia",
     title: "Hypoglycemia risk stack",
     matches: [
@@ -271,6 +444,34 @@ const stackRules: StackRule[] = [
     ],
     summary: (matched) =>
       `Hyperglycemia-promoting drugs are stacking: ${matched.join(", ")}. Recheck glucose monitoring needs and whether temporary diabetes-regimen adjustment is required.`,
+  },
+  {
+    domain: "normalgapacidosis",
+    title: "Normal-gap metabolic acidosis stack",
+    matches: [
+      "acetazolamide",
+      "topiramate",
+      "amphotericin",
+      "ifosfamide",
+      "tenofovir",
+    ],
+    highRiskMatches: ["amphotericin", "ifosfamide", "tenofovir"],
+    summary: (matched) =>
+      `Normal-gap metabolic acidosis risk is stacking: ${matched.join(", ")}. Recheck bicarbonate, chloride gap pattern, potassium, urinalysis, and renal tubular injury risk.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const hasCarbonicAnhydraseInhibitor = ["acetazolamide", "topiramate"].some((keyword) =>
+        matchedKeywords.includes(keyword)
+      );
+      const hasTubularToxin = ["amphotericin", "ifosfamide", "tenofovir"].some((keyword) =>
+        matchedKeywords.includes(keyword)
+      );
+
+      if ((hasCarbonicAnhydraseInhibitor && hasTubularToxin) || matchedDrugs.length >= 3) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
   },
   {
     domain: "bleeding",
@@ -619,8 +820,13 @@ function detectSeverity(
   if (
     rule.domain === "hyperkalemia" ||
     rule.domain === "hypokalemia" ||
+    rule.domain === "hypercalcemia" ||
+    rule.domain === "hypocalcemia" ||
+    rule.domain === "hyponatremia" ||
+    rule.domain === "hypernatremia" ||
     rule.domain === "hypoglycemia" ||
-    rule.domain === "hyperglycemia"
+    rule.domain === "hyperglycemia" ||
+    rule.domain === "normalgapacidosis"
   ) {
     const highRiskCount =
       rule.highRiskMatches?.filter((keyword) => matchedKeywords.includes(keyword)).length ?? 0;

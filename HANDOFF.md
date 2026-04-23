@@ -73,7 +73,7 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
 - Cumulative stack layer:
   - `components/StackWarnings.tsx`
   - `lib/stacks.ts`
-  - deterministic local stack warnings for QT, bleeding, serotonergic, anticholinergic, and nephrotoxic burden
+  - deterministic local stack warnings for QT, bleeding, serotonergic, anticholinergic, nephrotoxic, electrolyte, glucose, lactic acidosis, and normal-gap metabolic acidosis burden
   - rendered as a separate cited section above pairwise results
 - Pharmacogenomics layer:
   - `components/PharmacogenomicsPanel.tsx`

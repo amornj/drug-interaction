@@ -27,10 +27,20 @@ function domainLabel(domain: StackWarning["domain"]) {
       return "HyperK";
     case "hypokalemia":
       return "HypoK";
+    case "hypercalcemia":
+      return "HyperCa";
+    case "hypocalcemia":
+      return "HypoCa";
+    case "hyponatremia":
+      return "HypoNa";
+    case "hypernatremia":
+      return "HyperNa";
     case "hypoglycemia":
       return "Hypoglycemia";
     case "hyperglycemia":
       return "Hyperglycemia";
+    case "normalgapacidosis":
+      return "NAGMA";
   }
 }
 
