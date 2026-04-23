@@ -7,6 +7,7 @@ export type StackDomain =
   | "serotonergic"
   | "anticholinergic"
   | "eps"
+  | "ergotism"
   | "nephrotoxic"
   | "hyperkalemia"
   | "hypokalemia"
@@ -450,6 +451,73 @@ const stackRules: StackRule[] = [
         ).length;
 
       if (highRiskCount >= 2 || matchedDrugs.length >= 3) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
+  },
+  {
+    domain: "ergotism",
+    title: "Ergotism syndrome stack",
+    matches: [
+      "ergotamine",
+      "dihydroergotamine",
+      "sumatriptan",
+      "rizatriptan",
+      "zolmitriptan",
+      "naratriptan",
+      "almotriptan",
+      "eletriptan",
+      "frovatriptan",
+      "clarithromycin",
+      "erythromycin",
+      "ketoconazole",
+      "itraconazole",
+      "voriconazole",
+      "posaconazole",
+      "ritonavir",
+      "cobicistat",
+    ],
+    highRiskMatches: [
+      "ergotamine",
+      "dihydroergotamine",
+      "clarithromycin",
+      "erythromycin",
+      "ketoconazole",
+      "itraconazole",
+      "voriconazole",
+      "posaconazole",
+      "ritonavir",
+      "cobicistat",
+    ],
+    summary: (matched) =>
+      `Ergot-related vasospasm risk detected: ${matched.join(", ")}. Review for ergotism risk when ergot derivatives overlap with triptans or strong CYP3A4 inhibitors.`,
+    detectSeverity: (matchedKeywords) => {
+      const hasErgot = ["ergotamine", "dihydroergotamine"].some((keyword) =>
+        matchedKeywords.includes(keyword)
+      );
+      const hasTriptan = [
+        "sumatriptan",
+        "rizatriptan",
+        "zolmitriptan",
+        "naratriptan",
+        "almotriptan",
+        "eletriptan",
+        "frovatriptan",
+      ].some((keyword) => matchedKeywords.includes(keyword));
+      const hasStrongCyp3a4Inhibitor = [
+        "clarithromycin",
+        "erythromycin",
+        "ketoconazole",
+        "itraconazole",
+        "voriconazole",
+        "posaconazole",
+        "ritonavir",
+        "cobicistat",
+      ].some((keyword) => matchedKeywords.includes(keyword));
+
+      if (hasErgot && (hasTriptan || hasStrongCyp3a4Inhibitor)) {
         return "Major";
       }
 
