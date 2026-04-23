@@ -463,6 +463,8 @@ const stackRules: StackRule[] = [
     matches: [
       "ergotamine",
       "dihydroergotamine",
+      "cafergot",
+      "ergot",
       "sumatriptan",
       "rizatriptan",
       "zolmitriptan",
@@ -482,6 +484,8 @@ const stackRules: StackRule[] = [
     highRiskMatches: [
       "ergotamine",
       "dihydroergotamine",
+      "cafergot",
+      "ergot",
       "clarithromycin",
       "erythromycin",
       "ketoconazole",
@@ -494,7 +498,7 @@ const stackRules: StackRule[] = [
     summary: (matched) =>
       `Ergot-related vasospasm risk detected: ${matched.join(", ")}. Review for ergotism risk when ergot derivatives overlap with triptans or strong CYP3A4 inhibitors.`,
     detectSeverity: (matchedKeywords) => {
-      const hasErgot = ["ergotamine", "dihydroergotamine"].some((keyword) =>
+      const hasErgot = ["ergotamine", "dihydroergotamine", "cafergot", "ergot"].some((keyword) =>
         matchedKeywords.includes(keyword)
       );
       const hasTriptan = [
