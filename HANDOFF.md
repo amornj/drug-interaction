@@ -73,12 +73,12 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
 - Cumulative stack layer:
   - `components/StackWarnings.tsx`
   - `lib/stacks.ts`
-  - deterministic local stack warnings for QT, bleeding, serotonergic, anticholinergic, nephrotoxic, electrolyte, glucose, lactic acidosis, and normal-gap metabolic acidosis burden
+  - deterministic local stack warnings for QT, bleeding, serotonergic, anticholinergic, nephrotoxic, electrolyte, uric acid, glucose, lactic acidosis, and normal-gap metabolic acidosis burden
   - rendered as a separate cited section above pairwise results
 - Pharmacogenomics layer:
   - `components/PharmacogenomicsPanel.tsx`
   - `lib/pgx.ts`
-  - deterministic local CPIC-style gene prompts for CYP2C19, CYP2D6, SLCO1B1, HLA-B*15:02, HLA-B*57:01, DPYD, TPMT, and NUDT15
+  - deterministic local CPIC-style gene prompts for CYP2C19, CYP2D6, SLCO1B1, HLA-B*15:02, HLA-B*57:01, HLA-B*58:01, DPYD, TPMT, and NUDT15
   - phenotype selections are stored locally with each case and rendered as a cited section separate from pairwise interactions
 
 Verified:

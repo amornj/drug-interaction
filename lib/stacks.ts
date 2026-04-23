@@ -16,6 +16,7 @@ export type StackDomain =
   | "hypocalcemia"
   | "hyponatremia"
   | "hypernatremia"
+  | "hyperuricemia"
   | "hypoglycemia"
   | "hyperglycemia"
   | "normalgapacidosis";
@@ -45,7 +46,7 @@ type StackRule = {
 
 const STACK_RULE_SOURCE: InteractionSource = {
   name: "Cumulative stack rules",
-  version: "2026-04-electrolyte-acid-base",
+  version: "2026-04-metabolic-electrolyte",
 };
 
 const stackRules: StackRule[] = [
@@ -358,6 +359,59 @@ const stackRules: StackRule[] = [
       );
 
       if ((hasSodiumLoad && hasDiWaterLoss) || matchedDrugs.length >= 3) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
+  },
+  {
+    domain: "hyperuricemia",
+    title: "Hyperuricemia and gout risk stack",
+    matches: [
+      "hydrochlorothiazide",
+      "chlorthalidone",
+      "indapamide",
+      "furosemide",
+      "bumetanide",
+      "torsemide",
+      "aspirin",
+      "pyrazinamide",
+      "ethambutol",
+      "cyclosporine",
+      "tacrolimus",
+      "niacin",
+      "nicotinic acid",
+      "bempedoic acid",
+      "bompedoic acid",
+    ],
+    highRiskMatches: [
+      "pyrazinamide",
+      "ethambutol",
+      "cyclosporine",
+      "tacrolimus",
+      "bempedoic acid",
+      "bompedoic acid",
+    ],
+    summary: (matched) =>
+      `Hyperuricemia-promoting drugs are stacking: ${matched.join(", ")}. Recheck uric acid and gout risk, especially with diuretics, TB therapy, calcineurin inhibitors, niacin, aspirin, or bempedoic acid.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const hasTbDrug = ["pyrazinamide", "ethambutol"].some((keyword) =>
+        matchedKeywords.includes(keyword)
+      );
+      const hasCalcineurinInhibitor = ["cyclosporine", "tacrolimus"].some((keyword) =>
+        matchedKeywords.includes(keyword)
+      );
+      const diureticCount = [
+        "hydrochlorothiazide",
+        "chlorthalidone",
+        "indapamide",
+        "furosemide",
+        "bumetanide",
+        "torsemide",
+      ].filter((keyword) => matchedKeywords.includes(keyword)).length;
+
+      if (hasTbDrug || hasCalcineurinInhibitor || diureticCount >= 2 || matchedDrugs.length >= 3) {
         return "Major";
       }
 
@@ -824,6 +878,7 @@ function detectSeverity(
     rule.domain === "hypocalcemia" ||
     rule.domain === "hyponatremia" ||
     rule.domain === "hypernatremia" ||
+    rule.domain === "hyperuricemia" ||
     rule.domain === "hypoglycemia" ||
     rule.domain === "hyperglycemia" ||
     rule.domain === "normalgapacidosis"

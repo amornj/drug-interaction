@@ -35,6 +35,8 @@ function domainLabel(domain: StackWarning["domain"]) {
       return "HypoNa";
     case "hypernatremia":
       return "HyperNa";
+    case "hyperuricemia":
+      return "Hyperuricemia";
     case "hypoglycemia":
       return "Hypoglycemia";
     case "hyperglycemia":

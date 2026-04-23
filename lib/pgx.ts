@@ -6,6 +6,7 @@ export type PgxGene =
   | "slco1b1"
   | "hla_b1502"
   | "hla_b5701"
+  | "hla_b5801"
   | "dpyd"
   | "tpmt"
   | "nudt15";
@@ -99,6 +100,14 @@ export const pgxGeneConfigs: Record<PgxGene, PgxGeneConfig> = {
   },
   hla_b5701: {
     label: "HLA-B*57:01",
+    options: [
+      { value: "", label: "Unknown / not tested" },
+      { value: "negative", label: "Negative" },
+      { value: "positive", label: "Positive" },
+    ],
+  },
+  hla_b5801: {
+    label: "HLA-B*58:01",
     options: [
       { value: "", label: "Unknown / not tested" },
       { value: "negative", label: "Negative" },
@@ -228,21 +237,21 @@ const pgxRules: PgxRule[] = [
   },
   {
     gene: "hla_b1502",
-    title: "Severe cutaneous reaction risk",
-    matches: ["carbamazepine", "oxcarbazepine", "phenytoin"],
+    title: "Carbamazepine severe cutaneous reaction risk",
+    matches: ["carbamazepine"],
     defaultSeverity: "Major",
     testRecommendation:
-      "Check HLA-B*15:02 before starting carbamazepine-class therapy when ancestry-based risk is relevant.",
+      "Check HLA-B*15:02 before starting carbamazepine when ancestry-based risk is relevant.",
     phenotypeRecommendations: {
       negative: {
         severity: "Minor",
         summary:
-          "Negative HLA-B*15:02 status removes this specific local PGx avoid signal for carbamazepine-class therapy.",
+          "Negative HLA-B*15:02 status removes this specific local PGx avoid signal for carbamazepine.",
       },
       positive: {
         severity: "Contraindicated",
         summary:
-          "Positive HLA-B*15:02 status triggers a local avoid signal for carbamazepine-class therapy because of severe cutaneous reaction risk.",
+          "Positive HLA-B*15:02 status triggers a local avoid signal for carbamazepine because of severe cutaneous reaction risk.",
       },
     },
   },
@@ -263,6 +272,26 @@ const pgxRules: PgxRule[] = [
         severity: "Contraindicated",
         summary:
           "Positive HLA-B*57:01 status triggers a local avoid signal for abacavir because of hypersensitivity risk.",
+      },
+    },
+  },
+  {
+    gene: "hla_b5801",
+    title: "Allopurinol severe cutaneous reaction risk",
+    matches: ["allopurinol"],
+    defaultSeverity: "Major",
+    testRecommendation:
+      "Check HLA-B*58:01 before starting allopurinol when ancestry-based risk is relevant.",
+    phenotypeRecommendations: {
+      negative: {
+        severity: "Minor",
+        summary:
+          "Negative HLA-B*58:01 status removes this specific local PGx avoid signal for allopurinol.",
+      },
+      positive: {
+        severity: "Contraindicated",
+        summary:
+          "Positive HLA-B*58:01 status triggers a local avoid signal for allopurinol because of severe cutaneous reaction risk.",
       },
     },
   },
@@ -350,6 +379,7 @@ export function createDefaultPgxProfile(): PgxProfile {
     slco1b1: "",
     hla_b1502: "",
     hla_b5701: "",
+    hla_b5801: "",
     dpyd: "",
     tpmt: "",
     nudt15: "",

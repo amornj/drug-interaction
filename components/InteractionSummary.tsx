@@ -55,6 +55,8 @@ function stackLabel(domain: StackWarning["domain"]) {
       return "HypoNa";
     case "hypernatremia":
       return "HyperNa";
+    case "hyperuricemia":
+      return "Hyperuricemia";
     case "hypoglycemia":
       return "Hypoglycemia";
     case "hyperglycemia":
@@ -118,31 +120,48 @@ export function InteractionSummary({
     >
       <div className="flex items-baseline justify-between gap-3">
         <p className="eyebrow">Summary</p>
-        {stackCount > 0 ? (
-          <p className="stamp">
-            + {stackCount} stack{stackCount === 1 ? "" : "s"}
-          </p>
-        ) : null}
+        <p className="stamp">{dataVersion}</p>
       </div>
 
       <div className="mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-1.5">
-        {severityOrder.map((severity) =>
-          counts[severity] > 0 ? (
-            <span
-              key={severity}
-              className="inline-flex items-baseline gap-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft"
-            >
+        {pairs.length > 0 ? (
+          severityOrder.map((severity) =>
+            counts[severity] > 0 ? (
               <span
-                className={`sev-mark ${severity === "Contraindicated" ? "breath" : ""}`}
-                style={{ background: severityMark[severity] }}
-                aria-hidden
-              />
-              <span className="tabular-nums text-ink">{counts[severity]}</span>{" "}
-              {severityShort[severity]}
-            </span>
-          ) : null
+                key={severity}
+                className="inline-flex items-baseline gap-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft"
+              >
+                <span
+                  className={`sev-mark ${severity === "Contraindicated" ? "breath" : ""}`}
+                  style={{ background: severityMark[severity] }}
+                  aria-hidden
+                />
+                <span className="tabular-nums text-ink">{counts[severity]}</span>{" "}
+                {severityShort[severity]}
+              </span>
+            ) : null
+          )
+        ) : (
+          <span className="text-[14px] leading-snug text-ink">
+            No known pairwise interactions.
+          </span>
         )}
       </div>
+
+      {top ? (
+        <p className="mt-3 border-t border-rule pt-2 text-[14px] leading-snug text-ink">
+          <span className="eyebrow mr-2">Top</span>
+          <span className="font-serif italic">
+            {top.a.name}
+          </span>
+          <span className="mx-1.5 text-ink-mute">↔</span>
+          <span className="font-serif italic">{top.b.name}</span>
+          <span className="mx-2 text-ink-mute">—</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">
+            {top.displaySeverity}
+          </span>
+        </p>
+      ) : null}
 
       {stacks.length > 0 ? (
         <div className="mt-3 border-t border-rule pt-2">
@@ -163,21 +182,6 @@ export function InteractionSummary({
             ))}
           </div>
         </div>
-      ) : null}
-
-      {top ? (
-        <p className="mt-3 border-t border-rule pt-2 text-[14px] leading-snug text-ink">
-          <span className="eyebrow mr-2">Top</span>
-          <span className="font-serif italic">
-            {top.a.name}
-          </span>
-          <span className="mx-1.5 text-ink-mute">↔</span>
-          <span className="font-serif italic">{top.b.name}</span>
-          <span className="mx-2 text-ink-mute">—</span>
-          <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">
-            {top.displaySeverity}
-          </span>
-        </p>
       ) : null}
     </div>
   );
