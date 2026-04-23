@@ -21,6 +21,8 @@ export type StackWarning = {
   sources: InteractionSource[];
 };
 
+type NormalizedDrug = Drug & { normalizedName: string };
+
 type StackRule = {
   domain: StackDomain;
   title: string;
@@ -29,7 +31,7 @@ type StackRule = {
   summary: (matched: string[]) => string;
   detectSeverity?: (
     matchedKeywords: string[],
-    matchedDrugs: Array<{ normalizedName: string }>
+    matchedDrugs: NormalizedDrug[]
   ) => InteractionSeverity;
 };
 
@@ -61,6 +63,30 @@ const stackRules: StackRule[] = [
     highRiskMatches: ["amiodarone", "sotalol", "quinidine", "methadone", "ziprasidone"],
     summary: (matched) =>
       `Multiple QT-risk drugs detected: ${matched.join(", ")}. Review ECG and electrolyte monitoring needs, especially if potassium or magnesium may drift low.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const hasHighRiskQt = ["amiodarone", "sotalol", "quinidine", "methadone", "ziprasidone"].some((keyword) => matchedKeywords.includes(keyword));
+      const hasHypokalemiaDrivers = matchedDrugs.some((drug) =>
+        [
+          "furosemide",
+          "bumetanide",
+          "torsemide",
+          "hydrochlorothiazide",
+          "chlorthalidone",
+          "indapamide",
+          "metolazone",
+          "insulin",
+          "albuterol",
+          "salbutamol",
+          "terbutaline",
+        ].some((keyword) => drug.normalizedName.includes(keyword))
+      );
+
+      if (matchedDrugs.length >= 2 || (hasHighRiskQt && hasHypokalemiaDrivers)) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
   },
   {
     domain: "hyperkalemia",
@@ -97,6 +123,37 @@ const stackRules: StackRule[] = [
     ],
     summary: (matched) =>
       `Hyperkalemia-promoting drugs are stacking: ${matched.join(", ")}. Recheck potassium and renal function, especially with RAAS blockade or potassium supplementation.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const hasMra = ["spironolactone", "eplerenone", "amiloride", "triamterene"].some((keyword) => matchedKeywords.includes(keyword));
+      const raasCount = [
+        "lisinopril",
+        "enalapril",
+        "ramipril",
+        "perindopril",
+        "losartan",
+        "valsartan",
+        "candesartan",
+        "irbesartan",
+        "telmisartan",
+        "sacubitril/valsartan",
+      ].filter((keyword) => matchedKeywords.includes(keyword)).length;
+      const hasPotassiumSupplement = matchedKeywords.includes("potassium chloride");
+      const hasCkdModifier = matchedDrugs.some((drug) =>
+        ["finerenone", "spironolactone", "eplerenone", "lisinopril", "losartan", "valsartan", "sacubitril/valsartan"].some((keyword) =>
+          drug.normalizedName.includes(keyword)
+        )
+      );
+
+      if ((hasMra && raasCount >= 1) || hasPotassiumSupplement || matchedDrugs.length >= 3) {
+        return "Major";
+      }
+
+      if (raasCount >= 2 || hasCkdModifier) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
   },
   {
     domain: "hypokalemia",
@@ -156,6 +213,24 @@ const stackRules: StackRule[] = [
     ],
     summary: (matched) =>
       `Hypoglycemia-risk drugs are stacking: ${matched.join(", ")}. Recheck glucose trend, meal intake, and renal function before keeping the full regimen.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const hasInsulin = matchedKeywords.includes("insulin");
+      const hasSulfonylureaOrMeglitinide = [
+        "glimepiride",
+        "gliclazide",
+        "glipizide",
+        "glyburide",
+        "glibenclamide",
+        "repaglinide",
+        "nateglinide",
+      ].some((keyword) => matchedKeywords.includes(keyword));
+
+      if ((hasInsulin && hasSulfonylureaOrMeglitinide) || matchedDrugs.length >= 3) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
   },
   {
     domain: "hyperglycemia",
@@ -376,7 +451,7 @@ function normalizeDrugName(name: string) {
 function detectSeverity(
   rule: StackRule,
   matchedKeywords: string[],
-  matchedDrugs: Array<{ normalizedName: string }>,
+  matchedDrugs: NormalizedDrug[],
   count: number
 ): InteractionSeverity {
   if (rule.detectSeverity) {
@@ -417,7 +492,7 @@ function detectSeverity(
 }
 
 export function detectCumulativeStacks(drugs: Drug[]): StackWarning[] {
-  const normalizedDrugs = drugs.map((drug) => ({
+  const normalizedDrugs: NormalizedDrug[] = drugs.map((drug) => ({
     ...drug,
     normalizedName: normalizeDrugName(drug.name),
   }));
