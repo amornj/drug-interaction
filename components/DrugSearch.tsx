@@ -439,7 +439,7 @@ export function DrugSearch({
 
   return (
     <>
-      <div className="relative">
+      <div className="relative isolate">
         <div className="flex items-center gap-3 border-b border-rule-strong pb-2">
           <svg
             viewBox="0 0 20 20"
@@ -516,7 +516,7 @@ export function DrugSearch({
             id="drug-search-list"
             ref={listRef}
             role="listbox"
-            className="absolute z-20 mt-2 max-h-80 w-full overflow-auto border border-rule-strong bg-paper-raised shadow-2xl"
+            className="relative z-10 mt-3 max-h-80 w-full overflow-auto border border-rule-strong bg-paper-raised shadow-[0_18px_40px_rgba(26,22,17,0.12)]"
           >
             {rows.map((row, index) => {
               const isActive = index === effectiveActive;
@@ -526,7 +526,7 @@ export function DrugSearch({
                     key={row.id}
                     id={`drug-search-row-${index}`}
                     data-row-index={index}
-                    className="border-b border-rule px-4 py-3 text-[13px] italic text-ink-mute last:border-b-0"
+                    className="border-b border-rule bg-paper-raised px-4 py-3 text-[13px] italic text-ink-mute last:border-b-0"
                   >
                     {row.title}
                   </div>
@@ -545,7 +545,7 @@ export function DrugSearch({
                   onClick={() => void row.onActivate?.()}
                   onMouseEnter={() => setActiveIndex(index)}
                   className={[
-                    "block w-full border-b border-rule px-4 py-3 text-left transition-colors last:border-b-0",
+                    "block w-full border-b border-rule bg-paper-raised px-4 py-3 text-left transition-colors last:border-b-0",
                     isActive ? "bg-accent-soft" : "hover:bg-surface",
                   ].join(" ")}
                 >
