@@ -176,6 +176,7 @@ export const useStore = create<Store>((set, get) => ({
     const { cases, activeCaseId } = get();
     const nextCases = cases.map((c) => {
       if (c.id !== activeCaseId) return c;
+      // Duplicate guard: skip silently if RxCUI already present; callers display their own warning.
       if (c.drugs.some((d) => d.rxcui === drug.rxcui)) return c;
       return {
         ...c,

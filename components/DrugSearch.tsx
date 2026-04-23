@@ -3,14 +3,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AliasTeachModal } from "@/components/AliasTeachModal";
 import {
+  normalizeTerm,
   parseAliasInput,
-  resolveAlias,
   upsertUserAlias,
   type Alias,
   type AliasComponent,
+  type NormalizedTerm,
 } from "@/lib/aliases";
-import type { DrugCandidate } from "@/lib/rxnorm";
-import { useStore } from "@/lib/store";
+import { resolveToIngredient, type DrugCandidate, type ResolvedIngredient } from "@/lib/rxnorm";
+import { useActiveCase, useStore } from "@/lib/store";
 
 const bulkSplitPattern = /[\n,;]+/;
 const whitespaceSplitPattern = /\s+/;
@@ -22,6 +23,13 @@ type InlineAliasProposal = {
   term: string;
   components: AliasComponent[];
   unresolvedTerms: string[];
+};
+
+type CombinationPending = {
+  brand: string;
+  components: Array<{ rxcui: string; name: string }>;
+  toAdd: Array<{ rxcui: string; name: string }>;
+  alreadyPresent: Array<{ rxcui: string; name: string }>;
 };
 
 type Row = {
@@ -103,6 +111,16 @@ function dedupeComponents(components: AliasComponent[]) {
   });
 }
 
+function buildCombinationPending(
+  brand: string,
+  components: Array<{ rxcui: string; name: string }>,
+  drugs: Array<{ rxcui: string }>
+): CombinationPending {
+  const alreadyPresent = components.filter((c) => drugs.some((d) => d.rxcui === c.rxcui));
+  const toAdd = components.filter((c) => !drugs.some((d) => d.rxcui === c.rxcui));
+  return { brand, components, toAdd, alreadyPresent };
+}
+
 export function DrugSearch({
   aliases,
   onAliasesChange,
@@ -119,39 +137,75 @@ export function DrugSearch({
   const [proposalLoading, setProposalLoading] = useState(false);
   const [teachOpen, setTeachOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
+  const [combinationPending, setCombinationPending] = useState<CombinationPending | null>(null);
+  const [duplicateWarning, setDuplicateWarning] = useState<{
+    typed: string;
+    existing: string;
+  } | null>(null);
+
   const addDrug = useStore((s) => s.addDrug);
+  const activeCase = useActiveCase();
+  const drugs = activeCase?.drugs ?? [];
+
   const abortRef = useRef<AbortController | null>(null);
   const listRef = useRef<HTMLDivElement | null>(null);
   const proposalRequestRef = useRef(0);
+
   const term = q.trim();
   const parsedAliasInput = useMemo(() => parseAliasInput(q), [q]);
-  const localAlias = useMemo(() => resolveAlias(term, aliases), [aliases, term]);
+  const localNorm = useMemo(() => normalizeTerm(term, aliases), [aliases, term]);
   const typedBatchTerms = useMemo(
-    () => (parsedAliasInput || localAlias ? [] : extractTypedBatchDrugTerms(term)),
-    [localAlias, parsedAliasInput, term]
+    () => (parsedAliasInput || localNorm ? [] : extractTypedBatchDrugTerms(term)),
+    [localNorm, parsedAliasInput, term]
   );
 
-  function addComponents(components: AliasComponent[], viaBrand: string) {
-    for (const component of dedupeComponents(components)) {
-      addDrug({
-        rxcui: component.rxcui,
-        name: component.name,
-        viaBrand,
-      });
+  // Derived: single-ingredient alias that maps to an already-added drug.
+  const aliasDuplicate = useMemo(() => {
+    if (!localNorm || localNorm.type !== "single") return null;
+    if (!drugs.some((d) => d.rxcui === localNorm.rxcui)) return null;
+    return { typed: localNorm.brand, existing: localNorm.name };
+  }, [localNorm, drugs]);
+
+  // Clear event-driven state when the query changes.
+  useEffect(() => {
+    setDuplicateWarning(null);
+    setCombinationPending(null);
+  }, [q]);
+
+  // When localNorm is set, abort any in-flight RxNorm search and clear stale results.
+  useEffect(() => {
+    if (localNorm) {
+      abortRef.current?.abort();
+      setResults([]);
+      setLoading(false);
     }
+  }, [localNorm]);
+
+  function clearSearch() {
     setQ("");
     setResults([]);
     setProposal(null);
     setProposalLoading(false);
     setOpen(false);
     setBulkMessage(null);
+    setDuplicateWarning(null);
+    setCombinationPending(null);
+  }
+
+  function addComponents(components: AliasComponent[], viaBrand: string) {
+    for (const component of dedupeComponents(components)) {
+      addDrug({ rxcui: component.rxcui, name: component.name, viaBrand });
+    }
+    clearSearch();
   }
 
   const resolveTokenToComponents = useCallback(
     async (token: string) => {
-      const alias = resolveAlias(token, aliases);
-      if (alias) {
-        return alias.components;
+      const norm = normalizeTerm(token, aliases);
+      if (norm) {
+        return norm.type === "single"
+          ? [{ rxcui: norm.rxcui, name: norm.name }]
+          : norm.components;
       }
 
       const response = await fetch(`/api/drugs/search?q=${encodeURIComponent(token)}`);
@@ -206,8 +260,9 @@ export function DrugSearch({
     };
   }, [parsedAliasInput, resolveTokenToComponents]);
 
+  // RxNorm search — skipped when localNorm (alias) found, since normalizeTerm runs first.
   useEffect(() => {
-    if (parsedAliasInput || term.length < 2) {
+    if (parsedAliasInput || localNorm || term.length < 2) {
       return;
     }
 
@@ -231,16 +286,77 @@ export function DrugSearch({
     }, 200);
 
     return () => window.clearTimeout(timeout);
-  }, [parsedAliasInput, term]);
+  }, [parsedAliasInput, localNorm, term]);
 
-  function pick(candidate: DrugCandidate) {
-    addDrug({ rxcui: candidate.rxcui, name: candidate.name });
-    setQ("");
-    setResults([]);
-    setProposal(null);
-    setProposalLoading(false);
+  async function pick(candidate: DrugCandidate) {
     setOpen(false);
-    setBulkMessage(null);
+    setDuplicateWarning(null);
+
+    let resolved: ResolvedIngredient | null = null;
+    try {
+      resolved = await resolveToIngredient(candidate.rxcui);
+    } catch {
+      // fall through to add as-is
+    }
+
+    if (!resolved) {
+      addDrug({ rxcui: candidate.rxcui, name: candidate.name });
+      clearSearch();
+      return;
+    }
+
+    if (resolved.type === "combination") {
+      const pending = buildCombinationPending(candidate.name, resolved.components, drugs);
+      if (pending.toAdd.length === 0) {
+        setDuplicateWarning({
+          typed: candidate.name,
+          existing: resolved.components.map((c) => c.name).join(" + "),
+        });
+        return;
+      }
+      setQ("");
+      setResults([]);
+      setCombinationPending(pending);
+      return;
+    }
+
+    // Single ingredient — check duplicate at ingredient level.
+    if (drugs.some((d) => d.rxcui === resolved.rxcui)) {
+      setDuplicateWarning({ typed: candidate.name, existing: resolved.name });
+      return;
+    }
+
+    addDrug({
+      rxcui: resolved.rxcui,
+      name: resolved.name,
+      viaBrand: candidate.name !== resolved.name ? candidate.name : undefined,
+    });
+    clearSearch();
+  }
+
+  function handleAliasClick(norm: NormalizedTerm) {
+    if (norm.type === "single") {
+      // aliasDuplicate already shown as inline warning; nothing to add.
+      if (drugs.some((d) => d.rxcui === norm.rxcui)) {
+        setOpen(false);
+        return;
+      }
+      addDrug({ rxcui: norm.rxcui, name: norm.name, viaBrand: norm.brand });
+      clearSearch();
+      return;
+    }
+
+    // Combination alias.
+    const pending = buildCombinationPending(norm.brand, norm.components, drugs);
+    setOpen(false);
+    if (pending.toAdd.length === 0) {
+      setDuplicateWarning({
+        typed: norm.brand,
+        existing: norm.components.map((c) => c.name).join(" + "),
+      });
+      return;
+    }
+    setCombinationPending(pending);
   }
 
   async function saveProposalAndAdd() {
@@ -283,10 +399,16 @@ export function DrugSearch({
 
     for (const candidateTerm of terms) {
       try {
-        const alias = resolveAlias(candidateTerm, aliases);
-        if (alias) {
-          addComponents(alias.components, alias.label);
-          added += alias.components.length;
+        const norm = normalizeTerm(candidateTerm, aliases);
+        if (norm) {
+          const components =
+            norm.type === "single"
+              ? [{ rxcui: norm.rxcui, name: norm.name }]
+              : norm.components;
+          for (const c of components) {
+            addDrug({ rxcui: c.rxcui, name: c.name, viaBrand: norm.brand });
+          }
+          added += components.length;
           continue;
         }
 
@@ -328,24 +450,35 @@ export function DrugSearch({
 
   const shouldShowTeachHint =
     !parsedAliasInput &&
-    !localAlias &&
+    !localNorm &&
     !loading &&
     term.length >= 2 &&
     results.length === 0;
 
   const rows: Row[] = [];
-  if (localAlias) {
-    const componentsLabel = localAlias.components
-      .map((component) => component.name)
-      .join(" + ");
-    rows.push({
-      id: `alias-expand-${localAlias.label}`,
-      kind: "alias",
-      title: `Expand to ${localAlias.components.length} ingredient${localAlias.components.length === 1 ? "" : "s"}`,
-      subtitle: `${localAlias.label} → ${componentsLabel}`,
-      onActivate: () => addComponents(localAlias.components, localAlias.label),
-    });
+
+  if (localNorm && !aliasDuplicate) {
+    const norm = localNorm;
+    if (norm.type === "single") {
+      rows.push({
+        id: `alias-expand-${norm.brand}`,
+        kind: "alias",
+        title: `Add ${norm.name}`,
+        subtitle: `${norm.brand} → ${norm.name}`,
+        onActivate: () => handleAliasClick(norm),
+      });
+    } else {
+      const componentsLabel = norm.components.map((c) => c.name).join(" + ");
+      rows.push({
+        id: `alias-combination-${norm.brand}`,
+        kind: "alias",
+        title: `Combination drug — ${norm.brand}`,
+        subtitle: componentsLabel,
+        onActivate: () => handleAliasClick(norm),
+      });
+    }
   }
+
   if (parsedAliasInput) {
     if (proposalLoading) {
       rows.push({
@@ -376,6 +509,7 @@ export function DrugSearch({
       }
     }
   }
+
   if (loading && !parsedAliasInput) {
     rows.push({
       id: "searching",
@@ -392,6 +526,7 @@ export function DrugSearch({
       subtitle: typedBatchTerms.join(", "),
     });
   }
+
   for (const result of results) {
     rows.push({
       id: `result-${result.rxcui}`,
@@ -401,6 +536,7 @@ export function DrugSearch({
       onActivate: () => pick(result),
     });
   }
+
   if (shouldShowTeachHint) {
     rows.push({
       id: "teach",
@@ -511,6 +647,12 @@ export function DrugSearch({
   const effectiveActive = canActivate(activeIndex) ? activeIndex : -1;
   const showList = open && rows.length > 0;
 
+  const inlineWarning = aliasDuplicate
+    ? `${aliasDuplicate.typed} is the same drug as ${aliasDuplicate.existing}, already in your list.`
+    : duplicateWarning
+    ? `${duplicateWarning.typed} is the same drug as ${duplicateWarning.existing}, already in your list.`
+    : null;
+
   return (
     <>
       <div className="relative isolate">
@@ -581,7 +723,67 @@ export function DrugSearch({
           />
         </div>
 
-        {bulkMessage ? (
+        {inlineWarning ? (
+          <p className="mt-2 text-[13px]" style={{ color: "var(--sev-major)" }}>
+            {inlineWarning}
+          </p>
+        ) : null}
+
+        {combinationPending ? (
+          <div className="mt-3 border border-rule-strong bg-paper-raised px-4 py-3">
+            <p className="text-[13.5px] font-medium text-ink">
+              {combinationPending.brand} — combination drug
+            </p>
+            <ul className="mt-2 mb-3 space-y-1">
+              {combinationPending.components.map((c) => {
+                const present = combinationPending.alreadyPresent.some(
+                  (a) => a.rxcui === c.rxcui
+                );
+                return (
+                  <li key={c.rxcui} className="flex items-center gap-2 text-[13px]">
+                    <span className={present ? "text-ink-mute line-through" : "text-ink"}>
+                      {c.name}
+                    </span>
+                    {present ? (
+                      <span className="stamp">already in list</span>
+                    ) : null}
+                  </li>
+                );
+              })}
+            </ul>
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  for (const comp of combinationPending.toAdd) {
+                    addDrug({
+                      rxcui: comp.rxcui,
+                      name: comp.name,
+                      viaBrand: combinationPending.brand,
+                    });
+                  }
+                  clearSearch();
+                }}
+                className="border border-rule-strong bg-ink px-3 py-1.5 text-[12.5px] font-medium text-paper-raised hover:opacity-80 transition-opacity"
+              >
+                {combinationPending.alreadyPresent.length > 0
+                  ? combinationPending.toAdd.length === 1
+                    ? `Add ${combinationPending.toAdd[0].name}`
+                    : `Add ${combinationPending.toAdd.length} remaining`
+                  : `Add all ${combinationPending.components.length}`}
+              </button>
+              <button
+                type="button"
+                onClick={() => setCombinationPending(null)}
+                className="text-[12.5px] text-ink-mute hover:text-ink transition-colors"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        ) : null}
+
+        {bulkMessage && !combinationPending ? (
           <p className="mt-2 stamp">{bulkMessage}</p>
         ) : null}
 

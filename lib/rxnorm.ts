@@ -39,3 +39,35 @@ export async function searchRxNorm(term: string, max = 10): Promise<DrugCandidat
   }
   return out;
 }
+
+export type ResolvedIngredient =
+  | { type: "single"; rxcui: string; name: string }
+  | { type: "combination"; components: Array<{ rxcui: string; name: string }> };
+
+export async function resolveToIngredient(rxcui: string): Promise<ResolvedIngredient | null> {
+  try {
+    const url = `${RXNAV}/rxcui/${encodeURIComponent(rxcui)}/related.json?tty=IN`;
+    const res = await fetch(url);
+    if (!res.ok) return null;
+
+    const json = (await res.json()) as {
+      relatedGroup?: {
+        conceptGroup?: Array<{
+          tty?: string;
+          conceptProperties?: Array<{ rxcui?: string; name?: string }>;
+        }>;
+      };
+    };
+
+    const group = json.relatedGroup?.conceptGroup?.find((g) => g.tty === "IN");
+    const components = (group?.conceptProperties ?? [])
+      .filter((p): p is { rxcui: string; name: string } => Boolean(p.rxcui && p.name))
+      .map((p) => ({ rxcui: p.rxcui, name: p.name }));
+
+    if (components.length === 0) return null;
+    if (components.length === 1) return { type: "single", ...components[0] };
+    return { type: "combination", components };
+  } catch {
+    return null;
+  }
+}

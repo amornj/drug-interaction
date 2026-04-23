@@ -215,6 +215,24 @@ export function resolveAlias(term: string, userAliases: Alias[]): ResolvedAlias 
   };
 }
 
+export type NormalizedTerm =
+  | { type: "single"; brand: string; rxcui: string; name: string }
+  | { type: "combination"; brand: string; components: AliasComponent[] };
+
+export function normalizeTerm(term: string, userAliases: Alias[]): NormalizedTerm | null {
+  const resolved = resolveAlias(term, userAliases);
+  if (!resolved || resolved.components.length === 0) return null;
+  if (resolved.components.length === 1) {
+    return {
+      type: "single",
+      brand: resolved.label,
+      rxcui: resolved.components[0].rxcui,
+      name: resolved.components[0].name,
+    };
+  }
+  return { type: "combination", brand: resolved.label, components: resolved.components };
+}
+
 export function parseAliasInput(text: string) {
   const separatorIndex = text.indexOf("=");
   if (separatorIndex === -1) {
