@@ -6,7 +6,7 @@ A mobile-first PWA for bedside drug interaction checking, built for busy clinici
 
 ## Status
 
-**M9 — Brand and alias resolution, plus encrypted alias backup/sync.** The app expands saved aliases and curated brand names into ingredient chips before interaction checking, and user aliases can now be backed up and restored as an encrypted remote blob with manual-only sync controls.
+**M9 — Brand and alias resolution, plus encrypted alias backup/sync.** The app expands saved aliases and curated brand names into ingredient chips before interaction checking, detects brand/generic duplicates at pick time with an inline warning, shows a confirmation banner for combination products, and lets user aliases be backed up and restored as an encrypted remote blob with manual-only sync controls.
 
 ## Stack
 
@@ -23,6 +23,8 @@ A mobile-first PWA for bedside drug interaction checking, built for busy clinici
 - Per-pair clipboard prompt for external LLM chat use
 - Local alias database with user-overrides-first precedence over the curated brand overlay
 - Curated brand overlay generated from `lib/data/brands/*.yaml`
+- Brand/generic equivalence: picked RxNorm results normalized to ingredient-level RxCUI via `resolveToIngredient()`; typing a brand while its generic is already in the list shows an inline amber duplicate warning
+- Combination drug confirmation banner: selecting a combo product lists all components with partial-overlap detection before adding
 - Encrypted alias-only backup/restore and manual sync via remote blob storage
 
 ## Architecture rules
@@ -54,6 +56,9 @@ Recent additions in M9:
 - Typing `galvusmet = vildagliptin + metformin` saves a local alias and adds both ingredients.
 - A local alias database is available from the top-bar overflow with remove, export JSON, and import JSON actions.
 - The alias database can now create an encrypted backup, restore from a recovery key plus passphrase, and manually sync aliases across devices without syncing any patient or case data.
+- Picking any drug from the RxNorm dropdown now resolves it to an ingredient-level RxCUI via the RxNorm `related?tty=IN` endpoint before storing, so branded and generic entries for the same molecule correctly deduplicate.
+- If the typed term resolves (via the curated brand overlay or a user alias) to a generic already in the list, an inline amber warning appears immediately: *"Glucophage is the same drug as metformin, already in your list."*
+- Selecting a combination product (e.g. `Exforge`) shows a confirmation banner that lists every component. Components already present are shown with a strikethrough and an *already in list* badge; only the missing ones are queued. Confirming adds the remainder in one tap.
 
 ## Roadmap
 
