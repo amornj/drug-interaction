@@ -6,7 +6,11 @@ export type StackDomain =
   | "bleeding"
   | "serotonergic"
   | "anticholinergic"
-  | "nephrotoxic";
+  | "nephrotoxic"
+  | "hyperkalemia"
+  | "hypokalemia"
+  | "hypoglycemia"
+  | "hyperglycemia";
 
 export type StackWarning = {
   domain: StackDomain;
@@ -27,7 +31,7 @@ type StackRule = {
 
 const STACK_RULE_SOURCE: InteractionSource = {
   name: "Cumulative stack rules",
-  version: "2026-04",
+  version: "2026-04-cardiometabolic",
 };
 
 const stackRules: StackRule[] = [
@@ -52,7 +56,132 @@ const stackRules: StackRule[] = [
     ],
     highRiskMatches: ["amiodarone", "sotalol", "quinidine", "methadone", "ziprasidone"],
     summary: (matched) =>
-      `Multiple QT-risk drugs detected: ${matched.join(", ")}. Review ECG and electrolyte monitoring needs.`,
+      `Multiple QT-risk drugs detected: ${matched.join(", ")}. Review ECG and electrolyte monitoring needs, especially if potassium or magnesium may drift low.`,
+  },
+  {
+    domain: "hyperkalemia",
+    title: "Hyperkalemia risk stack",
+    matches: [
+      "spironolactone",
+      "eplerenone",
+      "amiloride",
+      "triamterene",
+      "lisinopril",
+      "enalapril",
+      "ramipril",
+      "perindopril",
+      "losartan",
+      "valsartan",
+      "candesartan",
+      "irbesartan",
+      "telmisartan",
+      "sacubitril/valsartan",
+      "trimethoprim",
+      "tacrolimus",
+      "cyclosporine",
+      "potassium chloride",
+    ],
+    highRiskMatches: [
+      "spironolactone",
+      "eplerenone",
+      "amiloride",
+      "triamterene",
+      "trimethoprim",
+      "tacrolimus",
+      "cyclosporine",
+      "potassium chloride",
+    ],
+    summary: (matched) =>
+      `Hyperkalemia-promoting drugs are stacking: ${matched.join(", ")}. Recheck potassium and renal function, especially with RAAS blockade or potassium supplementation.`,
+  },
+  {
+    domain: "hypokalemia",
+    title: "Hypokalemia risk stack",
+    matches: [
+      "furosemide",
+      "bumetanide",
+      "torsemide",
+      "hydrochlorothiazide",
+      "chlorthalidone",
+      "indapamide",
+      "metolazone",
+      "insulin",
+      "albuterol",
+      "salbutamol",
+      "terbutaline",
+      "prednisone",
+      "prednisolone",
+      "hydrocortisone",
+      "dexamethasone",
+    ],
+    highRiskMatches: [
+      "furosemide",
+      "bumetanide",
+      "torsemide",
+      "metolazone",
+      "insulin",
+      "albuterol",
+      "salbutamol",
+      "terbutaline",
+    ],
+    summary: (matched) =>
+      `Hypokalemia-promoting drugs are stacking: ${matched.join(", ")}. Recheck potassium, magnesium, and arrhythmia risk if diuresis or intracellular potassium shift is expected.`,
+  },
+  {
+    domain: "hypoglycemia",
+    title: "Hypoglycemia risk stack",
+    matches: [
+      "insulin",
+      "glimepiride",
+      "gliclazide",
+      "glipizide",
+      "glyburide",
+      "glibenclamide",
+      "repaglinide",
+      "nateglinide",
+    ],
+    highRiskMatches: [
+      "insulin",
+      "glimepiride",
+      "gliclazide",
+      "glipizide",
+      "glyburide",
+      "glibenclamide",
+      "repaglinide",
+      "nateglinide",
+    ],
+    summary: (matched) =>
+      `Hypoglycemia-risk drugs are stacking: ${matched.join(", ")}. Recheck glucose trend, meal intake, and renal function before keeping the full regimen.`,
+  },
+  {
+    domain: "hyperglycemia",
+    title: "Hyperglycemia risk stack",
+    matches: [
+      "prednisone",
+      "prednisolone",
+      "hydrocortisone",
+      "dexamethasone",
+      "methylprednisolone",
+      "tacrolimus",
+      "cyclosporine",
+      "hydrochlorothiazide",
+      "chlorthalidone",
+      "olanzapine",
+      "quetiapine",
+      "risperidone",
+    ],
+    highRiskMatches: [
+      "prednisone",
+      "prednisolone",
+      "hydrocortisone",
+      "dexamethasone",
+      "methylprednisolone",
+      "tacrolimus",
+      "olanzapine",
+      "quetiapine",
+    ],
+    summary: (matched) =>
+      `Hyperglycemia-promoting drugs are stacking: ${matched.join(", ")}. Recheck glucose monitoring needs and whether temporary diabetes-regimen adjustment is required.`,
   },
   {
     domain: "bleeding",
@@ -164,6 +293,28 @@ function normalizeDrugName(name: string) {
 }
 
 function detectSeverity(rule: StackRule, matchedKeywords: string[], count: number): InteractionSeverity {
+  if (rule.domain === "qt") {
+    if (count >= 2) {
+      return "Major";
+    }
+  }
+
+  if (
+    rule.domain === "hyperkalemia" ||
+    rule.domain === "hypokalemia" ||
+    rule.domain === "hypoglycemia" ||
+    rule.domain === "hyperglycemia"
+  ) {
+    const highRiskCount =
+      rule.highRiskMatches?.filter((keyword) => matchedKeywords.includes(keyword)).length ?? 0;
+
+    if (count >= 3 || highRiskCount >= 2) {
+      return "Major";
+    }
+
+    return "Moderate";
+  }
+
   if (count >= 3) {
     return "Major";
   }

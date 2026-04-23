@@ -17,6 +17,14 @@ function domainLabel(domain: StackWarning["domain"]) {
       return "Anticholinergic";
     case "nephrotoxic":
       return "Nephrotoxic";
+    case "hyperkalemia":
+      return "HyperK";
+    case "hypokalemia":
+      return "HypoK";
+    case "hypoglycemia":
+      return "Hypoglycemia";
+    case "hyperglycemia":
+      return "Hyperglycemia";
   }
 }
 
