@@ -19,6 +19,8 @@ function domainLabel(domain: StackWarning["domain"]) {
       return "EPS";
     case "ergotism":
       return "Ergotism";
+    case "lacticacidosis":
+      return "Lactic acidosis";
     case "nephrotoxic":
       return "Nephrotoxic";
     case "hyperkalemia":

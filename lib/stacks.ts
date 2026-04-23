@@ -8,6 +8,7 @@ export type StackDomain =
   | "anticholinergic"
   | "eps"
   | "ergotism"
+  | "lacticacidosis"
   | "nephrotoxic"
   | "hyperkalemia"
   | "hypokalemia"
@@ -522,6 +523,46 @@ const stackRules: StackRule[] = [
       ].some((keyword) => matchedKeywords.includes(keyword));
 
       if (hasErgot && (hasTriptan || hasStrongCyp3a4Inhibitor)) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
+  },
+  {
+    domain: "lacticacidosis",
+    title: "Drug-induced lactic acidosis stack",
+    matches: [
+      "metformin",
+      "linezolid",
+      "propofol",
+      "zidovudine",
+      "stavudine",
+      "didanosine",
+      "lamivudine",
+      "abacavir",
+      "emtricitabine",
+      "tenofovir",
+    ],
+    highRiskMatches: ["metformin", "linezolid", "propofol", "zidovudine", "stavudine", "didanosine"],
+    summary: (matched) =>
+      `Potential drug-induced lactic acidosis stack detected: ${matched.join(", ")}. Review mitochondrial toxicity risk, shock/perfusion context, renal function, and acid-base monitoring needs.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const highRiskCount =
+        ["metformin", "linezolid", "propofol", "zidovudine", "stavudine", "didanosine"].filter((keyword) =>
+          matchedKeywords.includes(keyword)
+        ).length;
+      const nrtiCount = [
+        "zidovudine",
+        "stavudine",
+        "didanosine",
+        "lamivudine",
+        "abacavir",
+        "emtricitabine",
+        "tenofovir",
+      ].filter((keyword) => matchedKeywords.includes(keyword)).length;
+
+      if (highRiskCount >= 2 || (matchedKeywords.includes("metformin") && matchedKeywords.includes("linezolid")) || nrtiCount >= 2 || matchedDrugs.length >= 3) {
         return "Major";
       }
 
