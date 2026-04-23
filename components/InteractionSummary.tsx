@@ -2,6 +2,7 @@
 
 import type { InteractionSeverity } from "@/lib/interactions";
 import type { ModifiedInteractionPair } from "@/lib/modifiers";
+import type { StackWarning } from "@/lib/stacks";
 
 const severityOrder: InteractionSeverity[] = [
   "Contraindicated",
@@ -24,15 +25,56 @@ const severityShort: Record<InteractionSeverity, string> = {
   Minor: "Minor",
 };
 
+function stackLabel(domain: StackWarning["domain"]) {
+  switch (domain) {
+    case "qt":
+      return "QT";
+    case "bleeding":
+      return "Bleeding";
+    case "serotonergic":
+      return "Serotonergic";
+    case "anticholinergic":
+      return "Anticholinergic";
+    case "eps":
+      return "EPS";
+    case "ergotism":
+      return "Ergotism";
+    case "lacticacidosis":
+      return "Lactic acidosis";
+    case "nephrotoxic":
+      return "Nephrotoxic";
+    case "hyperkalemia":
+      return "HyperK";
+    case "hypokalemia":
+      return "HypoK";
+    case "hypercalcemia":
+      return "HyperCa";
+    case "hypocalcemia":
+      return "HypoCa";
+    case "hyponatremia":
+      return "HypoNa";
+    case "hypernatremia":
+      return "HyperNa";
+    case "hypoglycemia":
+      return "Hypoglycemia";
+    case "hyperglycemia":
+      return "Hyperglycemia";
+    case "normalgapacidosis":
+      return "NAGMA";
+  }
+}
+
 export function InteractionSummary({
   pairs,
-  stackCount = 0,
+  stacks = [],
   dataVersion,
 }: {
   pairs: ModifiedInteractionPair[];
-  stackCount?: number;
+  stacks?: StackWarning[];
   dataVersion: string;
 }) {
+  const stackCount = stacks.length;
+
   if (pairs.length === 0 && stackCount === 0) {
     return (
       <div
@@ -101,6 +143,27 @@ export function InteractionSummary({
           ) : null
         )}
       </div>
+
+      {stacks.length > 0 ? (
+        <div className="mt-3 border-t border-rule pt-2">
+          <p className="eyebrow mb-1.5">Stacks hit</p>
+          <div className="flex flex-wrap gap-1.5">
+            {stacks.map((stack) => (
+              <span
+                key={stack.domain}
+                className="inline-flex items-center gap-1.5 border border-rule bg-surface px-2 py-1 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink-soft"
+              >
+                <span
+                  className="sev-mark"
+                  style={{ background: severityMark[stack.severity] }}
+                  aria-hidden
+                />
+                {stackLabel(stack.domain)}
+              </span>
+            ))}
+          </div>
+        </div>
+      ) : null}
 
       {top ? (
         <p className="mt-3 border-t border-rule pt-2 text-[14px] leading-snug text-ink">

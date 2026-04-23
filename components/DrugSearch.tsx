@@ -13,6 +13,7 @@ import type { DrugCandidate } from "@/lib/rxnorm";
 import { useStore } from "@/lib/store";
 
 const bulkSplitPattern = /[\n,;]+/;
+const whitespaceSplitPattern = /\s+/;
 const bulkPrefixPattern = /^(meds?|medications?)\s*:\s*/i;
 const dosageTailPattern =
   /\s+(?:\d+(?:[./]\d+)?(?:\s*(?:mg|mcg|g|ml|units?|iu|meq|%)\b)?(?:\s*[x*]\s*\d+(?:\/\d+)?)?.*)$/i;
@@ -27,7 +28,7 @@ type Row = {
   id: string;
   title: string;
   subtitle?: string;
-  kind?: "alias" | "result" | "teach" | "info";
+  kind?: "alias" | "batch" | "result" | "teach" | "info";
   onActivate?: () => void | Promise<void>;
   disabled?: boolean;
 };
@@ -46,6 +47,18 @@ function normalizeBulkSegment(segment: string) {
   return withoutDose || stripped;
 }
 
+function uniqueTerms(terms: string[]) {
+  const seen = new Set<string>();
+  return terms.filter((term) => {
+    const key = term.toLowerCase();
+    if (seen.has(key)) {
+      return false;
+    }
+    seen.add(key);
+    return term.length >= 2;
+  });
+}
+
 function extractBulkDrugTerms(text: string) {
   const normalized = text.replace(/\r/g, "\n").trim();
   if (!normalized) {
@@ -57,9 +70,26 @@ function extractBulkDrugTerms(text: string) {
     .map(normalizeBulkSegment)
     .filter(Boolean);
 
-  return segments.filter(
-    (segment, index) => segments.indexOf(segment) === index && segment.length >= 2
-  );
+  return uniqueTerms(segments);
+}
+
+function extractTypedBatchDrugTerms(text: string) {
+  const explicitTerms = extractBulkDrugTerms(text);
+  if (explicitTerms.length >= 2) {
+    return explicitTerms;
+  }
+
+  const normalized = normalizeBulkSegment(text.replace(/\r/g, " "));
+  if (!normalized.includes(" ")) {
+    return [];
+  }
+
+  const terms = normalized
+    .split(whitespaceSplitPattern)
+    .map((segment) => segment.trim())
+    .filter(Boolean);
+
+  return uniqueTerms(terms);
 }
 
 function dedupeComponents(components: AliasComponent[]) {
@@ -96,6 +126,10 @@ export function DrugSearch({
   const term = q.trim();
   const parsedAliasInput = useMemo(() => parseAliasInput(q), [q]);
   const localAlias = useMemo(() => resolveAlias(term, aliases), [aliases, term]);
+  const typedBatchTerms = useMemo(
+    () => (parsedAliasInput || localAlias ? [] : extractTypedBatchDrugTerms(term)),
+    [localAlias, parsedAliasInput, term]
+  );
 
   function addComponents(components: AliasComponent[], viaBrand: string) {
     for (const component of dedupeComponents(components)) {
@@ -222,8 +256,15 @@ export function DrugSearch({
     addComponents(proposal.components, proposal.term.trim());
   }
 
-  async function bulkAddDrugs(rawText: string) {
-    const terms = extractBulkDrugTerms(rawText);
+  async function bulkAddDrugs(
+    rawText: string,
+    options: { sourceLabel?: string; splitWhitespace?: boolean } = {}
+  ) {
+    const terms = options.splitWhitespace
+      ? extractTypedBatchDrugTerms(rawText)
+      : extractBulkDrugTerms(rawText);
+    const sourceLabel = options.sourceLabel ?? "pasted text";
+
     if (terms.length < 2) {
       return false;
     }
@@ -270,7 +311,7 @@ export function DrugSearch({
     setLoading(false);
 
     if (added > 0 && unresolved.length === 0) {
-      setBulkMessage(`Added ${added} medication${added === 1 ? "" : "s"} from pasted text.`);
+      setBulkMessage(`Added ${added} medication${added === 1 ? "" : "s"} from ${sourceLabel}.`);
       return true;
     }
 
@@ -343,6 +384,14 @@ export function DrugSearch({
       disabled: true,
     });
   }
+  if (!loading && typedBatchTerms.length >= 2) {
+    rows.push({
+      id: `batch-${typedBatchTerms.join("|")}`,
+      kind: "batch",
+      title: `Add all matched terms`,
+      subtitle: typedBatchTerms.join(", "),
+    });
+  }
   for (const result of results) {
     rows.push({
       id: `result-${result.rxcui}`,
@@ -362,7 +411,24 @@ export function DrugSearch({
     });
   }
 
-  const canActivate = (i: number) => Boolean(rows[i]?.onActivate && !rows[i]?.disabled);
+  const canActivate = (i: number) =>
+    Boolean((rows[i]?.onActivate || rows[i]?.kind === "batch") && !rows[i]?.disabled);
+
+  function activateRow(row: Row | undefined) {
+    if (!row || row.disabled) {
+      return;
+    }
+
+    if (row.kind === "batch") {
+      void bulkAddDrugs(term, {
+        sourceLabel: "search terms",
+        splitWhitespace: true,
+      });
+      return;
+    }
+
+    void row.onActivate?.();
+  }
 
   function firstSelectable(direction: 1 | -1) {
     if (direction === 1) {
@@ -425,11 +491,19 @@ export function DrugSearch({
       return;
     }
     if (event.key === "Enter") {
+      if ((!open || activeIndex < 0) && typedBatchTerms.length >= 2) {
+        event.preventDefault();
+        void bulkAddDrugs(term, {
+          sourceLabel: "search terms",
+          splitWhitespace: true,
+        });
+        return;
+      }
       if (!open || activeIndex < 0) return;
       const row = rows[activeIndex];
-      if (row?.onActivate && !row.disabled) {
+      if (canActivate(activeIndex)) {
         event.preventDefault();
-        void row.onActivate();
+        activateRow(row);
       }
     }
   }
@@ -520,7 +594,7 @@ export function DrugSearch({
           >
             {rows.map((row, index) => {
               const isActive = index === effectiveActive;
-              if (!row.onActivate || row.disabled) {
+              if ((!row.onActivate && row.kind !== "batch") || row.disabled) {
                 return (
                   <div
                     key={row.id}
@@ -533,6 +607,7 @@ export function DrugSearch({
                 );
               }
               const isAlias = row.kind === "alias";
+              const isBatch = row.kind === "batch";
               const isTeach = row.kind === "teach";
               return (
                 <button
@@ -542,7 +617,7 @@ export function DrugSearch({
                   type="button"
                   role="option"
                   aria-selected={isActive}
-                  onClick={() => void row.onActivate?.()}
+                  onClick={() => activateRow(row)}
                   onMouseEnter={() => setActiveIndex(index)}
                   className={[
                     "block w-full border-b border-rule bg-paper-raised px-4 py-3 text-left transition-colors last:border-b-0",
@@ -553,6 +628,10 @@ export function DrugSearch({
                     {isAlias ? (
                       <span className="eyebrow mt-0.5 shrink-0 text-accent">
                         Alias
+                      </span>
+                    ) : isBatch ? (
+                      <span className="eyebrow mt-0.5 shrink-0" style={{ color: "var(--good)" }}>
+                        Batch
                       </span>
                     ) : isTeach ? (
                       <span className="eyebrow mt-0.5 shrink-0" style={{ color: "var(--sev-major)" }}>

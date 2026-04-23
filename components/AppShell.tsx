@@ -181,7 +181,7 @@ export function AppShell() {
         <section className="mt-4">
           <InteractionSummary
             pairs={modifiedResult.pairs}
-            stackCount={stackWarnings.length}
+            stacks={stackWarnings}
             dataVersion={modifiedResult.dataVersion}
           />
         </section>
