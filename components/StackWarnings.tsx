@@ -15,6 +15,8 @@ function domainLabel(domain: StackWarning["domain"]) {
       return "Serotonergic";
     case "anticholinergic":
       return "Anticholinergic";
+    case "eps":
+      return "EPS";
     case "nephrotoxic":
       return "Nephrotoxic";
     case "hyperkalemia":

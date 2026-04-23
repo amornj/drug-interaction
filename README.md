@@ -17,7 +17,7 @@ A mobile-first PWA for bedside drug interaction checking, built for busy clinici
 - PWA manifest (real service worker deferred to M10)
 - RxNorm REST API (NIH) for drug normalization and autocomplete
 - Local deterministic patient-modifier rule layer for pregnancy, lactation, renal, hepatic, age ≥ 65, and G6PD
-- Local deterministic cumulative-stack rule layer for QT, bleeding, serotonergic, anticholinergic, nephrotoxic, potassium, and glucose burden
+- Local deterministic cumulative-stack rule layer for QT, bleeding, serotonergic, anticholinergic syndrome, extrapyramidal syndrome, nephrotoxic, potassium, and glucose burden
 - Local deterministic pharmacogenomics rule layer for CPIC-style test prompts and phenotype-aware guidance
 - Search-box paste importer for comma/newline medication chunks routed through RxNorm normalization
 - Per-pair clipboard fallback prompt when the optional Anthropic explainer is unavailable
@@ -65,7 +65,7 @@ Recent additions in M9:
 | M2 | Deterministic pair check (DDInter + overlay), severity-sorted list, red/amber verdict |
 | M3 | Streamed Anthropic explainer that restates deterministic pair facts with citations |
 | M4 | Local patient modifier chips with Cockcroft–Gault renal input and deterministic pair re-ranking |
-| M5 | Local deterministic cumulative stacks: QT, bleeding, serotonergic, anticholinergic, nephrotoxic, hyperkalemia, hypokalemia, hypoglycemia, hyperglycemia |
+| M5 | Local deterministic cumulative stacks: QT, bleeding, serotonergic, anticholinergic syndrome, extrapyramidal syndrome, nephrotoxic, hyperkalemia, hypokalemia, hypoglycemia, hyperglycemia |
 | M6 | Voice (Web Speech API), OCR (tesseract.js), paste-block EMR parser |
 | M7 | Shareable report: copy-to-EMR text, structured JSON, PDF |
 | M8 | Local pharmacogenomics panel (CPIC-style): tests before prescribing, phenotype-aware management |

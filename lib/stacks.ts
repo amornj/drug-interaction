@@ -6,6 +6,7 @@ export type StackDomain =
   | "bleeding"
   | "serotonergic"
   | "anticholinergic"
+  | "eps"
   | "nephrotoxic"
   | "hyperkalemia"
   | "hypokalemia"
@@ -200,6 +201,7 @@ const stackRules: StackRule[] = [
       "glibenclamide",
       "repaglinide",
       "nateglinide",
+      "linezolid",
     ],
     highRiskMatches: [
       "insulin",
@@ -210,6 +212,7 @@ const stackRules: StackRule[] = [
       "glibenclamide",
       "repaglinide",
       "nateglinide",
+      "linezolid",
     ],
     summary: (matched) =>
       `Hypoglycemia-risk drugs are stacking: ${matched.join(", ")}. Recheck glucose trend, meal intake, and renal function before keeping the full regimen.`,
@@ -224,8 +227,13 @@ const stackRules: StackRule[] = [
         "repaglinide",
         "nateglinide",
       ].some((keyword) => matchedKeywords.includes(keyword));
+      const hasLinezolid = matchedKeywords.includes("linezolid");
 
-      if ((hasInsulin && hasSulfonylureaOrMeglitinide) || matchedDrugs.length >= 3) {
+      if (
+        (hasInsulin && hasSulfonylureaOrMeglitinide) ||
+        (hasLinezolid && (hasInsulin || hasSulfonylureaOrMeglitinide)) ||
+        matchedDrugs.length >= 3
+      ) {
         return "Major";
       }
 
@@ -401,7 +409,7 @@ const stackRules: StackRule[] = [
   },
   {
     domain: "anticholinergic",
-    title: "Anticholinergic burden stack",
+    title: "Anticholinergic syndrome stack",
     matches: [
       "amitriptyline",
       "diphenhydramine",
@@ -415,7 +423,38 @@ const stackRules: StackRule[] = [
       "tolterodine",
     ],
     summary: (matched) =>
-      `Anticholinergic drugs are stacking: ${matched.join(", ")}. Review cumulative delirium, constipation, retention, and fall risk.`,
+      `Anticholinergic drugs are stacking: ${matched.join(", ")}. Review for cumulative anticholinergic syndrome risk: delirium, urinary retention, ileus, tachycardia, and hyperthermia.`,
+  },
+  {
+    domain: "eps",
+    title: "Extrapyramidal syndrome stack",
+    matches: [
+      "haloperidol",
+      "fluphenazine",
+      "perphenazine",
+      "chlorpromazine",
+      "risperidone",
+      "paliperidone",
+      "olanzapine",
+      "ziprasidone",
+      "metoclopramide",
+      "prochlorperazine",
+    ],
+    highRiskMatches: ["haloperidol", "fluphenazine", "metoclopramide", "prochlorperazine"],
+    summary: (matched) =>
+      `Dopamine-blocking drugs are stacking: ${matched.join(", ")}. Review cumulative extrapyramidal symptom risk including dystonia, parkinsonism, akathisia, and tardive syndromes.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const highRiskCount =
+        ["haloperidol", "fluphenazine", "metoclopramide", "prochlorperazine"].filter((keyword) =>
+          matchedKeywords.includes(keyword)
+        ).length;
+
+      if (highRiskCount >= 2 || matchedDrugs.length >= 3) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
   },
   {
     domain: "nephrotoxic",
