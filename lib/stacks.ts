@@ -27,6 +27,10 @@ type StackRule = {
   matches: string[];
   highRiskMatches?: string[];
   summary: (matched: string[]) => string;
+  detectSeverity?: (
+    matchedKeywords: string[],
+    matchedDrugs: Array<{ normalizedName: string }>
+  ) => InteractionSeverity;
 };
 
 const STACK_RULE_SOURCE: InteractionSource = {
@@ -223,25 +227,102 @@ const stackRules: StackRule[] = [
   },
   {
     domain: "serotonergic",
-    title: "Serotonergic toxicity stack",
+    title: "Serotonin syndrome stack",
     matches: [
-      "sertraline",
+      "phenelzine",
+      "tranylcypromine",
+      "isocarboxazid",
+      "selegiline",
+      "rasagiline",
       "fluoxetine",
+      "sertraline",
       "paroxetine",
       "citalopram",
       "escitalopram",
+      "fluvoxamine",
       "venlafaxine",
+      "desvenlafaxine",
       "duloxetine",
+      "levomilnacipran",
       "tramadol",
       "linezolid",
+      "methylene blue",
       "amitriptyline",
+      "clomipramine",
+      "imipramine",
+      "nortriptyline",
       "mirtazapine",
-      "sumatriptan",
+      "trazodone",
       "methadone",
     ],
-    highRiskMatches: ["linezolid", "tramadol", "methadone"],
+    highRiskMatches: [
+      "phenelzine",
+      "tranylcypromine",
+      "isocarboxazid",
+      "selegiline",
+      "rasagiline",
+      "linezolid",
+      "methylene blue",
+      "tramadol",
+      "methadone",
+    ],
     summary: (matched) =>
-      `Serotonergic agents are stacking: ${matched.join(", ")}. Review for additive serotonin-toxicity risk.`,
+      `High-risk serotonergic combination detected: ${matched.join(", ")}. Review serotonin syndrome risk, especially with MAOI exposure, tramadol, linezolid, methylene blue, or multiple antidepressants.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const hasMaoi = ["phenelzine", "tranylcypromine", "isocarboxazid", "selegiline", "rasagiline"].some((keyword) => matchedKeywords.includes(keyword));
+      const hasSsriSnri = [
+        "fluoxetine",
+        "sertraline",
+        "paroxetine",
+        "citalopram",
+        "escitalopram",
+        "fluvoxamine",
+        "venlafaxine",
+        "desvenlafaxine",
+        "duloxetine",
+        "levomilnacipran",
+      ].some((keyword) => matchedKeywords.includes(keyword));
+      const hasTramadol = matchedKeywords.includes("tramadol");
+      const hasLinezolid = matchedKeywords.includes("linezolid");
+      const hasMethyleneBlue = matchedKeywords.includes("methylene blue");
+      const antidepressantCount = matchedDrugs.filter((drug) =>
+        [
+          "fluoxetine",
+          "sertraline",
+          "paroxetine",
+          "citalopram",
+          "escitalopram",
+          "fluvoxamine",
+          "venlafaxine",
+          "desvenlafaxine",
+          "duloxetine",
+          "levomilnacipran",
+          "amitriptyline",
+          "clomipramine",
+          "imipramine",
+          "nortriptyline",
+          "mirtazapine",
+          "trazodone",
+          "phenelzine",
+          "tranylcypromine",
+          "isocarboxazid",
+          "selegiline",
+          "rasagiline",
+        ].some((keyword) => drug.normalizedName.includes(keyword))
+      ).length;
+
+      if (
+        (hasMaoi && hasSsriSnri) ||
+        ((hasSsriSnri || antidepressantCount >= 1) && hasTramadol) ||
+        ((hasSsriSnri || antidepressantCount >= 1) && hasLinezolid) ||
+        ((hasSsriSnri || antidepressantCount >= 1) && hasMethyleneBlue) ||
+        antidepressantCount >= 2
+      ) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
   },
   {
     domain: "anticholinergic",
@@ -292,7 +373,16 @@ function normalizeDrugName(name: string) {
   return name.toLowerCase().replace(/\([^)]*\)/g, " ").replace(/\s+/g, " ").trim();
 }
 
-function detectSeverity(rule: StackRule, matchedKeywords: string[], count: number): InteractionSeverity {
+function detectSeverity(
+  rule: StackRule,
+  matchedKeywords: string[],
+  matchedDrugs: Array<{ normalizedName: string }>,
+  count: number
+): InteractionSeverity {
+  if (rule.detectSeverity) {
+    return rule.detectSeverity(matchedKeywords, matchedDrugs);
+  }
+
   if (rule.domain === "qt") {
     if (count >= 2) {
       return "Major";
@@ -349,7 +439,7 @@ export function detectCumulativeStacks(drugs: Drug[]): StackWarning[] {
       return {
         domain: rule.domain,
         title: rule.title,
-        severity: detectSeverity(rule, matchedKeywords, matchedDrugs.length),
+        severity: detectSeverity(rule, matchedKeywords, matchedDrugs, matchedDrugs.length),
         summary: rule.summary(matchedDrugs.map((drug) => drug.name)),
         matchedDrugs: matchedDrugs.map((drug) => ({
           rxcui: drug.rxcui,
