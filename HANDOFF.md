@@ -28,22 +28,20 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
   - `components/SeverityBadge.tsx`
   - wired bottom-bar CTA in `components/AppShell.tsx`
   - optional clipboard fallback prompt per interaction pair for use in external AI chat apps
-- Streamed explainer route:
-  - `app/api/interactions/explain/route.ts`
-  - Anthropic via Vercel AI SDK
-  - prompt constrained to deterministic pair payload only
-  - returns clean `503` when `ANTHROPIC_API_KEY` is absent
+- External LLM prompt helpers:
+  - `components/InteractionExplanation.tsx`
+  - pairwise interaction cards expose a `Copy prompt` button only
+  - cumulative stack cards expand on tap and expose a mechanism prompt for the matched stack
 - Search input enhancements:
   - `components/DrugSearch.tsx`
   - supports pasting medication-list text like `Med: Hydrochlorothiazine 1/2*1, atorvastatin 40 1*1, ezetimibe 10 1/2*1`
   - extracts candidate drug names locally and bulk-adds matched RxNorm results through the existing search route
   - now checks user aliases, curated brand overlay, and then RxNorm in that precedence order
   - supports inline alias syntax such as `galvusmet = vildagliptin + metformin`
-- Pair-level explainer UI:
+- Pair-level prompt UI:
   - `components/InteractionExplanation.tsx`
-  - optional “Explain” affordance per pair
-  - added “Copy” button that copies `Check drug interaction between <Drug A> and <Drug B>` to the clipboard
-  - streamed prose rendered below deterministic content, with deterministic citations shown per section
+  - copy-only prompt affordance per pair
+  - no in-app AI explanation prose; deterministic content stays authoritative
 - Alias and brand-resolution layer:
   - `lib/aliases.ts`
   - `lib/data/brands/*.yaml` + generated `lib/data/brands/index.json`
@@ -67,7 +65,7 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
 - Patient modifier layer:
   - `components/PatientModifiers.tsx`
   - `lib/modifiers.ts`
-  - pregnancy, lactation, hepatic impairment, age ≥ 65, G6PD, and Cockcroft–Gault renal inputs
+  - renal, hepatic impairment, age ≥ 65, G6PD, pregnancy, and lactation chips
   - modifier state persisted locally with each case
   - deterministic client-side re-ranking and modifier citation blocks in the interaction list
 - Cumulative stack layer:
@@ -108,7 +106,7 @@ app/
   api/aliases/backup/[syncId]/route.ts # encrypted alias blob backup/restore
   api/drugs/search/route.ts   # RxNorm proxy (edge)
   api/interactions/check/route.ts   # deterministic pair check (edge)
-  api/interactions/explain/route.ts # streamed Anthropic explainer
+  api/interactions/explain/route.ts # legacy streamed Anthropic explainer route, not used by current UI
 components/
   AppShell.tsx        # composes the mobile UI
   AliasManagerModal.tsx # local alias database import/export/remove modal
@@ -117,8 +115,8 @@ components/
   DrugSearch.tsx      # autocomplete + brand expansion + alias save + pasted med-list bulk import
   DrugChip.tsx        # med list row with remove button + via-brand tag
   InteractionList.tsx # severity-sorted list with citations + expanders
-  InteractionExplanation.tsx # optional streamed explainer + copy prompt per pair
-  PatientModifiers.tsx # local modifier chips + Cockcroft–Gault input panel
+  InteractionExplanation.tsx # copy prompt per pair
+  PatientModifiers.tsx # local modifier chips
   PharmacogenomicsPanel.tsx # local PGx test prompts and phenotype-aware guidance
   StackWarnings.tsx   # cumulative stack warning cards with citations
   SeverityBadge.tsx   # red/orange/amber/yellow severity variants
@@ -207,7 +205,7 @@ Goal: harden the bedside experience for low-connectivity use, installability, an
 
 ## Milestone order
 
-- **M3** — LLM explainer endpoint (streaming, Anthropic via Vercel AI SDK) — **done**.
+- **M3** — External LLM copy prompts for deterministic pair results — **done**.
 - **M4** — Patient modifiers as chips — **done**.
 - **M5** — Cumulative risk stacks — **done**.
 - **M6** — Voice input (Web Speech API), OCR (tesseract.js), paste-block EMR parser — *paste-block done as part of M8 session; voice and OCR still deferred.*

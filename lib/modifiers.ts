@@ -15,10 +15,6 @@ export type PatientModifierKey =
 
 export type RenalInputs = {
   enabled: boolean;
-  sex: "male" | "female";
-  ageYears: string;
-  weightKg: string;
-  serumCreatinineMgDl: string;
 };
 
 export type PatientModifiers = {
@@ -60,7 +56,6 @@ type ModifierRule = {
 type RenalRule = {
   title: string;
   matches: string[];
-  threshold: "lt30" | "30to59";
   adjustedSeverity?: InteractionSeverity;
   summary: string;
 };
@@ -85,10 +80,6 @@ const defaultPatientModifiers: PatientModifiers = {
   g6pdDeficiency: false,
   renal: {
     enabled: false,
-    sex: "male",
-    ageYears: "",
-    weightKg: "",
-    serumCreatinineMgDl: "",
   },
 };
 
@@ -154,28 +145,18 @@ const modifierRules: ModifierRule[] = [
 
 const renalRules: RenalRule[] = [
   {
-    title: "Renal function < 30 mL/min",
+    title: "Reduced renal function",
     matches: ["metformin", "gabapentin", "pregabalin", "nitrofurantoin", "rivaroxaban", "dabigatran"],
-    threshold: "lt30",
     adjustedSeverity: "Major",
     summary:
-      "Cockcroft–Gault estimate below 30 mL/min raises urgency because one drug in this pair is on the local renal-dose watchlist.",
+      "Renal modifier raises urgency because one drug in this pair is on the local renal-dose watchlist.",
   },
   {
-    title: "Renal function < 30 mL/min",
+    title: "Reduced renal function",
     matches: ["ibuprofen", "ketorolac", "naproxen", "celecoxib", "diclofenac"],
-    threshold: "lt30",
     adjustedSeverity: "Major",
     summary:
-      "Cockcroft–Gault estimate below 30 mL/min raises concern because one drug in this pair is on the local NSAID renal-risk watchlist.",
-  },
-  {
-    title: "Renal function 30–59 mL/min",
-    matches: ["ibuprofen", "ketorolac", "naproxen", "celecoxib", "diclofenac"],
-    threshold: "30to59",
-    adjustedSeverity: "Moderate",
-    summary:
-      "Cockcroft–Gault estimate 30–59 mL/min adds renal caution because one drug in this pair is on the local NSAID renal-risk watchlist.",
+      "Renal modifier raises concern because one drug in this pair is on the local NSAID renal-risk watchlist.",
   },
 ];
 
@@ -203,35 +184,6 @@ function chooseHigherSeverity(
     return current;
   }
   return severityRank[candidate] < severityRank[current] ? candidate : current;
-}
-
-export function calculateCockcroftGault(renal: RenalInputs) {
-  const ageYears = Number(renal.ageYears);
-  const weightKg = Number(renal.weightKg);
-  const serumCreatinineMgDl = Number(renal.serumCreatinineMgDl);
-
-  if (
-    !renal.enabled ||
-    !Number.isFinite(ageYears) ||
-    !Number.isFinite(weightKg) ||
-    !Number.isFinite(serumCreatinineMgDl) ||
-    ageYears <= 0 ||
-    weightKg <= 0 ||
-    serumCreatinineMgDl <= 0
-  ) {
-    return { value: null, band: null as "lt30" | "30to59" | "60plus" | null };
-  }
-
-  const base = ((140 - ageYears) * weightKg) / (72 * serumCreatinineMgDl);
-  const value = renal.sex === "female" ? base * 0.85 : base;
-
-  if (value < 30) {
-    return { value, band: "lt30" as const };
-  }
-  if (value < 60) {
-    return { value, band: "30to59" as const };
-  }
-  return { value, band: "60plus" as const };
 }
 
 function applyFlagModifierRules(
@@ -265,15 +217,11 @@ function applyRenalRules(
   modifiers: PatientModifiers
 ): ModifierEffect[] {
   const effects: ModifierEffect[] = [];
-  const renalEstimate = calculateCockcroftGault(modifiers.renal);
-  if (!modifiers.renal.enabled || !renalEstimate.band || renalEstimate.band === "60plus") {
+  if (!modifiers.renal.enabled) {
     return effects;
   }
 
   for (const rule of renalRules) {
-    if (rule.threshold !== renalEstimate.band) {
-      continue;
-    }
     if (!pairMatches(pair, rule.matches)) {
       continue;
     }
@@ -295,11 +243,8 @@ function summarizeActiveModifiers(modifiers: PatientModifiers) {
 
   (Object.keys(modifierLabels) as PatientModifierKey[]).forEach((key) => {
     if (key === "renal") {
-      const renalEstimate = calculateCockcroftGault(modifiers.renal);
-      if (modifiers.renal.enabled && renalEstimate.value !== null) {
-        active.push(
-          `${modifierLabels.renal} (Cockcroft–Gault ${renalEstimate.value.toFixed(0)} mL/min)`
-        );
+      if (modifiers.renal.enabled) {
+        active.push(modifierLabels.renal);
       }
       return;
     }

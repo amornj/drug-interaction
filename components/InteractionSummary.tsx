@@ -120,7 +120,6 @@ export function InteractionSummary({
     >
       <div className="flex items-baseline justify-between gap-3">
         <p className="eyebrow">Summary</p>
-        <p className="stamp">{dataVersion}</p>
       </div>
 
       <div className="mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-1.5">

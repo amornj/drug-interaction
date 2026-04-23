@@ -130,7 +130,6 @@ export function InteractionList({
                   management: pair.management,
                   sources: pair.sources,
                 }}
-                dataVersion={result.dataVersion}
               />
             </div>
           </details>
