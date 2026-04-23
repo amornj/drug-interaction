@@ -1,138 +1,129 @@
 # Drug Interaction Checker
 
-A bedside-first drug interaction checker built for fast clinical use.
+A bedside-first web app for fast medication-list review.
 
 **Decision-support only. Verify in primary references before prescribing.**
 
 ## What it does
 
-Drug Interaction Checker is a fast local-first web app for reviewing medication lists at the bedside.
+Drug Interaction Checker helps clinicians paste or type a medication list and quickly see:
 
-It is designed for the real workflow:
-- type several drugs in one line
-- paste a chunk of medication text from an EMR or note
-- match brand or generic names
-- expand combination pills into ingredients
-- remove duplicates and already-present ingredients automatically
-- surface both pairwise interactions and cumulative stack risks immediately
+- significant pairwise drug interactions
+- cumulative risk stacks such as bleeding or hyperkalemia
+- pharmacogenomic warnings
+- patient-phenotype modifiers such as renal or hepatic risk
+- copyable prompts for asking an LLM chat to explain mechanisms
 
-No AI is required for the core checker. The app relies on local deterministic rules and prebuilt indexes for real-time results.
+The core checker is deterministic and local-first. No AI is involved in matching, scoring, or warning generation.
 
-## Why it is useful
+## Features
 
-Most interaction checkers tell you that two drugs interact.
-This one is built to help you see the whole medication picture at a glance.
+### Intelligent Input
 
-It gives you:
-- **pairwise drug interaction warnings** with severity at a glance
-- **cumulative stack warnings** for clinically meaningful burdens such as bleeding, hyperkalemia, hyperglycemia, serotonergic toxicity, nephrotoxicity, and more
-- **pharmacogenomics warnings** with phenotype-aware local prompts
-- **patient-context modifiers** such as renal or hepatic phenotype that can strengthen or re-rank warnings
-- **copyable prompts** when you want to ask a local or external LLM for mechanism-level explanation
+- **Fuzzy single match:** standard search behavior for one drug at a time, tuned for accurate matching.
+- **Batch match:** fast matching for many drugs in one input.
+- Type multiple drugs in a single line.
+- Copy and paste a chunk of text that contains a medication list.
+- Remove existing drugs easily.
+- Accepts both generic names and commercial names, primarily using US formulation conventions.
+- Accepts combination pills and expands them into all matched ingredients.
+- Automatically rejects ingredients already present in the case when adding new input.
+- Works almost entirely with keyboard-only use.
 
-The real value is not only detecting one pair. It is showing the **cumulative load** of the whole regimen up front.
+### Alias Dictionary
 
-## Key features
+- Supports a local custom alias dictionary.
+- Manual alias creation is useful for local shorthand, commercial products, and combination pills.
+- This is manual work, but it is reliable and works well for combined products.
+- Syncing custom aliases across devices is the main remaining roadmap item, likely through Vercel Blob or Supabase-backed login.
 
-### Intelligent input
-- Intelligent search box with fuzzy single-match behavior tuned for speed and accuracy
-- Batch matching for pasted medication lists
-- Accepts multiple drugs typed in a single line
-- Accepts copied text chunks that contain mixed medication lists
-- Works well with keyboard-first workflow
+### Summary Box
 
-### Flexible drug matching
-- Accepts both **generic** and **commercial/brand** names
-- Brand matching is primarily curated in **US-style naming/formulation conventions**
-- Supports **combination pills** and expands them into all ingredients
-- Automatically rejects ingredients already present in the list when a new combo or alias overlaps
-- Makes it easy to remove an existing drug from the current case
+- Shows the number of significant interactions.
+- Shows major and moderate interaction counts.
+- Shows the top drug interaction at a glance.
+- Shows which cumulative stacks were triggered.
 
-### Alias system
-- Create a **local custom alias dictionary** for your own naming habits
-- Especially useful for local shorthand and combination products
-- Manual alias creation works very well today
-- **Remaining roadmap:** smoother syncing of custom aliases across devices, likely through a lightweight remote layer such as Vercel Blob or Supabase-backed login
+### Cumulative Stacks
 
-### Interaction display
-- Real-time matching once the input is entered
-- Fast deterministic pairwise interaction checking
-- Summary box showing:
-  - number of significant interactions
-  - major/moderate/minor breakdown
-  - top interaction at a glance
-  - cumulative stack hits
-- Pairwise results are easy to scan quickly
-- Copy prompt for deeper mechanism review in a local or external LLM chat if needed
+Cumulative stacks are a core value of the app. They show additive risk across the whole medication list, not just one pairwise interaction.
 
-### Cumulative stack warnings
-The cumulative stack engine is one of the most useful parts of the app.
+Examples include:
 
-It can flag additive burden across different drug groups, including examples like:
-- bleeding risk
+- bleeding
 - hyperkalemia
+- hypokalemia
+- hypercalcemia
+- hypocalcemia
+- hyponatremia
+- hypernatremia
 - hyperglycemia
-- serotonergic toxicity
+- hyperuricemia
+- high anion gap metabolic acidosis
+- serotonin syndrome
 - nephrotoxicity
-- and other clinically relevant stacks
+- normal gap acidosis
 
-This is valuable because the important bedside question is often:
-**what overall side-effect burden is this whole regimen creating?**
+The goal is to show potential side-effect burden up front, such as hyperkalemia risk when several matched drugs contribute to the same stack. Stack cards include copyable prompts so users can ask an LLM chat for mechanistic explanation.
 
-### Pharmacogenomics and phenotype-aware warnings
-- Integrated local pharmacogenomics warning layer
-- Pairwise interaction results stay separate from PGx guidance
-- Warning strength can be modified by patient phenotype, such as renal or hepatic context
-- Lets you copy a prompt for mechanism-focused follow-up in LLM chat when you want explanation beyond the deterministic rule
+### Pairwise Drug Interactions
 
-### UX
-- Modern, highly styled UI — not a default Tailwind-looking app
-- Built to feel fast and clean on desktop
-- Also works well on iPhone
-- Best desktop workflow: paste a medication list from the inpatient record and review results immediately
-- Works almost perfectly with keyboard only
+- Checks each drug pair for interaction.
+- Shows that an interaction exists and gives warning level at a glance.
+- Does not try to replace a primary reference or full mechanistic monograph.
+- Includes copyable prompts for asking an LLM chat to explain the mechanism.
+- Warning strength can be modified by patient phenotype, such as renal or hepatic risk.
+- Matching is fast because it relies on local rules and predetermined indexes.
+- Once input is matched, interaction results update in real time.
+
+### Pharmacogenomics
+
+- Integrates pharmacogenomic warnings into the same workflow.
+- Flags gene checks when a trigger drug is present.
+- Keeps pharmacogenomic warnings separate from pairwise interaction results.
+
+Current examples include:
+
+- HLA-B*58:01 for allopurinol
+- HLA-B*15:02 for carbamazepine
+- HLA-B*57:01 for abacavir
+
+### Design And Workflow
+
+- Modern custom UI, not a vanilla Tailwind layout.
+- Designed with a strong visual direction and the frontend-skill workflow.
+- Works as a web app.
+- Best on desktop when copying a medication list from an inpatient record and reviewing the result immediately.
+- Also works on iPhone.
+- Free to use.
+- No AI is required for the core checker.
 
 ## Screenshots
 
-### Main interaction view
+### Main Interaction View
+
 ![Drug Interaction Checker main screen](./docs/images/drug-interaction-main.png)
 
-### Pharmacogenomics + cumulative load + pairwise results
+### Pharmacogenomics, Cumulative Load, And Pairwise Results
+
 ![Drug Interaction Checker pharmacogenomics and cumulative load](./docs/images/drug-interaction-pgx.png)
 
-## How it works
+## How It Works
 
-- Local deterministic interaction rules and precomputed indexes drive the core checker
-- Pairwise interaction severity is shown directly in the app
-- Cumulative stack logic runs locally
-- Pharmacogenomics prompts run locally
-- Results appear in real time once matching is complete
-- Optional prompt-copy helpers exist for asking an LLM about mechanism, but **AI is not part of the core checking engine**
+- Local deterministic interaction rules and precomputed indexes drive the core checker.
+- RxNorm-based normalization supports generic matching.
+- Curated brand and alias dictionaries support commercial names and combination products.
+- Cumulative stack rules run locally.
+- Pharmacogenomic rules run locally.
+- Optional prompt-copy helpers make it easy to ask an external LLM chat for mechanism-level learning.
 
-## Current product status
-
-The app already covers the core workflow very well:
-- bedside medication-list entry
-- fuzzy matching
-- generic + brand support
-- combination pill expansion
-- duplicate ingredient rejection
-- pairwise interaction review
-- cumulative stack warnings
-- pharmacogenomics prompts
-- keyboard-first use
-- mobile and desktop support
-
-In practice, the checker is already very close to the intended end state.
-
-## Remaining roadmap
+## Roadmap
 
 Only one meaningful product item remains:
-- **sync custom aliases across devices**
 
-Everything else is already focused on making the current local-first workflow fast, reliable, and easy to use.
+- sync custom aliases across devices
 
-## Tech stack
+## Tech Stack
 
 - Next.js 16
 - React 19
@@ -144,7 +135,7 @@ Everything else is already focused on making the current local-first workflow fa
 - Local deterministic cumulative-stack rules
 - Local deterministic pharmacogenomics rules
 
-## Getting started
+## Getting Started
 
 ```bash
 npm install
@@ -154,9 +145,6 @@ npm run dev
 
 Open `http://localhost:3000`.
 
-## Notes
+## Clinical Note
 
-- Free to use
-- No AI required for the core checker
-- Designed for clinicians who need immediate signal, not a slow chat workflow
-- Decision-support only. Final prescribing decisions still belong to the clinician using primary references
+This app is decision support only. It is built to surface signal quickly, not to replace clinical judgment, primary references, local policy, or prescribing responsibility.

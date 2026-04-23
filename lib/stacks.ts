@@ -19,6 +19,7 @@ export type StackDomain =
   | "hyperuricemia"
   | "hypoglycemia"
   | "hyperglycemia"
+  | "hagma"
   | "normalgapacidosis";
 
 export type StackWarning = {
@@ -500,6 +501,38 @@ const stackRules: StackRule[] = [
       `Hyperglycemia-promoting drugs are stacking: ${matched.join(", ")}. Recheck glucose monitoring needs and whether temporary diabetes-regimen adjustment is required.`,
   },
   {
+    domain: "hagma",
+    title: "High anion gap metabolic acidosis stack",
+    matches: [
+      "methanol",
+      "ethylene glycol",
+      "propylene glycol",
+      "lorazepam",
+      "diazepam",
+      "salicylate",
+      "acetylsalicylic acid",
+      "aspirin",
+      "iron",
+      "ferrous sulfate",
+      "ferrous gluconate",
+      "ferrous fumarate",
+      "isoniazid",
+    ],
+    highRiskMatches: [
+      "methanol",
+      "ethylene glycol",
+      "propylene glycol",
+      "salicylate",
+      "acetylsalicylic acid",
+      "aspirin",
+      "iron",
+      "isoniazid",
+    ],
+    summary: (matched) =>
+      `High anion gap metabolic acidosis risk is stacking: ${matched.join(", ")}. Recheck acid-base status, anion gap, osmolar gap, lactate, ketones, salicylate or iron levels when relevant, and overdose/toxic alcohol context.`,
+    detectSeverity: () => "Major",
+  },
+  {
     domain: "normalgapacidosis",
     title: "Normal-gap metabolic acidosis stack",
     matches: [
@@ -881,6 +914,7 @@ function detectSeverity(
     rule.domain === "hyperuricemia" ||
     rule.domain === "hypoglycemia" ||
     rule.domain === "hyperglycemia" ||
+    rule.domain === "hagma" ||
     rule.domain === "normalgapacidosis"
   ) {
     const highRiskCount =

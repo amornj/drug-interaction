@@ -61,6 +61,8 @@ function stackLabel(domain: StackWarning["domain"]) {
       return "Hypoglycemia";
     case "hyperglycemia":
       return "Hyperglycemia";
+    case "hagma":
+      return "HAGMA";
     case "normalgapacidosis":
       return "NAGMA";
   }
