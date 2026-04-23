@@ -14,7 +14,7 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
 - Mobile-first shell: `components/AppShell.tsx`, case switcher, thumb-zone bottom bar, safe-area insets
 - RxNorm autocomplete: `lib/rxnorm.ts` + `app/api/drugs/search/route.ts` (edge runtime, 24h cache, dedup by rxcui)
 - Local-only persistence: `lib/store.ts` (Zustand + idb-keyval, `STORAGE_KEY = "di.state.v1"`)
-- PWA manifest + icon; real service worker deferred to M9
+- PWA manifest + icon; real service worker deferred to M10
 - Decision-support footer on every screen
 - Deterministic pair-check route: `app/api/interactions/check/route.ts` (edge runtime, in-memory response cache)
 - DDInter ingest artifacts:

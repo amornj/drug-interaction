@@ -10,11 +10,11 @@ A mobile-first PWA for bedside drug interaction checking, built for busy clinici
 
 ## Stack
 
-- Next.js 15 (App Router) + React 19 + TypeScript
+- Next.js 16 (App Router) + React 19 + TypeScript
 - Tailwind CSS v4
 - Zustand + idb-keyval (IndexedDB) for local-only state
 - Vercel AI SDK + Anthropic provider for streamed explanation prose
-- PWA manifest (real service worker deferred to M9)
+- PWA manifest (real service worker deferred to M10)
 - RxNorm REST API (NIH) for drug normalization and autocomplete
 - Local deterministic patient-modifier rule layer for pregnancy, lactation, renal, hepatic, age ≥ 65, and G6PD
 - Local deterministic cumulative-stack rule layer for QT, bleeding, serotonergic, anticholinergic, and nephrotoxic burden
