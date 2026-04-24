@@ -13,6 +13,7 @@ export function InteractionExplanation({
   return (
     <LlmPromptPanel
       blurb="Copy a prompt for another chat app. Deterministic result above remains authoritative."
+      variant="button"
       prompts={[
         {
           id: `${pair.a.rxcui}-${pair.b.rxcui}`,
