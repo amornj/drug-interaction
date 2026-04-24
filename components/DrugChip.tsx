@@ -1,11 +1,20 @@
 "use client";
 
+import { getDrugCypAnnotations } from "@/lib/cyp";
 import type { Drug } from "@/lib/store";
 import { useStore } from "@/lib/store";
 
 export function DrugChip({ drug, index }: { drug: Drug; index: number }) {
   const removeDrug = useStore((s) => s.removeDrug);
   const number = String(index + 1).padStart(2, "0");
+  const annotations = getDrugCypAnnotations(drug.name);
+  const metaLine = [
+    drug.viaBrand ? `via ${drug.viaBrand}` : null,
+    annotations.length > 0 ? annotations.join("  •  ") : null,
+  ]
+    .filter(Boolean)
+    .join("  ");
+
   return (
     <li className="group flex items-baseline gap-3 border-b border-rule py-3 last:border-b-0">
       <span
@@ -18,9 +27,9 @@ export function DrugChip({ drug, index }: { drug: Drug; index: number }) {
         <p className="truncate text-[15px] leading-snug text-ink">
           {drug.name}
         </p>
-        {drug.viaBrand ? (
-          <p className="mt-0.5 text-[11px] uppercase tracking-[0.12em] text-ink-mute">
-            via {drug.viaBrand}
+        {metaLine ? (
+          <p className="mt-0.5 text-[11px] tracking-[0.04em] text-ink-mute">
+            {metaLine}
           </p>
         ) : null}
       </div>

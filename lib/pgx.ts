@@ -1,9 +1,11 @@
 import type { InteractionSeverity, InteractionSource } from "@/lib/interactions";
 
 export type PgxGene =
+  | "cyp2c9"
   | "cyp2c19"
   | "cyp2d6"
   | "slco1b1"
+  | "vkorc1"
   | "hla_b1502"
   | "hla_b5701"
   | "hla_b5801"
@@ -60,6 +62,15 @@ const severityRank: Record<InteractionSeverity, number> = {
 };
 
 export const pgxGeneConfigs: Record<PgxGene, PgxGeneConfig> = {
+  cyp2c9: {
+    label: "CYP2C9",
+    options: [
+      { value: "", label: "Unknown / not tested" },
+      { value: "poor", label: "Poor metabolizer" },
+      { value: "intermediate", label: "Intermediate metabolizer" },
+      { value: "normal", label: "Normal metabolizer" },
+    ],
+  },
   cyp2c19: {
     label: "CYP2C19",
     options: [
@@ -88,6 +99,15 @@ export const pgxGeneConfigs: Record<PgxGene, PgxGeneConfig> = {
       { value: "normal", label: "Normal function" },
       { value: "decreased", label: "Decreased function" },
       { value: "poor", label: "Poor function" },
+    ],
+  },
+  vkorc1: {
+    label: "VKORC1",
+    options: [
+      { value: "", label: "Unknown / not tested" },
+      { value: "sensitive", label: "Sensitive / lower dose needed" },
+      { value: "normal", label: "Normal sensitivity" },
+      { value: "resistant", label: "Resistant / higher dose needed" },
     ],
   },
   hla_b1502: {
@@ -144,6 +164,31 @@ export const pgxGeneConfigs: Record<PgxGene, PgxGeneConfig> = {
 };
 
 const pgxRules: PgxRule[] = [
+  {
+    gene: "cyp2c9",
+    title: "Warfarin clearance and bleeding risk",
+    matches: ["warfarin"],
+    defaultSeverity: "Major",
+    testRecommendation:
+      "Consider CYP2C9-guided warfarin dosing because reduced clearance can increase exposure and bleeding risk.",
+    phenotypeRecommendations: {
+      poor: {
+        severity: "Contraindicated",
+        summary:
+          "CYP2C9 poor metabolizer status can markedly reduce warfarin clearance and increase bleeding risk. Start low only if unavoidable and recheck whether a different anticoagulant strategy is safer.",
+      },
+      intermediate: {
+        severity: "Major",
+        summary:
+          "CYP2C9 intermediate metabolizer status can slow warfarin clearance and raise bleeding risk. Lower initial dosing and closer INR follow-up are warranted in the local PGx rule set.",
+      },
+      normal: {
+        severity: "Minor",
+        summary:
+          "CYP2C9 normal metabolizer status supports expected warfarin clearance in the local PGx rule set.",
+      },
+    },
+  },
   {
     gene: "cyp2c19",
     title: "Clopidogrel activation",
@@ -232,6 +277,31 @@ const pgxRules: PgxRule[] = [
         severity: "Major",
         summary:
           "SLCO1B1 poor function materially increases local concern for simvastatin-associated myopathy. Consider an alternative statin strategy.",
+      },
+    },
+  },
+  {
+    gene: "vkorc1",
+    title: "Warfarin sensitivity and dose requirement",
+    matches: ["warfarin"],
+    defaultSeverity: "Moderate",
+    testRecommendation:
+      "Consider VKORC1-guided warfarin dosing because genetic sensitivity can materially change dose requirement.",
+    phenotypeRecommendations: {
+      sensitive: {
+        severity: "Major",
+        summary:
+          "VKORC1-sensitive status predicts lower warfarin dose requirement. Starting too high can increase overshoot and bleeding risk in the local PGx rule set.",
+      },
+      normal: {
+        severity: "Minor",
+        summary:
+          "VKORC1 normal sensitivity does not add a local PGx restriction for warfarin dose requirement.",
+      },
+      resistant: {
+        severity: "Moderate",
+        summary:
+          "VKORC1-resistant status predicts a higher warfarin dose requirement. Recheck whether standard starting doses are likely to underdose before titration.",
       },
     },
   },
@@ -374,9 +444,11 @@ const pgxRules: PgxRule[] = [
 
 export function createDefaultPgxProfile(): PgxProfile {
   return {
+    cyp2c9: "",
     cyp2c19: "",
     cyp2d6: "",
     slco1b1: "",
+    vkorc1: "",
     hla_b1502: "",
     hla_b5701: "",
     hla_b5801: "",

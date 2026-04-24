@@ -78,54 +78,60 @@ export function PharmacogenomicsPanel({
               {alerts.map((alert) => {
                 const token = severityToken[alert.severity];
                 return (
-                  <article
+                  <details
                     key={`${alert.gene}-${alert.title}`}
-                    className="border-b border-rule border-l-2 py-4 pl-4 pr-2 last:border-b-0"
-                    style={{ borderLeftColor: token }}
+                    className="group border-b border-rule last:border-b-0"
                   >
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="min-w-0">
-                        <p className="stamp uppercase" style={{ color: token }}>
-                          {alert.geneLabel}
-                        </p>
-                        <p className="mt-1 font-serif text-[17px] italic text-ink">
-                          {alert.title}
-                        </p>
-                        <p className="mt-1.5 text-[13.5px] leading-snug text-ink-soft">
-                          {alert.summary}
-                        </p>
-                        <p className="stamp mt-2">
-                          Phenotype · {alert.phenotypeLabel}
-                        </p>
+                    <summary
+                      className="list-none cursor-pointer border-l-2 py-4 pl-4 pr-2 transition-colors hover:bg-surface/60"
+                      style={{ borderLeftColor: token }}
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="min-w-0">
+                          <p className="stamp uppercase" style={{ color: token }}>
+                            {alert.geneLabel}
+                          </p>
+                          <p className="mt-1 font-serif text-[17px] italic text-ink">
+                            {alert.title}
+                          </p>
+                          <p className="mt-1.5 text-[13.5px] leading-snug text-ink-soft">
+                            {alert.summary}
+                          </p>
+                          <p className="stamp mt-2">
+                            Phenotype · {alert.phenotypeLabel}
+                          </p>
+                        </div>
+                        <SeverityBadge severity={alert.severity} />
                       </div>
-                      <SeverityBadge severity={alert.severity} />
+                    </summary>
+                    <div className="border-l-2 border-rule pb-4 pl-4 pr-2">
+                      <div className="flex flex-wrap gap-x-2 gap-y-1.5">
+                        {alert.matchedDrugs.map((drug) => (
+                          <span
+                            key={`${alert.gene}-${drug.rxcui}`}
+                            className="border border-rule px-2 py-0.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink-soft"
+                          >
+                            {drug.name}
+                          </span>
+                        ))}
+                      </div>
+                      <LlmPromptPanel
+                        blurb="Copy a pharmacogenomic testing prompt for another chat app."
+                        prompts={[
+                          {
+                            id: `${alert.gene}-${alert.title}`,
+                            label: `${alert.geneLabel} for ${alert.matchedDrugs
+                              .map((drug) => drug.name)
+                              .join(", ")}`,
+                            prompt: `Why do we have to test ${alert.geneLabel} for ${alert.matchedDrugs
+                              .map((drug) => drug.name)
+                              .join(" and ")}? How to interpret the result.`,
+                          },
+                        ]}
+                      />
+                      <p className="stamp mt-3">Sources · {formatSources(alert.sources)}</p>
                     </div>
-                    <div className="mt-3 flex flex-wrap gap-x-2 gap-y-1.5">
-                      {alert.matchedDrugs.map((drug) => (
-                        <span
-                          key={`${alert.gene}-${drug.rxcui}`}
-                          className="border border-rule px-2 py-0.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink-soft"
-                        >
-                          {drug.name}
-                        </span>
-                      ))}
-                    </div>
-                    <LlmPromptPanel
-                      blurb="Copy a pharmacogenomic testing prompt for another chat app."
-                      prompts={[
-                        {
-                          id: `${alert.gene}-${alert.title}`,
-                          label: `${alert.geneLabel} for ${alert.matchedDrugs
-                            .map((drug) => drug.name)
-                            .join(", ")}`,
-                          prompt: `Why do we have to test ${alert.geneLabel} for ${alert.matchedDrugs
-                            .map((drug) => drug.name)
-                            .join(" and ")}? How to interpret the result.`,
-                        },
-                      ]}
-                    />
-                    <p className="stamp mt-3">Sources · {formatSources(alert.sources)}</p>
-                  </article>
+                  </details>
                 );
               })}
             </div>
