@@ -9,6 +9,19 @@ type MetabolismEntry = {
   annotations: MetabolismAnnotation[];
 };
 
+export type DrugMetabolismTag = {
+  id: string;
+  system: string;
+  label: string;
+  clickable: boolean;
+};
+
+export type MetabolismReference = {
+  system: string;
+  inhibitors: string[];
+  inducers: string[];
+};
+
 function normalizeDrugName(name: string) {
   return name.toLowerCase().replace(/\([^)]*\)/g, " ").replace(/\s+/g, " ").trim();
 }
@@ -375,10 +388,14 @@ function formatAnnotation(annotation: MetabolismAnnotation) {
   return `${annotation.system}: ${annotation.role}${annotation.note ? ` (${annotation.note})` : ""}`;
 }
 
-export function getDrugMetabolismAnnotations(name: string) {
+function isClickableAnnotation(annotation: MetabolismAnnotation) {
+  return annotation.role === "Sub" && (annotation.system.startsWith("CYP") || annotation.system === "P-gp");
+}
+
+export function getDrugMetabolismTags(name: string): DrugMetabolismTag[] {
   const normalized = normalizeDrugName(name);
   const seen = new Set<string>();
-  const annotations: string[] = [];
+  const tags: DrugMetabolismTag[] = [];
 
   for (const entry of METABOLISM_ENTRIES) {
     if (!normalized.includes(entry.match)) {
@@ -386,14 +403,64 @@ export function getDrugMetabolismAnnotations(name: string) {
     }
 
     for (const annotation of entry.annotations) {
-      const formatted = formatAnnotation(annotation);
-      if (seen.has(formatted)) {
+      const label = formatAnnotation(annotation);
+      if (seen.has(label)) {
         continue;
       }
-      seen.add(formatted);
-      annotations.push(formatted);
+      seen.add(label);
+      tags.push({
+        id: `${annotation.system}:${annotation.role}:${annotation.note ?? ""}`,
+        system: annotation.system,
+        label,
+        clickable: isClickableAnnotation(annotation),
+      });
     }
   }
 
-  return annotations;
+  return tags;
+}
+
+export function getDrugMetabolismAnnotations(name: string) {
+  return getDrugMetabolismTags(name).map((tag) => tag.label);
+}
+
+function formatReferenceLabel(match: string, role: string, note?: string) {
+  const prettyDrug = match
+    .split(" ")
+    .map((part) => (part ? part[0].toUpperCase() + part.slice(1) : part))
+    .join(" ");
+  return `${prettyDrug} · ${role}${note ? ` (${note})` : ""}`;
+}
+
+export function getMetabolismReference(system: string): MetabolismReference {
+  const inhibitors: string[] = [];
+  const inducers: string[] = [];
+  const inhibitorSeen = new Set<string>();
+  const inducerSeen = new Set<string>();
+
+  for (const entry of METABOLISM_ENTRIES) {
+    for (const annotation of entry.annotations) {
+      if (annotation.system !== system) {
+        continue;
+      }
+
+      const label = formatReferenceLabel(entry.match, annotation.role, annotation.note);
+
+      if (annotation.role.includes("Inh") && !inhibitorSeen.has(label)) {
+        inhibitorSeen.add(label);
+        inhibitors.push(label);
+      }
+
+      if (annotation.role.includes("Ind") && !inducerSeen.has(label)) {
+        inducerSeen.add(label);
+        inducers.push(label);
+      }
+    }
+  }
+
+  return {
+    system,
+    inhibitors,
+    inducers,
+  };
 }

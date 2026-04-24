@@ -11,6 +11,7 @@ import { InteractionSummary } from "@/components/InteractionSummary";
 import { PatientModifiers } from "@/components/PatientModifiers";
 import { PharmacogenomicsPanel } from "@/components/PharmacogenomicsPanel";
 import { StackWarnings } from "@/components/StackWarnings";
+import { getMetabolismReference } from "@/lib/cyp";
 import type { InteractionCheckResponse } from "@/lib/interactions";
 import { applyPatientModifiers } from "@/lib/modifiers";
 import { detectCumulativeStacks } from "@/lib/stacks";
@@ -29,6 +30,7 @@ export function AppShell() {
   const [error, setError] = useState<string | null>(null);
   const [errorKey, setErrorKey] = useState("");
   const [retryNonce, setRetryNonce] = useState(0);
+  const [openReferenceSystem, setOpenReferenceSystem] = useState<string | null>(null);
 
   useEffect(() => {
     hydrate();
@@ -94,6 +96,10 @@ export function AppShell() {
   const stackWarnings = useMemo(
     () => (active && visibleResult ? detectCumulativeStacks(active.drugs) : []),
     [active, visibleResult]
+  );
+  const metabolismReference = useMemo(
+    () => (openReferenceSystem ? getMetabolismReference(openReferenceSystem) : null),
+    [openReferenceSystem]
   );
 
   const now = new Date();
@@ -204,9 +210,73 @@ export function AppShell() {
             </div>
             <ul className="mt-1">
               {active.drugs.map((d, i) => (
-                <DrugChip key={d.rxcui} drug={d} index={i} />
+                <DrugChip
+                  key={d.rxcui}
+                  drug={d}
+                  index={i}
+                  activeReferenceSystem={openReferenceSystem}
+                  onToggleReferenceSystem={(system) =>
+                    setOpenReferenceSystem((current) =>
+                      current === system ? null : system
+                    )
+                  }
+                />
               ))}
             </ul>
+            {metabolismReference &&
+            (metabolismReference.inhibitors.length > 0 ||
+              metabolismReference.inducers.length > 0) ? (
+              <div className="mt-3 border border-rule bg-paper-raised p-3">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="eyebrow">{metabolismReference.system} modifiers</p>
+                    <p className="mt-1 text-[13px] italic leading-snug text-ink-mute">
+                      Inhibitors and inducers relevant to this substrate.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setOpenReferenceSystem(null)}
+                    className="grid h-8 w-8 shrink-0 place-items-center border border-rule text-[14px] text-ink-soft transition-colors hover:border-rule-strong hover:text-ink"
+                    aria-label={`Close ${metabolismReference.system} modifier list`}
+                  >
+                    ×
+                  </button>
+                </div>
+                <div className="mt-3 max-h-[38vh] overflow-y-auto space-y-3">
+                  {metabolismReference.inhibitors.length > 0 ? (
+                    <div>
+                      <p className="eyebrow mb-1.5">Inhibitors</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {metabolismReference.inhibitors.map((item) => (
+                          <span
+                            key={`${metabolismReference.system}-inh-${item}`}
+                            className="border border-rule bg-surface px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft"
+                          >
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+                  {metabolismReference.inducers.length > 0 ? (
+                    <div>
+                      <p className="eyebrow mb-1.5">Inducers</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {metabolismReference.inducers.map((item) => (
+                          <span
+                            key={`${metabolismReference.system}-ind-${item}`}
+                            className="border border-rule bg-surface px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft"
+                          >
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+            ) : null}
 
             <div className="mt-6">
               <PatientModifiers modifiers={active.patientModifiers} />

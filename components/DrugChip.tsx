@@ -1,19 +1,23 @@
 "use client";
 
-import { getDrugMetabolismAnnotations } from "@/lib/cyp";
+import { getDrugMetabolismTags } from "@/lib/cyp";
 import type { Drug } from "@/lib/store";
 import { useStore } from "@/lib/store";
 
-export function DrugChip({ drug, index }: { drug: Drug; index: number }) {
+export function DrugChip({
+  drug,
+  index,
+  activeReferenceSystem,
+  onToggleReferenceSystem,
+}: {
+  drug: Drug;
+  index: number;
+  activeReferenceSystem: string | null;
+  onToggleReferenceSystem: (system: string) => void;
+}) {
   const removeDrug = useStore((s) => s.removeDrug);
   const number = String(index + 1).padStart(2, "0");
-  const annotations = getDrugMetabolismAnnotations(drug.name);
-  const metaLine = [
-    drug.viaBrand ? `via ${drug.viaBrand}` : null,
-    annotations.length > 0 ? annotations.join("  •  ") : null,
-  ]
-    .filter(Boolean)
-    .join("  ");
+  const tags = getDrugMetabolismTags(drug.name);
 
   return (
     <li className="group flex items-baseline gap-3 border-b border-rule py-3 last:border-b-0">
@@ -27,10 +31,28 @@ export function DrugChip({ drug, index }: { drug: Drug; index: number }) {
         <p className="truncate text-[15px] leading-snug text-ink">
           {drug.name}
         </p>
-        {metaLine ? (
-          <p className="mt-0.5 text-[11px] tracking-[0.04em] text-ink-mute">
-            {metaLine}
-          </p>
+        {drug.viaBrand || tags.length > 0 ? (
+          <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] tracking-[0.04em] text-ink-mute">
+            {drug.viaBrand ? <span>via {drug.viaBrand}</span> : null}
+            {tags.map((tag) =>
+              tag.clickable ? (
+                <button
+                  key={tag.id}
+                  type="button"
+                  onClick={() => onToggleReferenceSystem(tag.system)}
+                  className={`border px-1.5 py-0.5 transition-colors ${
+                    activeReferenceSystem === tag.system
+                      ? "border-rule-strong bg-paper text-ink"
+                      : "border-rule bg-surface text-ink-mute hover:border-rule-strong hover:text-ink"
+                  }`}
+                >
+                  {tag.label}
+                </button>
+              ) : (
+                <span key={tag.id}>{tag.label}</span>
+              )
+            )}
+          </div>
         ) : null}
       </div>
       <button
