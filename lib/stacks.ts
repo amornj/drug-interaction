@@ -1094,6 +1094,7 @@ const stackRules: StackRule[] = [
       "tacrolimus",
       "imipenem",
       "meropenem",
+      "cefepime",
       "metronidazole",
       "ciprofloxacin",
       "lithium",

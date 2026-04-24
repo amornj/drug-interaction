@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { LlmPromptPanel } from "@/components/LlmPromptPanel";
 import { SeverityBadge } from "@/components/SeverityBadge";
 import { formatSources } from "@/lib/interactions";
 import type { InteractionSeverity } from "@/lib/interactions";
@@ -71,38 +71,8 @@ export function StackWarnings({
 }: {
   warnings: StackWarning[];
 }) {
-  const [copyLabels, setCopyLabels] = useState<Record<string, string>>({});
-
   if (warnings.length === 0) {
     return null;
-  }
-
-  async function copyStackPrompt(warning: StackWarning) {
-    const drugList = warning.matchedDrugs.map((drug) => drug.name).join(", ");
-    const prompt = `Explain why when we use ${drugList} together, they increase cumulative risk of ${promptRiskLabel(warning.domain)}.`;
-
-    try {
-      await navigator.clipboard.writeText(prompt);
-      setCopyLabels((labels) => ({ ...labels, [warning.domain]: "Copied ✓" }));
-      window.setTimeout(
-        () =>
-          setCopyLabels((labels) => ({
-            ...labels,
-            [warning.domain]: "Copy prompt",
-          })),
-        1600
-      );
-    } catch {
-      setCopyLabels((labels) => ({ ...labels, [warning.domain]: "Copy failed" }));
-      window.setTimeout(
-        () =>
-          setCopyLabels((labels) => ({
-            ...labels,
-            [warning.domain]: "Copy prompt",
-          })),
-        1600
-      );
-    }
   }
 
   return (
@@ -151,21 +121,21 @@ export function StackWarnings({
                     </span>
                   ))}
                 </div>
-                <div className="mt-3 flex items-start justify-between gap-3 border border-rule bg-paper-raised p-3">
-                  <div>
-                    <p className="eyebrow">Ask LLM Chat</p>
-                    <p className="mt-0.5 text-[11px] italic text-ink-mute">
-                      Copy a mechanism prompt for this cumulative stack.
-                    </p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => copyStackPrompt(warning)}
-                    className="min-h-9 shrink-0 border border-rule px-3 text-[11.5px] uppercase tracking-[0.12em] text-ink-soft transition-colors hover:border-rule-strong hover:text-ink"
-                  >
-                    {copyLabels[warning.domain] ?? "Copy prompt"}
-                  </button>
-                </div>
+                <LlmPromptPanel
+                  blurb="Copy a mechanism prompt for this cumulative stack."
+                  prompts={[
+                    {
+                      id: warning.domain,
+                      label: warning.title,
+                      subtitle: warning.matchedDrugs.map((drug) => drug.name).join(", "),
+                      prompt: `Explain why when we use ${warning.matchedDrugs
+                        .map((drug) => drug.name)
+                        .join(", ")} together, they increase cumulative risk of ${promptRiskLabel(
+                        warning.domain
+                      )}.`,
+                    },
+                  ]}
+                />
                 <p className="stamp mt-3">Sources · {formatSources(warning.sources)}</p>
               </div>
             </details>

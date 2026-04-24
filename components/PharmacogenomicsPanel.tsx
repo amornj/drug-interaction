@@ -1,5 +1,6 @@
 "use client";
 
+import { LlmPromptPanel } from "@/components/LlmPromptPanel";
 import { SeverityBadge } from "@/components/SeverityBadge";
 import { formatSources } from "@/lib/interactions";
 import type { InteractionSeverity } from "@/lib/interactions";
@@ -109,6 +110,20 @@ export function PharmacogenomicsPanel({
                         </span>
                       ))}
                     </div>
+                    <LlmPromptPanel
+                      blurb="Copy a pharmacogenomic testing prompt for another chat app."
+                      prompts={[
+                        {
+                          id: `${alert.gene}-${alert.title}`,
+                          label: `${alert.geneLabel} for ${alert.matchedDrugs
+                            .map((drug) => drug.name)
+                            .join(", ")}`,
+                          prompt: `Why do we have to test ${alert.geneLabel} for ${alert.matchedDrugs
+                            .map((drug) => drug.name)
+                            .join(" and ")}? How to interpret the result.`,
+                        },
+                      ]}
+                    />
                     <p className="stamp mt-3">Sources · {formatSources(alert.sources)}</p>
                   </article>
                 );

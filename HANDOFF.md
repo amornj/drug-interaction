@@ -6,7 +6,7 @@ Owner: `amornj`. Repo: https://github.com/amornj/drug-interaction. Deploy: Verce
 
 ---
 
-## Current state (M9 + stack polish — DONE, on `main`)
+## Current state (M9 + stack / prompt / input polish — DONE, on `main`)
 
 Owner intentionally skipped M6 and M7 for now and moved directly to M8.
 
@@ -27,20 +27,23 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
   - `components/InteractionList.tsx`
   - `components/SeverityBadge.tsx`
   - wired bottom-bar CTA in `components/AppShell.tsx`
-  - optional clipboard fallback prompt per interaction pair for use in external AI chat apps
+  - shared dropdown clipboard prompt UI for pairwise interactions, cumulative stacks, and pharmacogenomic warnings
 - External LLM prompt helpers:
   - `components/InteractionExplanation.tsx`
-  - pairwise interaction cards expose a `Copy prompt` button only
-  - cumulative stack cards expand on tap and expose a mechanism prompt for the matched stack
+  - `components/LlmPromptPanel.tsx`
+  - pairwise interaction cards, cumulative stack cards, and pharmacogenomic warnings all use the same dropdown prompt-copy UI
+  - pharmacogenomic alerts now expose prompts like `Why do we have to test <gene> for <drug>? How to interpret the result.`
 - Search input enhancements:
   - `components/DrugSearch.tsx`
   - supports pasting medication-list text like `Med: Hydrochlorothiazine 1/2*1, atorvastatin 40 1*1, ezetimibe 10 1/2*1`
   - extracts candidate drug names locally and bulk-adds matched RxNorm results through the existing search route
   - now checks user aliases, curated brand overlay, and then RxNorm in that precedence order
   - supports inline alias syntax such as `galvusmet = vildagliptin + metformin`
+  - batch / paste flows now resolve matched results down to ingredient-level generic names before adding chips
+  - batch / paste flows queue combination-pill confirmations instead of silently flattening them, and show `already in list` notices when all components are present
 - Pair-level prompt UI:
   - `components/InteractionExplanation.tsx`
-  - copy-only prompt affordance per pair
+  - shared dropdown prompt affordance per pair
   - no in-app AI explanation prose; deterministic content stays authoritative
 - Alias and brand-resolution layer:
   - `lib/aliases.ts`
@@ -71,7 +74,7 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
 - Cumulative stack layer:
   - `components/StackWarnings.tsx`
   - `lib/stacks.ts`
-  - deterministic local stack warnings for QT (expanded with hydroxychloroquine, domperidone, droperidol, ranolazine, quinine), bleeding, serotonergic, anticholinergic, nephrotoxic, electrolyte, uric acid, glucose, lactic acidosis, normal-gap metabolic acidosis, and **drug-induced seizure** (new: tramadol, bupropion, clozapine, isoniazid, meperidine, theophylline, lithium, calcineurin inhibitors, carbapenems, metronidazole, ciprofloxacin)
+  - deterministic local stack warnings for QT (expanded with hydroxychloroquine, domperidone, droperidol, ranolazine, quinine), bleeding, serotonergic, anticholinergic, nephrotoxic, electrolyte, uric acid, glucose, lactic acidosis, normal-gap metabolic acidosis, and **drug-induced seizure** (new: tramadol, bupropion, clozapine, isoniazid, meperidine, theophylline, lithium, calcineurin inhibitors, carbapenems, cefepime, metronidazole, ciprofloxacin)
   - myocardialdepression stack pruned: beta-blockers (propranolol, metoprolol) and metabolic acidosis drugs (metformin, tenofovir, zidovudine, linezolid) removed — those belong to the lacticacidosis stack
   - summary box stack buttons now expand to show actual high-yield drug names (up to 12) via `getStackHighYieldDrugs()` instead of class groups; HypoNa now shows 12 representative drugs
   - rendered as a separate cited section above pairwise results
@@ -91,12 +94,14 @@ Verified:
 - Pharmacogenomics guidance stays local, cites the repo-managed rule layer, and does not rewrite the pairwise interaction results
 - Pasted medication-list text can bulk-add matched drugs through the existing RxNorm flow
 - Pair cards include a clipboard fallback prompt for external AI chat use when Anthropic is unavailable
+- Pairwise interactions, cumulative stacks, and pharmacogenomic warnings all use the same expandable copy-prompt UI
 - `npm run build:data` now regenerates `lib/data/brands/index.json` while preserving DDInter and interaction-overlay artifacts unless `REFRESH_DDINTER=1`
 - Brand and alias resolution expands ingredient chips before `/api/interactions/check`, so the check route still receives RxCUIs only
 - User alias precedence over curated brand defaults is implemented locally and no alias data is sent to API routes
 - Alias backup route stores only encrypted alias blobs; patient/case data never enters `/api/aliases/backup/[syncId]`
 - Alias backup/restore is manual-only and depends on `BLOB_READ_WRITE_TOKEN`; without it, backup/restore fails cleanly with `503`
 - Tested searches: warfarin, lipitor, paracetamol, amoxi return hits
+- Batch/paste matching now resolves each matched term to generic ingredients before adding, and combination products stay behind a confirmation step in bulk flows too
 
 ### File map
 
@@ -117,7 +122,8 @@ components/
   DrugSearch.tsx      # autocomplete + brand expansion + alias save + pasted med-list bulk import
   DrugChip.tsx        # med list row with remove button + via-brand tag
   InteractionList.tsx # severity-sorted list with citations + expanders
-  InteractionExplanation.tsx # copy prompt per pair
+  InteractionExplanation.tsx # shared LLM prompt UI for pairwise results
+  LlmPromptPanel.tsx  # expandable prompt-copy UI reused by pairwise / stack / PGx cards
   PatientModifiers.tsx # local modifier chips
   PharmacogenomicsPanel.tsx # local PGx test prompts and phenotype-aware guidance
   StackWarnings.tsx   # cumulative stack warning cards with citations

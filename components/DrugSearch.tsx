@@ -32,6 +32,20 @@ type CombinationPending = {
   alreadyPresent: Array<{ rxcui: string; name: string }>;
 };
 
+type ResolvedBatchMatch =
+  | {
+      type: "single";
+      typed: string;
+      brand?: string;
+      drug: { rxcui: string; name: string };
+    }
+  | {
+      type: "combination";
+      typed: string;
+      brand: string;
+      components: Array<{ rxcui: string; name: string }>;
+    };
+
 type Row = {
   id: string;
   title: string;
@@ -121,6 +135,47 @@ function buildCombinationPending(
   return { brand, components, toAdd, alreadyPresent };
 }
 
+function buildCombinationPendingFromSet(
+  brand: string,
+  components: Array<{ rxcui: string; name: string }>,
+  existingRxCuis: Set<string>
+): CombinationPending {
+  const alreadyPresent = components.filter((c) => existingRxCuis.has(c.rxcui));
+  const toAdd = components.filter((c) => !existingRxCuis.has(c.rxcui));
+  return { brand, components, toAdd, alreadyPresent };
+}
+
+function normalizeSearchName(name: string) {
+  return name
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, " ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function compactSearchName(name: string) {
+  return normalizeSearchName(name).replace(/[^a-z0-9]/g, "");
+}
+
+function pickBestSearchCandidate(term: string, candidates: DrugCandidate[]) {
+  if (candidates.length === 0) {
+    return null;
+  }
+
+  const normalizedTerm = normalizeSearchName(term);
+  const compactTerm = compactSearchName(term);
+
+  return (
+    candidates.find((candidate) => normalizeSearchName(candidate.name) === normalizedTerm) ??
+    candidates.find((candidate) => compactSearchName(candidate.name) === compactTerm) ??
+    candidates.find((candidate) =>
+      normalizeSearchName(candidate.name).startsWith(`${normalizedTerm} `)
+    ) ??
+    candidates[0]
+  );
+}
+
 export function DrugSearch({
   aliases,
   onAliasesChange,
@@ -138,6 +193,7 @@ export function DrugSearch({
   const [teachOpen, setTeachOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
   const [combinationPending, setCombinationPending] = useState<CombinationPending | null>(null);
+  const [combinationQueue, setCombinationQueue] = useState<CombinationPending[]>([]);
   const [duplicateWarning, setDuplicateWarning] = useState<{
     typed: string;
     existing: string;
@@ -174,6 +230,7 @@ export function DrugSearch({
     setBulkMessage(null);
     setDuplicateWarning(null);
     setCombinationPending(null);
+    setCombinationQueue([]);
   }
 
   function addComponents(components: AliasComponent[], viaBrand: string) {
@@ -181,6 +238,22 @@ export function DrugSearch({
       addDrug({ rxcui: component.rxcui, name: component.name, viaBrand });
     }
     clearSearch();
+  }
+
+  function showCombinationPrompt(
+    pending: CombinationPending,
+    queued: CombinationPending[] = []
+  ) {
+    setCombinationPending(pending);
+    setCombinationQueue(queued);
+  }
+
+  function advanceCombinationQueue() {
+    setCombinationQueue((queue) => {
+      const [next, ...rest] = queue;
+      setCombinationPending(next ?? null);
+      return rest;
+    });
   }
 
   const resolveTokenToComponents = useCallback(
@@ -300,7 +373,7 @@ export function DrugSearch({
       }
       setQ("");
       setResults([]);
-      setCombinationPending(pending);
+      showCombinationPrompt(pending);
       return;
     }
 
@@ -340,7 +413,61 @@ export function DrugSearch({
       });
       return;
     }
-    setCombinationPending(pending);
+    showCombinationPrompt(pending);
+  }
+
+  async function resolveBatchMatch(termToResolve: string): Promise<ResolvedBatchMatch | null> {
+    const norm = normalizeTerm(termToResolve, aliases);
+    if (norm) {
+      if (norm.type === "single") {
+        return {
+          type: "single",
+          typed: termToResolve,
+          brand: norm.brand !== norm.name ? norm.brand : undefined,
+          drug: { rxcui: norm.rxcui, name: norm.name },
+        };
+      }
+
+      return {
+        type: "combination",
+        typed: termToResolve,
+        brand: norm.brand,
+        components: norm.components,
+      };
+    }
+
+    const response = await fetch(`/api/drugs/search?q=${encodeURIComponent(termToResolve)}`);
+    const payload = (await response.json()) as { results?: DrugCandidate[] };
+    const match = pickBestSearchCandidate(termToResolve, payload.results ?? []);
+
+    if (!match) {
+      return null;
+    }
+
+    const resolved = await resolveToIngredient(match.rxcui);
+    if (!resolved) {
+      return {
+        type: "single",
+        typed: termToResolve,
+        drug: { rxcui: match.rxcui, name: match.name },
+      };
+    }
+
+    if (resolved.type === "combination") {
+      return {
+        type: "combination",
+        typed: termToResolve,
+        brand: match.name,
+        components: resolved.components,
+      };
+    }
+
+    return {
+      type: "single",
+      typed: termToResolve,
+      brand: match.name !== resolved.name ? match.name : undefined,
+      drug: { rxcui: resolved.rxcui, name: resolved.name },
+    };
   }
 
   async function saveProposalAndAdd() {
@@ -380,35 +507,50 @@ export function DrugSearch({
 
     let added = 0;
     const unresolved: string[] = [];
+    const alreadyPresent: string[] = [];
+    const queuedCombinations: CombinationPending[] = [];
+    const existingRxCuis = new Set(drugs.map((drug) => drug.rxcui));
 
     for (const candidateTerm of terms) {
       try {
-        const norm = normalizeTerm(candidateTerm, aliases);
-        if (norm) {
-          const components =
-            norm.type === "single"
-              ? [{ rxcui: norm.rxcui, name: norm.name }]
-              : norm.components;
-          for (const c of components) {
-            addDrug({ rxcui: c.rxcui, name: c.name, viaBrand: norm.brand });
-          }
-          added += components.length;
-          continue;
-        }
+        const resolved = await resolveBatchMatch(candidateTerm);
 
-        const response = await fetch(
-          `/api/drugs/search?q=${encodeURIComponent(candidateTerm)}`
-        );
-        const payload = (await response.json()) as { results?: DrugCandidate[] };
-        const match = payload.results?.[0];
-
-        if (!match) {
+        if (!resolved) {
           unresolved.push(candidateTerm);
           continue;
         }
 
-        addDrug({ rxcui: match.rxcui, name: match.name });
-        added += 1;
+        if (resolved.type === "single") {
+          if (existingRxCuis.has(resolved.drug.rxcui)) {
+            alreadyPresent.push(resolved.brand ?? resolved.typed);
+            continue;
+          }
+
+          addDrug({
+            rxcui: resolved.drug.rxcui,
+            name: resolved.drug.name,
+            viaBrand: resolved.brand,
+          });
+          existingRxCuis.add(resolved.drug.rxcui);
+          added += 1;
+          continue;
+        }
+
+        const pending = buildCombinationPendingFromSet(
+          resolved.brand,
+          resolved.components,
+          existingRxCuis
+        );
+
+        if (pending.toAdd.length === 0) {
+          alreadyPresent.push(resolved.brand);
+          continue;
+        }
+
+        queuedCombinations.push(pending);
+        for (const component of pending.toAdd) {
+          existingRxCuis.add(component.rxcui);
+        }
       } catch {
         unresolved.push(candidateTerm);
       }
@@ -416,15 +558,38 @@ export function DrugSearch({
 
     setLoading(false);
 
-    if (added > 0 && unresolved.length === 0) {
-      setBulkMessage(`Added ${added} medication${added === 1 ? "" : "s"} from ${sourceLabel}.`);
+    if (queuedCombinations.length > 0) {
+      const [first, ...rest] = queuedCombinations;
+      showCombinationPrompt(first, rest);
+    }
+
+    const messageParts: string[] = [];
+
+    if (added > 0) {
+      messageParts.push(
+        `Added ${added} medication${added === 1 ? "" : "s"} from ${sourceLabel}.`
+      );
+    }
+
+    if (queuedCombinations.length > 0) {
+      messageParts.push(
+        `${queuedCombinations.length} combination ${
+          queuedCombinations.length === 1 ? "drug needs" : "drugs need"
+        } confirmation.`
+      );
+    }
+
+    if (alreadyPresent.length > 0) {
+      messageParts.push(`Already in list: ${alreadyPresent.join(", ")}.`);
+    }
+
+    if (unresolved.length === 0 && messageParts.length > 0) {
+      setBulkMessage(messageParts.join(" "));
       return true;
     }
 
-    if (added > 0) {
-      setBulkMessage(
-        `Added ${added}. Could not match: ${unresolved.join(", ")}.`
-      );
+    if (messageParts.length > 0) {
+      setBulkMessage(`${messageParts.join(" ")} Could not match: ${unresolved.join(", ")}.`);
       return true;
     }
 
@@ -754,7 +919,7 @@ export function DrugSearch({
                       viaBrand: combinationPending.brand,
                     });
                   }
-                  clearSearch();
+                  advanceCombinationQueue();
                 }}
                 className="border border-rule-strong bg-ink px-3 py-1.5 text-[12.5px] font-medium text-paper-raised hover:opacity-80 transition-opacity"
               >
@@ -766,10 +931,10 @@ export function DrugSearch({
               </button>
               <button
                 type="button"
-                onClick={() => setCombinationPending(null)}
+                onClick={advanceCombinationQueue}
                 className="text-[12.5px] text-ink-mute hover:text-ink transition-colors"
               >
-                Cancel
+                {combinationQueue.length > 0 ? "Skip" : "Cancel"}
               </button>
             </div>
           </div>
