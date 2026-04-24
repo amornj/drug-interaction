@@ -60,6 +60,7 @@ Examples include:
 - hyperglycemia
 - hyperuricemia
 - myocardial depression
+- fluid retention
 - high anion gap metabolic acidosis
 - serotonin syndrome
 - nephrotoxicity

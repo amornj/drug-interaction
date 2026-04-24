@@ -9,6 +9,7 @@ export type StackDomain =
   | "eps"
   | "ergotism"
   | "myocardialdepression"
+  | "fluidretention"
   | "lacticacidosis"
   | "nephrotoxic"
   | "hyperkalemia"
@@ -941,6 +942,84 @@ const stackRules: StackRule[] = [
     },
   },
   {
+    domain: "fluidretention",
+    title: "Drug-induced fluid retention stack",
+    matches: [
+      "ibuprofen",
+      "ketorolac",
+      "naproxen",
+      "diclofenac",
+      "celecoxib",
+      "prednisone",
+      "prednisolone",
+      "methylprednisolone",
+      "dexamethasone",
+      "hydrocortisone",
+      "fludrocortisone",
+      "estrogen",
+      "estradiol",
+      "conjugated estrogens",
+      "amlodipine",
+      "nifedipine",
+      "felodipine",
+      "nicardipine",
+      "verapamil",
+      "diltiazem",
+      "minoxidil",
+      "hydralazine",
+      "pioglitazone",
+    ],
+    highRiskMatches: [
+      "fludrocortisone",
+      "minoxidil",
+      "hydralazine",
+      "pioglitazone",
+      "amlodipine",
+      "nifedipine",
+      "felodipine",
+      "nicardipine",
+      "verapamil",
+      "diltiazem",
+    ],
+    summary: (matched) =>
+      `Fluid-retaining drugs are stacking: ${matched.join(", ")}. Recheck edema, weight trend, blood pressure, heart-failure context, and whether vasodilatory edema or sodium retention is contributing.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const hasNsaid = ["ibuprofen", "ketorolac", "naproxen", "diclofenac", "celecoxib"].some(
+        (keyword) => matchedKeywords.includes(keyword)
+      );
+      const hasSteroidOrMineralocorticoid = [
+        "prednisone",
+        "prednisolone",
+        "methylprednisolone",
+        "dexamethasone",
+        "hydrocortisone",
+        "fludrocortisone",
+      ].some((keyword) => matchedKeywords.includes(keyword));
+      const hasCcbOrVasodilator = [
+        "amlodipine",
+        "nifedipine",
+        "felodipine",
+        "nicardipine",
+        "verapamil",
+        "diltiazem",
+        "minoxidil",
+        "hydralazine",
+      ].some((keyword) => matchedKeywords.includes(keyword));
+      const hasPioglitazone = matchedKeywords.includes("pioglitazone");
+
+      if (
+        matchedDrugs.length >= 3 ||
+        (hasNsaid && hasSteroidOrMineralocorticoid) ||
+        (hasSteroidOrMineralocorticoid && hasCcbOrVasodilator) ||
+        (hasPioglitazone && (hasNsaid || hasSteroidOrMineralocorticoid || hasCcbOrVasodilator))
+      ) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
+  },
+  {
     domain: "lacticacidosis",
     title: "Drug-induced lactic acidosis stack",
     matches: [
@@ -1037,6 +1116,7 @@ function detectSeverity(
     rule.domain === "hyperuricemia" ||
     rule.domain === "hypoglycemia" ||
     rule.domain === "hyperglycemia" ||
+    rule.domain === "fluidretention" ||
     rule.domain === "hagma" ||
     rule.domain === "normalgapacidosis"
   ) {

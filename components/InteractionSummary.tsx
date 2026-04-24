@@ -41,6 +41,8 @@ function stackLabel(domain: StackWarning["domain"]) {
       return "Ergotism";
     case "myocardialdepression":
       return "Myocardial depression";
+    case "fluidretention":
+      return "Fluid retention";
     case "lacticacidosis":
       return "Lactic acidosis";
     case "nephrotoxic":
