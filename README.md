@@ -59,6 +59,7 @@ Examples include:
 - hypernatremia
 - hyperglycemia
 - hyperuricemia
+- myocardial depression
 - high anion gap metabolic acidosis
 - serotonin syndrome
 - nephrotoxicity

@@ -8,6 +8,7 @@ export type StackDomain =
   | "anticholinergic"
   | "eps"
   | "ergotism"
+  | "myocardialdepression"
   | "lacticacidosis"
   | "nephrotoxic"
   | "hyperkalemia"
@@ -811,6 +812,128 @@ const stackRules: StackRule[] = [
       ].some((keyword) => matchedKeywords.includes(keyword));
 
       if (hasErgot && (hasTriptan || hasStrongCyp3a4Inhibitor)) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
+  },
+  {
+    domain: "myocardialdepression",
+    title: "Myocardial depression stack",
+    matches: [
+      "doxorubicin",
+      "daunorubicin",
+      "epirubicin",
+      "idarubicin",
+      "trastuzumab",
+      "cyclophosphamide",
+      "ifosfamide",
+      "fluorouracil",
+      "5-fluorouracil",
+      "5-fu",
+      "cisplatin",
+      "mavacamten",
+      "aficamten",
+      "cocaine",
+      "amphetamine",
+      "carbamazepine",
+      "phenytoin",
+      "verapamil",
+      "diltiazem",
+      "propranolol",
+      "metoprolol",
+      "flecainide",
+      "disopyramide",
+      "propofol",
+      "nivolumab",
+      "clozapine",
+      "tenofovir",
+      "zidovudine",
+      "linezolid",
+      "metformin",
+    ],
+    highRiskMatches: [
+      "doxorubicin",
+      "daunorubicin",
+      "epirubicin",
+      "idarubicin",
+      "trastuzumab",
+      "cyclophosphamide",
+      "ifosfamide",
+      "fluorouracil",
+      "5-fluorouracil",
+      "5-fu",
+      "cisplatin",
+      "mavacamten",
+      "aficamten",
+      "flecainide",
+      "disopyramide",
+      "propofol",
+      "nivolumab",
+      "clozapine",
+    ],
+    summary: (matched) =>
+      `Myocardial-depressant exposures are stacking: ${matched.join(", ")}. Recheck LV function, shock or myocarditis context, lactate and acid-base burden when relevant, and additive negative inotropy before continuing the full regimen.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const highRiskCount =
+        [
+          "doxorubicin",
+          "daunorubicin",
+          "epirubicin",
+          "idarubicin",
+          "trastuzumab",
+          "cyclophosphamide",
+          "ifosfamide",
+          "fluorouracil",
+          "5-fluorouracil",
+          "5-fu",
+          "cisplatin",
+          "mavacamten",
+          "aficamten",
+          "flecainide",
+          "disopyramide",
+          "propofol",
+          "nivolumab",
+          "clozapine",
+        ].filter((keyword) => matchedKeywords.includes(keyword)).length;
+      const hasNegativeInotrope = [
+        "verapamil",
+        "diltiazem",
+        "propranolol",
+        "metoprolol",
+        "flecainide",
+        "disopyramide",
+        "mavacamten",
+        "aficamten",
+      ].some((keyword) => matchedKeywords.includes(keyword));
+      const hasChemoCardiotoxin = [
+        "doxorubicin",
+        "daunorubicin",
+        "epirubicin",
+        "idarubicin",
+        "trastuzumab",
+        "cyclophosphamide",
+        "ifosfamide",
+        "fluorouracil",
+        "5-fluorouracil",
+        "5-fu",
+        "cisplatin",
+      ].some((keyword) => matchedKeywords.includes(keyword));
+      const hasMyocarditisTrigger = ["nivolumab", "clozapine"].some((keyword) =>
+        matchedKeywords.includes(keyword)
+      );
+      const hasLacticAcidosisDriver = ["tenofovir", "zidovudine", "linezolid", "metformin", "propofol"].some(
+        (keyword) => matchedKeywords.includes(keyword)
+      );
+
+      if (
+        highRiskCount >= 2 ||
+        (hasNegativeInotrope && hasChemoCardiotoxin) ||
+        (hasNegativeInotrope && hasMyocarditisTrigger) ||
+        (hasNegativeInotrope && hasLacticAcidosisDriver) ||
+        matchedDrugs.length >= 3
+      ) {
         return "Major";
       }
 

@@ -20,6 +20,8 @@ function domainLabel(domain: StackWarning["domain"]) {
       return "EPS";
     case "ergotism":
       return "Ergotism";
+    case "myocardialdepression":
+      return "Myocardial depression";
     case "lacticacidosis":
       return "Lactic acidosis";
     case "nephrotoxic":
