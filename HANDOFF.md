@@ -6,7 +6,7 @@ Owner: `amornj`. Repo: https://github.com/amornj/drug-interaction. Deploy: Verce
 
 ---
 
-## Current state (M9 + stack / prompt / input polish — DONE, on `main`)
+## Current state (M9 + stack / prompt / input / alias-storage polish — DONE, on `main`)
 
 Owner intentionally skipped M6 and M7 for now and moved directly to M8.
 
@@ -14,6 +14,7 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
 - Mobile-first shell: `components/AppShell.tsx`, case switcher, thumb-zone bottom bar, safe-area insets
 - RxNorm autocomplete: `lib/rxnorm.ts` + `app/api/drugs/search/route.ts` (edge runtime, 24h cache, dedup by rxcui)
 - Local-only persistence: `lib/store.ts` (Zustand + idb-keyval, `STORAGE_KEY = "di.state.v1"`)
+- Local-only alias storage: `lib/aliases.ts` + JSON import/export in `components/AliasManagerModal.tsx`
 - PWA manifest + icon; real service worker deferred to M10
 - Decision-support footer on every screen
 - Deterministic pair-check route: `app/api/interactions/check/route.ts` (edge runtime, in-memory response cache)
@@ -51,17 +52,10 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
   - user aliases persist locally in IndexedDB key `di.aliases.v1`
   - curated brand overlay currently seeds `Galvusmet`, `Janumet`, `Glucophage`, `Exforge`, `Jardiance Duo`, and `Co-Diovan`
   - multi-ingredient brands expand at input time into ingredient chips tagged with `viaBrand`
-- Encrypted alias backup / restore layer:
-  - `lib/alias-sync.ts`
-  - `lib/alias-sync-crypto.ts`
-  - `app/api/aliases/backup/[syncId]/route.ts`
-  - alias backups are encrypted in-browser before upload
-  - recovery key holds the sync ID only; passphrase is device-local
-  - sync is manual-only via explicit backup / restore / sync actions
 - Alias management UI:
   - `components/AliasManagerModal.tsx`
   - top-bar overflow entry for remove / export JSON / import JSON
-  - sync setup, encrypted backup, restore, recovery-key export/import, and manual sync actions
+  - encrypted cross-device alias backup UI and code removed; JSON import/export is the only alias transfer path now
 - Teach-alias flow:
   - `components/AliasTeachModal.tsx`
   - empty-result hint opens a local modal where each component is selected through RxNorm before save
@@ -74,7 +68,7 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
 - Cumulative stack layer:
   - `components/StackWarnings.tsx`
   - `lib/stacks.ts`
-  - deterministic local stack warnings for QT (expanded with hydroxychloroquine, domperidone, droperidol, ranolazine, quinine), bleeding, serotonergic, anticholinergic, nephrotoxic, electrolyte, uric acid, glucose, lactic acidosis, normal-gap metabolic acidosis, and **drug-induced seizure** (new: tramadol, bupropion, clozapine, isoniazid, meperidine, theophylline, lithium, calcineurin inhibitors, carbapenems, cefepime, metronidazole, ciprofloxacin)
+  - deterministic local stack warnings for QT (expanded with hydroxychloroquine, domperidone, droperidol, ranolazine, quinine), bleeding, serotonergic, anticholinergic, nephrotoxic, electrolyte, uric acid, glucose, lactic acidosis, normal-gap metabolic acidosis, **bradycardia** (digoxin, amiodarone, verapamil, diltiazem, adenosine, beta-blockers, lacosamide, flecainide, propafenone, sotalol, ivabradine, clonidine, dexmedetomidine, donepezil, rivastigmine), and **drug-induced seizure** (new: tramadol, bupropion, clozapine, isoniazid, meperidine, theophylline, lithium, calcineurin inhibitors, carbapenems, cefepime, metronidazole, ciprofloxacin)
   - myocardialdepression stack pruned: beta-blockers (propranolol, metoprolol) and metabolic acidosis drugs (metformin, tenofovir, zidovudine, linezolid) removed — those belong to the lacticacidosis stack
   - summary box stack buttons now expand to show actual high-yield drug names (up to 12) via `getStackHighYieldDrugs()` instead of class groups; HypoNa now shows 12 representative drugs
   - rendered as a separate cited section above pairwise results
@@ -98,8 +92,7 @@ Verified:
 - `npm run build:data` now regenerates `lib/data/brands/index.json` while preserving DDInter and interaction-overlay artifacts unless `REFRESH_DDINTER=1`
 - Brand and alias resolution expands ingredient chips before `/api/interactions/check`, so the check route still receives RxCUIs only
 - User alias precedence over curated brand defaults is implemented locally and no alias data is sent to API routes
-- Alias backup route stores only encrypted alias blobs; patient/case data never enters `/api/aliases/backup/[syncId]`
-- Alias backup/restore is manual-only and depends on `BLOB_READ_WRITE_TOKEN`; without it, backup/restore fails cleanly with `503`
+- Alias management is now strictly local-only again: remove / export JSON / import JSON
 - Tested searches: warfarin, lipitor, paracetamol, amoxi return hits
 - Batch/paste matching now resolves each matched term to generic ingredients before adding, and combination products stay behind a confirmation step in bulk flows too
 
@@ -110,7 +103,6 @@ app/
   layout.tsx          # metadata, viewport, manifest link
   page.tsx            # renders <AppShell />
   globals.css         # Tailwind v4 + theme tokens
-  api/aliases/backup/[syncId]/route.ts # encrypted alias blob backup/restore
   api/drugs/search/route.ts   # RxNorm proxy (edge)
   api/interactions/check/route.ts   # deterministic pair check (edge)
   api/interactions/explain/route.ts # legacy streamed Anthropic explainer route, not used by current UI
@@ -131,8 +123,6 @@ components/
 lib/
   interactions.ts     # shared pair types, prompt builder, explanation parsing
   aliases.ts          # local alias persistence, precedence chain, inline alias parsing
-  alias-sync.ts       # local alias backup/restore/manual sync orchestration
-  alias-sync-crypto.ts # Web Crypto helpers for encrypted alias bundles
   modifiers.ts        # deterministic patient modifier rules and re-ranking
   pgx.ts              # deterministic pharmacogenomics rules and phenotype-aware alerts
   stacks.ts           # deterministic cumulative stack detection rules
@@ -166,7 +156,7 @@ docs/
 
 1. **Deterministic first, LLM-only-for-prose.** LLMs never invent severity, contraindication, or dosing. They only summarize/rephrase data returned by the deterministic layer. Temperature 0.
 2. **Cite everything.** Every interaction claim shown to the user carries a source name + version/date from the deterministic layer.
-3. **No patient or case data leaves the device.** Persistence is IndexedDB on the client. The only remote payload allowed in v1 is the client-side encrypted alias blob uploaded by explicit user action. No DB of patient lists. No auth in v1.
+3. **No patient or case data leaves the device.** Persistence is IndexedDB on the client. Aliases stay local unless the user explicitly exports/imports JSON. No DB of patient lists. No auth in v1.
 4. **Safety footer.** "Decision-support only. Verify in primary references." must stay visible on every result screen.
 5. **Mobile-first.** Design at 360px width first. Thumb-zone action bar. Min 44 pt touch targets. Dark mode required.
 6. **Thai brand names via curated overlay only** — never LLM-invented.

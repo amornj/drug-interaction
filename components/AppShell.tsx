@@ -1,12 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AliasManagerModal } from "@/components/AliasManagerModal";
-import {
-  loadAliasSyncConfig,
-  syncAliasesWithRemote,
-  type AliasSyncConfig,
-} from "@/lib/alias-sync";
 import { loadUserAliases, type Alias } from "@/lib/aliases";
 import { CaseSwitcher } from "@/components/CaseSwitcher";
 import { DrugSearch } from "@/components/DrugSearch";
@@ -28,16 +23,12 @@ export function AppShell() {
   const clearDrugs = useStore((s) => s.clearDrugs);
   const [aliases, setAliases] = useState<Alias[]>([]);
   const [aliasManagerOpen, setAliasManagerOpen] = useState(false);
-  const [syncConfig, setSyncConfig] = useState<AliasSyncConfig | null>(null);
-  const [syncStatus, setSyncStatus] = useState<string | null>(null);
   const [checking, setChecking] = useState(false);
   const [result, setResult] = useState<InteractionCheckResponse | null>(null);
   const [resultKey, setResultKey] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [errorKey, setErrorKey] = useState("");
   const [retryNonce, setRetryNonce] = useState(0);
-  const syncConfigRef = useRef<AliasSyncConfig | null>(null);
-  const syncInFlightRef = useRef(false);
 
   useEffect(() => {
     hydrate();
@@ -45,41 +36,6 @@ export function AppShell() {
 
   useEffect(() => {
     loadUserAliases().then(setAliases);
-    loadAliasSyncConfig().then(setSyncConfig);
-  }, []);
-
-  useEffect(() => {
-    syncConfigRef.current = syncConfig;
-  }, [syncConfig]);
-
-  const runAliasSync = useCallback(async () => {
-    const config = syncConfigRef.current;
-
-    if (syncInFlightRef.current || !config?.syncId || !config.passphrase) {
-      return;
-    }
-
-    syncInFlightRef.current = true;
-    setSyncStatus("Syncing aliases…");
-    try {
-      const synced = await syncAliasesWithRemote(config);
-      setAliases(synced.aliases);
-      setSyncConfig(synced.config);
-      setSyncStatus(
-        `Synced · ${new Date(
-          synced.config.lastSyncedAt ?? Date.now()
-        ).toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-        })}`
-      );
-    } catch (error) {
-      setSyncStatus(
-        error instanceof Error ? error.message : "Alias sync failed."
-      );
-    } finally {
-      syncInFlightRef.current = false;
-    }
   }, []);
 
   const activeDrugKey =
@@ -222,10 +178,6 @@ export function AppShell() {
         </section>
       ) : null}
 
-      {syncStatus ? (
-        <p className="stamp mt-3">{syncStatus}</p>
-      ) : null}
-
       <section className="rise rise-4 mt-8 flex-1">
         {!hydrated ? (
           <p className="stamp">Loading…</p>
@@ -333,11 +285,6 @@ export function AppShell() {
         aliases={aliases}
         onClose={() => setAliasManagerOpen(false)}
         onAliasesChange={setAliases}
-        syncConfig={syncConfig}
-        syncStatus={syncStatus}
-        onSyncConfigChange={setSyncConfig}
-        onSyncStatusChange={setSyncStatus}
-        onManualSync={runAliasSync}
       />
     </div>
   );

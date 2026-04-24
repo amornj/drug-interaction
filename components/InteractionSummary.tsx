@@ -70,6 +70,8 @@ function stackLabel(domain: StackWarning["domain"]) {
       return "HAGMA";
     case "normalgapacidosis":
       return "NAGMA";
+    case "bradycardia":
+      return "Bradycardia";
     case "druginducedseizure":
       return "Seizure risk";
   }

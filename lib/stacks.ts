@@ -23,6 +23,7 @@ export type StackDomain =
   | "hyperglycemia"
   | "hagma"
   | "normalgapacidosis"
+  | "bradycardia"
   | "druginducedseizure";
 
 export type StackWarning = {
@@ -1080,6 +1081,83 @@ const stackRules: StackRule[] = [
       `Nephrotoxic exposures are stacking: ${matched.join(", ")}. Review additive kidney-injury risk and monitoring needs.`,
   },
   {
+    domain: "bradycardia",
+    title: "Bradycardia risk stack",
+    matches: [
+      "digoxin",
+      "amiodarone",
+      "verapamil",
+      "diltiazem",
+      "adenosine",
+      "metoprolol",
+      "bisoprolol",
+      "carvedilol",
+      "esmolol",
+      "propranolol",
+      "lacosamide",
+      "flecainide",
+      "propafenone",
+      "sotalol",
+      "ivabradine",
+      "clonidine",
+      "dexmedetomidine",
+      "donepezil",
+      "rivastigmine",
+    ],
+    highRiskMatches: [
+      "digoxin",
+      "amiodarone",
+      "verapamil",
+      "diltiazem",
+      "adenosine",
+      "metoprolol",
+      "bisoprolol",
+      "carvedilol",
+      "esmolol",
+      "propranolol",
+      "ivabradine",
+    ],
+    summary: (matched) =>
+      `Bradycardic drugs are stacking: ${matched.join(", ")}. Review resting heart rate, AV nodal conduction, blood pressure, and symptom burden if rate-slowing therapies overlap.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const avNodalBlockerCount = [
+        "digoxin",
+        "amiodarone",
+        "verapamil",
+        "diltiazem",
+        "adenosine",
+        "metoprolol",
+        "bisoprolol",
+        "carvedilol",
+        "esmolol",
+        "propranolol",
+        "sotalol",
+        "ivabradine",
+      ].filter((keyword) => matchedKeywords.includes(keyword)).length;
+
+      const hasConductionAgent = ["flecainide", "propafenone", "lacosamide"].some(
+        (keyword) => matchedKeywords.includes(keyword)
+      );
+      const hasCentralOrCholinergicAgent = [
+        "clonidine",
+        "dexmedetomidine",
+        "donepezil",
+        "rivastigmine",
+      ].some((keyword) => matchedKeywords.includes(keyword));
+
+      if (
+        avNodalBlockerCount >= 2 ||
+        (avNodalBlockerCount >= 1 && hasConductionAgent) ||
+        (avNodalBlockerCount >= 1 && hasCentralOrCholinergicAgent) ||
+        matchedDrugs.length >= 3
+      ) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
+  },
+  {
     domain: "druginducedseizure",
     title: "Drug-induced seizure risk stack",
     matches: [
@@ -1336,6 +1414,19 @@ const STACK_REFERENCE_GROUPS: Record<StackDomain, string[]> = {
     "Ifosfamide",
     "Tenofovir",
   ],
+  bradycardia: [
+    "Digoxin",
+    "Amiodarone",
+    "Verapamil and diltiazem",
+    "Adenosine",
+    "Beta-blockers",
+    "Lacosamide",
+    "Flecainide and propafenone",
+    "Ivabradine",
+    "Clonidine",
+    "Dexmedetomidine",
+    "Cholinesterase inhibitors",
+  ],
   druginducedseizure: [
     "Tramadol",
     "Bupropion",
@@ -1451,6 +1542,11 @@ const STACK_HIGH_YIELD_DRUGS: Record<StackDomain, string[]> = {
   ],
   normalgapacidosis: [
     "Acetazolamide", "Topiramate", "Amphotericin", "Ifosfamide", "Tenofovir",
+  ],
+  bradycardia: [
+    "Digoxin", "Amiodarone", "Verapamil", "Diltiazem",
+    "Adenosine", "Metoprolol", "Bisoprolol", "Carvedilol",
+    "Propranolol", "Flecainide", "Ivabradine", "Donepezil",
   ],
   druginducedseizure: [
     "Tramadol", "Bupropion", "Clozapine", "Isoniazid",

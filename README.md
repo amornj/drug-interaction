@@ -9,7 +9,7 @@ A bedside-first web app for fast medication-list review.
 Drug Interaction Checker helps clinicians paste or type a medication list and quickly see:
 
 - significant pairwise drug interactions
-- cumulative risk stacks such as bleeding or hyperkalemia
+- cumulative risk stacks such as bleeding, hyperkalemia, or bradycardia
 - pharmacogenomic warnings
 - patient-phenotype modifiers such as renal or hepatic risk
 - copyable prompts for asking an LLM chat to explain mechanisms
@@ -27,15 +27,17 @@ The core checker is deterministic and local-first. No AI is involved in matching
 - Remove existing drugs easily.
 - Accepts both generic names and commercial names, primarily using US formulation conventions.
 - Accepts combination pills and expands them into all matched ingredients.
+- In batch and paste mode, each matched term is resolved to ingredient-level generic names before being added.
 - Automatically rejects ingredients already present in the case when adding new input.
+- Combination pills in batch and paste mode pause for confirmation instead of silently adding the wrong thing.
 - Works almost entirely with keyboard-only use.
 
 ### Alias Dictionary
 
 - Supports a local custom alias dictionary.
 - Manual alias creation is useful for local shorthand, commercial products, and combination pills.
+- JSON export and import are the only backup / transfer methods.
 - This is manual work, but it is reliable and works well for combined products.
-- Syncing custom aliases across devices is the main remaining roadmap item, likely through Vercel Blob or Supabase-backed login.
 
 ### Summary Box
 
@@ -65,6 +67,7 @@ Examples include:
 - serotonin syndrome
 - nephrotoxicity
 - normal gap acidosis
+- bradycardia
 
 The goal is to show potential side-effect burden up front, such as hyperkalemia risk when several matched drugs contribute to the same stack. Stack cards include copyable prompts so users can ask an LLM chat for mechanistic explanation.
 
@@ -83,6 +86,7 @@ The goal is to show potential side-effect burden up front, such as hyperkalemia 
 - Integrates pharmacogenomic warnings into the same workflow.
 - Flags gene checks when a trigger drug is present.
 - Keeps pharmacogenomic warnings separate from pairwise interaction results.
+- PGx warning cards now expose copyable prompts asking why a gene should be tested for the matched drug and how to interpret the result.
 
 Current examples include:
 
@@ -121,9 +125,9 @@ Current examples include:
 
 ## Roadmap
 
-Only one meaningful product item remains:
+Current next milestone:
 
-- sync custom aliases across devices
+- offline PWA polish, installability, haptics, and final mobile refinement
 
 ## Tech Stack
 
