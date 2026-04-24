@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import type { InteractionSeverity } from "@/lib/interactions";
 import type { ModifiedInteractionPair } from "@/lib/modifiers";
-import type { StackWarning } from "@/lib/stacks";
+import { getStackReferenceGroups, type StackWarning } from "@/lib/stacks";
 
 const severityOrder: InteractionSeverity[] = [
   "Contraindicated",
@@ -81,6 +82,7 @@ export function InteractionSummary({
   stacks?: StackWarning[];
   dataVersion: string;
 }) {
+  const [openStackDomain, setOpenStackDomain] = useState<StackWarning["domain"] | null>(null);
   const stackCount = stacks.length;
 
   if (pairs.length === 0 && stackCount === 0) {
@@ -117,6 +119,8 @@ export function InteractionSummary({
     : counts.Major > 0
     ? "var(--sev-major)"
     : "var(--rule-strong)";
+  const openStack = stacks.find((stack) => stack.domain === openStackDomain) ?? null;
+  const openStackRules = openStack ? getStackReferenceGroups(openStack.domain) : [];
 
   return (
     <div
@@ -173,9 +177,21 @@ export function InteractionSummary({
           <p className="eyebrow mb-1.5">Stacks hit</p>
           <div className="flex flex-wrap gap-1.5">
             {stacks.map((stack) => (
-              <span
+              <button
+                type="button"
                 key={stack.domain}
-                className="inline-flex items-center gap-1.5 border border-rule bg-surface px-2 py-1 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink-soft"
+                onClick={() =>
+                  setOpenStackDomain((current) =>
+                    current === stack.domain ? null : stack.domain
+                  )
+                }
+                aria-expanded={openStackDomain === stack.domain}
+                aria-controls={`stack-reference-${stack.domain}`}
+                className={`inline-flex items-center gap-1.5 border px-2 py-1 font-mono text-[10.5px] uppercase tracking-[0.1em] transition-colors ${
+                  openStackDomain === stack.domain
+                    ? "border-rule-strong bg-paper text-ink"
+                    : "border-rule bg-surface text-ink-soft hover:border-rule-strong hover:text-ink"
+                }`}
               >
                 <span
                   className="sev-mark"
@@ -183,9 +199,44 @@ export function InteractionSummary({
                   aria-hidden
                 />
                 {stackLabel(stack.domain)}
-              </span>
+              </button>
             ))}
           </div>
+          {openStack ? (
+            <div
+              id={`stack-reference-${openStack.domain}`}
+              className="mt-2 border border-rule bg-paper-raised p-3"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="eyebrow">Local rules</p>
+                  <p className="mt-1 text-[13px] italic leading-snug text-ink-mute">
+                    {stackLabel(openStack.domain)} rule groups used by this app.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setOpenStackDomain(null)}
+                  className="grid h-8 w-8 shrink-0 place-items-center border border-rule text-[14px] text-ink-soft transition-colors hover:border-rule-strong hover:text-ink"
+                  aria-label={`Close ${stackLabel(openStack.domain)} rule list`}
+                >
+                  ×
+                </button>
+              </div>
+              <div className="mt-3 max-h-[38vh] overflow-y-auto">
+                <div className="grid grid-cols-2 gap-1.5">
+                  {openStackRules.map((item) => (
+                    <div
+                      key={item}
+                      className="border border-rule bg-surface px-2 py-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : null}
         </div>
       ) : null}
     </div>
