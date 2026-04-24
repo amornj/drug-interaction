@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { InteractionSeverity } from "@/lib/interactions";
 import type { ModifiedInteractionPair } from "@/lib/modifiers";
-import { getStackReferenceGroups, type StackWarning } from "@/lib/stacks";
+import { getStackHighYieldDrugs, type StackWarning } from "@/lib/stacks";
 
 const severityOrder: InteractionSeverity[] = [
   "Contraindicated",
@@ -70,6 +70,8 @@ function stackLabel(domain: StackWarning["domain"]) {
       return "HAGMA";
     case "normalgapacidosis":
       return "NAGMA";
+    case "druginducedseizure":
+      return "Seizure risk";
   }
 }
 
@@ -120,7 +122,7 @@ export function InteractionSummary({
     ? "var(--sev-major)"
     : "var(--rule-strong)";
   const openStack = stacks.find((stack) => stack.domain === openStackDomain) ?? null;
-  const openStackRules = openStack ? getStackReferenceGroups(openStack.domain) : [];
+  const openStackDrugs = openStack ? getStackHighYieldDrugs(openStack.domain) : [];
 
   return (
     <div
@@ -209,29 +211,29 @@ export function InteractionSummary({
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <p className="eyebrow">Local rules</p>
+                  <p className="eyebrow">High-yield drugs</p>
                   <p className="mt-1 text-[13px] italic leading-snug text-ink-mute">
-                    {stackLabel(openStack.domain)} rule groups used by this app.
+                    Key contributors to the {stackLabel(openStack.domain)} stack.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setOpenStackDomain(null)}
                   className="grid h-8 w-8 shrink-0 place-items-center border border-rule text-[14px] text-ink-soft transition-colors hover:border-rule-strong hover:text-ink"
-                  aria-label={`Close ${stackLabel(openStack.domain)} rule list`}
+                  aria-label={`Close ${stackLabel(openStack.domain)} drug list`}
                 >
                   ×
                 </button>
               </div>
               <div className="mt-3 max-h-[38vh] overflow-y-auto">
-                <div className="grid grid-cols-2 gap-1.5">
-                  {openStackRules.map((item) => (
-                    <div
-                      key={item}
-                      className="border border-rule bg-surface px-2 py-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft"
+                <div className="flex flex-wrap gap-1.5">
+                  {openStackDrugs.map((drug) => (
+                    <span
+                      key={drug}
+                      className="border border-rule bg-surface px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft"
                     >
-                      {item}
-                    </div>
+                      {drug}
+                    </span>
                   ))}
                 </div>
               </div>

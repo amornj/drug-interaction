@@ -50,6 +50,8 @@ function domainLabel(domain: StackWarning["domain"]) {
       return "HAGMA";
     case "normalgapacidosis":
       return "NAGMA";
+    case "druginducedseizure":
+      return "Seizure risk";
   }
 }
 

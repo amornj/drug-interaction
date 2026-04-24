@@ -22,7 +22,8 @@ export type StackDomain =
   | "hypoglycemia"
   | "hyperglycemia"
   | "hagma"
-  | "normalgapacidosis";
+  | "normalgapacidosis"
+  | "druginducedseizure";
 
 export type StackWarning = {
   domain: StackDomain;
@@ -71,8 +72,14 @@ const stackRules: StackRule[] = [
       "escitalopram",
       "methadone",
       "ondansetron",
+      "hydroxychloroquine",
+      "chloroquine",
+      "domperidone",
+      "droperidol",
+      "ranolazine",
+      "quinine",
     ],
-    highRiskMatches: ["amiodarone", "sotalol", "quinidine", "methadone", "ziprasidone"],
+    highRiskMatches: ["amiodarone", "sotalol", "quinidine", "methadone", "ziprasidone", "droperidol", "hydroxychloroquine"],
     summary: (matched) =>
       `Multiple QT-risk drugs detected: ${matched.join(", ")}. Review ECG and electrolyte monitoring needs, especially if potassium or magnesium may drift low.`,
     detectSeverity: (matchedKeywords, matchedDrugs) => {
@@ -842,17 +849,11 @@ const stackRules: StackRule[] = [
       "phenytoin",
       "verapamil",
       "diltiazem",
-      "propranolol",
-      "metoprolol",
       "flecainide",
       "disopyramide",
       "propofol",
       "nivolumab",
       "clozapine",
-      "tenofovir",
-      "zidovudine",
-      "linezolid",
-      "metformin",
     ],
     highRiskMatches: [
       "doxorubicin",
@@ -901,8 +902,6 @@ const stackRules: StackRule[] = [
       const hasNegativeInotrope = [
         "verapamil",
         "diltiazem",
-        "propranolol",
-        "metoprolol",
         "flecainide",
         "disopyramide",
         "mavacamten",
@@ -924,15 +923,11 @@ const stackRules: StackRule[] = [
       const hasMyocarditisTrigger = ["nivolumab", "clozapine"].some((keyword) =>
         matchedKeywords.includes(keyword)
       );
-      const hasLacticAcidosisDriver = ["tenofovir", "zidovudine", "linezolid", "metformin", "propofol"].some(
-        (keyword) => matchedKeywords.includes(keyword)
-      );
 
       if (
         highRiskCount >= 2 ||
         (hasNegativeInotrope && hasChemoCardiotoxin) ||
         (hasNegativeInotrope && hasMyocarditisTrigger) ||
-        (hasNegativeInotrope && hasLacticAcidosisDriver) ||
         matchedDrugs.length >= 3
       ) {
         return "Major";
@@ -1084,6 +1079,56 @@ const stackRules: StackRule[] = [
     summary: (matched) =>
       `Nephrotoxic exposures are stacking: ${matched.join(", ")}. Review additive kidney-injury risk and monitoring needs.`,
   },
+  {
+    domain: "druginducedseizure",
+    title: "Drug-induced seizure risk stack",
+    matches: [
+      "tramadol",
+      "bupropion",
+      "clozapine",
+      "isoniazid",
+      "meperidine",
+      "pethidine",
+      "theophylline",
+      "cyclosporine",
+      "tacrolimus",
+      "imipenem",
+      "meropenem",
+      "metronidazole",
+      "ciprofloxacin",
+      "lithium",
+    ],
+    highRiskMatches: [
+      "tramadol",
+      "bupropion",
+      "clozapine",
+      "isoniazid",
+      "meperidine",
+      "pethidine",
+      "theophylline",
+      "lithium",
+    ],
+    summary: (matched) =>
+      `Proconvulsant drugs are stacking: ${matched.join(", ")}. Review seizure threshold risk, drug levels for narrow-therapeutic-index agents, calcineurin inhibitor neurotoxicity, and pyridoxine status if isoniazid is present.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const highRiskCount = [
+        "tramadol",
+        "bupropion",
+        "clozapine",
+        "isoniazid",
+        "meperidine",
+        "pethidine",
+        "theophylline",
+        "lithium",
+      ].filter((keyword) => matchedKeywords.includes(keyword)).length;
+
+      if (highRiskCount >= 2 || matchedDrugs.length >= 3) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
+  },
 ];
 
 function normalizeDrugName(name: string) {
@@ -1185,12 +1230,10 @@ const STACK_REFERENCE_GROUPS: Record<StackDomain, string[]> = {
     "Cocaine and amphetamines",
     "Carbamazepine and phenytoin",
     "Verapamil and diltiazem",
-    "Beta blockers",
     "Flecainide and disopyramide",
     "Propofol",
     "Nivolumab",
     "Clozapine",
-    "Tenofovir, zidovudine, linezolid, metformin",
   ],
   fluidretention: [
     "NSAIDs",
@@ -1292,10 +1335,131 @@ const STACK_REFERENCE_GROUPS: Record<StackDomain, string[]> = {
     "Ifosfamide",
     "Tenofovir",
   ],
+  druginducedseizure: [
+    "Tramadol",
+    "Bupropion",
+    "Clozapine",
+    "Isoniazid",
+    "Meperidine",
+    "Theophylline",
+    "Lithium",
+    "Calcineurin inhibitors",
+    "Carbapenems",
+    "Metronidazole",
+    "Fluoroquinolones",
+  ],
 };
 
 export function getStackReferenceGroups(domain: StackDomain) {
   return STACK_REFERENCE_GROUPS[domain] ?? [];
+}
+
+const STACK_HIGH_YIELD_DRUGS: Record<StackDomain, string[]> = {
+  qt: [
+    "Amiodarone", "Sotalol", "Quinidine", "Azithromycin", "Clarithromycin",
+    "Levofloxacin", "Haloperidol", "Quetiapine", "Hydroxychloroquine",
+    "Methadone", "Ondansetron", "Droperidol",
+  ],
+  bleeding: [
+    "Warfarin", "Apixaban", "Rivaroxaban", "Dabigatran", "Heparin",
+    "Enoxaparin", "Aspirin", "Clopidogrel", "Ticagrelor", "Ibuprofen",
+    "Sertraline", "Naproxen",
+  ],
+  serotonergic: [
+    "Phenelzine", "Tranylcypromine", "Fluoxetine", "Sertraline", "Venlafaxine",
+    "Tramadol", "Linezolid", "Amitriptyline", "Mirtazapine", "Trazodone",
+    "Methadone", "Selegiline",
+  ],
+  anticholinergic: [
+    "Amitriptyline", "Diphenhydramine", "Oxybutynin", "Promethazine",
+    "Chlorpheniramine", "Scopolamine", "Benztropine", "Paroxetine",
+    "Tolterodine", "Cyclobenzaprine",
+  ],
+  eps: [
+    "Haloperidol", "Fluphenazine", "Chlorpromazine", "Risperidone",
+    "Ziprasidone", "Metoclopramide", "Prochlorperazine", "Olanzapine",
+    "Paliperidone", "Perphenazine",
+  ],
+  ergotism: [
+    "Ergotamine", "Dihydroergotamine", "Sumatriptan", "Rizatriptan",
+    "Clarithromycin", "Erythromycin", "Ketoconazole", "Itraconazole",
+    "Ritonavir", "Cobicistat",
+  ],
+  myocardialdepression: [
+    "Doxorubicin", "Trastuzumab", "Cyclophosphamide", "Fluorouracil",
+    "Cisplatin", "Mavacamten", "Verapamil", "Diltiazem",
+    "Flecainide", "Disopyramide", "Propofol", "Nivolumab",
+  ],
+  fluidretention: [
+    "Ibuprofen", "Naproxen", "Prednisone", "Methylprednisolone",
+    "Fludrocortisone", "Amlodipine", "Nifedipine", "Minoxidil",
+    "Pioglitazone", "Hydralazine",
+  ],
+  lacticacidosis: [
+    "Metformin", "Linezolid", "Propofol", "Zidovudine",
+    "Stavudine", "Didanosine", "Tenofovir", "Abacavir",
+  ],
+  nephrotoxic: [
+    "Gentamicin", "Tobramycin", "Vancomycin", "Amphotericin B",
+    "Tacrolimus", "Cyclosporine", "Ibuprofen", "Ketorolac",
+    "Lisinopril", "Furosemide",
+  ],
+  hyperkalemia: [
+    "Spironolactone", "Eplerenone", "Amiloride", "Lisinopril",
+    "Losartan", "Valsartan", "Trimethoprim", "Tacrolimus",
+    "Cyclosporine", "Potassium chloride",
+  ],
+  hypokalemia: [
+    "Furosemide", "Bumetanide", "Torsemide", "Hydrochlorothiazide",
+    "Metolazone", "Insulin", "Albuterol", "Prednisone",
+    "Dexamethasone", "Terbutaline",
+  ],
+  hypercalcemia: [
+    "Calcium carbonate", "Calcitriol", "Alfacalcidol", "Cholecalciferol",
+    "Hydrochlorothiazide", "Lithium", "Teriparatide", "Abaloparatide",
+  ],
+  hypocalcemia: [
+    "Zoledronic acid", "Denosumab", "Cinacalcet", "Foscarnet",
+    "Phenytoin", "Carbamazepine", "Furosemide", "Alendronate",
+    "Etelcalcetide", "Pamidronate",
+  ],
+  hyponatremia: [
+    "Hydrochlorothiazide", "Chlorthalidone", "Desmopressin", "Carbamazepine",
+    "Oxcarbazepine", "Fluoxetine", "Sertraline", "Venlafaxine",
+    "Cyclophosphamide", "Vincristine", "Haloperidol", "Risperidone",
+  ],
+  hypernatremia: [
+    "Sodium bicarbonate", "Lithium", "Mannitol", "Demeclocycline",
+    "Furosemide", "Fludrocortisone", "Lactulose", "Dexamethasone",
+  ],
+  hyperuricemia: [
+    "Hydrochlorothiazide", "Furosemide", "Aspirin", "Pyrazinamide",
+    "Ethambutol", "Cyclosporine", "Tacrolimus", "Niacin", "Bempedoic acid",
+  ],
+  hypoglycemia: [
+    "Insulin", "Glimepiride", "Gliclazide", "Glipizide",
+    "Glyburide", "Repaglinide", "Nateglinide", "Linezolid",
+  ],
+  hyperglycemia: [
+    "Prednisone", "Dexamethasone", "Methylprednisolone", "Tacrolimus",
+    "Cyclosporine", "Olanzapine", "Quetiapine", "Hydrochlorothiazide",
+  ],
+  hagma: [
+    "Aspirin", "Methanol", "Ethylene glycol", "Propylene glycol",
+    "Iron", "Isoniazid", "Lorazepam", "Diazepam",
+  ],
+  normalgapacidosis: [
+    "Acetazolamide", "Topiramate", "Amphotericin", "Ifosfamide", "Tenofovir",
+  ],
+  druginducedseizure: [
+    "Tramadol", "Bupropion", "Clozapine", "Isoniazid",
+    "Meperidine", "Theophylline", "Lithium", "Cyclosporine",
+    "Tacrolimus", "Imipenem", "Metronidazole", "Ciprofloxacin",
+  ],
+};
+
+export function getStackHighYieldDrugs(domain: StackDomain): string[] {
+  return (STACK_HIGH_YIELD_DRUGS[domain] ?? []).slice(0, 12);
 }
 
 export function detectCumulativeStacks(drugs: Drug[]): StackWarning[] {

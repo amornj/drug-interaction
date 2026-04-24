@@ -6,7 +6,7 @@ Owner: `amornj`. Repo: https://github.com/amornj/drug-interaction. Deploy: Verce
 
 ---
 
-## Current state (M9 — DONE, on `main`)
+## Current state (M9 + stack polish — DONE, on `main`)
 
 Owner intentionally skipped M6 and M7 for now and moved directly to M8.
 
@@ -71,7 +71,9 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
 - Cumulative stack layer:
   - `components/StackWarnings.tsx`
   - `lib/stacks.ts`
-  - deterministic local stack warnings for QT, bleeding, serotonergic, anticholinergic, nephrotoxic, electrolyte, uric acid, glucose, lactic acidosis, and normal-gap metabolic acidosis burden
+  - deterministic local stack warnings for QT (expanded with hydroxychloroquine, domperidone, droperidol, ranolazine, quinine), bleeding, serotonergic, anticholinergic, nephrotoxic, electrolyte, uric acid, glucose, lactic acidosis, normal-gap metabolic acidosis, and **drug-induced seizure** (new: tramadol, bupropion, clozapine, isoniazid, meperidine, theophylline, lithium, calcineurin inhibitors, carbapenems, metronidazole, ciprofloxacin)
+  - myocardialdepression stack pruned: beta-blockers (propranolol, metoprolol) and metabolic acidosis drugs (metformin, tenofovir, zidovudine, linezolid) removed — those belong to the lacticacidosis stack
+  - summary box stack buttons now expand to show actual high-yield drug names (up to 12) via `getStackHighYieldDrugs()` instead of class groups; HypoNa now shows 12 representative drugs
   - rendered as a separate cited section above pairwise results
 - Pharmacogenomics layer:
   - `components/PharmacogenomicsPanel.tsx`
