@@ -9,7 +9,7 @@
 | `lib/modifiers.ts` local rules | Deterministic patient-context re-ranking and annotations | `2026-04` | Repo-managed | Repository-local authored content | Client-side M4 modifier layer with local-only case state. |
 | `lib/stacks.ts` local rules | Deterministic cumulative stack warnings | `2026-04-metabolic-electrolyte` | Repo-managed | Repository-local authored content | Client-side M5 cumulative risk layer with visible citations, including electrolyte, uric acid, glucose, and acid-base stack rules. |
 | `lib/pgx.ts` local rules | Deterministic pharmacogenomics prompts and phenotype-aware guidance | `2026-04` | Repo-managed | Repository-local authored content | Client-side M8 CPIC-style panel; phenotype selections stay inside local case storage. |
-| `lib/cyp.ts` local rules | Curated CYP substrate / inhibitor / inducer annotations for matched drugs | `2026-04` | Repo-managed | Repository-local authored content | Client-side display-only annotations shown under matched generic names in the medication list. |
+| `lib/cyp.ts` local rules | Curated metabolism and transporter annotations for matched drugs | `2026-04` | Repo-managed | Repository-local authored content | Client-side display-only annotations shown under matched generic names in the medication list, including CYP, non-CYP routes, renal elimination, transporter handling, and P-gp. |
 | `lib/aliases.ts` local rules | Deterministic user alias persistence and precedence chain | `2026-04` | Repo-managed | Repository-local authored content | Client-side M9 alias database at IndexedDB key `di.aliases.v1`; never sent to API routes. |
 
 ## Generated artifacts

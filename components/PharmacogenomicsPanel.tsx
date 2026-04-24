@@ -117,6 +117,7 @@ export function PharmacogenomicsPanel({
                       </div>
                       <LlmPromptPanel
                         blurb="Copy a pharmacogenomic testing prompt for another chat app."
+                        variant="button"
                         prompts={[
                           {
                             id: `${alert.gene}-${alert.title}`,

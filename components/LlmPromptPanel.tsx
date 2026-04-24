@@ -12,9 +12,11 @@ export type LlmPromptOption = {
 export function LlmPromptPanel({
   prompts,
   blurb,
+  variant = "list",
 }: {
   prompts: LlmPromptOption[];
   blurb: string;
+  variant?: "list" | "button";
 }) {
   const [copyLabels, setCopyLabels] = useState<Record<string, string>>({});
 
@@ -41,6 +43,26 @@ export function LlmPromptPanel({
         1600
       );
     }
+  }
+
+  if (variant === "button" && prompts.length === 1) {
+    const option = prompts[0];
+    return (
+      <div className="mt-3 flex items-start justify-between gap-3 border border-rule bg-paper-raised p-3">
+        <div>
+          <p className="eyebrow">Ask LLM Chat</p>
+          <p className="mt-0.5 text-[11px] italic text-ink-mute">{blurb}</p>
+        </div>
+        <button
+          type="button"
+          onClick={() => copyPrompt(option.id, option.prompt)}
+          className="min-h-9 shrink-0 border border-rule px-3 text-[11.5px] uppercase tracking-[0.12em] text-ink-soft transition-colors hover:border-rule-strong hover:text-ink"
+          title={option.prompt}
+        >
+          {copyLabels[option.id] ?? "Copy prompt"}
+        </button>
+      </div>
+    );
   }
 
   return (

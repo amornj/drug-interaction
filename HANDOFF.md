@@ -6,7 +6,7 @@ Owner: `amornj`. Repo: https://github.com/amornj/drug-interaction. Deploy: Verce
 
 ---
 
-## Current state (M9 + stack / prompt / input / alias-storage / CYP polish — DONE, on `main`)
+## Current state (M9 + stack / prompt / input / alias-storage / metabolism polish — DONE, on `main`)
 
 Owner intentionally skipped M6 and M7 for now and moved directly to M8.
 
@@ -42,7 +42,7 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
   - supports inline alias syntax such as `galvusmet = vildagliptin + metformin`
   - batch / paste flows now resolve matched results down to ingredient-level generic names before adding chips
   - batch / paste flows queue combination-pill confirmations instead of silently flattening them, and show `already in list` notices when all components are present
-  - medication chips now show curated local CYP substrate / inhibitor / inducer annotations under the matched generic name when available
+  - medication chips now show curated local metabolism / transporter annotations under the matched generic name when available, including CYP, non-CYP pathways, renal elimination, transporter handling, and P-gp
 - Pair-level prompt UI:
   - `components/InteractionExplanation.tsx`
   - shared dropdown prompt affordance per pair
@@ -78,7 +78,7 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
   - `lib/pgx.ts`
   - deterministic local CPIC-style gene prompts for CYP2C9, CYP2C19, CYP2D6, SLCO1B1, VKORC1, HLA-B*15:02, HLA-B*57:01, HLA-B*58:01, DPYD, TPMT, and NUDT15
   - warfarin now triggers local PGx alerts for CYP2C9 clearance / bleeding risk and VKORC1 sensitivity / dose requirement
-  - PGx warning cards now collapse / expand like cumulative stack cards; matched-drug boxes and Ask LLM copy prompts appear only after expansion
+  - PGx warning cards now collapse / expand like cumulative stack cards; matched-drug boxes and a direct `Copy prompt` button appear only after expansion
   - phenotype selections are stored locally with each case and rendered as a cited section separate from pairwise interactions
 
 Verified:
@@ -91,14 +91,14 @@ Verified:
 - Pharmacogenomics guidance stays local, cites the repo-managed rule layer, and does not rewrite the pairwise interaction results
 - Pasted medication-list text can bulk-add matched drugs through the existing RxNorm flow
 - Pair cards include a clipboard fallback prompt for external AI chat use when Anthropic is unavailable
-- Pairwise interactions, cumulative stacks, and pharmacogenomic warnings all use the same expandable copy-prompt UI
+- Pairwise interactions keep the expandable prompt UI; cumulative stacks and pharmacogenomic warnings now use direct copy buttons after expansion
 - `npm run build:data` now regenerates `lib/data/brands/index.json` while preserving DDInter and interaction-overlay artifacts unless `REFRESH_DDINTER=1`
 - Brand and alias resolution expands ingredient chips before `/api/interactions/check`, so the check route still receives RxCUIs only
 - User alias precedence over curated brand defaults is implemented locally and no alias data is sent to API routes
 - Alias management is now strictly local-only again: remove / export JSON / import JSON
 - Tested searches: warfarin, lipitor, paracetamol, amoxi return hits
 - Batch/paste matching now resolves each matched term to generic ingredients before adding, and combination products stay behind a confirmation step in bulk flows too
-- Medication chips can show curated CYP substrate / inhibitor / inducer notes such as `CYP2C19: Sub (PGx, prodrug)` under the generic name
+- Medication chips can show curated metabolism / transporter notes such as `CYP2C19: Sub (PGx, prodrug)`, `UGT: Met`, `Renal elim: Major`, or `P-gp: Sub (NTI)` under the generic name
 
 ### File map
 
@@ -125,7 +125,7 @@ components/
   StackWarnings.tsx   # cumulative stack warning cards with citations
   SeverityBadge.tsx   # red/orange/amber/yellow severity variants
 lib/
-  cyp.ts             # curated local CYP substrate / inhibitor / inducer annotations for matched drugs
+  cyp.ts             # curated local metabolism / transporter annotations for matched drugs, including CYP, non-CYP routes, and P-gp
   interactions.ts     # shared pair types, prompt builder, explanation parsing
   aliases.ts          # local alias persistence, precedence chain, inline alias parsing
   modifiers.ts        # deterministic patient modifier rules and re-ranking

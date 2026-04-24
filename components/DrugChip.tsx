@@ -1,13 +1,13 @@
 "use client";
 
-import { getDrugCypAnnotations } from "@/lib/cyp";
+import { getDrugMetabolismAnnotations } from "@/lib/cyp";
 import type { Drug } from "@/lib/store";
 import { useStore } from "@/lib/store";
 
 export function DrugChip({ drug, index }: { drug: Drug; index: number }) {
   const removeDrug = useStore((s) => s.removeDrug);
   const number = String(index + 1).padStart(2, "0");
-  const annotations = getDrugCypAnnotations(drug.name);
+  const annotations = getDrugMetabolismAnnotations(drug.name);
   const metaLine = [
     drug.viaBrand ? `via ${drug.viaBrand}` : null,
     annotations.length > 0 ? annotations.join("  •  ") : null,

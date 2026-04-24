@@ -125,6 +125,7 @@ export function StackWarnings({
                 </div>
                 <LlmPromptPanel
                   blurb="Copy a mechanism prompt for this cumulative stack."
+                  variant="button"
                   prompts={[
                     {
                       id: warning.domain,

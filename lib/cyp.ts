@@ -1,210 +1,386 @@
-type CypAnnotation = {
-  enzyme: string;
+type MetabolismAnnotation = {
+  system: string;
   role: string;
   note?: string;
 };
 
-type CypEntry = {
+type MetabolismEntry = {
   match: string;
-  annotations: CypAnnotation[];
+  annotations: MetabolismAnnotation[];
 };
 
 function normalizeDrugName(name: string) {
   return name.toLowerCase().replace(/\([^)]*\)/g, " ").replace(/\s+/g, " ").trim();
 }
 
-const CYP_ENTRIES: CypEntry[] = [
-  { match: "simvastatin", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "atorvastatin", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "lovastatin", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "amlodipine", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  {
-    match: "nifedipine",
-    annotations: [{ enzyme: "CYP3A4", role: "Sub" }],
-  },
+const METABOLISM_ENTRIES: MetabolismEntry[] = [
+  { match: "simvastatin", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "BCRP", role: "Transport" }] },
+  { match: "atorvastatin", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "BCRP", role: "Transport" }] },
+  { match: "lovastatin", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "BCRP", role: "Transport" }] },
+  { match: "amlodipine", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "nifedipine", annotations: [{ system: "CYP3A4", role: "Sub" }] },
   {
     match: "verapamil",
     annotations: [
-      { enzyme: "CYP3A4", role: "Sub" },
-      { enzyme: "CYP3A4", role: "Moderate Inh" },
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP3A4", role: "Moderate Inh" },
+      { system: "P-gp", role: "Inh", note: "moderate-strong" },
     ],
   },
   {
     match: "diltiazem",
     annotations: [
-      { enzyme: "CYP3A4", role: "Sub" },
-      { enzyme: "CYP3A4", role: "Moderate Inh" },
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP3A4", role: "Moderate Inh" },
+      { system: "P-gp", role: "Inh", note: "strong" },
     ],
   },
-  { match: "apixaban", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "rivaroxaban", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "tacrolimus", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "cyclosporine", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "midazolam", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "triazolam", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "fentanyl", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "oxycodone", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "sildenafil", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "tadalafil", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "quetiapine", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "lurasidone", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
+  {
+    match: "apixaban",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "P-gp", role: "Sub" },
+      { system: "Renal elim", role: "Partial" },
+    ],
+  },
+  {
+    match: "rivaroxaban",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "P-gp", role: "Sub" },
+      { system: "Renal elim", role: "Partial" },
+    ],
+  },
+  {
+    match: "edoxaban",
+    annotations: [{ system: "P-gp", role: "Sub" }, { system: "Renal elim", role: "Partial" }],
+  },
+  {
+    match: "dabigatran",
+    annotations: [
+      { system: "P-gp", role: "Sub", note: "critical" },
+      { system: "Renal elim", role: "Partial" },
+    ],
+  },
+  {
+    match: "tacrolimus",
+    annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "P-gp", role: "Sub" }],
+  },
+  {
+    match: "cyclosporine",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "P-gp", role: "Sub" },
+      { system: "P-gp", role: "Inh", note: "strong" },
+    ],
+  },
+  { match: "midazolam", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "triazolam", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "fentanyl", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "oxycodone", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "sildenafil", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "P-gp", role: "Sub" }] },
+  { match: "tadalafil", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "quetiapine", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "lurasidone", annotations: [{ system: "CYP3A4", role: "Sub" }] },
   {
     match: "carbamazepine",
     annotations: [
-      { enzyme: "CYP3A4", role: "Sub" },
-      { enzyme: "CYP3A4", role: "Moderate Ind" },
-      { enzyme: "CYP2C9", role: "Ind" },
-      { enzyme: "CYP2C19", role: "Ind" },
-      { enzyme: "CYP1A2", role: "Moderate Ind" },
-      { enzyme: "CYP2B6", role: "Ind" },
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP3A4", role: "Moderate Ind" },
+      { system: "CYP2C9", role: "Ind" },
+      { system: "CYP2C19", role: "Ind" },
+      { system: "CYP1A2", role: "Moderate Ind" },
+      { system: "CYP2B6", role: "Ind" },
+      { system: "P-gp", role: "Ind" },
     ],
   },
-  { match: "diazepam", annotations: [{ enzyme: "CYP3A4", role: "Sub" }, { enzyme: "CYP2C19", role: "Sub" }] },
-  { match: "alprazolam", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "prednisone", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "prednisolone", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
+  { match: "diazepam", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2C19", role: "Sub" }] },
+  { match: "alprazolam", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "prednisone", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "prednisolone", annotations: [{ system: "CYP3A4", role: "Sub" }] },
   {
     match: "amiodarone",
     annotations: [
-      { enzyme: "CYP3A4", role: "Sub" },
-      { enzyme: "CYP3A4", role: "Moderate Inh" },
-      { enzyme: "CYP2C9", role: "Strong Inh" },
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP3A4", role: "Moderate Inh" },
+      { system: "CYP2C9", role: "Strong Inh" },
+      { system: "P-gp", role: "Inh", note: "strong" },
     ],
   },
-  { match: "eplerenone", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "buspirone", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "zolpidem", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "domperidone", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "ivabradine", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "lidocaine", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "estradiol", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "ondansetron", annotations: [{ enzyme: "CYP3A4", role: "Sub" }, { enzyme: "CYP2D6", role: "Sub" }] },
-  { match: "ergotamine", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "colchicine", annotations: [{ enzyme: "CYP3A4", role: "Sub" }] },
-  { match: "ritonavir", annotations: [{ enzyme: "CYP3A4", role: "Strong Inh" }] },
-  { match: "cobicistat", annotations: [{ enzyme: "CYP3A4", role: "Strong Inh" }] },
-  { match: "ketoconazole", annotations: [{ enzyme: "CYP3A4", role: "Strong Inh" }] },
-  { match: "itraconazole", annotations: [{ enzyme: "CYP3A4", role: "Strong Inh" }] },
-  { match: "clarithromycin", annotations: [{ enzyme: "CYP3A4", role: "Strong Inh" }] },
-  { match: "erythromycin", annotations: [{ enzyme: "CYP3A4", role: "Moderate Inh" }] },
+  { match: "eplerenone", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "buspirone", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "zolpidem", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "domperidone", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "ivabradine", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "lidocaine", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "estradiol", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "ondansetron", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub" }] },
+  { match: "ergotamine", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  {
+    match: "colchicine",
+    annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "P-gp", role: "Sub" }],
+  },
+  {
+    match: "ritonavir",
+    annotations: [{ system: "CYP3A4", role: "Strong Inh" }, { system: "P-gp", role: "Inh", note: "strong" }],
+  },
+  { match: "cobicistat", annotations: [{ system: "CYP3A4", role: "Strong Inh" }] },
+  {
+    match: "ketoconazole",
+    annotations: [{ system: "CYP3A4", role: "Strong Inh" }, { system: "P-gp", role: "Inh", note: "strong" }],
+  },
+  {
+    match: "itraconazole",
+    annotations: [{ system: "CYP3A4", role: "Strong Inh" }, { system: "P-gp", role: "Inh", note: "strong" }],
+  },
+  {
+    match: "clarithromycin",
+    annotations: [{ system: "CYP3A4", role: "Strong Inh" }, { system: "P-gp", role: "Inh", note: "strong" }],
+  },
+  {
+    match: "erythromycin",
+    annotations: [
+      { system: "CYP3A4", role: "Moderate Inh" },
+      { system: "P-gp", role: "Sub" },
+      { system: "P-gp", role: "Inh", note: "moderate" },
+    ],
+  },
   {
     match: "fluconazole",
     annotations: [
-      { enzyme: "CYP3A4", role: "Moderate Inh" },
-      { enzyme: "CYP2C9", role: "Strong Inh" },
+      { system: "CYP3A4", role: "Moderate Inh" },
+      { system: "CYP2C9", role: "Strong Inh" },
+      { system: "P-gp", role: "Inh", note: "moderate" },
     ],
   },
-  { match: "ciprofloxacin", annotations: [{ enzyme: "CYP3A4", role: "Weak Inh" }, { enzyme: "CYP1A2", role: "Strong Inh" }] },
-  { match: "rifampin", annotations: [{ enzyme: "CYP3A4", role: "Strong Ind" }, { enzyme: "CYP2C9", role: "Ind" }, { enzyme: "CYP2C19", role: "Ind" }, { enzyme: "CYP1A2", role: "Moderate Ind" }, { enzyme: "CYP2B6", role: "Ind" }, { enzyme: "CYP2A6", role: "Ind" }] },
-  { match: "phenytoin", annotations: [{ enzyme: "CYP3A4", role: "Moderate Ind" }, { enzyme: "CYP2C9", role: "Sub" }, { enzyme: "CYP2C9", role: "Ind" }, { enzyme: "CYP2C19", role: "Sub" }, { enzyme: "CYP2C19", role: "Ind" }] },
-  { match: "phenobarbital", annotations: [{ enzyme: "CYP3A4", role: "Moderate Ind" }, { enzyme: "CYP2C9", role: "Ind" }, { enzyme: "CYP2B6", role: "Ind" }] },
-  { match: "efavirenz", annotations: [{ enzyme: "CYP3A4", role: "Weak Ind" }, { enzyme: "CYP2B6", role: "Sub" }] },
+  {
+    match: "ciprofloxacin",
+    annotations: [{ system: "CYP3A4", role: "Weak Inh" }, { system: "CYP1A2", role: "Strong Inh" }],
+  },
+  {
+    match: "rifampin",
+    annotations: [
+      { system: "CYP3A4", role: "Strong Ind" },
+      { system: "CYP2C9", role: "Ind" },
+      { system: "CYP2C19", role: "Ind" },
+      { system: "CYP1A2", role: "Moderate Ind" },
+      { system: "CYP2B6", role: "Ind" },
+      { system: "CYP2A6", role: "Ind" },
+      { system: "P-gp", role: "Ind", note: "strong" },
+    ],
+  },
+  {
+    match: "phenytoin",
+    annotations: [
+      { system: "CYP3A4", role: "Moderate Ind" },
+      { system: "CYP2C9", role: "Sub" },
+      { system: "CYP2C9", role: "Ind" },
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP2C19", role: "Ind" },
+      { system: "P-gp", role: "Ind" },
+    ],
+  },
+  {
+    match: "phenobarbital",
+    annotations: [
+      { system: "CYP3A4", role: "Moderate Ind" },
+      { system: "CYP2C9", role: "Ind" },
+      { system: "CYP2B6", role: "Ind" },
+      { system: "P-gp", role: "Ind" },
+    ],
+  },
+  {
+    match: "efavirenz",
+    annotations: [
+      { system: "CYP3A4", role: "Weak Ind" },
+      { system: "CYP2B6", role: "Sub" },
+      { system: "P-gp", role: "Ind", note: "moderate" },
+    ],
+  },
   {
     match: "codeine",
-    annotations: [{ enzyme: "CYP2D6", role: "Sub", note: "PGx, prodrug" }],
+    annotations: [{ system: "CYP2D6", role: "Sub", note: "PGx, prodrug" }],
   },
   {
     match: "tramadol",
-    annotations: [{ enzyme: "CYP2D6", role: "Sub", note: "PGx, prodrug" }],
+    annotations: [{ system: "CYP2D6", role: "Sub", note: "PGx, prodrug" }],
   },
-  { match: "metoprolol", annotations: [{ enzyme: "CYP2D6", role: "Sub" }] },
-  { match: "propranolol", annotations: [{ enzyme: "CYP2D6", role: "Sub" }] },
-  { match: "amitriptyline", annotations: [{ enzyme: "CYP2D6", role: "Sub" }] },
-  { match: "nortriptyline", annotations: [{ enzyme: "CYP2D6", role: "Sub" }] },
-  { match: "venlafaxine", annotations: [{ enzyme: "CYP2D6", role: "Sub" }] },
-  { match: "risperidone", annotations: [{ enzyme: "CYP2D6", role: "Sub" }] },
-  { match: "haloperidol", annotations: [{ enzyme: "CYP2D6", role: "Sub" }] },
-  { match: "flecainide", annotations: [{ enzyme: "CYP2D6", role: "Sub" }] },
-  { match: "propafenone", annotations: [{ enzyme: "CYP2D6", role: "Sub" }] },
+  { match: "metoprolol", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  { match: "propranolol", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  { match: "amitriptyline", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  { match: "nortriptyline", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  { match: "venlafaxine", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  { match: "risperidone", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  { match: "haloperidol", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  { match: "flecainide", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  {
+    match: "propafenone",
+    annotations: [{ system: "CYP2D6", role: "Sub" }],
+  },
   {
     match: "tamoxifen",
-    annotations: [{ enzyme: "CYP2D6", role: "Sub", note: "PGx, prodrug" }],
+    annotations: [{ system: "CYP2D6", role: "Sub", note: "PGx, prodrug" }],
   },
-  { match: "carvedilol", annotations: [{ enzyme: "CYP2D6", role: "Sub" }] },
-  { match: "duloxetine", annotations: [{ enzyme: "CYP2D6", role: "Sub" }, { enzyme: "CYP2D6", role: "Moderate Inh" }] },
+  { match: "carvedilol", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  { match: "duloxetine", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP2D6", role: "Moderate Inh" }] },
+  { match: "paroxetine", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP2D6", role: "Strong Inh" }] },
+  { match: "fluoxetine", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP2D6", role: "Strong Inh" }, { system: "CYP2C19", role: "Moderate Inh" }] },
+  { match: "aripiprazole", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  { match: "dextromethorphan", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  { match: "bupropion", annotations: [{ system: "CYP2D6", role: "Strong Inh" }, { system: "CYP2B6", role: "Sub" }] },
+  { match: "quinidine", annotations: [{ system: "CYP2D6", role: "Strong Inh" }, { system: "P-gp", role: "Sub" }] },
+  { match: "sertraline", annotations: [{ system: "CYP2D6", role: "Moderate Inh" }] },
+  { match: "terbinafine", annotations: [{ system: "CYP2D6", role: "Moderate Inh" }] },
   {
-    match: "paroxetine",
-    annotations: [{ enzyme: "CYP2D6", role: "Sub" }, { enzyme: "CYP2D6", role: "Strong Inh" }],
+    match: "cimetidine",
+    annotations: [
+      { system: "CYP2D6", role: "Weak Inh" },
+      { system: "CYP2C19", role: "Weak Inh" },
+      { system: "CYP1A2", role: "Moderate Inh" },
+      { system: "P-gp", role: "Inh" },
+    ],
   },
   {
-    match: "fluoxetine",
-    annotations: [{ enzyme: "CYP2D6", role: "Sub" }, { enzyme: "CYP2D6", role: "Strong Inh" }, { enzyme: "CYP2C19", role: "Moderate Inh" }],
+    match: "warfarin",
+    annotations: [{ system: "CYP2C9", role: "Sub" }, { system: "CYP1A2", role: "Sub", note: "minor" }],
   },
-  { match: "aripiprazole", annotations: [{ enzyme: "CYP2D6", role: "Sub" }] },
-  { match: "dextromethorphan", annotations: [{ enzyme: "CYP2D6", role: "Sub" }] },
-  { match: "bupropion", annotations: [{ enzyme: "CYP2D6", role: "Strong Inh" }, { enzyme: "CYP2B6", role: "Sub" }] },
-  { match: "quinidine", annotations: [{ enzyme: "CYP2D6", role: "Strong Inh" }] },
-  { match: "sertraline", annotations: [{ enzyme: "CYP2D6", role: "Moderate Inh" }] },
-  { match: "terbinafine", annotations: [{ enzyme: "CYP2D6", role: "Moderate Inh" }] },
-  { match: "cimetidine", annotations: [{ enzyme: "CYP2D6", role: "Weak Inh" }, { enzyme: "CYP2C19", role: "Weak Inh" }, { enzyme: "CYP1A2", role: "Moderate Inh" }] },
-  { match: "warfarin", annotations: [{ enzyme: "CYP2C9", role: "Sub" }, { enzyme: "CYP1A2", role: "Sub", note: "minor" }] },
-  { match: "diclofenac", annotations: [{ enzyme: "CYP2C9", role: "Sub" }] },
-  { match: "ibuprofen", annotations: [{ enzyme: "CYP2C9", role: "Sub" }] },
-  { match: "glyburide", annotations: [{ enzyme: "CYP2C9", role: "Sub" }] },
-  { match: "glipizide", annotations: [{ enzyme: "CYP2C9", role: "Sub" }] },
-  { match: "losartan", annotations: [{ enzyme: "CYP2C9", role: "Sub" }] },
-  { match: "celecoxib", annotations: [{ enzyme: "CYP2C9", role: "Sub" }] },
-  { match: "fluvastatin", annotations: [{ enzyme: "CYP2C9", role: "Sub" }] },
-  { match: "tolbutamide", annotations: [{ enzyme: "CYP2C9", role: "Sub" }] },
-  { match: "metronidazole", annotations: [{ enzyme: "CYP2C9", role: "Strong Inh" }] },
-  { match: "trimethoprim sulfamethoxazole", annotations: [{ enzyme: "CYP2C9", role: "Strong Inh" }] },
-  { match: "sulfamethoxazole trimethoprim", annotations: [{ enzyme: "CYP2C9", role: "Strong Inh" }] },
-  { match: "valproate", annotations: [{ enzyme: "CYP2C9", role: "Moderate Inh" }] },
-  { match: "isoniazid", annotations: [{ enzyme: "CYP2C9", role: "Moderate Inh" }, { enzyme: "CYP2E1", role: "Ind" }] },
+  { match: "diclofenac", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "ibuprofen", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "glyburide", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "glipizide", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "losartan", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "celecoxib", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "fluvastatin", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "tolbutamide", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "metronidazole", annotations: [{ system: "CYP2C9", role: "Strong Inh" }] },
+  { match: "trimethoprim sulfamethoxazole", annotations: [{ system: "CYP2C9", role: "Strong Inh" }] },
+  { match: "sulfamethoxazole trimethoprim", annotations: [{ system: "CYP2C9", role: "Strong Inh" }] },
+  { match: "valproate", annotations: [{ system: "CYP2C9", role: "Moderate Inh" }] },
+  {
+    match: "isoniazid",
+    annotations: [{ system: "CYP2C9", role: "Moderate Inh" }, { system: "CYP2E1", role: "Ind" }, { system: "NAT2", role: "Met" }],
+  },
   {
     match: "clopidogrel",
     annotations: [
-      { enzyme: "CYP2C19", role: "Sub", note: "PGx, prodrug" },
-      { enzyme: "CYP2B6", role: "Inh" },
+      { system: "CYP2C19", role: "Sub", note: "PGx, prodrug" },
+      { system: "CYP2B6", role: "Inh" },
     ],
   },
   {
     match: "omeprazole",
     annotations: [
-      { enzyme: "CYP2C19", role: "Sub" },
-      { enzyme: "CYP2C19", role: "Strong Inh" },
-      { enzyme: "CYP2C9", role: "Weak Inh" },
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP2C19", role: "Strong Inh" },
+      { system: "CYP2C9", role: "Weak Inh" },
+      { system: "P-gp", role: "Inh", note: "weak" },
     ],
   },
   {
     match: "esomeprazole",
-    annotations: [
-      { enzyme: "CYP2C19", role: "Sub" },
-      { enzyme: "CYP2C19", role: "Strong Inh" },
-    ],
+    annotations: [{ system: "CYP2C19", role: "Sub" }, { system: "CYP2C19", role: "Strong Inh" }],
   },
-  { match: "citalopram", annotations: [{ enzyme: "CYP2C19", role: "Sub" }] },
-  { match: "voriconazole", annotations: [{ enzyme: "CYP2C19", role: "Sub" }] },
-  { match: "proguanil", annotations: [{ enzyme: "CYP2C19", role: "Sub" }] },
-  { match: "fluvoxamine", annotations: [{ enzyme: "CYP2C19", role: "Moderate Inh" }, { enzyme: "CYP1A2", role: "Strong Inh" }] },
-  { match: "theophylline", annotations: [{ enzyme: "CYP1A2", role: "Sub" }] },
-  { match: "caffeine", annotations: [{ enzyme: "CYP1A2", role: "Sub" }] },
-  { match: "clozapine", annotations: [{ enzyme: "CYP1A2", role: "Sub" }] },
-  { match: "olanzapine", annotations: [{ enzyme: "CYP1A2", role: "Sub" }] },
-  { match: "tizanidine", annotations: [{ enzyme: "CYP1A2", role: "Sub" }] },
-  { match: "ropinirole", annotations: [{ enzyme: "CYP1A2", role: "Sub" }] },
-  { match: "ketamine", annotations: [{ enzyme: "CYP2B6", role: "Sub" }] },
-  { match: "ticlopidine", annotations: [{ enzyme: "CYP2B6", role: "Inh" }] },
-  { match: "nicotine", annotations: [{ enzyme: "CYP2A6", role: "Sub" }] },
-  { match: "coumarin", annotations: [{ enzyme: "CYP2A6", role: "Sub" }] },
-  { match: "methoxsalen", annotations: [{ enzyme: "CYP2A6", role: "Inh" }] },
-  { match: "ethanol", annotations: [{ enzyme: "CYP2E1", role: "Sub" }] },
-  { match: "acetaminophen", annotations: [{ enzyme: "CYP2E1", role: "Sub", note: "minor" }] },
-  { match: "paracetamol", annotations: [{ enzyme: "CYP2E1", role: "Sub", note: "minor" }] },
-  { match: "halothane", annotations: [{ enzyme: "CYP2E1", role: "Sub" }] },
-  { match: "disulfiram", annotations: [{ enzyme: "CYP2E1", role: "Inh" }] },
+  { match: "citalopram", annotations: [{ system: "CYP2C19", role: "Sub" }] },
+  { match: "voriconazole", annotations: [{ system: "CYP2C19", role: "Sub" }] },
+  { match: "proguanil", annotations: [{ system: "CYP2C19", role: "Sub" }] },
+  {
+    match: "fluvoxamine",
+    annotations: [{ system: "CYP2C19", role: "Moderate Inh" }, { system: "CYP1A2", role: "Strong Inh" }],
+  },
+  { match: "theophylline", annotations: [{ system: "CYP1A2", role: "Sub" }] },
+  { match: "caffeine", annotations: [{ system: "CYP1A2", role: "Sub" }] },
+  { match: "clozapine", annotations: [{ system: "CYP1A2", role: "Sub" }] },
+  { match: "olanzapine", annotations: [{ system: "CYP1A2", role: "Sub" }] },
+  { match: "tizanidine", annotations: [{ system: "CYP1A2", role: "Sub" }] },
+  { match: "ropinirole", annotations: [{ system: "CYP1A2", role: "Sub" }] },
+  { match: "ketamine", annotations: [{ system: "CYP2B6", role: "Sub" }] },
+  { match: "ticlopidine", annotations: [{ system: "CYP2B6", role: "Inh" }] },
+  { match: "nicotine", annotations: [{ system: "CYP2A6", role: "Sub" }] },
+  { match: "coumarin", annotations: [{ system: "CYP2A6", role: "Sub" }] },
+  { match: "methoxsalen", annotations: [{ system: "CYP2A6", role: "Inh" }] },
+  { match: "ethanol", annotations: [{ system: "CYP2E1", role: "Sub" }, { system: "Alcohol dehydrogenase", role: "Met" }] },
+  {
+    match: "acetaminophen",
+    annotations: [{ system: "CYP2E1", role: "Sub", note: "minor" }, { system: "SULT", role: "Met", note: "major" }],
+  },
+  {
+    match: "paracetamol",
+    annotations: [{ system: "CYP2E1", role: "Sub", note: "minor" }, { system: "SULT", role: "Met", note: "major" }],
+  },
+  { match: "halothane", annotations: [{ system: "CYP2E1", role: "Sub" }] },
+  { match: "disulfiram", annotations: [{ system: "CYP2E1", role: "Inh" }] },
+  { match: "morphine", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "lorazepam", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "lamotrigine", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "azathioprine", annotations: [{ system: "TPMT", role: "Met" }] },
+  { match: "allopurinol", annotations: [{ system: "Xanthine oxidase", role: "Pathway" }] },
+  { match: "remifentanil", annotations: [{ system: "Esterase", role: "Rapid hydrolysis" }] },
+  { match: "esmolol", annotations: [{ system: "Esterase", role: "Rapid hydrolysis" }] },
+  { match: "aspirin", annotations: [{ system: "Esterase", role: "Rapid hydrolysis" }] },
+  {
+    match: "metformin",
+    annotations: [{ system: "Renal elim", role: "Major" }, { system: "OCT", role: "Transport" }],
+  },
+  {
+    match: "lithium",
+    annotations: [{ system: "Renal elim", role: "Major" }],
+  },
+  {
+    match: "gentamicin",
+    annotations: [{ system: "Renal elim", role: "Major" }],
+  },
+  {
+    match: "tobramycin",
+    annotations: [{ system: "Renal elim", role: "Major" }],
+  },
+  {
+    match: "amikacin",
+    annotations: [{ system: "Renal elim", role: "Major" }],
+  },
+  {
+    match: "digoxin",
+    annotations: [{ system: "P-gp", role: "Sub", note: "NTI" }],
+  },
+  {
+    match: "loperamide",
+    annotations: [{ system: "P-gp", role: "Sub" }],
+  },
+  {
+    match: "doxorubicin",
+    annotations: [{ system: "P-gp", role: "Sub" }],
+  },
+  {
+    match: "vincristine",
+    annotations: [{ system: "P-gp", role: "Sub" }],
+  },
+  {
+    match: "methotrexate",
+    annotations: [{ system: "P-gp", role: "Sub" }],
+  },
+  {
+    match: "fexofenadine",
+    annotations: [{ system: "P-gp", role: "Sub" }],
+  },
+  {
+    match: "ranolazine",
+    annotations: [{ system: "P-gp", role: "Inh", note: "moderate" }],
+  },
+  {
+    match: "ticagrelor",
+    annotations: [{ system: "P-gp", role: "Inh", note: "moderate" }],
+  },
 ];
 
-function formatAnnotation(annotation: CypAnnotation) {
-  return `${annotation.enzyme}: ${annotation.role}${annotation.note ? ` (${annotation.note})` : ""}`;
+function formatAnnotation(annotation: MetabolismAnnotation) {
+  return `${annotation.system}: ${annotation.role}${annotation.note ? ` (${annotation.note})` : ""}`;
 }
 
-export function getDrugCypAnnotations(name: string) {
+export function getDrugMetabolismAnnotations(name: string) {
   const normalized = normalizeDrugName(name);
   const seen = new Set<string>();
   const annotations: string[] = [];
 
-  for (const entry of CYP_ENTRIES) {
+  for (const entry of METABOLISM_ENTRIES) {
     if (!normalized.includes(entry.match)) {
       continue;
     }

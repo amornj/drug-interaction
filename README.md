@@ -13,7 +13,7 @@ Drug Interaction Checker helps clinicians paste or type a medication list and qu
 - pharmacogenomic warnings
 - patient-phenotype modifiers such as renal or hepatic risk
 - copyable prompts for asking an LLM chat to explain mechanisms
-- local CYP substrate / inhibitor / inducer annotations under matched drug names
+- local metabolism / transporter annotations under matched drug names
 
 The core checker is deterministic and local-first. No AI is involved in matching, scoring, or warning generation.
 
@@ -31,7 +31,7 @@ The core checker is deterministic and local-first. No AI is involved in matching
 - In batch and paste mode, each matched term is resolved to ingredient-level generic names before being added.
 - Automatically rejects ingredients already present in the case when adding new input.
 - Combination pills in batch and paste mode pause for confirmation instead of silently adding the wrong thing.
-- Matched drug chips can show curated CYP substrate / inhibitor / inducer annotations under the generic name.
+- Matched drug chips can show curated CYP, non-CYP metabolism, transporter, and P-gp annotations under the generic name.
 - Works almost entirely with keyboard-only use.
 
 ### Alias Dictionary
