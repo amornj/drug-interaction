@@ -31,7 +31,7 @@ The core checker is deterministic and local-first. No AI is involved in matching
 - In batch and paste mode, each matched term is resolved to ingredient-level generic names before being added.
 - Automatically rejects ingredients already present in the case when adding new input.
 - Combination pills in batch and paste mode pause for confirmation instead of silently adding the wrong thing.
-- Matched drug chips can show curated CYP, non-CYP metabolism, transporter, and P-gp annotations under the generic name.
+- Matched drug chips can show curated CYP, non-CYP metabolism, transporter, and P-gp annotations under the generic name (coverage: ~400+ drugs).
 - Works almost entirely with keyboard-only use.
 
 ### Alias Dictionary

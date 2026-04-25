@@ -269,7 +269,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "ibuprofen", annotations: [{ system: "CYP2C9", role: "Sub" }] },
   { match: "glyburide", annotations: [{ system: "CYP2C9", role: "Sub" }] },
   { match: "glipizide", annotations: [{ system: "CYP2C9", role: "Sub" }] },
-  { match: "losartan", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "losartan", annotations: [{ system: "CYP2C9", role: "Sub", note: "major" }, { system: "CYP3A4", role: "Sub" }] },
   { match: "celecoxib", annotations: [{ system: "CYP2C9", role: "Sub" }] },
   { match: "fluvastatin", annotations: [{ system: "CYP2C9", role: "Sub" }] },
   { match: "tolbutamide", annotations: [{ system: "CYP2C9", role: "Sub" }] },
@@ -462,7 +462,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "glimepiride", annotations: [{ system: "CYP2C9", role: "Sub" }] },
   { match: "gliclazide", annotations: [{ system: "CYP2C9", role: "Sub" }, { system: "CYP3A4", role: "Sub", note: "minor" }] },
   { match: "pioglitazone", annotations: [{ system: "CYP2C8", role: "Sub" }, { system: "CYP3A4", role: "Sub", note: "minor" }] },
-  { match: "sitagliptin", annotations: [{ system: "P-gp", role: "Sub" }, { system: "Renal elim", role: "Major" }] },
+  { match: "sitagliptin", annotations: [{ system: "CYP3A4", role: "Sub", note: "minor" }, { system: "CYP2C8", role: "Sub" }, { system: "Renal elim", role: "Major" }] },
   { match: "empagliflozin", annotations: [{ system: "UGT", role: "Met" }, { system: "P-gp", role: "Sub" }] },
   { match: "dapagliflozin", annotations: [{ system: "UGT", role: "Met" }] },
   { match: "canagliflozin", annotations: [{ system: "UGT", role: "Met" }, { system: "P-gp", role: "Sub" }] },
@@ -526,7 +526,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
     ],
   },
   { match: "aclidinium", annotations: [{ system: "Esterase", role: "Rapid hydrolysis" }] },
-  { match: "alogliptin", annotations: [{ system: "CYP2D6", role: "Sub", note: "minor" }, { system: "CYP3A4", role: "Sub", note: "minor" }] },
+  { match: "alogliptin", annotations: [{ system: "Renal elim", role: "Major" }] },
   { match: "alfentanil", annotations: [{ system: "CYP3A4", role: "Sub" }] },
   { match: "alfuzosin", annotations: [{ system: "CYP3A4", role: "Sub" }] },
   { match: "alimemazine", annotations: [{ system: "CYP2D6", role: "Sub" }] },
@@ -574,7 +574,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2C19", role: "Sub", note: "minor" },
     ],
   },
-  { match: "azilsartan", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "azilsartan", annotations: [{ system: "CYP2C9", role: "Sub", note: "major" }] },
 
   // ── B ──
   { match: "baclofen", annotations: [{ system: "Renal elim", role: "Major" }] },
@@ -616,6 +616,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2D6", role: "Inh" },
     ],
   },
+  { match: "candesartan", annotations: [{ system: "CYP2C9", role: "Sub", note: "minor" }] },
   { match: "captopril", annotations: [{ system: "Renal elim", role: "Major" }] },
   { match: "cariprazine", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub" }] },
   { match: "carisoprodol", annotations: [{ system: "CYP2C19", role: "Sub" }] },
@@ -972,6 +973,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
     ],
   },
   { match: "iloperidone", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
+  { match: "irbesartan", annotations: [{ system: "CYP2C9", role: "Sub", note: "major" }] },
   {
     match: "imipramine",
     annotations: [
@@ -1525,7 +1527,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
 
   // ── S ──
   { match: "salmeterol", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
-  { match: "saxagliptin", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "saxagliptin", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }, { system: "CYP3A5", role: "Sub" }] },
   {
     match: "selexipag",
     annotations: [
@@ -1700,6 +1702,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
 
   // ── V ──
   { match: "valbenazine", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub" }] },
+  { match: "valsartan", annotations: [{ system: "CYP2C9", role: "Sub", note: "minor" }] },
   { match: "varenicline", annotations: [{ system: "Renal elim", role: "Major" }] },
   {
     match: "velpatasvir",
@@ -1712,6 +1715,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "venetoclax", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
   { match: "vigabatrin", annotations: [{ system: "Renal elim", role: "Major" }] },
   { match: "vilazodone", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "vildagliptin", annotations: [{ system: "Hydrolysis", role: "Met" }] },
   { match: "vinblastine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
   { match: "vinorelbine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
   {

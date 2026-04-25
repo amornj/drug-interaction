@@ -6,7 +6,7 @@ Owner: `amornj`. Repo: https://github.com/amornj/drug-interaction. Deploy: Verce
 
 ---
 
-## Current state (M9 + stack / prompt / input / alias-storage / metabolism polish — DONE, on `main`)
+## Current state (M9 + stack / prompt / input / alias-storage / metabolism annotation expansion — DONE, on `main`)
 
 Owner intentionally skipped M6 and M7 for now and moved directly to M8.
 
@@ -42,7 +42,7 @@ Owner intentionally skipped M6 and M7 for now and moved directly to M8.
   - supports inline alias syntax such as `galvusmet = vildagliptin + metformin`
   - batch / paste flows now resolve matched results down to ingredient-level generic names before adding chips
   - batch / paste flows queue combination-pill confirmations instead of silently flattening them, and show `already in list` notices when all components are present
-  - medication chips now show curated local metabolism / transporter annotations under the matched generic name when available, including CYP, non-CYP pathways, renal elimination, transporter handling, and P-gp
+  - medication chips now show curated local metabolism / transporter annotations under the matched generic name when available, including CYP, non-CYP pathways, renal elimination, transporter handling, and P-gp — coverage expanded to ~400+ drugs spanning A–Z plus ARB and gliptin families
 - Pair-level prompt UI:
   - `components/InteractionExplanation.tsx`
   - shared dropdown prompt affordance per pair
@@ -99,6 +99,7 @@ Verified:
 - Tested searches: warfarin, lipitor, paracetamol, amoxi return hits
 - Batch/paste matching now resolves each matched term to generic ingredients before adding, and combination products stay behind a confirmation step in bulk flows too
 - Medication chips can show curated metabolism / transporter notes such as `CYP2C19: Sub (PGx, prodrug)`, `UGT: Met`, `Renal elim: Major`, or `P-gp: Sub (NTI)` under the generic name
+- Expanded `lib/cyp.ts` coverage includes ARBs (losartan, valsartan, irbesartan, candesartan, azilsartan), gliptins (sitagliptin, saxagliptin, linagliptin, alogliptin, vildagliptin, teneligliptin), and comprehensive E–Z drug additions
 
 ### File map
 
