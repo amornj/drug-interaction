@@ -1,0 +1,806 @@
+- term: "Rivotril"
+  components:
+    - rxcui: "2598"
+      name: "clonazepam"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Klonopin"
+  components:
+    - rxcui: "2598"
+      name: "clonazepam"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Lipitor"
+  components:
+    - rxcui: "83367"
+      name: "atorvastatin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Crestor"
+  components:
+    - rxcui: "301542"
+      name: "rosuvastatin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Plavix"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Eliquis"
+  components:
+    - rxcui: "1364430"
+      name: "apixaban"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Xarelto"
+  components:
+    - rxcui: "1114195"
+      name: "rivaroxaban"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Pradaxa"
+  components:
+    - rxcui: "1037042"
+      name: "dabigatran etexilate"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Jardiance"
+  components:
+    - rxcui: "1545653"
+      name: "empagliflozin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Januvia"
+  components:
+    - rxcui: "593411"
+      name: "sitagliptin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Onglyza"
+  components:
+    - rxcui: "857974"
+      name: "saxagliptin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Tradjenta"
+  components:
+    - rxcui: "1100699"
+      name: "linagliptin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Nesina"
+  components:
+    - rxcui: "1368001"
+      name: "alogliptin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Cozaar"
+  components:
+    - rxcui: "52175"
+      name: "losartan"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Diovan"
+  components:
+    - rxcui: "69749"
+      name: "valsartan"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Avapro"
+  components:
+    - rxcui: "83818"
+      name: "irbesartan"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Atacand"
+  components:
+    - rxcui: "214354"
+      name: "candesartan"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Micardis"
+  components:
+    - rxcui: "73494"
+      name: "telmisartan"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Benicar"
+  components:
+    - rxcui: "321064"
+      name: "olmesartan"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Edarbi"
+  components:
+    - rxcui: "1091643"
+      name: "azilsartan"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Norvasc"
+  components:
+    - rxcui: "17767"
+      name: "amlodipine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Procardia"
+  components:
+    - rxcui: "7417"
+      name: "nifedipine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Cardizem"
+  components:
+    - rxcui: "3443"
+      name: "diltiazem"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Calan"
+  components:
+    - rxcui: "11170"
+      name: "verapamil"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Vasotec"
+  components:
+    - rxcui: "3827"
+      name: "enalapril"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Prinivil"
+  components:
+    - rxcui: "29046"
+      name: "lisinopril"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Zestril"
+  components:
+    - rxcui: "29046"
+      name: "lisinopril"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Altace"
+  components:
+    - rxcui: "35296"
+      name: "ramipril"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Tenormin"
+  components:
+    - rxcui: "1202"
+      name: "atenolol"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Lopressor"
+  components:
+    - rxcui: "6918"
+      name: "metoprolol"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Inderal"
+  components:
+    - rxcui: "8787"
+      name: "propranolol"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Coreg"
+  components:
+    - rxcui: "20352"
+      name: "carvedilol"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Bystolic"
+  components:
+    - rxcui: "31555"
+      name: "nebivolol"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Lexapro"
+  components:
+    - rxcui: "321988"
+      name: "escitalopram"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Celexa"
+  components:
+    - rxcui: "2556"
+      name: "citalopram"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Prozac"
+  components:
+    - rxcui: "4493"
+      name: "fluoxetine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Zoloft"
+  components:
+    - rxcui: "36437"
+      name: "sertraline"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Paxil"
+  components:
+    - rxcui: "32937"
+      name: "paroxetine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Cymbalta"
+  components:
+    - rxcui: "72625"
+      name: "duloxetine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Effexor"
+  components:
+    - rxcui: "39786"
+      name: "venlafaxine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Wellbutrin"
+  components:
+    - rxcui: "42347"
+      name: "bupropion"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Remeron"
+  components:
+    - rxcui: "15996"
+      name: "mirtazapine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Elavil"
+  components:
+    - rxcui: "704"
+      name: "amitriptyline"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Seroquel"
+  components:
+    - rxcui: "51272"
+      name: "quetiapine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Risperdal"
+  components:
+    - rxcui: "35636"
+      name: "risperidone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Zyprexa"
+  components:
+    - rxcui: "61381"
+      name: "olanzapine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Abilify"
+  components:
+    - rxcui: "89013"
+      name: "aripiprazole"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Latuda"
+  components:
+    - rxcui: "1040028"
+      name: "lurasidone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Geodon"
+  components:
+    - rxcui: "115698"
+      name: "ziprasidone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Clozaril"
+  components:
+    - rxcui: "2626"
+      name: "clozapine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Haldol"
+  components:
+    - rxcui: "5093"
+      name: "haloperidol"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Depakote"
+  components:
+    - rxcui: "40254"
+      name: "valproate"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Tegretol"
+  components:
+    - rxcui: "2002"
+      name: "carbamazepine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Dilantin"
+  components:
+    - rxcui: "8183"
+      name: "phenytoin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Mysoline"
+  components:
+    - rxcui: "8691"
+      name: "primidone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Keppra"
+  components:
+    - rxcui: "114477"
+      name: "levetiracetam"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Lamictal"
+  components:
+    - rxcui: "28439"
+      name: "lamotrigine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Lyrica"
+  components:
+    - rxcui: "187832"
+      name: "pregabalin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Neurontin"
+  components:
+    - rxcui: "25480"
+      name: "gabapentin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Topamax"
+  components:
+    - rxcui: "38404"
+      name: "topiramate"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Zonegran"
+  components:
+    - rxcui: "39998"
+      name: "zonisamide"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Trileptal"
+  components:
+    - rxcui: "32624"
+      name: "oxcarbazepine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Vimpat"
+  components:
+    - rxcui: "623400"
+      name: "lacosamide"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Diprivan"
+  components:
+    - rxcui: "8782"
+      name: "propofol"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Ativan"
+  components:
+    - rxcui: "6470"
+      name: "lorazepam"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Valium"
+  components:
+    - rxcui: "3322"
+      name: "diazepam"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Xanax"
+  components:
+    - rxcui: "596"
+      name: "alprazolam"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Restoril"
+  components:
+    - rxcui: "10355"
+      name: "temazepam"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Halcion"
+  components:
+    - rxcui: "10767"
+      name: "triazolam"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Ambien"
+  components:
+    - rxcui: "39993"
+      name: "zolpidem"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Lunesta"
+  components:
+    - rxcui: "461016"
+      name: "eszopiclone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Ultram"
+  components:
+    - rxcui: "10689"
+      name: "tramadol"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "OxyContin"
+  components:
+    - rxcui: "7804"
+      name: "oxycodone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "MS Contin"
+  components:
+    - rxcui: "7052"
+      name: "morphine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Suboxone"
+  components:
+    - rxcui: "1819"
+      name: "buprenorphine"
+    - rxcui: "7242"
+      name: "naloxone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Narcan"
+  components:
+    - rxcui: "7242"
+      name: "naloxone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Imitrex"
+  components:
+    - rxcui: "37418"
+      name: "sumatriptan"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Phenergan"
+  components:
+    - rxcui: "8745"
+      name: "promethazine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Reglan"
+  components:
+    - rxcui: "6915"
+      name: "metoclopramide"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Compazine"
+  components:
+    - rxcui: "8704"
+      name: "prochlorperazine"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Lasix"
+  components:
+    - rxcui: "4603"
+      name: "furosemide"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Aldactone"
+  components:
+    - rxcui: "9997"
+      name: "spironolactone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Lanoxin"
+  components:
+    - rxcui: "3407"
+      name: "digoxin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Cordarone"
+  components:
+    - rxcui: "703"
+      name: "amiodarone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Coumadin"
+  components:
+    - rxcui: "11289"
+      name: "warfarin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Lovenox"
+  components:
+    - rxcui: "67108"
+      name: "enoxaparin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Medrol"
+  components:
+    - rxcui: "6902"
+      name: "methylprednisolone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Deltasone"
+  components:
+    - rxcui: "8640"
+      name: "prednisone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Decadron"
+  components:
+    - rxcui: "3264"
+      name: "dexamethasone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Ventolin"
+  components:
+    - rxcui: "435"
+      name: "albuterol"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Singulair"
+  components:
+    - rxcui: "88249"
+      name: "montelukast"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Spiriva"
+  components:
+    - rxcui: "69120"
+      name: "tiotropium"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Advair"
+  components:
+    - rxcui: "36117"
+      name: "salmeterol"
+    - rxcui: "41126"
+      name: "fluticasone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Symbicort"
+  components:
+    - rxcui: "19831"
+      name: "budesonide"
+    - rxcui: "25255"
+      name: "formoterol"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Provera"
+  components:
+    - rxcui: "6691"
+      name: "medroxyprogesterone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Premarin"
+  components:
+    - rxcui: "4099"
+      name: "estrogens, conjugated (USP)"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Arimidex"
+  components:
+    - rxcui: "84857"
+      name: "anastrozole"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Glucophage XR"
+  components:
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Glumetza"
+  components:
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Riomet"
+  components:
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+

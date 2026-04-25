@@ -1,7 +1,1719 @@
 {
-  "generatedAt": "2026-04-25T18:55:18.656Z",
+  "generatedAt": "2026-04-25T19:33:21.349Z",
   "brandsVersion": "2026-04",
   "entries": [
+    {
+      "term": "Rivotril",
+      "normalizedTerm": "rivotril",
+      "components": [
+        {
+          "rxcui": "2598",
+          "name": "clonazepam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Klonopin",
+      "normalizedTerm": "klonopin",
+      "components": [
+        {
+          "rxcui": "2598",
+          "name": "clonazepam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Lipitor",
+      "normalizedTerm": "lipitor",
+      "components": [
+        {
+          "rxcui": "83367",
+          "name": "atorvastatin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Crestor",
+      "normalizedTerm": "crestor",
+      "components": [
+        {
+          "rxcui": "301542",
+          "name": "rosuvastatin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Plavix",
+      "normalizedTerm": "plavix",
+      "components": [
+        {
+          "rxcui": "32968",
+          "name": "clopidogrel"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Eliquis",
+      "normalizedTerm": "eliquis",
+      "components": [
+        {
+          "rxcui": "1364430",
+          "name": "apixaban"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Xarelto",
+      "normalizedTerm": "xarelto",
+      "components": [
+        {
+          "rxcui": "1114195",
+          "name": "rivaroxaban"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Pradaxa",
+      "normalizedTerm": "pradaxa",
+      "components": [
+        {
+          "rxcui": "1037042",
+          "name": "dabigatran etexilate"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Jardiance",
+      "normalizedTerm": "jardiance",
+      "components": [
+        {
+          "rxcui": "1545653",
+          "name": "empagliflozin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Januvia",
+      "normalizedTerm": "januvia",
+      "components": [
+        {
+          "rxcui": "593411",
+          "name": "sitagliptin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Onglyza",
+      "normalizedTerm": "onglyza",
+      "components": [
+        {
+          "rxcui": "857974",
+          "name": "saxagliptin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Tradjenta",
+      "normalizedTerm": "tradjenta",
+      "components": [
+        {
+          "rxcui": "1100699",
+          "name": "linagliptin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Nesina",
+      "normalizedTerm": "nesina",
+      "components": [
+        {
+          "rxcui": "1368001",
+          "name": "alogliptin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Cozaar",
+      "normalizedTerm": "cozaar",
+      "components": [
+        {
+          "rxcui": "52175",
+          "name": "losartan"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Diovan",
+      "normalizedTerm": "diovan",
+      "components": [
+        {
+          "rxcui": "69749",
+          "name": "valsartan"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Avapro",
+      "normalizedTerm": "avapro",
+      "components": [
+        {
+          "rxcui": "83818",
+          "name": "irbesartan"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Atacand",
+      "normalizedTerm": "atacand",
+      "components": [
+        {
+          "rxcui": "214354",
+          "name": "candesartan"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Micardis",
+      "normalizedTerm": "micardis",
+      "components": [
+        {
+          "rxcui": "73494",
+          "name": "telmisartan"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Benicar",
+      "normalizedTerm": "benicar",
+      "components": [
+        {
+          "rxcui": "321064",
+          "name": "olmesartan"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Edarbi",
+      "normalizedTerm": "edarbi",
+      "components": [
+        {
+          "rxcui": "1091643",
+          "name": "azilsartan"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Norvasc",
+      "normalizedTerm": "norvasc",
+      "components": [
+        {
+          "rxcui": "17767",
+          "name": "amlodipine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Procardia",
+      "normalizedTerm": "procardia",
+      "components": [
+        {
+          "rxcui": "7417",
+          "name": "nifedipine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Cardizem",
+      "normalizedTerm": "cardizem",
+      "components": [
+        {
+          "rxcui": "3443",
+          "name": "diltiazem"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Calan",
+      "normalizedTerm": "calan",
+      "components": [
+        {
+          "rxcui": "11170",
+          "name": "verapamil"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Vasotec",
+      "normalizedTerm": "vasotec",
+      "components": [
+        {
+          "rxcui": "3827",
+          "name": "enalapril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Prinivil",
+      "normalizedTerm": "prinivil",
+      "components": [
+        {
+          "rxcui": "29046",
+          "name": "lisinopril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Zestril",
+      "normalizedTerm": "zestril",
+      "components": [
+        {
+          "rxcui": "29046",
+          "name": "lisinopril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Altace",
+      "normalizedTerm": "altace",
+      "components": [
+        {
+          "rxcui": "35296",
+          "name": "ramipril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Tenormin",
+      "normalizedTerm": "tenormin",
+      "components": [
+        {
+          "rxcui": "1202",
+          "name": "atenolol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Lopressor",
+      "normalizedTerm": "lopressor",
+      "components": [
+        {
+          "rxcui": "6918",
+          "name": "metoprolol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Inderal",
+      "normalizedTerm": "inderal",
+      "components": [
+        {
+          "rxcui": "8787",
+          "name": "propranolol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Coreg",
+      "normalizedTerm": "coreg",
+      "components": [
+        {
+          "rxcui": "20352",
+          "name": "carvedilol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Bystolic",
+      "normalizedTerm": "bystolic",
+      "components": [
+        {
+          "rxcui": "31555",
+          "name": "nebivolol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Lexapro",
+      "normalizedTerm": "lexapro",
+      "components": [
+        {
+          "rxcui": "321988",
+          "name": "escitalopram"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Celexa",
+      "normalizedTerm": "celexa",
+      "components": [
+        {
+          "rxcui": "2556",
+          "name": "citalopram"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Prozac",
+      "normalizedTerm": "prozac",
+      "components": [
+        {
+          "rxcui": "4493",
+          "name": "fluoxetine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Zoloft",
+      "normalizedTerm": "zoloft",
+      "components": [
+        {
+          "rxcui": "36437",
+          "name": "sertraline"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Paxil",
+      "normalizedTerm": "paxil",
+      "components": [
+        {
+          "rxcui": "32937",
+          "name": "paroxetine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Cymbalta",
+      "normalizedTerm": "cymbalta",
+      "components": [
+        {
+          "rxcui": "72625",
+          "name": "duloxetine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Effexor",
+      "normalizedTerm": "effexor",
+      "components": [
+        {
+          "rxcui": "39786",
+          "name": "venlafaxine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Wellbutrin",
+      "normalizedTerm": "wellbutrin",
+      "components": [
+        {
+          "rxcui": "42347",
+          "name": "bupropion"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Remeron",
+      "normalizedTerm": "remeron",
+      "components": [
+        {
+          "rxcui": "15996",
+          "name": "mirtazapine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Elavil",
+      "normalizedTerm": "elavil",
+      "components": [
+        {
+          "rxcui": "704",
+          "name": "amitriptyline"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Seroquel",
+      "normalizedTerm": "seroquel",
+      "components": [
+        {
+          "rxcui": "51272",
+          "name": "quetiapine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Risperdal",
+      "normalizedTerm": "risperdal",
+      "components": [
+        {
+          "rxcui": "35636",
+          "name": "risperidone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Zyprexa",
+      "normalizedTerm": "zyprexa",
+      "components": [
+        {
+          "rxcui": "61381",
+          "name": "olanzapine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Abilify",
+      "normalizedTerm": "abilify",
+      "components": [
+        {
+          "rxcui": "89013",
+          "name": "aripiprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Latuda",
+      "normalizedTerm": "latuda",
+      "components": [
+        {
+          "rxcui": "1040028",
+          "name": "lurasidone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Geodon",
+      "normalizedTerm": "geodon",
+      "components": [
+        {
+          "rxcui": "115698",
+          "name": "ziprasidone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Clozaril",
+      "normalizedTerm": "clozaril",
+      "components": [
+        {
+          "rxcui": "2626",
+          "name": "clozapine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Haldol",
+      "normalizedTerm": "haldol",
+      "components": [
+        {
+          "rxcui": "5093",
+          "name": "haloperidol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Depakote",
+      "normalizedTerm": "depakote",
+      "components": [
+        {
+          "rxcui": "40254",
+          "name": "valproate"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Tegretol",
+      "normalizedTerm": "tegretol",
+      "components": [
+        {
+          "rxcui": "2002",
+          "name": "carbamazepine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Dilantin",
+      "normalizedTerm": "dilantin",
+      "components": [
+        {
+          "rxcui": "8183",
+          "name": "phenytoin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Mysoline",
+      "normalizedTerm": "mysoline",
+      "components": [
+        {
+          "rxcui": "8691",
+          "name": "primidone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Keppra",
+      "normalizedTerm": "keppra",
+      "components": [
+        {
+          "rxcui": "114477",
+          "name": "levetiracetam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Lamictal",
+      "normalizedTerm": "lamictal",
+      "components": [
+        {
+          "rxcui": "28439",
+          "name": "lamotrigine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Lyrica",
+      "normalizedTerm": "lyrica",
+      "components": [
+        {
+          "rxcui": "187832",
+          "name": "pregabalin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Neurontin",
+      "normalizedTerm": "neurontin",
+      "components": [
+        {
+          "rxcui": "25480",
+          "name": "gabapentin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Topamax",
+      "normalizedTerm": "topamax",
+      "components": [
+        {
+          "rxcui": "38404",
+          "name": "topiramate"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Zonegran",
+      "normalizedTerm": "zonegran",
+      "components": [
+        {
+          "rxcui": "39998",
+          "name": "zonisamide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Trileptal",
+      "normalizedTerm": "trileptal",
+      "components": [
+        {
+          "rxcui": "32624",
+          "name": "oxcarbazepine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Vimpat",
+      "normalizedTerm": "vimpat",
+      "components": [
+        {
+          "rxcui": "623400",
+          "name": "lacosamide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Diprivan",
+      "normalizedTerm": "diprivan",
+      "components": [
+        {
+          "rxcui": "8782",
+          "name": "propofol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Ativan",
+      "normalizedTerm": "ativan",
+      "components": [
+        {
+          "rxcui": "6470",
+          "name": "lorazepam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Valium",
+      "normalizedTerm": "valium",
+      "components": [
+        {
+          "rxcui": "3322",
+          "name": "diazepam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Xanax",
+      "normalizedTerm": "xanax",
+      "components": [
+        {
+          "rxcui": "596",
+          "name": "alprazolam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Restoril",
+      "normalizedTerm": "restoril",
+      "components": [
+        {
+          "rxcui": "10355",
+          "name": "temazepam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Halcion",
+      "normalizedTerm": "halcion",
+      "components": [
+        {
+          "rxcui": "10767",
+          "name": "triazolam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Ambien",
+      "normalizedTerm": "ambien",
+      "components": [
+        {
+          "rxcui": "39993",
+          "name": "zolpidem"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Lunesta",
+      "normalizedTerm": "lunesta",
+      "components": [
+        {
+          "rxcui": "461016",
+          "name": "eszopiclone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Ultram",
+      "normalizedTerm": "ultram",
+      "components": [
+        {
+          "rxcui": "10689",
+          "name": "tramadol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "OxyContin",
+      "normalizedTerm": "oxycontin",
+      "components": [
+        {
+          "rxcui": "7804",
+          "name": "oxycodone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "MS Contin",
+      "normalizedTerm": "ms contin",
+      "components": [
+        {
+          "rxcui": "7052",
+          "name": "morphine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Suboxone",
+      "normalizedTerm": "suboxone",
+      "components": [
+        {
+          "rxcui": "1819",
+          "name": "buprenorphine"
+        },
+        {
+          "rxcui": "7242",
+          "name": "naloxone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Narcan",
+      "normalizedTerm": "narcan",
+      "components": [
+        {
+          "rxcui": "7242",
+          "name": "naloxone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Imitrex",
+      "normalizedTerm": "imitrex",
+      "components": [
+        {
+          "rxcui": "37418",
+          "name": "sumatriptan"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Phenergan",
+      "normalizedTerm": "phenergan",
+      "components": [
+        {
+          "rxcui": "8745",
+          "name": "promethazine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Reglan",
+      "normalizedTerm": "reglan",
+      "components": [
+        {
+          "rxcui": "6915",
+          "name": "metoclopramide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Compazine",
+      "normalizedTerm": "compazine",
+      "components": [
+        {
+          "rxcui": "8704",
+          "name": "prochlorperazine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Lasix",
+      "normalizedTerm": "lasix",
+      "components": [
+        {
+          "rxcui": "4603",
+          "name": "furosemide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Aldactone",
+      "normalizedTerm": "aldactone",
+      "components": [
+        {
+          "rxcui": "9997",
+          "name": "spironolactone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Lanoxin",
+      "normalizedTerm": "lanoxin",
+      "components": [
+        {
+          "rxcui": "3407",
+          "name": "digoxin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Cordarone",
+      "normalizedTerm": "cordarone",
+      "components": [
+        {
+          "rxcui": "703",
+          "name": "amiodarone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Coumadin",
+      "normalizedTerm": "coumadin",
+      "components": [
+        {
+          "rxcui": "11289",
+          "name": "warfarin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Lovenox",
+      "normalizedTerm": "lovenox",
+      "components": [
+        {
+          "rxcui": "67108",
+          "name": "enoxaparin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Medrol",
+      "normalizedTerm": "medrol",
+      "components": [
+        {
+          "rxcui": "6902",
+          "name": "methylprednisolone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Deltasone",
+      "normalizedTerm": "deltasone",
+      "components": [
+        {
+          "rxcui": "8640",
+          "name": "prednisone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Decadron",
+      "normalizedTerm": "decadron",
+      "components": [
+        {
+          "rxcui": "3264",
+          "name": "dexamethasone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Ventolin",
+      "normalizedTerm": "ventolin",
+      "components": [
+        {
+          "rxcui": "435",
+          "name": "albuterol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Singulair",
+      "normalizedTerm": "singulair",
+      "components": [
+        {
+          "rxcui": "88249",
+          "name": "montelukast"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Spiriva",
+      "normalizedTerm": "spiriva",
+      "components": [
+        {
+          "rxcui": "69120",
+          "name": "tiotropium"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Advair",
+      "normalizedTerm": "advair",
+      "components": [
+        {
+          "rxcui": "36117",
+          "name": "salmeterol"
+        },
+        {
+          "rxcui": "41126",
+          "name": "fluticasone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Symbicort",
+      "normalizedTerm": "symbicort",
+      "components": [
+        {
+          "rxcui": "19831",
+          "name": "budesonide"
+        },
+        {
+          "rxcui": "25255",
+          "name": "formoterol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Provera",
+      "normalizedTerm": "provera",
+      "components": [
+        {
+          "rxcui": "6691",
+          "name": "medroxyprogesterone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Premarin",
+      "normalizedTerm": "premarin",
+      "components": [
+        {
+          "rxcui": "4099",
+          "name": "estrogens, conjugated (USP)"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Arimidex",
+      "normalizedTerm": "arimidex",
+      "components": [
+        {
+          "rxcui": "84857",
+          "name": "anastrozole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Glucophage XR",
+      "normalizedTerm": "glucophage xr",
+      "components": [
+        {
+          "rxcui": "6809",
+          "name": "metformin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Glumetza",
+      "normalizedTerm": "glumetza",
+      "components": [
+        {
+          "rxcui": "6809",
+          "name": "metformin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Riomet",
+      "normalizedTerm": "riomet",
+      "components": [
+        {
+          "rxcui": "6809",
+          "name": "metformin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
     {
       "term": "Galvusmet",
       "normalizedTerm": "galvusmet",
