@@ -488,6 +488,14 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "furosemide", annotations: [{ system: "Renal elim", role: "Major" }] },
   { match: "hydrochlorothiazide", annotations: [{ system: "Renal elim", role: "Major" }] },
   { match: "spironolactone", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+
+  // Cardiac myosin modulators
+  { match: "mavacamten", annotations: [{ system: "CYP2C19", role: "Sub" }, { system: "CYP3A4", role: "Sub", note: "minor" }] },
+  { match: "aficamten", annotations: [{ system: "CYP2C19", role: "Sub" }, { system: "CYP3A4", role: "Sub", note: "minor" }] },
+
+  // Uricosurics / gout
+  { match: "benzbromarone", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "febuxostat", annotations: [{ system: "Xanthine oxidase", role: "Pathway" }, { system: "UGT", role: "Met" }] },
 ];
 
 const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
