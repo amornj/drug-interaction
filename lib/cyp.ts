@@ -23,7 +23,13 @@ export type MetabolismReference = {
 };
 
 function normalizeDrugName(name: string) {
-  return name.toLowerCase().replace(/\([^)]*\)/g, " ").replace(/\s+/g, " ").trim();
+  return name
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, " ")
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 const METABOLISM_ENTRIES: MetabolismEntry[] = [
@@ -596,6 +602,140 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "bromocriptine", annotations: [{ system: "CYP3A4", role: "Sub" }] },
   { match: "budesonide", annotations: [{ system: "CYP3A4", role: "Sub" }] },
   { match: "butalbital", annotations: [{ system: "CYP2C19", role: "Sub" }, { system: "CYP3A4", role: "Ind" }] },
+
+  // ── C ──
+  { match: "cabergoline", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "cabozantinib", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  {
+    match: "cannabidiol",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP3A4", role: "Inh" },
+      { system: "CYP2C19", role: "Inh" },
+      { system: "CYP2D6", role: "Inh" },
+    ],
+  },
+  { match: "captopril", annotations: [{ system: "Renal elim", role: "Major" }] },
+  { match: "cariprazine", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub" }] },
+  { match: "carisoprodol", annotations: [{ system: "CYP2C19", role: "Sub" }] },
+  {
+    match: "ceritinib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP3A4", role: "Strong Inh" },
+      { system: "CYP2C9", role: "Inh" },
+    ],
+  },
+  { match: "cerivastatin", annotations: [{ system: "CYP2C8", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
+  { match: "cetirizine", annotations: [{ system: "CYP3A4", role: "Sub", note: "minor" }] },
+  { match: "chloral hydrate", annotations: [{ system: "ADH", role: "Met" }] },
+  { match: "chlorambucil", annotations: [{ system: "Non-CYP", role: "Alkylation" }] },
+  { match: "chlordiazepoxide", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "chlorpheniramine", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  { match: "chlorpropamide", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "cilostazol", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2C19", role: "Sub" }] },
+  { match: "cisapride", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "clindamycin", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "clofibrate", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "clomifene", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  { match: "clonazepam", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "clonidine", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+
+  // ── D ──
+  { match: "dacarbazine", annotations: [{ system: "CYP1A2", role: "Sub" }, { system: "CYP2E1", role: "Sub" }] },
+  { match: "daclatasvir", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  {
+    match: "dacomitinib",
+    annotations: [
+      { system: "CYP2D6", role: "Sub" },
+      { system: "CYP2D6", role: "Inh" },
+    ],
+  },
+  {
+    match: "danazol",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP3A4", role: "Weak Inh" },
+    ],
+  },
+  { match: "dantrolene", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  {
+    match: "dapsone",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2C9", role: "Sub" },
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP2E1", role: "Sub" },
+    ],
+  },
+  { match: "darolutamide", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  {
+    match: "darunavir",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP3A4", role: "Strong Inh" },
+      { system: "CYP2D6", role: "Inh" },
+    ],
+  },
+  { match: "dasabuvir", annotations: [{ system: "CYP2C8", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
+  { match: "dasatinib", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "daunorubicin", annotations: [{ system: "Carbonyl reductase", role: "Met" }] },
+  { match: "deflazacort", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "delafloxacin", annotations: [{ system: "UGT", role: "Met" }] },
+  {
+    match: "delavirdine",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP3A4", role: "Strong Inh" },
+      { system: "CYP2C9", role: "Inh" },
+      { system: "CYP2D6", role: "Inh" },
+    ],
+  },
+  { match: "desipramine", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  { match: "desloratadine", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub" }] },
+  { match: "desogestrel", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "dexmedetomidine", annotations: [{ system: "CYP2A6", role: "Sub" }, { system: "CYP2D6", role: "Sub" }] },
+  { match: "dexmethylphenidate", annotations: [{ system: "CES1", role: "Hydrolysis" }] },
+  { match: "dicoumarol", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "didanosine", annotations: [{ system: "Purine catabolism", role: "Met" }] },
+  { match: "dienogest", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "digitoxin", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "dimethyl fumarate", annotations: [{ system: "Esterase", role: "Hydrolysis" }] },
+  { match: "disopyramide", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "docetaxel", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "dofetilide", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  {
+    match: "dolasetron",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2D6", role: "Sub" },
+      { system: "CYP2C9", role: "Sub" },
+    ],
+  },
+  { match: "dolutegravir", annotations: [{ system: "UGT", role: "Met" }, { system: "CYP3A4", role: "Sub", note: "minor" }] },
+  { match: "donepezil", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
+  { match: "doravirine", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "doxapram", annotations: [{ system: "CYP2B6", role: "Sub" }, { system: "CYP2C9", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
+  { match: "doxazosin", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub" }] },
+  {
+    match: "doxepin",
+    annotations: [
+      { system: "CYP2D6", role: "Sub" },
+      { system: "CYP1A2", role: "Sub" },
+      { system: "CYP2C19", role: "Sub" },
+    ],
+  },
+  { match: "droperidol", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "drospirenone", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "dutasteride", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  {
+    match: "duvelisib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP3A4", role: "Weak Inh" },
+    ],
+  },
 ];
 
 const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
@@ -703,6 +843,100 @@ const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
   { match: "montelukast", annotations: [{ system: "CYP2C8", role: "Weak Inh" }] },
 ];
 
+const ALL_METABOLISM_ENTRIES = [...METABOLISM_ENTRIES, ...CYP_REFERENCE_ONLY_ENTRIES];
+
+type NormalizedMetabolismEntry = MetabolismEntry & {
+  normalizedMatch: string;
+  matchTokens: string[];
+};
+
+const NORMALIZED_METABOLISM_ENTRIES: NormalizedMetabolismEntry[] = ALL_METABOLISM_ENTRIES.map((entry) => {
+  const normalizedMatch = normalizeDrugName(entry.match);
+  return {
+    ...entry,
+    normalizedMatch,
+    matchTokens: normalizedMatch.split(" "),
+  };
+});
+
+function findTokenSequenceStart(tokens: string[], needle: string[]) {
+  if (needle.length === 0 || needle.length > tokens.length) {
+    return -1;
+  }
+
+  for (let index = 0; index <= tokens.length - needle.length; index += 1) {
+    let matched = true;
+
+    for (let needleIndex = 0; needleIndex < needle.length; needleIndex += 1) {
+      if (tokens[index + needleIndex] !== needle[needleIndex]) {
+        matched = false;
+        break;
+      }
+    }
+
+    if (matched) {
+      return index;
+    }
+  }
+
+  return -1;
+}
+
+function getMatchedEntries(name: string): NormalizedMetabolismEntry[] {
+  const normalized = normalizeDrugName(name);
+
+  if (!normalized) {
+    return [];
+  }
+
+  const nameTokens = normalized.split(" ");
+  const matchedEntries: Array<NormalizedMetabolismEntry & { start: number }> = [];
+
+  for (const entry of NORMALIZED_METABOLISM_ENTRIES) {
+    const start = findTokenSequenceStart(nameTokens, entry.matchTokens);
+    if (start === -1) {
+      continue;
+    }
+
+    matchedEntries.push({ ...entry, start });
+  }
+
+  matchedEntries.sort((left, right) => {
+    const tokenLengthDifference = right.matchTokens.length - left.matchTokens.length;
+    if (tokenLengthDifference !== 0) {
+      return tokenLengthDifference;
+    }
+
+    return right.normalizedMatch.length - left.normalizedMatch.length;
+  });
+
+  const coveredTokenIndexes = new Set<number>();
+  const acceptedEntries: NormalizedMetabolismEntry[] = [];
+
+  for (const entry of matchedEntries) {
+    let overlapsCoveredTokens = true;
+
+    for (let index = entry.start; index < entry.start + entry.matchTokens.length; index += 1) {
+      if (!coveredTokenIndexes.has(index)) {
+        overlapsCoveredTokens = false;
+        break;
+      }
+    }
+
+    if (overlapsCoveredTokens) {
+      continue;
+    }
+
+    acceptedEntries.push(entry);
+
+    for (let index = entry.start; index < entry.start + entry.matchTokens.length; index += 1) {
+      coveredTokenIndexes.add(index);
+    }
+  }
+
+  return acceptedEntries;
+}
+
 function formatAnnotation(annotation: MetabolismAnnotation) {
   return `${annotation.system}: ${annotation.role}${annotation.note ? ` (${annotation.note})` : ""}`;
 }
@@ -712,15 +946,10 @@ function isClickableAnnotation(annotation: MetabolismAnnotation) {
 }
 
 export function getDrugMetabolismTags(name: string): DrugMetabolismTag[] {
-  const normalized = normalizeDrugName(name);
   const seen = new Set<string>();
   const tags: DrugMetabolismTag[] = [];
 
-  for (const entry of [...METABOLISM_ENTRIES, ...CYP_REFERENCE_ONLY_ENTRIES]) {
-    if (!normalized.includes(entry.match)) {
-      continue;
-    }
-
+  for (const entry of getMatchedEntries(name)) {
     for (const annotation of entry.annotations) {
       const label = formatAnnotation(annotation);
       if (seen.has(label)) {
@@ -739,7 +968,7 @@ export function getDrugMetabolismTags(name: string): DrugMetabolismTag[] {
   return tags;
 }
 
-export function getDrugMetabolismAnnotations(name: string) {
+export function getDrugMetabolismAnnotations(name: string): string[] {
   return getDrugMetabolismTags(name).map((tag) => tag.label);
 }
 
@@ -757,7 +986,7 @@ export function getMetabolismReference(system: string): MetabolismReference {
   const inhibitorSeen = new Set<string>();
   const inducerSeen = new Set<string>();
 
-  for (const entry of [...METABOLISM_ENTRIES, ...CYP_REFERENCE_ONLY_ENTRIES]) {
+  for (const entry of ALL_METABOLISM_ENTRIES) {
     for (const annotation of entry.annotations) {
       if (annotation.system !== system) {
         continue;
