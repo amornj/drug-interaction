@@ -52,24 +52,31 @@ The core checker is deterministic and local-first. No AI is involved in matching
 
 Cumulative stacks are a core value of the app. They show additive risk across the whole medication list, not just one pairwise interaction.
 
-Examples include:
+The app currently detects the following cumulative burden stacks:
 
-- bleeding
-- hyperkalemia
-- hypokalemia
-- hypercalcemia
-- hypocalcemia
-- hyponatremia
-- hypernatremia
-- hyperglycemia
-- hyperuricemia
-- myocardial depression
-- fluid retention
-- high anion gap metabolic acidosis
-- serotonin syndrome
-- nephrotoxicity
-- normal gap acidosis
-- bradycardia
+- **QT prolongation** — multiple QT-risk drugs (amiodarone, sotalol, quinidine, macrolides, fluoroquinolones, haloperidol, ziprasidone, methadone, etc.)
+- **Bleeding risk** — anticoagulants, antiplatelets, NSAIDs, SSRIs, thrombolytics
+- **Serotonin syndrome** — MAOIs, SSRIs, SNRIs, TCAs, tramadol, linezolid, triptans
+- **Anticholinergic syndrome** — TCAs, antihistamines, antipsychotics, antispasmodics
+- **Extrapyramidal syndrome (EPS)** — antipsychotics, metoclopramide, prochlorperazine
+- **Ergotism** — ergot derivatives + CYP3A4 inhibitors
+- **Myocardial depression** — beta-blockers, calcium channel blockers, antiarrhythmics
+- **Fluid retention** — NSAIDs, corticosteroids, thiazolidinediones, estrogen
+- **Drug-induced lactic acidosis** — metformin, nucleoside reverse transcriptase inhibitors, propofol, linezolid
+- **Nephrotoxic burden** — aminoglycosides, vancomycin, amphotericin, NSAIDs, contrast, cisplatin
+- **Hyperkalemia** — spironolactone, eplerenone, ACE inhibitors, ARBs, potassium supplements, trimethoprim
+- **Hypokalemia** — loop/thiazide diuretics, insulin, beta-agonists, corticosteroids
+- **Hypercalcemia** — calcium supplements, vitamin D, thiazides, lithium, teriparatide
+- **Hypocalcemia** — bisphosphonates, denosumab, cinacalcet, foscarnet, anticonvulsants, loop diuretics
+- **Hyponatremia** — thiazides, desmopressin, carbamazepine, SSRIs, antipsychotics, vincristine
+- **Hypernatremia** — sodium bicarbonate, hypertonic saline, lithium, mannitol, fludrocortisone
+- **Hyperuricemia / gout** — thiazides, loop diuretics, pyrazinamide, ethambutol, cyclosporine, tacrolimus, niacin
+- **Hypoglycemia** — insulin, sulfonylureas, meglitinides, linezolid
+- **Hyperglycemia** — corticosteroids, calcineurin inhibitors, atypical antipsychotics, thiazides
+- **High anion gap metabolic acidosis (HAGMA)** — aspirin, methanol, ethylene glycol, propylene glycol, iron, isoniazid
+- **Normal-gap metabolic acidosis** — acetazolamide, topiramate, amphotericin, ifosfamide, tenofovir
+- **Bradycardia** — digoxin, amiodarone, verapamil, diltiazem, beta-blockers, ivabradine, donepezil
+- **Drug-induced seizure** — tramadol, bupropion, clozapine, isoniazid, meperidine, theophylline, lithium, imipenem, ciprofloxacin
 
 The goal is to show potential side-effect burden up front, such as hyperkalemia risk when several matched drugs contribute to the same stack. Stack cards include copyable prompts so users can ask an LLM chat for mechanistic explanation.
 
@@ -96,6 +103,34 @@ Current examples include:
 - HLA-B*58:01 for allopurinol
 - HLA-B*15:02 for carbamazepine
 - HLA-B*57:01 for abacavir
+
+### Metabolism and Transporter Annotations
+
+Each matched drug chip can display curated metabolic pathway and transporter annotations. The app covers ~400+ drugs across the following systems:
+
+**Cytochrome P450 enzymes:**
+- **CYP3A4** — the most clinically significant: substrates include simvastatin, atorvastatin, amlodipine, apixaban, rivaroxaban, tacrolimus, midazolam, fentanyl, oxycodone, quetiapine, carbamazepine, and many more; inhibitors include ritonavir, ketoconazole, clarithromycin, itraconazole, grapefruit juice; inducers include rifampin, carbamazepine, phenytoin, phenobarbital, St. John's wort
+- **CYP2D6** — codeine, tramadol (prodrugs), metoprolol, propranolol, amitriptyline, haloperidol, risperidone, paroxetine (strong inhibitor), fluoxetine (strong inhibitor), bupropion (strong inhibitor), quinidine (strong inhibitor)
+- **CYP2C9** — warfarin, losartan, diclofenac, ibuprofen, glyburide, celecoxib; inhibitors include fluconazole, metronidazole, sulfamethoxazole; inducers include rifampin, carbamazepine, phenytoin
+- **CYP2C19** — clopidogrel (prodrug), omeprazole, esomeprazole, citalopram, voriconazole; inhibitors include omeprazole, esomeprazole, voriconazole, fluvoxamine; inducers include rifampin, carbamazepine, phenytoin
+- **CYP1A2** — theophylline, caffeine, clozapine, olanzapine, tizanidine; inhibitors include ciprofloxacin, fluvoxamine; inducers include cigarette smoking, charbroiled meat, cruciferous vegetables
+- **CYP2B6** — ketamine, bupropion, methadone; inhibitors include ticlopidine, thiotepa, prasugrel; inducers include nevirapine, cyclophosphamide, rifampin
+- **CYP2C8** — pioglitazone, paclitaxel, repaglinide; inhibitors include gemfibrozil, trimethoprim, deferasirox
+- **CYP2E1** — ethanol, halothane, acetaminophen (minor); inducers include chronic ethanol, acetone; inhibitors include disulfiram, fomepizole
+
+**Transporters:**
+- **P-glycoprotein (P-gp / MDR1)** — substrates: digoxin, dabigatran, colchicine, fexofenadine, loperamide, vincristine; inhibitors: verapamil, diltiazem, cyclosporine, ritonavir, ketoconazole, clarithromycin, amiodarone, ranolazine, ticagrelor
+- **BCRP** — substrates: simvastatin, atorvastatin, rosuvastatin; inhibitors: cyclosporine
+- **OATP1B1** — substrates: rosuvastatin, pravastatin, pitavastatin; inhibitors: cyclosporine, gemfibrozil
+- **OCT (Organic Cation Transporter)** — metformin
+
+**Non-CYP metabolic pathways:**
+- **UGT (glucuronidation)** — morphine, lorazepam, lamotrigine, mycophenolate, ezetimibe, SGLT2 inhibitors (empagliflozin, dapagliflozin)
+- **Esterase hydrolysis** — remifentanil, esmolol, aspirin, enalapril (prodrug)
+- **Xanthine oxidase** — allopurinol, febuxostat
+- **NAT2 (N-acetyltransferase)** — isoniazid, dapsone
+- **Alcohol dehydrogenase** — ethanol, abacavir
+- **Aldehyde oxidase** — zaleplon
 
 ### Design And Workflow
 
