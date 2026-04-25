@@ -1411,6 +1411,354 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "promethazine", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP2C19", role: "Sub" }] },
   { match: "propofol", annotations: [{ system: "CYP2B6", role: "Sub" }, { system: "CYP2C9", role: "Sub" }] },
   { match: "prucalopride", annotations: [{ system: "CYP3A4", role: "Sub", note: "minor" }] },
+
+  // ── Q ──
+  { match: "quazepam", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2C19", role: "Sub" }] },
+  {
+    match: "quinine",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP2C9", role: "Sub" },
+      { system: "CYP2D6", role: "Strong Inh" },
+      { system: "CYP3A4", role: "Inh" },
+    ],
+  },
+
+  // ── R ──
+  { match: "raloxifene", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "raltegravir", annotations: [{ system: "UGT", role: "Met" }] },
+  {
+    match: "ramelteon",
+    annotations: [
+      { system: "CYP1A2", role: "Sub", note: "major" },
+      { system: "CYP2C", role: "Sub" },
+      { system: "CYP3A4", role: "Sub" },
+    ],
+  },
+  { match: "rasagiline", annotations: [{ system: "CYP1A2", role: "Sub", note: "major" }] },
+  {
+    match: "regorafenib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2C8", role: "Inh" },
+      { system: "CYP2C9", role: "Inh" },
+      { system: "CYP3A4", role: "Weak Inh" },
+    ],
+  },
+  { match: "relugolix", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "repaglinide",
+    annotations: [
+      { system: "CYP2C8", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Sub" },
+    ],
+  },
+  {
+    match: "ribociclib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Strong Inh" },
+    ],
+  },
+  {
+    match: "rifaximin",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "minor" },
+      { system: "CYP3A4", role: "Weak Ind" },
+    ],
+  },
+  { match: "rilpivirine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "riluzole", annotations: [{ system: "CYP1A2", role: "Sub", note: "major" }] },
+  { match: "rimegepant", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "riociguat",
+    annotations: [
+      { system: "CYP1A2", role: "Sub" },
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2C8", role: "Sub" },
+      { system: "CYP2J2", role: "Sub" },
+    ],
+  },
+  {
+    match: "ripretinib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2C8", role: "Inh" },
+      { system: "CYP3A4", role: "Ind" },
+    ],
+  },
+  { match: "roflumilast", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP1A2", role: "Sub" }] },
+  {
+    match: "rosiglitazone",
+    annotations: [
+      { system: "CYP2C8", role: "Sub", note: "major" },
+      { system: "CYP2C9", role: "Sub" },
+    ],
+  },
+  {
+    match: "rotigotine",
+    annotations: [
+      { system: "CYP1A2", role: "Sub" },
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP3A4", role: "Sub" },
+    ],
+  },
+  {
+    match: "rucaparib",
+    annotations: [
+      { system: "CYP2D6", role: "Sub" },
+      { system: "CYP1A2", role: "Sub" },
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP1A2", role: "Inh" },
+      { system: "CYP2C19", role: "Inh" },
+      { system: "CYP3A4", role: "Inh" },
+    ],
+  },
+  {
+    match: "ruxolitinib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2C9", role: "Sub" },
+    ],
+  },
+
+  // ── S ──
+  { match: "salmeterol", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "saxagliptin", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "selexipag",
+    annotations: [
+      { system: "CYP2C8", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Sub" },
+    ],
+  },
+  {
+    match: "selpercatinib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2C8", role: "Inh" },
+      { system: "CYP3A4", role: "Inh" },
+    ],
+  },
+  {
+    match: "selumetinib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP1A2", role: "Sub" },
+    ],
+  },
+  { match: "sibutramine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "silodosin", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "simeprevir",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Weak Inh" },
+    ],
+  },
+  {
+    match: "siponimod",
+    annotations: [
+      { system: "CYP2C9", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Sub" },
+    ],
+  },
+  { match: "sirolimus", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "solifenacin", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "sonidegib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Inh" },
+      { system: "CYP2C9", role: "Inh" },
+    ],
+  },
+  {
+    match: "sorafenib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "UGT1A9", role: "Met" },
+      { system: "CYP2C8", role: "Inh" },
+      { system: "CYP2C9", role: "Inh" },
+      { system: "CYP2B6", role: "Inh" },
+    ],
+  },
+  { match: "sotalol", annotations: [{ system: "Renal elim", role: "Major" }] },
+  { match: "stavudine", annotations: [{ system: "Renal elim", role: "Major" }] },
+  {
+    match: "stiripentol",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP2D6", role: "Sub" },
+      { system: "CYP2C19", role: "Inh" },
+      { system: "CYP3A4", role: "Inh" },
+      { system: "CYP2D6", role: "Inh" },
+    ],
+  },
+  { match: "sufentanil", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "sunitinib", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "suvorexant", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+
+  // ── T ──
+  { match: "tacrine", annotations: [{ system: "CYP1A2", role: "Sub", note: "major" }] },
+  { match: "tamsulosin", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub" }] },
+  { match: "tapentadol", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "tasimelteon", annotations: [{ system: "CYP1A2", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
+  {
+    match: "telaprevir",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Strong Inh" },
+    ],
+  },
+  {
+    match: "telithromycin",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Strong Inh" },
+    ],
+  },
+  {
+    match: "telmisartan",
+    annotations: [
+      { system: "UGT", role: "Met" },
+      { system: "CYP2C19", role: "Weak Inh" },
+    ],
+  },
+  { match: "telotristat ethyl", annotations: [{ system: "CYP3A4", role: "Ind" }] },
+  { match: "temazepam", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "temsirolimus", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "terfenadine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "testosterone", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "tetrabenazine", annotations: [{ system: "CYP2D6", role: "Sub", note: "major" }] },
+  {
+    match: "thiopental",
+    annotations: [
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP2B6", role: "Sub" },
+      { system: "CYP3A4", role: "Sub" },
+    ],
+  },
+  { match: "thiothixene", annotations: [{ system: "CYP1A2", role: "Sub", note: "major" }] },
+  { match: "tiagabine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "tinidazole", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "tiotropium", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
+  {
+    match: "tipranavir",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Strong Inh" },
+      { system: "CYP3A4", role: "Ind" },
+    ],
+  },
+  { match: "tivozanib", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "tolterodine", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
+  { match: "tolvaptan", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "topiramate",
+    annotations: [
+      { system: "CYP2C19", role: "Inh" },
+      { system: "CYP3A4", role: "Weak Ind" },
+    ],
+  },
+  { match: "toremifene", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "trabectedin", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "tranylcypromine",
+    annotations: [
+      { system: "CYP2C19", role: "Inh" },
+      { system: "CYP2D6", role: "Inh" },
+      { system: "CYP2C9", role: "Inh" },
+    ],
+  },
+  {
+    match: "tretinoin",
+    annotations: [
+      { system: "CYP2C8", role: "Sub" },
+      { system: "CYP26A1", role: "Sub" },
+      { system: "CYP3A4", role: "Sub" },
+    ],
+  },
+  { match: "triamcinolone", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "trifluoperazine", annotations: [{ system: "CYP1A2", role: "Sub", note: "major" }] },
+  {
+    match: "trimipramine",
+    annotations: [
+      { system: "CYP2D6", role: "Sub" },
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP3A4", role: "Sub" },
+    ],
+  },
+
+  // ── U ──
+  { match: "ubrogepant", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "ulipristal", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "upadacitinib", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+
+  // ── V ──
+  { match: "valbenazine", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub" }] },
+  { match: "varenicline", annotations: [{ system: "Renal elim", role: "Major" }] },
+  {
+    match: "velpatasvir",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2C8", role: "Sub" },
+      { system: "CYP2B6", role: "Sub" },
+    ],
+  },
+  { match: "venetoclax", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "vigabatrin", annotations: [{ system: "Renal elim", role: "Major" }] },
+  { match: "vilazodone", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "vinblastine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "vinorelbine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "vismodegib",
+    annotations: [
+      { system: "CYP2C9", role: "Sub" },
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2C8", role: "Inh" },
+      { system: "CYP2C9", role: "Weak Inh" },
+    ],
+  },
+  {
+    match: "vorapaxar",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2J2", role: "Sub" },
+    ],
+  },
+  { match: "vorinostat", annotations: [{ system: "UGT", role: "Met" }] },
+  {
+    match: "vortioxetine",
+    annotations: [
+      { system: "CYP2D6", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Sub" },
+    ],
+  },
+  { match: "voxilaprevir", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+
+  // ── Z ──
+  {
+    match: "zaleplon",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "minor" },
+      { system: "Aldehyde oxidase", role: "Sub" },
+    ],
+  },
+  { match: "zanubrutinib", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "zidovudine", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "zolmitriptan", annotations: [{ system: "CYP1A2", role: "Sub", note: "major" }] },
+  { match: "zonisamide", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "zopiclone",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2C8", role: "Sub" },
+    ],
+  },
 ];
 
 const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
