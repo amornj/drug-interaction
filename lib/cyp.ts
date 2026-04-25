@@ -736,6 +736,160 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP3A4", role: "Weak Inh" },
     ],
   },
+
+  // ── E ──
+  {
+    match: "elagolix",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2C19", role: "Weak Inh" },
+      { system: "CYP3A4", role: "Weak Ind" },
+    ],
+  },
+  { match: "elbasvir", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "eletriptan", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "elexacaftor", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "elvitegravir",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2C9", role: "Weak Inh" },
+    ],
+  },
+  { match: "emtricitabine", annotations: [{ system: "Renal elim", role: "Major" }] },
+  {
+    match: "enasidenib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2C8", role: "Sub" },
+      { system: "CYP2D6", role: "Sub" },
+      { system: "CYP1A2", role: "Inh" },
+      { system: "CYP2B6", role: "Inh" },
+      { system: "CYP2C8", role: "Inh" },
+      { system: "CYP2C9", role: "Inh" },
+      { system: "CYP2C19", role: "Inh" },
+      { system: "CYP2D6", role: "Inh" },
+      { system: "CYP3A4", role: "Inh" },
+      { system: "CYP2B6", role: "Ind" },
+      { system: "CYP3A4", role: "Ind" },
+    ],
+  },
+  {
+    match: "encorafenib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP2D6", role: "Sub" },
+      { system: "CYP3A4", role: "Strong Inh" },
+    ],
+  },
+  { match: "entacapone", annotations: [{ system: "UGT", role: "Met" }] },
+  {
+    match: "entrectinib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Moderate Inh" },
+    ],
+  },
+  {
+    match: "erlotinib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP1A2", role: "Sub", note: "minor" },
+    ],
+  },
+  {
+    match: "eslicarbazepine",
+    annotations: [
+      { system: "CYP2C19", role: "Moderate Inh" },
+      { system: "CYP3A4", role: "Moderate Ind" },
+    ],
+  },
+  { match: "estazolam", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "eszopiclone",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2E1", role: "Sub" },
+    ],
+  },
+  { match: "etonogestrel", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "etoposide", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "everolimus", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "exemestane", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "ezogabine", annotations: [{ system: "UGT", role: "Met" }, { system: "NAT", role: "Met" }] },
+
+  // ── F ──
+  {
+    match: "fedratinib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP3A4", role: "Inh" },
+      { system: "CYP2C19", role: "Inh" },
+      { system: "CYP2D6", role: "Inh" },
+    ],
+  },
+  { match: "felodipine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "fenfluramine",
+    annotations: [
+      { system: "CYP1A2", role: "Sub" },
+      { system: "CYP2B6", role: "Sub" },
+      { system: "CYP2C9", role: "Sub" },
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP2D6", role: "Sub" },
+      { system: "CYP3A4", role: "Sub" },
+    ],
+  },
+  {
+    match: "fenofibric acid",
+    annotations: [
+      { system: "UGT", role: "Met" },
+      { system: "CYP2C8", role: "Weak Inh" },
+      { system: "CYP2C9", role: "Weak Inh" },
+    ],
+  },
+  { match: "fesoterodine", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub" }] },
+  { match: "finasteride", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "fingolimod", annotations: [{ system: "CYP4F2", role: "Sub", note: "major" }] },
+  {
+    match: "flibanserin",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2C19", role: "Sub", note: "minor" },
+    ],
+  },
+  { match: "fludrocortisone", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "fluphenazine",
+    annotations: [
+      { system: "CYP2D6", role: "Sub", note: "major" },
+      { system: "CYP2D6", role: "Moderate Inh" },
+    ],
+  },
+  { match: "flurazepam", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "flurbiprofen", annotations: [{ system: "CYP2C9", role: "Sub", note: "major" }] },
+  { match: "flutamide", annotations: [{ system: "CYP1A2", role: "Sub", note: "major" }] },
+  { match: "fluticasone", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "formoterol",
+    annotations: [
+      { system: "CYP2D6", role: "Sub" },
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP2C9", role: "Sub" },
+      { system: "CYP2A6", role: "Sub" },
+    ],
+  },
+  {
+    match: "fosamprenavir",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Strong Inh" },
+    ],
+  },
+  { match: "frovatriptan", annotations: [{ system: "CYP1A2", role: "Sub", note: "major" }] },
+  { match: "fulvestrant", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
 ];
 
 const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
