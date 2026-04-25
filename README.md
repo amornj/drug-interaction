@@ -119,13 +119,54 @@ Current examples include:
 
 ## How It Works
 
-- Local deterministic interaction rules and precomputed indexes drive the core checker.
-- RxNorm-based normalization supports generic matching.
-- Curated brand and alias dictionaries support commercial names and combination products.
-- Cumulative stack rules run locally.
-- Pharmacogenomic rules run locally.
-- Optional prompt-copy helpers make it easy to ask an external LLM chat for mechanism-level learning.
+There are two independent deterministic engines. No AI is involved in either.
 
+### 1. Pairwise Interactions
+
+**API route:** `POST /api/interactions/check` receives only a list of **RxCUIs** (ingredient-level drug IDs from RxNorm).
+
+**Lookup logic** (`lib/interactions.ts`):
+
+1. **Overlay first** — checks `lib/data/overlay/index.json` (hand-curated overrides). If a pair is here, it wins immediately with full severity, verdict, mechanism, and management.
+2. **DDInter fallback** — if no overlay hit, looks up the pair in `lib/data/ddinter/index.json`, a precomputed map of `RxCUI_A|RxCUI_B → severity_code`:
+   - `1` = Minor
+   - `2` = Moderate
+   - `3` = Major
+   - `4` = Contraindicated
+3. If neither source has the pair, it is silent — nothing is invented.
+
+**How drugs become RxCUIs:**
+- User types a name → RxNorm NIH API returns candidates.
+- The app resolves the chosen candidate to an **ingredient-level RxCUI**.
+- Brands and combos expand into ingredient chips before hitting the API, so the check route never sees raw text — only RxCUIs.
+
+**Results:**
+- Sorted by severity: Contraindicated → Major → Moderate → Minor.
+- Every hit carries a source citation (`DDInter 2.0` or `Overlay`).
+- The API caches responses in-memory by sorted RxCUI key.
+
+### 2. Cumulative Stacks
+
+**Client-side logic** (`lib/stacks.ts`), runs entirely in the browser:
+
+- ~20 deterministic stack rules (QT, bleeding, hyperkalemia, serotonergic, lactic acidosis, nephrotoxic, bradycardia, etc.).
+- Each rule has a `matches` array of drug name substrings.
+- Drug names are normalized (lowercased, stripped of parenthetical text).
+- If **≥2 drugs** in the current case match a rule's keyword list, a stack warning fires.
+
+**Severity tuning:**
+Many rules have custom `detectSeverity` logic. Examples:
+- **Hyperkalemia** → Major if MRA + ACEi/ARB, or if potassium supplement is present, or if ≥3 drugs match.
+- **QT** → Major if high-risk QT drug + hypokalemia driver present.
+- **Serotonergic** → Major if MAOI + SSRI/SNRI, or if tramadol/linezolid overlap with antidepressants.
+- Default fallback: Moderate for 2 drugs, Major for 3+ or if any `highRiskMatches` are present.
+
+Stack warnings render as a separate section above the pairwise list.
+
+### 3. Other Local Layers
+
+- **Patient modifiers** (`lib/modifiers.ts`): renal/hepatic impairment, age ≥65, G6PD, pregnancy, lactation chips stored per case. These can re-rank or annotate interaction urgency client-side.
+- **Pharmacogenomics** (`lib/pgx.ts`): CPIC-style gene-drug alerts (CYP2C19, CYP2D6, HLA-B*57:01, etc.) rendered as prompts separate from pairwise results.
 
 ## Tech Stack
 
