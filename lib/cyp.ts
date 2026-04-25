@@ -496,6 +496,106 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   // Uricosurics / gout
   { match: "benzbromarone", annotations: [{ system: "CYP2C9", role: "Sub" }] },
   { match: "febuxostat", annotations: [{ system: "Xanthine oxidase", role: "Pathway" }, { system: "UGT", role: "Met" }] },
+
+  // ── A ──
+  { match: "abacavir", annotations: [{ system: "ADH", role: "Met" }, { system: "UGT", role: "Met" }] },
+  { match: "abemaciclib", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP3A4", role: "Weak Inh" }] },
+  { match: "acalabrutinib", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "acebutolol", annotations: [{ system: "CYP2D6", role: "Sub", note: "minor" }, { system: "CYP2D6", role: "Weak Inh" }] },
+  {
+    match: "acenocoumarol",
+    annotations: [
+      { system: "CYP2C9", role: "Sub" },
+      { system: "CYP1A2", role: "Sub", note: "minor" },
+      { system: "CYP2C19", role: "Sub", note: "minor" },
+    ],
+  },
+  { match: "acetazolamide", annotations: [{ system: "Renal elim", role: "Major" }] },
+  {
+    match: "acitretin",
+    annotations: [
+      { system: "CYP2C9", role: "Sub" },
+      { system: "CYP2D6", role: "Sub", note: "minor" },
+      { system: "CYP3A4", role: "Sub", note: "minor" },
+    ],
+  },
+  { match: "aclidinium", annotations: [{ system: "Esterase", role: "Rapid hydrolysis" }] },
+  { match: "alogliptin", annotations: [{ system: "CYP2D6", role: "Sub", note: "minor" }, { system: "CYP3A4", role: "Sub", note: "minor" }] },
+  { match: "alfentanil", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "alfuzosin", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "alimemazine", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  { match: "aliskiren", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "almotriptan", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub", note: "minor" }] },
+  { match: "alpelisib", annotations: [{ system: "CYP3A4", role: "Sub", note: "minor" }] },
+  { match: "amantadine", annotations: [{ system: "Renal elim", role: "Major" }] },
+  { match: "amoxapine", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  { match: "amphetamine", annotations: [{ system: "CYP2D6", role: "Sub" }] },
+  {
+    match: "anastrozole",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2C8", role: "Sub", note: "minor" },
+      { system: "CYP2C9", role: "Sub", note: "minor" },
+      { system: "CYP1A2", role: "Weak Inh" },
+      { system: "CYP2C9", role: "Weak Inh" },
+      { system: "CYP3A4", role: "Weak Inh" },
+    ],
+  },
+  {
+    match: "asenapine",
+    annotations: [
+      { system: "CYP1A2", role: "Sub" },
+      { system: "CYP3A4", role: "Sub", note: "minor" },
+      { system: "CYP2D6", role: "Weak Inh" },
+    ],
+  },
+  {
+    match: "atazanavir",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP3A4", role: "Strong Inh" },
+      { system: "CYP2C8", role: "Inh" },
+      { system: "CYP2C9", role: "Inh" },
+    ],
+  },
+  { match: "atomoxetine", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP2C19", role: "Sub", note: "minor" }] },
+  { match: "avanafil", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2C9", role: "Sub", note: "minor" }] },
+  {
+    match: "axitinib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP1A2", role: "Sub", note: "minor" },
+      { system: "CYP2C19", role: "Sub", note: "minor" },
+    ],
+  },
+  { match: "azilsartan", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+
+  // ── B ──
+  { match: "baclofen", annotations: [{ system: "Renal elim", role: "Major" }] },
+  { match: "beclomethasone", annotations: [{ system: "CYP3A4", role: "Sub", note: "minor" }] },
+  { match: "bedaquiline", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "benazepril", annotations: [{ system: "Esterase", role: "Prodrug" }, { system: "Renal elim", role: "Major" }] },
+  { match: "betaxolol", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP1A2", role: "Sub", note: "minor" }] },
+  { match: "bexarotene", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "bicalutamide", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "boceprevir", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP3A4", role: "Strong Inh" }] },
+  {
+    match: "bortezomib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP1A2", role: "Sub", note: "minor" },
+      { system: "CYP2D6", role: "Sub", note: "minor" },
+      { system: "CYP2C9", role: "Sub", note: "minor" },
+    ],
+  },
+  { match: "bosutinib", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "brexpiprazole", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub" }] },
+  { match: "brigatinib", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2C8", role: "Sub", note: "minor" }] },
+  { match: "brivaracetam", annotations: [{ system: "CYP2C19", role: "Sub" }] },
+  { match: "bromocriptine", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "budesonide", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "butalbital", annotations: [{ system: "CYP2C19", role: "Sub" }, { system: "CYP3A4", role: "Ind" }] },
 ];
 
 const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
