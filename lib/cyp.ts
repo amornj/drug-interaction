@@ -384,6 +384,110 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
     match: "ticagrelor",
     annotations: [{ system: "P-gp", role: "Inh", note: "moderate" }],
   },
+
+  // PPIs and P-CABs
+  { match: "vonoprazan", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "P-gp", role: "Sub" }] },
+  { match: "pantoprazole", annotations: [{ system: "CYP2C19", role: "Sub" }, { system: "CYP3A4", role: "Sub", note: "minor" }] },
+  {
+    match: "lansoprazole",
+    annotations: [
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP3A4", role: "Sub", note: "minor" },
+      { system: "CYP2C19", role: "Moderate Inh" },
+    ],
+  },
+  {
+    match: "rabeprazole",
+    annotations: [
+      { system: "Non-enzymatic", role: "Major" },
+      { system: "CYP2C19", role: "Sub", note: "partial" },
+      { system: "CYP2C19", role: "Moderate Inh" },
+    ],
+  },
+
+  // Antipsychotics
+  {
+    match: "thioridazine",
+    annotations: [
+      { system: "CYP2D6", role: "Sub" },
+      { system: "CYP2D6", role: "Strong Inh" },
+      { system: "CYP1A2", role: "Sub", note: "minor" },
+    ],
+  },
+  { match: "chlorpromazine", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP1A2", role: "Sub", note: "minor" }] },
+  { match: "perphenazine", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP2D6", role: "Strong Inh" }] },
+  { match: "ziprasidone", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "paliperidone", annotations: [{ system: "P-gp", role: "Sub" }, { system: "Renal elim", role: "Major" }] },
+
+  // Antidepressants
+  { match: "escitalopram", annotations: [{ system: "CYP2C19", role: "Sub" }, { system: "CYP2D6", role: "Sub", note: "minor" }] },
+  { match: "mirtazapine", annotations: [{ system: "CYP1A2", role: "Sub" }, { system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub", note: "minor" }] },
+  { match: "trazodone", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub", note: "minor" }] },
+  { match: "desvenlafaxine", annotations: [{ system: "UGT", role: "Met" }, { system: "Renal elim", role: "Partial" }] },
+  { match: "levomilnacipran", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+
+  // Opioids
+  {
+    match: "methadone",
+    annotations: [
+      { system: "CYP2B6", role: "Sub" },
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2D6", role: "Sub", note: "minor" },
+    ],
+  },
+  { match: "buprenorphine", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "UGT", role: "Met" }] },
+  { match: "hydrocodone", annotations: [{ system: "CYP2D6", role: "Sub", note: "→hydromorphone" }, { system: "CYP3A4", role: "Sub" }] },
+  { match: "naloxone", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "naltrexone", annotations: [{ system: "UGT", role: "Met" }] },
+
+  // Corticosteroids
+  { match: "dexamethasone", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "methylprednisolone", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+
+  // Beta-blockers and cardiovascular
+  { match: "bisoprolol", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub", note: "minor" }] },
+  { match: "atenolol", annotations: [{ system: "Renal elim", role: "Major" }] },
+  { match: "lisinopril", annotations: [{ system: "Renal elim", role: "Major" }] },
+  { match: "enalapril", annotations: [{ system: "Esterase", role: "Prodrug" }, { system: "Renal elim", role: "Major" }] },
+  { match: "ramipril", annotations: [{ system: "Esterase", role: "Prodrug" }, { system: "Renal elim", role: "Major" }] },
+  { match: "perindopril", annotations: [{ system: "Esterase", role: "Prodrug" }, { system: "Renal elim", role: "Major" }] },
+
+  // Oral antidiabetics
+  { match: "glimepiride", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "gliclazide", annotations: [{ system: "CYP2C9", role: "Sub" }, { system: "CYP3A4", role: "Sub", note: "minor" }] },
+  { match: "pioglitazone", annotations: [{ system: "CYP2C8", role: "Sub" }, { system: "CYP3A4", role: "Sub", note: "minor" }] },
+  { match: "sitagliptin", annotations: [{ system: "P-gp", role: "Sub" }, { system: "Renal elim", role: "Major" }] },
+  { match: "empagliflozin", annotations: [{ system: "UGT", role: "Met" }, { system: "P-gp", role: "Sub" }] },
+  { match: "dapagliflozin", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "canagliflozin", annotations: [{ system: "UGT", role: "Met" }, { system: "P-gp", role: "Sub" }] },
+
+  // Statins (non-CYP dominant)
+  {
+    match: "rosuvastatin",
+    annotations: [
+      { system: "CYP2C9", role: "Sub", note: "minor" },
+      { system: "OATP1B1", role: "Transport" },
+      { system: "BCRP", role: "Transport" },
+    ],
+  },
+  { match: "pravastatin", annotations: [{ system: "OATP1B1", role: "Transport" }] },
+  { match: "pitavastatin", annotations: [{ system: "OATP1B1", role: "Transport" }, { system: "BCRP", role: "Transport" }] },
+  { match: "ezetimibe", annotations: [{ system: "UGT", role: "Met" }, { system: "P-gp", role: "Sub" }] },
+
+  // Antibiotics and anti-infectives
+  { match: "azithromycin", annotations: [{ system: "P-gp", role: "Sub" }] },
+  { match: "vancomycin", annotations: [{ system: "Renal elim", role: "Major" }] },
+  { match: "levofloxacin", annotations: [{ system: "Renal elim", role: "Major" }] },
+
+  // Anticonvulsants
+  { match: "levetiracetam", annotations: [{ system: "Renal elim", role: "Major" }] },
+  { match: "pregabalin", annotations: [{ system: "Renal elim", role: "Major" }] },
+  { match: "gabapentin", annotations: [{ system: "Renal elim", role: "Major" }] },
+
+  // Diuretics
+  { match: "furosemide", annotations: [{ system: "Renal elim", role: "Major" }] },
+  { match: "hydrochlorothiazide", annotations: [{ system: "Renal elim", role: "Major" }] },
+  { match: "spironolactone", annotations: [{ system: "CYP3A4", role: "Sub" }] },
 ];
 
 const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
