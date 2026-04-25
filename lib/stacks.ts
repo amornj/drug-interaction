@@ -1375,8 +1375,6 @@ const stackRules: StackRule[] = [
       "chlorpromazine",
       "gabapentin",
       "pregabalin",
-      "furosemide",
-      "hydrochlorothiazide",
     ],
     highRiskMatches: [
       "diazepam",
@@ -1389,22 +1387,23 @@ const stackRules: StackRule[] = [
     summary: (matched) =>
       `Multiple falls-risk drugs detected: ${matched.join(", ")}. Review combined sedation, orthostatic hypotension, and dizziness burden — especially in older adults or those with gait instability.`,
     detectSeverity: (matchedKeywords, matchedDrugs) => {
-      const hasBenzoOrZDrug = [
-        "diazepam", "lorazepam", "alprazolam", "clonazepam",
-        "temazepam", "zolpidem", "zopiclone", "zaleplon",
-      ].some((k) => matchedKeywords.includes(k));
-      const hasOpioid = [
-        "morphine", "oxycodone", "fentanyl", "codeine", "tramadol", "hydrocodone",
-      ].some((k) => matchedKeywords.includes(k));
+      const BENZOS_ZDRUGS = ["diazepam", "lorazepam", "alprazolam", "clonazepam", "temazepam", "zolpidem", "zopiclone", "zaleplon"];
+      const OPIOIDS = ["morphine", "oxycodone", "fentanyl", "codeine", "tramadol", "hydrocodone"];
+      const ALPHA_BLOCKERS = ["doxazosin", "prazosin", "tamsulosin", "alfuzosin", "terazosin"];
+      const hasBenzoOrZDrug = BENZOS_ZDRUGS.some((k) => matchedKeywords.includes(k));
+      const hasOpioid = OPIOIDS.some((k) => matchedKeywords.includes(k));
       const hasGabapentinoid = ["gabapentin", "pregabalin"].some((k) => matchedKeywords.includes(k));
-      const hasAlphaBlocker = ["doxazosin", "prazosin", "tamsulosin", "alfuzosin", "terazosin"]
-        .some((k) => matchedKeywords.includes(k));
+      const hasAlphaBlocker = ALPHA_BLOCKERS.some((k) => matchedKeywords.includes(k));
+
+      // At least one sedating agent must be present to fire Major — prevents
+      // two alpha-blockers or two antipsychotics alone from escalating.
+      const hasSedating = hasBenzoOrZDrug || hasOpioid || hasGabapentinoid;
 
       if (
         (hasBenzoOrZDrug && hasOpioid) ||
         (hasBenzoOrZDrug && hasGabapentinoid) ||
         (hasBenzoOrZDrug && hasAlphaBlocker) ||
-        matchedDrugs.length >= 3
+        (hasSedating && matchedDrugs.length >= 3)
       ) {
         return "Major";
       }
@@ -1659,11 +1658,10 @@ const STACK_REFERENCE_GROUPS: Record<StackDomain, string[]> = {
   fallsrisk: [
     "Benzodiazepines and Z-drugs",
     "Opioids",
+    "Gabapentinoids",
     "Alpha-1 blockers",
     "Sedating antidepressants",
     "Antipsychotics",
-    "Gabapentinoids",
-    "Loop and thiazide diuretics",
   ],
 };
 
@@ -1794,8 +1792,10 @@ const STACK_HIGH_YIELD_DRUGS: Record<StackDomain, string[]> = {
   fallsrisk: [
     "Diazepam", "Lorazepam", "Alprazolam", "Zolpidem", "Zopiclone",
     "Morphine", "Oxycodone", "Tramadol", "Fentanyl",
-    "Doxazosin", "Tamsulosin", "Prazosin",
+    "Doxazosin", "Tamsulosin", "Prazosin", "Alfuzosin",
     "Gabapentin", "Pregabalin",
+    "Amitriptyline", "Mirtazapine",
+    "Quetiapine", "Risperidone",
   ],
 };
 

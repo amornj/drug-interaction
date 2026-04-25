@@ -74,6 +74,10 @@ function stackLabel(domain: StackWarning["domain"]) {
       return "Bradycardia";
     case "druginducedseizure":
       return "Seizure risk";
+    case "cnsdepression":
+      return "CNS/resp depression";
+    case "fallsrisk":
+      return "Falls risk";
   }
 }
 
