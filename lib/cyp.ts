@@ -504,7 +504,7 @@ export function getDrugMetabolismTags(name: string): DrugMetabolismTag[] {
   const seen = new Set<string>();
   const tags: DrugMetabolismTag[] = [];
 
-  for (const entry of METABOLISM_ENTRIES) {
+  for (const entry of [...METABOLISM_ENTRIES, ...CYP_REFERENCE_ONLY_ENTRIES]) {
     if (!normalized.includes(entry.match)) {
       continue;
     }
