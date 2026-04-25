@@ -126,11 +126,6 @@ Current examples include:
 - Pharmacogenomic rules run locally.
 - Optional prompt-copy helpers make it easy to ask an external LLM chat for mechanism-level learning.
 
-## Roadmap
-
-Current next milestone:
-
-- offline PWA polish, installability, haptics, and final mobile refinement
 
 ## Tech Stack
 
