@@ -145,18 +145,48 @@ const modifierRules: ModifierRule[] = [
 
 const renalRules: RenalRule[] = [
   {
-    title: "Reduced renal function",
-    matches: ["metformin", "gabapentin", "pregabalin", "nitrofurantoin", "rivaroxaban", "dabigatran"],
+    title: "Renally cleared — dose adjustment required",
+    matches: [
+      "metformin",
+      "gabapentin",
+      "pregabalin",
+      "nitrofurantoin",
+      "rivaroxaban",
+      "dabigatran",
+      "apixaban",
+      "edoxaban",
+      "digoxin",
+      "lithium",
+      "atenolol",
+      "allopurinol",
+      "colchicine",
+      "acyclovir",
+      "valacyclovir",
+      "methotrexate",
+      "trimethoprim",
+      "gentamicin",
+      "tobramycin",
+      "amikacin",
+      "vancomycin",
+      "enoxaparin",
+    ],
     adjustedSeverity: "Major",
     summary:
-      "Renal modifier raises urgency because one drug in this pair is on the local renal-dose watchlist.",
+      "Renal modifier raises urgency: one drug in this pair has significant renal clearance or requires dose adjustment in reduced renal function — check local dosing guidance before continuing.",
   },
   {
-    title: "Reduced renal function",
+    title: "NSAIDs — acute kidney injury risk",
     matches: ["ibuprofen", "ketorolac", "naproxen", "celecoxib", "diclofenac"],
     adjustedSeverity: "Major",
     summary:
-      "Renal modifier raises concern because one drug in this pair is on the local NSAID renal-risk watchlist.",
+      "Renal modifier raises concern: NSAIDs reduce renal prostaglandin synthesis and can precipitate acute-on-chronic kidney injury in the setting of reduced renal function.",
+  },
+  {
+    title: "Potassium-sparing agents — hyperkalemia risk amplified",
+    matches: ["spironolactone", "eplerenone", "amiloride", "triamterene"],
+    adjustedSeverity: "Major",
+    summary:
+      "Renal modifier raises urgency: aldosterone antagonists and potassium-sparing diuretics carry substantially higher hyperkalemia risk when renal function is reduced — recheck potassium and GFR trend.",
   },
 ];
 

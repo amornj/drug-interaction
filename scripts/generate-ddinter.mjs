@@ -347,8 +347,6 @@ async function main() {
       pairIndex[key] = Math.max(pairIndex[key] ?? 0, severityCode);
     }
 
-    const overlayEntries = await loadOverlayEntries();
-
     await writeFile(
       RXCUI_MAP_PATH,
       JSON.stringify(
@@ -370,19 +368,6 @@ async function main() {
           ddinterVersion: DDINTER_VERSION,
           pairIndex,
           rxcuiNames,
-        },
-        null,
-        2
-      ) + "\n"
-    );
-
-    await writeFile(
-      OVERLAY_INDEX_PATH,
-      JSON.stringify(
-        {
-          generatedAt,
-          overlayVersion: OVERLAY_VERSION,
-          entries: overlayEntries,
         },
         null,
         2
@@ -428,13 +413,27 @@ async function main() {
       JSON.stringify(
         {
           ddinter: "preserved",
-          overlay: "preserved",
         },
         null,
         2
       )
     );
   }
+
+  // Always regenerate overlay so YAML edits take effect without REFRESH_DDINTER=1
+  const overlayEntries = await loadOverlayEntries();
+  await writeFile(
+    OVERLAY_INDEX_PATH,
+    JSON.stringify(
+      {
+        generatedAt,
+        overlayVersion: OVERLAY_VERSION,
+        entries: overlayEntries,
+      },
+      null,
+      2
+    ) + "\n"
+  );
 
   await writeFile(
     BRANDS_INDEX_PATH,

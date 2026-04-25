@@ -1,5 +1,78 @@
 {
-  "generatedAt": "2026-04-21T16:47:38.733Z",
+  "generatedAt": "2026-04-25T18:55:18.656Z",
   "overlayVersion": "2026-04",
-  "entries": []
+  "entries": [
+    {
+      "key": "10829|11289",
+      "pair": [
+        "10829",
+        "11289"
+      ],
+      "severity": "Major",
+      "verdict": "Trimethoprim inhibits CYP2C9-mediated warfarin clearance and reduces intestinal vitamin K2 synthesis, increasing anticoagulant effect and bleeding risk.",
+      "mechanism_class": "CYP2C9 inhibition + vitamin K depletion",
+      "management": "Monitor INR closely within 3–5 days of starting or stopping trimethoprim. Anticipate an INR rise of 50–100% and reduce warfarin dose pre-emptively if the baseline INR is already in range.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "21212|42316",
+      "pair": [
+        "21212",
+        "42316"
+      ],
+      "severity": "Major",
+      "verdict": "Clarithromycin strongly inhibits CYP3A4 and P-glycoprotein, markedly reducing tacrolimus clearance and raising whole-blood trough concentrations — tacrolimus toxicity (nephrotoxicity, neurotoxicity) can occur within days.",
+      "mechanism_class": "CYP3A4 inhibition + P-gp inhibition",
+      "management": "Reduce tacrolimus dose pre-emptively (often 50% or more) before starting clarithromycin. Check trough levels daily for the first 3–5 days. Consider azithromycin as a lower-risk macrolide alternative if clinically appropriate.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "3008|4450",
+      "pair": [
+        "3008",
+        "4450"
+      ],
+      "severity": "Major",
+      "verdict": "Fluconazole inhibits CYP3A4 (and CYP2C9), reducing cyclosporine clearance and increasing whole-blood concentrations. Nephrotoxicity and neurotoxicity can result from even moderate dose increases.",
+      "mechanism_class": "CYP3A4 inhibition",
+      "management": "Reduce cyclosporine dose by approximately 50% when starting fluconazole and monitor trough levels every 1–2 days. Restore dose when fluconazole is discontinued.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "11118|8183",
+      "pair": [
+        "11118",
+        "8183"
+      ],
+      "severity": "Major",
+      "verdict": "Bidirectional pharmacokinetic interaction: valproate displaces phenytoin from albumin binding (raising free phenytoin and toxicity risk) while phenytoin induces valproate metabolism (lowering VPA levels and seizure control). Total phenytoin levels can appear normal while free levels are toxic.",
+      "mechanism_class": "Protein-binding displacement + CYP2C9/2C19 induction",
+      "management": "Monitor free (unbound) phenytoin levels rather than total levels when both drugs are co-administered. Monitor valproate trough levels for sub-therapeutic concentrations. Watch for phenytoin toxicity signs (nystagmus, ataxia, diplopia) even with total phenytoin in range.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    }
+  ]
 }

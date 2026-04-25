@@ -4,6 +4,8 @@ export type PgxGene =
   | "cyp2c9"
   | "cyp2c19"
   | "cyp2d6"
+  | "cyp3a5"
+  | "ugt1a1"
   | "slco1b1"
   | "vkorc1"
   | "hla_b1502"
@@ -90,6 +92,24 @@ export const pgxGeneConfigs: Record<PgxGene, PgxGeneConfig> = {
       { value: "intermediate", label: "Intermediate metabolizer" },
       { value: "normal", label: "Normal metabolizer" },
       { value: "ultrarapid", label: "Ultrarapid metabolizer" },
+    ],
+  },
+  cyp3a5: {
+    label: "CYP3A5",
+    options: [
+      { value: "", label: "Unknown / not tested" },
+      { value: "nonexpresser", label: "Non-expresser (*3/*3)" },
+      { value: "intermediate", label: "Intermediate expresser (*1/*3)" },
+      { value: "expresser", label: "Expresser (*1/*1)" },
+    ],
+  },
+  ugt1a1: {
+    label: "UGT1A1",
+    options: [
+      { value: "", label: "Unknown / not tested" },
+      { value: "normal", label: "Normal metabolizer (*1/*1)" },
+      { value: "intermediate", label: "Intermediate metabolizer (*1/*28)" },
+      { value: "poor", label: "Poor metabolizer (*28/*28)" },
     ],
   },
   slco1b1: {
@@ -252,6 +272,56 @@ const pgxRules: PgxRule[] = [
         severity: "Contraindicated",
         summary:
           "CYP2D6 ultrarapid metabolizer status can increase active opioid exposure from codeine or tramadol. Avoid these prodrugs in the local PGx rule set.",
+      },
+    },
+  },
+  {
+    gene: "cyp3a5",
+    title: "Tacrolimus dose requirement",
+    matches: ["tacrolimus"],
+    defaultSeverity: "Moderate",
+    testRecommendation:
+      "Consider CYP3A5 genotyping before tacrolimus initiation — expressers need substantially higher doses to reach target trough concentrations.",
+    phenotypeRecommendations: {
+      expresser: {
+        severity: "Major",
+        summary:
+          "CYP3A5 expresser status (*1 carrier) predicts high tacrolimus clearance. Standard starting doses typically produce subtherapeutic troughs — expect 1.5–2× higher dose requirements and titrate with frequent TDM.",
+      },
+      intermediate: {
+        severity: "Moderate",
+        summary:
+          "CYP3A5 intermediate expresser status (*1/*3) predicts modestly increased tacrolimus clearance. Recheck trough early and be prepared to titrate upward from standard starting doses.",
+      },
+      nonexpresser: {
+        severity: "Minor",
+        summary:
+          "CYP3A5 non-expresser status (*3/*3) predicts standard tacrolimus clearance. Standard starting doses are appropriate; routine TDM applies.",
+      },
+    },
+  },
+  {
+    gene: "ugt1a1",
+    title: "Irinotecan toxicity risk",
+    matches: ["irinotecan"],
+    defaultSeverity: "Major",
+    testRecommendation:
+      "Consider UGT1A1 genotyping before irinotecan — poor metabolizers have markedly reduced SN-38 glucuronidation and are at high risk of severe neutropenia and diarrhoea.",
+    phenotypeRecommendations: {
+      normal: {
+        severity: "Minor",
+        summary:
+          "UGT1A1 normal metabolizer status does not add a local PGx restriction for irinotecan dose in this panel.",
+      },
+      intermediate: {
+        severity: "Moderate",
+        summary:
+          "UGT1A1 intermediate metabolizer status (*1/*28) raises local concern for irinotecan toxicity. Recheck starting dose strategy and monitor closely for neutropenia and diarrhoea.",
+      },
+      poor: {
+        severity: "Contraindicated",
+        summary:
+          "UGT1A1 poor metabolizer status (*28/*28) triggers a local avoid signal for standard irinotecan doses because of high SN-38 accumulation and severe toxicity risk. Dose reduction or alternative regimen is warranted.",
       },
     },
   },
@@ -447,6 +517,8 @@ export function createDefaultPgxProfile(): PgxProfile {
     cyp2c9: "",
     cyp2c19: "",
     cyp2d6: "",
+    cyp3a5: "",
+    ugt1a1: "",
     slco1b1: "",
     vkorc1: "",
     hla_b1502: "",

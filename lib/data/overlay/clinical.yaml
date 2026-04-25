@@ -1,0 +1,81 @@
+# Hand-curated overlay entries.
+# pair values are RxCUI strings (sorted pair → key used by checkInteractions).
+# These override DDInter when the severity is wrong or the pair is absent.
+
+# warfarin + trimethoprim (11289 | 10829)
+# DDInter rates Moderate; trimethoprim alone inhibits CYP2C9 and reduces
+# intestinal vitamin K synthesis — clinical significance is Major.
+- pair: ["10829", "11289"]
+  severity: Major
+  verdict: >-
+    Trimethoprim inhibits CYP2C9-mediated warfarin clearance and reduces
+    intestinal vitamin K2 synthesis, increasing anticoagulant effect and
+    bleeding risk.
+  mechanism_class: CYP2C9 inhibition + vitamin K depletion
+  management: >-
+    Monitor INR closely within 3–5 days of starting or stopping trimethoprim.
+    Anticipate an INR rise of 50–100% and reduce warfarin dose pre-emptively
+    if the baseline INR is already in range.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# tacrolimus + clarithromycin (42316 | 21212)
+# NOT in DDInter. Clarithromycin is a strong CYP3A4 and P-gp inhibitor;
+# tacrolimus levels can rise 3–5× within 24–48 h.
+- pair: ["21212", "42316"]
+  severity: Major
+  verdict: >-
+    Clarithromycin strongly inhibits CYP3A4 and P-glycoprotein, markedly
+    reducing tacrolimus clearance and raising whole-blood trough concentrations
+    — tacrolimus toxicity (nephrotoxicity, neurotoxicity) can occur within days.
+  mechanism_class: CYP3A4 inhibition + P-gp inhibition
+  management: >-
+    Reduce tacrolimus dose pre-emptively (often 50% or more) before starting
+    clarithromycin. Check trough levels daily for the first 3–5 days.
+    Consider azithromycin as a lower-risk macrolide alternative if clinically
+    appropriate.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# cyclosporine + fluconazole (3008 | 4450)
+# DDInter rates Moderate; fluconazole inhibits CYP3A4 and can raise
+# cyclosporine AUC 50–100%, sufficient to cause nephrotoxicity.
+- pair: ["3008", "4450"]
+  severity: Major
+  verdict: >-
+    Fluconazole inhibits CYP3A4 (and CYP2C9), reducing cyclosporine clearance
+    and increasing whole-blood concentrations. Nephrotoxicity and neurotoxicity
+    can result from even moderate dose increases.
+  mechanism_class: CYP3A4 inhibition
+  management: >-
+    Reduce cyclosporine dose by approximately 50% when starting fluconazole
+    and monitor trough levels every 1–2 days. Restore dose when fluconazole
+    is discontinued.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# phenytoin + valproic acid (8183 | 11118)
+# DDInter rates Moderate. This is a clinically complex bidirectional interaction:
+# valproate displaces phenytoin from plasma proteins → elevated free phenytoin
+# and toxicity despite normal total levels; phenytoin induces VPA metabolism →
+# lower VPA levels.
+- pair: ["11118", "8183"]
+  severity: Major
+  verdict: >-
+    Bidirectional pharmacokinetic interaction: valproate displaces phenytoin
+    from albumin binding (raising free phenytoin and toxicity risk) while
+    phenytoin induces valproate metabolism (lowering VPA levels and seizure
+    control). Total phenytoin levels can appear normal while free levels are
+    toxic.
+  mechanism_class: Protein-binding displacement + CYP2C9/2C19 induction
+  management: >-
+    Monitor free (unbound) phenytoin levels rather than total levels when
+    both drugs are co-administered. Monitor valproate trough levels for
+    sub-therapeutic concentrations. Watch for phenytoin toxicity signs
+    (nystagmus, ataxia, diplopia) even with total phenytoin in range.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"

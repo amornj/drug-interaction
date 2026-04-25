@@ -24,7 +24,9 @@ export type StackDomain =
   | "hagma"
   | "normalgapacidosis"
   | "bradycardia"
-  | "druginducedseizure";
+  | "druginducedseizure"
+  | "cnsdepression"
+  | "fallsrisk";
 
 export type StackWarning = {
   domain: StackDomain;
@@ -64,11 +66,17 @@ const stackRules: StackRule[] = [
       "quinidine",
       "azithromycin",
       "clarithromycin",
+      "erythromycin",
       "levofloxacin",
+      "moxifloxacin",
       "ciprofloxacin",
       "haloperidol",
       "quetiapine",
+      "risperidone",
       "ziprasidone",
+      "pimozide",
+      "chlorpromazine",
+      "thioridazine",
       "citalopram",
       "escitalopram",
       "methadone",
@@ -79,8 +87,9 @@ const stackRules: StackRule[] = [
       "droperidol",
       "ranolazine",
       "quinine",
+      "pentamidine",
     ],
-    highRiskMatches: ["amiodarone", "sotalol", "quinidine", "methadone", "ziprasidone", "droperidol", "hydroxychloroquine"],
+    highRiskMatches: ["amiodarone", "sotalol", "quinidine", "methadone", "ziprasidone", "droperidol", "hydroxychloroquine", "pimozide", "thioridazine", "pentamidine"],
     summary: (matched) =>
       `Multiple QT-risk drugs detected: ${matched.join(", ")}. Review ECG and electrolyte monitoring needs, especially if potassium or magnesium may drift low.`,
     detectSeverity: (matchedKeywords, matchedDrugs) => {
@@ -637,6 +646,11 @@ const stackRules: StackRule[] = [
       "mirtazapine",
       "trazodone",
       "methadone",
+      "dextromethorphan",
+      "fentanyl",
+      "st john",
+      "buspirone",
+      "lithium",
     ],
     highRiskMatches: [
       "phenelzine",
@@ -648,6 +662,8 @@ const stackRules: StackRule[] = [
       "methylene blue",
       "tramadol",
       "methadone",
+      "dextromethorphan",
+      "st john",
     ],
     summary: (matched) =>
       `High-risk serotonergic combination detected: ${matched.join(", ")}. Review serotonin syndrome risk, especially with MAOI exposure, tramadol, linezolid, methylene blue, or multiple antidepressants.`,
@@ -712,18 +728,55 @@ const stackRules: StackRule[] = [
     title: "Anticholinergic syndrome stack",
     matches: [
       "amitriptyline",
+      "nortriptyline",
+      "imipramine",
+      "clomipramine",
+      "diphenhydramine",
+      "hydroxyzine",
+      "chlorpheniramine",
+      "promethazine",
+      "meclizine",
+      "oxybutynin",
+      "tolterodine",
+      "solifenacin",
+      "darifenacin",
+      "fesoterodine",
+      "trospium",
+      "scopolamine",
+      "atropine",
+      "glycopyrrolate",
+      "tiotropium",
+      "ipratropium",
+      "benztropine",
+      "trihexyphenidyl",
+      "procyclidine",
+      "orphenadrine",
+      "cyclobenzaprine",
+      "quetiapine",
+      "olanzapine",
+      "clozapine",
+      "paroxetine",
+    ],
+    highRiskMatches: [
+      "amitriptyline",
+      "clomipramine",
       "diphenhydramine",
       "oxybutynin",
-      "promethazine",
-      "chlorpheniramine",
       "scopolamine",
-      "benztropine",
-      "cyclobenzaprine",
-      "paroxetine",
-      "tolterodine",
+      "atropine",
+      "trihexyphenidyl",
+      "clozapine",
     ],
     summary: (matched) =>
-      `Anticholinergic drugs are stacking: ${matched.join(", ")}. Review for cumulative anticholinergic syndrome risk: delirium, urinary retention, ileus, tachycardia, and hyperthermia.`,
+      `Anticholinergic drugs are stacking: ${matched.join(", ")}. Review cumulative anticholinergic burden: delirium, urinary retention, ileus, tachycardia, and hyperthermia — risk multiplies with each additional agent.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const highRiskCount = ["amitriptyline", "clomipramine", "diphenhydramine", "oxybutynin", "scopolamine", "atropine", "trihexyphenidyl", "clozapine"]
+        .filter((k) => matchedKeywords.includes(k)).length;
+      if (highRiskCount >= 2 || matchedDrugs.length >= 3) {
+        return "Major";
+      }
+      return "Moderate";
+    },
   },
   {
     domain: "eps",
@@ -1208,6 +1261,157 @@ const stackRules: StackRule[] = [
       return "Moderate";
     },
   },
+  {
+    domain: "cnsdepression",
+    title: "CNS and respiratory depression stack",
+    matches: [
+      "morphine",
+      "oxycodone",
+      "fentanyl",
+      "codeine",
+      "tramadol",
+      "hydrocodone",
+      "methadone",
+      "buprenorphine",
+      "hydromorphone",
+      "oxymorphone",
+      "tapentadol",
+      "diazepam",
+      "lorazepam",
+      "alprazolam",
+      "clonazepam",
+      "midazolam",
+      "temazepam",
+      "oxazepam",
+      "chlordiazepoxide",
+      "zolpidem",
+      "zopiclone",
+      "zaleplon",
+      "eszopiclone",
+      "gabapentin",
+      "pregabalin",
+      "cyclobenzaprine",
+      "baclofen",
+      "carisoprodol",
+      "methocarbamol",
+      "tizanidine",
+      "metaxalone",
+    ],
+    highRiskMatches: [
+      "morphine",
+      "oxycodone",
+      "fentanyl",
+      "codeine",
+      "hydrocodone",
+      "methadone",
+      "hydromorphone",
+      "diazepam",
+      "lorazepam",
+      "alprazolam",
+      "clonazepam",
+      "midazolam",
+      "zolpidem",
+      "zopiclone",
+      "gabapentin",
+      "pregabalin",
+    ],
+    summary: (matched) =>
+      `CNS/respiratory-depressant drugs are stacking: ${matched.join(", ")}. Opioid, benzodiazepine, and gabapentinoid combinations carry an FDA black-box warning for respiratory depression — review necessity of each agent and ensure monitoring is in place.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const hasOpioid = [
+        "morphine", "oxycodone", "fentanyl", "codeine", "tramadol",
+        "hydrocodone", "methadone", "buprenorphine", "hydromorphone",
+        "oxymorphone", "tapentadol",
+      ].some((k) => matchedKeywords.includes(k));
+      const hasBenzoOrZDrug = [
+        "diazepam", "lorazepam", "alprazolam", "clonazepam", "midazolam",
+        "temazepam", "oxazepam", "chlordiazepoxide",
+        "zolpidem", "zopiclone", "zaleplon", "eszopiclone",
+      ].some((k) => matchedKeywords.includes(k));
+      const hasGabapentinoid = ["gabapentin", "pregabalin"].some((k) => matchedKeywords.includes(k));
+
+      if (
+        (hasOpioid && hasBenzoOrZDrug) ||
+        (hasOpioid && hasGabapentinoid) ||
+        matchedDrugs.length >= 3
+      ) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
+  },
+  {
+    domain: "fallsrisk",
+    title: "Polypharmacy falls risk",
+    matches: [
+      "diazepam",
+      "lorazepam",
+      "alprazolam",
+      "clonazepam",
+      "temazepam",
+      "zolpidem",
+      "zopiclone",
+      "zaleplon",
+      "morphine",
+      "oxycodone",
+      "fentanyl",
+      "codeine",
+      "tramadol",
+      "hydrocodone",
+      "doxazosin",
+      "prazosin",
+      "tamsulosin",
+      "alfuzosin",
+      "terazosin",
+      "amitriptyline",
+      "nortriptyline",
+      "trazodone",
+      "mirtazapine",
+      "haloperidol",
+      "quetiapine",
+      "risperidone",
+      "olanzapine",
+      "chlorpromazine",
+      "gabapentin",
+      "pregabalin",
+      "furosemide",
+      "hydrochlorothiazide",
+    ],
+    highRiskMatches: [
+      "diazepam",
+      "lorazepam",
+      "alprazolam",
+      "clonazepam",
+      "zolpidem",
+      "zopiclone",
+    ],
+    summary: (matched) =>
+      `Multiple falls-risk drugs detected: ${matched.join(", ")}. Review combined sedation, orthostatic hypotension, and dizziness burden — especially in older adults or those with gait instability.`,
+    detectSeverity: (matchedKeywords, matchedDrugs) => {
+      const hasBenzoOrZDrug = [
+        "diazepam", "lorazepam", "alprazolam", "clonazepam",
+        "temazepam", "zolpidem", "zopiclone", "zaleplon",
+      ].some((k) => matchedKeywords.includes(k));
+      const hasOpioid = [
+        "morphine", "oxycodone", "fentanyl", "codeine", "tramadol", "hydrocodone",
+      ].some((k) => matchedKeywords.includes(k));
+      const hasGabapentinoid = ["gabapentin", "pregabalin"].some((k) => matchedKeywords.includes(k));
+      const hasAlphaBlocker = ["doxazosin", "prazosin", "tamsulosin", "alfuzosin", "terazosin"]
+        .some((k) => matchedKeywords.includes(k));
+
+      if (
+        (hasBenzoOrZDrug && hasOpioid) ||
+        (hasBenzoOrZDrug && hasGabapentinoid) ||
+        (hasBenzoOrZDrug && hasAlphaBlocker) ||
+        matchedDrugs.length >= 3
+      ) {
+        return "Major";
+      }
+
+      return "Moderate";
+    },
+  },
 ];
 
 function normalizeDrugName(name: string) {
@@ -1270,12 +1474,13 @@ const STACK_REFERENCE_GROUPS: Record<StackDomain, string[]> = {
     "Amiodarone",
     "Sotalol",
     "Quinidine",
-    "Macrolides",
-    "Fluoroquinolones",
-    "Antipsychotics",
-    "SSRIs",
+    "Macrolides (azithromycin, clarithromycin, erythromycin)",
+    "Fluoroquinolones (moxifloxacin, levofloxacin)",
+    "Antipsychotics (haloperidol, pimozide, thioridazine, risperidone)",
+    "SSRIs (citalopram, escitalopram)",
     "Methadone",
     "Ondansetron",
+    "Pentamidine",
   ],
   bleeding: ["Anticoagulants", "Antiplatelets", "NSAIDs", "SSRIs"],
   serotonergic: [
@@ -1286,15 +1491,19 @@ const STACK_REFERENCE_GROUPS: Record<StackDomain, string[]> = {
     "Meperidine",
     "Dextromethorphan",
     "Linezolid",
+    "Methylene blue",
     "Lithium",
+    "St. John's wort",
+    "Buspirone",
     "Triptans",
   ],
   anticholinergic: [
-    "First-generation antihistamines",
-    "TCAs",
-    "Low-potency antipsychotics",
-    "Atypical antipsychotics",
-    "Antimuscarinics",
+    "TCAs (amitriptyline, clomipramine, nortriptyline, imipramine)",
+    "First-generation antihistamines (diphenhydramine, hydroxyzine, chlorpheniramine)",
+    "Bladder antimuscarinics (oxybutynin, solifenacin, tolterodine, darifenacin)",
+    "Antiparkinsonian antimuscarinics (benztropine, trihexyphenidyl)",
+    "Low-potency antipsychotics (quetiapine, olanzapine, clozapine)",
+    "Antispasmodics and antivertigo (scopolamine, glycopyrrolate, meclizine)",
   ],
   eps: ["Antipsychotics", "Metoclopramide", "Prochlorperazine"],
   ergotism: ["Ergot derivatives", "Triptans", "Strong CYP3A4 inhibitors"],
@@ -1440,6 +1649,22 @@ const STACK_REFERENCE_GROUPS: Record<StackDomain, string[]> = {
     "Metronidazole",
     "Fluoroquinolones",
   ],
+  cnsdepression: [
+    "Opioids",
+    "Benzodiazepines",
+    "Z-drugs (zolpidem, zopiclone)",
+    "Gabapentinoids",
+    "Skeletal muscle relaxants",
+  ],
+  fallsrisk: [
+    "Benzodiazepines and Z-drugs",
+    "Opioids",
+    "Alpha-1 blockers",
+    "Sedating antidepressants",
+    "Antipsychotics",
+    "Gabapentinoids",
+    "Loop and thiazide diuretics",
+  ],
 };
 
 export function getStackReferenceGroups(domain: StackDomain) {
@@ -1449,8 +1674,10 @@ export function getStackReferenceGroups(domain: StackDomain) {
 const STACK_HIGH_YIELD_DRUGS: Record<StackDomain, string[]> = {
   qt: [
     "Amiodarone", "Sotalol", "Quinidine", "Azithromycin", "Clarithromycin",
-    "Levofloxacin", "Haloperidol", "Quetiapine", "Hydroxychloroquine",
-    "Methadone", "Ondansetron", "Droperidol",
+    "Erythromycin", "Moxifloxacin", "Levofloxacin",
+    "Haloperidol", "Pimozide", "Thioridazine", "Chlorpromazine",
+    "Quetiapine", "Risperidone", "Ziprasidone",
+    "Hydroxychloroquine", "Methadone", "Ondansetron", "Droperidol", "Pentamidine",
   ],
   bleeding: [
     "Warfarin", "Apixaban", "Rivaroxaban", "Dabigatran", "Heparin",
@@ -1458,14 +1685,19 @@ const STACK_HIGH_YIELD_DRUGS: Record<StackDomain, string[]> = {
     "Sertraline", "Naproxen",
   ],
   serotonergic: [
-    "Phenelzine", "Tranylcypromine", "Fluoxetine", "Sertraline", "Venlafaxine",
-    "Tramadol", "Linezolid", "Amitriptyline", "Mirtazapine", "Trazodone",
-    "Methadone", "Selegiline",
+    "Phenelzine", "Tranylcypromine", "Selegiline", "Rasagiline",
+    "Fluoxetine", "Sertraline", "Venlafaxine", "Paroxetine", "Escitalopram",
+    "Tramadol", "Linezolid", "Methylene blue",
+    "Amitriptyline", "Clomipramine", "Mirtazapine", "Trazodone",
+    "Methadone", "Dextromethorphan", "St. John's wort",
   ],
   anticholinergic: [
-    "Amitriptyline", "Diphenhydramine", "Oxybutynin", "Promethazine",
-    "Chlorpheniramine", "Scopolamine", "Benztropine", "Paroxetine",
-    "Tolterodine", "Cyclobenzaprine",
+    "Amitriptyline", "Clomipramine", "Nortriptyline", "Imipramine",
+    "Diphenhydramine", "Hydroxyzine", "Promethazine", "Chlorpheniramine",
+    "Oxybutynin", "Solifenacin", "Tolterodine", "Darifenacin",
+    "Scopolamine", "Atropine", "Glycopyrrolate",
+    "Benztropine", "Trihexyphenidyl",
+    "Quetiapine", "Olanzapine", "Clozapine",
   ],
   eps: [
     "Haloperidol", "Fluphenazine", "Chlorpromazine", "Risperidone",
@@ -1552,6 +1784,18 @@ const STACK_HIGH_YIELD_DRUGS: Record<StackDomain, string[]> = {
     "Tramadol", "Bupropion", "Clozapine", "Isoniazid",
     "Meperidine", "Theophylline", "Lithium", "Cyclosporine",
     "Tacrolimus", "Imipenem", "Metronidazole", "Ciprofloxacin",
+  ],
+  cnsdepression: [
+    "Morphine", "Oxycodone", "Fentanyl", "Tramadol", "Hydrocodone",
+    "Methadone", "Buprenorphine",
+    "Diazepam", "Lorazepam", "Alprazolam", "Clonazepam", "Midazolam",
+    "Zolpidem", "Zopiclone", "Gabapentin", "Pregabalin",
+  ],
+  fallsrisk: [
+    "Diazepam", "Lorazepam", "Alprazolam", "Zolpidem", "Zopiclone",
+    "Morphine", "Oxycodone", "Tramadol", "Fentanyl",
+    "Doxazosin", "Tamsulosin", "Prazosin",
+    "Gabapentin", "Pregabalin",
   ],
 };
 
