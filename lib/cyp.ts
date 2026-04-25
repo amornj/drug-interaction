@@ -1189,6 +1189,228 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2D6", role: "Strong Inh" },
     ],
   },
+
+  // ── M ──
+  {
+    match: "macitentan",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2C19", role: "Sub" },
+    ],
+  },
+  { match: "maprotiline", annotations: [{ system: "CYP2D6", role: "Sub", note: "major" }] },
+  { match: "maraviroc", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "medroxyprogesterone", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "mefloquine",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2D6", role: "Weak Inh" },
+      { system: "CYP3A4", role: "Weak Inh" },
+    ],
+  },
+  { match: "megestrol acetate", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "melatonin",
+    annotations: [
+      { system: "CYP1A2", role: "Sub", note: "major" },
+      { system: "CYP2C19", role: "Sub" },
+    ],
+  },
+  {
+    match: "meloxicam",
+    annotations: [
+      { system: "CYP2C9", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Sub" },
+    ],
+  },
+  {
+    match: "meperidine",
+    annotations: [
+      { system: "CYP2B6", role: "Sub" },
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2C19", role: "Sub" },
+    ],
+  },
+  { match: "mesoridazine", annotations: [{ system: "CYP2D6", role: "Sub", note: "major" }] },
+  {
+    match: "methylene blue",
+    annotations: [
+      { system: "CYP1A2", role: "Inh" },
+      { system: "CYP2B6", role: "Inh" },
+      { system: "CYP2C8", role: "Inh" },
+      { system: "CYP2C9", role: "Inh" },
+      { system: "CYP2C19", role: "Inh" },
+      { system: "CYP2D6", role: "Inh" },
+      { system: "CYP3A4", role: "Inh" },
+    ],
+  },
+  { match: "metoclopramide", annotations: [{ system: "CYP2D6", role: "Sub", note: "major" }] },
+  {
+    match: "midostaurin",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Weak Inh" },
+    ],
+  },
+  {
+    match: "mifepristone",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Strong Inh" },
+      { system: "CYP2C8", role: "Weak Inh" },
+      { system: "CYP2C9", role: "Weak Inh" },
+    ],
+  },
+  { match: "mycophenolate", annotations: [{ system: "UGT", role: "Met" }] },
+
+  // ── N ──
+  { match: "nabumetone", annotations: [{ system: "CYP1A2", role: "Sub", note: "major" }] },
+  { match: "nalbuphine", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "naldemedine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "nalmefene", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "naloxegol", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "naproxen", annotations: [{ system: "CYP2C9", role: "Sub" }, { system: "CYP1A2", role: "Sub" }] },
+  {
+    match: "nateglinide",
+    annotations: [
+      { system: "CYP2C9", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Sub" },
+    ],
+  },
+  { match: "nebivolol", annotations: [{ system: "CYP2D6", role: "Sub", note: "major" }] },
+  { match: "neratinib", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "nicardipine",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2C8", role: "Sub" },
+      { system: "CYP3A4", role: "Weak Inh" },
+      { system: "CYP2D6", role: "Inh" },
+      { system: "CYP2C19", role: "Inh" },
+    ],
+  },
+  { match: "nimodipine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "nintedanib", annotations: [{ system: "CYP3A4", role: "Sub", note: "minor" }] },
+  { match: "nisoldipine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "norethisterone", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "norgestimate", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+
+  // ── O ──
+  {
+    match: "olaparib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Weak Inh" },
+    ],
+  },
+  { match: "oliceridine", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
+  { match: "osimertinib", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "ospemifene",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2C9", role: "Sub" },
+      { system: "CYP2C19", role: "Sub" },
+    ],
+  },
+  { match: "oxazepam", annotations: [{ system: "UGT", role: "Met" }] },
+  {
+    match: "oxcarbazepine",
+    annotations: [
+      { system: "CYP2C19", role: "Moderate Inh" },
+      { system: "CYP3A4", role: "Strong Ind" },
+    ],
+  },
+  { match: "oxybutynin", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "oxymorphone", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "ozanimod", annotations: [{ system: "CYP2C8", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
+
+  // ── P ──
+  {
+    match: "paclitaxel",
+    annotations: [
+      { system: "CYP2C8", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Sub" },
+    ],
+  },
+  { match: "palbociclib", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  {
+    match: "palonosetron",
+    annotations: [
+      { system: "CYP2D6", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Sub" },
+    ],
+  },
+  {
+    match: "panobinostat",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2D6", role: "Weak Inh" },
+    ],
+  },
+  {
+    match: "pazopanib",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Inh" },
+      { system: "CYP2C8", role: "Inh" },
+      { system: "CYP2D6", role: "Weak Inh" },
+    ],
+  },
+  { match: "perampanel", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "phentermine", annotations: [{ system: "CYP3A4", role: "Sub", note: "minor" }] },
+  {
+    match: "pimavanserin",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP3A5", role: "Sub" },
+    ],
+  },
+  {
+    match: "pimozide",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2D6", role: "Sub" },
+      { system: "CYP1A2", role: "Sub" },
+    ],
+  },
+  { match: "pindolol", annotations: [{ system: "CYP2D6", role: "Sub", note: "major" }] },
+  {
+    match: "pirfenidone",
+    annotations: [
+      { system: "CYP1A2", role: "Sub", note: "major" },
+      { system: "CYP2C9", role: "Sub" },
+      { system: "CYP2C19", role: "Sub" },
+    ],
+  },
+  { match: "piroxicam", annotations: [{ system: "CYP2C9", role: "Sub", note: "major" }] },
+  {
+    match: "pitolisant",
+    annotations: [
+      { system: "CYP2D6", role: "Sub", note: "major" },
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2D6", role: "Weak Inh" },
+    ],
+  },
+  { match: "pomalidomide", annotations: [{ system: "CYP1A2", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
+  { match: "ponatinib", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "pramipexole", annotations: [{ system: "Renal elim", role: "Major" }] },
+  {
+    match: "primidone",
+    annotations: [
+      { system: "CYP2C9", role: "Sub" },
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP3A4", role: "Ind" },
+      { system: "CYP1A2", role: "Ind" },
+      { system: "CYP2C", role: "Ind" },
+    ],
+  },
+  { match: "prochlorperazine", annotations: [{ system: "CYP2D6", role: "Sub", note: "major" }] },
+  { match: "progesterone", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "promethazine", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP2C19", role: "Sub" }] },
+  { match: "propofol", annotations: [{ system: "CYP2B6", role: "Sub" }, { system: "CYP2C9", role: "Sub" }] },
+  { match: "prucalopride", annotations: [{ system: "CYP3A4", role: "Sub", note: "minor" }] },
 ];
 
 const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
