@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-25T19:50:57.221Z",
+  "generatedAt": "2026-04-25T19:56:44.687Z",
   "brandsVersion": "2026-04",
   "entries": [
     {
@@ -4169,6 +4169,737 @@
         {
           "rxcui": "1036153",
           "name": "luseogliflozin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Pantocid",
+      "normalizedTerm": "pantocid",
+      "components": [
+        {
+          "rxcui": "40790",
+          "name": "pantoprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Pantodac",
+      "normalizedTerm": "pantodac",
+      "components": [
+        {
+          "rxcui": "40790",
+          "name": "pantoprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Pantosec",
+      "normalizedTerm": "pantosec",
+      "components": [
+        {
+          "rxcui": "40790",
+          "name": "pantoprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Omez",
+      "normalizedTerm": "omez",
+      "components": [
+        {
+          "rxcui": "7646",
+          "name": "omeprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Lomac",
+      "normalizedTerm": "lomac",
+      "components": [
+        {
+          "rxcui": "7646",
+          "name": "omeprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Nexpro",
+      "normalizedTerm": "nexpro",
+      "components": [
+        {
+          "rxcui": "283742",
+          "name": "esomeprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Raciper",
+      "normalizedTerm": "raciper",
+      "components": [
+        {
+          "rxcui": "283742",
+          "name": "esomeprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Lanzol",
+      "normalizedTerm": "lanzol",
+      "components": [
+        {
+          "rxcui": "17128",
+          "name": "lansoprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Lepidium",
+      "normalizedTerm": "lepidium",
+      "components": [
+        {
+          "rxcui": "17128",
+          "name": "lansoprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Rablet",
+      "normalizedTerm": "rablet",
+      "components": [
+        {
+          "rxcui": "114979",
+          "name": "rabeprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Rabicip",
+      "normalizedTerm": "rabicip",
+      "components": [
+        {
+          "rxcui": "114979",
+          "name": "rabeprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Veloz",
+      "normalizedTerm": "veloz",
+      "components": [
+        {
+          "rxcui": "114979",
+          "name": "rabeprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Dexilant",
+      "normalizedTerm": "dexilant",
+      "components": [
+        {
+          "rxcui": "816346",
+          "name": "dexlansoprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Rantac",
+      "normalizedTerm": "rantac",
+      "components": [
+        {
+          "rxcui": "9143",
+          "name": "ranitidine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Aciloc",
+      "normalizedTerm": "aciloc",
+      "components": [
+        {
+          "rxcui": "9143",
+          "name": "ranitidine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Famocid",
+      "normalizedTerm": "famocid",
+      "components": [
+        {
+          "rxcui": "4278",
+          "name": "famotidine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Sucrafil",
+      "normalizedTerm": "sucrafil",
+      "components": [
+        {
+          "rxcui": "10156",
+          "name": "sucralfate"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Cytotec",
+      "normalizedTerm": "cytotec",
+      "components": [
+        {
+          "rxcui": "42331",
+          "name": "misoprostol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Misoprost",
+      "normalizedTerm": "misoprost",
+      "components": [
+        {
+          "rxcui": "42331",
+          "name": "misoprostol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Imodium",
+      "normalizedTerm": "imodium",
+      "components": [
+        {
+          "rxcui": "6468",
+          "name": "loperamide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Lopamide",
+      "normalizedTerm": "lopamide",
+      "components": [
+        {
+          "rxcui": "6468",
+          "name": "loperamide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Enuff",
+      "normalizedTerm": "enuff",
+      "components": [
+        {
+          "rxcui": "16738",
+          "name": "racecadotril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Redotil",
+      "normalizedTerm": "redotil",
+      "components": [
+        {
+          "rxcui": "16738",
+          "name": "racecadotril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Zedott",
+      "normalizedTerm": "zedott",
+      "components": [
+        {
+          "rxcui": "16738",
+          "name": "racecadotril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Cyclopam",
+      "normalizedTerm": "cyclopam",
+      "components": [
+        {
+          "rxcui": "3361",
+          "name": "dicyclomine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Colospa",
+      "normalizedTerm": "colospa",
+      "components": [
+        {
+          "rxcui": "29410",
+          "name": "mebeverine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Mebiz",
+      "normalizedTerm": "mebiz",
+      "components": [
+        {
+          "rxcui": "29410",
+          "name": "mebeverine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Drotin",
+      "normalizedTerm": "drotin",
+      "components": [
+        {
+          "rxcui": "23684",
+          "name": "drotaverin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Doverin",
+      "normalizedTerm": "doverin",
+      "components": [
+        {
+          "rxcui": "23684",
+          "name": "drotaverin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Celdin",
+      "normalizedTerm": "celdin",
+      "components": [
+        {
+          "rxcui": "10819",
+          "name": "trimebutine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Polibutin",
+      "normalizedTerm": "polibutin",
+      "components": [
+        {
+          "rxcui": "10819",
+          "name": "trimebutine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Eldicet",
+      "normalizedTerm": "eldicet",
+      "components": [
+        {
+          "rxcui": "33724",
+          "name": "pinaverium"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Spasmoctyl",
+      "normalizedTerm": "spasmoctyl",
+      "components": [
+        {
+          "rxcui": "32311",
+          "name": "octylonium"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Lubowel",
+      "normalizedTerm": "lubowel",
+      "components": [
+        {
+          "rxcui": "623033",
+          "name": "lubiprostone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Constella",
+      "normalizedTerm": "constella",
+      "components": [
+        {
+          "rxcui": "1307404",
+          "name": "linaclotide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Zelnorm",
+      "normalizedTerm": "zelnorm",
+      "components": [
+        {
+          "rxcui": "139778",
+          "name": "tegaserod"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Pruease",
+      "normalizedTerm": "pruease",
+      "components": [
+        {
+          "rxcui": "2107310",
+          "name": "prucalopride"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Trulance",
+      "normalizedTerm": "trulance",
+      "components": [
+        {
+          "rxcui": "1873752",
+          "name": "plecanatide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Noltec",
+      "normalizedTerm": "noltec",
+      "components": [
+        {
+          "rxcui": "736443",
+          "name": "ilaprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Ilpara",
+      "normalizedTerm": "ilpara",
+      "components": [
+        {
+          "rxcui": "736443",
+          "name": "ilaprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Rebagen",
+      "normalizedTerm": "rebagen",
+      "components": [
+        {
+          "rxcui": "32463",
+          "name": "rebamipide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Buscopan",
+      "normalizedTerm": "buscopan",
+      "components": [
+        {
+          "rxcui": "1085787",
+          "name": "butylscopolamine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Hyocimax",
+      "normalizedTerm": "hyocimax",
+      "components": [
+        {
+          "rxcui": "1085787",
+          "name": "butylscopolamine"
         }
       ],
       "sources": [

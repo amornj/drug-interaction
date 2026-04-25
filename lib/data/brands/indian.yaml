@@ -1158,3 +1158,347 @@
     - name: "Indian brand overlay"
       version: "2026-04"
 
+- term: "Pantocid"
+  components:
+    - rxcui: "40790"
+      name: "pantoprazole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Pantodac"
+  components:
+    - rxcui: "40790"
+      name: "pantoprazole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Pantosec"
+  components:
+    - rxcui: "40790"
+      name: "pantoprazole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Omez"
+  components:
+    - rxcui: "7646"
+      name: "omeprazole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Lomac"
+  components:
+    - rxcui: "7646"
+      name: "omeprazole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Nexpro"
+  components:
+    - rxcui: "283742"
+      name: "esomeprazole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Raciper"
+  components:
+    - rxcui: "283742"
+      name: "esomeprazole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Lanzol"
+  components:
+    - rxcui: "17128"
+      name: "lansoprazole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Lepidium"
+  components:
+    - rxcui: "17128"
+      name: "lansoprazole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Rablet"
+  components:
+    - rxcui: "114979"
+      name: "rabeprazole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Rabicip"
+  components:
+    - rxcui: "114979"
+      name: "rabeprazole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Veloz"
+  components:
+    - rxcui: "114979"
+      name: "rabeprazole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Dexilant"
+  components:
+    - rxcui: "816346"
+      name: "dexlansoprazole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Rantac"
+  components:
+    - rxcui: "9143"
+      name: "ranitidine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Aciloc"
+  components:
+    - rxcui: "9143"
+      name: "ranitidine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Famocid"
+  components:
+    - rxcui: "4278"
+      name: "famotidine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Sucrafil"
+  components:
+    - rxcui: "10156"
+      name: "sucralfate"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Cytotec"
+  components:
+    - rxcui: "42331"
+      name: "misoprostol"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Misoprost"
+  components:
+    - rxcui: "42331"
+      name: "misoprostol"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Imodium"
+  components:
+    - rxcui: "6468"
+      name: "loperamide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Lopamide"
+  components:
+    - rxcui: "6468"
+      name: "loperamide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Enuff"
+  components:
+    - rxcui: "16738"
+      name: "racecadotril"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Redotil"
+  components:
+    - rxcui: "16738"
+      name: "racecadotril"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Zedott"
+  components:
+    - rxcui: "16738"
+      name: "racecadotril"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Cyclopam"
+  components:
+    - rxcui: "3361"
+      name: "dicyclomine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Colospa"
+  components:
+    - rxcui: "29410"
+      name: "mebeverine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Mebiz"
+  components:
+    - rxcui: "29410"
+      name: "mebeverine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Drotin"
+  components:
+    - rxcui: "23684"
+      name: "drotaverin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Doverin"
+  components:
+    - rxcui: "23684"
+      name: "drotaverin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Celdin"
+  components:
+    - rxcui: "10819"
+      name: "trimebutine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Polibutin"
+  components:
+    - rxcui: "10819"
+      name: "trimebutine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Eldicet"
+  components:
+    - rxcui: "33724"
+      name: "pinaverium"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Spasmoctyl"
+  components:
+    - rxcui: "32311"
+      name: "octylonium"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Lubowel"
+  components:
+    - rxcui: "623033"
+      name: "lubiprostone"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Constella"
+  components:
+    - rxcui: "1307404"
+      name: "linaclotide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Zelnorm"
+  components:
+    - rxcui: "139778"
+      name: "tegaserod"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Pruease"
+  components:
+    - rxcui: "2107310"
+      name: "prucalopride"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Trulance"
+  components:
+    - rxcui: "1873752"
+      name: "plecanatide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Noltec"
+  components:
+    - rxcui: "736443"
+      name: "ilaprazole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Ilpara"
+  components:
+    - rxcui: "736443"
+      name: "ilaprazole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Rebagen"
+  components:
+    - rxcui: "32463"
+      name: "rebamipide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Buscopan"
+  components:
+    - rxcui: "1085787"
+      name: "butylscopolamine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Hyocimax"
+  components:
+    - rxcui: "1085787"
+      name: "butylscopolamine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
