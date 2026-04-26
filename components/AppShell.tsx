@@ -33,6 +33,8 @@ export function AppShell() {
     rxcui: string;
     system: string;
   } | null>(null);
+  const [draggingIndex, setDraggingIndex] = useState<number | null>(null);
+  const [dropTargetIndex, setDropTargetIndex] = useState<number | null>(null);
 
   useEffect(() => {
     hydrate();
@@ -212,6 +214,7 @@ export function AppShell() {
                   key={d.rxcui}
                   drug={d}
                   index={i}
+                  totalCount={active.drugs.length}
                   activeReferenceSystem={
                     openReference?.rxcui === d.rxcui ? openReference.system : null
                   }
@@ -222,6 +225,15 @@ export function AppShell() {
                         : { rxcui: d.rxcui, system }
                     )
                   }
+                  isDragSource={draggingIndex === i}
+                  isDropTarget={dropTargetIndex === i}
+                  dropTargetIndex={dropTargetIndex}
+                  onDragStart={(idx) => setDraggingIndex(idx)}
+                  onDragEnd={() => {
+                    setDraggingIndex(null);
+                    setDropTargetIndex(null);
+                  }}
+                  onDragOverItem={(idx) => setDropTargetIndex(idx)}
                 />
               ))}
             </ul>

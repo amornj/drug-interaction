@@ -44,6 +44,7 @@ type Store = PersistedState & {
   selectCase: (id: string) => void;
   addDrug: (drug: Omit<Drug, "addedAt">) => void;
   removeDrug: (rxcui: string) => void;
+  moveDrug: (fromIndex: number, toIndex: number) => void;
   clearDrugs: () => void;
   setModifierFlag: (
     modifier: Exclude<PatientModifierKey, "renal">,
@@ -194,6 +195,20 @@ export const useStore = create<Store>((set, get) => ({
         ? c
         : { ...c, drugs: c.drugs.filter((d) => d.rxcui !== rxcui) }
     );
+    set({ cases: nextCases });
+    persist({ cases: nextCases, activeCaseId });
+  },
+
+  moveDrug: (fromIndex, toIndex) => {
+    const { cases, activeCaseId } = get();
+    if (fromIndex === toIndex) return;
+    const nextCases = cases.map((c) => {
+      if (c.id !== activeCaseId) return c;
+      const drugs = [...c.drugs];
+      const [moved] = drugs.splice(fromIndex, 1);
+      drugs.splice(toIndex, 0, moved);
+      return { ...c, drugs };
+    });
     set({ cases: nextCases });
     persist({ cases: nextCases, activeCaseId });
   },
