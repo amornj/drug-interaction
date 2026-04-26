@@ -2384,3 +2384,283 @@
   sources:
     - name: "Thai brand overlay"
       version: "2026-04"
+
+# ═════════════════════════════════════════════════════════════
+# Prokinetic / Functional dyspepsia / IBS — Thai brands
+# ═════════════════════════════════════════════════════════════
+
+- term: "Acofide"
+  components:
+    - rxcui: "1948209"
+      name: "acotiamide"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Itopride"
+  components:
+    - rxcui: "1748619"
+      name: "itopride"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Mosapride"
+  components:
+    - rxcui: "135091"
+      name: "mosapride"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Levosulpiride"
+  components:
+    - rxcui: "68382"
+      name: "levosulpiride"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Tarlige"
+  components:
+    - rxcui: "1679862"
+      name: "mirogabalin"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Rifaximin"
+  components:
+    - rxcui: "35619"
+      name: "rifaximin"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+# ═════════════════════════════════════════════════════════════
+# Thai antiHT — additional brands
+# ═════════════════════════════════════════════════════════════
+
+- term: "Enaril"
+  components:
+    - rxcui: "3827"
+      name: "enalapril"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Amlo"
+  components:
+    - rxcui: "17767"
+      name: "amlodipine"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Amlopres"
+  components:
+    - rxcui: "17767"
+      name: "amlodipine"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Amlodac"
+  components:
+    - rxcui: "17767"
+      name: "amlodipine"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Amlosin"
+  components:
+    - rxcui: "17767"
+      name: "amlodipine"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Losartan"
+  components:
+    - rxcui: "52175"
+      name: "losartan"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Valsartan"
+  components:
+    - rxcui: "69749"
+      name: "valsartan"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Telmisartan"
+  components:
+    - rxcui: "73494"
+      name: "telmisartan"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Olmesartan"
+  components:
+    - rxcui: "321064"
+      name: "olmesartan"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Irbesartan"
+  components:
+    - rxcui: "83818"
+      name: "irbesartan"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Candesartan"
+  components:
+    - rxcui: "214354"
+      name: "candesartan"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Perindopril"
+  components:
+    - rxcui: "54552"
+      name: "perindopril"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Ramipril"
+  components:
+    - rxcui: "35296"
+      name: "ramipril"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Lisinopril"
+  components:
+    - rxcui: "29046"
+      name: "lisinopril"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Captopril"
+  components:
+    - rxcui: "1998"
+      name: "captopril"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Bisoprolol"
+  components:
+    - rxcui: "19484"
+      name: "bisoprolol"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Metoprolol"
+  components:
+    - rxcui: "6918"
+      name: "metoprolol"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Atenolol"
+  components:
+    - rxcui: "1202"
+      name: "atenolol"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Carvedilol"
+  components:
+    - rxcui: "20352"
+      name: "carvedilol"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Nebivolol"
+  components:
+    - rxcui: "31555"
+      name: "nebivolol"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Propranolol"
+  components:
+    - rxcui: "8787"
+      name: "propranolol"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Hydrochlorothiazide"
+  components:
+    - rxcui: "5487"
+      name: "hydrochlorothiazide"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Indapamide"
+  components:
+    - rxcui: "5764"
+      name: "indapamide"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Furosemide"
+  components:
+    - rxcui: "4603"
+      name: "furosemide"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Spironolactone"
+  components:
+    - rxcui: "9997"
+      name: "spironolactone"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Nifedipine"
+  components:
+    - rxcui: "7417"
+      name: "nifedipine"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Diltiazem"
+  components:
+    - rxcui: "3443"
+      name: "diltiazem"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Verapamil"
+  components:
+    - rxcui: "11170"
+      name: "verapamil"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"

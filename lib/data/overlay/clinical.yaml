@@ -79,3 +79,393 @@
   sources:
     - name: Clinical overlay
       version: "2026-04"
+
+# ═════════════════════════════════════════════════════════════
+# Missing P-gp interactions — dabigatran NOT in DDInter 2.0
+# ═════════════════════════════════════════════════════════════
+
+# dabigatran + ketoconazole (1546356 | 6135)
+# NOT in DDInter (dabigatran absent from dataset). Ketoconazole is a strong
+# P-gp inhibitor; co-administration increases dabigatran exposure ~2.5×,
+# raising bleeding risk significantly.
+- pair: ["6135", "1546356"]
+  severity: Major
+  verdict: >-
+    Ketoconazole strongly inhibits P-glycoprotein, markedly increasing
+    dabigatran absorption and reducing renal clearance. Dabigatran exposure
+    can rise ~2.5-fold, significantly increasing major bleeding risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Avoid concurrent use if possible. If unavoidable, monitor closely for
+    bleeding signs (haemoglobin drop, melena, haematoma expansion) and
+    consider dose reduction or alternative antifungal (e.g., fluconazole
+    with lower P-gp inhibition).
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# dabigatran + clarithromycin (1546356 | 21212)
+# NOT in DDInter. Clarithromycin is a strong CYP3A4 and P-gp inhibitor.
+- pair: ["21212", "1546356"]
+  severity: Major
+  verdict: >-
+    Clarithromycin inhibits P-glycoprotein and CYP3A4, increasing dabigatran
+    exposure and raising major bleeding risk.
+  mechanism_class: P-gp inhibition + CYP3A4 inhibition
+  management: >-
+    Avoid concurrent use if possible. Consider azithromycin as a lower-risk
+    macrolide alternative. Monitor for bleeding if co-administration is
+    unavoidable.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# dabigatran + itraconazole (1546356 | 28031)
+# NOT in DDInter. Itraconazole is a strong P-gp inhibitor.
+- pair: ["28031", "1546356"]
+  severity: Major
+  verdict: >-
+    Itraconazole strongly inhibits P-glycoprotein, increasing dabigatran
+    exposure and raising major bleeding risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Avoid concurrent use if possible. Consider alternative antifungal with
+    less P-gp inhibition. Monitor for bleeding if co-administration is
+    unavoidable.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# dabigatran + ritonavir (1546356 | 85762)
+# NOT in DDInter. Ritonavir is a strong P-gp and CYP3A4 inhibitor.
+- pair: ["85762", "1546356"]
+  severity: Major
+  verdict: >-
+    Ritonavir strongly inhibits P-glycoprotein and CYP3A4, markedly
+    increasing dabigatran exposure and raising major bleeding risk.
+  mechanism_class: P-gp inhibition + CYP3A4 inhibition
+  management: >-
+    Avoid concurrent use. If unavoidable in HIV therapy, monitor closely
+    for bleeding and consider alternative anticoagulant not dependent on
+    P-gp (e.g., warfarin with INR monitoring).
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# dabigatran + cyclosporine (1546356 | 3008)
+# NOT in DDInter. Cyclosporine is a strong P-gp inhibitor.
+- pair: ["3008", "1546356"]
+  severity: Major
+  verdict: >-
+    Cyclosporine strongly inhibits P-glycoprotein, increasing dabigatran
+    exposure and raising major bleeding risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Avoid concurrent use if possible. If unavoidable in transplant
+    patients, monitor closely for bleeding and consider alternative
+    anticoagulant.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# dabigatran + diltiazem (1546356 | 3443)
+# NOT in DDInter. Diltiazem is a moderate-strong P-gp inhibitor.
+- pair: ["3443", "1546356"]
+  severity: Major
+  verdict: >-
+    Diltiazem inhibits P-glycoprotein, increasing dabigatran exposure and
+    raising bleeding risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Monitor for bleeding signs. Consider alternative antihypertensive or
+    anticoagulant if high bleeding risk.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# dabigatran + verapamil (1546356 | 11170)
+# NOT in DDInter. Verapamil is a moderate-strong P-gp inhibitor.
+- pair: ["11170", "1546356"]
+  severity: Major
+  verdict: >-
+    Verapamil inhibits P-glycoprotein, increasing dabigatran exposure and
+    raising bleeding risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Monitor for bleeding signs. Consider alternative antihypertensive or
+    anticoagulant if high bleeding risk.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# dabigatran + amiodarone (1546356 | 703)
+# NOT in DDInter. Amiodarone is a strong P-gp inhibitor.
+- pair: ["703", "1546356"]
+  severity: Major
+  verdict: >-
+    Amiodarone inhibits P-glycoprotein, increasing dabigatran exposure and
+    raising bleeding risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Monitor for bleeding signs. Consider alternative antiarrhythmic or
+    anticoagulant if high bleeding risk.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# dabigatran + erythromycin (1546356 | 4053)
+# NOT in DDInter. Erythromycin is a moderate P-gp inhibitor.
+- pair: ["4053", "1546356"]
+  severity: Moderate
+  verdict: >-
+    Erythromycin inhibits P-glycoprotein, increasing dabigatran exposure
+    and raising bleeding risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Monitor for bleeding signs. Consider azithromycin as a lower-risk
+    macrolide alternative.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# dabigatran + fluconazole (1546356 | 4450)
+# NOT in DDInter. Fluconazole is a moderate P-gp inhibitor.
+- pair: ["4450", "1546356"]
+  severity: Moderate
+  verdict: >-
+    Fluconazole inhibits P-glycoprotein, increasing dabigatran exposure
+    and raising bleeding risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Monitor for bleeding signs. Consider alternative antifungal with less
+    P-gp inhibition if possible.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# dabigatran + ranolazine (1546356 | 35829)
+# NOT in DDInter. Ranolazine is a moderate P-gp inhibitor.
+- pair: ["35829", "1546356"]
+  severity: Moderate
+  verdict: >-
+    Ranolazine inhibits P-glycoprotein, increasing dabigatran exposure
+    and raising bleeding risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Monitor for bleeding signs. Consider alternative antianginal if high
+    bleeding risk.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# dabigatran + ticagrelor (1546356 | 1116632)
+# NOT in DDInter. Ticagrelor is a moderate P-gp inhibitor.
+- pair: ["1116632", "1546356"]
+  severity: Major
+  verdict: >-
+    Ticagrelor inhibits P-glycoprotein and also has additive antiplatelet
+    effects, increasing both bleeding risk and dabigatran exposure.
+  mechanism_class: P-gp inhibition + additive antiplatelet effect
+  management: >-
+    Avoid concurrent use unless absolutely indicated (e.g., recent PCI with
+    high thrombotic risk). Monitor closely for bleeding.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# ═════════════════════════════════════════════════════════════
+# Missing P-gp interactions — edoxaban partially in DDInter
+# ═════════════════════════════════════════════════════════════
+
+# edoxaban + ketoconazole (1599538 | 6135)
+# NOT in DDInter. Edoxaban is a P-gp substrate; ketoconazole is a strong
+# P-gp inhibitor. FDA label warns against use with strong P-gp inhibitors.
+- pair: ["6135", "1599538"]
+  severity: Major
+  verdict: >-
+    Ketoconazole strongly inhibits P-glycoprotein, increasing edoxaban
+    exposure ~2-fold and raising major bleeding risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Avoid concurrent use. Consider alternative antifungal or anticoagulant.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# edoxaban + clarithromycin (1599538 | 21212)
+# NOT in DDInter.
+- pair: ["21212", "1599538"]
+  severity: Major
+  verdict: >-
+    Clarithromycin strongly inhibits P-glycoprotein and CYP3A4, increasing
+    edoxaban exposure and raising major bleeding risk.
+  mechanism_class: P-gp inhibition + CYP3A4 inhibition
+  management: >-
+    Avoid concurrent use. Consider azithromycin as a lower-risk macrolide
+    alternative.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# edoxaban + itraconazole (1599538 | 28031)
+# NOT in DDInter.
+- pair: ["28031", "1599538"]
+  severity: Major
+  verdict: >-
+    Itraconazole strongly inhibits P-glycoprotein, increasing edoxaban
+    exposure and raising major bleeding risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Avoid concurrent use. Consider alternative antifungal.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# edoxaban + ritonavir (1599538 | 85762)
+# NOT in DDInter.
+- pair: ["85762", "1599538"]
+  severity: Major
+  verdict: >-
+    Ritonavir strongly inhibits P-glycoprotein and CYP3A4, markedly
+    increasing edoxaban exposure and raising major bleeding risk.
+  mechanism_class: P-gp inhibition + CYP3A4 inhibition
+  management: >-
+    Avoid concurrent use. Consider alternative anticoagulant.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# edoxaban + cyclosporine (1599538 | 3008)
+# NOT in DDInter.
+- pair: ["3008", "1599538"]
+  severity: Major
+  verdict: >-
+    Cyclosporine strongly inhibits P-glycoprotein, increasing edoxaban
+    exposure and raising major bleeding risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Avoid concurrent use. Consider alternative anticoagulant.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# edoxaban + diltiazem (1599538 | 3443)
+# NOT in DDInter.
+- pair: ["3443", "1599538"]
+  severity: Major
+  verdict: >-
+    Diltiazem inhibits P-glycoprotein, increasing edoxaban exposure and
+    raising bleeding risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Monitor for bleeding signs. Consider alternative antihypertensive.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# edoxaban + verapamil (1599538 | 11170)
+# NOT in DDInter.
+- pair: ["11170", "1599538"]
+  severity: Major
+  verdict: >-
+    Verapamil inhibits P-glycoprotein, increasing edoxaban exposure and
+    raising bleeding risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Monitor for bleeding signs. Consider alternative antihypertensive.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# edoxaban + amiodarone (1599538 | 703)
+# NOT in DDInter.
+- pair: ["703", "1599538"]
+  severity: Major
+  verdict: >-
+    Amiodarone inhibits P-glycoprotein, increasing edoxaban exposure and
+    raising bleeding risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Monitor for bleeding signs. Consider alternative antiarrhythmic.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# ═════════════════════════════════════════════════════════════
+# Missing P-gp interactions — other critical substrates
+# ═════════════════════════════════════════════════════════════
+
+# vincristine + ketoconazole (2026 | 6135)
+# NOT in DDInter. Vincristine is a P-gp substrate; ketoconazole is a strong
+# P-gp inhibitor. Co-administration increases neurotoxicity risk.
+- pair: ["2026", "6135"]
+  severity: Major
+  verdict: >-
+    Ketoconazole inhibits P-glycoprotein, reducing vincristine clearance
+    and increasing neurotoxicity risk (peripheral neuropathy, constipation,
+    paralytic ileus).
+  mechanism_class: P-gp inhibition
+  management: >-
+    Avoid concurrent use during vincristine chemotherapy. If unavoidable,
+    monitor closely for neurotoxicity and consider dose reduction.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# vincristine + clarithromycin (2026 | 21212)
+# NOT in DDInter.
+- pair: ["2026", "21212"]
+  severity: Major
+  verdict: >-
+    Clarithromycin inhibits P-glycoprotein and CYP3A4, reducing vincristine
+    clearance and increasing neurotoxicity risk.
+  mechanism_class: P-gp inhibition + CYP3A4 inhibition
+  management: >-
+    Avoid concurrent use during vincristine chemotherapy. Consider
+    azithromycin as alternative.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# doxorubicin + ketoconazole (4499 | 6135)
+# NOT in DDInter. Doxorubicin is a P-gp substrate.
+- pair: ["4499", "6135"]
+  severity: Major
+  verdict: >-
+    Ketoconazole inhibits P-glycoprotein, reducing doxorubicin clearance
+    and increasing cardiotoxicity and myelosuppression risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Avoid concurrent use during doxorubicin chemotherapy.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# paliperidone + ketoconazole (67964 | 6135)
+# NOT in DDInter. Paliperidone is a P-gp substrate.
+- pair: ["6135", "67964"]
+  severity: Major
+  verdict: >-
+    Ketoconazole inhibits P-glycoprotein, increasing paliperidone exposure
+    and raising QT prolongation and extrapyramidal symptom risk.
+  mechanism_class: P-gp inhibition
+  management: >-
+    Avoid concurrent use. Consider alternative antifungal or antipsychotic.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# paliperidone + clarithromycin (67964 | 21212)
+# NOT in DDInter.
+- pair: ["21212", "67964"]
+  severity: Major
+  verdict: >-
+    Clarithromycin inhibits P-glycoprotein and CYP3A4, increasing
+    paliperidone exposure and raising QT prolongation and extrapyramidal
+    symptom risk.
+  mechanism_class: P-gp inhibition + CYP3A4 inhibition
+  management: >-
+    Avoid concurrent use. Consider azithromycin as alternative.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
