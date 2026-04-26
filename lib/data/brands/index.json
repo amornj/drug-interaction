@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T07:26:37.298Z",
+  "generatedAt": "2026-04-26T07:44:36.137Z",
   "brandsVersion": "2026-04",
   "entries": [
     {
@@ -13336,6 +13336,312 @@
         {
           "rxcui": "11170",
           "name": "verapamil"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Ganaton",
+      "normalizedTerm": "ganaton",
+      "components": [
+        {
+          "rxcui": "1748619",
+          "name": "itopride"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Gasmotin",
+      "normalizedTerm": "gasmotin",
+      "components": [
+        {
+          "rxcui": "135091",
+          "name": "mosapride"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Lanzaar",
+      "normalizedTerm": "lanzaar",
+      "components": [
+        {
+          "rxcui": "52175",
+          "name": "losartan"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Tosan",
+      "normalizedTerm": "tosan",
+      "components": [
+        {
+          "rxcui": "52175",
+          "name": "losartan"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Angipec",
+      "normalizedTerm": "angipec",
+      "components": [
+        {
+          "rxcui": "69749",
+          "name": "valsartan"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Epsitron",
+      "normalizedTerm": "epsitron",
+      "components": [
+        {
+          "rxcui": "1998",
+          "name": "captopril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Gemzil",
+      "normalizedTerm": "gemzil",
+      "components": [
+        {
+          "rxcui": "1998",
+          "name": "captopril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Vaspril",
+      "normalizedTerm": "vaspril",
+      "components": [
+        {
+          "rxcui": "35296",
+          "name": "ramipril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Corpril",
+      "normalizedTerm": "corpril",
+      "components": [
+        {
+          "rxcui": "35296",
+          "name": "ramipril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Gempril",
+      "normalizedTerm": "gempril",
+      "components": [
+        {
+          "rxcui": "35296",
+          "name": "ramipril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Mediram",
+      "normalizedTerm": "mediram",
+      "components": [
+        {
+          "rxcui": "35296",
+          "name": "ramipril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Ramicard",
+      "normalizedTerm": "ramicard",
+      "components": [
+        {
+          "rxcui": "35296",
+          "name": "ramipril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Betaloc Zok",
+      "normalizedTerm": "betaloc zok",
+      "components": [
+        {
+          "rxcui": "6918",
+          "name": "metoprolol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Sefloc",
+      "normalizedTerm": "sefloc",
+      "components": [
+        {
+          "rxcui": "6918",
+          "name": "metoprolol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Cardeloc",
+      "normalizedTerm": "cardeloc",
+      "components": [
+        {
+          "rxcui": "6918",
+          "name": "metoprolol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Meloc",
+      "normalizedTerm": "meloc",
+      "components": [
+        {
+          "rxcui": "6918",
+          "name": "metoprolol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Melol",
+      "normalizedTerm": "melol",
+      "components": [
+        {
+          "rxcui": "6918",
+          "name": "metoprolol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Risavie",
+      "normalizedTerm": "risavie",
+      "components": [
+        {
+          "rxcui": "35619",
+          "name": "rifaximin"
         }
       ],
       "sources": [

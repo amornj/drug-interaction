@@ -2664,3 +2664,152 @@
   sources:
     - name: "Thai brand overlay"
       version: "2026-04"
+
+# Prokinetics
+- term: "Ganaton"
+  components:
+    - rxcui: "1748619"
+      name: "itopride"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Gasmotin"
+  components:
+    - rxcui: "135091"
+      name: "mosapride"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+# ARBs
+- term: "Lanzaar"
+  components:
+    - rxcui: "52175"
+      name: "losartan"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Tosan"
+  components:
+    - rxcui: "52175"
+      name: "losartan"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Angipec"
+  components:
+    - rxcui: "69749"
+      name: "valsartan"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+# ACE inhibitors
+- term: "Epsitron"
+  components:
+    - rxcui: "1998"
+      name: "captopril"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Gemzil"
+  components:
+    - rxcui: "1998"
+      name: "captopril"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Vaspril"
+  components:
+    - rxcui: "35296"
+      name: "ramipril"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Corpril"
+  components:
+    - rxcui: "35296"
+      name: "ramipril"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Gempril"
+  components:
+    - rxcui: "35296"
+      name: "ramipril"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Mediram"
+  components:
+    - rxcui: "35296"
+      name: "ramipril"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Ramicard"
+  components:
+    - rxcui: "35296"
+      name: "ramipril"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+# Beta blockers
+- term: "Betaloc Zok"
+  components:
+    - rxcui: "6918"
+      name: "metoprolol"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Sefloc"
+  components:
+    - rxcui: "6918"
+      name: "metoprolol"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Cardeloc"
+  components:
+    - rxcui: "6918"
+      name: "metoprolol"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Meloc"
+  components:
+    - rxcui: "6918"
+      name: "metoprolol"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Melol"
+  components:
+    - rxcui: "6918"
+      name: "metoprolol"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+# GI / Antibiotics
+- term: "Risavie"
+  components:
+    - rxcui: "35619"
+      name: "rifaximin"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
