@@ -19,19 +19,6 @@ function cypSystemColor(system: string): string {
   return "var(--ink-mute)";
 }
 
-function cypSystemBg(system: string): string {
-  if (system === "CYP3A4")  return "var(--cyp-3a4-bg)";
-  if (system === "CYP2D6")  return "var(--cyp-2d6-bg)";
-  if (system === "CYP2C9")  return "var(--cyp-2c9-bg)";
-  if (system === "CYP2C19") return "var(--cyp-2c19-bg)";
-  if (system === "CYP1A2")  return "var(--cyp-1a2-bg)";
-  if (system === "CYP2B6")  return "var(--cyp-2b6-bg)";
-  if (system === "CYP2C8")  return "var(--cyp-2c8-bg)";
-  if (system === "CYP2E1")  return "var(--cyp-2e1-bg)";
-  if (system === "CYP2A6")  return "var(--cyp-2a6-bg)";
-  if (system === "P-gp")    return "var(--pgp-bg)";
-  return "transparent";
-}
 
 function strengthOpacity(s: DrugMetabolismTag["strength"]): number {
   if (s === "strong")   return 1.0;
@@ -154,11 +141,7 @@ export function DrugChip({
                 }
 
                 return (
-                  <span
-                    key={tag.id}
-                    className="relative overflow-hidden px-1.5 py-0.5"
-                    style={{ background: cypSystemBg(tag.system) }}
-                  >
+                  <span key={tag.id} className="relative overflow-hidden pr-2.5">
                     <CypTagInner tag={tag} />
                   </span>
                 );
