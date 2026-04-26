@@ -1,8 +1,65 @@
 "use client";
 
 import { getDrugMetabolismTags, getMetabolismReference } from "@/lib/cyp";
+import type { DrugMetabolismTag } from "@/lib/cyp";
 import type { Drug } from "@/lib/store";
 import { useStore } from "@/lib/store";
+
+function cypSystemColor(system: string): string {
+  if (system === "CYP3A4")  return "var(--cyp-3a4)";
+  if (system === "CYP2D6")  return "var(--cyp-2d6)";
+  if (system === "CYP2C9")  return "var(--cyp-2c9)";
+  if (system === "CYP2C19") return "var(--cyp-2c19)";
+  if (system === "CYP1A2")  return "var(--cyp-1a2)";
+  if (system === "CYP2B6")  return "var(--cyp-2b6)";
+  if (system === "CYP2C8")  return "var(--cyp-2c8)";
+  if (system === "CYP2E1")  return "var(--cyp-2e1)";
+  if (system === "CYP2A6")  return "var(--cyp-2a6)";
+  if (system === "P-gp")    return "var(--pgp)";
+  return "var(--ink-mute)";
+}
+
+function strengthOpacity(s: DrugMetabolismTag["strength"]): number {
+  if (s === "strong")   return 1.0;
+  if (s === "moderate") return 0.65;
+  if (s === "weak")     return 0.35;
+  return 0.55; // unlabelled inh/ind
+}
+
+/** Inner content shared between clickable and non-clickable CYP/P-gp tags. */
+function CypTagInner({ tag }: { tag: DrugMetabolismTag }) {
+  const color = cypSystemColor(tag.system);
+  const colonAt = tag.label.indexOf(": ");
+  const systemPart = colonAt >= 0 ? tag.label.slice(0, colonAt) : tag.label;
+  const rolePart   = colonAt >= 0 ? tag.label.slice(colonAt)    : "";
+
+  return (
+    <>
+      <span style={{ color }}>{systemPart}</span>
+      {rolePart}
+      {(tag.direction === "inhibitor" || tag.direction === "inducer") && (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute"
+          style={{
+            top:    tag.direction === "inhibitor" ? 0 : "auto",
+            bottom: tag.direction === "inducer"   ? 0 : "auto",
+            right: 0,
+            width: "6px",
+            height: "6px",
+            background: color,
+            opacity: strengthOpacity(tag.strength),
+            /* upper-right triangle for inhibitor, lower-right for inducer */
+            clipPath:
+              tag.direction === "inhibitor"
+                ? "polygon(100% 0%, 100% 100%, 0% 0%)"
+                : "polygon(100% 0%, 100% 100%, 0% 100%)",
+          }}
+        />
+      )}
+    </>
+  );
+}
 
 export function DrugChip({
   drug,
@@ -40,24 +97,40 @@ export function DrugChip({
           {drug.viaBrand || tags.length > 0 ? (
             <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] tracking-[0.04em] text-ink-mute">
               {drug.viaBrand ? <span>via {drug.viaBrand}</span> : null}
-              {tags.map((tag) =>
-                tag.clickable ? (
-                  <button
+              {tags.map((tag) => {
+                const isColoredSystem =
+                  tag.system.startsWith("CYP") || tag.system === "P-gp";
+
+                if (!isColoredSystem) {
+                  return <span key={tag.id}>{tag.label}</span>;
+                }
+
+                if (tag.clickable) {
+                  return (
+                    <button
+                      key={tag.id}
+                      type="button"
+                      onClick={() => onToggleReferenceSystem(tag.system)}
+                      className={`relative overflow-hidden border px-1.5 py-0.5 transition-colors ${
+                        activeReferenceSystem === tag.system
+                          ? "border-rule-strong bg-paper text-ink"
+                          : "border-rule bg-surface text-ink-mute hover:border-rule-strong hover:text-ink"
+                      }`}
+                    >
+                      <CypTagInner tag={tag} />
+                    </button>
+                  );
+                }
+
+                return (
+                  <span
                     key={tag.id}
-                    type="button"
-                    onClick={() => onToggleReferenceSystem(tag.system)}
-                    className={`border px-1.5 py-0.5 transition-colors ${
-                      activeReferenceSystem === tag.system
-                        ? "border-rule-strong bg-paper text-ink"
-                        : "border-rule bg-surface text-ink-mute hover:border-rule-strong hover:text-ink"
-                    }`}
+                    className="relative overflow-hidden border border-rule bg-surface px-1.5 py-0.5"
                   >
-                    {tag.label}
-                  </button>
-                ) : (
-                  <span key={tag.id}>{tag.label}</span>
-                )
-              )}
+                    <CypTagInner tag={tag} />
+                  </span>
+                );
+              })}
             </div>
           ) : null}
         </div>

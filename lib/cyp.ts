@@ -14,6 +14,8 @@ export type DrugMetabolismTag = {
   system: string;
   label: string;
   clickable: boolean;
+  direction: "substrate" | "inhibitor" | "inducer" | "other";
+  strength: "strong" | "moderate" | "weak" | null;
 };
 
 export type MetabolismReference = {
@@ -1972,6 +1974,20 @@ function isClickableAnnotation(annotation: MetabolismAnnotation) {
   return annotation.role === "Sub" && (annotation.system.startsWith("CYP") || annotation.system === "P-gp");
 }
 
+function parseDirection(role: string): DrugMetabolismTag["direction"] {
+  if (role === "Sub" || role.startsWith("Sub ")) return "substrate";
+  if (role.includes("Inh")) return "inhibitor";
+  if (role.includes("Ind")) return "inducer";
+  return "other";
+}
+
+function parseStrength(role: string): DrugMetabolismTag["strength"] {
+  if (role.startsWith("Strong")) return "strong";
+  if (role.startsWith("Moderate")) return "moderate";
+  if (role.startsWith("Weak")) return "weak";
+  return null;
+}
+
 export function getDrugMetabolismTags(name: string): DrugMetabolismTag[] {
   const seen = new Set<string>();
   const tags: DrugMetabolismTag[] = [];
@@ -1988,6 +2004,8 @@ export function getDrugMetabolismTags(name: string): DrugMetabolismTag[] {
         system: annotation.system,
         label,
         clickable: isClickableAnnotation(annotation),
+        direction: parseDirection(annotation.role),
+        strength: parseStrength(annotation.role),
       });
     }
   }
