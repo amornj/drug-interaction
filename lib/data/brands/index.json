@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T03:00:06.450Z",
+  "generatedAt": "2026-04-26T03:29:07.773Z",
   "brandsVersion": "2026-04",
   "entries": [
     {
@@ -7558,6 +7558,242 @@
         {
           "rxcui": "6628",
           "name": "mannitol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Clopid",
+      "normalizedTerm": "clopid",
+      "components": [
+        {
+          "rxcui": "32968",
+          "name": "clopidogrel"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Plagerine",
+      "normalizedTerm": "plagerine",
+      "components": [
+        {
+          "rxcui": "32968",
+          "name": "clopidogrel"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Clopitab",
+      "normalizedTerm": "clopitab",
+      "components": [
+        {
+          "rxcui": "32968",
+          "name": "clopidogrel"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Clopigrel",
+      "normalizedTerm": "clopigrel",
+      "components": [
+        {
+          "rxcui": "32968",
+          "name": "clopidogrel"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Clopid AS",
+      "normalizedTerm": "clopid as",
+      "components": [
+        {
+          "rxcui": "32968",
+          "name": "clopidogrel"
+        },
+        {
+          "rxcui": "1191",
+          "name": "aspirin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "ClopidAS",
+      "normalizedTerm": "clopidas",
+      "components": [
+        {
+          "rxcui": "32968",
+          "name": "clopidogrel"
+        },
+        {
+          "rxcui": "1191",
+          "name": "aspirin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Plagerine A",
+      "normalizedTerm": "plagerine a",
+      "components": [
+        {
+          "rxcui": "32968",
+          "name": "clopidogrel"
+        },
+        {
+          "rxcui": "1191",
+          "name": "aspirin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "PlagerineA",
+      "normalizedTerm": "plagerinea",
+      "components": [
+        {
+          "rxcui": "32968",
+          "name": "clopidogrel"
+        },
+        {
+          "rxcui": "1191",
+          "name": "aspirin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Clopivas AP",
+      "normalizedTerm": "clopivas ap",
+      "components": [
+        {
+          "rxcui": "32968",
+          "name": "clopidogrel"
+        },
+        {
+          "rxcui": "1191",
+          "name": "aspirin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "ClopivasAP",
+      "normalizedTerm": "clopivasap",
+      "components": [
+        {
+          "rxcui": "32968",
+          "name": "clopidogrel"
+        },
+        {
+          "rxcui": "1191",
+          "name": "aspirin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "Clavix AS",
+      "normalizedTerm": "clavix as",
+      "components": [
+        {
+          "rxcui": "32968",
+          "name": "clopidogrel"
+        },
+        {
+          "rxcui": "1191",
+          "name": "aspirin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Indian brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "indian.yaml"
+    },
+    {
+      "term": "ClavixAS",
+      "normalizedTerm": "clavixas",
+      "components": [
+        {
+          "rxcui": "32968",
+          "name": "clopidogrel"
+        },
+        {
+          "rxcui": "1191",
+          "name": "aspirin"
         }
       ],
       "sources": [

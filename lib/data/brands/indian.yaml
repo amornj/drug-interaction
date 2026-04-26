@@ -2780,3 +2780,119 @@
   sources:
     - name: "Indian brand overlay"
       version: "2026-04"
+
+# ═════════════════════════════════════════════════════════════
+# Antiplatelet — clopidogrel & clopidogrel+aspirin Indian brands
+# ═════════════════════════════════════════════════════════════
+
+- term: "Clopid"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Plagerine"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Clopitab"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Clopigrel"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Clopid AS"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+    - rxcui: "1191"
+      name: "aspirin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "ClopidAS"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+    - rxcui: "1191"
+      name: "aspirin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Plagerine A"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+    - rxcui: "1191"
+      name: "aspirin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "PlagerineA"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+    - rxcui: "1191"
+      name: "aspirin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Clopivas AP"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+    - rxcui: "1191"
+      name: "aspirin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "ClopivasAP"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+    - rxcui: "1191"
+      name: "aspirin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Clavix AS"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+    - rxcui: "1191"
+      name: "aspirin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "ClavixAS"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+    - rxcui: "1191"
+      name: "aspirin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
