@@ -1502,3 +1502,1281 @@
     - name: "Indian brand overlay"
       version: "2026-04"
 
+
+# ═════════════════════════════════════════════════════════════
+# DM / METABOLIC — additional Indian brands
+# ═════════════════════════════════════════════════════════════
+
+- term: "Okamet"
+  components:
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Metride"
+  components:
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Formin"
+  components:
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Walaphage"
+  components:
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Exermet"
+  components:
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Glyciphage"
+  components:
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Riomet"
+  components:
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Glycomet GP"
+  components:
+    - rxcui: "25789"
+      name: "glimepiride"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "GlycometGP"
+  components:
+    - rxcui: "25789"
+      name: "glimepiride"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Gemer"
+  components:
+    - rxcui: "25789"
+      name: "glimepiride"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Gluconorm PG"
+  components:
+    - rxcui: "25789"
+      name: "glimepiride"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "GluconormPG"
+  components:
+    - rxcui: "25789"
+      name: "glimepiride"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Amaryl M"
+  components:
+    - rxcui: "25789"
+      name: "glimepiride"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "AmarylM"
+  components:
+    - rxcui: "25789"
+      name: "glimepiride"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Piozone MF"
+  components:
+    - rxcui: "33738"
+      name: "pioglitazone"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "PiozoneMF"
+  components:
+    - rxcui: "33738"
+      name: "pioglitazone"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Triglimiprex"
+  components:
+    - rxcui: "25789"
+      name: "glimepiride"
+    - rxcui: "33738"
+      name: "pioglitazone"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Rosicon"
+  components:
+    - rxcui: "84108"
+      name: "rosiglitazone"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Windia"
+  components:
+    - rxcui: "84108"
+      name: "rosiglitazone"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Windia M"
+  components:
+    - rxcui: "84108"
+      name: "rosiglitazone"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "WindiaM"
+  components:
+    - rxcui: "84108"
+      name: "rosiglitazone"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Jardiance-M"
+  components:
+    - rxcui: "1545653"
+      name: "empagliflozin"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "JardianceM"
+  components:
+    - rxcui: "1545653"
+      name: "empagliflozin"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Kombiglyze"
+  components:
+    - rxcui: "857974"
+      name: "saxagliptin"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Volibo"
+  components:
+    - rxcui: "137665"
+      name: "voglibose"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Adride"
+  components:
+    - rxcui: "137665"
+      name: "voglibose"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Voglibose"
+  components:
+    - rxcui: "137665"
+      name: "voglibose"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Voglibose-M"
+  components:
+    - rxcui: "137665"
+      name: "voglibose"
+    - rxcui: "6809"
+      name: "metformin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Human Mixtard"
+  components:
+    - rxcui: "253182"
+      name: "insulin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "HumanMixtard"
+  components:
+    - rxcui: "253182"
+      name: "insulin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Huminsulin"
+  components:
+    - rxcui: "253182"
+      name: "insulin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Basalog"
+  components:
+    - rxcui: "274783"
+      name: "insulin glargine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Insugen"
+  components:
+    - rxcui: "274783"
+      name: "insulin glargine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+# ═════════════════════════════════════════════════════════════
+# HT / CARDIO — additional Indian brands
+# ═════════════════════════════════════════════════════════════
+
+- term: "Amlokind"
+  components:
+    - rxcui: "17767"
+      name: "amlodipine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Amlovac"
+  components:
+    - rxcui: "17767"
+      name: "amlodipine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Amlosun"
+  components:
+    - rxcui: "17767"
+      name: "amlodipine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "S-Amlip"
+  components:
+    - rxcui: "17767"
+      name: "amlodipine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "SAmlip"
+  components:
+    - rxcui: "17767"
+      name: "amlodipine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Cilacar"
+  components:
+    - rxcui: "135056"
+      name: "lercanidipine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Cilnidip"
+  components:
+    - rxcui: "135056"
+      name: "lercanidipine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Cosart"
+  components:
+    - rxcui: "52175"
+      name: "losartan"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Tozaar"
+  components:
+    - rxcui: "52175"
+      name: "losartan"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Repace H"
+  components:
+    - rxcui: "52175"
+      name: "losartan"
+    - rxcui: "5487"
+      name: "hydrochlorothiazide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "RepaceH"
+  components:
+    - rxcui: "52175"
+      name: "losartan"
+    - rxcui: "5487"
+      name: "hydrochlorothiazide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Losar H"
+  components:
+    - rxcui: "52175"
+      name: "losartan"
+    - rxcui: "5487"
+      name: "hydrochlorothiazide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "LosarH"
+  components:
+    - rxcui: "52175"
+      name: "losartan"
+    - rxcui: "5487"
+      name: "hydrochlorothiazide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Telma H"
+  components:
+    - rxcui: "73494"
+      name: "telmisartan"
+    - rxcui: "5487"
+      name: "hydrochlorothiazide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "TelmaH"
+  components:
+    - rxcui: "73494"
+      name: "telmisartan"
+    - rxcui: "5487"
+      name: "hydrochlorothiazide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Telma AM"
+  components:
+    - rxcui: "73494"
+      name: "telmisartan"
+    - rxcui: "17767"
+      name: "amlodipine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "TelmaAM"
+  components:
+    - rxcui: "73494"
+      name: "telmisartan"
+    - rxcui: "17767"
+      name: "amlodipine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Amlip AT"
+  components:
+    - rxcui: "17767"
+      name: "amlodipine"
+    - rxcui: "1202"
+      name: "atenolol"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "AmlipAT"
+  components:
+    - rxcui: "17767"
+      name: "amlodipine"
+    - rxcui: "1202"
+      name: "atenolol"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Olmezest H"
+  components:
+    - rxcui: "321064"
+      name: "olmesartan"
+    - rxcui: "5487"
+      name: "hydrochlorothiazide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "OlmezestH"
+  components:
+    - rxcui: "321064"
+      name: "olmesartan"
+    - rxcui: "5487"
+      name: "hydrochlorothiazide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Azildac H"
+  components:
+    - rxcui: "1091643"
+      name: "azilsartan"
+    - rxcui: "2409"
+      name: "chlorthalidone"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "AzildacH"
+  components:
+    - rxcui: "1091643"
+      name: "azilsartan"
+    - rxcui: "2409"
+      name: "chlorthalidone"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Ciplar"
+  components:
+    - rxcui: "8787"
+      name: "propranolol"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Ciplar LA"
+  components:
+    - rxcui: "8787"
+      name: "propranolol"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "CiplarLA"
+  components:
+    - rxcui: "8787"
+      name: "propranolol"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Sotalar"
+  components:
+    - rxcui: "9947"
+      name: "sotalol"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Arkamin"
+  components:
+    - rxcui: "2599"
+      name: "clonidine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Catapres"
+  components:
+    - rxcui: "2599"
+      name: "clonidine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Aldomet"
+  components:
+    - rxcui: "6876"
+      name: "methyldopa"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Dopegyt"
+  components:
+    - rxcui: "6876"
+      name: "methyldopa"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Moxovas"
+  components:
+    - rxcui: "30257"
+      name: "moxonidine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Physiotens"
+  components:
+    - rxcui: "30257"
+      name: "moxonidine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Ivabid"
+  components:
+    - rxcui: "1649480"
+      name: "ivabradine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Ivabrand"
+  components:
+    - rxcui: "1649480"
+      name: "ivabradine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Bradia"
+  components:
+    - rxcui: "1649480"
+      name: "ivabradine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Coralan"
+  components:
+    - rxcui: "1649480"
+      name: "ivabradine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Ranozex"
+  components:
+    - rxcui: "35829"
+      name: "ranolazine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Ranolaz"
+  components:
+    - rxcui: "35829"
+      name: "ranolazine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Nikoran"
+  components:
+    - rxcui: "31748"
+      name: "nicorandil"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Korandil"
+  components:
+    - rxcui: "31748"
+      name: "nicorandil"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Minipress XL"
+  components:
+    - rxcui: "8629"
+      name: "prazosin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "MinipressXL"
+  components:
+    - rxcui: "8629"
+      name: "prazosin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Prazopress XL"
+  components:
+    - rxcui: "8629"
+      name: "prazosin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "PrazopressXL"
+  components:
+    - rxcui: "8629"
+      name: "prazosin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Aristogyl"
+  components:
+    - rxcui: "703"
+      name: "amiodarone"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Flecarite"
+  components:
+    - rxcui: "4441"
+      name: "flecainide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Rythmonorm"
+  components:
+    - rxcui: "8754"
+      name: "propafenone"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+# ═════════════════════════════════════════════════════════════
+# LIPIDS — additional Indian brands
+# ═════════════════════════════════════════════════════════════
+
+- term: "Pravator"
+  components:
+    - rxcui: "42463"
+      name: "pravastatin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Lipostat"
+  components:
+    - rxcui: "42463"
+      name: "pravastatin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Lovacard"
+  components:
+    - rxcui: "6472"
+      name: "lovastatin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Aztatin"
+  components:
+    - rxcui: "6472"
+      name: "lovastatin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Pivasta"
+  components:
+    - rxcui: "861634"
+      name: "pitavastatin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Livazo"
+  components:
+    - rxcui: "861634"
+      name: "pitavastatin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Rosuvas F"
+  components:
+    - rxcui: "301542"
+      name: "rosuvastatin"
+    - rxcui: "8703"
+      name: "fenofibrate"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "RosuvasF"
+  components:
+    - rxcui: "301542"
+      name: "rosuvastatin"
+    - rxcui: "8703"
+      name: "fenofibrate"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Roseday F"
+  components:
+    - rxcui: "301542"
+      name: "rosuvastatin"
+    - rxcui: "8703"
+      name: "fenofibrate"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "RosedayF"
+  components:
+    - rxcui: "301542"
+      name: "rosuvastatin"
+    - rxcui: "8703"
+      name: "fenofibrate"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Atorva F"
+  components:
+    - rxcui: "83367"
+      name: "atorvastatin"
+    - rxcui: "8703"
+      name: "fenofibrate"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "AtorvaF"
+  components:
+    - rxcui: "83367"
+      name: "atorvastatin"
+    - rxcui: "8703"
+      name: "fenofibrate"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Tonact F"
+  components:
+    - rxcui: "83367"
+      name: "atorvastatin"
+    - rxcui: "8703"
+      name: "fenofibrate"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "TonactF"
+  components:
+    - rxcui: "83367"
+      name: "atorvastatin"
+    - rxcui: "8703"
+      name: "fenofibrate"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Rosuvas EZ"
+  components:
+    - rxcui: "301542"
+      name: "rosuvastatin"
+    - rxcui: "341248"
+      name: "ezetimibe"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "RosuvasEZ"
+  components:
+    - rxcui: "301542"
+      name: "rosuvastatin"
+    - rxcui: "341248"
+      name: "ezetimibe"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Atorva EZ"
+  components:
+    - rxcui: "83367"
+      name: "atorvastatin"
+    - rxcui: "341248"
+      name: "ezetimibe"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "AtorvaEZ"
+  components:
+    - rxcui: "83367"
+      name: "atorvastatin"
+    - rxcui: "341248"
+      name: "ezetimibe"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Tonact EZ"
+  components:
+    - rxcui: "83367"
+      name: "atorvastatin"
+    - rxcui: "341248"
+      name: "ezetimibe"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "TonactEZ"
+  components:
+    - rxcui: "83367"
+      name: "atorvastatin"
+    - rxcui: "341248"
+      name: "ezetimibe"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Fibator"
+  components:
+    - rxcui: "83367"
+      name: "atorvastatin"
+    - rxcui: "8703"
+      name: "fenofibrate"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Niaspan"
+  components:
+    - rxcui: "7393"
+      name: "niacin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Maxepa"
+  components:
+    - rxcui: "11294"
+      name: "omega-3 acid ethyl esters"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Omacor"
+  components:
+    - rxcui: "11294"
+      name: "omega-3 acid ethyl esters"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Questran"
+  components:
+    - rxcui: "2447"
+      name: "cholestyramine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Colesevelam"
+  components:
+    - rxcui: "141626"
+      name: "colesevelam"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+# ═════════════════════════════════════════════════════════════
+# ANTIPLATELET / ANTICOAGULANT — additional Indian brands
+# ═════════════════════════════════════════════════════════════
+
+- term: "Tyklid"
+  components:
+    - rxcui: "10594"
+      name: "ticlopidine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Ticlid"
+  components:
+    - rxcui: "10594"
+      name: "ticlopidine"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Pletaal"
+  components:
+    - rxcui: "21107"
+      name: "cilostazol"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Cilodoc"
+  components:
+    - rxcui: "21107"
+      name: "cilostazol"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Persantin"
+  components:
+    - rxcui: "3521"
+      name: "dipyridamole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Cardiwell"
+  components:
+    - rxcui: "3521"
+      name: "dipyridamole"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Sprin"
+  components:
+    - rxcui: "1191"
+      name: "aspirin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "ASA"
+  components:
+    - rxcui: "1191"
+      name: "aspirin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Clopilet A"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+    - rxcui: "1191"
+      name: "aspirin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "ClopiletA"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+    - rxcui: "1191"
+      name: "aspirin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Deplatt A"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+    - rxcui: "1191"
+      name: "aspirin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "DeplattA"
+  components:
+    - rxcui: "32968"
+      name: "clopidogrel"
+    - rxcui: "1191"
+      name: "aspirin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Ecosprin AV"
+  components:
+    - rxcui: "1191"
+      name: "aspirin"
+    - rxcui: "83367"
+      name: "atorvastatin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "EcosprinAV"
+  components:
+    - rxcui: "1191"
+      name: "aspirin"
+    - rxcui: "83367"
+      name: "atorvastatin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Ecosprin Gold"
+  components:
+    - rxcui: "1191"
+      name: "aspirin"
+    - rxcui: "83367"
+      name: "atorvastatin"
+    - rxcui: "8703"
+      name: "fenofibrate"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "EcosprinGold"
+  components:
+    - rxcui: "1191"
+      name: "aspirin"
+    - rxcui: "83367"
+      name: "atorvastatin"
+    - rxcui: "8703"
+      name: "fenofibrate"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Sofarin"
+  components:
+    - rxcui: "11289"
+      name: "warfarin"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Arixtra"
+  components:
+    - rxcui: "321208"
+      name: "fondaparinux"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+# ═════════════════════════════════════════════════════════════
+# DIURETICS — additional Indian brands
+# ═════════════════════════════════════════════════════════════
+
+- term: "Aquazide"
+  components:
+    - rxcui: "5487"
+      name: "hydrochlorothiazide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Hydrazide"
+  components:
+    - rxcui: "5487"
+      name: "hydrochlorothiazide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Xuret"
+  components:
+    - rxcui: "6916"
+      name: "metolazone"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Zaroxolyn"
+  components:
+    - rxcui: "6916"
+      name: "metolazone"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Diamox"
+  components:
+    - rxcui: "167"
+      name: "acetazolamide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Iopar"
+  components:
+    - rxcui: "167"
+      name: "acetazolamide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Midamor"
+  components:
+    - rxcui: "644"
+      name: "amiloride"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Eptus"
+  components:
+    - rxcui: "298869"
+      name: "eplerenone"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Planep"
+  components:
+    - rxcui: "298869"
+      name: "eplerenone"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Bumex"
+  components:
+    - rxcui: "1808"
+      name: "bumetanide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Burinex"
+  components:
+    - rxcui: "1808"
+      name: "bumetanide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Dytor Plus"
+  components:
+    - rxcui: "38413"
+      name: "torsemide"
+    - rxcui: "9997"
+      name: "spironolactone"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "DytorPlus"
+  components:
+    - rxcui: "38413"
+      name: "torsemide"
+    - rxcui: "9997"
+      name: "spironolactone"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Lasiride"
+  components:
+    - rxcui: "4603"
+      name: "furosemide"
+    - rxcui: "644"
+      name: "amiloride"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Aldactide"
+  components:
+    - rxcui: "9997"
+      name: "spironolactone"
+    - rxcui: "5487"
+      name: "hydrochlorothiazide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Moduretic"
+  components:
+    - rxcui: "644"
+      name: "amiloride"
+    - rxcui: "5487"
+      name: "hydrochlorothiazide"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
+
+- term: "Osmitrol"
+  components:
+    - rxcui: "6628"
+      name: "mannitol"
+  sources:
+    - name: "Indian brand overlay"
+      version: "2026-04"
