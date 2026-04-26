@@ -121,10 +121,22 @@ export function InteractionSummary({
   }
 
   const hasContra = counts.Contraindicated > 0;
-  const top = pairs[0];
+  const hasMajor = counts.Major > 0;
+
+  const contraPairs = pairs.filter((p) => p.displaySeverity === "Contraindicated");
+  const majorPairs = pairs.filter((p) => p.displaySeverity === "Major");
+
+  const summaryPairs = hasContra
+    ? contraPairs.slice(0, 3)
+    : hasMajor
+    ? majorPairs.slice(0, 3)
+    : pairs.length > 0
+    ? [pairs[0]]
+    : [];
+
   const leftBorder = hasContra
     ? "var(--sev-contra)"
-    : counts.Major > 0
+    : hasMajor
     ? "var(--sev-major)"
     : "var(--rule-strong)";
   const openStack = stacks.find((stack) => stack.domain === openStackDomain) ?? null;
@@ -165,19 +177,28 @@ export function InteractionSummary({
         )}
       </div>
 
-      {top ? (
-        <p className="mt-3 border-t border-rule pt-2 text-[14px] leading-snug text-ink">
-          <span className="eyebrow mr-2">Top</span>
-          <span className="font-serif italic">
-            {top.a.name}
-          </span>
-          <span className="mx-1.5 text-ink-mute">↔</span>
-          <span className="font-serif italic">{top.b.name}</span>
-          <span className="mx-2 text-ink-mute">—</span>
-          <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">
-            {top.displaySeverity}
-          </span>
-        </p>
+      {summaryPairs.length > 0 ? (
+        <div className="mt-3 border-t border-rule pt-2">
+          <p className="eyebrow mb-1.5">
+            {hasContra || hasMajor ? "Highest concern" : "Top"}
+          </p>
+          <div className="flex flex-col gap-1.5">
+            {summaryPairs.map((pair, i) => (
+              <p
+                key={`${pair.a.rxcui}-${pair.b.rxcui}-${i}`}
+                className="text-[14px] leading-snug text-ink"
+              >
+                <span className="font-serif italic">{pair.a.name}</span>
+                <span className="mx-1.5 text-ink-mute">↔</span>
+                <span className="font-serif italic">{pair.b.name}</span>
+                <span className="mx-2 text-ink-mute">—</span>
+                <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">
+                  {pair.displaySeverity}
+                </span>
+              </p>
+            ))}
+          </div>
+        </div>
       ) : null}
 
       {stacks.length > 0 ? (
