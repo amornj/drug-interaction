@@ -49,6 +49,12 @@ type StackRule = {
     matchedKeywords: string[],
     matchedDrugs: NormalizedDrug[]
   ) => InteractionSeverity;
+  /** Optional gate: if provided, the stack only fires when this returns true.
+   *  Use when matches mixes substrates + interactors (e.g. ergotism). */
+  prerequisite?: (
+    matchedKeywords: string[],
+    matchedDrugs: NormalizedDrug[]
+  ) => boolean;
 };
 
 const STACK_RULE_SOURCE: InteractionSource = {
@@ -849,6 +855,10 @@ const stackRules: StackRule[] = [
     ],
     summary: (matched) =>
       `Ergot-related vasospasm risk detected: ${matched.join(", ")}. Review for ergotism risk when ergot derivatives overlap with triptans or strong CYP3A4 inhibitors.`,
+    prerequisite: (matchedKeywords) =>
+      ["ergotamine", "dihydroergotamine", "cafergot", "ergot"].some((keyword) =>
+        matchedKeywords.includes(keyword)
+      ),
     detectSeverity: (matchedKeywords) => {
       const hasErgot = ["ergotamine", "dihydroergotamine", "cafergot", "ergot"].some((keyword) =>
         matchedKeywords.includes(keyword)
@@ -1822,6 +1832,10 @@ export function detectCumulativeStacks(drugs: Drug[]): StackWarning[] {
       const matchedKeywords = rule.matches.filter((match) =>
         matchedDrugs.some((drug) => drug.normalizedName.includes(match))
       );
+
+      if (rule.prerequisite && !rule.prerequisite(matchedKeywords, matchedDrugs)) {
+        return null;
+      }
 
       return {
         domain: rule.domain,
