@@ -11,6 +11,7 @@ export type BrandEntry = {
 export const brandsGeneratedAt = raw.generatedAt;
 export const brandsVersion = raw.brandsVersion;
 export const brandEntries = raw.entries as BrandEntry[];
+export const brandRxcuiNames = (raw.rxcuiNames ?? {}) as Record<string, string>;
 export const brandIndex = new Map(
   brandEntries.map((entry) => [entry.normalizedTerm, entry] as const)
 );

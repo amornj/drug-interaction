@@ -265,6 +265,19 @@ async function loadBrandEntries() {
   return entries;
 }
 
+function buildBrandRxcuiNames(brandEntries) {
+  const map = {};
+  for (const entry of brandEntries) {
+    for (const comp of entry.components) {
+      const current = map[comp.rxcui];
+      if (!current || comp.name.length < current.length) {
+        map[comp.rxcui] = comp.name;
+      }
+    }
+  }
+  return map;
+}
+
 async function main() {
   await mkdir(DDINTER_DIR, { recursive: true });
   await mkdir(OVERLAY_DIR, { recursive: true });
@@ -442,6 +455,7 @@ async function main() {
         generatedAt,
         brandsVersion: BRANDS_VERSION,
         entries: brandEntries,
+        rxcuiNames: buildBrandRxcuiNames(brandEntries),
       },
       null,
       2

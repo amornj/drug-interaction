@@ -9,6 +9,7 @@ import {
   overlayIndex,
   overlayVersion,
 } from "@/lib/data/overlay";
+import { brandRxcuiNames } from "@/lib/data/brands";
 
 export const severityOrder = [
   "Contraindicated",
@@ -92,7 +93,7 @@ function defaultVerdictForSeverity(severity: InteractionSeverity) {
 }
 
 export function getRxcuiName(rxcui: string) {
-  return ddinterRxcuiNames[rxcui];
+  return ddinterRxcuiNames[rxcui] ?? brandRxcuiNames[rxcui];
 }
 
 function buildAvoidanceGuidance(pair: InteractionPair) {
