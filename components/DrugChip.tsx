@@ -1,83 +1,8 @@
 "use client";
 
 import { getDrugMetabolismTags, getMetabolismReference } from "@/lib/cyp";
-import type { DrugMetabolismTag } from "@/lib/cyp";
 import type { Drug } from "@/lib/store";
 import { useStore } from "@/lib/store";
-
-function cypSystemColor(system: string): string {
-  if (system === "CYP3A4")  return "var(--cyp-3a4)";
-  if (system === "CYP2D6")  return "var(--cyp-2d6)";
-  if (system === "CYP2C9")  return "var(--cyp-2c9)";
-  if (system === "CYP2C19") return "var(--cyp-2c19)";
-  if (system === "CYP1A2")  return "var(--cyp-1a2)";
-  if (system === "CYP2B6")  return "var(--cyp-2b6)";
-  if (system === "CYP2C8")  return "var(--cyp-2c8)";
-  if (system === "CYP2E1")  return "var(--cyp-2e1)";
-  if (system === "CYP2A6")  return "var(--cyp-2a6)";
-  if (system === "P-gp")    return "var(--pgp)";
-  return "var(--ink-mute)";
-}
-
-
-function strengthOpacity(s: DrugMetabolismTag["strength"]): number {
-  if (s === "strong")   return 1.0;
-  if (s === "moderate") return 0.85;
-  if (s === "weak")     return 0.55;
-  return 0.75; // unlabelled
-}
-
-/**
- * 8 × 8 clip-path triangles. Hypotenuse shape encodes strength:
- *   convex  (bulges outward) → strong
- *   straight                 → moderate / unlabelled
- *   concave (bites inward)   → weak
- * Position encodes direction: upper-right = inhibitor, lower-right = inducer.
- */
-function triangleClipPath(
-  direction: "inhibitor" | "inducer",
-  strength: DrugMetabolismTag["strength"],
-): string {
-  if (direction === "inhibitor") {
-    if (strength === "strong") return 'path("M 8 0 L 8 8 Q 0 8 0 0 Z")';
-    if (strength === "weak")   return 'path("M 8 0 L 8 8 Q 8 0 0 0 Z")';
-    return "polygon(100% 0%, 100% 100%, 0% 0%)";
-  }
-  if (strength === "strong") return 'path("M 8 8 L 8 0 Q 0 0 0 8 Z")';
-  if (strength === "weak")   return 'path("M 8 8 L 8 0 Q 8 8 0 8 Z")';
-  return "polygon(100% 0%, 100% 100%, 0% 100%)";
-}
-
-/** Coloured system name + corner triangle. Used inside both bordered (Sub) and tinted (Inh/Ind) chips. */
-function CypTagInner({ tag }: { tag: DrugMetabolismTag }) {
-  const color = cypSystemColor(tag.system);
-  const colonAt = tag.label.indexOf(": ");
-  const systemPart = colonAt >= 0 ? tag.label.slice(0, colonAt) : tag.label;
-  const rolePart   = colonAt >= 0 ? tag.label.slice(colonAt)    : "";
-
-  return (
-    <>
-      <span style={{ color }}>{systemPart}</span>
-      {rolePart}
-      {(tag.direction === "inhibitor" || tag.direction === "inducer") && (
-        <span
-          aria-hidden
-          className="pointer-events-none absolute"
-          style={{
-            top:    tag.direction === "inhibitor" ? 0 : "auto",
-            bottom: tag.direction === "inducer"   ? 0 : "auto",
-            right: 0,
-            width: "8px",
-            height: "8px",
-            background: color,
-            opacity: strengthOpacity(tag.strength),
-            clipPath: triangleClipPath(tag.direction, tag.strength),
-          }}
-        />
-      )}
-    </>
-  );
-}
 
 export function DrugChip({
   drug,
@@ -115,37 +40,24 @@ export function DrugChip({
           {drug.viaBrand || tags.length > 0 ? (
             <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] tracking-[0.04em] text-ink-mute">
               {drug.viaBrand ? <span>via {drug.viaBrand}</span> : null}
-              {tags.map((tag) => {
-                const isColoredSystem =
-                  tag.system.startsWith("CYP") || tag.system === "P-gp";
-
-                if (!isColoredSystem) {
-                  return <span key={tag.id}>{tag.label}</span>;
-                }
-
-                if (tag.clickable) {
-                  return (
-                    <button
-                      key={tag.id}
-                      type="button"
-                      onClick={() => onToggleReferenceSystem(tag.system)}
-                      className={`relative overflow-hidden border px-1.5 py-0.5 transition-colors ${
-                        activeReferenceSystem === tag.system
-                          ? "border-rule-strong bg-paper text-ink"
-                          : "border-rule bg-surface text-ink-mute hover:border-rule-strong hover:text-ink"
-                      }`}
-                    >
-                      <CypTagInner tag={tag} />
-                    </button>
-                  );
-                }
-
-                return (
-                  <span key={tag.id} className="relative overflow-hidden pr-2.5">
-                    <CypTagInner tag={tag} />
-                  </span>
-                );
-              })}
+              {tags.map((tag) =>
+                tag.clickable ? (
+                  <button
+                    key={tag.id}
+                    type="button"
+                    onClick={() => onToggleReferenceSystem(tag.system)}
+                    className={`border px-1.5 py-0.5 transition-colors ${
+                      activeReferenceSystem === tag.system
+                        ? "border-rule-strong bg-paper text-ink"
+                        : "border-rule bg-surface text-ink-mute hover:border-rule-strong hover:text-ink"
+                    }`}
+                  >
+                    {tag.label}
+                  </button>
+                ) : (
+                  <span key={tag.id}>{tag.label}</span>
+                )
+              )}
             </div>
           ) : null}
         </div>

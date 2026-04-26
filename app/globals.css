@@ -1,29 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  /* CYP / P-gp system identity colours — muted earthy palette matching severity tokens */
-  --cyp-3a4:  #8a6118; /* amber   — most common enzyme */
-  --cyp-2d6:  #2b5a96; /* slate blue */
-  --cyp-2c9:  #2c6b3e; /* forest green */
-  --cyp-2c19: #6b329a; /* violet */
-  --cyp-1a2:  #992828; /* dark red */
-  --cyp-2b6:  #1a6b78; /* teal */
-  --cyp-2c8:  #5c7a18; /* olive */
-  --cyp-2e1:  #8a4a18; /* burnt orange */
-  --cyp-2a6:  #8a2b6a; /* dusty rose */
-  --pgp:      #2b3b8a; /* indigo */
-  /* Soft background tints — used by borderless Inh/Ind chips */
-  --cyp-3a4-bg:  color-mix(in srgb, var(--cyp-3a4)  14%, transparent);
-  --cyp-2d6-bg:  color-mix(in srgb, var(--cyp-2d6)  14%, transparent);
-  --cyp-2c9-bg:  color-mix(in srgb, var(--cyp-2c9)  14%, transparent);
-  --cyp-2c19-bg: color-mix(in srgb, var(--cyp-2c19) 14%, transparent);
-  --cyp-1a2-bg:  color-mix(in srgb, var(--cyp-1a2)  14%, transparent);
-  --cyp-2b6-bg:  color-mix(in srgb, var(--cyp-2b6)  14%, transparent);
-  --cyp-2c8-bg:  color-mix(in srgb, var(--cyp-2c8)  14%, transparent);
-  --cyp-2e1-bg:  color-mix(in srgb, var(--cyp-2e1)  14%, transparent);
-  --cyp-2a6-bg:  color-mix(in srgb, var(--cyp-2a6)  14%, transparent);
-  --pgp-bg:      color-mix(in srgb, var(--pgp)       14%, transparent);
-
   --paper: #f7f3ea;
   --paper-raised: #fdfbf5;
   --surface: #efe8d9;
@@ -45,18 +22,6 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* CYP colours lightened for dark-mode legibility */
-    --cyp-3a4:  #c49840;
-    --cyp-2d6:  #7aabcf;
-    --cyp-2c9:  #78b88a;
-    --cyp-2c19: #b07ad0;
-    --cyp-1a2:  #d07070;
-    --cyp-2b6:  #4ab8c5;
-    --cyp-2c8:  #9ab840;
-    --cyp-2e1:  #d09050;
-    --cyp-2a6:  #d07ab0;
-    --pgp:      #7a90d0;
-
     --paper: #0b0d12;
     --paper-raised: #13151c;
     --surface: #181a22;
