@@ -11,6 +11,7 @@ import { InteractionSummary } from "@/components/InteractionSummary";
 import { PatientModifiers } from "@/components/PatientModifiers";
 import { PharmacogenomicsPanel } from "@/components/PharmacogenomicsPanel";
 import { StackWarnings } from "@/components/StackWarnings";
+import { LlmPromptPanel } from "@/components/LlmPromptPanel";
 import type { InteractionCheckResponse } from "@/lib/interactions";
 import { applyPatientModifiers } from "@/lib/modifiers";
 import { detectCumulativeStacks } from "@/lib/stacks";
@@ -35,6 +36,7 @@ export function AppShell() {
   } | null>(null);
   const [draggingIndex, setDraggingIndex] = useState<number | null>(null);
   const [dropTargetIndex, setDropTargetIndex] = useState<number | null>(null);
+  const [copyLabel, setCopyLabel] = useState("Copy list");
 
   useEffect(() => {
     hydrate();
@@ -194,6 +196,48 @@ export function AppShell() {
                 <p className="eyebrow">
                   Medications <span className="text-ink">· {active.drugs.length}</span>
                 </p>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    const list = active.drugs
+                      .map((d, i) => `${i + 1}. ${d.name}`)
+                      .join("\n");
+                    try {
+                      await navigator.clipboard.writeText(list);
+                      setCopyLabel("Copied ✓");
+                      window.setTimeout(() => setCopyLabel("Copy list"), 1600);
+                    } catch {
+                      setCopyLabel("Copy failed");
+                      window.setTimeout(() => setCopyLabel("Copy list"), 1600);
+                    }
+                  }}
+                  className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.12em] text-ink-mute transition-colors hover:text-accent"
+                  title="Copy medication list"
+                >
+                  <svg viewBox="0 0 20 20" width="14" height="14" aria-hidden>
+                    <rect
+                      x="4"
+                      y="4"
+                      width="10"
+                      height="10"
+                      rx="1.5"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      fill="none"
+                    />
+                    <rect
+                      x="8"
+                      y="8"
+                      width="8"
+                      height="8"
+                      rx="1.5"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      fill="none"
+                    />
+                  </svg>
+                  <span className="hidden sm:inline">{copyLabel}</span>
+                </button>
                 {active.drugs.length < 2 ? (
                   <span className="text-[11px] italic text-ink-mute">
                     add one more to check
@@ -238,6 +282,23 @@ export function AppShell() {
               ))}
             </ul>
 
+            <div className="mt-6">
+              <LlmPromptPanel
+                variant="button"
+                blurb="Copy a prompt for your LLM chat"
+                prompts={[
+                  {
+                    id: "interaction-check",
+                    label: "Interaction & side-effect check",
+                    subtitle:
+                      "General interactions, side effects, and prevention",
+                    prompt: `My patient takes these medicines:\n${active.drugs
+                      .map((d) => `- ${d.name}`)
+                      .join("\n")}\n\nWhat are the possible drug interactions and side effects? How to prevent them?`,
+                  },
+                ]}
+              />
+            </div>
             <div className="mt-6">
               <PatientModifiers modifiers={active.patientModifiers} />
             </div>
