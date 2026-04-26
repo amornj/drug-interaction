@@ -146,11 +146,22 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "cobicistat", annotations: [{ system: "CYP3A4", role: "Strong Inh" }] },
   {
     match: "ketoconazole",
-    annotations: [{ system: "CYP3A4", role: "Strong Inh" }, { system: "P-gp", role: "Inh", note: "strong" }],
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP3A4", role: "Strong Inh" },
+      { system: "CYP2C9", role: "Moderate Inh" },
+      { system: "CYP2C19", role: "Moderate Inh" },
+      { system: "CYP2D6", role: "Moderate Inh" },
+      { system: "P-gp", role: "Inh", note: "strong" },
+    ],
   },
   {
     match: "itraconazole",
-    annotations: [{ system: "CYP3A4", role: "Strong Inh" }, { system: "P-gp", role: "Inh", note: "strong" }],
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP3A4", role: "Strong Inh" },
+      { system: "P-gp", role: "Inh", note: "strong" },
+    ],
   },
   {
     match: "clarithromycin",
@@ -168,8 +179,8 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
     match: "fluconazole",
     annotations: [
       { system: "CYP3A4", role: "Moderate Inh" },
-      { system: "CYP2C9", role: "Strong Inh" },
-      { system: "CYP2C19", role: "Moderate Inh" },
+      { system: "CYP2C9", role: "Moderate Inh" },
+      { system: "CYP2C19", role: "Strong Inh" },
       { system: "P-gp", role: "Inh", note: "moderate" },
     ],
   },
@@ -302,7 +313,17 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
     annotations: [{ system: "CYP2C19", role: "Sub" }, { system: "CYP2C19", role: "Strong Inh" }],
   },
   { match: "citalopram", annotations: [{ system: "CYP2C19", role: "Sub" }] },
-  { match: "voriconazole", annotations: [{ system: "CYP2C19", role: "Sub" }, { system: "CYP2C19", role: "Strong Inh" }, { system: "CYP3A4", role: "Strong Inh" }, { system: "CYP2C9", role: "Strong Inh" }, { system: "CYP2B6", role: "Weak Inh" }] },
+  {
+    match: "voriconazole",
+    annotations: [
+      { system: "CYP2C19", role: "Sub" },
+      { system: "CYP2C9", role: "Sub" },
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP2C19", role: "Strong Inh" },
+      { system: "CYP2C9", role: "Strong Inh" },
+      { system: "CYP3A4", role: "Strong Inh" },
+    ],
+  },
   { match: "proguanil", annotations: [{ system: "CYP2C19", role: "Sub" }] },
   {
     match: "fluvoxamine",
@@ -1788,6 +1809,16 @@ const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
   { match: "ertugliflozin", annotations: [{ system: "CYP3A4", role: "Weak Ind" }] },
   { match: "pexidartinib", annotations: [{ system: "CYP3A4", role: "Weak Ind" }] },
   { match: "posaconazole", annotations: [{ system: "CYP3A4", role: "Strong Inh" }] },
+  {
+    match: "isavuconazole",
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP3A5", role: "Sub" },
+      { system: "CYP3A4", role: "Moderate Inh" },
+      { system: "CYP2C8", role: "Weak Ind" },
+      { system: "CYP2C9", role: "Weak Ind" },
+    ],
+  },
   { match: "nelfinavir", annotations: [{ system: "CYP3A4", role: "Strong Inh" }, { system: "CYP2B6", role: "Moderate Inh" }] },
   { match: "nefazodone", annotations: [{ system: "CYP3A4", role: "Strong Inh" }] },
   { match: "grapefruit juice", annotations: [{ system: "CYP3A4", role: "Strong Inh" }] },
