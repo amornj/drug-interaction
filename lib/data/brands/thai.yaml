@@ -447,6 +447,14 @@
     - name: "Thai brand overlay"
       version: "2026-04"
 
+- term: "Plendil"
+  components:
+    - rxcui: "4316"
+      name: "felodipine"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
 - term: "MADIPLOT"
   components:
     - rxcui: "29275"
@@ -2122,6 +2130,14 @@
       version: "2026-04"
 
 - term: "Rivotril"
+  components:
+    - rxcui: "2598"
+      name: "clonazepam"
+  sources:
+    - name: "Thai brand overlay"
+      version: "2026-04"
+
+- term: "Prenapril"
   components:
     - rxcui: "2598"
       name: "clonazepam"

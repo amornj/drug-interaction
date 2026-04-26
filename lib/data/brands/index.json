@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T02:43:18.949Z",
+  "generatedAt": "2026-04-26T02:48:53.348Z",
   "brandsVersion": "2026-04",
   "entries": [
     {
@@ -5836,6 +5836,23 @@
       "file": "thai.yaml"
     },
     {
+      "term": "Plendil",
+      "normalizedTerm": "plendil",
+      "components": [
+        {
+          "rxcui": "4316",
+          "name": "felodipine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
       "term": "MADIPLOT",
       "normalizedTerm": "madiplot",
       "components": [
@@ -9333,6 +9350,23 @@
     {
       "term": "Rivotril",
       "normalizedTerm": "rivotril",
+      "components": [
+        {
+          "rxcui": "2598",
+          "name": "clonazepam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Prenapril",
+      "normalizedTerm": "prenapril",
       "components": [
         {
           "rxcui": "2598",
