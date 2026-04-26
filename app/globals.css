@@ -12,6 +12,17 @@
   --cyp-2e1:  #8a4a18; /* burnt orange */
   --cyp-2a6:  #8a2b6a; /* dusty rose */
   --pgp:      #2b3b8a; /* indigo */
+  /* Soft background tints — used by borderless Inh/Ind chips */
+  --cyp-3a4-bg:  color-mix(in srgb, var(--cyp-3a4)  14%, transparent);
+  --cyp-2d6-bg:  color-mix(in srgb, var(--cyp-2d6)  14%, transparent);
+  --cyp-2c9-bg:  color-mix(in srgb, var(--cyp-2c9)  14%, transparent);
+  --cyp-2c19-bg: color-mix(in srgb, var(--cyp-2c19) 14%, transparent);
+  --cyp-1a2-bg:  color-mix(in srgb, var(--cyp-1a2)  14%, transparent);
+  --cyp-2b6-bg:  color-mix(in srgb, var(--cyp-2b6)  14%, transparent);
+  --cyp-2c8-bg:  color-mix(in srgb, var(--cyp-2c8)  14%, transparent);
+  --cyp-2e1-bg:  color-mix(in srgb, var(--cyp-2e1)  14%, transparent);
+  --cyp-2a6-bg:  color-mix(in srgb, var(--cyp-2a6)  14%, transparent);
+  --pgp-bg:      color-mix(in srgb, var(--pgp)       14%, transparent);
 
   --paper: #f7f3ea;
   --paper-raised: #fdfbf5;

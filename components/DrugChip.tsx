@@ -19,14 +19,49 @@ function cypSystemColor(system: string): string {
   return "var(--ink-mute)";
 }
 
-function strengthOpacity(s: DrugMetabolismTag["strength"]): number {
-  if (s === "strong")   return 1.0;
-  if (s === "moderate") return 0.65;
-  if (s === "weak")     return 0.35;
-  return 0.55; // unlabelled inh/ind
+function cypSystemBg(system: string): string {
+  if (system === "CYP3A4")  return "var(--cyp-3a4-bg)";
+  if (system === "CYP2D6")  return "var(--cyp-2d6-bg)";
+  if (system === "CYP2C9")  return "var(--cyp-2c9-bg)";
+  if (system === "CYP2C19") return "var(--cyp-2c19-bg)";
+  if (system === "CYP1A2")  return "var(--cyp-1a2-bg)";
+  if (system === "CYP2B6")  return "var(--cyp-2b6-bg)";
+  if (system === "CYP2C8")  return "var(--cyp-2c8-bg)";
+  if (system === "CYP2E1")  return "var(--cyp-2e1-bg)";
+  if (system === "CYP2A6")  return "var(--cyp-2a6-bg)";
+  if (system === "P-gp")    return "var(--pgp-bg)";
+  return "transparent";
 }
 
-/** Inner content shared between clickable and non-clickable CYP/P-gp tags. */
+function strengthOpacity(s: DrugMetabolismTag["strength"]): number {
+  if (s === "strong")   return 1.0;
+  if (s === "moderate") return 0.85;
+  if (s === "weak")     return 0.55;
+  return 0.75; // unlabelled
+}
+
+/**
+ * 8 × 8 clip-path triangles. Hypotenuse shape encodes strength:
+ *   convex  (bulges outward) → strong
+ *   straight                 → moderate / unlabelled
+ *   concave (bites inward)   → weak
+ * Position encodes direction: upper-right = inhibitor, lower-right = inducer.
+ */
+function triangleClipPath(
+  direction: "inhibitor" | "inducer",
+  strength: DrugMetabolismTag["strength"],
+): string {
+  if (direction === "inhibitor") {
+    if (strength === "strong") return 'path("M 8 0 L 8 8 Q 0 8 0 0 Z")';
+    if (strength === "weak")   return 'path("M 8 0 L 8 8 Q 8 0 0 0 Z")';
+    return "polygon(100% 0%, 100% 100%, 0% 0%)";
+  }
+  if (strength === "strong") return 'path("M 8 8 L 8 0 Q 0 0 0 8 Z")';
+  if (strength === "weak")   return 'path("M 8 8 L 8 0 Q 8 8 0 8 Z")';
+  return "polygon(100% 0%, 100% 100%, 0% 100%)";
+}
+
+/** Coloured system name + corner triangle. Used inside both bordered (Sub) and tinted (Inh/Ind) chips. */
 function CypTagInner({ tag }: { tag: DrugMetabolismTag }) {
   const color = cypSystemColor(tag.system);
   const colonAt = tag.label.indexOf(": ");
@@ -45,15 +80,11 @@ function CypTagInner({ tag }: { tag: DrugMetabolismTag }) {
             top:    tag.direction === "inhibitor" ? 0 : "auto",
             bottom: tag.direction === "inducer"   ? 0 : "auto",
             right: 0,
-            width: "6px",
-            height: "6px",
+            width: "8px",
+            height: "8px",
             background: color,
             opacity: strengthOpacity(tag.strength),
-            /* upper-right triangle for inhibitor, lower-right for inducer */
-            clipPath:
-              tag.direction === "inhibitor"
-                ? "polygon(100% 0%, 100% 100%, 0% 0%)"
-                : "polygon(100% 0%, 100% 100%, 0% 100%)",
+            clipPath: triangleClipPath(tag.direction, tag.strength),
           }}
         />
       )}
@@ -125,7 +156,8 @@ export function DrugChip({
                 return (
                   <span
                     key={tag.id}
-                    className="relative overflow-hidden border border-rule bg-surface px-1.5 py-0.5"
+                    className="relative overflow-hidden px-1.5 py-0.5"
+                    style={{ background: cypSystemBg(tag.system) }}
                   >
                     <CypTagInner tag={tag} />
                   </span>
