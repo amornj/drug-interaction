@@ -156,6 +156,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2C19", role: "Moderate Inh" },
       { system: "CYP2D6", role: "Moderate Inh" },
       { system: "P-gp", role: "Inh", note: "strong" },
+      { system: "UGT", role: "Weak Inh", note: "also affects UGT" },
     ],
   },
   {
@@ -185,6 +186,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2C9", role: "Moderate Inh" },
       { system: "CYP2C19", role: "Strong Inh" },
       { system: "P-gp", role: "Inh", note: "moderate" },
+      { system: "UGT", role: "Moderate Inh", note: "mild–moderate UGT effect" },
     ],
   },
   {
@@ -279,7 +281,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
     match: "warfarin",
     annotations: [{ system: "CYP2C9", role: "Sub" }, { system: "CYP1A2", role: "Sub", note: "minor" }],
   },
-  { match: "diclofenac", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "diclofenac", annotations: [{ system: "CYP2C9", role: "Sub" }, { system: "UGT", role: "Moderate Inh", note: "competes for UGT pathways" }] },
   { match: "ibuprofen", annotations: [{ system: "CYP2C9", role: "Sub" }] },
   { match: "glyburide", annotations: [{ system: "CYP2C9", role: "Sub" }] },
   { match: "glipizide", annotations: [{ system: "CYP2C9", role: "Sub" }] },
@@ -290,7 +292,8 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "metronidazole", annotations: [{ system: "CYP2C9", role: "Strong Inh" }] },
   { match: "trimethoprim sulfamethoxazole", annotations: [{ system: "CYP2C9", role: "Strong Inh" }] },
   { match: "sulfamethoxazole trimethoprim", annotations: [{ system: "CYP2C9", role: "Strong Inh" }] },
-  { match: "valproate", annotations: [{ system: "CYP2C9", role: "Moderate Inh" }] },
+  { match: "valproate", annotations: [{ system: "CYP2C9", role: "Moderate Inh" }, { system: "UGT", role: "Strong Inh", note: "↑ lamotrigine, ↑ SJS risk" }] },
+  { match: "valproic acid", annotations: [{ system: "CYP2C9", role: "Moderate Inh" }, { system: "UGT", role: "Strong Inh", note: "↑ lamotrigine, ↑ SJS risk" }] },
   {
     match: "isoniazid",
     annotations: [{ system: "CYP2C9", role: "Moderate Inh" }, { system: "CYP2C19", role: "Weak Inh" }, { system: "CYP2E1", role: "Strong Ind" }, { system: "NAT2", role: "Met" }],
@@ -593,6 +596,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP3A4", role: "Strong Inh" },
       { system: "CYP2C8", role: "Inh" },
       { system: "CYP2C9", role: "Inh" },
+      { system: "UGT1A1", role: "Inh", note: "↑ bilirubin, Gilbert-like" },
     ],
   },
   { match: "atomoxetine", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP2C19", role: "Sub", note: "minor" }] },
@@ -1021,6 +1025,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP3A4", role: "Sub", note: "major" },
       { system: "CYP3A4", role: "Strong Inh" },
       { system: "CYP2D6", role: "Inh" },
+      { system: "UGT1A1", role: "Inh" },
     ],
   },
   {
@@ -1906,7 +1911,8 @@ const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
   { match: "prasugrel", annotations: [{ system: "CYP2B6", role: "Strong Inh" }] },
   { match: "nevirapine", annotations: [{ system: "CYP2B6", role: "Strong Ind" }] },
   { match: "cyclophosphamide", annotations: [{ system: "CYP2B6", role: "Moderate Ind" }] },
-  { match: "gemfibrozil", annotations: [{ system: "CYP2C8", role: "Strong Inh" }] },
+  { match: "gemfibrozil", annotations: [{ system: "CYP2C8", role: "Strong Inh" }, { system: "UGT", role: "Inh", note: "UGT inhibition contributes to interactions" }] },
+  { match: "probenecid", annotations: [{ system: "UGT", role: "Inh", note: "inhibits glucuronidation + renal secretion" }] },
   { match: "trimethoprim", annotations: [{ system: "CYP2C8", role: "Strong Inh" }] },
   { match: "deferasirox", annotations: [{ system: "CYP2C8", role: "Strong Inh" }] },
   { match: "quercetin", annotations: [{ system: "CYP2C8", role: "Weak Inh" }] },
@@ -2012,7 +2018,7 @@ function formatAnnotation(annotation: MetabolismAnnotation) {
 }
 
 function isClickableAnnotation(annotation: MetabolismAnnotation) {
-  return annotation.role === "Sub" && (annotation.system.startsWith("CYP") || annotation.system === "P-gp");
+  return annotation.role === "Sub" && (annotation.system.startsWith("CYP") || annotation.system === "P-gp" || annotation.system.startsWith("UGT"));
 }
 
 export function getDrugMetabolismTags(name: string): DrugMetabolismTag[] {
