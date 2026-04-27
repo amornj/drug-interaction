@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-27T15:26:03.322Z",
+  "generatedAt": "2026-04-27T15:37:38.038Z",
   "brandsVersion": "2026-04",
   "entries": [
     {
@@ -18518,6 +18518,2894 @@
         }
       ],
       "file": "thai.yaml"
+    },
+    {
+      "term": "Rasilez",
+      "normalizedTerm": "rasilez",
+      "components": [
+        {
+          "rxcui": "325646",
+          "name": "aliskiren"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Sevikar",
+      "normalizedTerm": "sevikar",
+      "components": [
+        {
+          "rxcui": "17767",
+          "name": "amlodipine"
+        },
+        {
+          "rxcui": "321064",
+          "name": "olmesartan"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Azor",
+      "normalizedTerm": "azor",
+      "components": [
+        {
+          "rxcui": "17767",
+          "name": "amlodipine"
+        },
+        {
+          "rxcui": "321064",
+          "name": "olmesartan"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Coveram",
+      "normalizedTerm": "coveram",
+      "components": [
+        {
+          "rxcui": "17767",
+          "name": "amlodipine"
+        },
+        {
+          "rxcui": "54552",
+          "name": "perindopril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Triapin",
+      "normalizedTerm": "triapin",
+      "components": [
+        {
+          "rxcui": "17767",
+          "name": "amlodipine"
+        },
+        {
+          "rxcui": "35296",
+          "name": "ramipril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Tenoretic",
+      "normalizedTerm": "tenoretic",
+      "components": [
+        {
+          "rxcui": "1202",
+          "name": "atenolol"
+        },
+        {
+          "rxcui": "2409",
+          "name": "chlorthalidone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Edarbi Plus",
+      "normalizedTerm": "edarbi plus",
+      "components": [
+        {
+          "rxcui": "1091643",
+          "name": "azilsartan"
+        },
+        {
+          "rxcui": "17767",
+          "name": "amlodipine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Blopress Plus",
+      "normalizedTerm": "blopress plus",
+      "components": [
+        {
+          "rxcui": "214354",
+          "name": "candesartan"
+        },
+        {
+          "rxcui": "5487",
+          "name": "hydrochlorothiazide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Atelec",
+      "normalizedTerm": "atelec",
+      "components": [
+        {
+          "rxcui": "115066",
+          "name": "cilnidipine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Inspra",
+      "normalizedTerm": "inspra",
+      "components": [
+        {
+          "rxcui": "298869",
+          "name": "eplerenone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Felodipine GPO",
+      "normalizedTerm": "felodipine gpo",
+      "components": [
+        {
+          "rxcui": "4316",
+          "name": "felodipine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Natrilix SR",
+      "normalizedTerm": "natrilix sr",
+      "components": [
+        {
+          "rxcui": "5764",
+          "name": "indapamide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Zanidip",
+      "normalizedTerm": "zanidip",
+      "components": [
+        {
+          "rxcui": "135056",
+          "name": "lercanidipine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Loniten",
+      "normalizedTerm": "loniten",
+      "components": [
+        {
+          "rxcui": "6984",
+          "name": "minoxidil"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Univasc",
+      "normalizedTerm": "univasc",
+      "components": [
+        {
+          "rxcui": "30131",
+          "name": "moexipril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Cardene",
+      "normalizedTerm": "cardene",
+      "components": [
+        {
+          "rxcui": "7396",
+          "name": "nicardipine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Nicapine",
+      "normalizedTerm": "nicapine",
+      "components": [
+        {
+          "rxcui": "7396",
+          "name": "nicardipine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Sular",
+      "normalizedTerm": "sular",
+      "components": [
+        {
+          "rxcui": "7435",
+          "name": "nisoldipine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Coversyl Plus",
+      "normalizedTerm": "coversyl plus",
+      "components": [
+        {
+          "rxcui": "54552",
+          "name": "perindopril"
+        },
+        {
+          "rxcui": "5764",
+          "name": "indapamide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Trewon",
+      "normalizedTerm": "trewon",
+      "components": [
+        {
+          "rxcui": "73494",
+          "name": "telmisartan"
+        },
+        {
+          "rxcui": "17767",
+          "name": "amlodipine"
+        },
+        {
+          "rxcui": "5487",
+          "name": "hydrochlorothiazide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Gopten",
+      "normalizedTerm": "gopten",
+      "components": [
+        {
+          "rxcui": "38454",
+          "name": "trandolapril"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Isoptin SR",
+      "normalizedTerm": "isoptin sr",
+      "components": [
+        {
+          "rxcui": "11170",
+          "name": "verapamil"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Nexletol",
+      "normalizedTerm": "nexletol",
+      "components": [
+        {
+          "rxcui": "2282403",
+          "name": "bempedoic acid"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Welchol",
+      "normalizedTerm": "welchol",
+      "components": [
+        {
+          "rxcui": "141626",
+          "name": "colesevelam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Colestid",
+      "normalizedTerm": "colestid",
+      "components": [
+        {
+          "rxcui": "2685",
+          "name": "colestipol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Omacor",
+      "normalizedTerm": "omacor",
+      "components": [
+        {
+          "rxcui": "4301",
+          "name": "omega-3 fatty acids"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Segluromet",
+      "normalizedTerm": "segluromet",
+      "components": [
+        {
+          "rxcui": "1992672",
+          "name": "ertugliflozin"
+        },
+        {
+          "rxcui": "6809",
+          "name": "metformin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Amaryl M",
+      "normalizedTerm": "amaryl m",
+      "components": [
+        {
+          "rxcui": "25789",
+          "name": "glimepiride"
+        },
+        {
+          "rxcui": "6809",
+          "name": "metformin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Ryzodeg",
+      "normalizedTerm": "ryzodeg",
+      "components": [
+        {
+          "rxcui": "1670007",
+          "name": "insulin degludec"
+        },
+        {
+          "rxcui": "42543",
+          "name": "aspart"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Apidra",
+      "normalizedTerm": "apidra",
+      "components": [
+        {
+          "rxcui": "400008",
+          "name": "insulin glulisine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Trajenta Duo",
+      "normalizedTerm": "trajenta duo",
+      "components": [
+        {
+          "rxcui": "1100699",
+          "name": "linagliptin"
+        },
+        {
+          "rxcui": "6809",
+          "name": "metformin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Metaglip",
+      "normalizedTerm": "metaglip",
+      "components": [
+        {
+          "rxcui": "6809",
+          "name": "metformin"
+        },
+        {
+          "rxcui": "33738",
+          "name": "pioglitazone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Starlix",
+      "normalizedTerm": "starlix",
+      "components": [
+        {
+          "rxcui": "274332",
+          "name": "nateglinide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Duetact",
+      "normalizedTerm": "duetact",
+      "components": [
+        {
+          "rxcui": "33738",
+          "name": "pioglitazone"
+        },
+        {
+          "rxcui": "25789",
+          "name": "glimepiride"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Juvisync",
+      "normalizedTerm": "juvisync",
+      "components": [
+        {
+          "rxcui": "593411",
+          "name": "sitagliptin"
+        },
+        {
+          "rxcui": "36567",
+          "name": "simvastatin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Conbriza",
+      "normalizedTerm": "conbriza",
+      "components": [
+        {
+          "rxcui": "1441386",
+          "name": "bazedoxifene"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Mimpara",
+      "normalizedTerm": "mimpara",
+      "components": [
+        {
+          "rxcui": "407990",
+          "name": "cinacalcet"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Danocrine",
+      "normalizedTerm": "danocrine",
+      "components": [
+        {
+          "rxcui": "3102",
+          "name": "danazol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Minirin",
+      "normalizedTerm": "minirin",
+      "components": [
+        {
+          "rxcui": "3251",
+          "name": "desmopressin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Aromasin",
+      "normalizedTerm": "aromasin",
+      "components": [
+        {
+          "rxcui": "258494",
+          "name": "exemestane"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Faslodex",
+      "normalizedTerm": "faslodex",
+      "components": [
+        {
+          "rxcui": "282357",
+          "name": "fulvestrant"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Femara",
+      "normalizedTerm": "femara",
+      "components": [
+        {
+          "rxcui": "72965",
+          "name": "letrozole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Sandostatin",
+      "normalizedTerm": "sandostatin",
+      "components": [
+        {
+          "rxcui": "7617",
+          "name": "octreotide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Evista",
+      "normalizedTerm": "evista",
+      "components": [
+        {
+          "rxcui": "72143",
+          "name": "raloxifene"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Nolvadex",
+      "normalizedTerm": "nolvadex",
+      "components": [
+        {
+          "rxcui": "10324",
+          "name": "tamoxifen"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Forteo",
+      "normalizedTerm": "forteo",
+      "components": [
+        {
+          "rxcui": "32915",
+          "name": "teriparatide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Aclasta",
+      "normalizedTerm": "aclasta",
+      "components": [
+        {
+          "rxcui": "77655",
+          "name": "zoledronic acid"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Lotronex",
+      "normalizedTerm": "lotronex",
+      "components": [
+        {
+          "rxcui": "85248",
+          "name": "alosetron"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Sancini",
+      "normalizedTerm": "sancini",
+      "components": [
+        {
+          "rxcui": "21125",
+          "name": "cinitapride"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Bentyl",
+      "normalizedTerm": "bentyl",
+      "components": [
+        {
+          "rxcui": "3361",
+          "name": "dicyclomine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Linzess",
+      "normalizedTerm": "linzess",
+      "components": [
+        {
+          "rxcui": "1307404",
+          "name": "linaclotide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Imodium Multi-Symptom",
+      "normalizedTerm": "imodium multi-symptom",
+      "components": [
+        {
+          "rxcui": "6468",
+          "name": "loperamide"
+        },
+        {
+          "rxcui": "9796",
+          "name": "simethicone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Amitiza",
+      "normalizedTerm": "amitiza",
+      "components": [
+        {
+          "rxcui": "623033",
+          "name": "lubiprostone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Dicetel",
+      "normalizedTerm": "dicetel",
+      "components": [
+        {
+          "rxcui": "33724",
+          "name": "pinaverium"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Resolor",
+      "normalizedTerm": "resolor",
+      "components": [
+        {
+          "rxcui": "2107310",
+          "name": "prucalopride"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Xifaxan",
+      "normalizedTerm": "xifaxan",
+      "components": [
+        {
+          "rxcui": "35619",
+          "name": "rifaximin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Bioflor",
+      "normalizedTerm": "bioflor",
+      "components": [
+        {
+          "rxcui": "236782",
+          "name": "saccharomyces boulardii"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Zelnorm",
+      "normalizedTerm": "zelnorm",
+      "components": [
+        {
+          "rxcui": "139778",
+          "name": "tegaserod"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Polybutin",
+      "normalizedTerm": "polybutin",
+      "components": [
+        {
+          "rxcui": "10819",
+          "name": "trimebutine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Colazal",
+      "normalizedTerm": "colazal",
+      "components": [
+        {
+          "rxcui": "18747",
+          "name": "balsalazide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Budenofalk",
+      "normalizedTerm": "budenofalk",
+      "components": [
+        {
+          "rxcui": "19831",
+          "name": "budesonide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Remicade",
+      "normalizedTerm": "remicade",
+      "components": [
+        {
+          "rxcui": "191831",
+          "name": "infliximab"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Dipentum",
+      "normalizedTerm": "dipentum",
+      "components": [
+        {
+          "rxcui": "32385",
+          "name": "olsalazine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Azulfidine",
+      "normalizedTerm": "azulfidine",
+      "components": [
+        {
+          "rxcui": "9524",
+          "name": "sulfasalazine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Entyvio",
+      "normalizedTerm": "entyvio",
+      "components": [
+        {
+          "rxcui": "1538097",
+          "name": "vedolizumab"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Emend",
+      "normalizedTerm": "emend",
+      "components": [
+        {
+          "rxcui": "358255",
+          "name": "aprepitant"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Emend Injection",
+      "normalizedTerm": "emend injection",
+      "components": [
+        {
+          "rxcui": "1731071",
+          "name": "fosaprepitant"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Kytril",
+      "normalizedTerm": "kytril",
+      "components": [
+        {
+          "rxcui": "26237",
+          "name": "granisetron"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Aloxi",
+      "normalizedTerm": "aloxi",
+      "components": [
+        {
+          "rxcui": "70561",
+          "name": "palonosetron"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Pepto-Bismol",
+      "normalizedTerm": "pepto-bismol",
+      "components": [
+        {
+          "rxcui": "19478",
+          "name": "bismuth subsalicylate"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Prevacid FasTab",
+      "normalizedTerm": "prevacid fastab",
+      "components": [
+        {
+          "rxcui": "17128",
+          "name": "lansoprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Controloc IV",
+      "normalizedTerm": "controloc iv",
+      "components": [
+        {
+          "rxcui": "40790",
+          "name": "pantoprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Rabium D",
+      "normalizedTerm": "rabium d",
+      "components": [
+        {
+          "rxcui": "114979",
+          "name": "rabeprazole"
+        },
+        {
+          "rxcui": "3626",
+          "name": "domperidone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Ulsanic",
+      "normalizedTerm": "ulsanic",
+      "components": [
+        {
+          "rxcui": "10156",
+          "name": "sucralfate"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Toviaz",
+      "normalizedTerm": "toviaz",
+      "components": [
+        {
+          "rxcui": "797195",
+          "name": "fesoterodine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Urispas",
+      "normalizedTerm": "urispas",
+      "components": [
+        {
+          "rxcui": "4440",
+          "name": "flavoxate"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Ditropan XL",
+      "normalizedTerm": "ditropan xl",
+      "components": [
+        {
+          "rxcui": "32675",
+          "name": "oxybutynin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Detrusitol SR",
+      "normalizedTerm": "detrusitol sr",
+      "components": [
+        {
+          "rxcui": "119565",
+          "name": "tolterodine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Spasmex",
+      "normalizedTerm": "spasmex",
+      "components": [
+        {
+          "rxcui": "236778",
+          "name": "trospium"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Urief",
+      "normalizedTerm": "urief",
+      "components": [
+        {
+          "rxcui": "720825",
+          "name": "silodosin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Caverject",
+      "normalizedTerm": "caverject",
+      "components": [
+        {
+          "rxcui": "598",
+          "name": "alprostadil"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Sidegra",
+      "normalizedTerm": "sidegra",
+      "components": [
+        {
+          "rxcui": "136411",
+          "name": "sildenafil"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Priligy",
+      "normalizedTerm": "priligy",
+      "components": [
+        {
+          "rxcui": "69394",
+          "name": "dapoxetine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Firide",
+      "normalizedTerm": "firide",
+      "components": [
+        {
+          "rxcui": "25025",
+          "name": "finasteride"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Elmiron",
+      "normalizedTerm": "elmiron",
+      "components": [
+        {
+          "rxcui": "155046",
+          "name": "pentosan polysulfate"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Urocit-K",
+      "normalizedTerm": "urocit-k",
+      "components": [
+        {
+          "rxcui": "54993",
+          "name": "potassium citrate"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Renvela",
+      "normalizedTerm": "renvela",
+      "components": [
+        {
+          "rxcui": "214824",
+          "name": "sevelamer"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Kayexalate",
+      "normalizedTerm": "kayexalate",
+      "components": [
+        {
+          "rxcui": "56512",
+          "name": "sodium polystyrene sulfonate"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Lioresal",
+      "normalizedTerm": "lioresal",
+      "components": [
+        {
+          "rxcui": "1292",
+          "name": "baclofen"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Flexeril",
+      "normalizedTerm": "flexeril",
+      "components": [
+        {
+          "rxcui": "21949",
+          "name": "cyclobenzaprine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Myonal",
+      "normalizedTerm": "myonal",
+      "components": [
+        {
+          "rxcui": "11474",
+          "name": "eperisone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Robaxin",
+      "normalizedTerm": "robaxin",
+      "components": [
+        {
+          "rxcui": "6845",
+          "name": "methocarbamol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Norgesic",
+      "normalizedTerm": "norgesic",
+      "components": [
+        {
+          "rxcui": "7715",
+          "name": "orphenadrine"
+        },
+        {
+          "rxcui": "161",
+          "name": "acetaminophen"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Sirdalud",
+      "normalizedTerm": "sirdalud",
+      "components": [
+        {
+          "rxcui": "57258",
+          "name": "tizanidine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Mydocalm",
+      "normalizedTerm": "mydocalm",
+      "components": [
+        {
+          "rxcui": "10639",
+          "name": "tolperisone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Norspan",
+      "normalizedTerm": "norspan",
+      "components": [
+        {
+          "rxcui": "1819",
+          "name": "buprenorphine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Durogesic",
+      "normalizedTerm": "durogesic",
+      "components": [
+        {
+          "rxcui": "4337",
+          "name": "fentanyl"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Jurnista",
+      "normalizedTerm": "jurnista",
+      "components": [
+        {
+          "rxcui": "3423",
+          "name": "hydromorphone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "MST Continus",
+      "normalizedTerm": "mst continus",
+      "components": [
+        {
+          "rxcui": "30236",
+          "name": "morphine sulfate"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Targin",
+      "normalizedTerm": "targin",
+      "components": [
+        {
+          "rxcui": "7804",
+          "name": "oxycodone"
+        },
+        {
+          "rxcui": "7242",
+          "name": "naloxone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Palexia",
+      "normalizedTerm": "palexia",
+      "components": [
+        {
+          "rxcui": "787390",
+          "name": "tapentadol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Ultracet",
+      "normalizedTerm": "ultracet",
+      "components": [
+        {
+          "rxcui": "10689",
+          "name": "tramadol"
+        },
+        {
+          "rxcui": "161",
+          "name": "acetaminophen"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Orencia",
+      "normalizedTerm": "orencia",
+      "components": [
+        {
+          "rxcui": "614391",
+          "name": "abatacept"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Humira",
+      "normalizedTerm": "humira",
+      "components": [
+        {
+          "rxcui": "327361",
+          "name": "adalimumab"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Kineret",
+      "normalizedTerm": "kineret",
+      "components": [
+        {
+          "rxcui": "72435",
+          "name": "anakinra"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Cimzia",
+      "normalizedTerm": "cimzia",
+      "components": [
+        {
+          "rxcui": "709271",
+          "name": "certolizumab"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Enbrel",
+      "normalizedTerm": "enbrel",
+      "components": [
+        {
+          "rxcui": "214555",
+          "name": "etanercept"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Simponi",
+      "normalizedTerm": "simponi",
+      "components": [
+        {
+          "rxcui": "819300",
+          "name": "golimumab"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Arava",
+      "normalizedTerm": "arava",
+      "components": [
+        {
+          "rxcui": "27169",
+          "name": "leflunomide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Maxtrex",
+      "normalizedTerm": "maxtrex",
+      "components": [
+        {
+          "rxcui": "6851",
+          "name": "methotrexate"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "MabThera",
+      "normalizedTerm": "mabthera",
+      "components": [
+        {
+          "rxcui": "121191",
+          "name": "rituximab"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Xeljanz",
+      "normalizedTerm": "xeljanz",
+      "components": [
+        {
+          "rxcui": "1357536",
+          "name": "tofacitinib"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Rinvoq",
+      "normalizedTerm": "rinvoq",
+      "components": [
+        {
+          "rxcui": "2196092",
+          "name": "upadacitinib"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Valdoxan",
+      "normalizedTerm": "valdoxan",
+      "components": [
+        {
+          "rxcui": "306718",
+          "name": "agomelatine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Pristiq",
+      "normalizedTerm": "pristiq",
+      "components": [
+        {
+          "rxcui": "734064",
+          "name": "desvenlafaxine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Ixel",
+      "normalizedTerm": "ixel",
+      "components": [
+        {
+          "rxcui": "588250",
+          "name": "milnacipran"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Brintellix",
+      "normalizedTerm": "brintellix",
+      "components": [
+        {
+          "rxcui": "1455099",
+          "name": "vortioxetine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Solian",
+      "normalizedTerm": "solian",
+      "components": [
+        {
+          "rxcui": "46303",
+          "name": "amisulpride"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Rexulti",
+      "normalizedTerm": "rexulti",
+      "components": [
+        {
+          "rxcui": "1658314",
+          "name": "brexpiprazole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Invega",
+      "normalizedTerm": "invega",
+      "components": [
+        {
+          "rxcui": "679314",
+          "name": "paliperidone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Trilafon",
+      "normalizedTerm": "trilafon",
+      "components": [
+        {
+          "rxcui": "8076",
+          "name": "perphenazine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Medaum",
+      "normalizedTerm": "medaum",
+      "components": [
+        {
+          "rxcui": "10239",
+          "name": "sulpiride"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Lexotan",
+      "normalizedTerm": "lexotan",
+      "components": [
+        {
+          "rxcui": "1749",
+          "name": "bromazepam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Frisium",
+      "normalizedTerm": "frisium",
+      "components": [
+        {
+          "rxcui": "21241",
+          "name": "clobazam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Cloze",
+      "normalizedTerm": "cloze",
+      "components": [
+        {
+          "rxcui": "2622",
+          "name": "clotiazepam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Dalmadane",
+      "normalizedTerm": "dalmadane",
+      "components": [
+        {
+          "rxcui": "4501",
+          "name": "flurazepam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Dormicum",
+      "normalizedTerm": "dormicum",
+      "components": [
+        {
+          "rxcui": "6960",
+          "name": "midazolam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Symmetrel",
+      "normalizedTerm": "symmetrel",
+      "components": [
+        {
+          "rxcui": "620",
+          "name": "amantadine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Madopar",
+      "normalizedTerm": "madopar",
+      "components": [
+        {
+          "rxcui": "6375",
+          "name": "levodopa"
+        },
+        {
+          "rxcui": "1374",
+          "name": "benserazide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Sinemet",
+      "normalizedTerm": "sinemet",
+      "components": [
+        {
+          "rxcui": "6375",
+          "name": "levodopa"
+        },
+        {
+          "rxcui": "2019",
+          "name": "carbidopa"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Mirapex",
+      "normalizedTerm": "mirapex",
+      "components": [
+        {
+          "rxcui": "746741",
+          "name": "pramipexole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Azilect",
+      "normalizedTerm": "azilect",
+      "components": [
+        {
+          "rxcui": "134748",
+          "name": "rasagiline"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Requip",
+      "normalizedTerm": "requip",
+      "components": [
+        {
+          "rxcui": "72302",
+          "name": "ropinirole"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Neupro",
+      "normalizedTerm": "neupro",
+      "components": [
+        {
+          "rxcui": "616739",
+          "name": "rotigotine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Eldepryl",
+      "normalizedTerm": "eldepryl",
+      "components": [
+        {
+          "rxcui": "9639",
+          "name": "selegiline"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Briviact",
+      "normalizedTerm": "briviact",
+      "components": [
+        {
+          "rxcui": "1739745",
+          "name": "brivaracetam"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Fycompa",
+      "normalizedTerm": "fycompa",
+      "components": [
+        {
+          "rxcui": "1356552",
+          "name": "perampanel"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Gabitril",
+      "normalizedTerm": "gabitril",
+      "components": [
+        {
+          "rxcui": "31914",
+          "name": "tiagabine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Sabril",
+      "normalizedTerm": "sabril",
+      "components": [
+        {
+          "rxcui": "14851",
+          "name": "vigabatrin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Aricept",
+      "normalizedTerm": "aricept",
+      "components": [
+        {
+          "rxcui": "135447",
+          "name": "donepezil"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Reminyl",
+      "normalizedTerm": "reminyl",
+      "components": [
+        {
+          "rxcui": "4637",
+          "name": "galantamine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Ebixa",
+      "normalizedTerm": "ebixa",
+      "components": [
+        {
+          "rxcui": "6719",
+          "name": "memantine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Exelon Patch",
+      "normalizedTerm": "exelon patch",
+      "components": [
+        {
+          "rxcui": "183379",
+          "name": "rivastigmine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Strattera",
+      "normalizedTerm": "strattera",
+      "components": [
+        {
+          "rxcui": "38400",
+          "name": "atomoxetine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Intuniv",
+      "normalizedTerm": "intuniv",
+      "components": [
+        {
+          "rxcui": "40114",
+          "name": "guanfacine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Provigil",
+      "normalizedTerm": "provigil",
+      "components": [
+        {
+          "rxcui": "30125",
+          "name": "modafinil"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Lumigan",
+      "normalizedTerm": "lumigan",
+      "components": [
+        {
+          "rxcui": "283810",
+          "name": "bimatoprost"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Alphagan",
+      "normalizedTerm": "alphagan",
+      "components": [
+        {
+          "rxcui": "134615",
+          "name": "brimonidine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Azopt",
+      "normalizedTerm": "azopt",
+      "components": [
+        {
+          "rxcui": "194881",
+          "name": "brinzolamide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Cosopt",
+      "normalizedTerm": "cosopt",
+      "components": [
+        {
+          "rxcui": "60207",
+          "name": "dorzolamide"
+        },
+        {
+          "rxcui": "10600",
+          "name": "timolol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Xalatan",
+      "normalizedTerm": "xalatan",
+      "components": [
+        {
+          "rxcui": "43611",
+          "name": "latanoprost"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Travatan",
+      "normalizedTerm": "travatan",
+      "components": [
+        {
+          "rxcui": "283809",
+          "name": "travoprost"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Elidel",
+      "normalizedTerm": "elidel",
+      "components": [
+        {
+          "rxcui": "321952",
+          "name": "pimecrolimus"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Protopic",
+      "normalizedTerm": "protopic",
+      "components": [
+        {
+          "rxcui": "42316",
+          "name": "tacrolimus"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Differin",
+      "normalizedTerm": "differin",
+      "components": [
+        {
+          "rxcui": "60223",
+          "name": "adapalene"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Roaccutane",
+      "normalizedTerm": "roaccutane",
+      "components": [
+        {
+          "rxcui": "6064",
+          "name": "isotretinoin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Retin-A",
+      "normalizedTerm": "retin-a",
+      "components": [
+        {
+          "rxcui": "10753",
+          "name": "tretinoin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Piriton",
+      "normalizedTerm": "piriton",
+      "components": [
+        {
+          "rxcui": "2400",
+          "name": "chlorpheniramine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Atarax",
+      "normalizedTerm": "atarax",
+      "components": [
+        {
+          "rxcui": "5553",
+          "name": "hydroxyzine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Telfast",
+      "normalizedTerm": "telfast",
+      "components": [
+        {
+          "rxcui": "87636",
+          "name": "fexofenadine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Aerius",
+      "normalizedTerm": "aerius",
+      "components": [
+        {
+          "rxcui": "275635",
+          "name": "desloratadine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Xyzal",
+      "normalizedTerm": "xyzal",
+      "components": [
+        {
+          "rxcui": "356887",
+          "name": "levocetirizine"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Flixonase",
+      "normalizedTerm": "flixonase",
+      "components": [
+        {
+          "rxcui": "41126",
+          "name": "fluticasone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
+    },
+    {
+      "term": "Nasonex",
+      "normalizedTerm": "nasonex",
+      "components": [
+        {
+          "rxcui": "108118",
+          "name": "mometasone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Thai brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "thai.yaml"
     }
   ],
   "rxcuiNames": {
@@ -18529,6 +21417,7 @@
     "519": "allopurinol",
     "596": "alprazolam",
     "598": "alprostadil",
+    "620": "amantadine",
     "644": "amiloride",
     "703": "amiodarone",
     "704": "amitriptyline",
@@ -18567,13 +21456,18 @@
     "2597": "clomipramine",
     "2598": "clonazepam",
     "2599": "clonidine",
+    "2622": "clotiazepam",
     "2626": "clozapine",
     "2683": "colchicine",
+    "2685": "colestipol",
+    "3102": "danazol",
+    "3251": "desmopressin",
     "3264": "dexamethasone",
     "3322": "diazepam",
     "3355": "diclofenac",
     "3361": "dicyclomine",
     "3407": "digoxin",
+    "3423": "hydromorphone",
     "3443": "diltiazem",
     "3489": "diosmin",
     "3500": "diphenoxylate",
@@ -18585,14 +21479,17 @@
     "4083": "estradiol",
     "4099": "estrogens, conjugated (USP)",
     "4278": "famotidine",
+    "4301": "omega-3 fatty acids",
     "4316": "felodipine",
     "4337": "fentanyl",
     "4440": "flavoxate",
     "4441": "flecainide",
     "4493": "fluoxetine",
     "4495": "flupentixol",
+    "4501": "flurazepam",
     "4550": "fosfomycin",
     "4603": "furosemide",
+    "4637": "galantamine",
     "4719": "gemfibrozil",
     "4815": "glibenclamide",
     "4816": "gliclazide",
@@ -18636,6 +21533,7 @@
     "6916": "metolazone",
     "6918": "metoprolol",
     "6922": "metronidazole",
+    "6960": "midazolam",
     "6984": "minoxidil",
     "7052": "morphine",
     "7213": "ipratropium",
@@ -18643,15 +21541,19 @@
     "7242": "naloxone",
     "7258": "naproxen",
     "7393": "niacin",
+    "7396": "nicardipine",
     "7417": "nifedipine",
+    "7435": "nisoldipine",
     "7454": "nitrofurantoin",
     "7517": "norfloxacin",
     "7531": "nortriptyline",
+    "7617": "octreotide",
     "7646": "omeprazole",
     "7715": "orphenadrine",
     "7804": "oxycodone",
     "7880": "pancreatin",
     "8013": "pentoxifylline",
+    "8076": "perphenazine",
     "8120": "phenazopyridine",
     "8183": "phenytoin",
     "8356": "piroxicam",
@@ -18675,11 +21577,14 @@
     "9504": "S-adenosylmethionine",
     "9524": "sulfasalazine",
     "9601": "hyoscine",
+    "9639": "selegiline",
     "9796": "simethicone",
     "9899": "sodium oxybate",
     "9947": "sotalol",
     "9997": "spironolactone",
     "10156": "sucralfate",
+    "10239": "sulpiride",
+    "10324": "tamoxifen",
     "10355": "temazepam",
     "10379": "testosterone",
     "10510": "thiothixene",
@@ -18711,15 +21616,19 @@
     "17627": "alverine",
     "17767": "amlodipine",
     "18631": "azithromycin",
+    "18747": "balsalazide",
     "18867": "benazepril",
+    "19478": "bismuth subsalicylate",
     "19484": "bisoprolol",
     "19831": "budesonide",
     "20352": "carvedilol",
     "20610": "cetirizine",
     "20890": "lornoxicam",
     "21107": "cilostazol",
+    "21125": "cinitapride",
     "21212": "clarithromycin",
     "21232": "clidinium",
+    "21241": "clobazam",
     "21949": "cyclobenzaprine",
     "22759": "diacerein",
     "23684": "drotaverin",
@@ -18741,11 +21650,15 @@
     "29421": "mecobalamin",
     "30121": "moclobemide",
     "30125": "modafinil",
+    "30131": "moexipril",
+    "30236": "morphine sulfate",
     "30257": "moxonidine",
     "31476": "naftifine",
     "31555": "nebivolol",
     "31748": "nicorandil",
+    "31914": "tiagabine",
     "32311": "octylonium",
+    "32385": "olsalazine",
     "32463": "rebamipide",
     "32624": "oxcarbazepine",
     "32675": "oxybutynin",
@@ -18777,6 +21690,7 @@
     "38400": "atomoxetine",
     "38404": "topiramate",
     "38413": "torsemide",
+    "38454": "trandolapril",
     "39786": "venlafaxine",
     "39993": "zolpidem",
     "39998": "zonisamide",
@@ -18792,8 +21706,10 @@
     "42351": "lithium carbonate",
     "42355": "fluvoxamine",
     "42463": "pravastatin",
+    "42543": "aspart",
     "43611": "latanoprost",
     "46041": "alendronate",
+    "46303": "amisulpride",
     "47181": "bismuth subcitrate",
     "47630": "calcium polystyrene",
     "49276": "doxazosin",
@@ -18827,6 +21743,7 @@
     "72302": "ropinirole",
     "72435": "anakinra",
     "72625": "duloxetine",
+    "72965": "letrozole",
     "73044": "repaglinide",
     "73056": "risedronate",
     "73494": "telmisartan",
@@ -18841,6 +21758,7 @@
     "83818": "irbesartan",
     "84108": "rosiglitazone",
     "84857": "anastrozole",
+    "85248": "alosetron",
     "86009": "insulin lispro",
     "87255": "ferric oxyhydroxide",
     "87636": "fexofenadine",
@@ -18848,11 +21766,14 @@
     "89013": "aripiprazole",
     "89784": "isopropamide",
     "105695": "epoetin beta",
+    "108118": "mometasone",
     "114176": "zuclopenthixol",
     "114477": "levetiracetam",
     "114979": "rabeprazole",
+    "115066": "cilnidipine",
     "115698": "ziprasidone",
     "119565": "tolterodine",
+    "121191": "rituximab",
     "134615": "brimonidine",
     "134748": "rasagiline",
     "135056": "lercanidipine",
@@ -18865,6 +21786,7 @@
     "139825": "insulin detemir",
     "140587": "celecoxib",
     "141626": "colesevelam",
+    "155046": "pentosan polysulfate",
     "168468": "alginic acid",
     "183379": "rivastigmine",
     "187832": "pregabalin",
@@ -18877,10 +21799,13 @@
     "228790": "dutasteride",
     "234416": "lanthanum carbonate",
     "236778": "trospium",
+    "236782": "saccharomyces boulardii",
     "253182": "insulin",
+    "258494": "exemestane",
     "274332": "nateglinide",
     "274783": "insulin glargine",
     "275635": "desloratadine",
+    "282357": "fulvestrant",
     "283742": "esomeprazole",
     "283809": "travoprost",
     "283810": "bimatoprost",
@@ -18895,12 +21820,16 @@
     "321952": "pimecrolimus",
     "321988": "escitalopram",
     "322167": "solifenacin",
+    "325646": "aliskiren",
     "327361": "adalimumab",
     "341248": "ezetimibe",
+    "356887": "levocetirizine",
     "358255": "aprepitant",
     "358263": "tadalafil",
     "358274": "ambrisentan",
     "380189": "propafenone",
+    "400008": "insulin glulisine",
+    "407990": "cinacalcet",
     "461016": "eszopiclone",
     "475968": "liraglutide",
     "588250": "milnacipran",
@@ -18908,19 +21837,23 @@
     "596205": "ramelteon",
     "596554": "vildagliptin",
     "613391": "prasugrel",
+    "614391": "abatacept",
     "616739": "rotigotine",
     "623033": "lubiprostone",
     "623400": "lacosamide",
     "641465": "armodafinil",
     "679314": "paliperidone",
+    "709271": "certolizumab",
     "720825": "silodosin",
     "723051": "dronedarone",
     "734064": "desvenlafaxine",
     "736443": "ilaprazole",
     "746741": "pramipexole",
     "784649": "asenapine",
+    "787390": "tapentadol",
     "797195": "fesoterodine",
     "816346": "dexlansoprazole",
+    "819300": "golimumab",
     "857974": "saxagliptin",
     "861634": "pitavastatin",
     "993449": "denosumab",
@@ -18943,11 +21876,13 @@
     "1368001": "alogliptin",
     "1373458": "canagliflozin",
     "1440051": "lixisenatide",
+    "1441386": "bazedoxifene",
     "1442132": "macitentan",
     "1446906": "teneligliptin",
     "1455099": "vortioxetine",
     "1488564": "dapagliflozin",
     "1492727": "apremilast",
+    "1538097": "vedolizumab",
     "1545653": "empagliflozin",
     "1546356": "dabigatran",
     "1547099": "suvorexant",
@@ -18962,6 +21897,7 @@
     "1667655": "cariprazine",
     "1670007": "insulin degludec",
     "1679862": "mirogabalin",
+    "1731071": "fosaprepitant",
     "1739745": "brivaracetam",
     "1745099": "ixekizumab",
     "1748619": "itopride",
@@ -18975,6 +21911,7 @@
     "2107310": "prucalopride",
     "2196092": "upadacitinib",
     "2272403": "lemborexant",
+    "2282403": "bempedoic acid",
     "2601723": "tirzepatide"
   }
 }
