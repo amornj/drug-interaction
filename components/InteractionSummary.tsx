@@ -5,6 +5,36 @@ import type { InteractionSeverity } from "@/lib/interactions";
 import type { ModifiedInteractionPair } from "@/lib/modifiers";
 import { getStackHighYieldDrugs, type StackWarning } from "@/lib/stacks";
 
+function CopyPromptButton({ pairs }: { pairs: ModifiedInteractionPair[] }) {
+  const [label, setLabel] = useState("COPY");
+
+  const drugNames = Array.from(
+    new Set(pairs.flatMap((p) => [p.a.name, p.b.name]))
+  ).join(", ");
+
+  const prompt = `My patient takes these medicines; ${drugNames}; What are the possible drug interactions and side effects. How to prevent it.`;
+
+  return (
+    <button
+      type="button"
+      onClick={async () => {
+        try {
+          await navigator.clipboard.writeText(prompt);
+          setLabel("Copied ✓");
+          window.setTimeout(() => setLabel("COPY"), 1600);
+        } catch {
+          setLabel("Copy failed");
+          window.setTimeout(() => setLabel("COPY"), 1600);
+        }
+      }}
+      className="text-[11px] uppercase tracking-[0.12em] text-ink-mute transition-colors hover:text-accent"
+      title="Copy LLM prompt for major/contraindicated drugs"
+    >
+      {label}
+    </button>
+  );
+}
+
 const severityOrder: InteractionSeverity[] = [
   "Contraindicated",
   "Major",
@@ -125,9 +155,9 @@ export function InteractionSummary({
   const majorPairs = pairs.filter((p) => p.displaySeverity === "Major");
 
   const summaryPairs = hasContra
-    ? contraPairs.slice(0, 3)
+    ? contraPairs
     : hasMajor
-    ? majorPairs.slice(0, 3)
+    ? majorPairs
     : pairs.length > 0
     ? [pairs[0]]
     : [];
@@ -177,9 +207,14 @@ export function InteractionSummary({
 
       {summaryPairs.length > 0 ? (
         <div className="mt-3 border-t border-rule pt-2">
-          <p className="eyebrow mb-1.5">
-            {hasContra || hasMajor ? "Highest concern" : "Top"}
-          </p>
+          <div className="flex items-baseline justify-between gap-3">
+            <p className="eyebrow mb-1.5">
+              {hasContra || hasMajor ? "Highest concern" : "Top"}
+            </p>
+            {(hasContra || hasMajor) && (
+              <CopyPromptButton pairs={summaryPairs} />
+            )}
+          </div>
           <div className="flex flex-col gap-1.5">
             {summaryPairs.map((pair, i) => (
               <p
