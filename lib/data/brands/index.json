@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T14:50:24.534Z",
+  "generatedAt": "2026-04-27T13:43:04.218Z",
   "brandsVersion": "2026-04",
   "entries": [
     {
@@ -1704,6 +1704,57 @@
         {
           "rxcui": "6809",
           "name": "metformin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Emcor LS",
+      "normalizedTerm": "emcor ls",
+      "components": [
+        {
+          "rxcui": "19484",
+          "name": "bisoprolol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Benziq LS",
+      "normalizedTerm": "benziq ls",
+      "components": [
+        {
+          "rxcui": "1418",
+          "name": "benzoyl peroxide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Monit LS",
+      "normalizedTerm": "monit ls",
+      "components": [
+        {
+          "rxcui": "28004",
+          "name": "isosorbide mononitrate"
         }
       ],
       "sources": [
@@ -13666,6 +13717,7 @@
     "723": "amoxicillin",
     "1191": "aspirin",
     "1202": "atenolol",
+    "1418": "benzoyl peroxide",
     "1596": "bisacodyl",
     "1808": "bumetanide",
     "1819": "buprenorphine",
