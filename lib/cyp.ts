@@ -609,6 +609,15 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "almotriptan", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub", note: "minor" }] },
   { match: "alpelisib", annotations: [{ system: "CYP3A4", role: "Sub", note: "minor" }] },
   { match: "amantadine", annotations: [{ system: "Renal elim", role: "Major" }] },
+  {
+    match: "amoxicillin",
+    annotations: [
+      { system: "Renal elim", role: "Major", note: "dose adjustment in renal impairment" },
+      { system: "Esterase", role: "Hydrolysis", note: "β-lactam ring → penicilloic acid; minimal CYP involvement" },
+      { system: "UGT", role: "Sub", note: "minor" },
+      { system: "OAT", role: "Sub", note: "OAT1 and OAT3 substrate; probenecid blocks → ↑ levels" },
+    ],
+  },
   { match: "amoxapine", annotations: [{ system: "CYP2D6", role: "Sub" }] },
   { match: "amphetamine", annotations: [{ system: "CYP2D6", role: "Sub" }] },
   {
