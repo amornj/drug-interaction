@@ -2813,3 +2813,661 @@
   sources:
     - name: "Thai brand overlay"
       version: "2026-04"
+- term: Bestatin
+  components:
+  - rxcui: '36567'
+    name: simvastatin
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Anapril
+  components:
+  - rxcui: '3827'
+    name: enalapril
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Betacard
+  components:
+  - rxcui: '1202'
+    name: atenolol
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Metocard
+  components:
+  - rxcui: '6918'
+    name: metoprolol
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Dilatrend
+  components:
+  - rxcui: '20352'
+    name: carvedilol
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: HCTZ
+  components:
+  - rxcui: '5487'
+    name: hydrochlorothiazide
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Amifru
+  components:
+  - rxcui: '4603'
+    name: furosemide
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Apolets
+  components:
+  - rxcui: '32968'
+    name: clopidogrel
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Bayer Aspirin
+  components:
+  - rxcui: '1191'
+    name: acetylsalicylic acid
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Aspent
+  components:
+  - rxcui: '1191'
+    name: acetylsalicylic acid
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Calcigard
+  components:
+  - rxcui: '7417'
+    name: nifedipine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Monit
+  components:
+  - rxcui: '28004'
+    name: isosorbide mononitrate
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Orfarin
+  components:
+  - rxcui: '11289'
+    name: warfarin
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Nitro-Bid
+  components:
+  - rxcui: '4917'
+    name: nitroglycerin
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Nitroderm
+  components:
+  - rxcui: '4917'
+    name: nitroglycerin
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Olmetor
+  components:
+  - rxcui: '321064'
+    name: olmesartan
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Metfor
+  components:
+  - rxcui: '6809'
+    name: metformin
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Rybelsus
+  components:
+  - rxcui: '1991302'
+    name: semaglutide
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Saxenda
+  components:
+  - rxcui: '475968'
+    name: liraglutide
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Glucobay
+  components:
+  - rxcui: '16681'
+    name: acarbose
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: NovoNorm
+  components:
+  - rxcui: '73044'
+    name: repaglinide
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Tapazole
+  components:
+  - rxcui: '6835'
+    name: methimazole
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: PTU
+  components:
+  - rxcui: '8794'
+    name: propylthiouracil
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Rocaltrol
+  components:
+  - rxcui: '1894'
+    name: calcitriol
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Fosamax
+  components:
+  - rxcui: '46041'
+    name: alendronate
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Actonel
+  components:
+  - rxcui: '73056'
+    name: risedronate
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Feburic
+  components:
+  - rxcui: '73689'
+    name: febuxostat
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Colchicine GPO
+  components:
+  - rxcui: '2683'
+    name: colchicine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Addi-K
+  components:
+  - rxcui: '8591'
+    name: potassium chloride
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Enkacid
+  components:
+  - rxcui: '8591'
+    name: potassium chloride
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Caltrate
+  components:
+  - rxcui: '1897'
+    name: calcium carbonate
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Miracid
+  components:
+  - rxcui: '7646'
+    name: omeprazole
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Controloc
+  components:
+  - rxcui: '40790'
+    name: pantoprazole
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Air-X
+  components:
+  - rxcui: '9796'
+    name: simethicone
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Plasil
+  components:
+  - rxcui: '6915'
+    name: metoclopramide
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Ca-r-bon
+  components:
+  - rxcui: '272'
+    name: activated charcoal
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Mucosta
+  components:
+  - rxcui: '32463'
+    name: rebamipide
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Gastrostat
+  components:
+  - rxcui: '10156'
+    name: sucralfate
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Creon
+  components:
+  - rxcui: '7880'
+    name: pancreatin
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Spasmonal
+  components:
+  - rxcui: '17627'
+    name: alverine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Ursofalk
+  components:
+  - rxcui: '11065'
+    name: ursodeoxycholic acid
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Flomax
+  components:
+  - rxcui: '77492'
+    name: tamsulosin
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Harifin
+  components:
+  - rxcui: '25025'
+    name: finasteride
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Sidegra
+  components:
+  - rxcui: '136411'
+    name: sildenafil
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Macrodantin
+  components:
+  - rxcui: '7454'
+    name: nitrofurantoin
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Monurol
+  components:
+  - rxcui: '4550'
+    name: fosfomycin
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Noroxin
+  components:
+  - rxcui: '7517'
+    name: norfloxacin
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Uropyrine
+  components:
+  - rxcui: '8120'
+    name: phenazopyridine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Urocit-K
+  components:
+  - rxcui: '54993'
+    name: potassium citrate
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Gofen
+  components:
+  - rxcui: '5640'
+    name: ibuprofen
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Nurofen
+  components:
+  - rxcui: '5640'
+    name: ibuprofen
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Apranax
+  components:
+  - rxcui: '7258'
+    name: naproxen
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Synflex
+  components:
+  - rxcui: '7258'
+    name: naproxen
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Diclofen
+  components:
+  - rxcui: '3355'
+    name: diclofenac
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Ponstan
+  components:
+  - rxcui: '6693'
+    name: mefenamic acid
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Indocin
+  components:
+  - rxcui: '5781'
+    name: indomethacin
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Tramal
+  components:
+  - rxcui: '10689'
+    name: tramadol
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Norgesic
+  components:
+  - rxcui: '7715'
+    name: orphenadrine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Mydocalm
+  components:
+  - rxcui: '10639'
+    name: tolperisone
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Myonal
+  components:
+  - rxcui: '11474'
+    name: eperisone
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Sirdalud
+  components:
+  - rxcui: '57258'
+    name: tizanidine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Lioresal
+  components:
+  - rxcui: '1292'
+    name: baclofen
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Robaxin
+  components:
+  - rxcui: '6845'
+    name: methocarbamol
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Flexeril
+  components:
+  - rxcui: '21949'
+    name: cyclobenzaprine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Viartril-S
+  components:
+  - rxcui: '4845'
+    name: glucosamine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Structum
+  components:
+  - rxcui: '2473'
+    name: chondroitin sulfate
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Artrodar
+  components:
+  - rxcui: '22759'
+    name: diacerein
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Arava
+  components:
+  - rxcui: '27169'
+    name: leflunomide
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Rheumatrex
+  components:
+  - rxcui: '6851'
+    name: methotrexate
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Salazopyrin
+  components:
+  - rxcui: '9524'
+    name: sulfasalazine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Magrilan
+  components:
+  - rxcui: '4493'
+    name: fluoxetine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Seroxat
+  components:
+  - rxcui: '32937'
+    name: paroxetine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Luvox
+  components:
+  - rxcui: '42355'
+    name: fluvoxamine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Pamelor
+  components:
+  - rxcui: '7531'
+    name: nortriptyline
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Desyrel
+  components:
+  - rxcui: '10737'
+    name: trazodone
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Largactil
+  components:
+  - rxcui: '2403'
+    name: chlorpromazine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Lexotan
+  components:
+  - rxcui: '1749'
+    name: bromazepam
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Ritalin
+  components:
+  - rxcui: '6901'
+    name: methylphenidate
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Concerta
+  components:
+  - rxcui: '6901'
+    name: methylphenidate
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Aricept
+  components:
+  - rxcui: '135447'
+    name: donepezil
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Ebixa
+  components:
+  - rxcui: '6719'
+    name: memantine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Exelon
+  components:
+  - rxcui: '183379'
+    name: rivastigmine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Lithium GPO
+  components:
+  - rxcui: '42351'
+    name: lithium carbonate
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Clopixol
+  components:
+  - rxcui: '114176'
+    name: zuclopenthixol
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Fluanxol
+  components:
+  - rxcui: '4495'
+    name: flupentixol
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Stelazine
+  components:
+  - rxcui: '10800'
+    name: trifluoperazine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Artane
+  components:
+  - rxcui: '10811'
+    name: trihexyphenidyl
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Zyrtec
+  components:
+  - rxcui: '20610'
+    name: cetirizine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Clarityne
+  components:
+  - rxcui: '28889'
+    name: loratadine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Telfast
+  components:
+  - rxcui: '87636'
+    name: fexofenadine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Aerius
+  components:
+  - rxcui: '275635'
+    name: desloratadine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Atarax
+  components:
+  - rxcui: '5553'
+    name: hydroxyzine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: CPM
+  components:
+  - rxcui: '2400'
+    name: chlorpheniramine
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
+- term: Flixonase/Flixotide
+  components:
+  - rxcui: '41126'
+    name: fluticasone
+  sources:
+  - name: Thai brand overlay
+    version: 2026-04
