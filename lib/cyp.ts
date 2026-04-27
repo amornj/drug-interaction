@@ -2073,23 +2073,10 @@ function isClickableAnnotation(annotation: MetabolismAnnotation) {
     annotation.system === "SULT" ||
     annotation.system.startsWith("NAT") ||
     annotation.system === "COMT" ||
-    annotation.system === "TPMT" ||
-    annotation.system === "GST" ||
     annotation.system === "Alcohol dehydrogenase" ||
     annotation.system === "Aldehyde dehydrogenase" ||
-    annotation.system === "MAO-A" ||
-    annotation.system === "MAO-B" ||
     annotation.system === "Xanthine oxidase" ||
-    annotation.system === "Hofmann" ||
-    annotation.system === "Plasma cholinesterase" ||
-    annotation.system === "Carboxylesterase" ||
-    annotation.system === "Acetylcholinesterase" ||
-    annotation.system === "Epoxide hydrolase" ||
-    annotation.system === "FMO" ||
-    annotation.system === "Nitroreductase" ||
-    annotation.system === "Carbonyl reductase" ||
-    annotation.system === "Cytidine deaminase" ||
-    annotation.system === "Adenosine deaminase"
+    annotation.system === "Plasma cholinesterase"
   );
 }
 
