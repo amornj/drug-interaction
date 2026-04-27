@@ -1784,6 +1784,14 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   // ── V ──
   { match: "valbenazine", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub" }] },
   { match: "valsartan", annotations: [{ system: "CYP2C9", role: "Sub", note: "minor" }, { system: "OAT", role: "Moderate Inh", note: "OAT inhibition contributes to interactions" }] },
+  {
+    match: "sacubitril",
+    annotations: [
+      { system: "Carboxylesterase", role: "Sub", note: "major, prodrug bioactivation; sacubitril → LBQ657 (active metabolite)" },
+      { system: "OATP1B1", role: "Transport" },
+      { system: "OATP1B3", role: "Transport" },
+    ],
+  },
   { match: "varenicline", annotations: [{ system: "Renal elim", role: "Major" }] },
   {
     match: "velpatasvir",
