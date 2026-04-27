@@ -215,8 +215,10 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2A6", role: "Ind" },
       { system: "P-gp", role: "Ind", note: "strong" },
       { system: "NAT2", role: "Weak Ind", note: "weak/indirect" },
+      { system: "OAT", role: "Moderate Inh", note: "acute effect before induction" },
     ],
   },
+  { match: "rifampicin", annotations: [{ system: "CYP3A4", role: "Strong Ind" }, { system: "OAT", role: "Moderate Inh", note: "acute effect before induction" }] },
   {
     match: "phenytoin",
     annotations: [
@@ -298,7 +300,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "ibuprofen", annotations: [{ system: "CYP2C9", role: "Sub" }, { system: "OAT", role: "Sub" }, { system: "OAT", role: "Moderate Inh", note: "competes for renal secretion" }] },
   { match: "glyburide", annotations: [{ system: "CYP2C9", role: "Sub" }] },
   { match: "glipizide", annotations: [{ system: "CYP2C9", role: "Sub" }] },
-  { match: "losartan", annotations: [{ system: "CYP2C9", role: "Sub", note: "major" }, { system: "CYP3A4", role: "Sub" }] },
+  { match: "losartan", annotations: [{ system: "CYP2C9", role: "Sub", note: "major" }, { system: "CYP3A4", role: "Sub" }, { system: "OAT", role: "Moderate Inh" }] },
   { match: "celecoxib", annotations: [{ system: "CYP2C9", role: "Sub" }] },
   { match: "fluvastatin", annotations: [{ system: "CYP2C9", role: "Sub" }] },
   { match: "tolbutamide", annotations: [{ system: "CYP2C9", role: "Sub" }] },
@@ -1138,7 +1140,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   },
 
   // ── K ──
-  { match: "ketoprofen", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "ketoprofen", annotations: [{ system: "UGT", role: "Met" }, { system: "OAT", role: "Moderate Inh" }] },
   { match: "ketotifen", annotations: [{ system: "CYP3A4", role: "Sub", note: "minor" }] },
 
   // ── L ──
@@ -1855,6 +1857,12 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "ceftriaxone", annotations: [{ system: "OAT", role: "Sub" }] },
   { match: "penicillins", annotations: [{ system: "OAT", role: "Sub" }] },
   { match: "uric acid", annotations: [{ system: "OAT", role: "Sub", note: "natural substrate" }] },
+  { match: "bumetanide", annotations: [{ system: "OAT", role: "Moderate Inh" }] },
+  { match: "cabotegravir", annotations: [{ system: "OAT", role: "Moderate Inh" }] },
+  { match: "cloxacillin", annotations: [{ system: "OAT", role: "Moderate Inh" }] },
+  { match: "oxacillin", annotations: [{ system: "OAT", role: "Moderate Inh" }] },
+  { match: "olmesartan", annotations: [{ system: "OAT", role: "Moderate Inh" }] },
+  { match: "sulfasalazine", annotations: [{ system: "OAT", role: "Moderate Inh" }] },
 ];
 
 const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
@@ -1924,7 +1932,7 @@ const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
   { match: "felbamate", annotations: [{ system: "CYP2C19", role: "Moderate Inh" }] },
   { match: "lansoprazole", annotations: [{ system: "CYP2C19", role: "Moderate Inh" }] },
   { match: "rabeprazole", annotations: [{ system: "CYP2C19", role: "Moderate Inh" }] },
-  { match: "indomethacin", annotations: [{ system: "CYP2C19", role: "Weak Inh" }] },
+  { match: "indomethacin", annotations: [{ system: "CYP2C19", role: "Weak Inh" }, { system: "OAT", role: "Moderate Inh" }] },
   { match: "enoxacin", annotations: [{ system: "CYP1A2", role: "Strong Inh" }] },
   { match: "rofecoxib", annotations: [{ system: "CYP1A2", role: "Strong Inh" }] },
   { match: "norfloxacin", annotations: [{ system: "CYP1A2", role: "Moderate Inh" }] },
@@ -1968,7 +1976,7 @@ const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
   { match: "nevirapine", annotations: [{ system: "CYP2B6", role: "Strong Ind" }] },
   { match: "cyclophosphamide", annotations: [{ system: "CYP2B6", role: "Moderate Ind" }, { system: "GST", role: "Sub", note: "major, metabolite detoxification" }] },
   { match: "busulfan", annotations: [{ system: "GST", role: "Sub", note: "major, glutathione conjugation" }] },
-  { match: "gemfibrozil", annotations: [{ system: "CYP2C8", role: "Strong Inh" }, { system: "UGT", role: "Inh", note: "UGT inhibition contributes to interactions" }] },
+  { match: "gemfibrozil", annotations: [{ system: "CYP2C8", role: "Strong Inh" }, { system: "UGT", role: "Inh", note: "UGT inhibition contributes to interactions" }, { system: "OAT", role: "Strong Inh", note: "OAT3 inhibitor" }] },
   { match: "probenecid", annotations: [{ system: "UGT", role: "Inh", note: "inhibits glucuronidation + renal secretion" }, { system: "OAT", role: "Strong Inh", note: "prototype; blocks renal secretion" }] },
   { match: "trimethoprim", annotations: [{ system: "CYP2C8", role: "Strong Inh" }, { system: "OCT", role: "Strong Inh", note: "causes pseudo-creatinine rise" }] },
   { match: "deferasirox", annotations: [{ system: "CYP2C8", role: "Strong Inh" }] },
