@@ -268,8 +268,12 @@ export function DrugSearch({
       const response = await fetch(`/api/drugs/search?q=${encodeURIComponent(token)}`);
       const payload = (await response.json()) as { results?: DrugCandidate[] };
       const match = payload.results?.[0];
+      if (!match) return null;
 
-      return match ? [{ rxcui: match.rxcui, name: match.name }] : null;
+      const resolved = await resolveToIngredient(match.rxcui);
+      if (!resolved) return null;
+      if (resolved.type === "combination") return resolved.components;
+      return [{ rxcui: resolved.rxcui, name: resolved.name }];
     },
     [aliases]
   );
@@ -357,8 +361,10 @@ export function DrugSearch({
     }
 
     if (!resolved) {
-      addDrug({ rxcui: candidate.rxcui, name: candidate.name });
-      clearSearch();
+      setDuplicateWarning({
+        typed: candidate.name,
+        existing: "Could not resolve to a generic ingredient — try searching for the generic name",
+      });
       return;
     }
 
@@ -446,11 +452,7 @@ export function DrugSearch({
 
     const resolved = await resolveToIngredient(match.rxcui);
     if (!resolved) {
-      return {
-        type: "single",
-        typed: termToResolve,
-        drug: { rxcui: match.rxcui, name: match.name },
-      };
+      return null;
     }
 
     if (resolved.type === "combination") {
