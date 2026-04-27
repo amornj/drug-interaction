@@ -362,8 +362,9 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "coumarin", annotations: [{ system: "CYP2A6", role: "Sub" }] },
   { match: "methoxsalen", annotations: [{ system: "CYP2A6", role: "Inh" }] },
   { match: "ethanol", annotations: [{ system: "Alcohol dehydrogenase", role: "Sub", note: "major; alcohol → acetaldehyde" }, { system: "CYP2E1", role: "Sub", note: "minor" }] },
-  { match: "methanol", annotations: [{ system: "Alcohol dehydrogenase", role: "Sub", note: "alcohol → aldehyde; block with fomepizole in poisoning" }] },
-  { match: "ethylene glycol", annotations: [{ system: "Alcohol dehydrogenase", role: "Sub", note: "alcohol → aldehyde; block with fomepizole in poisoning" }] },
+  { match: "methanol", annotations: [{ system: "Alcohol dehydrogenase", role: "Sub", note: "major; alcohol → aldehyde" }, { system: "CYP2E1", role: "Sub", note: "minor" }] },
+  { match: "ethylene glycol", annotations: [{ system: "Alcohol dehydrogenase", role: "Sub", note: "major; alcohol → aldehyde" }, { system: "CYP2E1", role: "Sub", note: "minor" }] },
+  { match: "propylene glycol", annotations: [{ system: "Alcohol dehydrogenase", role: "Sub", note: "major; alcohol → aldehyde" }, { system: "CYP2E1", role: "Sub", note: "minor" }] },
   {
     match: "acetaminophen",
     annotations: [{ system: "CYP2E1", role: "Sub", note: "minor" }, { system: "UGT", role: "Sub", note: "major, glucuronidation" }, { system: "SULT", role: "Sub", note: "major, sulfation" }, { system: "GST", role: "Sub", note: "major, NAPQI detox; depleted in overdose / malnutrition / alcohol" }],
