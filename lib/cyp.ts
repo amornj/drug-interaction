@@ -379,16 +379,26 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "oxazepam", annotations: [{ system: "UGT", role: "Sub", note: "major, glucuronidation, no CYP interaction" }] },
   { match: "temazepam", annotations: [{ system: "UGT", role: "Sub", note: "major, glucuronidation, predictable PK" }] },
   { match: "propofol", annotations: [{ system: "CYP2B6", role: "Sub" }, { system: "CYP2C9", role: "Sub" }, { system: "UGT1A9", role: "Sub", note: "major, rapid clearance" }] },
-  { match: "cisatracurium", annotations: [{ system: "Esterase", role: "Sub", note: "Hofmann degradation; ICU preferred, organ-independent" }] },
+  { match: "cisatracurium", annotations: [{ system: "Hofmann", role: "Sub", note: "primary substrate; Hofmann elimination, more stable than atracurium, less histamine" }] },
   { match: "azathioprine", annotations: [{ system: "TPMT", role: "Sub", note: "major, methylation" }, { system: "Xanthine oxidase", role: "Sub", note: "oxidation metabolism; allopurinol inhibits → ↑ toxicity" }] },
   { match: "6-mercaptopurine", annotations: [{ system: "TPMT", role: "Sub", note: "major, methylation" }, { system: "Xanthine oxidase", role: "Sub", note: "oxidation metabolism; allopurinol inhibits → ↑ toxicity" }] },
   { match: "allopurinol", annotations: [{ system: "Xanthine oxidase", role: "Inh" }] },
   { match: "remifentanil", annotations: [{ system: "Esterase", role: "Sub", note: "plasma/RBC hydrolysis; very fast, organ-independent" }] },
   { match: "esmolol", annotations: [{ system: "Esterase", role: "Sub", note: "plasma/RBC hydrolysis; very fast, organ-independent" }] },
-  { match: "succinylcholine", annotations: [{ system: "Esterase", role: "Sub", note: "plasma/RBC hydrolysis; very fast, organ-independent; deficiency → toxicity" }] },
-  { match: "atracurium", annotations: [{ system: "Esterase", role: "Sub", note: "Hofmann degradation + esterase hydrolysis; fast, organ-independent" }] },
-  { match: "procaine", annotations: [{ system: "Plasma cholinesterase", role: "Sub", note: "ester local anesthetic; hydrolysis, organ-independent" }] },
-  { match: "chloroprocaine", annotations: [{ system: "Plasma cholinesterase", role: "Sub", note: "ester local anesthetic; hydrolysis, organ-independent" }] },
+  { match: "succinylcholine", annotations: [{ system: "Plasma cholinesterase", role: "Sub", note: "depolarizing NMBA; rapid hydrolysis in plasma; prolonged apnea in deficiency" }] },
+  { match: "atracurium", annotations: [{ system: "Hofmann", role: "Sub", note: "primary substrate; Hofmann elimination + esterase hydrolysis; organ-independent" }] },
+  { match: "doxacurium", annotations: [{ system: "Hofmann", role: "Sub", note: "minor substrate; mostly renal elimination" }] },
+  { match: "mivacurium", annotations: [{ system: "Hofmann", role: "Sub", note: "minor substrate; mainly ester hydrolysis" }, { system: "Plasma cholinesterase", role: "Sub", note: "non-depolarizing NMBA; ester hydrolysis; prolonged in deficiency" }] },
+  { match: "tetracaine", annotations: [{ system: "Plasma cholinesterase", role: "Sub", note: "ester local anesthetic; slower hydrolysis → longer acting" }] },
+  { match: "cocaine", annotations: [{ system: "Plasma cholinesterase", role: "Sub", note: "ester anesthetic; hydrolyzed in plasma & liver; toxicity if enzyme impaired" }] },
+  { match: "heroin", annotations: [{ system: "Plasma cholinesterase", role: "Sub", note: "opioid ester; rapid deacetylation → morphine" }] },
+  { match: "procaine", annotations: [{ system: "Plasma cholinesterase", role: "Sub", note: "ester local anesthetic; rapid hydrolysis → short duration" }] },
+  { match: "chloroprocaine", annotations: [{ system: "Plasma cholinesterase", role: "Sub", note: "ester local anesthetic; very rapid hydrolysis → ultra-short acting" }] },
+  { match: "neostigmine", annotations: [{ system: "Plasma cholinesterase", role: "Inh", note: "moderate; reversible cholinesterase inhibition → prolongs succinylcholine" }] },
+  { match: "physostigmine", annotations: [{ system: "Plasma cholinesterase", role: "Inh", note: "moderate; reversible inhibition → similar effect" }] },
+  { match: "echothiophate", annotations: [{ system: "Plasma cholinesterase", role: "Inh", note: "strong; irreversible inhibitor → marked prolongation" }] },
+  { match: "organophosphates", annotations: [{ system: "Plasma cholinesterase", role: "Inh", note: "strong irreversible; phosphorylate enzyme → severe prolongation of succinylcholine" }] },
+  { match: "oral contraceptives", annotations: [{ system: "CYP1A2", role: "Weak Inh" }, { system: "Plasma cholinesterase", role: "Inh", note: "mild; reduce enzyme synthesis → clinically mild effect" }] },
   { match: "aspirin", annotations: [{ system: "Esterase", role: "Rapid hydrolysis" }, { system: "UGT", role: "Sub", note: "major, glycine conjugation + glucuronidation, saturable kinetics" }, { system: "SULT", role: "Inh", note: "salicylates inhibit sulfation; substrate competition at high dose" }] },
   { match: "salbutamol", annotations: [{ system: "SULT", role: "Sub", note: "major, sulfation" }] },
   { match: "albuterol", annotations: [{ system: "SULT", role: "Sub", note: "major, sulfation" }] },
@@ -555,7 +565,8 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
 
   // Uricosurics / gout
   { match: "benzbromarone", annotations: [{ system: "CYP2C9", role: "Sub" }] },
-  { match: "febuxostat", annotations: [{ system: "Xanthine oxidase", role: "Pathway" }, { system: "UGT", role: "Met" }] },
+  { match: "febuxostat", annotations: [{ system: "Xanthine oxidase", role: "Inh", note: "strong; ↑ 6-MP / azathioprine → myelosuppression risk" }, { system: "UGT", role: "Sub", note: "major" }] },
+  { match: "thioguanine", annotations: [{ system: "Xanthine oxidase", role: "Sub", note: "minor pathway" }] },
 
   // ── A ──
   { match: "abacavir", annotations: [{ system: "ADH", role: "Met" }, { system: "UGT", role: "Met" }] },
@@ -771,7 +782,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
     ],
   },
   { match: "dolutegravir", annotations: [{ system: "UGT", role: "Sub", note: "major" }, { system: "CYP3A4", role: "Sub", note: "minor" }, { system: "OCT", role: "Strong Inh", note: "inhibits tubular creatinine secretion" }] },
-  { match: "donepezil", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
+  { match: "donepezil", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP3A4", role: "Sub" }, { system: "Plasma cholinesterase", role: "Inh", note: "mild–moderate; central AChE inhibitor also affects BuChE → can prolong NM blockade" }] },
   { match: "doravirine", annotations: [{ system: "CYP3A4", role: "Sub" }] },
   { match: "doxapram", annotations: [{ system: "CYP2B6", role: "Sub" }, { system: "CYP2C9", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
   { match: "doxazosin", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub" }] },
@@ -1306,7 +1317,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP3A4", role: "Inh" },
     ],
   },
-  { match: "metoclopramide", annotations: [{ system: "CYP2D6", role: "Sub", note: "major" }] },
+  { match: "metoclopramide", annotations: [{ system: "CYP2D6", role: "Sub", note: "major" }, { system: "Plasma cholinesterase", role: "Inh", note: "mild; decreases enzyme activity → slight prolongation" }] },
   {
     match: "midostaurin",
     annotations: [
@@ -2054,7 +2065,10 @@ function isClickableAnnotation(annotation: MetabolismAnnotation) {
     annotation.system === "COMT" ||
     annotation.system === "TPMT" ||
     annotation.system === "GST" ||
-    annotation.system === "Alcohol dehydrogenase"
+    annotation.system === "Alcohol dehydrogenase" ||
+    annotation.system === "Xanthine oxidase" ||
+    annotation.system === "Hofmann" ||
+    annotation.system === "Plasma cholinesterase"
   );
 }
 
