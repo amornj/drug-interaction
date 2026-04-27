@@ -542,12 +542,12 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
     match: "rosuvastatin",
     annotations: [
       { system: "CYP2C9", role: "Sub", note: "minor" },
-      { system: "OATP1B1", role: "Transport" },
+      { system: "OAT", role: "Sub", note: "OATP1B1 substrate" },
       { system: "BCRP", role: "Transport" },
     ],
   },
-  { match: "pravastatin", annotations: [{ system: "OATP1B1", role: "Transport" }] },
-  { match: "pitavastatin", annotations: [{ system: "OATP1B1", role: "Transport" }, { system: "BCRP", role: "Transport" }] },
+  { match: "pravastatin", annotations: [{ system: "OAT", role: "Sub", note: "OATP1B1 substrate" }] },
+  { match: "pitavastatin", annotations: [{ system: "OAT", role: "Sub", note: "OATP1B1 substrate" }, { system: "BCRP", role: "Transport" }] },
   { match: "ezetimibe", annotations: [{ system: "UGT", role: "Sub", note: "major, recycling prolongs effect" }, { system: "P-gp", role: "Sub" }] },
 
   // Antibiotics and anti-infectives
@@ -1788,8 +1788,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
     match: "sacubitril",
     annotations: [
       { system: "Carboxylesterase", role: "Sub", note: "major, prodrug bioactivation; sacubitril → LBQ657 (active metabolite)" },
-      { system: "OATP1B1", role: "Transport" },
-      { system: "OATP1B3", role: "Transport" },
+      { system: "OAT", role: "Sub", note: "OATP1B1 and OATP1B3 substrate" },
     ],
   },
   { match: "varenicline", annotations: [{ system: "Renal elim", role: "Major" }] },
