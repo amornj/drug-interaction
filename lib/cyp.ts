@@ -44,6 +44,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP3A4", role: "Sub" },
       { system: "CYP3A4", role: "Moderate Inh" },
       { system: "P-gp", role: "Inh", note: "moderate-strong" },
+      { system: "OCT", role: "Moderate Inh", note: "weak-moderate OCT inhibition" },
     ],
   },
   {
@@ -52,6 +53,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP3A4", role: "Sub" },
       { system: "CYP3A4", role: "Moderate Inh" },
       { system: "P-gp", role: "Inh", note: "strong" },
+      { system: "OCT", role: "Moderate Inh" },
     ],
   },
   {
@@ -91,6 +93,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP3A4", role: "Sub" },
       { system: "P-gp", role: "Sub" },
       { system: "P-gp", role: "Inh", note: "strong" },
+      { system: "OAT", role: "Strong Inh", note: "multi-transporter inhibitor" },
     ],
   },
   { match: "midazolam", annotations: [{ system: "CYP3A4", role: "Sub" }] },
@@ -127,6 +130,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP3A4", role: "Weak Inh" },
       { system: "CYP2C9", role: "Strong Inh" },
       { system: "P-gp", role: "Inh", note: "strong" },
+      { system: "OCT", role: "Moderate Inh", note: "broad PK interaction potential" },
     ],
   },
   { match: "eplerenone", annotations: [{ system: "CYP3A4", role: "Sub" }] },
@@ -144,9 +148,9 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   },
   {
     match: "ritonavir",
-    annotations: [{ system: "CYP3A4", role: "Strong Inh" }, { system: "P-gp", role: "Inh", note: "strong" }],
+    annotations: [{ system: "CYP3A4", role: "Strong Inh" }, { system: "P-gp", role: "Inh", note: "strong" }, { system: "OAT", role: "Strong Inh", note: "broad transporter and CYP effects" }],
   },
-  { match: "cobicistat", annotations: [{ system: "CYP3A4", role: "Strong Inh" }] },
+  { match: "cobicistat", annotations: [{ system: "CYP3A4", role: "Strong Inh" }, { system: "OAT", role: "Strong Inh", note: "also affects creatinine secretion" }] },
   {
     match: "ketoconazole",
     annotations: [
@@ -157,6 +161,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2D6", role: "Moderate Inh" },
       { system: "P-gp", role: "Inh", note: "strong" },
       { system: "UGT", role: "Weak Inh", note: "also affects UGT" },
+      { system: "OCT", role: "Moderate Inh", note: "multi-pathway inhibitor" },
     ],
   },
   {
@@ -275,6 +280,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2C19", role: "Weak Inh" },
       { system: "CYP1A2", role: "Moderate Inh" },
       { system: "P-gp", role: "Inh" },
+      { system: "OCT", role: "Strong Inh", note: "prototype; increases metformin level" },
     ],
   },
   {
@@ -282,7 +288,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
     annotations: [{ system: "CYP2C9", role: "Sub" }, { system: "CYP1A2", role: "Sub", note: "minor" }],
   },
   { match: "diclofenac", annotations: [{ system: "CYP2C9", role: "Sub" }, { system: "UGT", role: "Moderate Inh", note: "competes for UGT pathways" }] },
-  { match: "ibuprofen", annotations: [{ system: "CYP2C9", role: "Sub" }] },
+  { match: "ibuprofen", annotations: [{ system: "CYP2C9", role: "Sub" }, { system: "OAT", role: "Moderate Inh", note: "competes for renal secretion" }] },
   { match: "glyburide", annotations: [{ system: "CYP2C9", role: "Sub" }] },
   { match: "glipizide", annotations: [{ system: "CYP2C9", role: "Sub" }] },
   { match: "losartan", annotations: [{ system: "CYP2C9", role: "Sub", note: "major" }, { system: "CYP3A4", role: "Sub" }] },
@@ -296,7 +302,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "valproic acid", annotations: [{ system: "CYP2C9", role: "Moderate Inh" }, { system: "UGT", role: "Strong Inh", note: "↑ lamotrigine, ↑ SJS risk" }] },
   {
     match: "isoniazid",
-    annotations: [{ system: "CYP2C9", role: "Moderate Inh" }, { system: "CYP2C19", role: "Weak Inh" }, { system: "CYP2E1", role: "Strong Ind" }, { system: "NAT2", role: "Met" }],
+    annotations: [{ system: "CYP2C9", role: "Moderate Inh" }, { system: "CYP2C19", role: "Weak Inh" }, { system: "CYP2E1", role: "Strong Ind" }, { system: "NAT2", role: "Sub", note: "major, acetylation; PGx toxicity risk" }],
   },
   {
     match: "clopidogrel",
@@ -351,17 +357,23 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "ethylene glycol", annotations: [{ system: "Alcohol dehydrogenase", role: "Sub", note: "alcohol → aldehyde; block with fomepizole in poisoning" }] },
   {
     match: "acetaminophen",
-    annotations: [{ system: "CYP2E1", role: "Sub", note: "minor" }, { system: "SULT", role: "Met", note: "major" }],
+    annotations: [{ system: "CYP2E1", role: "Sub", note: "minor" }, { system: "UGT", role: "Sub", note: "major, glucuronidation" }, { system: "SULT", role: "Sub", note: "major, sulfation" }],
   },
   {
     match: "paracetamol",
-    annotations: [{ system: "CYP2E1", role: "Sub", note: "minor" }, { system: "SULT", role: "Met", note: "major" }],
+    annotations: [{ system: "CYP2E1", role: "Sub", note: "minor" }, { system: "UGT", role: "Sub", note: "major, glucuronidation" }, { system: "SULT", role: "Sub", note: "major, sulfation" }],
   },
   { match: "halothane", annotations: [{ system: "CYP2E1", role: "Sub" }] },
   { match: "disulfiram", annotations: [{ system: "CYP2E1", role: "Inh" }] },
-  { match: "morphine", annotations: [{ system: "UGT", role: "Met" }] },
-  { match: "lorazepam", annotations: [{ system: "UGT", role: "Met" }] },
-  { match: "lamotrigine", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "morphine", annotations: [{ system: "UGT", role: "Sub", note: "major, UGT2B7, active metabolite M6G" }] },
+  { match: "lorazepam", annotations: [{ system: "UGT", role: "Sub", note: "major, glucuronidation, safe in liver disease / elderly" }] },
+  { match: "lamotrigine", annotations: [{ system: "UGT", role: "Sub", note: "major, UGT1A4, valproate increases level → SJS risk" }] },
+  { match: "hydromorphone", annotations: [{ system: "UGT", role: "Sub", note: "major, renal metabolite accumulation" }] },
+  { match: "oxymorphone", annotations: [{ system: "UGT", role: "Sub", note: "major, less CYP interaction" }] },
+  { match: "oxazepam", annotations: [{ system: "UGT", role: "Sub", note: "major, glucuronidation, no CYP interaction" }] },
+  { match: "temazepam", annotations: [{ system: "UGT", role: "Sub", note: "major, glucuronidation, predictable PK" }] },
+  { match: "propofol", annotations: [{ system: "CYP2B6", role: "Sub" }, { system: "CYP2C9", role: "Sub" }, { system: "UGT1A9", role: "Sub", note: "major, rapid clearance" }] },
+  { match: "cisatracurium", annotations: [{ system: "Esterase", role: "Sub", note: "Hofmann degradation; ICU preferred, organ-independent" }] },
   { match: "azathioprine", annotations: [{ system: "TPMT", role: "Met" }, { system: "Xanthine oxidase", role: "Sub", note: "oxidation metabolism; allopurinol inhibits → ↑ toxicity" }] },
   { match: "6-mercaptopurine", annotations: [{ system: "Xanthine oxidase", role: "Sub", note: "oxidation metabolism; allopurinol inhibits → ↑ toxicity" }] },
   { match: "allopurinol", annotations: [{ system: "Xanthine oxidase", role: "Inh" }] },
@@ -371,10 +383,10 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "atracurium", annotations: [{ system: "Esterase", role: "Sub", note: "Hofmann degradation + esterase hydrolysis; fast, organ-independent" }] },
   { match: "procaine", annotations: [{ system: "Plasma cholinesterase", role: "Sub", note: "ester local anesthetic; hydrolysis, organ-independent" }] },
   { match: "chloroprocaine", annotations: [{ system: "Plasma cholinesterase", role: "Sub", note: "ester local anesthetic; hydrolysis, organ-independent" }] },
-  { match: "aspirin", annotations: [{ system: "Esterase", role: "Rapid hydrolysis" }] },
+  { match: "aspirin", annotations: [{ system: "Esterase", role: "Rapid hydrolysis" }, { system: "UGT", role: "Sub", note: "major, glycine conjugation + glucuronidation, saturable kinetics" }] },
   {
     match: "metformin",
-    annotations: [{ system: "Renal elim", role: "Major" }, { system: "OCT", role: "Transport" }],
+    annotations: [{ system: "Renal elim", role: "Major" }, { system: "OCT", role: "Sub", note: "major, renal tubular secretion" }],
   },
   {
     match: "lithium",
@@ -418,7 +430,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   },
   {
     match: "ranolazine",
-    annotations: [{ system: "P-gp", role: "Inh", note: "moderate" }],
+    annotations: [{ system: "P-gp", role: "Inh", note: "moderate" }, { system: "OCT", role: "Strong Inh", note: "increases metformin exposure" }],
   },
   {
     match: "ticagrelor",
@@ -512,7 +524,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   },
   { match: "pravastatin", annotations: [{ system: "OATP1B1", role: "Transport" }] },
   { match: "pitavastatin", annotations: [{ system: "OATP1B1", role: "Transport" }, { system: "BCRP", role: "Transport" }] },
-  { match: "ezetimibe", annotations: [{ system: "UGT", role: "Met" }, { system: "P-gp", role: "Sub" }] },
+  { match: "ezetimibe", annotations: [{ system: "UGT", role: "Sub", note: "major, recycling prolongs effect" }, { system: "P-gp", role: "Sub" }] },
 
   // Antibiotics and anti-infectives
   { match: "azithromycin", annotations: [{ system: "P-gp", role: "Sub" }] },
@@ -525,8 +537,8 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "gabapentin", annotations: [{ system: "Renal elim", role: "Major" }] },
 
   // Diuretics
-  { match: "furosemide", annotations: [{ system: "Renal elim", role: "Major" }] },
-  { match: "hydrochlorothiazide", annotations: [{ system: "Renal elim", role: "Major" }] },
+  { match: "furosemide", annotations: [{ system: "Renal elim", role: "Major" }, { system: "OAT", role: "Moderate Inh", note: "substrate and inhibitor" }] },
+  { match: "hydrochlorothiazide", annotations: [{ system: "Renal elim", role: "Major" }, { system: "OAT", role: "Moderate Inh" }] },
   { match: "spironolactone", annotations: [{ system: "CYP3A4", role: "Sub" }] },
 
   // Cardiac myosin modulators
@@ -703,6 +715,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2C9", role: "Sub" },
       { system: "CYP2C19", role: "Sub" },
       { system: "CYP2E1", role: "Sub" },
+      { system: "NAT2", role: "Sub", note: "major, acetylation; hemolysis risk" },
     ],
   },
   { match: "darolutamide", annotations: [{ system: "CYP3A4", role: "Sub" }] },
@@ -749,7 +762,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2C9", role: "Sub" },
     ],
   },
-  { match: "dolutegravir", annotations: [{ system: "UGT", role: "Met" }, { system: "CYP3A4", role: "Sub", note: "minor" }] },
+  { match: "dolutegravir", annotations: [{ system: "UGT", role: "Sub", note: "major" }, { system: "CYP3A4", role: "Sub", note: "minor" }, { system: "OCT", role: "Strong Inh", note: "inhibits tubular creatinine secretion" }] },
   { match: "donepezil", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
   { match: "doravirine", annotations: [{ system: "CYP3A4", role: "Sub" }] },
   { match: "doxapram", annotations: [{ system: "CYP2B6", role: "Sub" }, { system: "CYP2C9", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
@@ -1033,6 +1046,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
     annotations: [
       { system: "CYP3A4", role: "Sub" },
       { system: "CYP2B6", role: "Sub", note: "to SN-38" },
+      { system: "UGT1A1", role: "Sub", note: "major, SN-38 glucuronidation; diarrhea PGx important" },
     ],
   },
   {
@@ -1149,6 +1163,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2C19", role: "Ind" },
     ],
   },
+  { match: "levothyroxine", annotations: [{ system: "Conjugation", role: "Sub", note: "major; long half-life" }] },
   {
     match: "letrozole",
     annotations: [
@@ -1300,15 +1315,16 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2C9", role: "Weak Inh" },
     ],
   },
-  { match: "mycophenolate", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "minoxidil", annotations: [{ system: "SULT", role: "Sub", note: "major, sulfation; prodrug activation" }] },
+  { match: "mycophenolate", annotations: [{ system: "UGT", role: "Sub", note: "major, enterohepatic recycling" }] },
 
   // ── N ──
   { match: "nabumetone", annotations: [{ system: "CYP1A2", role: "Sub", note: "major" }] },
-  { match: "nalbuphine", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "nalbuphine", annotations: [{ system: "UGT", role: "Sub", note: "major" }] },
   { match: "naldemedine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
-  { match: "nalmefene", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "nalmefene", annotations: [{ system: "UGT", role: "Sub", note: "major" }] },
   { match: "naloxegol", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
-  { match: "naproxen", annotations: [{ system: "CYP2C9", role: "Sub" }, { system: "CYP1A2", role: "Sub" }] },
+  { match: "naproxen", annotations: [{ system: "CYP2C9", role: "Sub" }, { system: "CYP1A2", role: "Sub" }, { system: "OAT", role: "Moderate Inh", note: "competes for renal secretion" }] },
   {
     match: "nateglinide",
     annotations: [
@@ -1331,6 +1347,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "nimodipine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
   { match: "nintedanib", annotations: [{ system: "CYP3A4", role: "Sub", note: "minor" }] },
   { match: "nisoldipine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "nitroglycerin", annotations: [{ system: "UGT", role: "Sub", note: "major, non-CYP metabolism; rapid clearance" }] },
   { match: "norethisterone", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
   { match: "norgestimate", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
 
@@ -1352,7 +1369,6 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2C19", role: "Sub" },
     ],
   },
-  { match: "oxazepam", annotations: [{ system: "UGT", role: "Met" }] },
   {
     match: "oxcarbazepine",
     annotations: [
@@ -1361,7 +1377,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
     ],
   },
   { match: "oxybutynin", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
-  { match: "oxymorphone", annotations: [{ system: "UGT", role: "Met" }] },
+
   { match: "ozanimod", annotations: [{ system: "CYP2C8", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
 
   // ── P ──
@@ -1447,7 +1463,6 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "prochlorperazine", annotations: [{ system: "CYP2D6", role: "Sub", note: "major" }] },
   { match: "progesterone", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
   { match: "promethazine", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP2C19", role: "Sub" }] },
-  { match: "propofol", annotations: [{ system: "CYP2B6", role: "Sub" }, { system: "CYP2C9", role: "Sub" }] },
   { match: "prucalopride", annotations: [{ system: "CYP3A4", role: "Sub", note: "minor" }] },
 
   // ── Q ──
@@ -1464,8 +1479,8 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   },
 
   // ── R ──
-  { match: "raloxifene", annotations: [{ system: "UGT", role: "Met" }] },
-  { match: "raltegravir", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "raloxifene", annotations: [{ system: "UGT", role: "Sub", note: "major" }] },
+  { match: "raltegravir", annotations: [{ system: "UGT", role: "Sub", note: "major, UGT1A1, few CYP interactions" }] },
   {
     match: "ramelteon",
     annotations: [
@@ -1662,13 +1677,14 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   {
     match: "telmisartan",
     annotations: [
-      { system: "UGT", role: "Met" },
+      { system: "UGT", role: "Sub", note: "major" },
+      { system: "OAT", role: "Moderate Inh", note: "same class effect" },
       { system: "CYP2C19", role: "Weak Inh" },
     ],
   },
   { match: "telotristat ethyl", annotations: [{ system: "CYP3A4", role: "Ind" }] },
-  { match: "temazepam", annotations: [{ system: "UGT", role: "Met" }] },
   { match: "temsirolimus", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "tenofovir", annotations: [{ system: "OAT", role: "Moderate Inh", note: "competes at renal transport" }, { system: "Renal elim", role: "Major" }] },
   { match: "terfenadine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
   { match: "testosterone", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
   { match: "tetrabenazine", annotations: [{ system: "CYP2D6", role: "Sub", note: "major" }] },
@@ -1738,7 +1754,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
 
   // ── V ──
   { match: "valbenazine", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP2D6", role: "Sub" }] },
-  { match: "valsartan", annotations: [{ system: "CYP2C9", role: "Sub", note: "minor" }] },
+  { match: "valsartan", annotations: [{ system: "CYP2C9", role: "Sub", note: "minor" }, { system: "OAT", role: "Moderate Inh", note: "OAT inhibition contributes to interactions" }] },
   { match: "varenicline", annotations: [{ system: "Renal elim", role: "Major" }] },
   {
     match: "velpatasvir",
@@ -1789,7 +1805,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
     ],
   },
   { match: "zanubrutinib", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
-  { match: "zidovudine", annotations: [{ system: "UGT", role: "Met" }] },
+  { match: "zidovudine", annotations: [{ system: "UGT", role: "Sub", note: "major, UGT2B7, classic Phase II drug" }] },
   { match: "zolmitriptan", annotations: [{ system: "CYP1A2", role: "Sub", note: "major" }] },
   { match: "zonisamide", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
   {
@@ -1864,7 +1880,7 @@ const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
   { match: "cotrimoxazole", annotations: [{ system: "CYP2C9", role: "Weak Inh" }] },
   { match: "fenofibrate", annotations: [{ system: "CYP2C9", role: "Weak Inh" }] },
   { match: "ticlopidine", annotations: [{ system: "CYP2C19", role: "Strong Inh" }, { system: "CYP2B6", role: "Strong Inh" }] },
-  { match: "chloramphenicol", annotations: [{ system: "CYP2C19", role: "Moderate Inh" }] },
+  { match: "chloramphenicol", annotations: [{ system: "CYP2C19", role: "Moderate Inh" }, { system: "UGT", role: "Sub", note: "major, gray baby syndrome risk" }] },
   { match: "felbamate", annotations: [{ system: "CYP2C19", role: "Moderate Inh" }] },
   { match: "lansoprazole", annotations: [{ system: "CYP2C19", role: "Moderate Inh" }] },
   { match: "rabeprazole", annotations: [{ system: "CYP2C19", role: "Moderate Inh" }] },
@@ -1878,7 +1894,7 @@ const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
   { match: "vemurafenib", annotations: [{ system: "CYP1A2", role: "Moderate Inh" }] },
   { match: "acyclovir", annotations: [{ system: "CYP1A2", role: "Weak Inh" }] },
   { match: "allopurinol", annotations: [{ system: "CYP1A2", role: "Weak Inh" }] },
-  { match: "ethinyl estradiol", annotations: [{ system: "CYP1A2", role: "Weak Inh" }] },
+  { match: "ethinyl estradiol", annotations: [{ system: "CYP1A2", role: "Weak Inh" }, { system: "UGT", role: "Sub", note: "major, glucuronidation + sulfation, enterohepatic recycling" }] },
   { match: "mexiletine", annotations: [{ system: "CYP1A2", role: "Weak Inh" }] },
   { match: "oral contraceptives", annotations: [{ system: "CYP1A2", role: "Weak Inh" }] },
   { match: "cigarette smoking", annotations: [{ system: "CYP1A2", role: "Strong Ind" }] },
@@ -1912,8 +1928,8 @@ const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
   { match: "nevirapine", annotations: [{ system: "CYP2B6", role: "Strong Ind" }] },
   { match: "cyclophosphamide", annotations: [{ system: "CYP2B6", role: "Moderate Ind" }] },
   { match: "gemfibrozil", annotations: [{ system: "CYP2C8", role: "Strong Inh" }, { system: "UGT", role: "Inh", note: "UGT inhibition contributes to interactions" }] },
-  { match: "probenecid", annotations: [{ system: "UGT", role: "Inh", note: "inhibits glucuronidation + renal secretion" }] },
-  { match: "trimethoprim", annotations: [{ system: "CYP2C8", role: "Strong Inh" }] },
+  { match: "probenecid", annotations: [{ system: "UGT", role: "Inh", note: "inhibits glucuronidation + renal secretion" }, { system: "OAT", role: "Strong Inh", note: "prototype; blocks renal secretion" }] },
+  { match: "trimethoprim", annotations: [{ system: "CYP2C8", role: "Strong Inh" }, { system: "OCT", role: "Strong Inh", note: "causes pseudo-creatinine rise" }] },
   { match: "deferasirox", annotations: [{ system: "CYP2C8", role: "Strong Inh" }] },
   { match: "quercetin", annotations: [{ system: "CYP2C8", role: "Weak Inh" }] },
   { match: "montelukast", annotations: [{ system: "CYP2C8", role: "Weak Inh" }] },
@@ -2018,7 +2034,7 @@ function formatAnnotation(annotation: MetabolismAnnotation) {
 }
 
 function isClickableAnnotation(annotation: MetabolismAnnotation) {
-  return annotation.role === "Sub" && (annotation.system.startsWith("CYP") || annotation.system === "P-gp" || annotation.system.startsWith("UGT"));
+  return annotation.role === "Sub" && (annotation.system.startsWith("CYP") || annotation.system === "P-gp" || annotation.system.startsWith("UGT") || annotation.system === "OAT" || annotation.system === "OCT");
 }
 
 export function getDrugMetabolismTags(name: string): DrugMetabolismTag[] {

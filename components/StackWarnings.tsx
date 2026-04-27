@@ -56,8 +56,6 @@ function domainLabel(domain: StackWarning["domain"]) {
       return "Seizure risk";
     case "cnsdepression":
       return "CNS/respiratory depression";
-    case "fallsrisk":
-      return "Falls risk";
   }
 }
 

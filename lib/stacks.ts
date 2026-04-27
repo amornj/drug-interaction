@@ -26,7 +26,7 @@ export type StackDomain =
   | "bradycardia"
   | "druginducedseizure"
   | "cnsdepression"
-  | "fallsrisk";
+;
 
 export type StackWarning = {
   domain: StackDomain;
@@ -527,34 +527,23 @@ const stackRules: StackRule[] = [
   },
   {
     domain: "hagma",
-    title: "High anion gap metabolic acidosis stack",
+    title: "Propylene glycol HAGMA (IV formulations)",
     matches: [
-      "methanol",
-      "ethylene glycol",
-      "propylene glycol",
-      "lorazepam",
+      "trimethoprim sulfamethoxazole",
+      "sulfamethoxazole trimethoprim",
+      "phenytoin",
       "diazepam",
-      "salicylate",
-      "acetylsalicylic acid",
-      "aspirin",
-      "iron",
-      "ferrous sulfate",
-      "ferrous gluconate",
-      "ferrous fumarate",
-      "isoniazid",
+      "lorazepam",
     ],
     highRiskMatches: [
-      "methanol",
-      "ethylene glycol",
-      "propylene glycol",
-      "salicylate",
-      "acetylsalicylic acid",
-      "aspirin",
-      "iron",
-      "isoniazid",
+      "trimethoprim sulfamethoxazole",
+      "sulfamethoxazole trimethoprim",
+      "phenytoin",
+      "diazepam",
+      "lorazepam",
     ],
     summary: (matched) =>
-      `High anion gap metabolic acidosis risk is stacking: ${matched.join(", ")}. Recheck acid-base status, anion gap, osmolar gap, lactate, ketones, salicylate or iron levels when relevant, and overdose/toxic alcohol context.`,
+      `Propylene glycol-containing IV formulations detected: ${matched.join(", ")}. These diluents can accumulate and cause high anion gap metabolic acidosis (HAGMA), especially with high doses or prolonged infusion in renal/hepatic impairment.`,
     detectSeverity: () => "Major",
   },
   {
@@ -1351,76 +1340,6 @@ const stackRules: StackRule[] = [
       return "Moderate";
     },
   },
-  {
-    domain: "fallsrisk",
-    title: "Polypharmacy falls risk",
-    matches: [
-      "diazepam",
-      "lorazepam",
-      "alprazolam",
-      "clonazepam",
-      "temazepam",
-      "zolpidem",
-      "zopiclone",
-      "zaleplon",
-      "morphine",
-      "oxycodone",
-      "fentanyl",
-      "codeine",
-      "tramadol",
-      "hydrocodone",
-      "doxazosin",
-      "prazosin",
-      "tamsulosin",
-      "alfuzosin",
-      "terazosin",
-      "amitriptyline",
-      "nortriptyline",
-      "trazodone",
-      "mirtazapine",
-      "haloperidol",
-      "quetiapine",
-      "risperidone",
-      "olanzapine",
-      "chlorpromazine",
-      "gabapentin",
-      "pregabalin",
-    ],
-    highRiskMatches: [
-      "diazepam",
-      "lorazepam",
-      "alprazolam",
-      "clonazepam",
-      "zolpidem",
-      "zopiclone",
-    ],
-    summary: (matched) =>
-      `Multiple falls-risk drugs detected: ${matched.join(", ")}. Review combined sedation, orthostatic hypotension, and dizziness burden — especially in older adults or those with gait instability.`,
-    detectSeverity: (matchedKeywords, matchedDrugs) => {
-      const BENZOS_ZDRUGS = ["diazepam", "lorazepam", "alprazolam", "clonazepam", "temazepam", "zolpidem", "zopiclone", "zaleplon"];
-      const OPIOIDS = ["morphine", "oxycodone", "fentanyl", "codeine", "tramadol", "hydrocodone"];
-      const ALPHA_BLOCKERS = ["doxazosin", "prazosin", "tamsulosin", "alfuzosin", "terazosin"];
-      const hasBenzoOrZDrug = BENZOS_ZDRUGS.some((k) => matchedKeywords.includes(k));
-      const hasOpioid = OPIOIDS.some((k) => matchedKeywords.includes(k));
-      const hasGabapentinoid = ["gabapentin", "pregabalin"].some((k) => matchedKeywords.includes(k));
-      const hasAlphaBlocker = ALPHA_BLOCKERS.some((k) => matchedKeywords.includes(k));
-
-      // At least one sedating agent must be present to fire Major — prevents
-      // two alpha-blockers or two antipsychotics alone from escalating.
-      const hasSedating = hasBenzoOrZDrug || hasOpioid || hasGabapentinoid;
-
-      if (
-        (hasBenzoOrZDrug && hasOpioid) ||
-        (hasBenzoOrZDrug && hasGabapentinoid) ||
-        (hasBenzoOrZDrug && hasAlphaBlocker) ||
-        (hasSedating && matchedDrugs.length >= 3)
-      ) {
-        return "Major";
-      }
-
-      return "Moderate";
-    },
-  },
 ];
 
 function normalizeDrugName(name: string) {
@@ -1618,12 +1537,10 @@ const STACK_REFERENCE_GROUPS: Record<StackDomain, string[]> = {
     "Atypical antipsychotics",
   ],
   hagma: [
-    "Methanol",
-    "Ethylene glycol",
-    "Propylene glycol",
-    "Salicylates",
-    "Iron",
-    "Isoniazid",
+    "Bactrim IV (TMP-SMX)",
+    "Dilantin IV (phenytoin)",
+    "Valium IV (diazepam)",
+    "Ativan IV (lorazepam)",
   ],
   normalgapacidosis: [
     "Acetazolamide",
@@ -1665,14 +1582,7 @@ const STACK_REFERENCE_GROUPS: Record<StackDomain, string[]> = {
     "Gabapentinoids",
     "Skeletal muscle relaxants",
   ],
-  fallsrisk: [
-    "Benzodiazepines and Z-drugs",
-    "Opioids",
-    "Gabapentinoids",
-    "Alpha-1 blockers",
-    "Sedating antidepressants",
-    "Antipsychotics",
-  ],
+
 };
 
 export function getStackReferenceGroups(domain: StackDomain) {
@@ -1799,14 +1709,7 @@ const STACK_HIGH_YIELD_DRUGS: Record<StackDomain, string[]> = {
     "Diazepam", "Lorazepam", "Alprazolam", "Clonazepam", "Midazolam",
     "Zolpidem", "Zopiclone", "Gabapentin", "Pregabalin",
   ],
-  fallsrisk: [
-    "Diazepam", "Lorazepam", "Alprazolam", "Zolpidem", "Zopiclone",
-    "Morphine", "Oxycodone", "Tramadol", "Fentanyl",
-    "Doxazosin", "Tamsulosin", "Prazosin", "Alfuzosin",
-    "Gabapentin", "Pregabalin",
-    "Amitriptyline", "Mirtazapine",
-    "Quetiapine", "Risperidone",
-  ],
+
 };
 
 export function getStackHighYieldDrugs(domain: StackDomain): string[] {
