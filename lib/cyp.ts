@@ -361,7 +361,7 @@ const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "nicotine", annotations: [{ system: "CYP2A6", role: "Sub" }, { system: "FMO", role: "Sub", note: "major, alternative oxidation pathway" }] },
   { match: "coumarin", annotations: [{ system: "CYP2A6", role: "Sub" }] },
   { match: "methoxsalen", annotations: [{ system: "CYP2A6", role: "Inh" }] },
-  { match: "ethanol", annotations: [{ system: "CYP2E1", role: "Sub" }, { system: "Alcohol dehydrogenase", role: "Sub", note: "alcohol → aldehyde; block with fomepizole in poisoning" }, { system: "Alcohol dehydrogenase", role: "Inh", note: "competitive inhibitor of methanol / ethylene glycol metabolism" }, { system: "Aldehyde dehydrogenase", role: "Sub", note: "acetaldehyde → acetate; target of disulfiram" }] },
+  { match: "ethanol", annotations: [{ system: "Alcohol dehydrogenase", role: "Sub", note: "major; alcohol → acetaldehyde" }, { system: "CYP2E1", role: "Sub", note: "minor" }] },
   { match: "methanol", annotations: [{ system: "Alcohol dehydrogenase", role: "Sub", note: "alcohol → aldehyde; block with fomepizole in poisoning" }] },
   { match: "ethylene glycol", annotations: [{ system: "Alcohol dehydrogenase", role: "Sub", note: "alcohol → aldehyde; block with fomepizole in poisoning" }] },
   {
