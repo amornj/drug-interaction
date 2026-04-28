@@ -692,8 +692,8 @@ export function DrugSearch({
     rows.push({
       id: "teach",
       kind: "teach",
-      title: `Teach: "${term}" = ?`,
-      subtitle: "Save a local alias by choosing ingredient components.",
+      title: `Teach "${term} = A + B"`,
+      subtitle: 'Format: Teach "ComboAB = A + B". Click to choose RxNorm-confirmed components.',
       onActivate: () => setTeachOpen(true),
     });
   }
@@ -789,6 +789,10 @@ export function DrugSearch({
       if (!open) return;
       const targetIndex = activeIndex >= 0 ? activeIndex : firstSelectable(1);
       const row = rows[targetIndex];
+      if (row?.kind === "teach") {
+        event.preventDefault();
+        return;
+      }
       if (canActivate(targetIndex)) {
         event.preventDefault();
         activateRow(row);

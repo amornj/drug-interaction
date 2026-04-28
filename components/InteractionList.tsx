@@ -62,6 +62,12 @@ export function InteractionList({
       </div>
       {visiblePairs.map((pair, index) => {
         const isPinned = pair.displaySeverity === "Contraindicated";
+        const isClinicalOverlay = pair.sources.some(
+          (source) => source.name === "Clinical overlay"
+        );
+        const showConfidenceBadge =
+          !(isClinicalOverlay && pair.confidence === "unverified") ||
+          pair.pkMechanisms.length > 0;
         const severityToken =
           pair.displaySeverity === "Contraindicated"
             ? "var(--sev-contra)"
@@ -95,24 +101,26 @@ export function InteractionList({
                     </p>
                   </div>
                   <div className="mt-2 flex flex-wrap items-center gap-2 pl-8">
-                    <span
-                      className={`border px-2 py-1 text-[10px] uppercase tracking-[0.12em] ${
-                        pair.lowConfidence
-                          ? "border-rule bg-surface/50 text-ink-mute"
-                          : "border-rule-strong text-ink-soft"
-                      }`}
-                      title={
-                        pair.confidence === "pk_confirmed"
-                          ? "Direct local inhibitor-substrate mechanism"
-                          : pair.confidence === "pk_plausible"
-                          ? "Shared high-risk substrate pathway"
-                          : pair.confidence === "pd_plausible"
-                          ? "Shared pharmacodynamic stack domain"
-                          : "Mechanism not confirmed locally"
-                      }
-                    >
-                      {confidenceLabel(pair.confidence)}
-                    </span>
+                    {showConfidenceBadge ? (
+                      <span
+                        className={`border px-2 py-1 text-[10px] uppercase tracking-[0.12em] ${
+                          pair.lowConfidence
+                            ? "border-rule bg-surface/50 text-ink-mute"
+                            : "border-rule-strong text-ink-soft"
+                        }`}
+                        title={
+                          pair.confidence === "pk_confirmed"
+                            ? "Direct local inhibitor-substrate mechanism"
+                            : pair.confidence === "pk_plausible"
+                            ? "Shared high-risk substrate pathway"
+                            : pair.confidence === "pd_plausible"
+                            ? "Shared pharmacodynamic stack domain"
+                            : "Mechanism not confirmed locally"
+                        }
+                      >
+                        {confidenceLabel(pair.confidence)}
+                      </span>
+                    ) : null}
                     {pair.lowConfidence ? (
                       <span className="text-[10px] uppercase tracking-[0.12em] text-ink-mute">
                         Low confidence
