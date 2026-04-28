@@ -76,7 +76,7 @@ export function CaseSwitcher({
     const target = cases.find((c) => c.id === caseId);
     if (!target) return;
     const ok = window.confirm(
-      `Delete "${target.label}"? Medications, modifiers, and PGx selections for this case will be removed.`
+      `Delete "${target.label}"? Medications and PGx selections for this case will be removed.`
     );
     if (ok) removeCase(caseId);
   }

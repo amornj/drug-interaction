@@ -8,11 +8,9 @@ import { DrugSearch } from "@/components/DrugSearch";
 import { DrugChip } from "@/components/DrugChip";
 import { InteractionList } from "@/components/InteractionList";
 import { InteractionSummary } from "@/components/InteractionSummary";
-import { PatientModifiers } from "@/components/PatientModifiers";
 import { PharmacogenomicsPanel } from "@/components/PharmacogenomicsPanel";
 import { StackWarnings } from "@/components/StackWarnings";
 import type { InteractionCheckResponse } from "@/lib/interaction-types";
-import { applyPatientModifiers } from "@/lib/modifiers";
 import { detectCumulativeStacks } from "@/lib/stacks";
 import { useActiveCase, useStore } from "@/lib/store";
 
@@ -91,13 +89,6 @@ export function AppShell() {
 
   const visibleResult = resultKey === activeDrugKey ? result : null;
   const visibleError = errorKey === activeDrugKey ? error : null;
-  const modifiedResult = useMemo(
-    () =>
-      active && visibleResult
-        ? applyPatientModifiers(visibleResult, active.patientModifiers)
-        : null,
-    [active, visibleResult]
-  );
   const stackWarnings = useMemo(
     () => (active && visibleResult ? detectCumulativeStacks(active.drugs) : []),
     [active, visibleResult]
@@ -140,12 +131,12 @@ export function AppShell() {
         <DrugSearch aliases={aliases} onAliasesChange={setAliases} />
       </section>
 
-      {modifiedResult ? (
+      {visibleResult ? (
         <section className="mt-4">
           <InteractionSummary
-            pairs={modifiedResult.pairs}
+            pairs={visibleResult.pairs}
             stacks={stackWarnings}
-            dataVersion={modifiedResult.dataVersion}
+            dataVersion={visibleResult.dataVersion}
           />
         </section>
       ) : checking &&
@@ -257,10 +248,6 @@ export function AppShell() {
                 />
               ))}
             </ul>
-
-            <div className="mt-6">
-              <PatientModifiers modifiers={active.patientModifiers} />
-            </div>
             <div className="mt-6">
               <PharmacogenomicsPanel
                 drugs={active.drugs}
@@ -268,7 +255,7 @@ export function AppShell() {
               />
             </div>
 
-            {modifiedResult ? (
+            {visibleResult ? (
               <>
                 {stackWarnings.length > 0 ? (
                   <div className="mt-8">
@@ -282,15 +269,10 @@ export function AppShell() {
                   <div className="flex items-baseline justify-between">
                     <div>
                       <p className="eyebrow">Results</p>
-                      {modifiedResult.modifierSummary.length > 0 ? (
-                        <p className="mt-1 text-[11.5px] italic text-ink-mute">
-                          with {modifiedResult.modifierSummary.join(", ")}
-                        </p>
-                      ) : null}
                     </div>
                     <span className="stamp">
                       Checked ·{" "}
-                      {new Date(modifiedResult.checkedAt).toLocaleTimeString(
+                      {new Date(visibleResult.checkedAt).toLocaleTimeString(
                         [],
                         {
                           hour: "2-digit",
@@ -300,7 +282,7 @@ export function AppShell() {
                     </span>
                   </div>
                   <div className="mt-3">
-                    <InteractionList result={modifiedResult} />
+                    <InteractionList result={visibleResult} />
                   </div>
                 </div>
               </>

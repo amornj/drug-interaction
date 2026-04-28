@@ -3,14 +3,17 @@
 import { useState } from "react";
 import { InteractionExplanation } from "@/components/InteractionExplanation";
 import { SeverityBadge } from "@/components/SeverityBadge";
-import { formatSources } from "@/lib/interaction-types";
-import { confidenceLabel, pkMechanismLabel } from "@/lib/interaction-types";
-import type { ModifiedInteractionResult } from "@/lib/modifiers";
+import {
+  confidenceLabel,
+  formatSources,
+  pkMechanismLabel,
+  type InteractionCheckResponse,
+} from "@/lib/interaction-types";
 
 export function InteractionList({
   result,
 }: {
-  result: ModifiedInteractionResult;
+  result: InteractionCheckResponse;
 }) {
   const [hideLowConfidence, setHideLowConfidence] = useState(false);
 
@@ -37,7 +40,7 @@ export function InteractionList({
   const visiblePairs = result.pairs.filter(
     (pair) =>
       !hideLowConfidence ||
-      pair.displaySeverity === "Contraindicated" ||
+      pair.severity === "Contraindicated" ||
       !pair.lowConfidence
   );
   const hiddenCount = result.pairs.length - visiblePairs.length;
@@ -61,7 +64,7 @@ export function InteractionList({
         </label>
       </div>
       {visiblePairs.map((pair, index) => {
-        const isPinned = pair.displaySeverity === "Contraindicated";
+        const isPinned = pair.severity === "Contraindicated";
         const isClinicalOverlay = pair.sources.some(
           (source) => source.name === "Clinical overlay"
         );
@@ -69,11 +72,11 @@ export function InteractionList({
           pair.confidence !== "unverified" ||
           pair.pkMechanisms.length > 0;
         const severityToken =
-          pair.displaySeverity === "Contraindicated"
+          pair.severity === "Contraindicated"
             ? "var(--sev-contra)"
-            : pair.displaySeverity === "Major"
+            : pair.severity === "Major"
             ? "var(--sev-major)"
-            : pair.displaySeverity === "Moderate"
+            : pair.severity === "Moderate"
             ? "var(--sev-moderate)"
             : "var(--sev-minor)";
         return (
@@ -145,44 +148,12 @@ export function InteractionList({
                   <p className="mt-1.5 pl-8 text-[13.5px] leading-snug text-ink-soft">
                     {pair.verdict}
                   </p>
-                  {pair.displaySeverity !== pair.baseSeverity ? (
-                    <p
-                      className="mt-1 pl-8 text-[11px] uppercase tracking-[0.1em]"
-                      style={{ color: "var(--accent)" }}
-                    >
-                      Modifiers raised {pair.baseSeverity} → {pair.displaySeverity}
-                    </p>
-                  ) : null}
                   <p className="mt-2 pl-8 stamp">{formatSources(pair.sources)}</p>
                 </div>
-                <SeverityBadge severity={pair.displaySeverity} pulse={isPinned} />
+                <SeverityBadge severity={pair.severity} pulse={isPinned} />
               </div>
             </summary>
             <div className="border-l-2 border-rule pb-4 pl-8 pr-2 text-[13.5px] text-ink-soft">
-              {pair.modifierEffects.length > 0 ? (
-                <div
-                  className="mb-3 border border-rule border-l-2 bg-accent-soft/40 px-3 py-2"
-                  style={{ borderLeftColor: "var(--accent)" }}
-                >
-                  <p className="eyebrow" style={{ color: "var(--accent)" }}>
-                    Patient modifier impact
-                  </p>
-                  {pair.modifierEffects.map((effect, i) => (
-                    <div key={`${effect.modifier}-${i}`} className="mt-2">
-                      <p className="text-[13.5px] text-ink">
-                        <span className="font-serif italic">{effect.title}</span>
-                        {effect.adjustedSeverity
-                          ? `  →  ${effect.adjustedSeverity}`
-                          : ""}
-                      </p>
-                      <p className="mt-1 text-[13px] leading-snug">{effect.summary}</p>
-                      <p className="stamp mt-1">
-                        Source: {formatSources([effect.source])}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              ) : null}
               {pair.mechanism_class ? (
                 <p className="mt-2">
                   <span className="eyebrow mr-2">Mechanism</span>
@@ -206,7 +177,7 @@ export function InteractionList({
                 pair={{
                   a: pair.a,
                   b: pair.b,
-                  severity: pair.baseSeverity,
+                  severity: pair.severity,
                   verdict: pair.verdict,
                   confidence: pair.confidence,
                   lowConfidence: pair.lowConfidence,

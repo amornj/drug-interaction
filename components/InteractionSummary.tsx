@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import type { InteractionSeverity } from "@/lib/interaction-types";
-import type { ModifiedInteractionPair } from "@/lib/modifiers";
+import type { InteractionPair, InteractionSeverity } from "@/lib/interaction-types";
 import { getStackHighYieldDrugs, type StackWarning } from "@/lib/stacks";
 
-function CopyPromptButton({ pairs }: { pairs: ModifiedInteractionPair[] }) {
+function CopyPromptButton({ pairs }: { pairs: InteractionPair[] }) {
   const [label, setLabel] = useState("COPY");
 
   const drugNames = Array.from(
@@ -114,7 +113,7 @@ export function InteractionSummary({
   stacks = [],
   dataVersion,
 }: {
-  pairs: ModifiedInteractionPair[];
+  pairs: InteractionPair[];
   stacks?: StackWarning[];
   dataVersion: string;
 }) {
@@ -145,14 +144,14 @@ export function InteractionSummary({
     Minor: 0,
   };
   for (const pair of pairs) {
-    counts[pair.displaySeverity] += 1;
+    counts[pair.severity] += 1;
   }
 
   const hasContra = counts.Contraindicated > 0;
   const hasMajor = counts.Major > 0;
 
-  const contraPairs = pairs.filter((p) => p.displaySeverity === "Contraindicated");
-  const majorPairs = pairs.filter((p) => p.displaySeverity === "Major");
+  const contraPairs = pairs.filter((p) => p.severity === "Contraindicated");
+  const majorPairs = pairs.filter((p) => p.severity === "Major");
 
   const summaryPairs = hasContra
     ? contraPairs
@@ -226,7 +225,7 @@ export function InteractionSummary({
                 <span className="font-serif italic">{pair.b.name}</span>
                 <span className="mx-2 text-ink-mute">—</span>
                 <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">
-                  {pair.displaySeverity}
+                  {pair.severity}
                 </span>
               </p>
             ))}

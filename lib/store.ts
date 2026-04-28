@@ -3,12 +3,6 @@
 import { create } from "zustand";
 import { get as idbGet, set as idbSet } from "idb-keyval";
 import {
-  createDefaultPatientModifiers,
-  type PatientModifierKey,
-  type PatientModifiers,
-  type RenalInputs,
-} from "@/lib/modifiers";
-import {
   createDefaultPgxProfile,
   type PgxGene,
   type PgxProfile,
@@ -25,7 +19,6 @@ export type Case = {
   id: string;
   label: string;
   drugs: Drug[];
-  patientModifiers: PatientModifiers;
   pgxProfile: PgxProfile;
   createdAt: number;
 };
@@ -46,15 +39,6 @@ type Store = PersistedState & {
   removeDrug: (rxcui: string) => void;
   moveDrug: (fromIndex: number, toIndex: number) => void;
   clearDrugs: () => void;
-  setModifierFlag: (
-    modifier: Exclude<PatientModifierKey, "renal">,
-    value: boolean
-  ) => void;
-  updateRenalInput: <K extends keyof RenalInputs>(
-    field: K,
-    value: RenalInputs[K]
-  ) => void;
-  resetPatientModifiers: () => void;
   setPgxPhenotype: (gene: PgxGene, value: string) => void;
   resetPgxProfile: () => void;
 };
@@ -73,7 +57,6 @@ function defaultState(): PersistedState {
     id: newId(),
     label: "Case 1",
     drugs: [],
-    patientModifiers: createDefaultPatientModifiers(),
     pgxProfile: createDefaultPgxProfile(),
     createdAt: Date.now(),
   };
@@ -83,14 +66,6 @@ function defaultState(): PersistedState {
 function normalizeCase(nextCase: Case): Case {
   return {
     ...nextCase,
-    patientModifiers: {
-      ...createDefaultPatientModifiers(),
-      ...nextCase.patientModifiers,
-      renal: {
-        ...createDefaultPatientModifiers().renal,
-        ...nextCase.patientModifiers?.renal,
-      },
-    },
     pgxProfile: {
       ...createDefaultPgxProfile(),
       ...nextCase.pgxProfile,
@@ -144,7 +119,6 @@ export const useStore = create<Store>((set, get) => ({
       id: newId(),
       label: `Case ${get().cases.length + 1}`,
       drugs: [],
-      patientModifiers: createDefaultPatientModifiers(),
       pgxProfile: createDefaultPgxProfile(),
       createdAt: Date.now(),
     };
@@ -217,57 +191,6 @@ export const useStore = create<Store>((set, get) => ({
     const { cases, activeCaseId } = get();
     const nextCases = cases.map((c) =>
       c.id !== activeCaseId ? c : { ...c, drugs: [] }
-    );
-    set({ cases: nextCases });
-    persist({ cases: nextCases, activeCaseId });
-  },
-
-  setModifierFlag: (modifier, value) => {
-    const { cases, activeCaseId } = get();
-    const nextCases = cases.map((c) =>
-      c.id !== activeCaseId
-        ? c
-        : {
-            ...c,
-            patientModifiers: {
-              ...c.patientModifiers,
-              [modifier]: value,
-            },
-          }
-    );
-    set({ cases: nextCases });
-    persist({ cases: nextCases, activeCaseId });
-  },
-
-  updateRenalInput: (field, value) => {
-    const { cases, activeCaseId } = get();
-    const nextCases = cases.map((c) =>
-      c.id !== activeCaseId
-        ? c
-        : {
-            ...c,
-            patientModifiers: {
-              ...c.patientModifiers,
-              renal: {
-                ...c.patientModifiers.renal,
-                [field]: value,
-              },
-            },
-          }
-    );
-    set({ cases: nextCases });
-    persist({ cases: nextCases, activeCaseId });
-  },
-
-  resetPatientModifiers: () => {
-    const { cases, activeCaseId } = get();
-    const nextCases = cases.map((c) =>
-      c.id !== activeCaseId
-        ? c
-        : {
-            ...c,
-            patientModifiers: createDefaultPatientModifiers(),
-          }
     );
     set({ cases: nextCases });
     persist({ cases: nextCases, activeCaseId });
