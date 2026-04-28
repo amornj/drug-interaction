@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-28T13:43:38.899Z",
+  "generatedAt": "2026-04-28T14:05:50.314Z",
   "overlayVersion": "2026-04",
   "entries": [
     {
@@ -17626,6 +17626,25 @@
       "verdict": "abemaciclib is a weak CYP3A4 inhibitor. tacrolimus is metabolised via CYP3A4. Co-administration is predicted to reduce clearance of tacrolimus and increase plasma exposure.",
       "mechanism_class": "CYP3A4 inhibitor",
       "management": "Monitor for signs of tacrolimus toxicity. Dose adjustment may be required.",
+      "sources": [
+        {
+          "name": "CYP/transporter-derived",
+          "version": "2026-04"
+        }
+      ],
+      "file": "cyp-derived.yaml"
+    },
+    {
+      "key": "17767|2683",
+      "pair": [
+        "17767",
+        "2683"
+      ],
+      "suppress": false,
+      "severity": "Moderate",
+      "verdict": "amlodipine is a weak CYP3A4 inhibitor. colchicine is metabolised via CYP3A4. Co-administration is predicted to reduce clearance of colchicine and increase plasma exposure.",
+      "mechanism_class": "CYP3A4 inhibitor",
+      "management": "Monitor for signs of colchicine toxicity. Dose adjustment may be required.",
       "sources": [
         {
           "name": "CYP/transporter-derived",

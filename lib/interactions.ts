@@ -11,8 +11,9 @@ import {
 } from "@/lib/data/overlay";
 import { brandRxcuiNames } from "@/lib/data/brands";
 import {
-  classifyConfidence,
+  classifyInteractionConfidence,
   type InteractionConfidence,
+  type PkMechanism,
 } from "@/lib/confidence";
 
 export const severityOrder = [
@@ -35,6 +36,7 @@ export type InteractionPair = {
   severity: InteractionSeverity;
   confidence: InteractionConfidence;
   lowConfidence: boolean;
+  pkMechanisms: PkMechanism[];
   verdict: string;
   mechanism_class?: string;
   management?: string;
@@ -203,7 +205,8 @@ export function checkInteractions(rxcuis: string[]): InteractionCheckResponse {
       const nameA = getRxcuiName(a) ?? a;
       const nameB = getRxcuiName(b) ?? b;
 
-      const confidence = classifyConfidence(nameA, nameB);
+      const classification = classifyInteractionConfidence(nameA, nameB);
+      const { confidence, pkMechanisms } = classification;
 
       if (overlay) {
         pairs.push({
@@ -212,6 +215,7 @@ export function checkInteractions(rxcuis: string[]): InteractionCheckResponse {
           severity: overlay.severity ?? "Moderate",
           confidence,
           lowConfidence: confidence === "unverified",
+          pkMechanisms,
           verdict: overlay.verdict ?? "Reviewed interaction overlay.",
           mechanism_class: overlay.mechanism_class,
           management: overlay.management,
@@ -232,6 +236,7 @@ export function checkInteractions(rxcuis: string[]): InteractionCheckResponse {
         severity,
         confidence,
         lowConfidence: confidence === "unverified",
+        pkMechanisms,
         verdict: defaultVerdictForSeverity(severity),
         sources: defaultPairSources,
       });

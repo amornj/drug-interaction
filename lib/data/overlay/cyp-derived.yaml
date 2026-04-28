@@ -9891,6 +9891,17 @@
     - name: "CYP/transporter-derived"
       version: "2026-04"
 
+- pair: ["17767", "2683"]
+  severity: Moderate
+  verdict: >-
+    amlodipine is a weak CYP3A4 inhibitor. colchicine is metabolised via CYP3A4. Co-administration is predicted to reduce clearance of colchicine and increase plasma exposure.
+  mechanism_class: "CYP3A4 inhibitor"
+  management: >-
+    Monitor for signs of colchicine toxicity. Dose adjustment may be required.
+  sources:
+    - name: "CYP/transporter-derived"
+      version: "2026-04"
+
 - pair: ["2683", "84857"]
   severity: Moderate
   verdict: >-

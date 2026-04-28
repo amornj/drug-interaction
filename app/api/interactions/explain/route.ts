@@ -25,6 +25,12 @@ const pairSchema: z.ZodType<InteractionPair> = z.object({
     "unverified",
   ]),
   lowConfidence: z.boolean(),
+  pkMechanisms: z.array(
+    z.object({
+      kind: z.enum(["sub_inh", "sub_ind", "co_sub"]),
+      system: z.string().trim().min(1),
+    })
+  ),
   verdict: z.string().trim().min(1),
   mechanism_class: z.string().trim().min(1).optional(),
   management: z.string().trim().min(1).optional(),

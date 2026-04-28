@@ -7,6 +7,18 @@ export type InteractionConfidence =
   | "pd_plausible"
   | "unverified";
 
+export type PkMechanismKind = "sub_inh" | "sub_ind" | "co_sub";
+
+export type PkMechanism = {
+  kind: PkMechanismKind;
+  system: string;
+};
+
+export type ConfidenceClassification = {
+  confidence: InteractionConfidence;
+  pkMechanisms: PkMechanism[];
+};
+
 const PK_SYSTEMS = new Set([
   "CYP3A4",
   "CYP2D6",
@@ -60,6 +72,17 @@ export function confidenceLabel(confidence: InteractionConfidence) {
   }
 }
 
+export function pkMechanismLabel(kind: PkMechanismKind) {
+  switch (kind) {
+    case "sub_inh":
+      return "SUB-INH";
+    case "sub_ind":
+      return "SUB-IND";
+    case "co_sub":
+      return "CO-SUB";
+  }
+}
+
 function normalizeDrugName(name: string) {
   return name
     .toLowerCase()
@@ -78,30 +101,67 @@ function hasCosubstrateSignal(nameA: string, nameB: string) {
     && [...cosubstrateSignalDrugs].some((drug) => normalizedB.includes(drug));
 }
 
-function systemsFor(
+function uniqueSystemsFor(
   name: string,
   predicate: (label: string) => boolean
 ): string[] {
-  return getDrugMetabolismTags(name)
+  return [
+    ...new Set(getDrugMetabolismTags(name)
     .filter((tag) => PK_SYSTEMS.has(tag.system) && predicate(tag.label))
-    .map((tag) => tag.system);
+      .map((tag) => tag.system)),
+  ];
 }
 
 export function classifyConfidence(
   nameA: string,
   nameB: string
 ): InteractionConfidence {
-  const inhibSystemsA = systemsFor(nameA, (label) => label.includes("Inh"));
-  const inhibSystemsB = systemsFor(nameB, (label) => label.includes("Inh"));
-  const subSystemsA = systemsFor(nameA, (label) => label.includes("Sub"));
-  const subSystemsB = systemsFor(nameB, (label) => label.includes("Sub"));
+  return classifyInteractionConfidence(nameA, nameB).confidence;
+}
 
-  if (inhibSystemsA.some((system) => subSystemsB.includes(system))) {
-    return "pk_confirmed";
+export function classifyInteractionConfidence(
+  nameA: string,
+  nameB: string
+): ConfidenceClassification {
+  const inhibSystemsA = uniqueSystemsFor(nameA, (label) => label.includes("Inh"));
+  const inhibSystemsB = uniqueSystemsFor(nameB, (label) => label.includes("Inh"));
+  const inducSystemsA = uniqueSystemsFor(
+    nameA,
+    (label) => label.includes("Ind") && !label.includes("Weak Ind")
+  );
+  const inducSystemsB = uniqueSystemsFor(
+    nameB,
+    (label) => label.includes("Ind") && !label.includes("Weak Ind")
+  );
+  const subSystemsA = uniqueSystemsFor(nameA, (label) => label.includes("Sub"));
+  const subSystemsB = uniqueSystemsFor(nameB, (label) => label.includes("Sub"));
+  const pkMechanisms: PkMechanism[] = [];
+
+  for (const system of inhibSystemsA) {
+    if (subSystemsB.includes(system)) {
+      pkMechanisms.push({ kind: "sub_inh", system });
+    }
   }
-
-  if (inhibSystemsB.some((system) => subSystemsA.includes(system))) {
-    return "pk_confirmed";
+  for (const system of inhibSystemsB) {
+    if (subSystemsA.includes(system)) {
+      pkMechanisms.push({ kind: "sub_inh", system });
+    }
+  }
+  for (const system of inducSystemsA) {
+    if (subSystemsB.includes(system)) {
+      pkMechanisms.push({ kind: "sub_ind", system });
+    }
+  }
+  for (const system of inducSystemsB) {
+    if (subSystemsA.includes(system)) {
+      pkMechanisms.push({ kind: "sub_ind", system });
+    }
+  }
+  if (pkMechanisms.length > 0) {
+    return {
+      confidence: "pk_confirmed",
+      pkMechanisms,
+    };
   }
 
   const sharedSubstrateSystems = subSystemsA.filter((system) =>
@@ -113,14 +173,26 @@ export function classifyConfidence(
     ) &&
     hasCosubstrateSignal(nameA, nameB)
   ) {
-    return "pk_plausible";
+    return {
+      confidence: "pk_plausible",
+      pkMechanisms: sharedSubstrateSystems.map((system) => ({
+        kind: "co_sub",
+        system,
+      })),
+    };
   }
 
   const stacksA = getStackDomainsForDrug(nameA);
   const stacksB = getStackDomainsForDrug(nameB);
   if (stacksA.some((domain) => stacksB.includes(domain))) {
-    return "pd_plausible";
+    return {
+      confidence: "pd_plausible",
+      pkMechanisms: [],
+    };
   }
 
-  return "unverified";
+  return {
+    confidence: "unverified",
+    pkMechanisms: [],
+  };
 }

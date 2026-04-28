@@ -4,7 +4,7 @@ import { useState } from "react";
 import { InteractionExplanation } from "@/components/InteractionExplanation";
 import { SeverityBadge } from "@/components/SeverityBadge";
 import { formatSources } from "@/lib/interactions";
-import { confidenceLabel } from "@/lib/confidence";
+import { confidenceLabel, pkMechanismLabel } from "@/lib/confidence";
 import type { ModifiedInteractionResult } from "@/lib/modifiers";
 
 export function InteractionList({
@@ -12,8 +12,7 @@ export function InteractionList({
 }: {
   result: ModifiedInteractionResult;
 }) {
-  const [hideLowConfidenceModerate, setHideLowConfidenceModerate] =
-    useState(false);
+  const [hideLowConfidence, setHideLowConfidence] = useState(false);
 
   if (result.pairs.length === 0) {
     return (
@@ -37,8 +36,8 @@ export function InteractionList({
 
   const visiblePairs = result.pairs.filter(
     (pair) =>
-      !hideLowConfidenceModerate ||
-      pair.displaySeverity !== "Moderate" ||
+      !hideLowConfidence ||
+      pair.displaySeverity === "Contraindicated" ||
       !pair.lowConfidence
   );
   const hiddenCount = result.pairs.length - visiblePairs.length;
@@ -48,7 +47,7 @@ export function InteractionList({
       <div className="border-b border-rule px-4 py-3">
         <label className="flex min-h-11 items-center justify-between gap-3 text-[13px] text-ink-soft">
           <span>
-            Hide low-confidence Moderate pairs
+            Hide low-confidence warnings
             {hiddenCount > 0 ? (
               <span className="ml-1 text-ink-mute">({hiddenCount} hidden)</span>
             ) : null}
@@ -56,10 +55,8 @@ export function InteractionList({
           <input
             type="checkbox"
             className="size-5 accent-[var(--accent)]"
-            checked={hideLowConfidenceModerate}
-            onChange={(event) =>
-              setHideLowConfidenceModerate(event.target.checked)
-            }
+            checked={hideLowConfidence}
+            onChange={(event) => setHideLowConfidence(event.target.checked)}
           />
         </label>
       </div>
@@ -121,6 +118,26 @@ export function InteractionList({
                         Low confidence
                       </span>
                     ) : null}
+                    {pair.pkMechanisms.map((mechanism) => (
+                      <span
+                        key={`${mechanism.kind}-${mechanism.system}`}
+                        className="border border-rule bg-paper-raised px-2 py-1 text-[10px] uppercase tracking-[0.12em] text-ink-soft"
+                      >
+                        {pkMechanismLabel(mechanism.kind)}
+                      </span>
+                    ))}
+                    {[
+                      ...new Set(
+                        pair.pkMechanisms.map((mechanism) => mechanism.system)
+                      ),
+                    ].map((system) => (
+                      <span
+                        key={system}
+                        className="border border-rule bg-accent-soft px-2 py-1 font-mono text-[10px] tracking-[0.04em] text-ink"
+                      >
+                        {system}
+                      </span>
+                    ))}
                   </div>
                   <p className="mt-1.5 pl-8 text-[13.5px] leading-snug text-ink-soft">
                     {pair.verdict}
@@ -190,6 +207,7 @@ export function InteractionList({
                   verdict: pair.verdict,
                   confidence: pair.confidence,
                   lowConfidence: pair.lowConfidence,
+                  pkMechanisms: pair.pkMechanisms,
                   mechanism_class: pair.mechanism_class,
                   management: pair.management,
                   sources: pair.sources,

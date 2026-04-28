@@ -38,7 +38,7 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "simvastatin", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "P-gp", role: "Sub" }, { system: "BCRP", role: "Transport" }] },
   { match: "atorvastatin", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "BCRP", role: "Transport" }] },
   { match: "lovastatin", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "BCRP", role: "Transport" }] },
-  { match: "amlodipine", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "amlodipine", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP3A4", role: "Weak Inh" }] },
   { match: "nifedipine", annotations: [{ system: "CYP3A4", role: "Sub" }] },
   {
     match: "verapamil",
