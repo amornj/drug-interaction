@@ -207,6 +207,275 @@ Goal: harden the bedside experience for low-connectivity use, installability, an
 
 ---
 
+## DDInter quality and the plan to improve it
+
+### What DDInter 2.0 is and how it works
+
+DDInter 2.0 is a manually curated database aggregating ~302,516 drug-drug interaction pairs from published literature and FDA drug labels, reviewed by ≥2 pharmacists per entry using DRUGDEX severity standards (Minor / Moderate / Major). It is not machine-learning predicted. Its RxCUI mapping is resolved via RxNorm at ingest time and stored in `lib/data/ddinter/rxcui-map.json`.
+
+**Known structural weaknesses:**
+- Zero Contraindicated entries in the current build — every severe pair tops out at Major.
+- Co-substrate status (two drugs sharing a CYP pathway as substrates) is frequently treated as interaction evidence even when neither drug inhibits the other. This inflates Moderate pair counts.
+- Older literature and animal-study data receive the same weight as prospective clinical trials.
+- No severity validation against independent datasets; quality depends entirely on the pharmacist consensus process.
+
+**Two concrete examples already investigated:**
+- `colchicine ↔ simvastatin` — **legitimate, well-documented** (38 published case reports of myopathy/rhabdomyolysis). Both are CYP3A4 and P-gp substrates; competitive effects are real. DDInter is correct.
+- `colchicine ↔ spironolactone` — **almost certainly a false positive**. Spironolactone is a P-gp inducer, not inhibitor. No clinical signal in CLEAR-SYNERGY (3,500+ patients). DDInter flagged it based on CYP3A4 co-substrate proximity, not demonstrated harm.
+
+### The improvement strategy
+
+Three layers, independent of each other, applied in this order of priority:
+
+1. **Layer 1 — CYP-derived pair generation** (build-time, high yield). Generate pharmacokinetically grounded pairs from `lib/cyp.ts` annotation data and add them as a new overlay source. Every generated pair has an explicit inhibitor→substrate mechanism.
+2. **Layer 2 — Confidence classification** (runtime, zero new data). Cross-check each displayed DDInter pair against cyp.ts and stacks.ts to classify it as `pk_confirmed`, `pk_plausible`, `pd_plausible`, or `unverified`. Show the confidence class in the UI alongside severity.
+3. **Layer 3 — OpenFDA label pull** (deferred). Machine-readable FDA drug labels contain structured interaction sections. A targeted crawler for NTI drugs (warfarin, tacrolimus, digoxin, lithium, etc.) can stage verified pairs for manual overlay promotion.
+
+---
+
+## Layer 1 — CYP-derived pair generator (detailed)
+
+### Goal
+
+Produce `lib/data/overlay/cyp-derived.yaml` at build time. The existing overlay pipeline in `scripts/generate-ddinter.mjs` picks it up automatically. Every entry in this file takes precedence over DDInter for that RxCUI pair and carries a transparent source attribution.
+
+### New script: `scripts/generate-cyp-pairs.ts`
+
+Run with `tsx`. Add to `package.json`:
+
+```json
+"build:cyp-pairs": "tsx scripts/generate-cyp-pairs.ts",
+"build:all": "npm run build:data && npm run build:cyp-pairs && npm run build:data"
+```
+
+The second `build:data` call picks up the freshly written `cyp-derived.yaml` into `overlay/index.json`.
+
+### Input sources (all already on disk)
+
+| File | Used for |
+|---|---|
+| `lib/cyp.ts` — `METABOLISM_ENTRIES` + `CYP_REFERENCE_ONLY_ENTRIES` | Drug name → inhibitor / inducer / substrate roles per system |
+| `lib/data/ddinter/rxcui-map.json` | Case-insensitive drug name → RxCUI lookup (~1,971 entries) |
+| `lib/data/ddinter/index.json` | Existing DDInter severity per sorted RxCUI pair key |
+
+`lib/cyp.ts` currently covers 692 unique drug names with 767 substrate, 338 inhibitor, and 120 inducer annotations across 60+ systems.
+
+### Script logic
+
+**Step 1 — Parse cyp.ts.** Build two in-memory maps:
+
+```
+inhibitorIndex: Map<system, { drugName, strength, note? }[]>
+  ← all annotations where role contains "Inh" or "Ind"
+
+substrateIndex: Map<system, { drugName, pathwayFraction }[]>
+  ← all annotations where role === "Sub"
+  pathwayFraction = "major" | "primary" | "minor"  (derived from note field)
+```
+
+**Step 2 — Build RxCUI lookup.** Load `rxcui-map.json`. Normalize all keys to lowercase. For each drug name in cyp.ts, look up case-insensitively.
+
+**Step 3 — Run the inhibitor × substrate matrix.** For every `(system, inhibitorDrug A, substrateDrug B)` triple where A ≠ B and both RxCUIs resolve:
+
+- Determine severity from the matrix below.
+- Resolve the sorted pair key (`[rxcuiA, rxcuiB].sort().join("|")`).
+- Check DDInter: if the pair already exists at equal or higher severity → **skip** (do not override with weaker text).
+- If DDInter is silent or lower → emit the pair to `cyp-derived.yaml`.
+
+**Step 4 — Write output.** Sort by system then inhibitor drug name for readable diffs.
+
+### Systems included
+
+Generate pairs for these systems only. All others lack reliable small-molecule inhibitor/substrate clinical frameworks or are handled by PGx.
+
+**CYP enzymes:** `CYP3A4`, `CYP2D6`, `CYP2C9`, `CYP2C19`, `CYP2C8`, `CYP2B6`, `CYP1A2`, `CYP2E1`, `CYP2A6`
+
+**Transporters:** `P-gp`, `BCRP`, `OAT`, `MATE`, `OCT`
+
+**Conjugation:** `UGT`, `UGT1A1`
+
+**Exclude:** `Renal elim` (no enzyme to inhibit), `EHC` (enterohepatic cycling — effect depends on glucuronide reabsorption, not enzyme inhibition), `NAT` / `NAT2` / `TPMT` / `COMT` / `MAO-A` / `MAO-B` (handled by PGx layer), `Esterase` / `ADH` / `Hofmann` / `Xanthine oxidase` / `Non-enzymatic*` (no general inhibitor framework at therapeutic doses), `SULT` (few clinically significant small-molecule inhibitors).
+
+### NTI drug set (hardcoded in script)
+
+Drugs where a 2× exposure increase causes serious harm. Predicts one severity tier higher than a non-NTI substrate on the same pathway.
+
+```
+digoxin, warfarin, lithium, cyclosporine, tacrolimus, sirolimus, everolimus,
+phenytoin, carbamazepine, valproate, valproic acid, theophylline, methotrexate,
+colchicine, gentamicin, tobramycin, amikacin, vancomycin
+```
+
+### Severity matrix
+
+`pathwayFraction` is read from the `note` field in cyp.ts: `note: "minor"` → minor, `note: "major"` → major, no note → primary. "Skip" means do not emit a pair at this combination — the signal is too weak to be useful.
+
+| Inhibitor / Inducer strength | NTI substrate · primary pathway | NTI substrate · minor pathway | Normal substrate · primary pathway | Normal substrate · minor pathway |
+|---|---|---|---|---|
+| Strong Inh | **Major** | **Moderate** | **Major** | **Moderate** |
+| Moderate Inh | **Major** | **Moderate** | **Moderate** | skip |
+| Weak Inh | **Moderate** | skip | skip | skip |
+| Inh (no strength) | **Moderate** | skip | **Moderate** | skip |
+| Strong Ind | **Major** | **Moderate** | **Major** | **Moderate** |
+| Moderate Ind | **Major** | **Moderate** | **Moderate** | skip |
+| Ind / Weak Ind | skip | skip | skip | skip |
+
+Ceiling is Major throughout. Contraindicated is reserved for manual clinical overlay entries only — it requires human review.
+
+### Special cases
+
+- **Prodrug substrates** — annotations with `note: "PGx, prodrug"` (e.g. clopidogrel, codeine, tamoxifen). A CYP2C19 inhibitor + clopidogrel is not toxicity but *loss of efficacy*. Keep Major severity but use the inducer verdict template ("reduced activation") instead of the inhibitor template ("elevated levels").
+- **Auto-inhibition** — drug has both `Sub` and `Strong/Moderate Inh` on the same system (e.g. fluoxetine on CYP2D6). Generate the pair only when the other drug is a different substance. Do not generate a drug against itself.
+- **Inducers reducing NTI efficacy** — e.g. rifampicin + tacrolimus. The severity is Major because loss of therapeutic effect from an immunosuppressant is as dangerous as toxicity.
+
+### Verdict and management templates
+
+```
+Inhibitor pair:
+"{A} is a {strength} {system} inhibitor. {B} is metabolised via {system}.
+Co-administration is predicted to reduce clearance of {B} and increase plasma exposure."
+
+Inducer pair:
+"{A} is a {strength} {system} inducer. {B} is metabolised via {system}.
+Co-administration is predicted to accelerate clearance of {B} and reduce its therapeutic effect."
+
+Management — Major:
+"Avoid combination where possible. If necessary, reduce {B} dose and monitor levels or
+therapeutic endpoints closely."
+
+Management — Moderate:
+"Monitor for signs of {B} toxicity (inhibitor pair) or reduced efficacy (inducer pair).
+Dose adjustment may be required."
+```
+
+Source on every generated entry: `{ name: "CYP/transporter annotation layer", version: "2026-04" }`.
+
+### Expected output and manual review
+
+Raw matrix for CYP3A4 alone: ~20 strong inhibitors × ~150 substrates = ~3,000 potential pairs. After filters (RxCUI resolution ~55%, DDInter already-correct ~50%), estimated **300–600 net new or upgraded pairs**.
+
+Before committing `cyp-derived.yaml`, run a manual review pass:
+- Sort output by system, scan for implausible drug names.
+- Move false positives to `cyp-pairs-excluded.yaml` with a comment explaining why.
+- Pay particular attention to: immunosuppressants (narrow margins), chemotherapy (dose-dependent toxicity), and prodrugs (inverted benefit/harm direction).
+
+---
+
+## Layer 2 — Confidence classification (detailed)
+
+### Goal
+
+Add a `confidence` field to every `InteractionPair` at runtime. The field does not change severity. It adds mechanistic transparency and enables future UI filtering to reduce alert fatigue from weak DDInter entries.
+
+### New file: `lib/confidence.ts`
+
+Exports:
+
+```typescript
+export type InteractionConfidence =
+  | "pk_confirmed"   // cyp.ts has direct inhibitor→substrate link between the two drugs
+  | "pk_plausible"   // both drugs share a CYP/transporter substrate system (co-substrate)
+  | "pd_plausible"   // both appear in at least one shared cumulative stack domain
+  | "unverified";    // no mechanism traceable in local annotation or stack data
+
+export function classifyConfidence(nameA: string, nameB: string): InteractionConfidence;
+export function confidenceLabel(c: InteractionConfidence): string;
+```
+
+### Classification logic
+
+```typescript
+const PK_SYSTEMS = new Set([
+  "CYP3A4","CYP2D6","CYP2C9","CYP2C19","CYP2C8","CYP2B6","CYP1A2",
+  "P-gp","OAT","OCT","MATE","BCRP","UGT","UGT1A1"
+]);
+
+function classifyConfidence(nameA: string, nameB: string): InteractionConfidence {
+  const tagsA = getDrugMetabolismTags(nameA);   // lib/cyp.ts
+  const tagsB = getDrugMetabolismTags(nameB);
+
+  const inhibSystemsA = tagsA.filter(t => t.label.includes("Inh") && PK_SYSTEMS.has(t.system)).map(t => t.system);
+  const inhibSystemsB = tagsB.filter(t => t.label.includes("Inh") && PK_SYSTEMS.has(t.system)).map(t => t.system);
+  const subSystemsA   = tagsA.filter(t => t.label.includes("Sub") && PK_SYSTEMS.has(t.system)).map(t => t.system);
+  const subSystemsB   = tagsB.filter(t => t.label.includes("Sub") && PK_SYSTEMS.has(t.system)).map(t => t.system);
+
+  // 1. pk_confirmed — A inhibits B's pathway, or B inhibits A's
+  if (inhibSystemsA.some(s => subSystemsB.includes(s))) return "pk_confirmed";
+  if (inhibSystemsB.some(s => subSystemsA.includes(s))) return "pk_confirmed";
+
+  // 2. pk_plausible — shared substrate system (competitive saturation possible)
+  if (subSystemsA.some(s => subSystemsB.includes(s)))   return "pk_plausible";
+
+  // 3. pd_plausible — both appear in the same cumulative stack domain
+  const stacksA = getStackDomainsForDrug(nameA);         // lib/stacks.ts (new export)
+  const stacksB = getStackDomainsForDrug(nameB);
+  if (stacksA.some(d => stacksB.includes(d)))            return "pd_plausible";
+
+  return "unverified";
+}
+```
+
+### Required new export from `lib/stacks.ts`
+
+```typescript
+export function getStackDomainsForDrug(name: string): StackDomain[] {
+  const normalized = normalizeDrugName(name);
+  return stackRules
+    .filter(rule => rule.matches.some(m => normalized.includes(m)))
+    .map(rule => rule.domain);
+}
+```
+
+This reuses the existing `normalizeDrugName` and `stackRules` — zero new data required.
+
+### Integration into `lib/interactions.ts`
+
+Extend `InteractionPair`:
+
+```typescript
+export type InteractionPair = {
+  // ... all existing fields unchanged ...
+  confidence: InteractionConfidence;
+};
+```
+
+In `checkInteractions()`, after resolving each pair add:
+
+```typescript
+const nameA = getRxcuiName(a) ?? a;
+const nameB = getRxcuiName(b) ?? b;
+pairs.push({
+  ...existingFields,
+  confidence: classifyConfidence(nameA, nameB),
+});
+```
+
+`getRxcuiName` is already imported and used in the same function. The `classifyConfidence` call adds negligible runtime cost — it's a pure in-memory lookup against two small sets.
+
+### What confidence produces on the two problem pairs
+
+| Pair | DDInter severity | Confidence | Reason |
+|---|---|---|---|
+| colchicine ↔ simvastatin | Major | `pk_plausible` | Both CYP3A4 Sub; neither has inhibitor role on the other |
+| colchicine ↔ spironolactone | Moderate | `unverified` | No shared inhibitor/substrate system; no shared stack domain |
+
+The simvastatin pair keeps its Major severity with a `pk_plausible` label — honest about the evidence (competitive co-substrate, not direct inhibition) while not dismissing 38 case reports. The spironolactone pair shows Moderate with `unverified` — visible but flagged.
+
+### UI changes in `InteractionList.tsx`
+
+- **Confidence badge** — small inline indicator beside the severity badge. `pk_confirmed` renders the same as today. Others show a lighter label: `Co-sub`, `PD`, or `?`.
+- **Expansion note for `unverified`** — inside the collapsed pair card, a single italic line: "Mechanism not confirmed in local CYP/transporter or pharmacodynamic data." Does not claim the interaction is wrong.
+- **Optional filter** (default off) — "Hide unverified Moderate" toggle. Contraindicated and Major always shown regardless of confidence. This is the direct fix for prescriber alert fatigue on weak Moderate entries.
+
+### What confidence never does
+
+- Does not remove any pair from display.
+- Does not modify or override severity.
+- Does not suppress Major or Contraindicated interactions for any reason.
+- Does not treat `unverified` as wrong — DDInter may hold pharmacodynamic evidence that cyp.ts does not model (e.g. additive CNS or QT effects).
+
+---
+
 ## Milestone order
 
 - **M3** — External LLM copy prompts for deterministic pair results — **done**.
@@ -217,6 +486,7 @@ Goal: harden the bedside experience for low-connectivity use, installability, an
 - **M8** — Pharmacogenomics (CPIC-style local panel) — **done**.
 - **M9** — Brand & alias resolution — **done**.
 - **M10** — Offline PWA service worker (serwist), haptics, dark-mode polish, install prompt — *next*.
+- **M11** — DDInter quality: Layer 1 CYP-derived pair generator + Layer 2 confidence classification — *planned, see above*.
 
 Full feature brief with rationale lives in `/Users/home/projects/obsidian/Journal/Drug-interaction-checker.md` (owner's machine). The condensed version is this file plus the README.
 
