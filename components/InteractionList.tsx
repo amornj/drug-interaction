@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { InteractionExplanation } from "@/components/InteractionExplanation";
 import { SeverityBadge } from "@/components/SeverityBadge";
 import {
@@ -15,8 +14,6 @@ export function InteractionList({
 }: {
   result: InteractionCheckResponse;
 }) {
-  const [hideLowConfidence, setHideLowConfidence] = useState(false);
-
   if (result.pairs.length === 0) {
     return (
       <div
@@ -37,33 +34,9 @@ export function InteractionList({
     );
   }
 
-  const visiblePairs = result.pairs.filter(
-    (pair) =>
-      !hideLowConfidence ||
-      pair.severity === "Contraindicated" ||
-      !pair.lowConfidence
-  );
-  const hiddenCount = result.pairs.length - visiblePairs.length;
-
   return (
     <div>
-      <div className="border-b border-rule px-4 py-3">
-        <label className="flex min-h-11 items-center justify-between gap-3 text-[13px] text-ink-soft">
-          <span>
-            Hide missing PK data
-            {hiddenCount > 0 ? (
-              <span className="ml-1 text-ink-mute">({hiddenCount} hidden)</span>
-            ) : null}
-          </span>
-          <input
-            type="checkbox"
-            className="size-5 accent-[var(--accent)]"
-            checked={hideLowConfidence}
-            onChange={(event) => setHideLowConfidence(event.target.checked)}
-          />
-        </label>
-      </div>
-      {visiblePairs.map((pair, index) => {
+      {result.pairs.map((pair, index) => {
         const isPinned = pair.severity === "Contraindicated";
         const isClinicalOverlay = pair.sources.some(
           (source) => source.name === "Clinical overlay"
