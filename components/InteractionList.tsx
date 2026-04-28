@@ -66,7 +66,7 @@ export function InteractionList({
           (source) => source.name === "Clinical overlay"
         );
         const showConfidenceBadge =
-          !(isClinicalOverlay && pair.confidence === "unverified") ||
+          pair.confidence !== "unverified" ||
           pair.pkMechanisms.length > 0;
         const severityToken =
           pair.displaySeverity === "Contraindicated"
@@ -119,11 +119,6 @@ export function InteractionList({
                         }
                       >
                         {confidenceLabel(pair.confidence)}
-                      </span>
-                    ) : null}
-                    {pair.lowConfidence ? (
-                      <span className="text-[10px] uppercase tracking-[0.12em] text-ink-mute">
-                        Low confidence
                       </span>
                     ) : null}
                     {pair.pkMechanisms.map((mechanism) => (
@@ -194,7 +189,7 @@ export function InteractionList({
                   {pair.mechanism_class}
                 </p>
               ) : null}
-              {pair.lowConfidence ? (
+              {pair.lowConfidence && isClinicalOverlay ? (
                 <p className="mt-2 italic">
                   Mechanism not confirmed in local CYP/transporter or
                   pharmacodynamic data.
