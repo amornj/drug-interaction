@@ -20,6 +20,7 @@ export type MetabolismReference = {
   system: string;
   inhibitors: string[];
   inducers: string[];
+  substrates: string[];
 };
 
 function normalizeDrugName(name: string) {
@@ -2164,8 +2165,10 @@ function formatReferenceLabel(match: string, role: string, note?: string) {
 export function getMetabolismReference(system: string): MetabolismReference {
   const inhibitors: string[] = [];
   const inducers: string[] = [];
+  const substrates: string[] = [];
   const inhibitorSeen = new Set<string>();
   const inducerSeen = new Set<string>();
+  const substrateSeen = new Set<string>();
 
   for (const entry of ALL_METABOLISM_ENTRIES) {
     for (const annotation of entry.annotations) {
@@ -2184,6 +2187,11 @@ export function getMetabolismReference(system: string): MetabolismReference {
         inducerSeen.add(label);
         inducers.push(label);
       }
+
+      if (annotation.role === "Sub" && !substrateSeen.has(label)) {
+        substrateSeen.add(label);
+        substrates.push(label);
+      }
     }
   }
 
@@ -2191,5 +2199,6 @@ export function getMetabolismReference(system: string): MetabolismReference {
     system,
     inhibitors,
     inducers,
+    substrates: substrates.slice(0, 7),
   };
 }

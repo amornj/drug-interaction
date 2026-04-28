@@ -38,7 +38,7 @@ export function DrugChip({
     activeReferenceSystem ? getMetabolismReference(activeReferenceSystem) : null;
   const showReference =
     reference &&
-    (reference.inhibitors.length > 0 || reference.inducers.length > 0);
+    (reference.inhibitors.length > 0 || reference.inducers.length > 0 || reference.substrates.length > 0);
 
   const liRef = useRef<HTMLLIElement>(null);
   const touchRef = useRef<{
@@ -262,7 +262,7 @@ export function DrugChip({
             <div>
               <p className="eyebrow">{reference.system} modifiers</p>
               <p className="mt-1 text-[13px] italic leading-snug text-ink-mute">
-                Inhibitors and inducers relevant to this substrate.
+                Inhibitors, inducers, and other substrates.
               </p>
             </div>
             <button
@@ -275,6 +275,21 @@ export function DrugChip({
             </button>
           </div>
           <div className="mt-3 max-h-[38vh] overflow-y-auto space-y-3">
+            {reference.substrates.length > 0 ? (
+              <div>
+                <p className="eyebrow mb-1.5">Other substrates</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {reference.substrates.map((item) => (
+                    <span
+                      key={`${reference.system}-sub-${item}`}
+                      className="border border-rule bg-surface px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ) : null}
             {reference.inhibitors.length > 0 ? (
               <div>
                 <p className="eyebrow mb-1.5">Inhibitors</p>
