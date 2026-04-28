@@ -1,558 +1,7 @@
 {
-  "generatedAt": "2026-04-28T14:05:50.314Z",
+  "generatedAt": "2026-04-28T14:31:55.047Z",
   "overlayVersion": "2026-04",
   "entries": [
-    {
-      "key": "10829|11289",
-      "pair": [
-        "10829",
-        "11289"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Trimethoprim inhibits CYP2C9-mediated warfarin clearance and reduces intestinal vitamin K2 synthesis, increasing anticoagulant effect and bleeding risk.",
-      "mechanism_class": "CYP2C9 inhibition + vitamin K depletion",
-      "management": "Monitor INR closely within 3–5 days of starting or stopping trimethoprim. Anticipate an INR rise of 50–100% and reduce warfarin dose pre-emptively if the baseline INR is already in range.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "21212|42316",
-      "pair": [
-        "21212",
-        "42316"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Clarithromycin strongly inhibits CYP3A4 and P-glycoprotein, markedly reducing tacrolimus clearance and raising whole-blood trough concentrations — tacrolimus toxicity (nephrotoxicity, neurotoxicity) can occur within days.",
-      "mechanism_class": "CYP3A4 inhibition + P-gp inhibition",
-      "management": "Reduce tacrolimus dose pre-emptively (often 50% or more) before starting clarithromycin. Check trough levels daily for the first 3–5 days. Consider azithromycin as a lower-risk macrolide alternative if clinically appropriate.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "3008|4450",
-      "pair": [
-        "3008",
-        "4450"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Fluconazole inhibits CYP3A4 (and CYP2C9), reducing cyclosporine clearance and increasing whole-blood concentrations. Nephrotoxicity and neurotoxicity can result from even moderate dose increases.",
-      "mechanism_class": "CYP3A4 inhibition",
-      "management": "Reduce cyclosporine dose by approximately 50% when starting fluconazole and monitor trough levels every 1–2 days. Restore dose when fluconazole is discontinued.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "11118|8183",
-      "pair": [
-        "11118",
-        "8183"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Bidirectional pharmacokinetic interaction: valproate displaces phenytoin from albumin binding (raising free phenytoin and toxicity risk) while phenytoin induces valproate metabolism (lowering VPA levels and seizure control). Total phenytoin levels can appear normal while free levels are toxic.",
-      "mechanism_class": "Protein-binding displacement + CYP2C9/2C19 induction",
-      "management": "Monitor free (unbound) phenytoin levels rather than total levels when both drugs are co-administered. Monitor valproate trough levels for sub-therapeutic concentrations. Watch for phenytoin toxicity signs (nystagmus, ataxia, diplopia) even with total phenytoin in range.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1546356|6135",
-      "pair": [
-        "1546356",
-        "6135"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Ketoconazole strongly inhibits P-glycoprotein, markedly increasing dabigatran absorption and reducing renal clearance. Dabigatran exposure can rise ~2.5-fold, significantly increasing major bleeding risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Avoid concurrent use if possible. If unavoidable, monitor closely for bleeding signs (haemoglobin drop, melena, haematoma expansion) and consider dose reduction or alternative antifungal (e.g., fluconazole with lower P-gp inhibition).",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1546356|21212",
-      "pair": [
-        "1546356",
-        "21212"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Clarithromycin inhibits P-glycoprotein and CYP3A4, increasing dabigatran exposure and raising major bleeding risk.",
-      "mechanism_class": "P-gp inhibition + CYP3A4 inhibition",
-      "management": "Avoid concurrent use if possible. Consider azithromycin as a lower-risk macrolide alternative. Monitor for bleeding if co-administration is unavoidable.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1546356|28031",
-      "pair": [
-        "1546356",
-        "28031"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Itraconazole strongly inhibits P-glycoprotein, increasing dabigatran exposure and raising major bleeding risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Avoid concurrent use if possible. Consider alternative antifungal with less P-gp inhibition. Monitor for bleeding if co-administration is unavoidable.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1546356|85762",
-      "pair": [
-        "1546356",
-        "85762"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Ritonavir strongly inhibits P-glycoprotein and CYP3A4, markedly increasing dabigatran exposure and raising major bleeding risk.",
-      "mechanism_class": "P-gp inhibition + CYP3A4 inhibition",
-      "management": "Avoid concurrent use. If unavoidable in HIV therapy, monitor closely for bleeding and consider alternative anticoagulant not dependent on P-gp (e.g., warfarin with INR monitoring).",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1546356|3008",
-      "pair": [
-        "1546356",
-        "3008"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Cyclosporine strongly inhibits P-glycoprotein, increasing dabigatran exposure and raising major bleeding risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Avoid concurrent use if possible. If unavoidable in transplant patients, monitor closely for bleeding and consider alternative anticoagulant.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1546356|3443",
-      "pair": [
-        "1546356",
-        "3443"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Diltiazem inhibits P-glycoprotein, increasing dabigatran exposure and raising bleeding risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Monitor for bleeding signs. Consider alternative antihypertensive or anticoagulant if high bleeding risk.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "11170|1546356",
-      "pair": [
-        "11170",
-        "1546356"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Verapamil inhibits P-glycoprotein, increasing dabigatran exposure and raising bleeding risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Monitor for bleeding signs. Consider alternative antihypertensive or anticoagulant if high bleeding risk.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1546356|703",
-      "pair": [
-        "1546356",
-        "703"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Amiodarone inhibits P-glycoprotein, increasing dabigatran exposure and raising bleeding risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Monitor for bleeding signs. Consider alternative antiarrhythmic or anticoagulant if high bleeding risk.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1546356|4053",
-      "pair": [
-        "1546356",
-        "4053"
-      ],
-      "suppress": false,
-      "severity": "Moderate",
-      "verdict": "Erythromycin inhibits P-glycoprotein, increasing dabigatran exposure and raising bleeding risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Monitor for bleeding signs. Consider azithromycin as a lower-risk macrolide alternative.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1546356|4450",
-      "pair": [
-        "1546356",
-        "4450"
-      ],
-      "suppress": false,
-      "severity": "Moderate",
-      "verdict": "Fluconazole inhibits P-glycoprotein, increasing dabigatran exposure and raising bleeding risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Monitor for bleeding signs. Consider alternative antifungal with less P-gp inhibition if possible.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1546356|35829",
-      "pair": [
-        "1546356",
-        "35829"
-      ],
-      "suppress": false,
-      "severity": "Moderate",
-      "verdict": "Ranolazine inhibits P-glycoprotein, increasing dabigatran exposure and raising bleeding risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Monitor for bleeding signs. Consider alternative antianginal if high bleeding risk.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1116632|1546356",
-      "pair": [
-        "1116632",
-        "1546356"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Ticagrelor inhibits P-glycoprotein and also has additive antiplatelet effects, increasing both bleeding risk and dabigatran exposure.",
-      "mechanism_class": "P-gp inhibition + additive antiplatelet effect",
-      "management": "Avoid concurrent use unless absolutely indicated (e.g., recent PCI with high thrombotic risk). Monitor closely for bleeding.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1599538|6135",
-      "pair": [
-        "1599538",
-        "6135"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Ketoconazole strongly inhibits P-glycoprotein, increasing edoxaban exposure ~2-fold and raising major bleeding risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Avoid concurrent use. Consider alternative antifungal or anticoagulant.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1599538|21212",
-      "pair": [
-        "1599538",
-        "21212"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Clarithromycin strongly inhibits P-glycoprotein and CYP3A4, increasing edoxaban exposure and raising major bleeding risk.",
-      "mechanism_class": "P-gp inhibition + CYP3A4 inhibition",
-      "management": "Avoid concurrent use. Consider azithromycin as a lower-risk macrolide alternative.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1599538|28031",
-      "pair": [
-        "1599538",
-        "28031"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Itraconazole strongly inhibits P-glycoprotein, increasing edoxaban exposure and raising major bleeding risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Avoid concurrent use. Consider alternative antifungal.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1599538|85762",
-      "pair": [
-        "1599538",
-        "85762"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Ritonavir strongly inhibits P-glycoprotein and CYP3A4, markedly increasing edoxaban exposure and raising major bleeding risk.",
-      "mechanism_class": "P-gp inhibition + CYP3A4 inhibition",
-      "management": "Avoid concurrent use. Consider alternative anticoagulant.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1599538|3008",
-      "pair": [
-        "1599538",
-        "3008"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Cyclosporine strongly inhibits P-glycoprotein, increasing edoxaban exposure and raising major bleeding risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Avoid concurrent use. Consider alternative anticoagulant.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1599538|3443",
-      "pair": [
-        "1599538",
-        "3443"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Diltiazem inhibits P-glycoprotein, increasing edoxaban exposure and raising bleeding risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Monitor for bleeding signs. Consider alternative antihypertensive.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "11170|1599538",
-      "pair": [
-        "11170",
-        "1599538"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Verapamil inhibits P-glycoprotein, increasing edoxaban exposure and raising bleeding risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Monitor for bleeding signs. Consider alternative antihypertensive.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "1599538|703",
-      "pair": [
-        "1599538",
-        "703"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Amiodarone inhibits P-glycoprotein, increasing edoxaban exposure and raising bleeding risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Monitor for bleeding signs. Consider alternative antiarrhythmic.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "2026|6135",
-      "pair": [
-        "2026",
-        "6135"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Ketoconazole inhibits P-glycoprotein, reducing vincristine clearance and increasing neurotoxicity risk (peripheral neuropathy, constipation, paralytic ileus).",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Avoid concurrent use during vincristine chemotherapy. If unavoidable, monitor closely for neurotoxicity and consider dose reduction.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "2026|21212",
-      "pair": [
-        "2026",
-        "21212"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Clarithromycin inhibits P-glycoprotein and CYP3A4, reducing vincristine clearance and increasing neurotoxicity risk.",
-      "mechanism_class": "P-gp inhibition + CYP3A4 inhibition",
-      "management": "Avoid concurrent use during vincristine chemotherapy. Consider azithromycin as alternative.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "4499|6135",
-      "pair": [
-        "4499",
-        "6135"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Ketoconazole inhibits P-glycoprotein, reducing doxorubicin clearance and increasing cardiotoxicity and myelosuppression risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Avoid concurrent use during doxorubicin chemotherapy.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "6135|67964",
-      "pair": [
-        "6135",
-        "67964"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Ketoconazole inhibits P-glycoprotein, increasing paliperidone exposure and raising QT prolongation and extrapyramidal symptom risk.",
-      "mechanism_class": "P-gp inhibition",
-      "management": "Avoid concurrent use. Consider alternative antifungal or antipsychotic.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
-    {
-      "key": "21212|67964",
-      "pair": [
-        "21212",
-        "67964"
-      ],
-      "suppress": false,
-      "severity": "Major",
-      "verdict": "Clarithromycin inhibits P-glycoprotein and CYP3A4, increasing paliperidone exposure and raising QT prolongation and extrapyramidal symptom risk.",
-      "mechanism_class": "P-gp inhibition + CYP3A4 inhibition",
-      "management": "Avoid concurrent use. Consider azithromycin as alternative.",
-      "sources": [
-        {
-          "name": "Clinical overlay",
-          "version": "2026-04"
-        }
-      ],
-      "file": "clinical.yaml"
-    },
     {
       "key": "10438|281",
       "pair": [
@@ -90631,6 +90080,1507 @@
         }
       ],
       "file": "cyp-derived.yaml"
+    },
+    {
+      "key": "10829|11289",
+      "pair": [
+        "10829",
+        "11289"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Trimethoprim inhibits CYP2C9-mediated warfarin clearance and reduces intestinal vitamin K2 synthesis, increasing anticoagulant effect and bleeding risk.",
+      "mechanism_class": "CYP2C9 inhibition + vitamin K depletion",
+      "management": "Monitor INR closely within 3–5 days of starting or stopping trimethoprim. Anticipate an INR rise of 50–100% and reduce warfarin dose pre-emptively if the baseline INR is already in range.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "11289|703",
+      "pair": [
+        "11289",
+        "703"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Warfarin with amiodarone can cause severe bleeding through CYP2C9 inhibition and reduced warfarin clearance.",
+      "mechanism_class": "CYP2C9 inhibition",
+      "management": "Reduce warfarin dose and monitor INR closely after starting, stopping, or changing amiodarone.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "10829|11289",
+      "pair": [
+        "10829",
+        "11289"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Trimethoprim-sulfamethoxazole can rapidly elevate INR in patients taking warfarin, increasing hemorrhage risk.",
+      "mechanism_class": "CYP2C9 inhibition + vitamin K depletion",
+      "management": "Avoid if possible. If used, check INR within 3 days and consider pre-emptive warfarin dose reduction.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "11289|6922",
+      "pair": [
+        "11289",
+        "6922"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Metronidazole inhibits warfarin metabolism and significantly increases bleeding risk.",
+      "mechanism_class": "CYP2C9 inhibition",
+      "management": "Avoid if possible or reduce warfarin dose and monitor INR closely.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "136411|28004",
+      "pair": [
+        "136411",
+        "28004"
+      ],
+      "suppress": false,
+      "severity": "Contraindicated",
+      "verdict": "Sildenafil with isosorbide mononitrate can cause profound, potentially fatal hypotension.",
+      "mechanism_class": "Additive nitric oxide-cGMP vasodilation",
+      "management": "Contraindicated. Do not co-administer nitrates with PDE5 inhibitors.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "21212|3407",
+      "pair": [
+        "21212",
+        "3407"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Clarithromycin inhibits P-glycoprotein and can precipitate digoxin toxicity.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Avoid if possible. If unavoidable, reduce digoxin exposure and monitor digoxin level, rhythm, and toxicity signs.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "3407|703",
+      "pair": [
+        "3407",
+        "703"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Amiodarone reduces digoxin clearance and can cause digoxin toxicity.",
+      "mechanism_class": "P-gp inhibition + reduced renal/nonrenal clearance",
+      "management": "Reduce digoxin dose and monitor digoxin level, heart rate, ECG, nausea, confusion, and visual symptoms.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "29046|9997",
+      "pair": [
+        "29046",
+        "9997"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Spironolactone with lisinopril can cause life-threatening hyperkalemia.",
+      "mechanism_class": "Additive potassium retention",
+      "management": "Avoid high-risk coadministration or monitor potassium and renal function soon after initiation and dose changes.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "32968|7646",
+      "pair": [
+        "32968",
+        "7646"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Omeprazole inhibits CYP2C19 and can reduce clopidogrel antiplatelet activation and efficacy.",
+      "mechanism_class": "CYP2C19 inhibition of prodrug activation",
+      "management": "Prefer a non-inhibiting acid-suppressive option when antiplatelet effect is critical.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "17767|36567",
+      "pair": [
+        "17767",
+        "36567"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Amlodipine can increase simvastatin exposure, producing dose-dependent myopathy and rhabdomyolysis risk.",
+      "mechanism_class": "CYP3A4 inhibition / exposure increase",
+      "management": "Limit simvastatin dose and monitor muscle symptoms and CK if symptoms occur.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "28031|36567",
+      "pair": [
+        "28031",
+        "36567"
+      ],
+      "suppress": false,
+      "severity": "Contraindicated",
+      "verdict": "Itraconazole strongly inhibits CYP3A4 and can cause severe simvastatin myopathy, rhabdomyolysis, and kidney failure.",
+      "mechanism_class": "Strong CYP3A4 inhibition",
+      "management": "Avoid combination. Hold simvastatin or use a non-CYP3A statin strategy during azole therapy.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1114195|6135",
+      "pair": [
+        "1114195",
+        "6135"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Ketoconazole inhibits CYP3A4 and P-glycoprotein, markedly increasing rivaroxaban exposure and major bleeding risk.",
+      "mechanism_class": "CYP3A4 inhibition + P-gp inhibition",
+      "management": "Avoid concurrent use or choose a lower-risk antifungal/anticoagulation plan.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "3008|3443",
+      "pair": [
+        "3008",
+        "3443"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Diltiazem can increase cyclosporine exposure, raising nephrotoxicity risk.",
+      "mechanism_class": "CYP3A4 inhibition + P-gp inhibition",
+      "management": "Monitor cyclosporine troughs and renal function; reduce cyclosporine dose as needed.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "10689|36437",
+      "pair": [
+        "10689",
+        "36437"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Tramadol with sertraline increases serotonin syndrome risk.",
+      "mechanism_class": "Additive serotonergic toxicity",
+      "management": "Avoid when possible. Monitor for agitation, clonus, hyperreflexia, fever, and autonomic instability.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "10180|8183",
+      "pair": [
+        "10180",
+        "8183"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Sulfamethoxazole-trimethoprim can increase phenytoin exposure, causing phenytoin toxicity such as ataxia and confusion.",
+      "mechanism_class": "CYP2C9 inhibition",
+      "management": "Monitor phenytoin toxicity and levels; adjust phenytoin dose if needed.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "5640|6448",
+      "pair": [
+        "5640",
+        "6448"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Ibuprofen can reduce lithium renal clearance and precipitate lithium toxicity.",
+      "mechanism_class": "Reduced renal lithium clearance",
+      "management": "Avoid NSAIDs where possible. Monitor lithium level and renal function if used.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "5487|6448",
+      "pair": [
+        "5487",
+        "6448"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Hydrochlorothiazide can cause lithium toxicity through sodium and water depletion with increased lithium reabsorption.",
+      "mechanism_class": "Increased renal lithium reabsorption",
+      "management": "Avoid or reduce lithium dose and monitor lithium level closely after thiazide initiation.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "2002|4053",
+      "pair": [
+        "2002",
+        "4053"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Erythromycin inhibits carbamazepine metabolism and can cause carbamazepine toxicity, including diplopia and ataxia.",
+      "mechanism_class": "CYP3A4 inhibition",
+      "management": "Avoid if possible or monitor carbamazepine levels and neurologic toxicity.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "37418|4493",
+      "pair": [
+        "37418",
+        "4493"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Sumatriptan with fluoxetine increases serotonin syndrome risk.",
+      "mechanism_class": "Additive serotonergic toxicity",
+      "management": "Monitor for serotonin toxicity, especially after initiation or dose escalation.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "11118|29561",
+      "pair": [
+        "11118",
+        "29561"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Meropenem can rapidly lower valproic acid concentrations, causing loss of seizure control.",
+      "mechanism_class": "Reduced valproate exposure",
+      "management": "Avoid combination if possible; use alternative antibiotic or antiepileptic coverage.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "2556|703",
+      "pair": [
+        "2556",
+        "703"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Citalopram with amiodarone increases torsades de pointes risk through additive QT prolongation.",
+      "mechanism_class": "Additive QT prolongation",
+      "management": "Avoid when possible. Monitor ECG and electrolytes if unavoidable.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "258326|596",
+      "pair": [
+        "258326",
+        "596"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "St. John's wort induces CYP3A4 and can reduce alprazolam exposure, causing treatment failure.",
+      "mechanism_class": "CYP3A4 induction",
+      "management": "Avoid St. John's wort with CYP3A4 substrates when clinical effect is important.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "5093|6375",
+      "pair": [
+        "5093",
+        "6375"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Haloperidol can antagonize levodopa and worsen Parkinsonian symptoms.",
+      "mechanism_class": "Dopamine receptor antagonism",
+      "management": "Avoid dopamine-blocking antipsychotics in Parkinson disease when possible.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "10438|2551",
+      "pair": [
+        "10438",
+        "2551"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Ciprofloxacin inhibits theophylline clearance and can cause theophylline toxicity, seizures, and arrhythmias.",
+      "mechanism_class": "CYP1A2 inhibition",
+      "management": "Avoid if possible or monitor theophylline level and toxicity closely.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "6851|723",
+      "pair": [
+        "6851",
+        "723"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Amoxicillin can reduce methotrexate clearance and increase methotrexate toxicity, including pancytopenia.",
+      "mechanism_class": "Reduced renal methotrexate clearance",
+      "management": "Monitor CBC, renal function, mucositis, and methotrexate toxicity; consider alternatives in high-dose methotrexate.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "18631|26225",
+      "pair": [
+        "18631",
+        "26225"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Azithromycin with ondansetron can dangerously prolong QT interval.",
+      "mechanism_class": "Additive QT prolongation",
+      "management": "Avoid in high-risk patients or monitor ECG and electrolytes.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "448|6922",
+      "pair": [
+        "448",
+        "6922"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Metronidazole with ethanol can trigger a disulfiram-like reaction.",
+      "mechanism_class": "Alcohol intolerance reaction",
+      "management": "Avoid alcohol during metronidazole therapy and shortly after completion.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "24947|3640",
+      "pair": [
+        "24947",
+        "3640"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Ferrous sulfate chelates doxycycline and can reduce antibiotic efficacy.",
+      "mechanism_class": "GI chelation / reduced absorption",
+      "management": "Separate administration by several hours or use an alternative strategy when reliable doxycycline exposure is needed.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "82122|8640",
+      "pair": [
+        "82122",
+        "8640"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Levofloxacin with prednisone increases tendon rupture risk.",
+      "mechanism_class": "Additive tendon toxicity",
+      "management": "Avoid when possible in high-risk patients and counsel to stop activity and report tendon pain.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "190376|39786",
+      "pair": [
+        "190376",
+        "39786"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Linezolid has MAOI activity and can precipitate serotonin syndrome with venlafaxine.",
+      "mechanism_class": "MAOI activity + serotonergic toxicity",
+      "management": "Avoid or hold serotonergic therapy when possible; monitor closely if unavoidable.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "4124|9384",
+      "pair": [
+        "4124",
+        "9384"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Rifampin induces drug metabolism and can reduce ethinyl estradiol exposure, causing contraceptive failure.",
+      "mechanism_class": "CYP induction",
+      "management": "Use non-hormonal or backup contraception during and after rifampin therapy.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "6809|iodinated-contrast",
+      "pair": [
+        "6809",
+        "iodinated-contrast"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Iodinated contrast with metformin can increase lactic acidosis risk if contrast-associated kidney injury occurs.",
+      "mechanism_class": "Renal function decline increasing metformin accumulation",
+      "management": "Follow local contrast-metformin renal function protocol; hold and restart metformin based on kidney function when indicated.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "4719|4815",
+      "pair": [
+        "4719",
+        "4815"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Gemfibrozil can increase glyburide exposure and cause severe prolonged hypoglycemia.",
+      "mechanism_class": "CYP2C8/OATP interaction",
+      "management": "Avoid or monitor glucose closely and reduce sulfonylurea dose.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "42316|grapefruit-juice",
+      "pair": [
+        "42316",
+        "grapefruit-juice"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Grapefruit juice inhibits intestinal CYP3A4 and can raise tacrolimus levels, increasing nephrotoxicity risk.",
+      "mechanism_class": "Intestinal CYP3A4 inhibition",
+      "management": "Avoid grapefruit products with tacrolimus and monitor trough levels if exposure occurs.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "258326|3008",
+      "pair": [
+        "258326",
+        "3008"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "St. John's wort can reduce cyclosporine exposure and cause transplant rejection.",
+      "mechanism_class": "CYP3A4/P-gp induction",
+      "management": "Avoid St. John's wort in transplant recipients taking calcineurin inhibitors.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1256|519",
+      "pair": [
+        "1256",
+        "519"
+      ],
+      "suppress": false,
+      "severity": "Contraindicated",
+      "verdict": "Allopurinol inhibits azathioprine metabolism and can cause fatal bone marrow suppression.",
+      "mechanism_class": "Xanthine oxidase inhibition",
+      "management": "Avoid combination or use specialist-guided azathioprine dose reduction with close CBC monitoring.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "21212|2683",
+      "pair": [
+        "21212",
+        "2683"
+      ],
+      "suppress": false,
+      "severity": "Contraindicated",
+      "verdict": "Clarithromycin can cause fatal colchicine toxicity by inhibiting CYP3A4 and P-glycoprotein.",
+      "mechanism_class": "CYP3A4 inhibition + P-gp inhibition",
+      "management": "Avoid combination, especially in renal or hepatic impairment.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "8591|9997",
+      "pair": [
+        "8591",
+        "9997"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Potassium chloride with spironolactone can cause severe hyperkalemia and cardiac arrest.",
+      "mechanism_class": "Additive potassium retention",
+      "management": "Avoid routine potassium supplementation with spironolactone unless clearly indicated and closely monitored.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "6754|9639",
+      "pair": [
+        "6754",
+        "9639"
+      ],
+      "suppress": false,
+      "severity": "Contraindicated",
+      "verdict": "Selegiline with meperidine can cause fatal hypertensive crisis or serotonin syndrome.",
+      "mechanism_class": "MAOI-opioid serotonergic/toxic interaction",
+      "management": "Contraindicated. Do not co-administer.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "10829|6851",
+      "pair": [
+        "10829",
+        "6851"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Methotrexate with trimethoprim can cause bone marrow failure through antifolate synergy.",
+      "mechanism_class": "Additive antifolate toxicity",
+      "management": "Avoid combination or monitor CBC and mucosal toxicity very closely.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "4025|85762",
+      "pair": [
+        "4025",
+        "85762"
+      ],
+      "suppress": false,
+      "severity": "Contraindicated",
+      "verdict": "Ritonavir can markedly increase ergotamine exposure, causing ergotism with peripheral ischemia and gangrene.",
+      "mechanism_class": "Strong CYP3A4 inhibition",
+      "management": "Contraindicated. Do not co-administer.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "42330|6135",
+      "pair": [
+        "42330",
+        "6135"
+      ],
+      "suppress": false,
+      "severity": "Contraindicated",
+      "verdict": "Ketoconazole can increase terfenadine exposure and cause sudden cardiac death from QT prolongation.",
+      "mechanism_class": "Strong CYP3A4 inhibition + QT prolongation",
+      "management": "Contraindicated. Do not co-administer.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "21212|8331",
+      "pair": [
+        "21212",
+        "8331"
+      ],
+      "suppress": false,
+      "severity": "Contraindicated",
+      "verdict": "Clarithromycin can increase pimozide exposure and cause ventricular arrhythmias.",
+      "mechanism_class": "CYP3A4 inhibition + QT prolongation",
+      "management": "Contraindicated. Use an alternative antibiotic.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "10324|32937",
+      "pair": [
+        "10324",
+        "32937"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Paroxetine inhibits CYP2D6 and can reduce tamoxifen activation and efficacy.",
+      "mechanism_class": "CYP2D6 inhibition of prodrug activation",
+      "management": "Prefer an antidepressant with minimal CYP2D6 inhibition when tamoxifen benefit is critical.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "4450|4815",
+      "pair": [
+        "4450",
+        "4815"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Fluconazole can increase glibenclamide/glyburide exposure and cause profound hypoglycemia.",
+      "mechanism_class": "CYP2C9 inhibition",
+      "management": "Monitor glucose closely and reduce sulfonylurea dose or use an alternative.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "11170|1202",
+      "pair": [
+        "11170",
+        "1202"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Verapamil with atenolol can cause severe bradycardia or heart block.",
+      "mechanism_class": "Additive AV nodal blockade",
+      "management": "Avoid high-risk coadministration or monitor heart rate, blood pressure, and ECG closely.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "11289|8134",
+      "pair": [
+        "11289",
+        "8134"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Phenobarbital induces warfarin metabolism and can cause loss of anticoagulation with clotting risk.",
+      "mechanism_class": "CYP induction",
+      "management": "Monitor INR and adjust warfarin dose when phenobarbital is started, stopped, or changed.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "10582|1897",
+      "pair": [
+        "10582",
+        "1897"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Calcium carbonate reduces levothyroxine absorption and can cause thyroid treatment failure.",
+      "mechanism_class": "GI binding / reduced absorption",
+      "management": "Separate administration and monitor TSH after changes in calcium use.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "2002|2626",
+      "pair": [
+        "2002",
+        "2626"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Clozapine with carbamazepine increases agranulocytosis risk through additive marrow toxicity.",
+      "mechanism_class": "Additive bone marrow toxicity",
+      "management": "Avoid combination when possible and monitor absolute neutrophil count closely.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "36567|6135",
+      "pair": [
+        "36567",
+        "6135"
+      ],
+      "suppress": false,
+      "severity": "Contraindicated",
+      "verdict": "Ketoconazole strongly inhibits CYP3A4 and creates extreme simvastatin rhabdomyolysis risk.",
+      "mechanism_class": "Strong CYP3A4 inhibition",
+      "management": "Avoid combination. Hold simvastatin or use a non-CYP3A statin strategy.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1256|73689",
+      "pair": [
+        "1256",
+        "73689"
+      ],
+      "suppress": false,
+      "severity": "Contraindicated",
+      "verdict": "Febuxostat inhibits azathioprine metabolism and can cause life-threatening leukopenia.",
+      "mechanism_class": "Xanthine oxidase inhibition",
+      "management": "Contraindicated unless managed by a specialist with major azathioprine dose reduction and close CBC monitoring.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "21212|42316",
+      "pair": [
+        "21212",
+        "42316"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Clarithromycin strongly inhibits CYP3A4 and P-glycoprotein, markedly reducing tacrolimus clearance and raising whole-blood trough concentrations — tacrolimus toxicity (nephrotoxicity, neurotoxicity) can occur within days.",
+      "mechanism_class": "CYP3A4 inhibition + P-gp inhibition",
+      "management": "Reduce tacrolimus dose pre-emptively (often 50% or more) before starting clarithromycin. Check trough levels daily for the first 3–5 days. Consider azithromycin as a lower-risk macrolide alternative if clinically appropriate.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "3008|4450",
+      "pair": [
+        "3008",
+        "4450"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Fluconazole inhibits CYP3A4 (and CYP2C9), reducing cyclosporine clearance and increasing whole-blood concentrations. Nephrotoxicity and neurotoxicity can result from even moderate dose increases.",
+      "mechanism_class": "CYP3A4 inhibition",
+      "management": "Reduce cyclosporine dose by approximately 50% when starting fluconazole and monitor trough levels every 1–2 days. Restore dose when fluconazole is discontinued.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "11118|8183",
+      "pair": [
+        "11118",
+        "8183"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Bidirectional pharmacokinetic interaction: valproate displaces phenytoin from albumin binding (raising free phenytoin and toxicity risk) while phenytoin induces valproate metabolism (lowering VPA levels and seizure control). Total phenytoin levels can appear normal while free levels are toxic.",
+      "mechanism_class": "Protein-binding displacement + CYP2C9/2C19 induction",
+      "management": "Monitor free (unbound) phenytoin levels rather than total levels when both drugs are co-administered. Monitor valproate trough levels for sub-therapeutic concentrations. Watch for phenytoin toxicity signs (nystagmus, ataxia, diplopia) even with total phenytoin in range.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1546356|6135",
+      "pair": [
+        "1546356",
+        "6135"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Ketoconazole strongly inhibits P-glycoprotein, markedly increasing dabigatran absorption and reducing renal clearance. Dabigatran exposure can rise ~2.5-fold, significantly increasing major bleeding risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Avoid concurrent use if possible. If unavoidable, monitor closely for bleeding signs (haemoglobin drop, melena, haematoma expansion) and consider dose reduction or alternative antifungal (e.g., fluconazole with lower P-gp inhibition).",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1546356|21212",
+      "pair": [
+        "1546356",
+        "21212"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Clarithromycin inhibits P-glycoprotein and CYP3A4, increasing dabigatran exposure and raising major bleeding risk.",
+      "mechanism_class": "P-gp inhibition + CYP3A4 inhibition",
+      "management": "Avoid concurrent use if possible. Consider azithromycin as a lower-risk macrolide alternative. Monitor for bleeding if co-administration is unavoidable.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1546356|28031",
+      "pair": [
+        "1546356",
+        "28031"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Itraconazole strongly inhibits P-glycoprotein, increasing dabigatran exposure and raising major bleeding risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Avoid concurrent use if possible. Consider alternative antifungal with less P-gp inhibition. Monitor for bleeding if co-administration is unavoidable.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1546356|85762",
+      "pair": [
+        "1546356",
+        "85762"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Ritonavir strongly inhibits P-glycoprotein and CYP3A4, markedly increasing dabigatran exposure and raising major bleeding risk.",
+      "mechanism_class": "P-gp inhibition + CYP3A4 inhibition",
+      "management": "Avoid concurrent use. If unavoidable in HIV therapy, monitor closely for bleeding and consider alternative anticoagulant not dependent on P-gp (e.g., warfarin with INR monitoring).",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1546356|3008",
+      "pair": [
+        "1546356",
+        "3008"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Cyclosporine strongly inhibits P-glycoprotein, increasing dabigatran exposure and raising major bleeding risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Avoid concurrent use if possible. If unavoidable in transplant patients, monitor closely for bleeding and consider alternative anticoagulant.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1546356|3443",
+      "pair": [
+        "1546356",
+        "3443"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Diltiazem inhibits P-glycoprotein, increasing dabigatran exposure and raising bleeding risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Monitor for bleeding signs. Consider alternative antihypertensive or anticoagulant if high bleeding risk.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "11170|1546356",
+      "pair": [
+        "11170",
+        "1546356"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Verapamil inhibits P-glycoprotein, increasing dabigatran exposure and raising bleeding risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Monitor for bleeding signs. Consider alternative antihypertensive or anticoagulant if high bleeding risk.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1546356|703",
+      "pair": [
+        "1546356",
+        "703"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Amiodarone inhibits P-glycoprotein, increasing dabigatran exposure and raising bleeding risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Monitor for bleeding signs. Consider alternative antiarrhythmic or anticoagulant if high bleeding risk.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1546356|4053",
+      "pair": [
+        "1546356",
+        "4053"
+      ],
+      "suppress": false,
+      "severity": "Moderate",
+      "verdict": "Erythromycin inhibits P-glycoprotein, increasing dabigatran exposure and raising bleeding risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Monitor for bleeding signs. Consider azithromycin as a lower-risk macrolide alternative.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1546356|4450",
+      "pair": [
+        "1546356",
+        "4450"
+      ],
+      "suppress": false,
+      "severity": "Moderate",
+      "verdict": "Fluconazole inhibits P-glycoprotein, increasing dabigatran exposure and raising bleeding risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Monitor for bleeding signs. Consider alternative antifungal with less P-gp inhibition if possible.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1546356|35829",
+      "pair": [
+        "1546356",
+        "35829"
+      ],
+      "suppress": false,
+      "severity": "Moderate",
+      "verdict": "Ranolazine inhibits P-glycoprotein, increasing dabigatran exposure and raising bleeding risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Monitor for bleeding signs. Consider alternative antianginal if high bleeding risk.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1116632|1546356",
+      "pair": [
+        "1116632",
+        "1546356"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Ticagrelor inhibits P-glycoprotein and also has additive antiplatelet effects, increasing both bleeding risk and dabigatran exposure.",
+      "mechanism_class": "P-gp inhibition + additive antiplatelet effect",
+      "management": "Avoid concurrent use unless absolutely indicated (e.g., recent PCI with high thrombotic risk). Monitor closely for bleeding.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1599538|6135",
+      "pair": [
+        "1599538",
+        "6135"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Ketoconazole strongly inhibits P-glycoprotein, increasing edoxaban exposure ~2-fold and raising major bleeding risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Avoid concurrent use. Consider alternative antifungal or anticoagulant.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1599538|21212",
+      "pair": [
+        "1599538",
+        "21212"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Clarithromycin strongly inhibits P-glycoprotein and CYP3A4, increasing edoxaban exposure and raising major bleeding risk.",
+      "mechanism_class": "P-gp inhibition + CYP3A4 inhibition",
+      "management": "Avoid concurrent use. Consider azithromycin as a lower-risk macrolide alternative.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1599538|28031",
+      "pair": [
+        "1599538",
+        "28031"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Itraconazole strongly inhibits P-glycoprotein, increasing edoxaban exposure and raising major bleeding risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Avoid concurrent use. Consider alternative antifungal.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1599538|85762",
+      "pair": [
+        "1599538",
+        "85762"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Ritonavir strongly inhibits P-glycoprotein and CYP3A4, markedly increasing edoxaban exposure and raising major bleeding risk.",
+      "mechanism_class": "P-gp inhibition + CYP3A4 inhibition",
+      "management": "Avoid concurrent use. Consider alternative anticoagulant.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1599538|3008",
+      "pair": [
+        "1599538",
+        "3008"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Cyclosporine strongly inhibits P-glycoprotein, increasing edoxaban exposure and raising major bleeding risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Avoid concurrent use. Consider alternative anticoagulant.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1599538|3443",
+      "pair": [
+        "1599538",
+        "3443"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Diltiazem inhibits P-glycoprotein, increasing edoxaban exposure and raising bleeding risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Monitor for bleeding signs. Consider alternative antihypertensive.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "11170|1599538",
+      "pair": [
+        "11170",
+        "1599538"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Verapamil inhibits P-glycoprotein, increasing edoxaban exposure and raising bleeding risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Monitor for bleeding signs. Consider alternative antihypertensive.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "1599538|703",
+      "pair": [
+        "1599538",
+        "703"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Amiodarone inhibits P-glycoprotein, increasing edoxaban exposure and raising bleeding risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Monitor for bleeding signs. Consider alternative antiarrhythmic.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "2026|6135",
+      "pair": [
+        "2026",
+        "6135"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Ketoconazole inhibits P-glycoprotein, reducing vincristine clearance and increasing neurotoxicity risk (peripheral neuropathy, constipation, paralytic ileus).",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Avoid concurrent use during vincristine chemotherapy. If unavoidable, monitor closely for neurotoxicity and consider dose reduction.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "2026|21212",
+      "pair": [
+        "2026",
+        "21212"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Clarithromycin inhibits P-glycoprotein and CYP3A4, reducing vincristine clearance and increasing neurotoxicity risk.",
+      "mechanism_class": "P-gp inhibition + CYP3A4 inhibition",
+      "management": "Avoid concurrent use during vincristine chemotherapy. Consider azithromycin as alternative.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "4499|6135",
+      "pair": [
+        "4499",
+        "6135"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Ketoconazole inhibits P-glycoprotein, reducing doxorubicin clearance and increasing cardiotoxicity and myelosuppression risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Avoid concurrent use during doxorubicin chemotherapy.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "6135|67964",
+      "pair": [
+        "6135",
+        "67964"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Ketoconazole inhibits P-glycoprotein, increasing paliperidone exposure and raising QT prolongation and extrapyramidal symptom risk.",
+      "mechanism_class": "P-gp inhibition",
+      "management": "Avoid concurrent use. Consider alternative antifungal or antipsychotic.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "21212|67964",
+      "pair": [
+        "21212",
+        "67964"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Clarithromycin inhibits P-glycoprotein and CYP3A4, increasing paliperidone exposure and raising QT prolongation and extrapyramidal symptom risk.",
+      "mechanism_class": "P-gp inhibition + CYP3A4 inhibition",
+      "management": "Avoid concurrent use. Consider azithromycin as alternative.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
     }
   ]
 }

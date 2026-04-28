@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-27T15:37:38.038Z",
+  "generatedAt": "2026-04-28T14:31:55.047Z",
   "brandsVersion": "2026-04",
   "entries": [
     {
@@ -1755,6 +1755,167 @@
         {
           "rxcui": "28004",
           "name": "isosorbide mononitrate"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Bactrim",
+      "normalizedTerm": "bactrim",
+      "components": [
+        {
+          "rxcui": "10180",
+          "name": "sulfamethoxazole"
+        },
+        {
+          "rxcui": "10829",
+          "name": "trimethoprim"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "TMP-SMX",
+      "normalizedTerm": "tmp-smx",
+      "components": [
+        {
+          "rxcui": "10180",
+          "name": "sulfamethoxazole"
+        },
+        {
+          "rxcui": "10829",
+          "name": "trimethoprim"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Lithium",
+      "normalizedTerm": "lithium",
+      "components": [
+        {
+          "rxcui": "6448",
+          "name": "lithium"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Ferrous sulfate",
+      "normalizedTerm": "ferrous sulfate",
+      "components": [
+        {
+          "rxcui": "24947",
+          "name": "ferrous sulfate"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Rifampin",
+      "normalizedTerm": "rifampin",
+      "components": [
+        {
+          "rxcui": "9384",
+          "name": "rifampin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Ethinyl estradiol",
+      "normalizedTerm": "ethinyl estradiol",
+      "components": [
+        {
+          "rxcui": "4124",
+          "name": "ethinyl estradiol"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Glibenclamide",
+      "normalizedTerm": "glibenclamide",
+      "components": [
+        {
+          "rxcui": "4815",
+          "name": "glyburide"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Iodinated contrast",
+      "normalizedTerm": "iodinated contrast",
+      "components": [
+        {
+          "rxcui": "iodinated-contrast",
+          "name": "iodinated contrast"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Grapefruit juice",
+      "normalizedTerm": "grapefruit juice",
+      "components": [
+        {
+          "rxcui": "grapefruit-juice",
+          "name": "grapefruit juice"
         }
       ],
       "sources": [
@@ -21478,6 +21639,7 @@
     "3827": "enalapril",
     "4083": "estradiol",
     "4099": "estrogens, conjugated (USP)",
+    "4124": "ethinyl estradiol",
     "4278": "famotidine",
     "4301": "omega-3 fatty acids",
     "4316": "felodipine",
@@ -21491,7 +21653,7 @@
     "4603": "furosemide",
     "4637": "galantamine",
     "4719": "gemfibrozil",
-    "4815": "glibenclamide",
+    "4815": "glyburide",
     "4816": "gliclazide",
     "4821": "glipizide",
     "4845": "glucosamine",
@@ -21512,6 +21674,7 @@
     "6135": "ketoconazole",
     "6218": "lactulose",
     "6375": "levodopa",
+    "6448": "lithium",
     "6468": "loperamide",
     "6470": "lorazepam",
     "6472": "lovastatin",
@@ -21574,6 +21737,7 @@
     "8794": "propylthiouracil",
     "9143": "ranitidine",
     "9260": "reserpine",
+    "9384": "rifampin",
     "9504": "S-adenosylmethionine",
     "9524": "sulfasalazine",
     "9601": "hyoscine",
@@ -21583,6 +21747,7 @@
     "9947": "sotalol",
     "9997": "spironolactone",
     "10156": "sucralfate",
+    "10180": "sulfamethoxazole",
     "10239": "sulpiride",
     "10324": "tamoxifen",
     "10355": "temazepam",
@@ -21601,6 +21766,7 @@
     "10800": "trifluoperazine",
     "10811": "trihexyphenidyl",
     "10819": "trimebutine",
+    "10829": "trimethoprim",
     "10834": "trimipramine",
     "11065": "ursodeoxycholic acid",
     "11170": "verapamil",
@@ -21633,6 +21799,7 @@
     "22759": "diacerein",
     "23684": "drotaverin",
     "24909": "iron sucrose",
+    "24947": "ferrous sulfate",
     "25025": "finasteride",
     "25255": "formoterol",
     "25480": "gabapentin",
@@ -21912,6 +22079,8 @@
     "2196092": "upadacitinib",
     "2272403": "lemborexant",
     "2282403": "bempedoic acid",
-    "2601723": "tirzepatide"
+    "2601723": "tirzepatide",
+    "iodinated-contrast": "iodinated contrast",
+    "grapefruit-juice": "grapefruit juice"
   }
 }

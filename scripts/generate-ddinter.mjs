@@ -232,7 +232,16 @@ async function mapNamesToRxcuis(names, existingMap) {
 async function loadOverlayEntries() {
   const files = (await readdir(OVERLAY_DIR))
     .filter((name) => name.endsWith(".yaml"))
-    .sort((left, right) => left.localeCompare(right));
+    .sort((left, right) => {
+      const priority = (name) => {
+        if (name === "base.yaml") return 0;
+        if (name === "cyp-derived.yaml") return 1;
+        if (name === "clinical.yaml") return 2;
+        return 1;
+      };
+      const priorityDiff = priority(left) - priority(right);
+      return priorityDiff || left.localeCompare(right);
+    });
 
   const entries = [];
   for (const fileName of files) {

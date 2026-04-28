@@ -47,7 +47,7 @@ export function InteractionList({
       <div className="border-b border-rule px-4 py-3">
         <label className="flex min-h-11 items-center justify-between gap-3 text-[13px] text-ink-soft">
           <span>
-            Hide low-confidence warnings
+            Hide missing PK data
             {hiddenCount > 0 ? (
               <span className="ml-1 text-ink-mute">({hiddenCount} hidden)</span>
             ) : null}

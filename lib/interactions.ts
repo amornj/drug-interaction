@@ -184,7 +184,7 @@ export function checkInteractions(rxcuis: string[]): InteractionCheckResponse {
           b: { rxcui: b, name: nameB },
           severity: overlay.severity ?? "Moderate",
           confidence,
-          lowConfidence: confidence === "unverified",
+          lowConfidence: false,
           pkMechanisms,
           verdict: overlay.verdict ?? "Reviewed interaction overlay.",
           mechanism_class: overlay.mechanism_class,

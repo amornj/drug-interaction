@@ -828,3 +828,79 @@
   sources:
     - name: "Global brand overlay"
       version: "2026-04"
+
+- term: "Bactrim"
+  components:
+    - rxcui: "10180"
+      name: "sulfamethoxazole"
+    - rxcui: "10829"
+      name: "trimethoprim"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "TMP-SMX"
+  components:
+    - rxcui: "10180"
+      name: "sulfamethoxazole"
+    - rxcui: "10829"
+      name: "trimethoprim"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Lithium"
+  components:
+    - rxcui: "6448"
+      name: "lithium"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Ferrous sulfate"
+  components:
+    - rxcui: "24947"
+      name: "ferrous sulfate"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Rifampin"
+  components:
+    - rxcui: "9384"
+      name: "rifampin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Ethinyl estradiol"
+  components:
+    - rxcui: "4124"
+      name: "ethinyl estradiol"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Glibenclamide"
+  components:
+    - rxcui: "4815"
+      name: "glyburide"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Iodinated contrast"
+  components:
+    - rxcui: "iodinated-contrast"
+      name: "iodinated contrast"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Grapefruit juice"
+  components:
+    - rxcui: "grapefruit-juice"
+      name: "grapefruit juice"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
