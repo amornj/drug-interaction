@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "build:data": "node scripts/generate-ddinter.mjs",
+    "build:cyp-pairs": "node scripts/generate-cyp-pairs.mjs",
+    "build:all": "npm run build:data && npm run build:cyp-pairs && npm run build:data",
+    "stage:openfda-labels": "node scripts/pull-openfda-labels.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

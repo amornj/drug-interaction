@@ -1716,6 +1716,15 @@ export function getStackHighYieldDrugs(domain: StackDomain): string[] {
   return (STACK_HIGH_YIELD_DRUGS[domain] ?? []).slice(0, 12);
 }
 
+export function getStackDomainsForDrug(name: string): StackDomain[] {
+  const normalized = normalizeDrugName(name);
+  const domains = stackRules
+    .filter((rule) => rule.matches.some((match) => normalized.includes(match)))
+    .map((rule) => rule.domain);
+
+  return [...new Set(domains)];
+}
+
 export function detectCumulativeStacks(drugs: Drug[]): StackWarning[] {
   const normalizedDrugs: NormalizedDrug[] = drugs.map((drug) => ({
     ...drug,

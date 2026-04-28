@@ -3,8 +3,9 @@ import raw from "@/lib/data/overlay/index.json";
 export type OverlayEntry = {
   key: string;
   pair: [string, string];
-  severity: "Contraindicated" | "Major" | "Moderate" | "Minor";
-  verdict: string;
+  suppress?: boolean;
+  severity?: "Contraindicated" | "Major" | "Moderate" | "Minor";
+  verdict?: string;
   mechanism_class?: string;
   management?: string;
   sources: Array<{ name: string; version: string }>;

@@ -10,6 +10,10 @@ import {
   overlayVersion,
 } from "@/lib/data/overlay";
 import { brandRxcuiNames } from "@/lib/data/brands";
+import {
+  classifyConfidence,
+  type InteractionConfidence,
+} from "@/lib/confidence";
 
 export const severityOrder = [
   "Contraindicated",
@@ -29,6 +33,8 @@ export type InteractionPair = {
   a: { rxcui: string; name: string };
   b: { rxcui: string; name: string };
   severity: InteractionSeverity;
+  confidence: InteractionConfidence;
+  lowConfidence: boolean;
   verdict: string;
   mechanism_class?: string;
   management?: string;
@@ -194,13 +200,19 @@ export function checkInteractions(rxcuis: string[]): InteractionCheckResponse {
       const b = unique[j];
       const key = sortedPairKey(a, b);
       const overlay = overlayIndex.get(key);
+      const nameA = getRxcuiName(a) ?? a;
+      const nameB = getRxcuiName(b) ?? b;
+
+      const confidence = classifyConfidence(nameA, nameB);
 
       if (overlay) {
         pairs.push({
-          a: { rxcui: a, name: getRxcuiName(a) ?? a },
-          b: { rxcui: b, name: getRxcuiName(b) ?? b },
-          severity: overlay.severity,
-          verdict: overlay.verdict,
+          a: { rxcui: a, name: nameA },
+          b: { rxcui: b, name: nameB },
+          severity: overlay.severity ?? "Moderate",
+          confidence,
+          lowConfidence: confidence === "unverified",
+          verdict: overlay.verdict ?? "Reviewed interaction overlay.",
           mechanism_class: overlay.mechanism_class,
           management: overlay.management,
           sources: overlay.sources,
@@ -215,9 +227,11 @@ export function checkInteractions(rxcuis: string[]): InteractionCheckResponse {
 
       const severity = codeToSeverity[ddinterSeverityCode];
       pairs.push({
-        a: { rxcui: a, name: getRxcuiName(a) ?? a },
-        b: { rxcui: b, name: getRxcuiName(b) ?? b },
+        a: { rxcui: a, name: nameA },
+        b: { rxcui: b, name: nameB },
         severity,
+        confidence,
+        lowConfidence: confidence === "unverified",
         verdict: defaultVerdictForSeverity(severity),
         sources: defaultPairSources,
       });

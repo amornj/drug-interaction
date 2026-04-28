@@ -18,6 +18,13 @@ const pairSchema: z.ZodType<InteractionPair> = z.object({
     name: z.string().trim().min(1),
   }),
   severity: z.enum(["Contraindicated", "Major", "Moderate", "Minor"]),
+  confidence: z.enum([
+    "pk_confirmed",
+    "pk_plausible",
+    "pd_plausible",
+    "unverified",
+  ]),
+  lowConfidence: z.boolean(),
   verdict: z.string().trim().min(1),
   mechanism_class: z.string().trim().min(1).optional(),
   management: z.string().trim().min(1).optional(),

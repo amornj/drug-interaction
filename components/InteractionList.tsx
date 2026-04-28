@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { InteractionExplanation } from "@/components/InteractionExplanation";
 import { SeverityBadge } from "@/components/SeverityBadge";
 import { formatSources } from "@/lib/interactions";
+import { confidenceLabel } from "@/lib/confidence";
 import type { ModifiedInteractionResult } from "@/lib/modifiers";
 
 export function InteractionList({
@@ -10,6 +12,9 @@ export function InteractionList({
 }: {
   result: ModifiedInteractionResult;
 }) {
+  const [hideLowConfidenceModerate, setHideLowConfidenceModerate] =
+    useState(false);
+
   if (result.pairs.length === 0) {
     return (
       <div
@@ -30,9 +35,35 @@ export function InteractionList({
     );
   }
 
+  const visiblePairs = result.pairs.filter(
+    (pair) =>
+      !hideLowConfidenceModerate ||
+      pair.displaySeverity !== "Moderate" ||
+      !pair.lowConfidence
+  );
+  const hiddenCount = result.pairs.length - visiblePairs.length;
+
   return (
     <div>
-      {result.pairs.map((pair, index) => {
+      <div className="border-b border-rule px-4 py-3">
+        <label className="flex min-h-11 items-center justify-between gap-3 text-[13px] text-ink-soft">
+          <span>
+            Hide low-confidence Moderate pairs
+            {hiddenCount > 0 ? (
+              <span className="ml-1 text-ink-mute">({hiddenCount} hidden)</span>
+            ) : null}
+          </span>
+          <input
+            type="checkbox"
+            className="size-5 accent-[var(--accent)]"
+            checked={hideLowConfidenceModerate}
+            onChange={(event) =>
+              setHideLowConfidenceModerate(event.target.checked)
+            }
+          />
+        </label>
+      </div>
+      {visiblePairs.map((pair, index) => {
         const isPinned = pair.displaySeverity === "Contraindicated";
         const severityToken =
           pair.displaySeverity === "Contraindicated"
@@ -65,6 +96,31 @@ export function InteractionList({
                       <span className="mx-1.5 text-ink-mute">↔</span>
                       <span className="font-serif italic">{pair.b.name}</span>
                     </p>
+                  </div>
+                  <div className="mt-2 flex flex-wrap items-center gap-2 pl-8">
+                    <span
+                      className={`border px-2 py-1 text-[10px] uppercase tracking-[0.12em] ${
+                        pair.lowConfidence
+                          ? "border-rule bg-surface/50 text-ink-mute"
+                          : "border-rule-strong text-ink-soft"
+                      }`}
+                      title={
+                        pair.confidence === "pk_confirmed"
+                          ? "Direct local inhibitor-substrate mechanism"
+                          : pair.confidence === "pk_plausible"
+                          ? "Shared high-risk substrate pathway"
+                          : pair.confidence === "pd_plausible"
+                          ? "Shared pharmacodynamic stack domain"
+                          : "Mechanism not confirmed locally"
+                      }
+                    >
+                      {confidenceLabel(pair.confidence)}
+                    </span>
+                    {pair.lowConfidence ? (
+                      <span className="text-[10px] uppercase tracking-[0.12em] text-ink-mute">
+                        Low confidence
+                      </span>
+                    ) : null}
                   </div>
                   <p className="mt-1.5 pl-8 text-[13.5px] leading-snug text-ink-soft">
                     {pair.verdict}
@@ -113,6 +169,12 @@ export function InteractionList({
                   {pair.mechanism_class}
                 </p>
               ) : null}
+              {pair.lowConfidence ? (
+                <p className="mt-2 italic">
+                  Mechanism not confirmed in local CYP/transporter or
+                  pharmacodynamic data.
+                </p>
+              ) : null}
               {pair.management ? (
                 <p className="mt-2">
                   <span className="eyebrow mr-2">Management</span>
@@ -126,6 +188,8 @@ export function InteractionList({
                   b: pair.b,
                   severity: pair.baseSeverity,
                   verdict: pair.verdict,
+                  confidence: pair.confidence,
+                  lowConfidence: pair.lowConfidence,
                   mechanism_class: pair.mechanism_class,
                   management: pair.management,
                   sources: pair.sources,

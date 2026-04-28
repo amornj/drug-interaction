@@ -31,8 +31,9 @@ const severityToCode = {
 
 const overlayEntrySchema = z.object({
   pair: z.tuple([z.string().min(1), z.string().min(1)]),
-  severity: z.enum(["Contraindicated", "Major", "Moderate", "Minor"]),
-  verdict: z.string().trim().min(1),
+  suppress: z.boolean().optional(),
+  severity: z.enum(["Contraindicated", "Major", "Moderate", "Minor"]).optional(),
+  verdict: z.string().trim().min(1).optional(),
   mechanism_class: z.string().trim().min(1).optional(),
   management: z.string().trim().min(1).optional(),
   sources: z
@@ -43,6 +44,26 @@ const overlayEntrySchema = z.object({
       })
     )
     .min(1),
+}).superRefine((entry, ctx) => {
+  if (entry.suppress) {
+    return;
+  }
+
+  if (!entry.severity) {
+    ctx.addIssue({
+      code: "custom",
+      message: "Overlay entries must include severity unless suppress is true",
+      path: ["severity"],
+    });
+  }
+
+  if (!entry.verdict) {
+    ctx.addIssue({
+      code: "custom",
+      message: "Overlay entries must include verdict unless suppress is true",
+      path: ["verdict"],
+    });
+  }
 });
 
 const overlayFileSchema = z.array(overlayEntrySchema);
@@ -223,6 +244,7 @@ async function loadOverlayEntries() {
       entries.push({
         key: sortedPairKey(entry.pair[0], entry.pair[1]),
         pair: [...entry.pair].sort((left, right) => left.localeCompare(right)),
+        suppress: entry.suppress ?? false,
         severity: entry.severity,
         verdict: entry.verdict,
         mechanism_class: entry.mechanism_class,
