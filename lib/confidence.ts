@@ -1,18 +1,9 @@
 import { getDrugMetabolismTags } from "@/lib/cyp";
 import { getStackDomainsForDrug } from "@/lib/stacks";
-
-export type InteractionConfidence =
-  | "pk_confirmed"
-  | "pk_plausible"
-  | "pd_plausible"
-  | "unverified";
-
-export type PkMechanismKind = "sub_inh" | "sub_ind" | "co_sub";
-
-export type PkMechanism = {
-  kind: PkMechanismKind;
-  system: string;
-};
+import type {
+  InteractionConfidence,
+  PkMechanism,
+} from "@/lib/interaction-types";
 
 export type ConfidenceClassification = {
   confidence: InteractionConfidence;
@@ -58,30 +49,6 @@ const cosubstrateSignalDrugs = new Set([
   "theophylline",
   "warfarin",
 ]);
-
-export function confidenceLabel(confidence: InteractionConfidence) {
-  switch (confidence) {
-    case "pk_confirmed":
-      return "PK";
-    case "pk_plausible":
-      return "Co-sub";
-    case "pd_plausible":
-      return "PD";
-    case "unverified":
-      return "?";
-  }
-}
-
-export function pkMechanismLabel(kind: PkMechanismKind) {
-  switch (kind) {
-    case "sub_inh":
-      return "SUB-INH";
-    case "sub_ind":
-      return "SUB-IND";
-    case "co_sub":
-      return "CO-SUB";
-  }
-}
 
 function normalizeDrugName(name: string) {
   return name

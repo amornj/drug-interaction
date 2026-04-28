@@ -2,8 +2,8 @@
 
 import { LlmPromptPanel } from "@/components/LlmPromptPanel";
 import { SeverityBadge } from "@/components/SeverityBadge";
-import { formatSources } from "@/lib/interactions";
-import type { InteractionSeverity } from "@/lib/interactions";
+import { formatSources } from "@/lib/interaction-types";
+import type { InteractionSeverity } from "@/lib/interaction-types";
 import type { StackWarning } from "@/lib/stacks";
 
 function domainLabel(domain: StackWarning["domain"]) {

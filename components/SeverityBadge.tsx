@@ -1,4 +1,4 @@
-import type { InteractionSeverity } from "@/lib/interactions";
+import type { InteractionSeverity } from "@/lib/interaction-types";
 
 const labels: Record<InteractionSeverity, string> = {
   Contraindicated: "Contra",

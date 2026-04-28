@@ -1,7 +1,7 @@
 "use client";
 
 import { LlmPromptPanel } from "@/components/LlmPromptPanel";
-import type { InteractionPair } from "@/lib/interactions";
+import type { InteractionPair } from "@/lib/interaction-types";
 
 export function InteractionExplanation({
   pair,

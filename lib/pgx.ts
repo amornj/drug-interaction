@@ -1,4 +1,4 @@
-import type { InteractionSeverity, InteractionSource } from "@/lib/interactions";
+import type { InteractionSeverity, InteractionSource } from "@/lib/interaction-types";
 
 export type PgxGene =
   | "cyp2c9"

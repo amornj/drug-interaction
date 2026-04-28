@@ -3,7 +3,7 @@ import type {
   InteractionPair,
   InteractionSeverity,
   InteractionSource,
-} from "@/lib/interactions";
+} from "@/lib/interaction-types";
 
 export type PatientModifierKey =
   | "pregnancy"

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { checkInteractions, type InteractionCheckResponse } from "@/lib/interactions";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 const requestSchema = z.object({
   rxcuis: z.array(z.string().trim().min(1)).min(2),

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { InteractionSeverity } from "@/lib/interactions";
+import type { InteractionSeverity } from "@/lib/interaction-types";
 import type { ModifiedInteractionPair } from "@/lib/modifiers";
 import { getStackHighYieldDrugs, type StackWarning } from "@/lib/stacks";
 

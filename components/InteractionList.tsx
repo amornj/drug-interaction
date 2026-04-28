@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { InteractionExplanation } from "@/components/InteractionExplanation";
 import { SeverityBadge } from "@/components/SeverityBadge";
-import { formatSources } from "@/lib/interactions";
-import { confidenceLabel, pkMechanismLabel } from "@/lib/confidence";
+import { formatSources } from "@/lib/interaction-types";
+import { confidenceLabel, pkMechanismLabel } from "@/lib/interaction-types";
 import type { ModifiedInteractionResult } from "@/lib/modifiers";
 
 export function InteractionList({

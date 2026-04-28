@@ -11,7 +11,7 @@ import { InteractionSummary } from "@/components/InteractionSummary";
 import { PatientModifiers } from "@/components/PatientModifiers";
 import { PharmacogenomicsPanel } from "@/components/PharmacogenomicsPanel";
 import { StackWarnings } from "@/components/StackWarnings";
-import type { InteractionCheckResponse } from "@/lib/interactions";
+import type { InteractionCheckResponse } from "@/lib/interaction-types";
 import { applyPatientModifiers } from "@/lib/modifiers";
 import { detectCumulativeStacks } from "@/lib/stacks";
 import { useActiveCase, useStore } from "@/lib/store";

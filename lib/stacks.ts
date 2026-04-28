@@ -1,4 +1,4 @@
-import type { InteractionSeverity, InteractionSource } from "@/lib/interactions";
+import type { InteractionSeverity, InteractionSource } from "@/lib/interaction-types";
 import type { Drug } from "@/lib/store";
 
 export type StackDomain =

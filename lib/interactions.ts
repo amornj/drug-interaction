@@ -10,45 +10,21 @@ import {
   overlayVersion,
 } from "@/lib/data/overlay";
 import { brandRxcuiNames } from "@/lib/data/brands";
+import { classifyInteractionConfidence } from "@/lib/confidence";
 import {
-  classifyInteractionConfidence,
-  type InteractionConfidence,
-  type PkMechanism,
-} from "@/lib/confidence";
-
-export const severityOrder = [
-  "Contraindicated",
-  "Major",
-  "Moderate",
-  "Minor",
-] as const;
-
-export type InteractionSeverity = (typeof severityOrder)[number];
-
-export type InteractionSource = {
-  name: string;
-  version: string;
-};
-
-export type InteractionPair = {
-  a: { rxcui: string; name: string };
-  b: { rxcui: string; name: string };
-  severity: InteractionSeverity;
-  confidence: InteractionConfidence;
-  lowConfidence: boolean;
-  pkMechanisms: PkMechanism[];
-  verdict: string;
-  mechanism_class?: string;
-  management?: string;
-  sources: InteractionSource[];
-};
-
-export type InteractionCheckResponse = {
-  pairs: InteractionPair[];
-  unknown: string[];
-  checkedAt: string;
-  dataVersion: string;
-};
+  formatSources,
+  type InteractionCheckResponse,
+  type InteractionPair,
+  type InteractionSeverity,
+  type InteractionSource,
+} from "@/lib/interaction-types";
+export type {
+  InteractionCheckResponse,
+  InteractionPair,
+  InteractionSeverity,
+  InteractionSource,
+} from "@/lib/interaction-types";
+export { formatSources, severityOrder } from "@/lib/interaction-types";
 
 export const explanationLabels = ["SUMMARY", "MONITOR", "AVOID"] as const;
 
@@ -81,12 +57,6 @@ export const dataVersion = `DDInter ${ddinterVersion} · ${ddinterGeneratedAt.sl
   0,
   10
 )} · Overlay ${overlayVersion} · ${overlayGeneratedAt.slice(0, 10)}`;
-
-export function formatSources(sources: InteractionSource[]) {
-  return sources
-    .map((source) => `${source.name} · ${source.version}`)
-    .join(" · ");
-}
 
 export function pairKey(pair: Pick<InteractionPair, "a" | "b">) {
   return sortedPairKey(pair.a.rxcui, pair.b.rxcui);
