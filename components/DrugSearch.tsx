@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AliasTeachModal } from "@/components/AliasTeachModal";
 import {
   normalizeTerm,
   parseAliasInput,
@@ -190,7 +189,6 @@ export function DrugSearch({
   const [bulkMessage, setBulkMessage] = useState<string | null>(null);
   const [proposal, setProposal] = useState<InlineAliasProposal | null>(null);
   const [proposalLoading, setProposalLoading] = useState(false);
-  const [teachOpen, setTeachOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
   const [combinationPending, setCombinationPending] = useState<CombinationPending | null>(null);
   const [combinationQueue, setCombinationQueue] = useState<CombinationPending[]>([]);
@@ -690,11 +688,11 @@ export function DrugSearch({
 
   if (shouldShowTeachHint) {
     rows.push({
-      id: "teach",
-      kind: "teach",
-      title: `Teach "${term} = A + B"`,
-      subtitle: 'Format: Teach "ComboAB = A + B". Click to choose RxNorm-confirmed components.',
-      onActivate: () => setTeachOpen(true),
+      id: "teach-hint",
+      kind: "info",
+      title: "ComboAB = A + B",
+      subtitle: 'Type "Alias = DrugA + DrugB" and press Enter',
+      disabled: true,
     });
   }
 
@@ -778,6 +776,11 @@ export function DrugSearch({
       return;
     }
     if (event.key === "Enter") {
+      if (parsedAliasInput && proposal && proposal.unresolvedTerms.length === 0 && proposal.components.length > 0) {
+        event.preventDefault();
+        void saveProposalAndAdd();
+        return;
+      }
       if ((!open || activeIndex < 0) && typedBatchTerms.length >= 2) {
         event.preventDefault();
         void bulkAddDrugs(term, {
@@ -789,10 +792,6 @@ export function DrugSearch({
       if (!open) return;
       const targetIndex = activeIndex >= 0 ? activeIndex : firstSelectable(1);
       const row = rows[targetIndex];
-      if (row?.kind === "teach") {
-        event.preventDefault();
-        return;
-      }
       if (canActivate(targetIndex)) {
         event.preventDefault();
         activateRow(row);
@@ -968,12 +967,14 @@ export function DrugSearch({
                     className="border-b border-rule bg-paper-raised px-4 py-3 text-[13px] italic text-ink-mute last:border-b-0"
                   >
                     {row.title}
+                    {row.subtitle ? (
+                      <p className="mt-0.5 stamp truncate">{row.subtitle}</p>
+                    ) : null}
                   </div>
                 );
               }
               const isAlias = row.kind === "alias";
               const isBatch = row.kind === "batch";
-              const isTeach = row.kind === "teach";
               return (
                 <button
                   key={row.id}
@@ -998,10 +999,6 @@ export function DrugSearch({
                       <span className="eyebrow mt-0.5 shrink-0" style={{ color: "var(--good)" }}>
                         Batch
                       </span>
-                    ) : isTeach ? (
-                      <span className="eyebrow mt-0.5 shrink-0" style={{ color: "var(--sev-major)" }}>
-                        Teach
-                      </span>
                     ) : (
                       <span className="stamp mt-0.5 shrink-0">Rx</span>
                     )}
@@ -1024,14 +1021,6 @@ export function DrugSearch({
         ) : null}
       </div>
 
-      <AliasTeachModal
-        key={`${teachOpen ? term : "closed"}-${aliases.length}`}
-        open={teachOpen}
-        initialTerm={term}
-        onClose={() => setTeachOpen(false)}
-        onAliasesChange={onAliasesChange}
-        onAddComponents={(components, viaBrand) => addComponents(components, viaBrand)}
-      />
     </>
   );
 }
