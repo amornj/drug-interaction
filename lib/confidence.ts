@@ -27,6 +27,7 @@ const PK_SYSTEMS = new Set([
   "BCRP",
   "UGT",
   "UGT1A1",
+  "Xanthine oxidase",
 ]);
 
 const clinicallyMeaningfulCosubstrateSystems = new Set(["CYP3A4", "P-gp"]);
