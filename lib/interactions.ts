@@ -113,7 +113,10 @@ function normalizeDrugName(name: string) {
     .trim();
 }
 
-function buildGastricAcidPair(a: string, b: string): InteractionPair | null {
+function detectGastricAcid(
+  a: string,
+  b: string
+): { dependentDrug: string; acidReducer: string } | null {
   const nameA = getRxcuiName(a) ?? a;
   const nameB = getRxcuiName(b) ?? b;
   const normalizedA = normalizeDrugName(nameA);
@@ -124,25 +127,77 @@ function buildGastricAcidPair(a: string, b: string): InteractionPair | null {
   const aIsReducer = acidReductionDrugs.has(normalizedA);
   const bIsReducer = acidReductionDrugs.has(normalizedB);
 
-  if (!((aIsDependent && bIsReducer) || (bIsDependent && aIsReducer))) {
-    return null;
+  if (aIsDependent && bIsReducer) {
+    return { dependentDrug: nameA, acidReducer: nameB };
   }
+  if (bIsDependent && aIsReducer) {
+    return { dependentDrug: nameB, acidReducer: nameA };
+  }
+  return null;
+}
 
-  const dependentDrug = aIsDependent ? nameA : nameB;
-  const acidReducer = aIsReducer ? nameA : nameB;
-  const classification = classifyInteractionConfidence(nameA, nameB);
+function buildGastricAcidVerdict(
+  dependentDrug: string,
+  acidReducer: string
+): string {
+  return `${acidReducer} raises gastric pH and can reduce absorption of ${dependentDrug}, causing loss of exposure and treatment failure risk.`;
+}
+
+function buildGastricAcidManagement(): string {
+  return "Avoid this combination if possible. Prefer a non-acid-suppressive alternative, a different formulation, or a non-pH-dependent drug when reliable exposure is critical.";
+}
+
+function augmentWithGastricAcid(
+  pair: InteractionPair,
+  gastric: { dependentDrug: string; acidReducer: string }
+): InteractionPair {
+  const gastricVerdict = buildGastricAcidVerdict(
+    gastric.dependentDrug,
+    gastric.acidReducer
+  );
+  const gastricManagement = buildGastricAcidManagement();
+  const hasGastricInVerdict = pair.verdict.toLowerCase().includes("gastric");
 
   return {
-    a: { rxcui: a, name: nameA },
-    b: { rxcui: b, name: nameB },
+    ...pair,
+    confidence: "pk_confirmed",
+    pkMechanisms: [
+      ...pair.pkMechanisms.filter((m) => m.kind !== "gastric_ph"),
+      { kind: "gastric_ph", system: "Gastric pH" },
+    ],
+    verdict: hasGastricInVerdict
+      ? pair.verdict
+      : `${gastricVerdict} ${pair.verdict}`,
+    mechanism_class: pair.mechanism_class
+      ? `${pair.mechanism_class}; Increased gastric pH / reduced absorption`
+      : "Increased gastric pH / reduced absorption",
+    management: pair.management
+      ? `${pair.management} ${gastricManagement}`
+      : gastricManagement,
+    sources: [
+      ...pair.sources.filter(
+        (s) => s.name !== "Local acid-suppression rule"
+      ),
+      ...gastricAcidRuleSources,
+    ],
+  };
+}
+
+function buildGastricAcidOnlyPair(
+  a: string,
+  b: string,
+  gastric: { dependentDrug: string; acidReducer: string }
+): InteractionPair {
+  return {
+    a: { rxcui: a, name: getRxcuiName(a) ?? a },
+    b: { rxcui: b, name: getRxcuiName(b) ?? b },
     severity: "Major",
-    confidence: classification.confidence,
+    confidence: "pk_confirmed",
     lowConfidence: false,
-    pkMechanisms: classification.pkMechanisms,
-    verdict: `${acidReducer} raises gastric pH and can reduce absorption of ${dependentDrug}, causing loss of exposure and treatment failure risk.`,
+    pkMechanisms: [{ kind: "gastric_ph", system: "Gastric pH" }],
+    verdict: buildGastricAcidVerdict(gastric.dependentDrug, gastric.acidReducer),
     mechanism_class: "Increased gastric pH / reduced absorption",
-    management:
-      "Avoid this combination if possible. Prefer a non-acid-suppressive alternative, a different formulation, or a non-pH-dependent drug when reliable exposure is critical.",
+    management: buildGastricAcidManagement(),
     sources: gastricAcidRuleSources,
   };
 }
@@ -258,9 +313,12 @@ export function checkInteractions(rxcuis: string[]): InteractionCheckResponse {
 
       const classification = classifyInteractionConfidence(nameA, nameB);
       const { confidence, pkMechanisms } = classification;
+      const gastricAcid = detectGastricAcid(a, b);
+
+      let pair: InteractionPair | null = null;
 
       if (overlay) {
-        pairs.push({
+        pair = {
           a: { rxcui: a, name: nameA },
           b: { rxcui: b, name: nameB },
           severity: overlay.severity ?? "Moderate",
@@ -271,32 +329,37 @@ export function checkInteractions(rxcuis: string[]): InteractionCheckResponse {
           mechanism_class: overlay.mechanism_class,
           management: overlay.management,
           sources: overlay.sources,
-        });
-        continue;
+        };
       }
 
-      const gastricAcidPair = buildGastricAcidPair(a, b);
-      if (gastricAcidPair) {
-        pairs.push(gastricAcidPair);
-        continue;
+      if (!pair) {
+        const ddinterSeverityCode = ddinterPairIndex[key];
+        if (ddinterSeverityCode) {
+          const severity = codeToSeverity[ddinterSeverityCode];
+          pair = {
+            a: { rxcui: a, name: nameA },
+            b: { rxcui: b, name: nameB },
+            severity,
+            confidence,
+            lowConfidence: confidence === "unverified",
+            pkMechanisms,
+            verdict: defaultVerdictForSeverity(severity),
+            sources: defaultPairSources,
+          };
+        }
       }
 
-      const ddinterSeverityCode = ddinterPairIndex[key];
-      if (!ddinterSeverityCode) {
-        continue;
+      if (gastricAcid) {
+        if (pair) {
+          pair = augmentWithGastricAcid(pair, gastricAcid);
+        } else {
+          pair = buildGastricAcidOnlyPair(a, b, gastricAcid);
+        }
       }
 
-      const severity = codeToSeverity[ddinterSeverityCode];
-      pairs.push({
-        a: { rxcui: a, name: nameA },
-        b: { rxcui: b, name: nameB },
-        severity,
-        confidence,
-        lowConfidence: confidence === "unverified",
-        pkMechanisms,
-        verdict: defaultVerdictForSeverity(severity),
-        sources: defaultPairSources,
-      });
+      if (pair) {
+        pairs.push(pair);
+      }
     }
   }
 

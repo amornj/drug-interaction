@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { InteractionFilterModal } from "@/components/InteractionFilterModal";
 import { AliasManagerModal } from "@/components/AliasManagerModal";
 import { loadUserAliases, type Alias } from "@/lib/aliases";
 import { CaseSwitcher } from "@/components/CaseSwitcher";
@@ -21,6 +22,8 @@ export function AppShell() {
   const clearDrugs = useStore((s) => s.clearDrugs);
   const [aliases, setAliases] = useState<Alias[]>([]);
   const [aliasManagerOpen, setAliasManagerOpen] = useState(false);
+  const [interactionFilterOpen, setInteractionFilterOpen] = useState(false);
+  const setInteractionFilter = useStore((s) => s.setInteractionFilter);
   const [checking, setChecking] = useState(false);
   const [result, setResult] = useState<InteractionCheckResponse | null>(null);
   const [resultKey, setResultKey] = useState("");
@@ -124,7 +127,10 @@ export function AppShell() {
       </header>
 
       <div className="rise rise-2 sticky top-0 z-10 -mx-5 border-b border-rule bg-paper/95 px-5 py-3 backdrop-blur">
-        <CaseSwitcher onManageAliases={() => setAliasManagerOpen(true)} />
+        <CaseSwitcher
+          onManageAliases={() => setAliasManagerOpen(true)}
+          onManageInteractions={() => setInteractionFilterOpen(true)}
+        />
       </div>
 
       <section className="rise rise-3 mt-5">
@@ -282,7 +288,10 @@ export function AppShell() {
                     </span>
                   </div>
                   <div className="mt-3">
-                    <InteractionList result={visibleResult} />
+                    <InteractionList
+                      result={visibleResult}
+                      filters={active.interactionFilters}
+                    />
                   </div>
                 </div>
               </>
@@ -311,6 +320,15 @@ export function AppShell() {
           hand-curated overlay. Patient data never leaves this device.
         </p>
       </footer>
+
+      <InteractionFilterModal
+        open={interactionFilterOpen}
+        filters={active?.interactionFilters ?? { showPkPlausible: false, showPdPlausible: false, showUnverified: false }}
+        onClose={() => setInteractionFilterOpen(false)}
+        onChange={(filter, value) => {
+          setInteractionFilter(filter, value);
+        }}
+      />
 
       <AliasManagerModal
         open={aliasManagerOpen}

@@ -11,10 +11,34 @@ import {
 
 export function InteractionList({
   result,
+  filters,
 }: {
   result: InteractionCheckResponse;
+  filters?: {
+    showPkPlausible: boolean;
+    showPdPlausible: boolean;
+    showUnverified: boolean;
+  };
 }) {
-  if (result.pairs.length === 0) {
+  const effectiveFilters = filters ?? {
+    showPkPlausible: false,
+    showPdPlausible: false,
+    showUnverified: false,
+  };
+
+  const filteredPairs = result.pairs.filter((pair) => {
+    // PK-confirmed and gastric pH pairs are always shown
+    if (pair.confidence === "pk_confirmed") return true;
+    if (pair.confidence === "pk_plausible" && !effectiveFilters.showPkPlausible)
+      return false;
+    if (pair.confidence === "pd_plausible" && !effectiveFilters.showPdPlausible)
+      return false;
+    if (pair.confidence === "unverified" && !effectiveFilters.showUnverified)
+      return false;
+    return true;
+  });
+
+  if (filteredPairs.length === 0) {
     return (
       <div
         className="border border-rule border-l-2 bg-good-soft px-4 py-3"
@@ -24,7 +48,9 @@ export function InteractionList({
           Clear
         </p>
         <p className="mt-1 text-[14px] text-ink">
-          No known interactions found in current data sources.
+          {result.pairs.length > 0
+            ? "No interactions match your current filter settings. Toggle filters in Manage interactions to see more results."
+            : "No known interactions found in current data sources."}
         </p>
         <p className="stamp mt-2">{result.dataVersion}</p>
         {result.unknown.length > 0 ? (
@@ -36,7 +62,7 @@ export function InteractionList({
 
   return (
     <div>
-      {result.pairs.map((pair, index) => {
+      {filteredPairs.map((pair, index) => {
         const isPinned = pair.severity === "Contraindicated";
         const isClinicalOverlay = pair.sources.some(
           (source) => source.name === "Clinical overlay"
@@ -44,6 +70,9 @@ export function InteractionList({
         const showConfidenceBadge =
           pair.confidence !== "unverified" ||
           pair.pkMechanisms.length > 0;
+        const hasGastricPh = pair.pkMechanisms.some(
+          (m) => m.kind === "gastric_ph"
+        );
         const severityToken =
           pair.severity === "Contraindicated"
             ? "var(--sev-contra)"
@@ -95,6 +124,11 @@ export function InteractionList({
                         }
                       >
                         {confidenceLabel(pair.confidence)}
+                      </span>
+                    ) : null}
+                    {hasGastricPh ? (
+                      <span className="border border-rule-strong bg-accent-soft px-2 py-1 text-[10px] uppercase tracking-[0.12em] text-accent">
+                        Gastric pH
                       </span>
                     ) : null}
                     {pair.pkMechanisms.map((mechanism) => (

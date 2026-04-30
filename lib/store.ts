@@ -8,6 +8,18 @@ import {
   type PgxProfile,
 } from "@/lib/pgx";
 
+export type InteractionFilters = {
+  showPkPlausible: boolean;
+  showPdPlausible: boolean;
+  showUnverified: boolean;
+};
+
+export const defaultInteractionFilters: InteractionFilters = {
+  showPkPlausible: false,
+  showPdPlausible: false,
+  showUnverified: false,
+};
+
 export type Drug = {
   rxcui: string;
   name: string;
@@ -20,6 +32,7 @@ export type Case = {
   label: string;
   drugs: Drug[];
   pgxProfile: PgxProfile;
+  interactionFilters: InteractionFilters;
   createdAt: number;
 };
 
@@ -41,6 +54,10 @@ type Store = PersistedState & {
   clearDrugs: () => void;
   setPgxPhenotype: (gene: PgxGene, value: string) => void;
   resetPgxProfile: () => void;
+  setInteractionFilter: (
+    filter: keyof InteractionFilters,
+    value: boolean
+  ) => void;
 };
 
 const STORAGE_KEY = "di.state.v1";
@@ -58,6 +75,7 @@ function defaultState(): PersistedState {
     label: "Case 1",
     drugs: [],
     pgxProfile: createDefaultPgxProfile(),
+    interactionFilters: defaultInteractionFilters,
     createdAt: Date.now(),
   };
   return { cases: [first], activeCaseId: first.id };
@@ -69,6 +87,10 @@ function normalizeCase(nextCase: Case): Case {
     pgxProfile: {
       ...createDefaultPgxProfile(),
       ...nextCase.pgxProfile,
+    },
+    interactionFilters: {
+      ...defaultInteractionFilters,
+      ...nextCase.interactionFilters,
     },
   };
 }
@@ -120,6 +142,7 @@ export const useStore = create<Store>((set, get) => ({
       label: `Case ${get().cases.length + 1}`,
       drugs: [],
       pgxProfile: createDefaultPgxProfile(),
+      interactionFilters: defaultInteractionFilters,
       createdAt: Date.now(),
     };
     const next = { cases: [...get().cases, c], activeCaseId: c.id };
@@ -221,6 +244,23 @@ export const useStore = create<Store>((set, get) => ({
         : {
             ...c,
             pgxProfile: createDefaultPgxProfile(),
+          }
+    );
+    set({ cases: nextCases });
+    persist({ cases: nextCases, activeCaseId });
+  },
+
+  setInteractionFilter: (filter, value) => {
+    const { cases, activeCaseId } = get();
+    const nextCases = cases.map((c) =>
+      c.id !== activeCaseId
+        ? c
+        : {
+            ...c,
+            interactionFilters: {
+              ...c.interactionFilters,
+              [filter]: value,
+            },
           }
     );
     set({ cases: nextCases });

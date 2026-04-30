@@ -9,8 +9,10 @@ const LONG_PRESS_MS = 500;
 
 export function CaseSwitcher({
   onManageAliases,
+  onManageInteractions,
 }: {
   onManageAliases: () => void;
+  onManageInteractions: () => void;
 }) {
   const cases = useStore((s) => s.cases);
   const activeCaseId = useStore((s) => s.activeCaseId);
@@ -173,6 +175,16 @@ export function CaseSwitcher({
               className="block min-h-11 w-full border-b border-rule px-4 py-2.5 text-left text-[13px] text-ink hover:bg-surface"
             >
               Manage aliases
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setMenuOpen(false);
+                onManageInteractions();
+              }}
+              className="block min-h-11 w-full border-b border-rule px-4 py-2.5 text-left text-[13px] text-ink hover:bg-surface"
+            >
+              Manage interactions
             </button>
             {active ? (
               <button
