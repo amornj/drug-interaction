@@ -35,9 +35,26 @@ function normalizeDrugName(name: string) {
 }
 
 export const METABOLISM_ENTRIES: MetabolismEntry[] = [
-  { match: "simvastatin", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "P-gp", role: "Sub" }, { system: "BCRP", role: "Transport" }] },
+  {
+    match: "simvastatin",
+    nti: true,
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP3A4", role: "Prodrug" },
+      { system: "P-gp", role: "Sub" },
+      { system: "BCRP", role: "Transport" },
+    ],
+  },
   { match: "atorvastatin", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "BCRP", role: "Transport" }] },
-  { match: "lovastatin", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "BCRP", role: "Transport" }] },
+  {
+    match: "lovastatin",
+    nti: true,
+    annotations: [
+      { system: "CYP3A4", role: "Sub" },
+      { system: "CYP3A4", role: "Prodrug" },
+      { system: "BCRP", role: "Transport" },
+    ],
+  },
   { match: "amlodipine", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP3A4", role: "Weak Inh" }] },
   { match: "nifedipine", annotations: [{ system: "CYP3A4", role: "Sub" }] },
   {
@@ -81,8 +98,19 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
   },
   {
     match: "dabigatran",
+    nti: true,
     annotations: [
       { system: "P-gp", role: "Sub", note: "critical" },
+      { system: "P-gp", role: "Prodrug" },
+      { system: "Renal elim", role: "Partial" },
+    ],
+  },
+  {
+    match: "dabigatran etexilate",
+    nti: true,
+    annotations: [
+      { system: "P-gp", role: "Sub", note: "critical" },
+      { system: "P-gp", role: "Prodrug" },
       { system: "Renal elim", role: "Partial" },
     ],
   },
@@ -183,6 +211,7 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2C19", role: "Moderate Inh" },
       { system: "CYP2D6", role: "Moderate Inh" },
       { system: "P-gp", role: "Inh", note: "strong" },
+      { system: "Absorption", role: "Gastric acid dependent" },
       { system: "UGT", role: "Weak Inh" },
       { system: "OCT", role: "Moderate Inh", note: "multi-pathway inhibitor" },
       { system: "MATE", role: "Moderate Inh", note: "broad inhibitor" },
@@ -194,6 +223,7 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP3A4", role: "Sub" },
       { system: "CYP3A4", role: "Strong Inh" },
       { system: "P-gp", role: "Inh", note: "strong" },
+      { system: "Absorption", role: "Gastric acid dependent", note: "capsule > solution" },
     ],
   },
   {
@@ -269,11 +299,19 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
   },
   {
     match: "codeine",
-    annotations: [{ system: "CYP2D6", role: "Sub", note: "PGx, prodrug" }],
+    nti: true,
+    annotations: [
+      { system: "CYP2D6", role: "Sub", note: "PGx" },
+      { system: "CYP2D6", role: "Prodrug" },
+    ],
   },
   {
     match: "tramadol",
-    annotations: [{ system: "CYP2D6", role: "Sub", note: "PGx, prodrug" }],
+    nti: true,
+    annotations: [
+      { system: "CYP2D6", role: "Sub", note: "PGx" },
+      { system: "CYP2D6", role: "Prodrug" },
+    ],
   },
   { match: "metoprolol", annotations: [{ system: "CYP2D6", role: "Sub" }] },
   { match: "propranolol", annotations: [{ system: "CYP2D6", role: "Sub" }] },
@@ -289,7 +327,11 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
   },
   {
     match: "tamoxifen",
-    annotations: [{ system: "CYP2D6", role: "Sub", note: "PGx, prodrug" }],
+    nti: true,
+    annotations: [
+      { system: "CYP2D6", role: "Sub", note: "PGx" },
+      { system: "CYP2D6", role: "Prodrug" },
+    ],
   },
   { match: "carvedilol", annotations: [{ system: "CYP2D6", role: "Sub" }] },
   { match: "duloxetine", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP2D6", role: "Moderate Inh" }] },
@@ -339,8 +381,10 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "procainamide", annotations: [{ system: "NAT2", role: "Sub", note: "major, acetylation" }, { system: "MATE", role: "Sub", note: "renal secretion dependent" }] },
   {
     match: "clopidogrel",
+    nti: true,
     annotations: [
-      { system: "CYP2C19", role: "Sub", note: "PGx, prodrug" },
+      { system: "CYP2C19", role: "Sub", note: "PGx" },
+      { system: "CYP2C19", role: "Prodrug" },
       { system: "CYP2B6", role: "Inh" },
     ],
   },
@@ -675,6 +719,7 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2C8", role: "Inh" },
       { system: "CYP2C9", role: "Inh" },
       { system: "UGT1A1", role: "Inh" },
+      { system: "Absorption", role: "Gastric acid dependent" },
     ],
   },
   { match: "atomoxetine", annotations: [{ system: "CYP2D6", role: "Sub" }, { system: "CYP2C19", role: "Sub", note: "minor" }] },
@@ -795,7 +840,7 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
     ],
   },
   { match: "dasabuvir", annotations: [{ system: "CYP2C8", role: "Sub" }, { system: "CYP3A4", role: "Sub" }] },
-  { match: "dasatinib", annotations: [{ system: "CYP3A4", role: "Sub" }] },
+  { match: "dasatinib", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "Absorption", role: "Gastric acid dependent" }] },
   { match: "daunorubicin", annotations: [{ system: "Carbonyl reductase", role: "Met" }] },
   { match: "deflazacort", annotations: [{ system: "CYP3A4", role: "Sub" }] },
   { match: "delafloxacin", annotations: [{ system: "UGT", role: "Met" }] },
@@ -912,6 +957,7 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
     annotations: [
       { system: "CYP3A4", role: "Sub", note: "major" },
       { system: "CYP1A2", role: "Sub", note: "minor" },
+      { system: "Absorption", role: "Gastric acid dependent" },
     ],
   },
   {
@@ -1015,6 +1061,7 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
     annotations: [
       { system: "CYP3A4", role: "Sub", note: "major" },
       { system: "CYP2D6", role: "Sub" },
+      { system: "Absorption", role: "Gastric acid dependent" },
     ],
   },
   {
@@ -1480,6 +1527,7 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP3A4", role: "Inh" },
       { system: "CYP2C8", role: "Inh" },
       { system: "CYP2D6", role: "Weak Inh" },
+      { system: "Absorption", role: "Gastric acid dependent" },
     ],
   },
   { match: "perampanel", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
@@ -1591,7 +1639,7 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP3A4", role: "Weak Ind" },
     ],
   },
-  { match: "rilpivirine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
+  { match: "rilpivirine", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }, { system: "Absorption", role: "Gastric acid dependent" }] },
   { match: "riluzole", annotations: [{ system: "CYP1A2", role: "Sub", note: "major" }] },
   { match: "rimegepant", annotations: [{ system: "CYP3A4", role: "Sub", note: "major" }] },
   {
@@ -1936,7 +1984,7 @@ export const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
   { match: "artemisinin", annotations: [{ system: "CYP3A4", role: "Weak Ind" }, { system: "CYP2C19", role: "Moderate Ind" }, { system: "CYP2B6", role: "Moderate Ind" }] },
   { match: "ertugliflozin", annotations: [{ system: "CYP3A4", role: "Weak Ind" }] },
   { match: "pexidartinib", annotations: [{ system: "CYP3A4", role: "Weak Ind" }] },
-  { match: "posaconazole", annotations: [{ system: "CYP3A4", role: "Strong Inh" }] },
+  { match: "posaconazole", annotations: [{ system: "CYP3A4", role: "Strong Inh" }, { system: "Absorption", role: "Gastric acid dependent", note: "oral suspension" }] },
   {
     match: "isavuconazole",
     annotations: [
@@ -1956,7 +2004,7 @@ export const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
   { match: "crizotinib", annotations: [{ system: "CYP3A4", role: "Moderate Inh" }] },
   { match: "dronedarone", annotations: [{ system: "CYP3A4", role: "Moderate Inh" }, { system: "CYP2D6", role: "Moderate Inh" }] },
   { match: "imatinib", annotations: [{ system: "CYP3A4", role: "Moderate Inh" }] },
-  { match: "nilotinib", annotations: [{ system: "CYP3A4", role: "Moderate Inh" }] },
+  { match: "nilotinib", annotations: [{ system: "CYP3A4", role: "Moderate Inh" }, { system: "Absorption", role: "Gastric acid dependent" }] },
   { match: "tofacitinib", annotations: [{ system: "CYP3A4", role: "Moderate Inh" }] },
   { match: "cinacalcet", annotations: [{ system: "CYP2D6", role: "Strong Inh" }] },
   { match: "darifenacin", annotations: [{ system: "CYP2D6", role: "Strong Inh" }] },
@@ -2023,7 +2071,16 @@ export const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
   { match: "thiotepa", annotations: [{ system: "CYP2B6", role: "Strong Inh" }] },
   { match: "prasugrel", annotations: [{ system: "CYP2B6", role: "Strong Inh" }] },
   { match: "nevirapine", annotations: [{ system: "CYP2B6", role: "Strong Ind" }] },
-  { match: "cyclophosphamide", annotations: [{ system: "CYP2B6", role: "Moderate Ind" }, { system: "GST", role: "Sub", note: "major, metabolite detoxification" }] },
+  {
+    match: "cyclophosphamide",
+    nti: true,
+    annotations: [
+      { system: "CYP2B6", role: "Sub", note: "activation" },
+      { system: "CYP2B6", role: "Prodrug" },
+      { system: "CYP2B6", role: "Moderate Ind" },
+      { system: "GST", role: "Sub", note: "major, metabolite detoxification" },
+    ],
+  },
   { match: "busulfan", annotations: [{ system: "GST", role: "Sub", note: "major, glutathione conjugation" }] },
   { match: "gemfibrozil", annotations: [{ system: "CYP2C8", role: "Strong Inh" }, { system: "UGT", role: "Inh" }, { system: "OAT", role: "Strong Inh", note: "OAT3 inhibitor" }] },
   { match: "probenecid", annotations: [{ system: "UGT", role: "Inh" }, { system: "OAT", role: "Strong Inh", note: "prototype; blocks renal secretion" }] },
@@ -2128,6 +2185,15 @@ function getMatchedEntries(name: string): NormalizedMetabolismEntry[] {
 }
 
 function formatAnnotation(annotation: MetabolismAnnotation) {
+  if (
+    annotation.system === "Absorption" &&
+    annotation.role === "Gastric acid dependent"
+  ) {
+    return annotation.note
+      ? `Gastric acid dependent (${annotation.note})`
+      : "Gastric acid dependent";
+  }
+
   return `${annotation.system}: ${annotation.role}${annotation.note ? ` (${annotation.note})` : ""}`;
 }
 
@@ -2167,6 +2233,16 @@ export function getDrugMetabolismTags(name: string): DrugMetabolismTag[] {
         system: annotation.system,
         label,
         clickable: isClickableAnnotation(annotation),
+      });
+    }
+
+    if (entry.nti && !seen.has("NTI")) {
+      seen.add("NTI");
+      tags.push({
+        id: "nti",
+        system: "NTI",
+        label: "NTI",
+        clickable: false,
       });
     }
   }

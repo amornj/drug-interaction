@@ -46,6 +46,43 @@ const severityRank: Record<InteractionSeverity, number> = {
   Minor: 3,
 };
 
+const gastricAcidRuleSources: InteractionSource[] = [
+  {
+    name: "Local acid-suppression rule",
+    version: overlayVersion,
+  },
+];
+
+const gastricAcidDependentDrugs = new Set([
+  "ketoconazole",
+  "itraconazole",
+  "posaconazole",
+  "erlotinib",
+  "gefitinib",
+  "dasatinib",
+  "nilotinib",
+  "pazopanib",
+  "atazanavir",
+  "rilpivirine",
+]);
+
+const acidReductionDrugs = new Set([
+  "omeprazole",
+  "esomeprazole",
+  "pantoprazole",
+  "rabeprazole",
+  "lansoprazole",
+  "dexlansoprazole",
+  "famotidine",
+  "cimetidine",
+  "nizatidine",
+  "vonoprazan",
+  "aluminum hydroxide",
+  "magnesium hydroxide",
+  "calcium carbonate",
+  "sodium bicarbonate",
+]);
+
 export const defaultPairSources: InteractionSource[] = [
   {
     name: "DDInter 2.0",
@@ -64,6 +101,50 @@ export function pairKey(pair: Pick<InteractionPair, "a" | "b">) {
 
 function sortedPairKey(a: string, b: string) {
   return [a, b].sort((left, right) => left.localeCompare(right)).join("|");
+}
+
+function normalizeDrugName(name: string) {
+  return name
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, " ")
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function buildGastricAcidPair(a: string, b: string): InteractionPair | null {
+  const nameA = getRxcuiName(a) ?? a;
+  const nameB = getRxcuiName(b) ?? b;
+  const normalizedA = normalizeDrugName(nameA);
+  const normalizedB = normalizeDrugName(nameB);
+
+  const aIsDependent = gastricAcidDependentDrugs.has(normalizedA);
+  const bIsDependent = gastricAcidDependentDrugs.has(normalizedB);
+  const aIsReducer = acidReductionDrugs.has(normalizedA);
+  const bIsReducer = acidReductionDrugs.has(normalizedB);
+
+  if (!((aIsDependent && bIsReducer) || (bIsDependent && aIsReducer))) {
+    return null;
+  }
+
+  const dependentDrug = aIsDependent ? nameA : nameB;
+  const acidReducer = aIsReducer ? nameA : nameB;
+  const classification = classifyInteractionConfidence(nameA, nameB);
+
+  return {
+    a: { rxcui: a, name: nameA },
+    b: { rxcui: b, name: nameB },
+    severity: "Major",
+    confidence: classification.confidence,
+    lowConfidence: false,
+    pkMechanisms: classification.pkMechanisms,
+    verdict: `${acidReducer} raises gastric pH and can reduce absorption of ${dependentDrug}, causing loss of exposure and treatment failure risk.`,
+    mechanism_class: "Increased gastric pH / reduced absorption",
+    management:
+      "Avoid this combination if possible. Prefer a non-acid-suppressive alternative, a different formulation, or a non-pH-dependent drug when reliable exposure is critical.",
+    sources: gastricAcidRuleSources,
+  };
 }
 
 function defaultVerdictForSeverity(severity: InteractionSeverity) {
@@ -191,6 +272,12 @@ export function checkInteractions(rxcuis: string[]): InteractionCheckResponse {
           management: overlay.management,
           sources: overlay.sources,
         });
+        continue;
+      }
+
+      const gastricAcidPair = buildGastricAcidPair(a, b);
+      if (gastricAcidPair) {
+        pairs.push(gastricAcidPair);
         continue;
       }
 

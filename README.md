@@ -31,7 +31,7 @@ The core checker is deterministic and local-first. No AI is involved in matching
 - In batch and paste mode, each matched term is resolved to ingredient-level generic names before being added.
 - Automatically rejects ingredients already present in the case when adding new input.
 - Combination pills in batch and paste mode pause for confirmation instead of silently adding the wrong thing.
-- Matched drug chips can show curated CYP, non-CYP metabolism, transporter, and P-gp annotations under the generic name (coverage: ~400+ drugs).
+- Matched drug chips can show curated CYP, non-CYP metabolism, transporter, and P-gp annotations under the generic name, plus explicit `Prodrug` and `NTI` tags where curated (coverage: ~400+ drugs).
 - Works almost entirely with keyboard-only use.
 
 ### Alias Dictionary
@@ -89,6 +89,7 @@ The goal is to show potential side-effect burden up front, such as hyperkalemia 
 - Warning strength can be modified by patient phenotype, such as renal or hepatic risk.
 - Matching is fast because it relies on local rules and predetermined indexes.
 - Once input is matched, interaction results update in real time.
+- Includes a deterministic local rule for acid-reduction drugs with gastric-acid-dependent medicines, surfaced as a Major absorption warning.
 
 ### Pharmacogenomics
 
@@ -106,13 +107,13 @@ Current examples include:
 
 ### Metabolism and Transporter Annotations
 
-Each matched drug chip can display curated metabolic pathway and transporter annotations. The app covers ~400+ drugs across the following systems:
+Each matched drug chip can display curated metabolic pathway and transporter annotations. Selected drugs also carry explicit `Prodrug`, `NTI`, and `gastric acid dependent` tags when those flags matter clinically. The app covers ~400+ drugs across the following systems:
 
 **Cytochrome P450 enzymes:**
 - **CYP3A4** — the most clinically significant: substrates include simvastatin, atorvastatin, amlodipine, apixaban, rivaroxaban, tacrolimus, midazolam, fentanyl, oxycodone, quetiapine, carbamazepine, and many more; inhibitors include ritonavir, ketoconazole, clarithromycin, itraconazole, grapefruit juice; inducers include rifampin, carbamazepine, phenytoin, phenobarbital, St. John's wort
-- **CYP2D6** — codeine, tramadol (prodrugs), metoprolol, propranolol, amitriptyline, haloperidol, risperidone, paroxetine (strong inhibitor), fluoxetine (strong inhibitor), bupropion (strong inhibitor), quinidine (strong inhibitor)
+- **CYP2D6** — codeine, tramadol, tamoxifen, metoprolol, propranolol, amitriptyline, haloperidol, risperidone, paroxetine (strong inhibitor), fluoxetine (strong inhibitor), bupropion (strong inhibitor), quinidine (strong inhibitor)
 - **CYP2C9** — warfarin, losartan, diclofenac, ibuprofen, glyburide, celecoxib; inhibitors include fluconazole, metronidazole, sulfamethoxazole; inducers include rifampin, carbamazepine, phenytoin
-- **CYP2C19** — clopidogrel (prodrug), omeprazole, esomeprazole, citalopram, voriconazole; inhibitors include omeprazole, esomeprazole, voriconazole, fluvoxamine; inducers include rifampin, carbamazepine, phenytoin
+- **CYP2C19** — clopidogrel, omeprazole, esomeprazole, citalopram, voriconazole; inhibitors include omeprazole, esomeprazole, voriconazole, fluvoxamine; inducers include rifampin, carbamazepine, phenytoin
 - **CYP1A2** — theophylline, caffeine, clozapine, olanzapine, tizanidine; inhibitors include ciprofloxacin, fluvoxamine; inducers include cigarette smoking, charbroiled meat, cruciferous vegetables
 - **CYP2B6** — ketamine, bupropion, methadone; inhibitors include ticlopidine, thiotepa, prasugrel; inducers include nevirapine, cyclophosphamide, rifampin
 - **CYP2C8** — pioglitazone, paclitaxel, repaglinide; inhibitors include gemfibrozil, trimethoprim, deferasirox
@@ -131,6 +132,19 @@ Each matched drug chip can display curated metabolic pathway and transporter ann
 - **NAT2 (N-acetyltransferase)** — isoniazid, dapsone
 - **Alcohol dehydrogenase** — ethanol, abacavir
 - **Aldehyde oxidase** — zaleplon
+
+**Absorption annotations:**
+- **Gastric acid dependent** — ketoconazole, itraconazole capsules, posaconazole oral suspension, erlotinib, gefitinib, dasatinib, nilotinib, pazopanib, atazanavir, rilpivirine
+
+Current curated explicit `Prodrug` + `NTI` tags include:
+
+- **CYP2C19** — clopidogrel
+- **CYP2D6** — codeine, tramadol, tamoxifen
+- **CYP3A4** — simvastatin, lovastatin
+- **P-gp** — dabigatran etexilate
+- **CYP2B6** — cyclophosphamide
+
+Current curated `gastric acid dependent` tags include the classic azoles above, selected TKIs, and the acid-sensitive antiretrovirals atazanavir and rilpivirine.
 
 ### Design And Workflow
 
