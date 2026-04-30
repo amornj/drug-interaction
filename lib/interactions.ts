@@ -8,6 +8,7 @@ import {
   overlayGeneratedAt,
   overlayIndex,
   overlayVersion,
+  lookupClinicalOverlayByNames,
 } from "@/lib/data/overlay";
 import { brandRxcuiNames } from "@/lib/data/brands";
 import { classifyInteractionConfidence } from "@/lib/confidence";
@@ -426,9 +427,16 @@ export function checkInteractions(rxcuis: string[]): InteractionCheckResponse {
       const a = unique[i];
       const b = unique[j];
       const key = sortedPairKey(a, b);
-      const overlay = overlayIndex.get(key);
+      let overlay = overlayIndex.get(key);
       const nameA = getRxcuiName(a) ?? a;
       const nameB = getRxcuiName(b) ?? b;
+
+      // Fallback: if no exact RxCUI match, try name-based lookup for clinical overlays.
+      // This catches cases where resolveToIngredient returns a different RxCUI
+      // (e.g. isosorbide mononitrate 28004 → isosorbide 6057).
+      if (!overlay) {
+        overlay = lookupClinicalOverlayByNames(nameA, nameB);
+      }
 
       const classification = classifyInteractionConfidence(nameA, nameB);
       const { confidence, pkMechanisms } = classification;

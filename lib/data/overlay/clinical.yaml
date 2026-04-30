@@ -749,10 +749,10 @@
 # Missing P-gp interactions — other critical substrates
 # ═════════════════════════════════════════════════════════════
 
-# vincristine + ketoconazole (2026 | 6135)
+# vincristine + ketoconazole (11202 | 6135)
 # NOT in DDInter. Vincristine is a P-gp substrate; ketoconazole is a strong
 # P-gp inhibitor. Co-administration increases neurotoxicity risk.
-- pair: ["2026", "6135"]
+- pair: ["11202", "6135"]
   severity: Major
   verdict: >-
     Ketoconazole inhibits P-glycoprotein, reducing vincristine clearance
@@ -766,9 +766,9 @@
     - name: Clinical overlay
       version: "2026-04"
 
-# vincristine + clarithromycin (2026 | 21212)
+# vincristine + clarithromycin (11202 | 21212)
 # NOT in DDInter.
-- pair: ["2026", "21212"]
+- pair: ["11202", "21212"]
   severity: Major
   verdict: >-
     Clarithromycin inhibits P-glycoprotein and CYP3A4, reducing vincristine
@@ -781,9 +781,9 @@
     - name: Clinical overlay
       version: "2026-04"
 
-# doxorubicin + ketoconazole (4499 | 6135)
+# doxorubicin + ketoconazole (3639 | 6135)
 # NOT in DDInter. Doxorubicin is a P-gp substrate.
-- pair: ["4499", "6135"]
+- pair: ["3639", "6135"]
   severity: Major
   verdict: >-
     Ketoconazole inhibits P-glycoprotein, reducing doxorubicin clearance
@@ -795,9 +795,9 @@
     - name: Clinical overlay
       version: "2026-04"
 
-# paliperidone + ketoconazole (67964 | 6135)
+# paliperidone + ketoconazole (679314 | 6135)
 # NOT in DDInter. Paliperidone is a P-gp substrate.
-- pair: ["6135", "67964"]
+- pair: ["6135", "679314"]
   severity: Major
   verdict: >-
     Ketoconazole inhibits P-glycoprotein, increasing paliperidone exposure
@@ -809,9 +809,9 @@
     - name: Clinical overlay
       version: "2026-04"
 
-# paliperidone + clarithromycin (67964 | 21212)
+# paliperidone + clarithromycin (679314 | 21212)
 # NOT in DDInter.
-- pair: ["21212", "67964"]
+- pair: ["21212", "679314"]
   severity: Major
   verdict: >-
     Clarithromycin inhibits P-glycoprotein and CYP3A4, increasing
