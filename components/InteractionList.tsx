@@ -27,7 +27,7 @@ export function InteractionList({
   };
 
   const filteredPairs = result.pairs.filter((pair) => {
-    // PK-confirmed and gastric pH pairs are always shown
+    // PK-confirmed, gastric pH, and chelation pairs are always shown
     if (pair.confidence === "pk_confirmed") return true;
     if (pair.confidence === "pk_plausible" && !effectiveFilters.showPkPlausible)
       return false;
@@ -73,6 +73,17 @@ export function InteractionList({
         const hasGastricPh = pair.pkMechanisms.some(
           (m) => m.kind === "gastric_ph"
         );
+        const hasChelation = pair.pkMechanisms.some(
+          (m) => m.kind === "chelation"
+        );
+        // Exclude gastric_ph and chelation from generic mechanism chips
+        // since they render as dedicated accent chips above
+        const genericMechanisms = pair.pkMechanisms.filter(
+          (m) => m.kind !== "gastric_ph" && m.kind !== "chelation"
+        );
+        const genericSystems = [
+          ...new Set(genericMechanisms.map((m) => m.system)),
+        ];
         const severityToken =
           pair.severity === "Contraindicated"
             ? "var(--sev-contra)"
@@ -131,7 +142,12 @@ export function InteractionList({
                         Gastric pH
                       </span>
                     ) : null}
-                    {pair.pkMechanisms.map((mechanism) => (
+                    {hasChelation ? (
+                      <span className="border border-rule-strong bg-accent-soft px-2 py-1 text-[10px] uppercase tracking-[0.12em] text-accent">
+                        Chelation
+                      </span>
+                    ) : null}
+                    {genericMechanisms.map((mechanism) => (
                       <span
                         key={`${mechanism.kind}-${mechanism.system}`}
                         className="border border-rule bg-paper-raised px-2 py-1 text-[10px] uppercase tracking-[0.12em] text-ink-soft"
@@ -139,11 +155,7 @@ export function InteractionList({
                         {pkMechanismLabel(mechanism.kind)}
                       </span>
                     ))}
-                    {[
-                      ...new Set(
-                        pair.pkMechanisms.map((mechanism) => mechanism.system)
-                      ),
-                    ].map((system) => (
+                    {genericSystems.map((system) => (
                       <span
                         key={system}
                         className="border border-rule bg-accent-soft px-2 py-1 font-mono text-[10px] tracking-[0.04em] text-ink"

@@ -53,6 +53,60 @@ const gastricAcidRuleSources: InteractionSource[] = [
   },
 ];
 
+const chelationRuleSources: InteractionSource[] = [
+  {
+    name: "Local chelation rule",
+    version: overlayVersion,
+  },
+];
+
+const chelationSusceptibleDrugs = new Set([
+  "dolutegravir",
+  "bictegravir",
+  "elvitegravir",
+  "raltegravir",
+  "atazanavir",
+  "rilpivirine",
+  "ledipasvir",
+  "sofosbuvir",
+  "velpatasvir",
+  "voxilaprevir",
+]);
+
+const chelatingAgents = new Set([
+  "aluminum hydroxide",
+  "aluminum carbonate",
+  "aluminum phosphate",
+  "magnesium hydroxide",
+  "magnesium carbonate",
+  "magnesium chloride",
+  "magnesium citrate",
+  "magnesium gluconate",
+  "magnesium oxide",
+  "magnesium sulfate",
+  "magnesium trisilicate",
+  "magaldrate",
+  "calcium carbonate",
+  "calcium acetate",
+  "calcium citrate",
+  "calcium gluconate",
+  "calcium lactate",
+  "calcium phosphate",
+  "ferrous sulfate",
+  "ferrous fumarate",
+  "ferrous gluconate",
+  "iron",
+  "iron polysaccharide",
+  "sucralfate",
+  "kaolin",
+  "attapulgite",
+  "bismuth subsalicylate",
+  "zinc",
+  "zinc sulfate",
+  "zinc acetate",
+  "zinc gluconate",
+]);
+
 const gastricAcidDependentDrugs = new Set([
   "ketoconazole",
   "itraconazole",
@@ -202,6 +256,93 @@ function buildGastricAcidOnlyPair(
   };
 }
 
+function detectChelation(
+  a: string,
+  b: string
+): { susceptibleDrug: string; chelatingAgent: string } | null {
+  const nameA = getRxcuiName(a) ?? a;
+  const nameB = getRxcuiName(b) ?? b;
+  const normalizedA = normalizeDrugName(nameA);
+  const normalizedB = normalizeDrugName(nameB);
+
+  const aIsSusceptible = chelationSusceptibleDrugs.has(normalizedA);
+  const bIsSusceptible = chelationSusceptibleDrugs.has(normalizedB);
+  const aIsChelator = chelatingAgents.has(normalizedA);
+  const bIsChelator = chelatingAgents.has(normalizedB);
+
+  if (aIsSusceptible && bIsChelator) {
+    return { susceptibleDrug: nameA, chelatingAgent: nameB };
+  }
+  if (bIsSusceptible && aIsChelator) {
+    return { susceptibleDrug: nameB, chelatingAgent: nameA };
+  }
+  return null;
+}
+
+function buildChelationVerdict(
+  susceptibleDrug: string,
+  chelatingAgent: string
+): string {
+  return `${chelatingAgent} chelates ${susceptibleDrug} in the GI tract, forming insoluble complexes and markedly reducing absorption. This causes loss of exposure and treatment failure risk.`;
+}
+
+function buildChelationManagement(): string {
+  return "Separate administration by at least 2 hours (preferably 4–6 hours for antacids and supplements). Consider an alternative that does not require polyvalent cation separation, or switch to a non-chelating formulation.";
+}
+
+function augmentWithChelation(
+  pair: InteractionPair,
+  chelation: { susceptibleDrug: string; chelatingAgent: string }
+): InteractionPair {
+  const chelationVerdict = buildChelationVerdict(
+    chelation.susceptibleDrug,
+    chelation.chelatingAgent
+  );
+  const chelationManagement = buildChelationManagement();
+  const hasChelationInVerdict = pair.verdict.toLowerCase().includes("chelat");
+
+  return {
+    ...pair,
+    confidence: "pk_confirmed",
+    pkMechanisms: [
+      ...pair.pkMechanisms.filter((m) => m.kind !== "chelation"),
+      { kind: "chelation", system: "Chelation" },
+    ],
+    verdict: hasChelationInVerdict
+      ? pair.verdict
+      : `${chelationVerdict} ${pair.verdict}`,
+    mechanism_class: pair.mechanism_class
+      ? `${pair.mechanism_class}; Polyvalent cation chelation / reduced absorption`
+      : "Polyvalent cation chelation / reduced absorption",
+    management: pair.management
+      ? `${pair.management} ${chelationManagement}`
+      : chelationManagement,
+    sources: [
+      ...pair.sources.filter((s) => s.name !== "Local chelation rule"),
+      ...chelationRuleSources,
+    ],
+  };
+}
+
+function buildChelationOnlyPair(
+  a: string,
+  b: string,
+  chelation: { susceptibleDrug: string; chelatingAgent: string }
+): InteractionPair {
+  return {
+    a: { rxcui: a, name: getRxcuiName(a) ?? a },
+    b: { rxcui: b, name: getRxcuiName(b) ?? b },
+    severity: "Major",
+    confidence: "pk_confirmed",
+    lowConfidence: false,
+    pkMechanisms: [{ kind: "chelation", system: "Chelation" }],
+    verdict: buildChelationVerdict(chelation.susceptibleDrug, chelation.chelatingAgent),
+    mechanism_class: "Polyvalent cation chelation / reduced absorption",
+    management: buildChelationManagement(),
+    sources: chelationRuleSources,
+  };
+}
+
 function defaultVerdictForSeverity(severity: InteractionSeverity) {
   return `${severity} interaction listed in DDInter 2.0.`;
 }
@@ -314,6 +455,7 @@ export function checkInteractions(rxcuis: string[]): InteractionCheckResponse {
       const classification = classifyInteractionConfidence(nameA, nameB);
       const { confidence, pkMechanisms } = classification;
       const gastricAcid = detectGastricAcid(a, b);
+      const chelation = detectChelation(a, b);
 
       let pair: InteractionPair | null = null;
 
@@ -354,6 +496,14 @@ export function checkInteractions(rxcuis: string[]): InteractionCheckResponse {
           pair = augmentWithGastricAcid(pair, gastricAcid);
         } else {
           pair = buildGastricAcidOnlyPair(a, b, gastricAcid);
+        }
+      }
+
+      if (chelation) {
+        if (pair) {
+          pair = augmentWithChelation(pair, chelation);
+        } else {
+          pair = buildChelationOnlyPair(a, b, chelation);
         }
       }
 

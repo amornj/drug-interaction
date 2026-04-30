@@ -18,7 +18,7 @@ export type InteractionConfidence =
   | "pd_plausible"
   | "unverified";
 
-export type PkMechanismKind = "sub_inh" | "sub_ind" | "co_sub" | "gastric_ph";
+export type PkMechanismKind = "sub_inh" | "sub_ind" | "co_sub" | "gastric_ph" | "chelation";
 
 export type PkMechanism = {
   kind: PkMechanismKind;
@@ -74,5 +74,7 @@ export function pkMechanismLabel(kind: PkMechanismKind) {
       return "CO-SUB";
     case "gastric_ph":
       return "GASTRIC pH";
+    case "chelation":
+      return "CHELATION";
   }
 }

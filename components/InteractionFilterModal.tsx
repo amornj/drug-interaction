@@ -75,7 +75,7 @@ export function InteractionFilterModal({
           </h2>
           <p className="mt-1 text-[12px] leading-snug text-ink-mute">
             Toggle which interaction classes appear in the pairwise results.
-            PK-confirmed and gastric pH pairs are always shown.
+            PK-confirmed, gastric pH, and chelation pairs are always shown.
           </p>
         </div>
         <div className="px-5 py-3">
