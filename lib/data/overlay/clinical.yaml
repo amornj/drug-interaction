@@ -823,3 +823,82 @@
   sources:
     - name: Clinical overlay
       version: "2026-04"
+
+# ═════════════════════════════════════════════════════════════
+# UGT interactions — clinically significant, often absent from DDInter
+# ═════════════════════════════════════════════════════════════
+
+# lamotrigine + valproic acid (28439 | 11118)
+- pair: ["11118", "28439"]
+  severity: Major
+  verdict: >-
+    Valproate is a strong UGT inhibitor. Lamotrigine is metabolised via UGT.
+    Co-administration markedly increases lamotrigine exposure and raises
+    Stevens-Johnson syndrome / toxic epidermal necrolysis (SJS/TEN) risk.
+  mechanism_class: UGT inhibition
+  management: >-
+    Reduce lamotrigine dose by 50–75% when starting valproate; titrate
+    slowly and watch for rash, mucosal involvement, or fever.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# irinotecan + atazanavir (51499 | 343047)
+- pair: ["343047", "51499"]
+  severity: Major
+  verdict: >-
+    Atazanavir inhibits UGT1A1, reducing SN-38 (active irinotecan metabolite)
+    glucuronidation and clearance. This causes severe neutropenia and
+    life-threatening diarrhea.
+  mechanism_class: UGT1A1 inhibition
+  management: >-
+    Avoid concurrent use. If unavoidable, use maximal G-CSF support and
+    aggressive loperamide/antidiarrheal prophylaxis; monitor CBC closely.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# morphine + probenecid (7052 | 8698)
+- pair: ["7052", "8698"]
+  severity: Major
+  verdict: >-
+    Probenecid inhibits morphine glucuronidation (UGT2B7), reducing
+    morphine-6-glucuronide formation and renal clearance. This prolongs
+    and intensifies opioid toxicity (respiratory depression, sedation).
+  mechanism_class: UGT inhibition
+  management: >-
+    Monitor for excess sedation and respiratory depression; reduce morphine
+    dose and extend dosing interval if probenecid is co-prescribed.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# raltegravir + rifampicin (719872 | 9384)
+- pair: ["719872", "9384"]
+  severity: Major
+  verdict: >-
+    Rifampicin is a strong UGT inducer. Raltegravir is metabolised via UGT.
+    Co-administration accelerates raltegravir clearance and reduces
+    antiretroviral efficacy, risking virological failure.
+  mechanism_class: UGT induction
+  management: >-
+    Increase raltegravir dose to 800 mg twice daily during rifampicin
+    co-therapy, or consider an alternative INSTI not reliant on UGT.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# mycophenolic acid + rifampicin (7145 | 9384)
+- pair: ["7145", "9384"]
+  severity: Major
+  verdict: >-
+    Rifampicin induces UGT enzymes, accelerating mycophenolate
+    glucuronidation and markedly reducing active drug exposure. This causes
+    loss of immunosuppression and transplant rejection risk.
+  mechanism_class: UGT induction
+  management: >-
+    Avoid rifampicin in transplant recipients on mycophenolate. If
+    unavoidable, double mycophenolate dose and monitor trough levels closely.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"

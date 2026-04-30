@@ -147,6 +147,7 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP1A2", role: "Moderate Ind" },
       { system: "CYP2B6", role: "Ind" },
       { system: "P-gp", role: "Ind" },
+      { system: "UGT", role: "Ind" },
       { system: "Epoxide hydrolase", role: "Sub", note: "major, carbamazepine-epoxide detox; prevents toxicity" },
     ],
   },
@@ -262,11 +263,12 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2B6", role: "Ind" },
       { system: "CYP2A6", role: "Ind" },
       { system: "P-gp", role: "Ind", note: "strong" },
+      { system: "UGT", role: "Strong Ind", note: "UGT1A1, 1A4, 2B7" },
       { system: "NAT2", role: "Weak Ind", note: "weak/indirect" },
       { system: "OAT", role: "Moderate Inh", note: "acute effect before induction" },
     ],
   },
-  { match: "rifampicin", annotations: [{ system: "CYP3A4", role: "Strong Ind" }, { system: "OAT", role: "Moderate Inh", note: "acute effect before induction" }, { system: "EHC", role: "Sub" }] },
+  { match: "rifampicin", annotations: [{ system: "CYP3A4", role: "Strong Ind" }, { system: "UGT", role: "Strong Ind", note: "UGT1A1, 1A4, 2B7" }, { system: "OAT", role: "Moderate Inh", note: "acute effect before induction" }, { system: "EHC", role: "Sub" }] },
   {
     match: "phenytoin",
     nti: true,
@@ -277,6 +279,7 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2C19", role: "Sub" },
       { system: "CYP2C19", role: "Ind" },
       { system: "P-gp", role: "Ind" },
+      { system: "UGT", role: "Ind" },
     ],
   },
   {
@@ -286,6 +289,7 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP2C9", role: "Ind" },
       { system: "CYP2B6", role: "Ind" },
       { system: "P-gp", role: "Ind" },
+      { system: "UGT", role: "Ind" },
     ],
   },
   {
@@ -1965,8 +1969,8 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
 export const CYP_REFERENCE_ONLY_ENTRIES: MetabolismEntry[] = [
   { match: "rifabutin", annotations: [{ system: "CYP3A4", role: "Strong Ind" }] },
   { match: "rifapentine", annotations: [{ system: "CYP3A4", role: "Moderate Ind" }] },
-  { match: "st john's wort", annotations: [{ system: "CYP3A4", role: "Strong Ind" }, { system: "CYP2D6", role: "Weak Ind" }, { system: "CYP2C19", role: "Strong Ind" }, { system: "CYP2C8", role: "Moderate Ind" }] },
-  { match: "st johns wort", annotations: [{ system: "CYP3A4", role: "Strong Ind" }, { system: "CYP2D6", role: "Weak Ind" }, { system: "CYP2C19", role: "Strong Ind" }, { system: "CYP2C8", role: "Moderate Ind" }] },
+  { match: "st john's wort", annotations: [{ system: "CYP3A4", role: "Strong Ind" }, { system: "CYP2D6", role: "Weak Ind" }, { system: "CYP2C19", role: "Strong Ind" }, { system: "CYP2C8", role: "Moderate Ind" }, { system: "UGT", role: "Ind" }] },
+  { match: "st johns wort", annotations: [{ system: "CYP3A4", role: "Strong Ind" }, { system: "CYP2D6", role: "Weak Ind" }, { system: "CYP2C19", role: "Strong Ind" }, { system: "CYP2C8", role: "Moderate Ind" }, { system: "UGT", role: "Ind" }] },
   { match: "enzalutamide", annotations: [{ system: "CYP3A4", role: "Strong Ind" }, { system: "CYP2C9", role: "Strong Ind" }, { system: "CYP2C19", role: "Strong Ind" }] },
   { match: "mitotane", annotations: [{ system: "CYP3A4", role: "Strong Ind" }] },
   { match: "apalutamide", annotations: [{ system: "CYP3A4", role: "Strong Ind" }, { system: "CYP2C9", role: "Strong Ind" }] },

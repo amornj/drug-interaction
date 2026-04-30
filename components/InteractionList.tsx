@@ -27,6 +27,11 @@ export function InteractionList({
   };
 
   const filteredPairs = result.pairs.filter((pair) => {
+    // Clinical overlay pairs are always shown regardless of confidence
+    const isClinicalOverlay = pair.sources.some(
+      (source) => source.name === "Clinical overlay"
+    );
+    if (isClinicalOverlay) return true;
     // PK-confirmed, gastric pH, and chelation pairs are always shown
     if (pair.confidence === "pk_confirmed") return true;
     if (pair.confidence === "pk_plausible" && !effectiveFilters.showPkPlausible)
