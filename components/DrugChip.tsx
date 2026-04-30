@@ -2,6 +2,12 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { getDrugMetabolismTags, getMetabolismReference } from "@/lib/cyp";
+import {
+  getOtherAcidDependentDrugs,
+  getOtherChelationSusceptibleDrugs,
+  isChelationSusceptible,
+  isGastricAcidDependent,
+} from "@/lib/drug-properties";
 import type { Drug } from "@/lib/store";
 import { useStore } from "@/lib/store";
 
@@ -30,6 +36,10 @@ export function DrugChip({
   onDragOverItem?: (index: number) => void;
   dropTargetIndex: number | null;
 }) {
+  const [activeProperty, setActiveProperty] = useState<
+    "acid-dependent" | "chelation" | null
+  >(null);
+
   const removeDrug = useStore((s) => s.removeDrug);
   const moveDrug = useStore((s) => s.moveDrug);
   const number = String(index + 1).padStart(2, "0");
@@ -217,6 +227,42 @@ export function DrugChip({
           {drug.viaBrand || tags.length > 0 ? (
             <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] tracking-[0.04em] text-ink-mute">
               {drug.viaBrand ? <span>via {drug.viaBrand}</span> : null}
+              {isGastricAcidDependent(drug.name) ? (
+                <button
+                  key="acid-dependent"
+                  type="button"
+                  onClick={() =>
+                    setActiveProperty((current) =>
+                      current === "acid-dependent" ? null : "acid-dependent"
+                    )
+                  }
+                  className={`border px-1.5 py-0.5 transition-colors ${
+                    activeProperty === "acid-dependent"
+                      ? "border-rule-strong bg-paper text-ink"
+                      : "border-rule bg-surface text-ink-mute hover:border-rule-strong hover:text-ink"
+                  }`}
+                >
+                  Acid dependent
+                </button>
+              ) : null}
+              {isChelationSusceptible(drug.name) ? (
+                <button
+                  key="chelation"
+                  type="button"
+                  onClick={() =>
+                    setActiveProperty((current) =>
+                      current === "chelation" ? null : "chelation"
+                    )
+                  }
+                  className={`border px-1.5 py-0.5 transition-colors ${
+                    activeProperty === "chelation"
+                      ? "border-rule-strong bg-paper text-ink"
+                      : "border-rule bg-surface text-ink-mute hover:border-rule-strong hover:text-ink"
+                  }`}
+                >
+                  Chelate prop
+                </button>
+              ) : null}
               {tags.map((tag) =>
                 tag.clickable ? (
                   <button
@@ -320,6 +366,70 @@ export function DrugChip({
                 </div>
               </div>
             ) : null}
+          </div>
+        </div>
+      ) : null}
+      {activeProperty === "acid-dependent" ? (
+        <div className="mt-3 ml-8 border border-rule bg-paper-raised p-3">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <p className="eyebrow">Acid-dependent drugs</p>
+              <p className="mt-1 text-[13px] italic leading-snug text-ink-mute">
+                Require gastric acid for absorption. Co-administration with acid-suppressive agents reduces bioavailability.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setActiveProperty(null)}
+              className="grid h-8 w-8 shrink-0 place-items-center border border-rule text-[14px] text-ink-soft transition-colors hover:border-rule-strong hover:text-ink"
+              aria-label="Close acid-dependent list"
+            >
+              ×
+            </button>
+          </div>
+          <div className="mt-3 max-h-[38vh] overflow-y-auto">
+            <div className="flex flex-wrap gap-1.5">
+              {getOtherAcidDependentDrugs(drug.name).map((item) => (
+                <span
+                  key={`acid-dep-${item}`}
+                  className="border border-rule bg-surface px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : null}
+      {activeProperty === "chelation" ? (
+        <div className="mt-3 ml-8 border border-rule bg-paper-raised p-3">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <p className="eyebrow">Chelation-susceptible drugs</p>
+              <p className="mt-1 text-[13px] italic leading-snug text-ink-mute">
+                Form insoluble complexes with polyvalent cations (Al, Mg, Ca, Fe, Zn). Separate administration by 2–6 hours.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setActiveProperty(null)}
+              className="grid h-8 w-8 shrink-0 place-items-center border border-rule text-[14px] text-ink-soft transition-colors hover:border-rule-strong hover:text-ink"
+              aria-label="Close chelation list"
+            >
+              ×
+            </button>
+          </div>
+          <div className="mt-3 max-h-[38vh] overflow-y-auto">
+            <div className="flex flex-wrap gap-1.5">
+              {getOtherChelationSusceptibleDrugs(drug.name).map((item) => (
+                <span
+                  key={`chelation-${item}`}
+                  className="border border-rule bg-surface px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       ) : null}

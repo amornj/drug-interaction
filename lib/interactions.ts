@@ -12,6 +12,10 @@ import {
 import { brandRxcuiNames } from "@/lib/data/brands";
 import { classifyInteractionConfidence } from "@/lib/confidence";
 import {
+  chelationSusceptibleDrugs,
+  gastricAcidDependentDrugs,
+} from "@/lib/drug-properties";
+import {
   formatSources,
   type InteractionCheckResponse,
   type InteractionPair,
@@ -60,19 +64,6 @@ const chelationRuleSources: InteractionSource[] = [
   },
 ];
 
-const chelationSusceptibleDrugs = new Set([
-  "dolutegravir",
-  "bictegravir",
-  "elvitegravir",
-  "raltegravir",
-  "atazanavir",
-  "rilpivirine",
-  "ledipasvir",
-  "sofosbuvir",
-  "velpatasvir",
-  "voxilaprevir",
-]);
-
 const chelatingAgents = new Set([
   "aluminum hydroxide",
   "aluminum carbonate",
@@ -105,19 +96,6 @@ const chelatingAgents = new Set([
   "zinc sulfate",
   "zinc acetate",
   "zinc gluconate",
-]);
-
-const gastricAcidDependentDrugs = new Set([
-  "ketoconazole",
-  "itraconazole",
-  "posaconazole",
-  "erlotinib",
-  "gefitinib",
-  "dasatinib",
-  "nilotinib",
-  "pazopanib",
-  "atazanavir",
-  "rilpivirine",
 ]);
 
 const acidReductionDrugs = new Set([
