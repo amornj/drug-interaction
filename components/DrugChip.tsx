@@ -425,7 +425,7 @@ export function DrugChip({
             <div>
               <p className="eyebrow">Chelating agents</p>
               <p className="mt-1 text-[13px] italic leading-snug text-ink-mute">
-                Metals and polyvalent cations that can chelate susceptible drugs in the GI tract (Al, Mg, Ca, Fe, Zn). Separate administration by 2–6 hours.
+                Chelating agents will bind to metals and polyvalent cations in the GI tract (Al, Mg, Ca, Fe, Zn). Separate administration by 2–6 hours.
               </p>
             </div>
             <button
@@ -439,7 +439,7 @@ export function DrugChip({
           </div>
           <div className="mt-3 max-h-[38vh] overflow-y-auto space-y-3">
             <div>
-              <p className="eyebrow mb-1.5">Other chelation-susceptible drugs</p>
+              <p className="eyebrow mb-1.5">Other chelating agents</p>
               <div className="flex flex-wrap gap-1.5">
                 {getOtherChelationSusceptibleDrugs(drug.name).map((item) => (
                   <span
@@ -452,7 +452,7 @@ export function DrugChip({
               </div>
             </div>
             <div>
-              <p className="eyebrow mb-1.5">Chelating agents / metals</p>
+              <p className="eyebrow mb-1.5">Metals</p>
               <div className="flex flex-wrap gap-1.5">
                 {getChelatingAgents().map((item) => (
                   <span
