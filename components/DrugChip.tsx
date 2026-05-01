@@ -5,6 +5,8 @@ import { getDrugMetabolismTags, getMetabolismReference } from "@/lib/cyp";
 import {
   getAcidReducers,
   getChelatingAgents,
+  getOtherAcidDependentDrugs,
+  getOtherChelationSusceptibleDrugs,
   isChelationSusceptible,
   isGastricAcidDependent,
 } from "@/lib/drug-properties";
@@ -389,6 +391,19 @@ export function DrugChip({
           </div>
           <div className="mt-3 max-h-[38vh] overflow-y-auto space-y-3">
             <div>
+              <p className="eyebrow mb-1.5">Other acid-dependent drugs</p>
+              <div className="flex flex-wrap gap-1.5">
+                {getOtherAcidDependentDrugs(drug.name).map((item) => (
+                  <span
+                    key={`acid-dep-${item}`}
+                    className="border border-rule bg-surface px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div>
               <p className="eyebrow mb-1.5">Acid reducers / inhibitors</p>
               <div className="flex flex-wrap gap-1.5">
                 {getAcidReducers().map((item) => (
@@ -410,7 +425,7 @@ export function DrugChip({
             <div>
               <p className="eyebrow">Chelating agents</p>
               <p className="mt-1 text-[13px] italic leading-snug text-ink-mute">
-                Metals and polyvalent cations that can chelate this drug in the GI tract (Al, Mg, Ca, Fe, Zn). Separate administration by 2–6 hours.
+                Metals and polyvalent cations that can chelate susceptible drugs in the GI tract (Al, Mg, Ca, Fe, Zn). Separate administration by 2–6 hours.
               </p>
             </div>
             <button
@@ -422,16 +437,32 @@ export function DrugChip({
               ×
             </button>
           </div>
-          <div className="mt-3 max-h-[38vh] overflow-y-auto">
-            <div className="flex flex-wrap gap-1.5">
-              {getChelatingAgents().map((item) => (
-                <span
-                  key={`chelator-${item}`}
-                  className="border border-rule bg-surface px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft"
-                >
-                  {item}
-                </span>
-              ))}
+          <div className="mt-3 max-h-[38vh] overflow-y-auto space-y-3">
+            <div>
+              <p className="eyebrow mb-1.5">Other chelation-susceptible drugs</p>
+              <div className="flex flex-wrap gap-1.5">
+                {getOtherChelationSusceptibleDrugs(drug.name).map((item) => (
+                  <span
+                    key={`chel-sub-${item}`}
+                    className="border border-rule bg-surface px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div>
+              <p className="eyebrow mb-1.5">Chelating agents / metals</p>
+              <div className="flex flex-wrap gap-1.5">
+                {getChelatingAgents().map((item) => (
+                  <span
+                    key={`chelator-${item}`}
+                    className="border border-rule bg-surface px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>

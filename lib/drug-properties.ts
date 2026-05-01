@@ -32,6 +32,20 @@ export const chelationSusceptibleDrugs = new Set([
   "sofosbuvir",
   "velpatasvir",
   "voxilaprevir",
+  // Fluoroquinolones — all chelate polyvalent cations
+  "ciprofloxacin",
+  "levofloxacin",
+  "moxifloxacin",
+  "norfloxacin",
+  "ofloxacin",
+  "gemifloxacin",
+  "delafloxacin",
+  "gatifloxacin",
+  "sparfloxacin",
+  "lomefloxacin",
+  "grepafloxacin",
+  "trovafloxacin",
+  "prulifloxacin",
 ]);
 
 export const acidReductionDrugs = new Set([
@@ -96,6 +110,13 @@ export function isChelationSusceptible(name: string): boolean {
 export function getOtherAcidDependentDrugs(excludeName: string): string[] {
   const exclude = normalizeDrugName(excludeName);
   return Array.from(gastricAcidDependentDrugs)
+    .filter((d) => d !== exclude)
+    .sort();
+}
+
+export function getOtherChelationSusceptibleDrugs(excludeName: string): string[] {
+  const exclude = normalizeDrugName(excludeName);
+  return Array.from(chelationSusceptibleDrugs)
     .filter((d) => d !== exclude)
     .sort();
 }
