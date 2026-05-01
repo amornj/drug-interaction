@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-30T16:59:33.452Z",
+  "generatedAt": "2026-05-01T12:16:08.080Z",
   "overlayVersion": "2026-04",
   "entries": [
     {
@@ -91669,6 +91669,101 @@
       "verdict": "Rifampicin induces UGT enzymes, accelerating mycophenolate glucuronidation and markedly reducing active drug exposure. This causes loss of immunosuppression and transplant rejection risk.",
       "mechanism_class": "UGT induction",
       "management": "Avoid rifampicin in transplant recipients on mycophenolate. If unavoidable, double mycophenolate dose and monitor trough levels closely.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "2626|6835",
+      "pair": [
+        "2626",
+        "6835"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Clozapine with methimazole increases agranulocytosis risk through idiosyncratic immune-mediated bone marrow suppression.",
+      "mechanism_class": "Idiosyncratic agranulocytosis",
+      "management": "Avoid combination when possible. Monitor absolute neutrophil count closely.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "2626|8794",
+      "pair": [
+        "2626",
+        "8794"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Clozapine with propylthiouracil increases agranulocytosis risk through idiosyncratic immune-mediated bone marrow suppression.",
+      "mechanism_class": "Idiosyncratic agranulocytosis",
+      "management": "Avoid combination when possible. Monitor absolute neutrophil count closely.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "2626|9524",
+      "pair": [
+        "2626",
+        "9524"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Clozapine with sulfasalazine increases agranulocytosis risk through idiosyncratic immune-mediated bone marrow suppression.",
+      "mechanism_class": "Idiosyncratic agranulocytosis",
+      "management": "Avoid combination when possible. Monitor absolute neutrophil count closely.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "5470|8700",
+      "pair": [
+        "5470",
+        "8700"
+      ],
+      "suppress": false,
+      "severity": "Moderate",
+      "verdict": "Hydralazine with procainamide increases drug-induced lupus risk through idiosyncratic immune-mediated mechanism.",
+      "mechanism_class": "Idiosyncratic drug-induced lupus",
+      "management": "Avoid combination when possible. Monitor for lupus-like symptoms.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "2683|9997",
+      "pair": [
+        "2683",
+        "9997"
+      ],
+      "suppress": false,
+      "severity": "Moderate",
+      "verdict": "Spironolactone is a mild CYP3A4 inhibitor. Colchicine is a CYP3A4 substrate. Co-administration can increase colchicine exposure and toxicity risk.",
+      "mechanism_class": "CYP3A4 inhibition",
+      "management": "Use caution and monitor for colchicine toxicity, especially in renal or hepatic impairment.",
       "sources": [
         {
           "name": "Clinical overlay",

@@ -902,3 +902,71 @@
   sources:
     - name: Clinical overlay
       version: "2026-04"
+
+# ═════════════════════════════════════════════════════════════
+# Idiosyncrasy overlays — immune-mediated, non-PK
+# ═════════════════════════════════════════════════════════════
+
+- pair: ["2626", "6835"]
+  severity: Major
+  verdict: >-
+    Clozapine with methimazole increases agranulocytosis risk through
+    idiosyncratic immune-mediated bone marrow suppression.
+  mechanism_class: Idiosyncratic agranulocytosis
+  management: >-
+    Avoid combination when possible. Monitor absolute neutrophil count closely.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+- pair: ["2626", "8794"]
+  severity: Major
+  verdict: >-
+    Clozapine with propylthiouracil increases agranulocytosis risk through
+    idiosyncratic immune-mediated bone marrow suppression.
+  mechanism_class: Idiosyncratic agranulocytosis
+  management: >-
+    Avoid combination when possible. Monitor absolute neutrophil count closely.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+- pair: ["2626", "9524"]
+  severity: Major
+  verdict: >-
+    Clozapine with sulfasalazine increases agranulocytosis risk through
+    idiosyncratic immune-mediated bone marrow suppression.
+  mechanism_class: Idiosyncratic agranulocytosis
+  management: >-
+    Avoid combination when possible. Monitor absolute neutrophil count closely.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+- pair: ["5470", "8700"]
+  severity: Moderate
+  verdict: >-
+    Hydralazine with procainamide increases drug-induced lupus risk through
+    idiosyncratic immune-mediated mechanism.
+  mechanism_class: Idiosyncratic drug-induced lupus
+  management: >-
+    Avoid combination when possible. Monitor for lupus-like symptoms.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# ═════════════════════════════════════════════════════════════
+# CYP-mediated overlays
+# ═════════════════════════════════════════════════════════════
+
+- pair: ["2683", "9997"]
+  severity: Moderate
+  verdict: >-
+    Spironolactone is a mild CYP3A4 inhibitor. Colchicine is a CYP3A4 substrate.
+    Co-administration can increase colchicine exposure and toxicity risk.
+  mechanism_class: CYP3A4 inhibition
+  management: >-
+    Use caution and monitor for colchicine toxicity, especially in renal or hepatic impairment.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"

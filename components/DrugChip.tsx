@@ -3,8 +3,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { getDrugMetabolismTags, getMetabolismReference } from "@/lib/cyp";
 import {
-  getOtherAcidDependentDrugs,
-  getOtherChelationSusceptibleDrugs,
+  getAcidReducers,
+  getChelatingAgents,
   isChelationSusceptible,
   isGastricAcidDependent,
 } from "@/lib/drug-properties";
@@ -387,16 +387,19 @@ export function DrugChip({
               ×
             </button>
           </div>
-          <div className="mt-3 max-h-[38vh] overflow-y-auto">
-            <div className="flex flex-wrap gap-1.5">
-              {getOtherAcidDependentDrugs(drug.name).map((item) => (
-                <span
-                  key={`acid-dep-${item}`}
-                  className="border border-rule bg-surface px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft"
-                >
-                  {item}
-                </span>
-              ))}
+          <div className="mt-3 max-h-[38vh] overflow-y-auto space-y-3">
+            <div>
+              <p className="eyebrow mb-1.5">Acid reducers / inhibitors</p>
+              <div className="flex flex-wrap gap-1.5">
+                {getAcidReducers().map((item) => (
+                  <span
+                    key={`acid-red-${item}`}
+                    className="border border-rule bg-surface px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -405,9 +408,9 @@ export function DrugChip({
         <div className="mt-3 ml-8 border border-rule bg-paper-raised p-3">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <p className="eyebrow">Chelation-susceptible drugs</p>
+              <p className="eyebrow">Chelating agents</p>
               <p className="mt-1 text-[13px] italic leading-snug text-ink-mute">
-                Form insoluble complexes with polyvalent cations (Al, Mg, Ca, Fe, Zn). Separate administration by 2–6 hours.
+                Metals and polyvalent cations that can chelate this drug in the GI tract (Al, Mg, Ca, Fe, Zn). Separate administration by 2–6 hours.
               </p>
             </div>
             <button
@@ -421,9 +424,9 @@ export function DrugChip({
           </div>
           <div className="mt-3 max-h-[38vh] overflow-y-auto">
             <div className="flex flex-wrap gap-1.5">
-              {getOtherChelationSusceptibleDrugs(drug.name).map((item) => (
+              {getChelatingAgents().map((item) => (
                 <span
-                  key={`chelation-${item}`}
+                  key={`chelator-${item}`}
                   className="border border-rule bg-surface px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft"
                 >
                   {item}

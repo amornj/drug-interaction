@@ -28,6 +28,7 @@ const PK_SYSTEMS = new Set([
   "UGT",
   "UGT1A1",
   "Xanthine oxidase",
+  "EHC",
 ]);
 
 const clinicallyMeaningfulCosubstrateSystems = new Set(["CYP3A4", "P-gp"]);
@@ -103,7 +104,45 @@ export function classifyInteractionConfidence(
   );
   const subSystemsA = uniqueSystemsFor(nameA, (label) => label.includes("Sub"));
   const subSystemsB = uniqueSystemsFor(nameB, (label) => label.includes("Sub"));
+
   const pkMechanisms: PkMechanism[] = [];
+
+  // Idiosyncrasy clinical overlay pairs (immune-mediated, non-PK)
+  const IDIOSYNCRASY_PAIRS: Array<{ drugs: [string, string]; mechanism: string; severity?: string }> = [
+    { drugs: ["clozapine", "methimazole"], mechanism: "Agranulocytosis", severity: "Major" },
+    { drugs: ["clozapine", "propylthiouracil"], mechanism: "Agranulocytosis", severity: "Major" },
+    { drugs: ["clozapine", "sulfasalazine"], mechanism: "Agranulocytosis", severity: "Major" },
+    { drugs: ["hydralazine", "procainamide"], mechanism: "Drug-induced lupus", severity: "Moderate" },
+  ];
+
+  function getIdiosyncrasyPair(drugA: string, drugB: string): PkMechanism[] {
+    const normalizedA = normalizeDrugName(drugA);
+    const normalizedB = normalizeDrugName(drugB);
+    const mechanisms: PkMechanism[] = [];
+
+    for (const entry of IDIOSYNCRASY_PAIRS) {
+      const [d1, d2] = entry.drugs;
+      const n1 = normalizeDrugName(d1);
+      const n2 = normalizeDrugName(d2);
+      if (
+        (normalizedA.includes(n1) && normalizedB.includes(n2)) ||
+        (normalizedA.includes(n2) && normalizedB.includes(n1))
+      ) {
+        mechanisms.push({ kind: "idiosyncrasy", system: entry.mechanism });
+      }
+    }
+
+    return mechanisms;
+  }
+
+  // Idiosyncrasy clinical overlays (non-PK, immune-mediated)
+  const idiosyncrasyPairs = getIdiosyncrasyPair(nameA, nameB);
+  if (idiosyncrasyPairs.length > 0) {
+    return {
+      confidence: "pk_confirmed",
+      pkMechanisms: idiosyncrasyPairs,
+    };
+  }
 
   for (const system of inhibSystemsA) {
     if (subSystemsB.includes(system)) {

@@ -13,9 +13,12 @@ import {
 import { brandRxcuiNames } from "@/lib/data/brands";
 import { classifyInteractionConfidence } from "@/lib/confidence";
 import {
+  acidReductionDrugs,
+  chelatingAgents,
   chelationSusceptibleDrugs,
   gastricAcidDependentDrugs,
 } from "@/lib/drug-properties";
+import { getDrugMetabolismTags } from "@/lib/cyp";
 import {
   formatSources,
   type InteractionCheckResponse,
@@ -65,56 +68,25 @@ const chelationRuleSources: InteractionSource[] = [
   },
 ];
 
-const chelatingAgents = new Set([
-  "aluminum hydroxide",
-  "aluminum carbonate",
-  "aluminum phosphate",
-  "magnesium hydroxide",
-  "magnesium carbonate",
-  "magnesium chloride",
-  "magnesium citrate",
-  "magnesium gluconate",
-  "magnesium oxide",
-  "magnesium sulfate",
-  "magnesium trisilicate",
-  "magaldrate",
-  "calcium carbonate",
-  "calcium acetate",
-  "calcium citrate",
-  "calcium gluconate",
-  "calcium lactate",
-  "calcium phosphate",
-  "ferrous sulfate",
-  "ferrous fumarate",
-  "ferrous gluconate",
-  "iron",
-  "iron polysaccharide",
-  "sucralfate",
-  "kaolin",
-  "attapulgite",
-  "bismuth subsalicylate",
-  "zinc",
-  "zinc sulfate",
-  "zinc acetate",
-  "zinc gluconate",
+const ehcRuleSources: InteractionSource[] = [
+  {
+    name: "Local EHC rule",
+    version: overlayVersion,
+  },
+];
+
+const ehcInhibitors = new Set([
+  "cholestyramine",
+  "charcoal",
+  "activated charcoal",
 ]);
 
-const acidReductionDrugs = new Set([
-  "omeprazole",
-  "esomeprazole",
-  "pantoprazole",
-  "rabeprazole",
-  "lansoprazole",
-  "dexlansoprazole",
-  "famotidine",
-  "cimetidine",
-  "nizatidine",
-  "vonoprazan",
-  "aluminum hydroxide",
-  "magnesium hydroxide",
-  "calcium carbonate",
-  "sodium bicarbonate",
-]);
+function isEhcSubstrate(name: string): boolean {
+  const tags = getDrugMetabolismTags(name);
+  return tags.some(
+    (tag) => tag.system === "EHC" && tag.label.includes("Sub")
+  );
+}
 
 export const defaultPairSources: InteractionSource[] = [
   {
@@ -322,6 +294,92 @@ function buildChelationOnlyPair(
   };
 }
 
+function detectEHC(
+  a: string,
+  b: string
+): { ehcSubstrate: string; ehcInhibitor: string } | null {
+  const nameA = getRxcuiName(a) ?? a;
+  const nameB = getRxcuiName(b) ?? b;
+  const normalizedA = normalizeDrugName(nameA);
+  const normalizedB = normalizeDrugName(nameB);
+
+  const aIsSubstrate = isEhcSubstrate(nameA);
+  const bIsSubstrate = isEhcSubstrate(nameB);
+  const aIsInhibitor = ehcInhibitors.has(normalizedA);
+  const bIsInhibitor = ehcInhibitors.has(normalizedB);
+
+  if (aIsSubstrate && bIsInhibitor) {
+    return { ehcSubstrate: nameA, ehcInhibitor: nameB };
+  }
+  if (bIsSubstrate && aIsInhibitor) {
+    return { ehcSubstrate: nameB, ehcInhibitor: nameA };
+  }
+  return null;
+}
+
+function buildEHCVerdict(
+  ehcSubstrate: string,
+  ehcInhibitor: string
+): string {
+  return `${ehcInhibitor} interrupts enterohepatic circulation of ${ehcSubstrate}, reducing exposure and efficacy.`;
+}
+
+function buildEHCManagement(): string {
+  return "Monitor for reduced drug effect. Consider timing separation or an alternative agent that does not rely on enterohepatic recirculation.";
+}
+
+function augmentWithEHC(
+  pair: InteractionPair,
+  ehc: { ehcSubstrate: string; ehcInhibitor: string }
+): InteractionPair {
+  const ehcVerdict = buildEHCVerdict(ehc.ehcSubstrate, ehc.ehcInhibitor);
+  const ehcManagement = buildEHCManagement();
+  const hasEhcInVerdict = pair.verdict.toLowerCase().includes("enterohepatic");
+
+  return {
+    ...pair,
+    confidence: "pk_confirmed",
+    pkMechanisms: [
+      ...pair.pkMechanisms.filter(
+        (m) => !(m.kind === "sub_inh" && m.system === "EHC")
+      ),
+      { kind: "sub_inh", system: "EHC" },
+    ],
+    verdict: hasEhcInVerdict
+      ? pair.verdict
+      : `${ehcVerdict} ${pair.verdict}`,
+    mechanism_class: pair.mechanism_class
+      ? `${pair.mechanism_class}; Interrupted enterohepatic circulation`
+      : "Interrupted enterohepatic circulation",
+    management: pair.management
+      ? `${pair.management} ${ehcManagement}`
+      : ehcManagement,
+    sources: [
+      ...pair.sources.filter((s) => s.name !== "Local EHC rule"),
+      ...ehcRuleSources,
+    ],
+  };
+}
+
+function buildEHCOnlyPair(
+  a: string,
+  b: string,
+  ehc: { ehcSubstrate: string; ehcInhibitor: string }
+): InteractionPair {
+  return {
+    a: { rxcui: a, name: getRxcuiName(a) ?? a },
+    b: { rxcui: b, name: getRxcuiName(b) ?? b },
+    severity: "Moderate",
+    confidence: "pk_confirmed",
+    lowConfidence: false,
+    pkMechanisms: [{ kind: "sub_inh", system: "EHC" }],
+    verdict: buildEHCVerdict(ehc.ehcSubstrate, ehc.ehcInhibitor),
+    mechanism_class: "Interrupted enterohepatic circulation",
+    management: buildEHCManagement(),
+    sources: ehcRuleSources,
+  };
+}
+
 function defaultVerdictForSeverity(severity: InteractionSeverity) {
   return `${severity} interaction listed in DDInter 2.0.`;
 }
@@ -442,6 +500,7 @@ export function checkInteractions(rxcuis: string[]): InteractionCheckResponse {
       const { confidence, pkMechanisms } = classification;
       const gastricAcid = detectGastricAcid(a, b);
       const chelation = detectChelation(a, b);
+      const ehc = detectEHC(a, b);
 
       let pair: InteractionPair | null = null;
 
@@ -490,6 +549,14 @@ export function checkInteractions(rxcuis: string[]): InteractionCheckResponse {
           pair = augmentWithChelation(pair, chelation);
         } else {
           pair = buildChelationOnlyPair(a, b, chelation);
+        }
+      }
+
+      if (ehc) {
+        if (pair) {
+          pair = augmentWithEHC(pair, ehc);
+        } else {
+          pair = buildEHCOnlyPair(a, b, ehc);
         }
       }
 

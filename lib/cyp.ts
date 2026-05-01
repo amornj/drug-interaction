@@ -424,7 +424,14 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
   },
   { match: "theophylline", nti: true, annotations: [{ system: "CYP1A2", role: "Sub" }] },
   { match: "caffeine", annotations: [{ system: "CYP1A2", role: "Sub" }] },
-  { match: "clozapine", annotations: [{ system: "CYP1A2", role: "Sub" }, { system: "FMO", role: "Sub", note: "major, alternative to CYP oxidation" }] },
+  {
+    match: "clozapine",
+    nti: true,
+    annotations: [
+      { system: "CYP1A2", role: "Sub" },
+      { system: "FMO", role: "Sub", note: "major, alternative to CYP oxidation" },
+    ],
+  },
   { match: "olanzapine", annotations: [{ system: "CYP1A2", role: "Sub" }] },
   { match: "tizanidine", annotations: [{ system: "CYP1A2", role: "Sub" }] },
   { match: "ropinirole", annotations: [{ system: "CYP1A2", role: "Sub" }] },
@@ -641,7 +648,14 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
   // Diuretics
   { match: "furosemide", annotations: [{ system: "Renal elim", role: "Major" }, { system: "OAT", role: "Sub" }, { system: "OAT", role: "Moderate Inh", note: "substrate and inhibitor" }] },
   { match: "hydrochlorothiazide", annotations: [{ system: "Renal elim", role: "Major" }, { system: "OAT", role: "Sub" }, { system: "OAT", role: "Moderate Inh" }] },
-  { match: "spironolactone", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "P-gp", role: "Weak Ind" }, { system: "EHC", role: "Sub" }] },
+  {
+    match: "spironolactone",
+    annotations: [
+      { system: "CYP3A4", role: "Mild Inh" },
+      { system: "P-gp", role: "Weak Ind" },
+      { system: "EHC", role: "Sub" },
+    ],
+  },
 
   // Cardiac myosin modulators
   { match: "mavacamten", annotations: [{ system: "CYP2C19", role: "Sub" }, { system: "CYP3A4", role: "Sub", note: "minor" }] },
