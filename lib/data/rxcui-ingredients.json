@@ -1,0 +1,9397 @@
+{
+  "74": {
+    "type": "single",
+    "rxcui": "74",
+    "name": "4-aminobenzoic acid"
+  },
+  "90": {
+    "type": "single",
+    "rxcui": "618597",
+    "name": "eicosapentaenoate"
+  },
+  "94": {
+    "type": "single",
+    "rxcui": "94",
+    "name": "5-hydroxytryptophan"
+  },
+  "99": {
+    "type": "single",
+    "rxcui": "99",
+    "name": "6-aminocaproic acid"
+  },
+  "103": {
+    "type": "single",
+    "rxcui": "103",
+    "name": "mercaptopurine"
+  },
+  "110": {
+    "type": "single",
+    "rxcui": "110",
+    "name": "oxyquinoline"
+  },
+  "149": {
+    "type": "single",
+    "rxcui": "149",
+    "name": "acebutolol"
+  },
+  "154": {
+    "type": "single",
+    "rxcui": "154",
+    "name": "acenocoumarol"
+  },
+  "161": {
+    "type": "single",
+    "rxcui": "161",
+    "name": "acetaminophen"
+  },
+  "167": {
+    "type": "single",
+    "rxcui": "167",
+    "name": "acetazolamide"
+  },
+  "173": {
+    "type": "single",
+    "rxcui": "173",
+    "name": "acetohexamide"
+  },
+  "194": {
+    "type": "single",
+    "rxcui": "194",
+    "name": "acetylcholine"
+  },
+  "197": {
+    "type": "single",
+    "rxcui": "197",
+    "name": "acetylcysteine"
+  },
+  "270": {
+    "type": "single",
+    "rxcui": "270",
+    "name": "spectinomycin"
+  },
+  "272": {
+    "type": "single",
+    "rxcui": "272",
+    "name": "activated charcoal"
+  },
+  "281": {
+    "type": "single",
+    "rxcui": "281",
+    "name": "acyclovir"
+  },
+  "296": {
+    "type": "single",
+    "rxcui": "296",
+    "name": "adenosine"
+  },
+  "376": {
+    "type": "single",
+    "rxcui": "376",
+    "name": "corticotropin"
+  },
+  "430": {
+    "type": "single",
+    "rxcui": "430",
+    "name": "albendazole"
+  },
+  "435": {
+    "type": "single",
+    "rxcui": "435",
+    "name": "albuterol"
+  },
+  "448": {
+    "type": "single",
+    "rxcui": "448",
+    "name": "ethanol"
+  },
+  "480": {
+    "type": "single",
+    "rxcui": "480",
+    "name": "alfentanil"
+  },
+  "519": {
+    "type": "single",
+    "rxcui": "519",
+    "name": "allopurinol"
+  },
+  "596": {
+    "type": "single",
+    "rxcui": "596",
+    "name": "alprazolam"
+  },
+  "598": {
+    "type": "single",
+    "rxcui": "598",
+    "name": "alprostadil"
+  },
+  "612": {
+    "type": "single",
+    "rxcui": "612",
+    "name": "aluminum hydroxide"
+  },
+  "620": {
+    "type": "single",
+    "rxcui": "620",
+    "name": "amantadine"
+  },
+  "623": {
+    "type": "single",
+    "rxcui": "623",
+    "name": "ambenonium"
+  },
+  "632": {
+    "type": "single",
+    "rxcui": "632",
+    "name": "mitomycin"
+  },
+  "641": {
+    "type": "single",
+    "rxcui": "641",
+    "name": "amikacin"
+  },
+  "644": {
+    "type": "single",
+    "rxcui": "644",
+    "name": "amiloride"
+  },
+  "677": {
+    "type": "single",
+    "rxcui": "677",
+    "name": "aminoglutethimide"
+  },
+  "683": {
+    "type": "single",
+    "rxcui": "683",
+    "name": "aminolevulinic acid"
+  },
+  "689": {
+    "type": "single",
+    "rxcui": "689",
+    "name": "aminophylline"
+  },
+  "703": {
+    "type": "single",
+    "rxcui": "703",
+    "name": "amiodarone"
+  },
+  "704": {
+    "type": "single",
+    "rxcui": "704",
+    "name": "amitriptyline"
+  },
+  "712": {
+    "type": "single",
+    "rxcui": "712",
+    "name": "ammonium chloride"
+  },
+  "719": {
+    "type": "single",
+    "rxcui": "719",
+    "name": "amobarbital"
+  },
+  "722": {
+    "type": "single",
+    "rxcui": "722",
+    "name": "amoxapine"
+  },
+  "723": {
+    "type": "single",
+    "rxcui": "723",
+    "name": "amoxicillin"
+  },
+  "725": {
+    "type": "single",
+    "rxcui": "725",
+    "name": "amphetamine"
+  },
+  "732": {
+    "type": "single",
+    "rxcui": "732",
+    "name": "amphotericin B"
+  },
+  "733": {
+    "type": "single",
+    "rxcui": "733",
+    "name": "ampicillin"
+  },
+  "738": {
+    "type": "single",
+    "rxcui": "738",
+    "name": "inamrinone"
+  },
+  "742": {
+    "type": "single",
+    "rxcui": "742",
+    "name": "amyl nitrite"
+  },
+  "1043": {
+    "type": "single",
+    "rxcui": "1043",
+    "name": "apomorphine"
+  },
+  "1056": {
+    "type": "single",
+    "rxcui": "1056",
+    "name": "aprotinin"
+  },
+  "1151": {
+    "type": "single",
+    "rxcui": "1151",
+    "name": "ascorbic acid"
+  },
+  "1191": {
+    "type": "single",
+    "rxcui": "1191",
+    "name": "aspirin"
+  },
+  "1202": {
+    "type": "single",
+    "rxcui": "1202",
+    "name": "atenolol"
+  },
+  "1218": {
+    "type": "single",
+    "rxcui": "1218",
+    "name": "atracurium"
+  },
+  "1223": {
+    "type": "single",
+    "rxcui": "1223",
+    "name": "atropine"
+  },
+  "1227": {
+    "type": "single",
+    "rxcui": "1227",
+    "name": "auranofin"
+  },
+  "1251": {
+    "type": "single",
+    "rxcui": "1251",
+    "name": "azacitidine"
+  },
+  "1256": {
+    "type": "single",
+    "rxcui": "1256",
+    "name": "azathioprine"
+  },
+  "1272": {
+    "type": "single",
+    "rxcui": "1272",
+    "name": "aztreonam"
+  },
+  "1291": {
+    "type": "single",
+    "rxcui": "1291",
+    "name": "bacitracin"
+  },
+  "1292": {
+    "type": "single",
+    "rxcui": "1292",
+    "name": "baclofen"
+  },
+  "1348": {
+    "type": "single",
+    "rxcui": "1347",
+    "name": "beclomethasone"
+  },
+  "1369": {
+    "type": "single",
+    "rxcui": "1369",
+    "name": "bendroflumethiazide"
+  },
+  "1374": {
+    "type": "single",
+    "rxcui": "1374",
+    "name": "benserazide"
+  },
+  "1378": {
+    "type": "single",
+    "rxcui": "1378",
+    "name": "benzalkonium"
+  },
+  "1388": {
+    "type": "single",
+    "rxcui": "1388",
+    "name": "lindane"
+  },
+  "1399": {
+    "type": "single",
+    "rxcui": "1399",
+    "name": "benzocaine"
+  },
+  "1418": {
+    "type": "single",
+    "rxcui": "1418",
+    "name": "benzoyl peroxide"
+  },
+  "1422": {
+    "type": "single",
+    "rxcui": "1422",
+    "name": "benzphetamine"
+  },
+  "1424": {
+    "type": "single",
+    "rxcui": "1424",
+    "name": "benztropine"
+  },
+  "1436": {
+    "type": "single",
+    "rxcui": "1436",
+    "name": "bepridil"
+  },
+  "1514": {
+    "type": "single",
+    "rxcui": "1514",
+    "name": "betamethasone"
+  },
+  "1520": {
+    "type": "single",
+    "rxcui": "1520",
+    "name": "betaxolol"
+  },
+  "1589": {
+    "type": "single",
+    "rxcui": "1589",
+    "name": "biperiden"
+  },
+  "1596": {
+    "type": "single",
+    "rxcui": "1596",
+    "name": "bisacodyl"
+  },
+  "1598": {
+    "type": "single",
+    "rxcui": "1598",
+    "name": "dicumarol"
+  },
+  "1622": {
+    "type": "single",
+    "rxcui": "1622",
+    "name": "bleomycin"
+  },
+  "1712": {
+    "type": "single",
+    "rxcui": "1712",
+    "name": "botulinum toxin type A"
+  },
+  "1749": {
+    "type": "single",
+    "rxcui": "1749",
+    "name": "bromazepam"
+  },
+  "1760": {
+    "type": "single",
+    "rxcui": "1760",
+    "name": "bromocriptine"
+  },
+  "1767": {
+    "type": "single",
+    "rxcui": "1767",
+    "name": "brompheniramine"
+  },
+  "1808": {
+    "type": "single",
+    "rxcui": "1808",
+    "name": "bumetanide"
+  },
+  "1813": {
+    "type": "single",
+    "rxcui": "1813",
+    "name": "levobunolol"
+  },
+  "1815": {
+    "type": "single",
+    "rxcui": "1815",
+    "name": "bupivacaine"
+  },
+  "1819": {
+    "type": "single",
+    "rxcui": "1819",
+    "name": "buprenorphine"
+  },
+  "1827": {
+    "type": "single",
+    "rxcui": "1827",
+    "name": "buspirone"
+  },
+  "1828": {
+    "type": "single",
+    "rxcui": "1828",
+    "name": "busulfan"
+  },
+  "1841": {
+    "type": "single",
+    "rxcui": "1841",
+    "name": "butorphanol"
+  },
+  "1886": {
+    "type": "single",
+    "rxcui": "1886",
+    "name": "caffeine"
+  },
+  "1889": {
+    "type": "single",
+    "rxcui": "1889",
+    "name": "calcifediol"
+  },
+  "1894": {
+    "type": "single",
+    "rxcui": "1894",
+    "name": "calcitriol"
+  },
+  "1897": {
+    "type": "single",
+    "rxcui": "1897",
+    "name": "calcium carbonate"
+  },
+  "1901": {
+    "type": "single",
+    "rxcui": "1901",
+    "name": "calcium chloride"
+  },
+  "1904": {
+    "type": "single",
+    "rxcui": "235935",
+    "name": "dobesilic acid"
+  },
+  "1908": {
+    "type": "single",
+    "rxcui": "1908",
+    "name": "calcium gluconate"
+  },
+  "1909": {
+    "type": "single",
+    "rxcui": "1909",
+    "name": "calcium glycerophosphate"
+  },
+  "1919": {
+    "type": "single",
+    "rxcui": "1919",
+    "name": "calcium phosphate"
+  },
+  "1963": {
+    "type": "single",
+    "rxcui": "1963",
+    "name": "Candida albicans"
+  },
+  "1992": {
+    "type": "single",
+    "rxcui": "1992",
+    "name": "capsaicin"
+  },
+  "1998": {
+    "type": "single",
+    "rxcui": "1998",
+    "name": "captopril"
+  },
+  "2002": {
+    "type": "single",
+    "rxcui": "2002",
+    "name": "carbamazepine"
+  },
+  "2015": {
+    "type": "single",
+    "rxcui": "2015",
+    "name": "carbenicillin"
+  },
+  "2019": {
+    "type": "single",
+    "rxcui": "2019",
+    "name": "carbidopa"
+  },
+  "2101": {
+    "type": "single",
+    "rxcui": "2101",
+    "name": "carisoprodol"
+  },
+  "2105": {
+    "type": "single",
+    "rxcui": "2105",
+    "name": "carmustine"
+  },
+  "2116": {
+    "type": "single",
+    "rxcui": "2116",
+    "name": "carteolol"
+  },
+  "2129": {
+    "type": "single",
+    "rxcui": "2129",
+    "name": "castor oil"
+  },
+  "2176": {
+    "type": "single",
+    "rxcui": "2176",
+    "name": "cefaclor"
+  },
+  "2177": {
+    "type": "single",
+    "rxcui": "2177",
+    "name": "cefadroxil"
+  },
+  "2178": {
+    "type": "single",
+    "rxcui": "2178",
+    "name": "cefamandole"
+  },
+  "2180": {
+    "type": "single",
+    "rxcui": "2180",
+    "name": "cefazolin"
+  },
+  "2182": {
+    "type": "single",
+    "rxcui": "2182",
+    "name": "cefmetazole"
+  },
+  "2183": {
+    "type": "single",
+    "rxcui": "2183",
+    "name": "cefonicid"
+  },
+  "2184": {
+    "type": "single",
+    "rxcui": "2184",
+    "name": "cefoperazone"
+  },
+  "2186": {
+    "type": "single",
+    "rxcui": "2186",
+    "name": "cefotaxime"
+  },
+  "2187": {
+    "type": "single",
+    "rxcui": "2187",
+    "name": "cefotetan"
+  },
+  "2189": {
+    "type": "single",
+    "rxcui": "2189",
+    "name": "cefoxitin"
+  },
+  "2191": {
+    "type": "single",
+    "rxcui": "2191",
+    "name": "ceftazidime"
+  },
+  "2192": {
+    "type": "single",
+    "rxcui": "2192",
+    "name": "ceftizoxime"
+  },
+  "2193": {
+    "type": "single",
+    "rxcui": "2193",
+    "name": "ceftriaxone"
+  },
+  "2194": {
+    "type": "single",
+    "rxcui": "2194",
+    "name": "cefuroxime"
+  },
+  "2231": {
+    "type": "single",
+    "rxcui": "2231",
+    "name": "cephalexin"
+  },
+  "2236": {
+    "type": "single",
+    "rxcui": "2236",
+    "name": "cephalothin"
+  },
+  "2238": {
+    "type": "single",
+    "rxcui": "2238",
+    "name": "cephapirin"
+  },
+  "2239": {
+    "type": "single",
+    "rxcui": "2239",
+    "name": "cephradine"
+  },
+  "2286": {
+    "type": "single",
+    "rxcui": "2286",
+    "name": "cetylpyridinium"
+  },
+  "2323": {
+    "type": "single",
+    "rxcui": "42588",
+    "name": "chenodeoxycholate"
+  },
+  "2344": {
+    "type": "single",
+    "rxcui": "38574",
+    "name": "trichloroacetaldehyde"
+  },
+  "2346": {
+    "type": "single",
+    "rxcui": "2346",
+    "name": "chlorambucil"
+  },
+  "2348": {
+    "type": "single",
+    "rxcui": "2348",
+    "name": "chloramphenicol"
+  },
+  "2354": {
+    "type": "single",
+    "rxcui": "2354",
+    "name": "chlorcyclizine"
+  },
+  "2356": {
+    "type": "single",
+    "rxcui": "2356",
+    "name": "chlordiazepoxide"
+  },
+  "2358": {
+    "type": "single",
+    "rxcui": "2358",
+    "name": "chlorhexidine"
+  },
+  "2373": {
+    "type": "single",
+    "rxcui": "2373",
+    "name": "chlormezanone"
+  },
+  "2382": {
+    "type": "single",
+    "rxcui": "2382",
+    "name": "proguanil"
+  },
+  "2393": {
+    "type": "single",
+    "rxcui": "2393",
+    "name": "chloroquine"
+  },
+  "2396": {
+    "type": "single",
+    "rxcui": "2396",
+    "name": "chlorothiazide"
+  },
+  "2399": {
+    "type": "single",
+    "rxcui": "2399",
+    "name": "chlorphenesin"
+  },
+  "2400": {
+    "type": "single",
+    "rxcui": "2400",
+    "name": "chlorpheniramine"
+  },
+  "2403": {
+    "type": "single",
+    "rxcui": "2403",
+    "name": "chlorpromazine"
+  },
+  "2404": {
+    "type": "single",
+    "rxcui": "2404",
+    "name": "chlorpropamide"
+  },
+  "2409": {
+    "type": "single",
+    "rxcui": "2409",
+    "name": "chlorthalidone"
+  },
+  "2410": {
+    "type": "single",
+    "rxcui": "2410",
+    "name": "chlorzoxazone"
+  },
+  "2418": {
+    "type": "single",
+    "rxcui": "2418",
+    "name": "cholecalciferol"
+  },
+  "2447": {
+    "type": "single",
+    "rxcui": "2447",
+    "name": "cholestyramine resin"
+  },
+  "2473": {
+    "type": "single",
+    "rxcui": "2473",
+    "name": "chondroitin sulfates"
+  },
+  "2541": {
+    "type": "single",
+    "rxcui": "2541",
+    "name": "cimetidine"
+  },
+  "2550": {
+    "type": "single",
+    "rxcui": "2550",
+    "name": "cinoxacin"
+  },
+  "2551": {
+    "type": "single",
+    "rxcui": "2551",
+    "name": "ciprofloxacin"
+  },
+  "2555": {
+    "type": "single",
+    "rxcui": "2555",
+    "name": "cisplatin"
+  },
+  "2556": {
+    "type": "single",
+    "rxcui": "2556",
+    "name": "citalopram"
+  },
+  "2578": {
+    "type": "single",
+    "rxcui": "2578",
+    "name": "clemastine"
+  },
+  "2582": {
+    "type": "single",
+    "rxcui": "2582",
+    "name": "clindamycin"
+  },
+  "2590": {
+    "type": "single",
+    "rxcui": "2590",
+    "name": "clobetasol"
+  },
+  "2592": {
+    "type": "single",
+    "rxcui": "2592",
+    "name": "clofazimine"
+  },
+  "2594": {
+    "type": "single",
+    "rxcui": "2594",
+    "name": "clofibrate"
+  },
+  "2596": {
+    "type": "single",
+    "rxcui": "2596",
+    "name": "clomiphene"
+  },
+  "2597": {
+    "type": "single",
+    "rxcui": "2597",
+    "name": "clomipramine"
+  },
+  "2598": {
+    "type": "single",
+    "rxcui": "2598",
+    "name": "clonazepam"
+  },
+  "2599": {
+    "type": "single",
+    "rxcui": "2599",
+    "name": "clonidine"
+  },
+  "2622": {
+    "type": "single",
+    "rxcui": "2622",
+    "name": "clotiazepam"
+  },
+  "2623": {
+    "type": "single",
+    "rxcui": "2623",
+    "name": "clotrimazole"
+  },
+  "2625": {
+    "type": "single",
+    "rxcui": "2625",
+    "name": "cloxacillin"
+  },
+  "2626": {
+    "type": "single",
+    "rxcui": "2626",
+    "name": "clozapine"
+  },
+  "2635": {
+    "type": "single",
+    "rxcui": "2635",
+    "name": "coal tar"
+  },
+  "2653": {
+    "type": "single",
+    "rxcui": "2653",
+    "name": "cocaine"
+  },
+  "2670": {
+    "type": "single",
+    "rxcui": "2670",
+    "name": "codeine"
+  },
+  "2683": {
+    "type": "single",
+    "rxcui": "2683",
+    "name": "colchicine"
+  },
+  "2685": {
+    "type": "single",
+    "rxcui": "2685",
+    "name": "colestipol"
+  },
+  "2708": {
+    "type": "single",
+    "rxcui": "2709",
+    "name": "colistin"
+  },
+  "2839": {
+    "type": "single",
+    "rxcui": "2839",
+    "name": "copper gluconate"
+  },
+  "2890": {
+    "type": "single",
+    "rxcui": "2890",
+    "name": "cosyntropin"
+  },
+  "2907": {
+    "type": "single",
+    "rxcui": "2907",
+    "name": "creatine"
+  },
+  "2970": {
+    "type": "single",
+    "rxcui": "2970",
+    "name": "cyclandelate"
+  },
+  "2977": {
+    "type": "single",
+    "rxcui": "2977",
+    "name": "cyclizine"
+  },
+  "3001": {
+    "type": "single",
+    "rxcui": "3001",
+    "name": "cyclopentolate"
+  },
+  "3002": {
+    "type": "single",
+    "rxcui": "3002",
+    "name": "cyclophosphamide"
+  },
+  "3007": {
+    "type": "single",
+    "rxcui": "3007",
+    "name": "cycloserine"
+  },
+  "3008": {
+    "type": "single",
+    "rxcui": "3008",
+    "name": "cyclosporine"
+  },
+  "3013": {
+    "type": "single",
+    "rxcui": "3013",
+    "name": "cyproheptadine"
+  },
+  "3041": {
+    "type": "single",
+    "rxcui": "3041",
+    "name": "cytarabine"
+  },
+  "3098": {
+    "type": "single",
+    "rxcui": "3098",
+    "name": "dacarbazine"
+  },
+  "3100": {
+    "type": "single",
+    "rxcui": "3100",
+    "name": "dactinomycin"
+  },
+  "3102": {
+    "type": "single",
+    "rxcui": "3102",
+    "name": "danazol"
+  },
+  "3105": {
+    "type": "single",
+    "rxcui": "3105",
+    "name": "dantrolene"
+  },
+  "3108": {
+    "type": "single",
+    "rxcui": "3108",
+    "name": "dapsone"
+  },
+  "3109": {
+    "type": "single",
+    "rxcui": "3109",
+    "name": "daunorubicin"
+  },
+  "3131": {
+    "type": "single",
+    "rxcui": "3131",
+    "name": "deferoxamine"
+  },
+  "3141": {
+    "type": "single",
+    "rxcui": "42625",
+    "name": "dehydrocholate"
+  },
+  "3154": {
+    "type": "single",
+    "rxcui": "3154",
+    "name": "demeclocycline"
+  },
+  "3194": {
+    "type": "single",
+    "rxcui": "42627",
+    "name": "deoxycholate"
+  },
+  "3247": {
+    "type": "single",
+    "rxcui": "3247",
+    "name": "desipramine"
+  },
+  "3251": {
+    "type": "single",
+    "rxcui": "3251",
+    "name": "desmopressin"
+  },
+  "3254": {
+    "type": "single",
+    "rxcui": "3254",
+    "name": "desonide"
+  },
+  "3255": {
+    "type": "single",
+    "rxcui": "3255",
+    "name": "desoximetasone"
+  },
+  "3264": {
+    "type": "single",
+    "rxcui": "3264",
+    "name": "dexamethasone"
+  },
+  "3268": {
+    "type": "single",
+    "rxcui": "3268",
+    "name": "dexfenfluramine"
+  },
+  "3288": {
+    "type": "single",
+    "rxcui": "3288",
+    "name": "dextroamphetamine"
+  },
+  "3289": {
+    "type": "single",
+    "rxcui": "3289",
+    "name": "dextromethorphan"
+  },
+  "3292": {
+    "type": "single",
+    "rxcui": "3292",
+    "name": "dextrothyroxine"
+  },
+  "3304": {
+    "type": "single",
+    "rxcui": "3304",
+    "name": "heroin"
+  },
+  "3319": {
+    "type": "single",
+    "rxcui": "3319",
+    "name": "diatrizoate"
+  },
+  "3322": {
+    "type": "single",
+    "rxcui": "3322",
+    "name": "diazepam"
+  },
+  "3327": {
+    "type": "single",
+    "rxcui": "3327",
+    "name": "diazoxide"
+  },
+  "3339": {
+    "type": "single",
+    "rxcui": "3339",
+    "name": "dibucaine"
+  },
+  "3353": {
+    "type": "single",
+    "rxcui": "3353",
+    "name": "dichlorphenamide"
+  },
+  "3355": {
+    "type": "single",
+    "rxcui": "3355",
+    "name": "diclofenac"
+  },
+  "3356": {
+    "type": "single",
+    "rxcui": "3356",
+    "name": "dicloxacillin"
+  },
+  "3361": {
+    "type": "single",
+    "rxcui": "3361",
+    "name": "dicyclomine"
+  },
+  "3363": {
+    "type": "single",
+    "rxcui": "3363",
+    "name": "zalcitabine"
+  },
+  "3364": {
+    "type": "single",
+    "rxcui": "3364",
+    "name": "didanosine"
+  },
+  "3368": {
+    "type": "single",
+    "rxcui": "3368",
+    "name": "dienestrol"
+  },
+  "3389": {
+    "type": "single",
+    "rxcui": "3389",
+    "name": "diethylpropion"
+  },
+  "3390": {
+    "type": "single",
+    "rxcui": "3390",
+    "name": "diethylstilbestrol"
+  },
+  "3393": {
+    "type": "single",
+    "rxcui": "3393",
+    "name": "diflunisal"
+  },
+  "3403": {
+    "type": "single",
+    "rxcui": "3403",
+    "name": "digitoxin"
+  },
+  "3407": {
+    "type": "single",
+    "rxcui": "3407",
+    "name": "digoxin"
+  },
+  "3418": {
+    "type": "single",
+    "rxcui": "3418",
+    "name": "dihydroergotamine"
+  },
+  "3423": {
+    "type": "single",
+    "rxcui": "3423",
+    "name": "hydromorphone"
+  },
+  "3429": {
+    "type": "single",
+    "rxcui": "3429",
+    "name": "dihydrotachysterol"
+  },
+  "3435": {
+    "type": "single",
+    "rxcui": "3435",
+    "name": "iodoquinol"
+  },
+  "3443": {
+    "type": "single",
+    "rxcui": "3443",
+    "name": "diltiazem"
+  },
+  "3444": {
+    "type": "single",
+    "rxcui": "3444",
+    "name": "dimenhydrinate"
+  },
+  "3445": {
+    "type": "single",
+    "rxcui": "3445",
+    "name": "dimercaprol"
+  },
+  "3455": {
+    "type": "single",
+    "rxcui": "3455",
+    "name": "dimethyl sulfoxide"
+  },
+  "3478": {
+    "type": "single",
+    "rxcui": "3478",
+    "name": "dinoprostone"
+  },
+  "3489": {
+    "type": "single",
+    "rxcui": "3489",
+    "name": "diosmin"
+  },
+  "3498": {
+    "type": "single",
+    "rxcui": "3498",
+    "name": "diphenhydramine"
+  },
+  "3500": {
+    "type": "single",
+    "rxcui": "3500",
+    "name": "diphenoxylate"
+  },
+  "3521": {
+    "type": "single",
+    "rxcui": "3521",
+    "name": "dipyridamole"
+  },
+  "3541": {
+    "type": "single",
+    "rxcui": "3541",
+    "name": "disopyramide"
+  },
+  "3554": {
+    "type": "single",
+    "rxcui": "3554",
+    "name": "disulfiram"
+  },
+  "3616": {
+    "type": "single",
+    "rxcui": "3616",
+    "name": "dobutamine"
+  },
+  "3626": {
+    "type": "single",
+    "rxcui": "3626",
+    "name": "domperidone"
+  },
+  "3628": {
+    "type": "single",
+    "rxcui": "3628",
+    "name": "dopamine"
+  },
+  "3637": {
+    "type": "single",
+    "rxcui": "3637",
+    "name": "doxapram"
+  },
+  "3638": {
+    "type": "single",
+    "rxcui": "3638",
+    "name": "doxepin"
+  },
+  "3639": {
+    "type": "single",
+    "rxcui": "3639",
+    "name": "doxorubicin"
+  },
+  "3640": {
+    "type": "single",
+    "rxcui": "3640",
+    "name": "doxycycline"
+  },
+  "3642": {
+    "type": "single",
+    "rxcui": "3642",
+    "name": "doxylamine"
+  },
+  "3648": {
+    "type": "single",
+    "rxcui": "3648",
+    "name": "droperidol"
+  },
+  "3690": {
+    "type": "single",
+    "rxcui": "618371",
+    "name": "pentetate"
+  },
+  "3706": {
+    "type": "single",
+    "rxcui": "3706",
+    "name": "dydrogesterone"
+  },
+  "3714": {
+    "type": "single",
+    "rxcui": "3714",
+    "name": "dyphylline"
+  },
+  "3743": {
+    "type": "single",
+    "rxcui": "3743",
+    "name": "econazole"
+  },
+  "3752": {
+    "type": "single",
+    "rxcui": "3752",
+    "name": "edrophonium"
+  },
+  "3827": {
+    "type": "single",
+    "rxcui": "3827",
+    "name": "enalapril"
+  },
+  "3920": {
+    "type": "single",
+    "rxcui": "3920",
+    "name": "enflurane"
+  },
+  "3925": {
+    "type": "single",
+    "rxcui": "3925",
+    "name": "enoxacin"
+  },
+  "3966": {
+    "type": "single",
+    "rxcui": "3966",
+    "name": "ephedrine"
+  },
+  "3992": {
+    "type": "single",
+    "rxcui": "3992",
+    "name": "epinephrine"
+  },
+  "3995": {
+    "type": "single",
+    "rxcui": "3995",
+    "name": "epirubicin"
+  },
+  "4018": {
+    "type": "single",
+    "rxcui": "4018",
+    "name": "ergocalciferol"
+  },
+  "4021": {
+    "type": "single",
+    "rxcui": "4021",
+    "name": "ergonovine"
+  },
+  "4024": {
+    "type": "single",
+    "rxcui": "4024",
+    "name": "ergoloid mesylates, USP"
+  },
+  "4025": {
+    "type": "single",
+    "rxcui": "4025",
+    "name": "ergotamine"
+  },
+  "4053": {
+    "type": "single",
+    "rxcui": "4053",
+    "name": "erythromycin"
+  },
+  "4077": {
+    "type": "single",
+    "rxcui": "4077",
+    "name": "estazolam"
+  },
+  "4083": {
+    "type": "single",
+    "rxcui": "4083",
+    "name": "estradiol"
+  },
+  "4089": {
+    "type": "single",
+    "rxcui": "4089",
+    "name": "estramustine"
+  },
+  "4099": {
+    "type": "single",
+    "rxcui": "4099",
+    "name": "estrogens, conjugated (USP)"
+  },
+  "4103": {
+    "type": "single",
+    "rxcui": "4103",
+    "name": "estrone"
+  },
+  "4109": {
+    "type": "single",
+    "rxcui": "62349",
+    "name": "ethacrynate"
+  },
+  "4110": {
+    "type": "single",
+    "rxcui": "4110",
+    "name": "ethambutol"
+  },
+  "4118": {
+    "type": "single",
+    "rxcui": "4118",
+    "name": "ethchlorvynol"
+  },
+  "4124": {
+    "type": "single",
+    "rxcui": "4124",
+    "name": "ethinyl estradiol"
+  },
+  "4125": {
+    "type": "single",
+    "rxcui": "4125",
+    "name": "ethiodized oil"
+  },
+  "4126": {
+    "type": "single",
+    "rxcui": "4126",
+    "name": "amifostine"
+  },
+  "4127": {
+    "type": "single",
+    "rxcui": "4127",
+    "name": "ethionamide"
+  },
+  "4135": {
+    "type": "single",
+    "rxcui": "4135",
+    "name": "ethosuximide"
+  },
+  "4136": {
+    "type": "single",
+    "rxcui": "4136",
+    "name": "ethotoin"
+  },
+  "4171": {
+    "type": "single",
+    "rxcui": "4171",
+    "name": "etidocaine"
+  },
+  "4177": {
+    "type": "single",
+    "rxcui": "4177",
+    "name": "etomidate"
+  },
+  "4179": {
+    "type": "single",
+    "rxcui": "4179",
+    "name": "etoposide"
+  },
+  "4278": {
+    "type": "single",
+    "rxcui": "4278",
+    "name": "famotidine"
+  },
+  "4301": {
+    "type": "single",
+    "rxcui": "4301",
+    "name": "omega-3 fatty acids"
+  },
+  "4316": {
+    "type": "single",
+    "rxcui": "4316",
+    "name": "felodipine"
+  },
+  "4328": {
+    "type": "single",
+    "rxcui": "4328",
+    "name": "fenfluramine"
+  },
+  "4331": {
+    "type": "single",
+    "rxcui": "4331",
+    "name": "fenoprofen"
+  },
+  "4337": {
+    "type": "single",
+    "rxcui": "4337",
+    "name": "fentanyl"
+  },
+  "4440": {
+    "type": "single",
+    "rxcui": "4440",
+    "name": "flavoxate"
+  },
+  "4441": {
+    "type": "single",
+    "rxcui": "4441",
+    "name": "flecainide"
+  },
+  "4450": {
+    "type": "single",
+    "rxcui": "4450",
+    "name": "fluconazole"
+  },
+  "4451": {
+    "type": "single",
+    "rxcui": "4451",
+    "name": "flucytosine"
+  },
+  "4452": {
+    "type": "single",
+    "rxcui": "4452",
+    "name": "fludrocortisone"
+  },
+  "4457": {
+    "type": "single",
+    "rxcui": "4457",
+    "name": "flumazenil"
+  },
+  "4461": {
+    "type": "single",
+    "rxcui": "25126",
+    "name": "fluocinolone"
+  },
+  "4462": {
+    "type": "single",
+    "rxcui": "4462",
+    "name": "fluocinonide"
+  },
+  "4488": {
+    "type": "single",
+    "rxcui": "4488",
+    "name": "floxuridine"
+  },
+  "4491": {
+    "type": "single",
+    "rxcui": "4491",
+    "name": "fluorometholone"
+  },
+  "4492": {
+    "type": "single",
+    "rxcui": "4492",
+    "name": "fluorouracil"
+  },
+  "4493": {
+    "type": "single",
+    "rxcui": "4493",
+    "name": "fluoxetine"
+  },
+  "4494": {
+    "type": "single",
+    "rxcui": "4494",
+    "name": "fluoxymesterone"
+  },
+  "4495": {
+    "type": "single",
+    "rxcui": "4495",
+    "name": "flupenthixol"
+  },
+  "4496": {
+    "type": "single",
+    "rxcui": "4496",
+    "name": "fluphenazine"
+  },
+  "4500": {
+    "type": "single",
+    "rxcui": "4500",
+    "name": "flurandrenolide"
+  },
+  "4501": {
+    "type": "single",
+    "rxcui": "4501",
+    "name": "flurazepam"
+  },
+  "4502": {
+    "type": "single",
+    "rxcui": "4502",
+    "name": "flurbiprofen"
+  },
+  "4508": {
+    "type": "single",
+    "rxcui": "4508",
+    "name": "flutamide"
+  },
+  "4511": {
+    "type": "single",
+    "rxcui": "4511",
+    "name": "folic acid"
+  },
+  "4550": {
+    "type": "single",
+    "rxcui": "4550",
+    "name": "fosfomycin"
+  },
+  "4603": {
+    "type": "single",
+    "rxcui": "4603",
+    "name": "furosemide"
+  },
+  "4617": {
+    "type": "single",
+    "rxcui": "618771",
+    "name": "gamma-aminobutyrate"
+  },
+  "4626": {
+    "type": "single",
+    "rxcui": "4626",
+    "name": "galactose"
+  },
+  "4637": {
+    "type": "single",
+    "rxcui": "4637",
+    "name": "galantamine"
+  },
+  "4678": {
+    "type": "single",
+    "rxcui": "4678",
+    "name": "ganciclovir"
+  },
+  "4719": {
+    "type": "single",
+    "rxcui": "4719",
+    "name": "gemfibrozil"
+  },
+  "4815": {
+    "type": "single",
+    "rxcui": "4815",
+    "name": "glyburide"
+  },
+  "4816": {
+    "type": "single",
+    "rxcui": "4816",
+    "name": "gliclazide"
+  },
+  "4821": {
+    "type": "single",
+    "rxcui": "4821",
+    "name": "glipizide"
+  },
+  "4832": {
+    "type": "single",
+    "rxcui": "4832",
+    "name": "glucagon"
+  },
+  "4845": {
+    "type": "single",
+    "rxcui": "4845",
+    "name": "glucosamine"
+  },
+  "4850": {
+    "type": "single",
+    "rxcui": "4850",
+    "name": "glucose"
+  },
+  "4910": {
+    "type": "single",
+    "rxcui": "4910",
+    "name": "glycerin"
+  },
+  "4917": {
+    "type": "single",
+    "rxcui": "4917",
+    "name": "nitroglycerin"
+  },
+  "4952": {
+    "type": "single",
+    "rxcui": "4952",
+    "name": "thyrotropin alfa"
+  },
+  "4980": {
+    "type": "single",
+    "rxcui": "4980",
+    "name": "aurothioglucose"
+  },
+  "4981": {
+    "type": "single",
+    "rxcui": "42547",
+    "name": "aurothiomalate"
+  },
+  "5021": {
+    "type": "single",
+    "rxcui": "5021",
+    "name": "griseofulvin"
+  },
+  "5033": {
+    "type": "single",
+    "rxcui": "5033",
+    "name": "guanabenz"
+  },
+  "5036": {
+    "type": "single",
+    "rxcui": "5036",
+    "name": "guanethidine"
+  },
+  "5084": {
+    "type": "single",
+    "rxcui": "5084",
+    "name": "halcinonide"
+  },
+  "5093": {
+    "type": "single",
+    "rxcui": "5093",
+    "name": "haloperidol"
+  },
+  "5095": {
+    "type": "single",
+    "rxcui": "5095",
+    "name": "halothane"
+  },
+  "5175": {
+    "type": "single",
+    "rxcui": "5175",
+    "name": "hemin"
+  },
+  "5281": {
+    "type": "single",
+    "rxcui": "5281",
+    "name": "hesperidin"
+  },
+  "5293": {
+    "type": "single",
+    "rxcui": "5293",
+    "name": "hexachlorophene"
+  },
+  "5296": {
+    "type": "single",
+    "rxcui": "5296",
+    "name": "altretamine"
+  },
+  "5333": {
+    "type": "single",
+    "rxcui": "5333",
+    "name": "histamine"
+  },
+  "5463": {
+    "type": "single",
+    "rxcui": "62372",
+    "name": "hyaluronate"
+  },
+  "5464": {
+    "type": "single",
+    "rxcui": "5464",
+    "name": "hyaluronidase"
+  },
+  "5470": {
+    "type": "single",
+    "rxcui": "5470",
+    "name": "hydralazine"
+  },
+  "5487": {
+    "type": "single",
+    "rxcui": "5487",
+    "name": "hydrochlorothiazide"
+  },
+  "5489": {
+    "type": "single",
+    "rxcui": "5489",
+    "name": "hydrocodone"
+  },
+  "5492": {
+    "type": "single",
+    "rxcui": "5492",
+    "name": "hydrocortisone"
+  },
+  "5495": {
+    "type": "single",
+    "rxcui": "5495",
+    "name": "hydroflumethiazide"
+  },
+  "5514": {
+    "type": "single",
+    "rxcui": "5514",
+    "name": "hydroxocobalamin"
+  },
+  "5521": {
+    "type": "single",
+    "rxcui": "5521",
+    "name": "hydroxychloroquine"
+  },
+  "5552": {
+    "type": "single",
+    "rxcui": "5552",
+    "name": "hydroxyurea"
+  },
+  "5553": {
+    "type": "single",
+    "rxcui": "5553",
+    "name": "hydroxyzine"
+  },
+  "5640": {
+    "type": "single",
+    "rxcui": "5640",
+    "name": "ibuprofen"
+  },
+  "5650": {
+    "type": "single",
+    "rxcui": "5650",
+    "name": "idarubicin"
+  },
+  "5657": {
+    "type": "single",
+    "rxcui": "5657",
+    "name": "ifosfamide"
+  },
+  "5690": {
+    "type": "single",
+    "rxcui": "5690",
+    "name": "imipenem"
+  },
+  "5691": {
+    "type": "single",
+    "rxcui": "5691",
+    "name": "imipramine"
+  },
+  "5764": {
+    "type": "single",
+    "rxcui": "5764",
+    "name": "indapamide"
+  },
+  "5781": {
+    "type": "single",
+    "rxcui": "5781",
+    "name": "indomethacin"
+  },
+  "5879": {
+    "type": "single",
+    "rxcui": "5879",
+    "name": "interferon alfa-2a"
+  },
+  "5880": {
+    "type": "single",
+    "rxcui": "5880",
+    "name": "interferon alfa-2b"
+  },
+  "5882": {
+    "type": "single",
+    "rxcui": "5882",
+    "name": "interferon gamma-1b"
+  },
+  "5924": {
+    "type": "single",
+    "rxcui": "5924",
+    "name": "inulin"
+  },
+  "5933": {
+    "type": "single",
+    "rxcui": "5933",
+    "name": "iodine"
+  },
+  "5936": {
+    "type": "single",
+    "rxcui": "5936",
+    "name": "iodipamide"
+  },
+  "5942": {
+    "type": "single",
+    "rxcui": "5942",
+    "name": "clioquinol"
+  },
+  "5956": {
+    "type": "single",
+    "rxcui": "5956",
+    "name": "iohexol"
+  },
+  "5966": {
+    "type": "single",
+    "rxcui": "5966",
+    "name": "iopamidol"
+  },
+  "5967": {
+    "type": "single",
+    "rxcui": "5967",
+    "name": "iopanoic acid"
+  },
+  "5975": {
+    "type": "single",
+    "rxcui": "5975",
+    "name": "ipecac"
+  },
+  "5992": {
+    "type": "single",
+    "rxcui": "5992",
+    "name": "iron-dextran complex"
+  },
+  "6011": {
+    "type": "single",
+    "rxcui": "6011",
+    "name": "isocarboxazid"
+  },
+  "6023": {
+    "type": "single",
+    "rxcui": "6023",
+    "name": "isoetharine"
+  },
+  "6026": {
+    "type": "single",
+    "rxcui": "6026",
+    "name": "isoflurane"
+  },
+  "6027": {
+    "type": "single",
+    "rxcui": "6027",
+    "name": "isoflurophate"
+  },
+  "6038": {
+    "type": "single",
+    "rxcui": "6038",
+    "name": "isoniazid"
+  },
+  "6054": {
+    "type": "single",
+    "rxcui": "6054",
+    "name": "isoproterenol"
+  },
+  "6057": {
+    "type": "single",
+    "rxcui": "6057",
+    "name": "isosorbide"
+  },
+  "6058": {
+    "type": "single",
+    "rxcui": "6058",
+    "name": "isosorbide dinitrate"
+  },
+  "6064": {
+    "type": "single",
+    "rxcui": "6064",
+    "name": "isotretinoin"
+  },
+  "6066": {
+    "type": "single",
+    "rxcui": "6066",
+    "name": "isoxsuprine"
+  },
+  "6069": {
+    "type": "single",
+    "rxcui": "6069",
+    "name": "ivermectin"
+  },
+  "6099": {
+    "type": "single",
+    "rxcui": "6099",
+    "name": "kanamycin"
+  },
+  "6102": {
+    "type": "single",
+    "rxcui": "6102",
+    "name": "kaolin"
+  },
+  "6130": {
+    "type": "single",
+    "rxcui": "6130",
+    "name": "ketamine"
+  },
+  "6135": {
+    "type": "single",
+    "rxcui": "6135",
+    "name": "ketoconazole"
+  },
+  "6142": {
+    "type": "single",
+    "rxcui": "6142",
+    "name": "ketoprofen"
+  },
+  "6146": {
+    "type": "single",
+    "rxcui": "6146",
+    "name": "ketotifen"
+  },
+  "6185": {
+    "type": "single",
+    "rxcui": "6185",
+    "name": "labetalol"
+  },
+  "6205": {
+    "type": "single",
+    "rxcui": "6205",
+    "name": "Lactobacillus acidophilus"
+  },
+  "6218": {
+    "type": "single",
+    "rxcui": "6218",
+    "name": "lactulose"
+  },
+  "6313": {
+    "type": "single",
+    "rxcui": "6313",
+    "name": "leucovorin"
+  },
+  "6371": {
+    "type": "single",
+    "rxcui": "6371",
+    "name": "levamisole"
+  },
+  "6373": {
+    "type": "single",
+    "rxcui": "6373",
+    "name": "levonorgestrel"
+  },
+  "6375": {
+    "type": "single",
+    "rxcui": "6375",
+    "name": "levodopa"
+  },
+  "6378": {
+    "type": "single",
+    "rxcui": "6378",
+    "name": "levorphanol"
+  },
+  "6384": {
+    "type": "single",
+    "rxcui": "6384",
+    "name": "gonadorelin"
+  },
+  "6387": {
+    "type": "single",
+    "rxcui": "6387",
+    "name": "lidocaine"
+  },
+  "6398": {
+    "type": "single",
+    "rxcui": "6398",
+    "name": "lincomycin"
+  },
+  "6417": {
+    "type": "single",
+    "rxcui": "618060",
+    "name": "thioctate"
+  },
+  "6448": {
+    "type": "single",
+    "rxcui": "6448",
+    "name": "lithium"
+  },
+  "6466": {
+    "type": "single",
+    "rxcui": "6466",
+    "name": "lomustine"
+  },
+  "6468": {
+    "type": "single",
+    "rxcui": "6468",
+    "name": "loperamide"
+  },
+  "6470": {
+    "type": "single",
+    "rxcui": "6470",
+    "name": "lorazepam"
+  },
+  "6472": {
+    "type": "single",
+    "rxcui": "6472",
+    "name": "lovastatin"
+  },
+  "6475": {
+    "type": "single",
+    "rxcui": "6475",
+    "name": "loxapine"
+  },
+  "6579": {
+    "type": "single",
+    "rxcui": "6579",
+    "name": "magnesium chloride"
+  },
+  "6581": {
+    "type": "single",
+    "rxcui": "6581",
+    "name": "magnesium hydroxide"
+  },
+  "6582": {
+    "type": "single",
+    "rxcui": "6582",
+    "name": "magnesium oxide"
+  },
+  "6585": {
+    "type": "single",
+    "rxcui": "6585",
+    "name": "magnesium sulfate"
+  },
+  "6623": {
+    "type": "single",
+    "rxcui": "6623",
+    "name": "manganese"
+  },
+  "6628": {
+    "type": "single",
+    "rxcui": "6628",
+    "name": "mannitol"
+  },
+  "6646": {
+    "type": "single",
+    "rxcui": "6646",
+    "name": "maprotiline"
+  },
+  "6664": {
+    "type": "single",
+    "rxcui": "6664",
+    "name": "mazindol"
+  },
+  "6672": {
+    "type": "single",
+    "rxcui": "6672",
+    "name": "mebendazole"
+  },
+  "6673": {
+    "type": "single",
+    "rxcui": "6673",
+    "name": "mecamylamine"
+  },
+  "6674": {
+    "type": "single",
+    "rxcui": "6674",
+    "name": "mechlorethamine"
+  },
+  "6676": {
+    "type": "single",
+    "rxcui": "6676",
+    "name": "meclizine"
+  },
+  "6678": {
+    "type": "single",
+    "rxcui": "6678",
+    "name": "meclofenamic acid"
+  },
+  "6691": {
+    "type": "single",
+    "rxcui": "6691",
+    "name": "medroxyprogesterone"
+  },
+  "6693": {
+    "type": "single",
+    "rxcui": "257844",
+    "name": "mefenamate"
+  },
+  "6694": {
+    "type": "single",
+    "rxcui": "6694",
+    "name": "mefloquine"
+  },
+  "6711": {
+    "type": "single",
+    "rxcui": "6711",
+    "name": "melatonin"
+  },
+  "6718": {
+    "type": "single",
+    "rxcui": "6718",
+    "name": "melphalan"
+  },
+  "6719": {
+    "type": "single",
+    "rxcui": "6719",
+    "name": "memantine"
+  },
+  "6754": {
+    "type": "single",
+    "rxcui": "6754",
+    "name": "meperidine"
+  },
+  "6756": {
+    "type": "single",
+    "rxcui": "6756",
+    "name": "mephentermine"
+  },
+  "6757": {
+    "type": "single",
+    "rxcui": "6757",
+    "name": "mephenytoin"
+  },
+  "6758": {
+    "type": "single",
+    "rxcui": "6758",
+    "name": "mephobarbital"
+  },
+  "6759": {
+    "type": "single",
+    "rxcui": "6759",
+    "name": "mepivacaine"
+  },
+  "6760": {
+    "type": "single",
+    "rxcui": "6760",
+    "name": "meprobamate"
+  },
+  "6779": {
+    "type": "single",
+    "rxcui": "6779",
+    "name": "mesoridazine"
+  },
+  "6782": {
+    "type": "single",
+    "rxcui": "6782",
+    "name": "mestranol"
+  },
+  "6805": {
+    "type": "single",
+    "rxcui": "6805",
+    "name": "metaraminol"
+  },
+  "6809": {
+    "type": "single",
+    "rxcui": "6809",
+    "name": "metformin"
+  },
+  "6813": {
+    "type": "single",
+    "rxcui": "6813",
+    "name": "methadone"
+  },
+  "6816": {
+    "type": "single",
+    "rxcui": "6816",
+    "name": "methamphetamine"
+  },
+  "6826": {
+    "type": "single",
+    "rxcui": "6826",
+    "name": "methazolamide"
+  },
+  "6832": {
+    "type": "single",
+    "rxcui": "6832",
+    "name": "methenamine"
+  },
+  "6835": {
+    "type": "single",
+    "rxcui": "6835",
+    "name": "methimazole"
+  },
+  "6837": {
+    "type": "single",
+    "rxcui": "6837",
+    "name": "methionine"
+  },
+  "6845": {
+    "type": "single",
+    "rxcui": "6845",
+    "name": "methocarbamol"
+  },
+  "6847": {
+    "type": "single",
+    "rxcui": "6847",
+    "name": "methohexital"
+  },
+  "6851": {
+    "type": "single",
+    "rxcui": "6851",
+    "name": "methotrexate"
+  },
+  "6852": {
+    "type": "single",
+    "rxcui": "6852",
+    "name": "methotrimeprazine"
+  },
+  "6853": {
+    "type": "single",
+    "rxcui": "6853",
+    "name": "methoxamine"
+  },
+  "6854": {
+    "type": "single",
+    "rxcui": "6854",
+    "name": "methoxsalen"
+  },
+  "6857": {
+    "type": "single",
+    "rxcui": "6857",
+    "name": "methoxyflurane"
+  },
+  "6873": {
+    "type": "single",
+    "rxcui": "6873",
+    "name": "methylcellulose"
+  },
+  "6876": {
+    "type": "single",
+    "rxcui": "6876",
+    "name": "methyldopa"
+  },
+  "6878": {
+    "type": "single",
+    "rxcui": "6878",
+    "name": "methylene blue"
+  },
+  "6883": {
+    "type": "single",
+    "rxcui": "6883",
+    "name": "methylergonovine"
+  },
+  "6901": {
+    "type": "single",
+    "rxcui": "6901",
+    "name": "methylphenidate"
+  },
+  "6902": {
+    "type": "single",
+    "rxcui": "6902",
+    "name": "methylprednisolone"
+  },
+  "6904": {
+    "type": "single",
+    "rxcui": "6904",
+    "name": "methyltestosterone"
+  },
+  "6911": {
+    "type": "single",
+    "rxcui": "6911",
+    "name": "methysergide"
+  },
+  "6915": {
+    "type": "single",
+    "rxcui": "6915",
+    "name": "metoclopramide"
+  },
+  "6916": {
+    "type": "single",
+    "rxcui": "6916",
+    "name": "metolazone"
+  },
+  "6918": {
+    "type": "single",
+    "rxcui": "6918",
+    "name": "metoprolol"
+  },
+  "6922": {
+    "type": "single",
+    "rxcui": "6922",
+    "name": "metronidazole"
+  },
+  "6923": {
+    "type": "single",
+    "rxcui": "6923",
+    "name": "metyrapone"
+  },
+  "6926": {
+    "type": "single",
+    "rxcui": "6926",
+    "name": "mexiletine"
+  },
+  "6927": {
+    "type": "single",
+    "rxcui": "6927",
+    "name": "mezlocillin"
+  },
+  "6932": {
+    "type": "single",
+    "rxcui": "6932",
+    "name": "miconazole"
+  },
+  "6960": {
+    "type": "single",
+    "rxcui": "6960",
+    "name": "midazolam"
+  },
+  "6963": {
+    "type": "single",
+    "rxcui": "6963",
+    "name": "midodrine"
+  },
+  "6964": {
+    "type": "single",
+    "rxcui": "6964",
+    "name": "mifepristone"
+  },
+  "6972": {
+    "type": "single",
+    "rxcui": "6972",
+    "name": "mineral oil"
+  },
+  "6980": {
+    "type": "single",
+    "rxcui": "6980",
+    "name": "minocycline"
+  },
+  "6984": {
+    "type": "single",
+    "rxcui": "6984",
+    "name": "minoxidil"
+  },
+  "6995": {
+    "type": "single",
+    "rxcui": "6995",
+    "name": "plicamycin"
+  },
+  "7004": {
+    "type": "single",
+    "rxcui": "7004",
+    "name": "mitotane"
+  },
+  "7005": {
+    "type": "single",
+    "rxcui": "7005",
+    "name": "mitoxantrone"
+  },
+  "7019": {
+    "type": "single",
+    "rxcui": "7019",
+    "name": "molindone"
+  },
+  "7052": {
+    "type": "single",
+    "rxcui": "7052",
+    "name": "morphine"
+  },
+  "7145": {
+    "type": "single",
+    "rxcui": "7145",
+    "name": "mycophenolic acid"
+  },
+  "7213": {
+    "type": "single",
+    "rxcui": "7213",
+    "name": "ipratropium"
+  },
+  "7226": {
+    "type": "single",
+    "rxcui": "7226",
+    "name": "nadolol"
+  },
+  "7233": {
+    "type": "single",
+    "rxcui": "7233",
+    "name": "nafcillin"
+  },
+  "7238": {
+    "type": "single",
+    "rxcui": "7238",
+    "name": "nalbuphine"
+  },
+  "7240": {
+    "type": "single",
+    "rxcui": "618425",
+    "name": "nalidixate"
+  },
+  "7242": {
+    "type": "single",
+    "rxcui": "7242",
+    "name": "naloxone"
+  },
+  "7243": {
+    "type": "single",
+    "rxcui": "7243",
+    "name": "naltrexone"
+  },
+  "7247": {
+    "type": "single",
+    "rxcui": "7247",
+    "name": "naphazoline"
+  },
+  "7258": {
+    "type": "single",
+    "rxcui": "7258",
+    "name": "naproxen"
+  },
+  "7299": {
+    "type": "single",
+    "rxcui": "7299",
+    "name": "neomycin"
+  },
+  "7315": {
+    "type": "single",
+    "rxcui": "7315",
+    "name": "neostigmine"
+  },
+  "7337": {
+    "type": "single",
+    "rxcui": "7337",
+    "name": "netilmicin"
+  },
+  "7393": {
+    "type": "single",
+    "rxcui": "7393",
+    "name": "niacin"
+  },
+  "7396": {
+    "type": "single",
+    "rxcui": "7396",
+    "name": "nicardipine"
+  },
+  "7402": {
+    "type": "single",
+    "rxcui": "7402",
+    "name": "niclosamide"
+  },
+  "7405": {
+    "type": "single",
+    "rxcui": "7405",
+    "name": "niacinamide"
+  },
+  "7407": {
+    "type": "single",
+    "rxcui": "7407",
+    "name": "nicotine"
+  },
+  "7417": {
+    "type": "single",
+    "rxcui": "7417",
+    "name": "nifedipine"
+  },
+  "7421": {
+    "type": "single",
+    "rxcui": "7421",
+    "name": "nifurtimox"
+  },
+  "7426": {
+    "type": "single",
+    "rxcui": "7426",
+    "name": "nimodipine"
+  },
+  "7435": {
+    "type": "single",
+    "rxcui": "7435",
+    "name": "nisoldipine"
+  },
+  "7440": {
+    "type": "single",
+    "rxcui": "7440",
+    "name": "nitrazepam"
+  },
+  "7442": {
+    "type": "single",
+    "rxcui": "7442",
+    "name": "nitric oxide"
+  },
+  "7454": {
+    "type": "single",
+    "rxcui": "7454",
+    "name": "nitrofurantoin"
+  },
+  "7476": {
+    "type": "single",
+    "rxcui": "7476",
+    "name": "nitroprusside"
+  },
+  "7486": {
+    "type": "single",
+    "rxcui": "7486",
+    "name": "nitrous oxide"
+  },
+  "7512": {
+    "type": "single",
+    "rxcui": "7512",
+    "name": "norepinephrine"
+  },
+  "7514": {
+    "type": "single",
+    "rxcui": "7514",
+    "name": "norethindrone"
+  },
+  "7517": {
+    "type": "single",
+    "rxcui": "7517",
+    "name": "norfloxacin"
+  },
+  "7518": {
+    "type": "single",
+    "rxcui": "7518",
+    "name": "norgestrel"
+  },
+  "7531": {
+    "type": "single",
+    "rxcui": "7531",
+    "name": "nortriptyline"
+  },
+  "7538": {
+    "type": "single",
+    "rxcui": "7538",
+    "name": "novobiocin"
+  },
+  "7597": {
+    "type": "single",
+    "rxcui": "7597",
+    "name": "nystatin"
+  },
+  "7617": {
+    "type": "single",
+    "rxcui": "7617",
+    "name": "octreotide"
+  },
+  "7623": {
+    "type": "single",
+    "rxcui": "7623",
+    "name": "ofloxacin"
+  },
+  "7646": {
+    "type": "single",
+    "rxcui": "7646",
+    "name": "omeprazole"
+  },
+  "7676": {
+    "type": "single",
+    "rxcui": "7676",
+    "name": "opium"
+  },
+  "7688": {
+    "type": "single",
+    "rxcui": "7688",
+    "name": "metaproterenol"
+  },
+  "7715": {
+    "type": "single",
+    "rxcui": "7715",
+    "name": "orphenadrine"
+  },
+  "7773": {
+    "type": "single",
+    "rxcui": "7773",
+    "name": "oxacillin"
+  },
+  "7778": {
+    "type": "single",
+    "rxcui": "7778",
+    "name": "oxamniquine"
+  },
+  "7779": {
+    "type": "single",
+    "rxcui": "7779",
+    "name": "oxandrolone"
+  },
+  "7781": {
+    "type": "single",
+    "rxcui": "7781",
+    "name": "oxazepam"
+  },
+  "7804": {
+    "type": "single",
+    "rxcui": "7804",
+    "name": "oxycodone"
+  },
+  "7806": {
+    "type": "single",
+    "rxcui": "7806",
+    "name": "oxygen"
+  },
+  "7812": {
+    "type": "single",
+    "rxcui": "7812",
+    "name": "oxymetazoline"
+  },
+  "7813": {
+    "type": "single",
+    "rxcui": "7813",
+    "name": "oxymetholone"
+  },
+  "7814": {
+    "type": "single",
+    "rxcui": "7814",
+    "name": "oxymorphone"
+  },
+  "7821": {
+    "type": "single",
+    "rxcui": "7821",
+    "name": "oxytetracycline"
+  },
+  "7824": {
+    "type": "single",
+    "rxcui": "7824",
+    "name": "oxytocin"
+  },
+  "7833": {
+    "type": "single",
+    "rxcui": "7833",
+    "name": "aminosalicylic acid"
+  },
+  "7839": {
+    "type": "single",
+    "rxcui": "7839",
+    "name": "p-hydroxyamphetamine"
+  },
+  "7880": {
+    "type": "single",
+    "rxcui": "7880",
+    "name": "pancreatin"
+  },
+  "7883": {
+    "type": "single",
+    "rxcui": "7883",
+    "name": "pancuronium"
+  },
+  "7895": {
+    "type": "single",
+    "rxcui": "7895",
+    "name": "papaverine"
+  },
+  "7909": {
+    "type": "single",
+    "rxcui": "7909",
+    "name": "paraldehyde"
+  },
+  "7934": {
+    "type": "single",
+    "rxcui": "7934",
+    "name": "paromomycin"
+  },
+  "7966": {
+    "type": "single",
+    "rxcui": "7966",
+    "name": "pemoline"
+  },
+  "7973": {
+    "type": "single",
+    "rxcui": "7973",
+    "name": "penbutolol"
+  },
+  "7975": {
+    "type": "single",
+    "rxcui": "7975",
+    "name": "penicillamine"
+  },
+  "7980": {
+    "type": "single",
+    "rxcui": "7980",
+    "name": "penicillin G"
+  },
+  "7984": {
+    "type": "single",
+    "rxcui": "7984",
+    "name": "penicillin V"
+  },
+  "7994": {
+    "type": "single",
+    "rxcui": "7994",
+    "name": "pentamidine"
+  },
+  "8001": {
+    "type": "single",
+    "rxcui": "8001",
+    "name": "pentazocine"
+  },
+  "8004": {
+    "type": "single",
+    "rxcui": "8004",
+    "name": "pentobarbital"
+  },
+  "8011": {
+    "type": "single",
+    "rxcui": "8011",
+    "name": "pentostatin"
+  },
+  "8013": {
+    "type": "single",
+    "rxcui": "8013",
+    "name": "pentoxifylline"
+  },
+  "8047": {
+    "type": "single",
+    "rxcui": "8047",
+    "name": "pergolide"
+  },
+  "8076": {
+    "type": "single",
+    "rxcui": "8076",
+    "name": "perphenazine"
+  },
+  "8120": {
+    "type": "single",
+    "rxcui": "8120",
+    "name": "phenazopyridine"
+  },
+  "8123": {
+    "type": "single",
+    "rxcui": "8123",
+    "name": "phenelzine"
+  },
+  "8134": {
+    "type": "single",
+    "rxcui": "8134",
+    "name": "phenobarbital"
+  },
+  "8149": {
+    "type": "single",
+    "rxcui": "8149",
+    "name": "phenoxybenzamine"
+  },
+  "8152": {
+    "type": "single",
+    "rxcui": "8152",
+    "name": "phentermine"
+  },
+  "8153": {
+    "type": "single",
+    "rxcui": "8153",
+    "name": "phentolamine"
+  },
+  "8160": {
+    "type": "single",
+    "rxcui": "8160",
+    "name": "phenylbutazone"
+  },
+  "8163": {
+    "type": "single",
+    "rxcui": "8163",
+    "name": "phenylephrine"
+  },
+  "8175": {
+    "type": "single",
+    "rxcui": "8175",
+    "name": "phenylpropanolamine"
+  },
+  "8183": {
+    "type": "single",
+    "rxcui": "8183",
+    "name": "phenytoin"
+  },
+  "8299": {
+    "type": "single",
+    "rxcui": "8299",
+    "name": "physostigmine"
+  },
+  "8308": {
+    "type": "single",
+    "rxcui": "8308",
+    "name": "vitamin K1"
+  },
+  "8328": {
+    "type": "single",
+    "rxcui": "8328",
+    "name": "pilocarpine"
+  },
+  "8331": {
+    "type": "single",
+    "rxcui": "8331",
+    "name": "pimozide"
+  },
+  "8332": {
+    "type": "single",
+    "rxcui": "8332",
+    "name": "pindolol"
+  },
+  "8339": {
+    "type": "single",
+    "rxcui": "8339",
+    "name": "piperacillin"
+  },
+  "8340": {
+    "type": "single",
+    "rxcui": "8340",
+    "name": "piperazine"
+  },
+  "8353": {
+    "type": "single",
+    "rxcui": "8353",
+    "name": "piribedil"
+  },
+  "8356": {
+    "type": "single",
+    "rxcui": "8356",
+    "name": "piroxicam"
+  },
+  "8410": {
+    "type": "single",
+    "rxcui": "8410",
+    "name": "alteplase"
+  },
+  "8516": {
+    "type": "single",
+    "rxcui": "8516",
+    "name": "polyethylene glycols"
+  },
+  "8536": {
+    "type": "single",
+    "rxcui": "8536",
+    "name": "polymyxin B"
+  },
+  "8565": {
+    "type": "single",
+    "rxcui": "8565",
+    "name": "polythiazide"
+  },
+  "8591": {
+    "type": "single",
+    "rxcui": "8591",
+    "name": "potassium chloride"
+  },
+  "8597": {
+    "type": "single",
+    "rxcui": "8597",
+    "name": "potassium iodide"
+  },
+  "8628": {
+    "type": "single",
+    "rxcui": "8628",
+    "name": "praziquantel"
+  },
+  "8629": {
+    "type": "single",
+    "rxcui": "8629",
+    "name": "prazosin"
+  },
+  "8638": {
+    "type": "single",
+    "rxcui": "8638",
+    "name": "prednisolone"
+  },
+  "8640": {
+    "type": "single",
+    "rxcui": "8640",
+    "name": "prednisone"
+  },
+  "8686": {
+    "type": "single",
+    "rxcui": "8686",
+    "name": "prilocaine"
+  },
+  "8687": {
+    "type": "single",
+    "rxcui": "8687",
+    "name": "primaquine"
+  },
+  "8691": {
+    "type": "single",
+    "rxcui": "8691",
+    "name": "primidone"
+  },
+  "8698": {
+    "type": "single",
+    "rxcui": "8698",
+    "name": "probenecid"
+  },
+  "8699": {
+    "type": "single",
+    "rxcui": "8699",
+    "name": "probucol"
+  },
+  "8700": {
+    "type": "single",
+    "rxcui": "8700",
+    "name": "procainamide"
+  },
+  "8701": {
+    "type": "single",
+    "rxcui": "8701",
+    "name": "procaine"
+  },
+  "8702": {
+    "type": "single",
+    "rxcui": "8702",
+    "name": "procarbazine"
+  },
+  "8703": {
+    "type": "single",
+    "rxcui": "8703",
+    "name": "fenofibrate"
+  },
+  "8704": {
+    "type": "single",
+    "rxcui": "8704",
+    "name": "prochlorperazine"
+  },
+  "8718": {
+    "type": "single",
+    "rxcui": "8718",
+    "name": "procyclidine"
+  },
+  "8727": {
+    "type": "single",
+    "rxcui": "8727",
+    "name": "progesterone"
+  },
+  "8742": {
+    "type": "single",
+    "rxcui": "8742",
+    "name": "promazine"
+  },
+  "8745": {
+    "type": "single",
+    "rxcui": "8745",
+    "name": "promethazine"
+  },
+  "8754": {
+    "type": "single",
+    "rxcui": "8754",
+    "name": "propafenone"
+  },
+  "8761": {
+    "type": "single",
+    "rxcui": "8761",
+    "name": "propantheline"
+  },
+  "8770": {
+    "type": "single",
+    "rxcui": "8770",
+    "name": "propiomazine"
+  },
+  "8782": {
+    "type": "single",
+    "rxcui": "8782",
+    "name": "propofol"
+  },
+  "8785": {
+    "type": "single",
+    "rxcui": "8785",
+    "name": "propoxyphene"
+  },
+  "8787": {
+    "type": "single",
+    "rxcui": "8787",
+    "name": "propranolol"
+  },
+  "8792": {
+    "type": "single",
+    "rxcui": "8792",
+    "name": "propylhexedrine"
+  },
+  "8794": {
+    "type": "single",
+    "rxcui": "8794",
+    "name": "propylthiouracil"
+  },
+  "8814": {
+    "type": "single",
+    "rxcui": "8814",
+    "name": "epoprostenol"
+  },
+  "8886": {
+    "type": "single",
+    "rxcui": "8886",
+    "name": "protriptyline"
+  },
+  "8896": {
+    "type": "single",
+    "rxcui": "8896",
+    "name": "pseudoephedrine"
+  },
+  "8948": {
+    "type": "single",
+    "rxcui": "8948",
+    "name": "purified protein derivative of tuberculin"
+  },
+  "8984": {
+    "type": "single",
+    "rxcui": "8984",
+    "name": "pyrantel"
+  },
+  "8987": {
+    "type": "single",
+    "rxcui": "8987",
+    "name": "pyrazinamide"
+  },
+  "9000": {
+    "type": "single",
+    "rxcui": "9000",
+    "name": "pyridostigmine"
+  },
+  "9009": {
+    "type": "single",
+    "rxcui": "9009",
+    "name": "pyrilamine"
+  },
+  "9010": {
+    "type": "single",
+    "rxcui": "9010",
+    "name": "pyrimethamine"
+  },
+  "9066": {
+    "type": "single",
+    "rxcui": "9066",
+    "name": "quinestrol"
+  },
+  "9068": {
+    "type": "single",
+    "rxcui": "9068",
+    "name": "quinidine"
+  },
+  "9071": {
+    "type": "single",
+    "rxcui": "9071",
+    "name": "quinine"
+  },
+  "9143": {
+    "type": "single",
+    "rxcui": "9143",
+    "name": "ranitidine"
+  },
+  "9260": {
+    "type": "single",
+    "rxcui": "9260",
+    "name": "reserpine"
+  },
+  "9344": {
+    "type": "single",
+    "rxcui": "9344",
+    "name": "ribavirin"
+  },
+  "9384": {
+    "type": "single",
+    "rxcui": "9384",
+    "name": "rifampin"
+  },
+  "9386": {
+    "type": "single",
+    "rxcui": "9386",
+    "name": "rimantadine"
+  },
+  "9392": {
+    "type": "single",
+    "rxcui": "9392",
+    "name": "ritodrine"
+  },
+  "9504": {
+    "type": "single",
+    "rxcui": "9504",
+    "name": "S-adenosylmethionine"
+  },
+  "9524": {
+    "type": "single",
+    "rxcui": "9524",
+    "name": "sulfasalazine"
+  },
+  "9525": {
+    "type": "single",
+    "rxcui": "9525",
+    "name": "salicylic acid"
+  },
+  "9601": {
+    "type": "single",
+    "rxcui": "9601",
+    "name": "scopolamine"
+  },
+  "9624": {
+    "type": "single",
+    "rxcui": "9624",
+    "name": "secobarbital"
+  },
+  "9639": {
+    "type": "single",
+    "rxcui": "9639",
+    "name": "selegiline"
+  },
+  "9641": {
+    "type": "single",
+    "rxcui": "9641",
+    "name": "selenium"
+  },
+  "9789": {
+    "type": "single",
+    "rxcui": "9789",
+    "name": "silver nitrate"
+  },
+  "9793": {
+    "type": "single",
+    "rxcui": "9793",
+    "name": "silver sulfadiazine"
+  },
+  "9796": {
+    "type": "single",
+    "rxcui": "9796",
+    "name": "simethicone"
+  },
+  "9863": {
+    "type": "single",
+    "rxcui": "9863",
+    "name": "sodium chloride"
+  },
+  "9884": {
+    "type": "single",
+    "rxcui": "9884",
+    "name": "sodium iodide"
+  },
+  "9899": {
+    "type": "single",
+    "rxcui": "2387302",
+    "name": "oxybate"
+  },
+  "9945": {
+    "type": "single",
+    "rxcui": "9945",
+    "name": "sorbitol"
+  },
+  "9947": {
+    "type": "single",
+    "rxcui": "9947",
+    "name": "sotalol"
+  },
+  "9997": {
+    "type": "single",
+    "rxcui": "9997",
+    "name": "spironolactone"
+  },
+  "10032": {
+    "type": "single",
+    "rxcui": "10032",
+    "name": "stanozolol"
+  },
+  "10106": {
+    "type": "single",
+    "rxcui": "10106",
+    "name": "streptokinase"
+  },
+  "10109": {
+    "type": "single",
+    "rxcui": "10109",
+    "name": "streptomycin"
+  },
+  "10114": {
+    "type": "single",
+    "rxcui": "10114",
+    "name": "streptozocin"
+  },
+  "10154": {
+    "type": "single",
+    "rxcui": "10154",
+    "name": "succinylcholine"
+  },
+  "10156": {
+    "type": "single",
+    "rxcui": "10156",
+    "name": "sucralfate"
+  },
+  "10169": {
+    "type": "single",
+    "rxcui": "10169",
+    "name": "sulfacetamide"
+  },
+  "10171": {
+    "type": "single",
+    "rxcui": "10171",
+    "name": "sulfadiazine"
+  },
+  "10173": {
+    "type": "single",
+    "rxcui": "10173",
+    "name": "sulfadoxine"
+  },
+  "10179": {
+    "type": "single",
+    "rxcui": "10179",
+    "name": "sulfamethizole"
+  },
+  "10180": {
+    "type": "single",
+    "rxcui": "10180",
+    "name": "sulfamethoxazole"
+  },
+  "10205": {
+    "type": "single",
+    "rxcui": "10205",
+    "name": "sulfinpyrazone"
+  },
+  "10207": {
+    "type": "single",
+    "rxcui": "10207",
+    "name": "sulfisoxazole"
+  },
+  "10237": {
+    "type": "single",
+    "rxcui": "10237",
+    "name": "sulindac"
+  },
+  "10239": {
+    "type": "single",
+    "rxcui": "10239",
+    "name": "sulpiride"
+  },
+  "10255": {
+    "type": "single",
+    "rxcui": "10255",
+    "name": "suprofen"
+  },
+  "10318": {
+    "type": "single",
+    "rxcui": "10318",
+    "name": "tacrine"
+  },
+  "10324": {
+    "type": "single",
+    "rxcui": "10324",
+    "name": "tamoxifen"
+  },
+  "10355": {
+    "type": "single",
+    "rxcui": "10355",
+    "name": "temazepam"
+  },
+  "10362": {
+    "type": "single",
+    "rxcui": "10362",
+    "name": "teniposide"
+  },
+  "10368": {
+    "type": "single",
+    "rxcui": "10368",
+    "name": "terbutaline"
+  },
+  "10378": {
+    "type": "single",
+    "rxcui": "10378",
+    "name": "testolactone"
+  },
+  "10379": {
+    "type": "single",
+    "rxcui": "10379",
+    "name": "testosterone"
+  },
+  "10390": {
+    "type": "single",
+    "rxcui": "10390",
+    "name": "tetrabenazine"
+  },
+  "10391": {
+    "type": "single",
+    "rxcui": "10391",
+    "name": "tetracaine"
+  },
+  "10395": {
+    "type": "single",
+    "rxcui": "10395",
+    "name": "tetracycline"
+  },
+  "10402": {
+    "type": "single",
+    "rxcui": "10402",
+    "name": "dronabinol"
+  },
+  "10432": {
+    "type": "single",
+    "rxcui": "10432",
+    "name": "thalidomide"
+  },
+  "10438": {
+    "type": "single",
+    "rxcui": "10438",
+    "name": "theophylline"
+  },
+  "10450": {
+    "type": "single",
+    "rxcui": "10450",
+    "name": "thiabendazole"
+  },
+  "10471": {
+    "type": "single",
+    "rxcui": "10471",
+    "name": "thiethylperazine"
+  },
+  "10472": {
+    "type": "single",
+    "rxcui": "10472",
+    "name": "thimerosal"
+  },
+  "10473": {
+    "type": "single",
+    "rxcui": "10473",
+    "name": "thiotepa"
+  },
+  "10485": {
+    "type": "single",
+    "rxcui": "10485",
+    "name": "thioguanine"
+  },
+  "10493": {
+    "type": "single",
+    "rxcui": "10493",
+    "name": "thiopental"
+  },
+  "10502": {
+    "type": "single",
+    "rxcui": "10502",
+    "name": "thioridazine"
+  },
+  "10510": {
+    "type": "single",
+    "rxcui": "10510",
+    "name": "thiothixene"
+  },
+  "10582": {
+    "type": "single",
+    "rxcui": "10582",
+    "name": "levothyroxine"
+  },
+  "10591": {
+    "type": "single",
+    "rxcui": "10591",
+    "name": "ticarcillin"
+  },
+  "10594": {
+    "type": "single",
+    "rxcui": "10594",
+    "name": "ticlopidine"
+  },
+  "10600": {
+    "type": "single",
+    "rxcui": "10600",
+    "name": "timolol"
+  },
+  "10612": {
+    "type": "single",
+    "rxcui": "10612",
+    "name": "tinidazole"
+  },
+  "10627": {
+    "type": "single",
+    "rxcui": "10627",
+    "name": "tobramycin"
+  },
+  "10633": {
+    "type": "single",
+    "rxcui": "10633",
+    "name": "tolazamide"
+  },
+  "10634": {
+    "type": "single",
+    "rxcui": "10634",
+    "name": "tolazoline"
+  },
+  "10635": {
+    "type": "single",
+    "rxcui": "10635",
+    "name": "tolbutamide"
+  },
+  "10636": {
+    "type": "single",
+    "rxcui": "10636",
+    "name": "tolmetin"
+  },
+  "10639": {
+    "type": "single",
+    "rxcui": "10639",
+    "name": "tolperisone"
+  },
+  "10689": {
+    "type": "single",
+    "rxcui": "10689",
+    "name": "tramadol"
+  },
+  "10691": {
+    "type": "single",
+    "rxcui": "10691",
+    "name": "tranexamic acid"
+  },
+  "10734": {
+    "type": "single",
+    "rxcui": "10734",
+    "name": "tranylcypromine"
+  },
+  "10737": {
+    "type": "single",
+    "rxcui": "10737",
+    "name": "trazodone"
+  },
+  "10753": {
+    "type": "single",
+    "rxcui": "10753",
+    "name": "tretinoin"
+  },
+  "10759": {
+    "type": "single",
+    "rxcui": "10759",
+    "name": "triamcinolone"
+  },
+  "10763": {
+    "type": "single",
+    "rxcui": "10763",
+    "name": "triamterene"
+  },
+  "10767": {
+    "type": "single",
+    "rxcui": "10767",
+    "name": "triazolam"
+  },
+  "10772": {
+    "type": "single",
+    "rxcui": "10772",
+    "name": "trichlormethiazide"
+  },
+  "10798": {
+    "type": "single",
+    "rxcui": "10798",
+    "name": "trientine"
+  },
+  "10800": {
+    "type": "single",
+    "rxcui": "10800",
+    "name": "trifluoperazine"
+  },
+  "10803": {
+    "type": "single",
+    "rxcui": "10803",
+    "name": "trifluridine"
+  },
+  "10805": {
+    "type": "single",
+    "rxcui": "10805",
+    "name": "triflupromazine"
+  },
+  "10811": {
+    "type": "single",
+    "rxcui": "10811",
+    "name": "trihexyphenidyl"
+  },
+  "10814": {
+    "type": "single",
+    "rxcui": "10814",
+    "name": "liothyronine"
+  },
+  "10819": {
+    "type": "single",
+    "rxcui": "10819",
+    "name": "trimebutine"
+  },
+  "10824": {
+    "type": "single",
+    "rxcui": "10824",
+    "name": "metipranolol"
+  },
+  "10825": {
+    "type": "single",
+    "rxcui": "10825",
+    "name": "trimeprazine"
+  },
+  "10827": {
+    "type": "single",
+    "rxcui": "10827",
+    "name": "trimethadione"
+  },
+  "10828": {
+    "type": "single",
+    "rxcui": "10828",
+    "name": "trimethaphan"
+  },
+  "10829": {
+    "type": "single",
+    "rxcui": "10829",
+    "name": "trimethoprim"
+  },
+  "10834": {
+    "type": "single",
+    "rxcui": "10834",
+    "name": "trimipramine"
+  },
+  "10844": {
+    "type": "single",
+    "rxcui": "10844",
+    "name": "trioxsalen"
+  },
+  "10847": {
+    "type": "single",
+    "rxcui": "10847",
+    "name": "tripelennamine"
+  },
+  "10849": {
+    "type": "single",
+    "rxcui": "10849",
+    "name": "triprolidine"
+  },
+  "10864": {
+    "type": "single",
+    "rxcui": "10864",
+    "name": "troleandomycin"
+  },
+  "10865": {
+    "type": "single",
+    "rxcui": "10865",
+    "name": "tromethamine"
+  },
+  "10869": {
+    "type": "single",
+    "rxcui": "10869",
+    "name": "tropicamide"
+  },
+  "10898": {
+    "type": "single",
+    "rxcui": "10898",
+    "name": "tryptophan"
+  },
+  "10917": {
+    "type": "single",
+    "rxcui": "10917",
+    "name": "tubocurarine"
+  },
+  "10996": {
+    "type": "single",
+    "rxcui": "10996",
+    "name": "uracil mustard"
+  },
+  "11002": {
+    "type": "single",
+    "rxcui": "11002",
+    "name": "urea"
+  },
+  "11055": {
+    "type": "single",
+    "rxcui": "11055",
+    "name": "urokinase"
+  },
+  "11065": {
+    "type": "single",
+    "rxcui": "62427",
+    "name": "ursodeoxycholate"
+  },
+  "11118": {
+    "type": "single",
+    "rxcui": "40254",
+    "name": "valproate"
+  },
+  "11124": {
+    "type": "single",
+    "rxcui": "11124",
+    "name": "vancomycin"
+  },
+  "11149": {
+    "type": "single",
+    "rxcui": "11149",
+    "name": "vasopressin (USP)"
+  },
+  "11170": {
+    "type": "single",
+    "rxcui": "11170",
+    "name": "verapamil"
+  },
+  "11198": {
+    "type": "single",
+    "rxcui": "11198",
+    "name": "vinblastine"
+  },
+  "11202": {
+    "type": "single",
+    "rxcui": "11202",
+    "name": "vincristine"
+  },
+  "11246": {
+    "type": "single",
+    "rxcui": "11246",
+    "name": "vitamin A"
+  },
+  "11248": {
+    "type": "single",
+    "rxcui": "11248",
+    "name": "vitamin B12"
+  },
+  "11253": {
+    "type": "single",
+    "rxcui": "11253",
+    "name": "vitamin D"
+  },
+  "11256": {
+    "type": "single",
+    "rxcui": "11256",
+    "name": "vitamin E"
+  },
+  "11289": {
+    "type": "single",
+    "rxcui": "11289",
+    "name": "warfarin"
+  },
+  "11359": {
+    "type": "single",
+    "rxcui": "11359",
+    "name": "lutein"
+  },
+  "11413": {
+    "type": "single",
+    "rxcui": "11413",
+    "name": "zidovudine"
+  },
+  "11476": {
+    "type": "single",
+    "rxcui": "11476",
+    "name": "tiludronic acid"
+  },
+  "11516": {
+    "type": "single",
+    "rxcui": "11516",
+    "name": "doxercalciferol"
+  },
+  "11636": {
+    "type": "single",
+    "rxcui": "11636",
+    "name": "drospirenone"
+  },
+  "11645": {
+    "type": "single",
+    "rxcui": "11645",
+    "name": "deferiprone"
+  },
+  "12574": {
+    "type": "single",
+    "rxcui": "12574",
+    "name": "gemcitabine"
+  },
+  "14448": {
+    "type": "single",
+    "rxcui": "14448",
+    "name": "3-iodobenzylguanidine"
+  },
+  "14584": {
+    "type": "single",
+    "rxcui": "14584",
+    "name": "etonogestrel"
+  },
+  "14845": {
+    "type": "single",
+    "rxcui": "14845",
+    "name": "apraclonidine"
+  },
+  "14851": {
+    "type": "single",
+    "rxcui": "14851",
+    "name": "vigabatrin"
+  },
+  "15202": {
+    "type": "single",
+    "rxcui": "15202",
+    "name": "argatroban"
+  },
+  "15226": {
+    "type": "single",
+    "rxcui": "15226",
+    "name": "fomepizole"
+  },
+  "15657": {
+    "type": "single",
+    "rxcui": "15657",
+    "name": "decitabine"
+  },
+  "15996": {
+    "type": "single",
+    "rxcui": "15996",
+    "name": "mirtazapine"
+  },
+  "16681": {
+    "type": "single",
+    "rxcui": "16681",
+    "name": "acarbose"
+  },
+  "16728": {
+    "type": "single",
+    "rxcui": "16728",
+    "name": "acetohydroxamic acid"
+  },
+  "16738": {
+    "type": "single",
+    "rxcui": "16738",
+    "name": "racecadotril"
+  },
+  "16818": {
+    "type": "single",
+    "rxcui": "16818",
+    "name": "acitretin"
+  },
+  "17128": {
+    "type": "single",
+    "rxcui": "17128",
+    "name": "lansoprazole"
+  },
+  "17300": {
+    "type": "single",
+    "rxcui": "17300",
+    "name": "alfuzosin"
+  },
+  "17627": {
+    "type": "single",
+    "rxcui": "17627",
+    "name": "alverine"
+  },
+  "17652": {
+    "type": "single",
+    "rxcui": "17652",
+    "name": "amcinonide"
+  },
+  "17767": {
+    "type": "single",
+    "rxcui": "17767",
+    "name": "amlodipine"
+  },
+  "17941": {
+    "type": "single",
+    "rxcui": "17941",
+    "name": "anisindione"
+  },
+  "18330": {
+    "type": "single",
+    "rxcui": "18330",
+    "name": "arsenic trioxide"
+  },
+  "18343": {
+    "type": "single",
+    "rxcui": "18343",
+    "name": "artemether"
+  },
+  "18346": {
+    "type": "single",
+    "rxcui": "18346",
+    "name": "artesunate"
+  },
+  "18469": {
+    "type": "single",
+    "rxcui": "18469",
+    "name": "sparfloxacin"
+  },
+  "18516": {
+    "type": "single",
+    "rxcui": "18516",
+    "name": "attapulgite"
+  },
+  "18600": {
+    "type": "single",
+    "rxcui": "18600",
+    "name": "azatadine"
+  },
+  "18602": {
+    "type": "single",
+    "rxcui": "618278",
+    "name": "azelate"
+  },
+  "18603": {
+    "type": "single",
+    "rxcui": "18603",
+    "name": "azelastine"
+  },
+  "18631": {
+    "type": "single",
+    "rxcui": "18631",
+    "name": "azithromycin"
+  },
+  "18687": {
+    "type": "single",
+    "rxcui": "18687",
+    "name": "bacampicillin"
+  },
+  "18747": {
+    "type": "single",
+    "rxcui": "18747",
+    "name": "balsalazide"
+  },
+  "18867": {
+    "type": "single",
+    "rxcui": "18867",
+    "name": "benazepril"
+  },
+  "18889": {
+    "type": "single",
+    "rxcui": "18889",
+    "name": "benoxinate"
+  },
+  "18993": {
+    "type": "single",
+    "rxcui": "18993",
+    "name": "benzonatate"
+  },
+  "18994": {
+    "type": "single",
+    "rxcui": "18994",
+    "name": "benznidazole"
+  },
+  "19008": {
+    "type": "single",
+    "rxcui": "19008",
+    "name": "benzthiazide"
+  },
+  "19143": {
+    "type": "single",
+    "rxcui": "19143",
+    "name": "beta carotene"
+  },
+  "19257": {
+    "type": "single",
+    "rxcui": "19257",
+    "name": "bethanechol"
+  },
+  "19476": {
+    "type": "single",
+    "rxcui": "19476",
+    "name": "bismuth subgallate"
+  },
+  "19478": {
+    "type": "single",
+    "rxcui": "19478",
+    "name": "bismuth subsalicylate"
+  },
+  "19484": {
+    "type": "single",
+    "rxcui": "19484",
+    "name": "bisoprolol"
+  },
+  "19552": {
+    "type": "single",
+    "rxcui": "19552",
+    "name": "cefprozil"
+  },
+  "19666": {
+    "type": "single",
+    "rxcui": "19666",
+    "name": "nesiritide"
+  },
+  "19685": {
+    "type": "single",
+    "rxcui": "19685",
+    "name": "bretylium"
+  },
+  "19737": {
+    "type": "single",
+    "rxcui": "19737",
+    "name": "bromfenac"
+  },
+  "19831": {
+    "type": "single",
+    "rxcui": "19831",
+    "name": "budesonide"
+  },
+  "19860": {
+    "type": "single",
+    "rxcui": "19860",
+    "name": "butalbital"
+  },
+  "19959": {
+    "type": "single",
+    "rxcui": "19959",
+    "name": "acrivastine"
+  },
+  "20217": {
+    "type": "single",
+    "rxcui": "20217",
+    "name": "carbetapentane"
+  },
+  "20220": {
+    "type": "single",
+    "rxcui": "20220",
+    "name": "carbinoxamine"
+  },
+  "20352": {
+    "type": "single",
+    "rxcui": "20352",
+    "name": "carvedilol"
+  },
+  "20481": {
+    "type": "single",
+    "rxcui": "20481",
+    "name": "cefepime"
+  },
+  "20489": {
+    "type": "single",
+    "rxcui": "20489",
+    "name": "cefpodoxime"
+  },
+  "20492": {
+    "type": "single",
+    "rxcui": "20492",
+    "name": "ceftibuten"
+  },
+  "20610": {
+    "type": "single",
+    "rxcui": "20610",
+    "name": "cetirizine"
+  },
+  "20859": {
+    "type": "single",
+    "rxcui": "20859",
+    "name": "chloroprocaine"
+  },
+  "20890": {
+    "type": "single",
+    "rxcui": "20890",
+    "name": "lornoxicam"
+  },
+  "20974": {
+    "type": "single",
+    "rxcui": "2449",
+    "name": "choline"
+  },
+  "20976": {
+    "type": "single",
+    "rxcui": "20976",
+    "name": "oxtriphylline"
+  },
+  "21009": {
+    "type": "single",
+    "rxcui": "21009",
+    "name": "chromic chloride"
+  },
+  "21090": {
+    "type": "single",
+    "rxcui": "21090",
+    "name": "ciclopirox"
+  },
+  "21107": {
+    "type": "single",
+    "rxcui": "21107",
+    "name": "cilostazol"
+  },
+  "21125": {
+    "type": "single",
+    "rxcui": "21125",
+    "name": "cinitapride"
+  },
+  "21183": {
+    "type": "single",
+    "rxcui": "21183",
+    "name": "citric acid"
+  },
+  "21212": {
+    "type": "single",
+    "rxcui": "21212",
+    "name": "clarithromycin"
+  },
+  "21216": {
+    "type": "single",
+    "rxcui": "48203",
+    "name": "clavulanate"
+  },
+  "21232": {
+    "type": "single",
+    "rxcui": "21232",
+    "name": "clidinium"
+  },
+  "21241": {
+    "type": "single",
+    "rxcui": "21241",
+    "name": "clobazam"
+  },
+  "21249": {
+    "type": "single",
+    "rxcui": "21249",
+    "name": "clocortolone"
+  },
+  "21254": {
+    "type": "single",
+    "rxcui": "21254",
+    "name": "chlophedianol"
+  },
+  "21949": {
+    "type": "single",
+    "rxcui": "21949",
+    "name": "cyclobenzaprine"
+  },
+  "22299": {
+    "type": "single",
+    "rxcui": "22299",
+    "name": "daptomycin"
+  },
+  "22396": {
+    "type": "single",
+    "rxcui": "22396",
+    "name": "deflazacort"
+  },
+  "22656": {
+    "type": "single",
+    "rxcui": "22656",
+    "name": "desogestrel"
+  },
+  "22696": {
+    "type": "single",
+    "rxcui": "22696",
+    "name": "dexbrompheniramine"
+  },
+  "22713": {
+    "type": "single",
+    "rxcui": "22713",
+    "name": "dezocine"
+  },
+  "22759": {
+    "type": "single",
+    "rxcui": "22759",
+    "name": "diacetylrhein"
+  },
+  "22892": {
+    "type": "single",
+    "rxcui": "22892",
+    "name": "dichloralphenazone"
+  },
+  "22968": {
+    "type": "single",
+    "rxcui": "22968",
+    "name": "dienogest"
+  },
+  "23024": {
+    "type": "single",
+    "rxcui": "23024",
+    "name": "difenoxin"
+  },
+  "23043": {
+    "type": "single",
+    "rxcui": "23043",
+    "name": "difluprednate"
+  },
+  "23088": {
+    "type": "single",
+    "rxcui": "23088",
+    "name": "dihydrocodeine"
+  },
+  "23410": {
+    "type": "single",
+    "rxcui": "23410",
+    "name": "dipivefrin"
+  },
+  "23651": {
+    "type": "single",
+    "rxcui": "23651",
+    "name": "doxacurium"
+  },
+  "23684": {
+    "type": "single",
+    "rxcui": "23684",
+    "name": "drotaverin"
+  },
+  "24605": {
+    "type": "single",
+    "rxcui": "24605",
+    "name": "etodolac"
+  },
+  "24698": {
+    "type": "single",
+    "rxcui": "24698",
+    "name": "fludarabine"
+  },
+  "24812": {
+    "type": "single",
+    "rxcui": "24812",
+    "name": "felbamate"
+  },
+  "24852": {
+    "type": "single",
+    "rxcui": "8703",
+    "name": "fenofibrate"
+  },
+  "24853": {
+    "type": "single",
+    "rxcui": "24853",
+    "name": "fenoldopam"
+  },
+  "24909": {
+    "type": "single",
+    "rxcui": "24909",
+    "name": "iron sucrose"
+  },
+  "24941": {
+    "type": "single",
+    "rxcui": "24941",
+    "name": "ferrous fumarate"
+  },
+  "24942": {
+    "type": "single",
+    "rxcui": "24942",
+    "name": "ferrous gluconate"
+  },
+  "24947": {
+    "type": "single",
+    "rxcui": "24947",
+    "name": "ferrous sulfate"
+  },
+  "25025": {
+    "type": "single",
+    "rxcui": "25025",
+    "name": "finasteride"
+  },
+  "25033": {
+    "type": "single",
+    "rxcui": "25033",
+    "name": "cefixime"
+  },
+  "25037": {
+    "type": "single",
+    "rxcui": "25037",
+    "name": "cefdinir"
+  },
+  "25120": {
+    "type": "single",
+    "rxcui": "25120",
+    "name": "flunisolide"
+  },
+  "25138": {
+    "type": "single",
+    "rxcui": "25138",
+    "name": "fluorescein"
+  },
+  "25255": {
+    "type": "single",
+    "rxcui": "25255",
+    "name": "formoterol"
+  },
+  "25480": {
+    "type": "single",
+    "rxcui": "25480",
+    "name": "gabapentin"
+  },
+  "25483": {
+    "type": "single",
+    "rxcui": "25483",
+    "name": "gadoteridol"
+  },
+  "25544": {
+    "type": "single",
+    "rxcui": "1310124",
+    "name": "gallium"
+  },
+  "25789": {
+    "type": "single",
+    "rxcui": "25789",
+    "name": "glimepiride"
+  },
+  "25916": {
+    "type": "single",
+    "rxcui": "70602",
+    "name": "glutamate"
+  },
+  "26225": {
+    "type": "single",
+    "rxcui": "26225",
+    "name": "ondansetron"
+  },
+  "26237": {
+    "type": "single",
+    "rxcui": "26237",
+    "name": "granisetron"
+  },
+  "26296": {
+    "type": "single",
+    "rxcui": "26296",
+    "name": "guanadrel"
+  },
+  "26412": {
+    "type": "single",
+    "rxcui": "26412",
+    "name": "halazepam"
+  },
+  "26744": {
+    "type": "single",
+    "rxcui": "26744",
+    "name": "hepatitis B immune globulin"
+  },
+  "27084": {
+    "type": "single",
+    "rxcui": "27084",
+    "name": "homatropine"
+  },
+  "27100": {
+    "type": "single",
+    "rxcui": "27100",
+    "name": "omacetaxine mepesuccinate"
+  },
+  "27169": {
+    "type": "single",
+    "rxcui": "27169",
+    "name": "leflunomide"
+  },
+  "27340": {
+    "type": "single",
+    "rxcui": "27340",
+    "name": "desflurane"
+  },
+  "27729": {
+    "type": "single",
+    "rxcui": "27729",
+    "name": "iodixanol"
+  },
+  "27781": {
+    "type": "single",
+    "rxcui": "27781",
+    "name": "iopromide"
+  },
+  "27792": {
+    "type": "single",
+    "rxcui": "27792",
+    "name": "ioversol"
+  },
+  "27793": {
+    "type": "single",
+    "rxcui": "27793",
+    "name": "ioxilan"
+  },
+  "27823": {
+    "type": "single",
+    "rxcui": "27823",
+    "name": "iron protein succinylate"
+  },
+  "27946": {
+    "type": "single",
+    "rxcui": "27946",
+    "name": "isometheptene"
+  },
+  "28004": {
+    "type": "single",
+    "rxcui": "6057",
+    "name": "isosorbide"
+  },
+  "28031": {
+    "type": "single",
+    "rxcui": "28031",
+    "name": "itraconazole"
+  },
+  "28393": {
+    "type": "single",
+    "rxcui": "114202",
+    "name": "lactate"
+  },
+  "28395": {
+    "type": "single",
+    "rxcui": "28395",
+    "name": "lactitol"
+  },
+  "28439": {
+    "type": "single",
+    "rxcui": "28439",
+    "name": "lamotrigine"
+  },
+  "28863": {
+    "type": "single",
+    "rxcui": "28863",
+    "name": "lofexidine"
+  },
+  "28872": {
+    "type": "single",
+    "rxcui": "28872",
+    "name": "lomefloxacin"
+  },
+  "28889": {
+    "type": "single",
+    "rxcui": "28889",
+    "name": "loratadine"
+  },
+  "28981": {
+    "type": "single",
+    "rxcui": "28981",
+    "name": "loracarbef"
+  },
+  "29046": {
+    "type": "single",
+    "rxcui": "29046",
+    "name": "lisinopril"
+  },
+  "29151": {
+    "type": "single",
+    "rxcui": "29151",
+    "name": "magaldrate"
+  },
+  "29155": {
+    "type": "single",
+    "rxcui": "29155",
+    "name": "magnesium carbonate"
+  },
+  "29275": {
+    "type": "single",
+    "rxcui": "29275",
+    "name": "manidipine"
+  },
+  "29365": {
+    "type": "single",
+    "rxcui": "29365",
+    "name": "calcipotriene"
+  },
+  "29410": {
+    "type": "single",
+    "rxcui": "29410",
+    "name": "mebeverine"
+  },
+  "29421": {
+    "type": "single",
+    "rxcui": "29421",
+    "name": "mecobalamin"
+  },
+  "29439": {
+    "type": "single",
+    "rxcui": "29439",
+    "name": "medrysone"
+  },
+  "29451": {
+    "type": "single",
+    "rxcui": "6703",
+    "name": "megestrol"
+  },
+  "29503": {
+    "type": "single",
+    "rxcui": "29503",
+    "name": "meningococcal group C polysaccharide"
+  },
+  "29561": {
+    "type": "single",
+    "rxcui": "29561",
+    "name": "meropenem"
+  },
+  "29648": {
+    "type": "single",
+    "rxcui": "29648",
+    "name": "methdilazine"
+  },
+  "29787": {
+    "type": "single",
+    "rxcui": "29787",
+    "name": "methyl salicylate"
+  },
+  "29899": {
+    "type": "single",
+    "rxcui": "29899",
+    "name": "methylnaltrexone"
+  },
+  "29950": {
+    "type": "single",
+    "rxcui": "29950",
+    "name": "metocurine"
+  },
+  "30009": {
+    "type": "single",
+    "rxcui": "30009",
+    "name": "miglitol"
+  },
+  "30077": {
+    "type": "single",
+    "rxcui": "30077",
+    "name": "mivacurium"
+  },
+  "30121": {
+    "type": "single",
+    "rxcui": "30121",
+    "name": "moclobemide"
+  },
+  "30125": {
+    "type": "single",
+    "rxcui": "30125",
+    "name": "modafinil"
+  },
+  "30131": {
+    "type": "single",
+    "rxcui": "30131",
+    "name": "moexipril"
+  },
+  "30236": {
+    "type": "single",
+    "rxcui": "7052",
+    "name": "morphine"
+  },
+  "30257": {
+    "type": "single",
+    "rxcui": "30257",
+    "name": "moxonidine"
+  },
+  "31435": {
+    "type": "single",
+    "rxcui": "31435",
+    "name": "valrubicin"
+  },
+  "31447": {
+    "type": "single",
+    "rxcui": "31447",
+    "name": "nabilone"
+  },
+  "31448": {
+    "type": "single",
+    "rxcui": "31448",
+    "name": "nabumetone"
+  },
+  "31476": {
+    "type": "single",
+    "rxcui": "31476",
+    "name": "naftifine"
+  },
+  "31479": {
+    "type": "single",
+    "rxcui": "31479",
+    "name": "nalmefene"
+  },
+  "31555": {
+    "type": "single",
+    "rxcui": "31555",
+    "name": "nebivolol"
+  },
+  "31563": {
+    "type": "single",
+    "rxcui": "31563",
+    "name": "nedocromil"
+  },
+  "31565": {
+    "type": "single",
+    "rxcui": "31565",
+    "name": "nefazodone"
+  },
+  "31748": {
+    "type": "single",
+    "rxcui": "31748",
+    "name": "nicorandil"
+  },
+  "31805": {
+    "type": "single",
+    "rxcui": "31805",
+    "name": "nilutamide"
+  },
+  "31819": {
+    "type": "single",
+    "rxcui": "31819",
+    "name": "nitazoxanide"
+  },
+  "31914": {
+    "type": "single",
+    "rxcui": "31914",
+    "name": "tiagabine"
+  },
+  "31994": {
+    "type": "single",
+    "rxcui": "31994",
+    "name": "norgestimate"
+  },
+  "32311": {
+    "type": "single",
+    "rxcui": "32311",
+    "name": "octylonium"
+  },
+  "32385": {
+    "type": "single",
+    "rxcui": "32385",
+    "name": "olsalazine"
+  },
+  "32485": {
+    "type": "single",
+    "rxcui": "1399",
+    "name": "benzocaine"
+  },
+  "32592": {
+    "type": "single",
+    "rxcui": "32592",
+    "name": "oxaliplatin"
+  },
+  "32613": {
+    "type": "single",
+    "rxcui": "32613",
+    "name": "oxaprozin"
+  },
+  "32624": {
+    "type": "single",
+    "rxcui": "32624",
+    "name": "oxcarbazepine"
+  },
+  "32675": {
+    "type": "single",
+    "rxcui": "32675",
+    "name": "oxybutynin"
+  },
+  "32894": {
+    "type": "single",
+    "rxcui": "32894",
+    "name": "paramethadione"
+  },
+  "32915": {
+    "type": "single",
+    "rxcui": "32915",
+    "name": "teriparatide"
+  },
+  "32937": {
+    "type": "single",
+    "rxcui": "32937",
+    "name": "paroxetine"
+  },
+  "32968": {
+    "type": "single",
+    "rxcui": "32968",
+    "name": "clopidogrel"
+  },
+  "32987": {
+    "type": "single",
+    "rxcui": "32987",
+    "name": "pectin"
+  },
+  "33094": {
+    "type": "single",
+    "rxcui": "33094",
+    "name": "peppermint oil"
+  },
+  "33253": {
+    "type": "single",
+    "rxcui": "33253",
+    "name": "phenacemide"
+  },
+  "33272": {
+    "type": "single",
+    "rxcui": "33272",
+    "name": "phendimetrazine"
+  },
+  "33283": {
+    "type": "single",
+    "rxcui": "33283",
+    "name": "phenindamine"
+  },
+  "33309": {
+    "type": "single",
+    "rxcui": "33309",
+    "name": "phensuximide"
+  },
+  "33332": {
+    "type": "single",
+    "rxcui": "70619",
+    "name": "phenylacetate"
+  },
+  "33408": {
+    "type": "single",
+    "rxcui": "33408",
+    "name": "phenyltoloxamine"
+  },
+  "33562": {
+    "type": "single",
+    "rxcui": "33562",
+    "name": "foscarnet"
+  },
+  "33688": {
+    "type": "single",
+    "rxcui": "1546458",
+    "name": "picosulfurate"
+  },
+  "33724": {
+    "type": "single",
+    "rxcui": "33724",
+    "name": "pinaverium"
+  },
+  "33738": {
+    "type": "single",
+    "rxcui": "33738",
+    "name": "pioglitazone"
+  },
+  "33742": {
+    "type": "single",
+    "rxcui": "33742",
+    "name": "pipecuronium"
+  },
+  "33767": {
+    "type": "single",
+    "rxcui": "33767",
+    "name": "pirbuterol"
+  },
+  "33910": {
+    "type": "single",
+    "rxcui": "33910",
+    "name": "isradipine"
+  },
+  "34132": {
+    "type": "single",
+    "rxcui": "34132",
+    "name": "pegaspargase"
+  },
+  "34296": {
+    "type": "single",
+    "rxcui": "34296",
+    "name": "potassium bicarbonate"
+  },
+  "34318": {
+    "type": "single",
+    "rxcui": "34318",
+    "name": "potassium perchlorate"
+  },
+  "34345": {
+    "type": "single",
+    "rxcui": "34345",
+    "name": "pralidoxime"
+  },
+  "34369": {
+    "type": "single",
+    "rxcui": "34369",
+    "name": "prednicarbate"
+  },
+  "34905": {
+    "type": "single",
+    "rxcui": "34905",
+    "name": "proparacaine"
+  },
+  "35185": {
+    "type": "single",
+    "rxcui": "35185",
+    "name": "quazepam"
+  },
+  "35208": {
+    "type": "single",
+    "rxcui": "35208",
+    "name": "quinapril"
+  },
+  "35255": {
+    "type": "single",
+    "rxcui": "35255",
+    "name": "cisapride"
+  },
+  "35296": {
+    "type": "single",
+    "rxcui": "35296",
+    "name": "ramipril"
+  },
+  "35302": {
+    "type": "single",
+    "rxcui": "35302",
+    "name": "sirolimus"
+  },
+  "35382": {
+    "type": "single",
+    "rxcui": "35382",
+    "name": "resorcinol"
+  },
+  "35616": {
+    "type": "single",
+    "rxcui": "35616",
+    "name": "rifamycin SV"
+  },
+  "35617": {
+    "type": "single",
+    "rxcui": "35617",
+    "name": "rifapentine"
+  },
+  "35619": {
+    "type": "single",
+    "rxcui": "35619",
+    "name": "rifaximin"
+  },
+  "35623": {
+    "type": "single",
+    "rxcui": "35623",
+    "name": "riluzole"
+  },
+  "35636": {
+    "type": "single",
+    "rxcui": "35636",
+    "name": "risperidone"
+  },
+  "35780": {
+    "type": "single",
+    "rxcui": "35780",
+    "name": "ropivacaine"
+  },
+  "35825": {
+    "type": "single",
+    "rxcui": "35825",
+    "name": "ganirelix"
+  },
+  "35827": {
+    "type": "single",
+    "rxcui": "35827",
+    "name": "ketorolac"
+  },
+  "35829": {
+    "type": "single",
+    "rxcui": "35829",
+    "name": "ranolazine"
+  },
+  "36108": {
+    "type": "single",
+    "rxcui": "36108",
+    "name": "salsalate"
+  },
+  "36117": {
+    "type": "single",
+    "rxcui": "36117",
+    "name": "salmeterol"
+  },
+  "36118": {
+    "type": "single",
+    "rxcui": "36118",
+    "name": "salmon calcitonin"
+  },
+  "36122": {
+    "type": "single",
+    "rxcui": "36122",
+    "name": "phenyl salicylate"
+  },
+  "36314": {
+    "type": "single",
+    "rxcui": "36314",
+    "name": "secnidazole"
+  },
+  "36345": {
+    "type": "single",
+    "rxcui": "36345",
+    "name": "selenium sulfide"
+  },
+  "36387": {
+    "type": "single",
+    "rxcui": "36387",
+    "name": "sennosides, USP"
+  },
+  "36437": {
+    "type": "single",
+    "rxcui": "36437",
+    "name": "sertraline"
+  },
+  "36453": {
+    "type": "single",
+    "rxcui": "36453",
+    "name": "sevoflurane"
+  },
+  "36514": {
+    "type": "single",
+    "rxcui": "36514",
+    "name": "sibutramine"
+  },
+  "36567": {
+    "type": "single",
+    "rxcui": "36567",
+    "name": "simvastatin"
+  },
+  "36676": {
+    "type": "single",
+    "rxcui": "36676",
+    "name": "sodium bicarbonate"
+  },
+  "36709": {
+    "type": "single",
+    "rxcui": "36709",
+    "name": "sodium phosphate"
+  },
+  "36721": {
+    "type": "single",
+    "rxcui": "36721",
+    "name": "sodium sulfate"
+  },
+  "37418": {
+    "type": "single",
+    "rxcui": "37418",
+    "name": "sumatriptan"
+  },
+  "37617": {
+    "type": "single",
+    "rxcui": "37617",
+    "name": "tazobactam"
+  },
+  "37776": {
+    "type": "single",
+    "rxcui": "37776",
+    "name": "temozolomide"
+  },
+  "37798": {
+    "type": "single",
+    "rxcui": "37798",
+    "name": "terazosin"
+  },
+  "37801": {
+    "type": "single",
+    "rxcui": "37801",
+    "name": "terbinafine"
+  },
+  "37925": {
+    "type": "single",
+    "rxcui": "37925",
+    "name": "orlistat"
+  },
+  "37935": {
+    "type": "single",
+    "rxcui": "37935",
+    "name": "tetrahydrozoline"
+  },
+  "38252": {
+    "type": "single",
+    "rxcui": "38252",
+    "name": "tianeptine"
+  },
+  "38260": {
+    "type": "single",
+    "rxcui": "38260",
+    "name": "tibolone"
+  },
+  "38298": {
+    "type": "single",
+    "rxcui": "38298",
+    "name": "tioconazole"
+  },
+  "38400": {
+    "type": "single",
+    "rxcui": "38400",
+    "name": "atomoxetine"
+  },
+  "38404": {
+    "type": "single",
+    "rxcui": "38404",
+    "name": "topiramate"
+  },
+  "38409": {
+    "type": "single",
+    "rxcui": "38409",
+    "name": "toremifene"
+  },
+  "38413": {
+    "type": "single",
+    "rxcui": "38413",
+    "name": "torsemide"
+  },
+  "38454": {
+    "type": "single",
+    "rxcui": "38454",
+    "name": "trandolapril"
+  },
+  "38685": {
+    "type": "single",
+    "rxcui": "38685",
+    "name": "trimethobenzamide"
+  },
+  "38782": {
+    "type": "single",
+    "rxcui": "38782",
+    "name": "triptorelin"
+  },
+  "38891": {
+    "type": "single",
+    "rxcui": "236778",
+    "name": "trospium"
+  },
+  "39541": {
+    "type": "single",
+    "rxcui": "39541",
+    "name": "vinorelbine"
+  },
+  "39786": {
+    "type": "single",
+    "rxcui": "39786",
+    "name": "venlafaxine"
+  },
+  "39841": {
+    "type": "single",
+    "rxcui": "39841",
+    "name": "xylometazoline"
+  },
+  "39937": {
+    "type": "single",
+    "rxcui": "39937",
+    "name": "zinc chloride"
+  },
+  "39954": {
+    "type": "single",
+    "rxcui": "39954",
+    "name": "zinc sulfate"
+  },
+  "39993": {
+    "type": "single",
+    "rxcui": "39993",
+    "name": "zolpidem"
+  },
+  "39998": {
+    "type": "single",
+    "rxcui": "39998",
+    "name": "zonisamide"
+  },
+  "40001": {
+    "type": "single",
+    "rxcui": "40001",
+    "name": "zopiclone"
+  },
+  "40028": {
+    "type": "single",
+    "rxcui": "40028",
+    "name": "anistreplase"
+  },
+  "40048": {
+    "type": "single",
+    "rxcui": "40048",
+    "name": "carboplatin"
+  },
+  "40114": {
+    "type": "single",
+    "rxcui": "40114",
+    "name": "guanfacine"
+  },
+  "40138": {
+    "type": "single",
+    "rxcui": "40138",
+    "name": "iloprost"
+  },
+  "40169": {
+    "type": "single",
+    "rxcui": "40169",
+    "name": "moricizine"
+  },
+  "40254": {
+    "type": "single",
+    "rxcui": "40254",
+    "name": "valproate"
+  },
+  "40575": {
+    "type": "single",
+    "rxcui": "40575",
+    "name": "zileuton"
+  },
+  "40790": {
+    "type": "single",
+    "rxcui": "40790",
+    "name": "pantoprazole"
+  },
+  "41126": {
+    "type": "single",
+    "rxcui": "41126",
+    "name": "fluticasone"
+  },
+  "41127": {
+    "type": "single",
+    "rxcui": "41127",
+    "name": "fluvastatin"
+  },
+  "41144": {
+    "type": "single",
+    "rxcui": "41144",
+    "name": "gadodiamide"
+  },
+  "41208": {
+    "type": "single",
+    "rxcui": "41208",
+    "name": "halobetasol"
+  },
+  "41289": {
+    "type": "single",
+    "rxcui": "41289",
+    "name": "ibutilide"
+  },
+  "41493": {
+    "type": "single",
+    "rxcui": "41493",
+    "name": "meloxicam"
+  },
+  "42316": {
+    "type": "single",
+    "rxcui": "42316",
+    "name": "tacrolimus"
+  },
+  "42319": {
+    "type": "single",
+    "rxcui": "42319",
+    "name": "nizatidine"
+  },
+  "42328": {
+    "type": "single",
+    "rxcui": "42328",
+    "name": "astemizole"
+  },
+  "42330": {
+    "type": "single",
+    "rxcui": "42330",
+    "name": "terfenadine"
+  },
+  "42331": {
+    "type": "single",
+    "rxcui": "42331",
+    "name": "misoprostol"
+  },
+  "42333": {
+    "type": "single",
+    "rxcui": "42333",
+    "name": "trimetrexate"
+  },
+  "42347": {
+    "type": "single",
+    "rxcui": "42347",
+    "name": "bupropion"
+  },
+  "42351": {
+    "type": "single",
+    "rxcui": "42351",
+    "name": "lithium carbonate"
+  },
+  "42355": {
+    "type": "single",
+    "rxcui": "42355",
+    "name": "fluvoxamine"
+  },
+  "42359": {
+    "type": "single",
+    "rxcui": "42359",
+    "name": "tocainide"
+  },
+  "42372": {
+    "type": "single",
+    "rxcui": "42372",
+    "name": "mupirocin"
+  },
+  "42375": {
+    "type": "single",
+    "rxcui": "42375",
+    "name": "leuprolide"
+  },
+  "42405": {
+    "type": "single",
+    "rxcui": "42405",
+    "name": "muromonab-CD3"
+  },
+  "42463": {
+    "type": "single",
+    "rxcui": "42463",
+    "name": "pravastatin"
+  },
+  "42543": {
+    "type": "single",
+    "rxcui": "42543",
+    "name": "aspartate"
+  },
+  "42612": {
+    "type": "single",
+    "rxcui": "42612",
+    "name": "cromolyn"
+  },
+  "42635": {
+    "type": "single",
+    "rxcui": "42635",
+    "name": "dextran"
+  },
+  "42736": {
+    "type": "single",
+    "rxcui": "42736",
+    "name": "dexrazoxane"
+  },
+  "42955": {
+    "type": "single",
+    "rxcui": "42955",
+    "name": "levocarnitine"
+  },
+  "43611": {
+    "type": "single",
+    "rxcui": "43611",
+    "name": "latanoprost"
+  },
+  "44151": {
+    "type": "single",
+    "rxcui": "44151",
+    "name": "clofarabine"
+  },
+  "44157": {
+    "type": "single",
+    "rxcui": "44157",
+    "name": "cladribine"
+  },
+  "44281": {
+    "type": "single",
+    "rxcui": "44281",
+    "name": "cevimeline"
+  },
+  "46041": {
+    "type": "single",
+    "rxcui": "46041",
+    "name": "alendronate"
+  },
+  "46303": {
+    "type": "single",
+    "rxcui": "46303",
+    "name": "amisulpride"
+  },
+  "47181": {
+    "type": "single",
+    "rxcui": "47181",
+    "name": "bismuth subcitrate"
+  },
+  "47579": {
+    "type": "single",
+    "rxcui": "47579",
+    "name": "cabergoline"
+  },
+  "47613": {
+    "type": "single",
+    "rxcui": "47613",
+    "name": "calcium citrate"
+  },
+  "47618": {
+    "type": "single",
+    "rxcui": "47618",
+    "name": "calcium gluceptate"
+  },
+  "47622": {
+    "type": "single",
+    "rxcui": "47622",
+    "name": "calcium lactate"
+  },
+  "47630": {
+    "type": "single",
+    "rxcui": "47630",
+    "name": "calcium polystyrene sulfonate product"
+  },
+  "47858": {
+    "type": "single",
+    "rxcui": "47858",
+    "name": "methsuximide"
+  },
+  "48937": {
+    "type": "single",
+    "rxcui": "48937",
+    "name": "dexmedetomidine"
+  },
+  "49247": {
+    "type": "single",
+    "rxcui": "49247",
+    "name": "dofetilide"
+  },
+  "49276": {
+    "type": "single",
+    "rxcui": "49276",
+    "name": "doxazosin"
+  },
+  "49737": {
+    "type": "single",
+    "rxcui": "49737",
+    "name": "esmolol"
+  },
+  "50166": {
+    "type": "single",
+    "rxcui": "50166",
+    "name": "fosinopril"
+  },
+  "50610": {
+    "type": "single",
+    "rxcui": "50610",
+    "name": "goserelin"
+  },
+  "50675": {
+    "type": "single",
+    "rxcui": "50675",
+    "name": "guanidine"
+  },
+  "50749": {
+    "type": "single",
+    "rxcui": "50749",
+    "name": "halofantrine"
+  },
+  "50975": {
+    "type": "single",
+    "rxcui": "50975",
+    "name": "histrelin"
+  },
+  "51272": {
+    "type": "single",
+    "rxcui": "51272",
+    "name": "quetiapine"
+  },
+  "51428": {
+    "type": "single",
+    "rxcui": "51428",
+    "name": "insulin aspart, human"
+  },
+  "51499": {
+    "type": "single",
+    "rxcui": "51499",
+    "name": "irinotecan"
+  },
+  "52175": {
+    "type": "single",
+    "rxcui": "52175",
+    "name": "losartan"
+  },
+  "52177": {
+    "type": "single",
+    "rxcui": "52177",
+    "name": "loteprednol etabonate"
+  },
+  "52356": {
+    "type": "single",
+    "rxcui": "52356",
+    "name": "magnesium citrate"
+  },
+  "52358": {
+    "type": "single",
+    "rxcui": "52358",
+    "name": "magnesium gluconate"
+  },
+  "52582": {
+    "type": "single",
+    "rxcui": "52582",
+    "name": "mesalamine"
+  },
+  "52769": {
+    "type": "single",
+    "rxcui": "52769",
+    "name": "milrinone"
+  },
+  "53654": {
+    "type": "single",
+    "rxcui": "53654",
+    "name": "nevirapine"
+  },
+  "54214": {
+    "type": "single",
+    "rxcui": "54214",
+    "name": "OspA protein"
+  },
+  "54552": {
+    "type": "single",
+    "rxcui": "54552",
+    "name": "perindopril"
+  },
+  "54987": {
+    "type": "single",
+    "rxcui": "54987",
+    "name": "potassium acetate"
+  },
+  "54993": {
+    "type": "single",
+    "rxcui": "54993",
+    "name": "potassium citrate"
+  },
+  "55019": {
+    "type": "single",
+    "rxcui": "34322",
+    "name": "potassium phosphate"
+  },
+  "55672": {
+    "type": "single",
+    "rxcui": "55672",
+    "name": "rifabutin"
+  },
+  "55681": {
+    "type": "single",
+    "rxcui": "55681",
+    "name": "rimexolone"
+  },
+  "55685": {
+    "type": "single",
+    "rxcui": "55685",
+    "name": "risedronic acid"
+  },
+  "56188": {
+    "type": "single",
+    "rxcui": "56188",
+    "name": "sermorelin"
+  },
+  "56443": {
+    "type": "single",
+    "rxcui": "56443",
+    "name": "sodium acetate"
+  },
+  "56466": {
+    "type": "single",
+    "rxcui": "56466",
+    "name": "sodium citrate"
+  },
+  "56512": {
+    "type": "single",
+    "rxcui": "56512",
+    "name": "sodium polystyrene sulfonate"
+  },
+  "56570": {
+    "type": "single",
+    "rxcui": "56570",
+    "name": "somatrem"
+  },
+  "56795": {
+    "type": "single",
+    "rxcui": "56795",
+    "name": "sufentanil"
+  },
+  "56946": {
+    "type": "single",
+    "rxcui": "56946",
+    "name": "paclitaxel"
+  },
+  "57258": {
+    "type": "single",
+    "rxcui": "57258",
+    "name": "tizanidine"
+  },
+  "57308": {
+    "type": "single",
+    "rxcui": "57308",
+    "name": "topotecan"
+  },
+  "58295": {
+    "type": "single",
+    "rxcui": "58295",
+    "name": "zinc acetate"
+  },
+  "58300": {
+    "type": "single",
+    "rxcui": "58300",
+    "name": "zinc gluconate"
+  },
+  "59078": {
+    "type": "single",
+    "rxcui": "59078",
+    "name": "metaxalone"
+  },
+  "59308": {
+    "type": "single",
+    "rxcui": "59308",
+    "name": "chromium picolinate"
+  },
+  "59744": {
+    "type": "single",
+    "rxcui": "59744",
+    "name": "interferon alfacon-1"
+  },
+  "59763": {
+    "type": "single",
+    "rxcui": "59763",
+    "name": "stavudine"
+  },
+  "59768": {
+    "type": "single",
+    "rxcui": "59768",
+    "name": "pegademase bovine"
+  },
+  "59839": {
+    "type": "single",
+    "rxcui": "59839",
+    "name": "penciclovir"
+  },
+  "59943": {
+    "type": "single",
+    "rxcui": "59943",
+    "name": "imiquimod"
+  },
+  "60207": {
+    "type": "single",
+    "rxcui": "60207",
+    "name": "dorzolamide"
+  },
+  "60212": {
+    "type": "single",
+    "rxcui": "60212",
+    "name": "atovaquone"
+  },
+  "60223": {
+    "type": "single",
+    "rxcui": "60223",
+    "name": "adapalene"
+  },
+  "60307": {
+    "type": "single",
+    "rxcui": "60307",
+    "name": "entacapone"
+  },
+  "60548": {
+    "type": "single",
+    "rxcui": "60548",
+    "name": "exenatide"
+  },
+  "60819": {
+    "type": "single",
+    "rxcui": "60819",
+    "name": "bivalirudin"
+  },
+  "61148": {
+    "type": "single",
+    "rxcui": "61148",
+    "name": "somatropin"
+  },
+  "61381": {
+    "type": "single",
+    "rxcui": "61381",
+    "name": "olanzapine"
+  },
+  "61609": {
+    "type": "single",
+    "rxcui": "61609",
+    "name": "arbutamine"
+  },
+  "61805": {
+    "type": "single",
+    "rxcui": "61805",
+    "name": "nitisinone"
+  },
+  "62174": {
+    "type": "single",
+    "rxcui": "62174",
+    "name": "deserpidine"
+  },
+  "62427": {
+    "type": "single",
+    "rxcui": "62427",
+    "name": "ursodeoxycholate"
+  },
+  "66887": {
+    "type": "single",
+    "rxcui": "66887",
+    "name": "racepinephrine"
+  },
+  "67031": {
+    "type": "single",
+    "rxcui": "67031",
+    "name": "nadroparin"
+  },
+  "67108": {
+    "type": "single",
+    "rxcui": "67108",
+    "name": "enoxaparin"
+  },
+  "67109": {
+    "type": "single",
+    "rxcui": "67109",
+    "name": "dalteparin"
+  },
+  "68091": {
+    "type": "single",
+    "rxcui": "68091",
+    "name": "dolasetron"
+  },
+  "68092": {
+    "type": "single",
+    "rxcui": "68092",
+    "name": "lanreotide"
+  },
+  "68099": {
+    "type": "single",
+    "rxcui": "68099",
+    "name": "famciclovir"
+  },
+  "68139": {
+    "type": "single",
+    "rxcui": "68139",
+    "name": "rocuronium"
+  },
+  "68149": {
+    "type": "single",
+    "rxcui": "68149",
+    "name": "mycophenolate mofetil"
+  },
+  "68244": {
+    "type": "single",
+    "rxcui": "68244",
+    "name": "lamivudine"
+  },
+  "68442": {
+    "type": "single",
+    "rxcui": "68442",
+    "name": "filgrastim"
+  },
+  "68446": {
+    "type": "single",
+    "rxcui": "68446",
+    "name": "pemetrexed"
+  },
+  "68503": {
+    "type": "single",
+    "rxcui": "68503",
+    "name": "ziconotide"
+  },
+  "69036": {
+    "type": "single",
+    "rxcui": "69036",
+    "name": "rufinamide"
+  },
+  "69120": {
+    "type": "single",
+    "rxcui": "69120",
+    "name": "tiotropium"
+  },
+  "69634": {
+    "type": "single",
+    "rxcui": "69634",
+    "name": "sargramostim"
+  },
+  "69646": {
+    "type": "single",
+    "rxcui": "69646",
+    "name": "tinzaparin"
+  },
+  "69722": {
+    "type": "single",
+    "rxcui": "69722",
+    "name": "zanamivir"
+  },
+  "69749": {
+    "type": "single",
+    "rxcui": "69749",
+    "name": "valsartan"
+  },
+  "70223": {
+    "type": "single",
+    "rxcui": "70223",
+    "name": "aldesleukin"
+  },
+  "70561": {
+    "type": "single",
+    "rxcui": "70561",
+    "name": "palonosetron"
+  },
+  "71535": {
+    "type": "single",
+    "rxcui": "71535",
+    "name": "vecuronium"
+  },
+  "72143": {
+    "type": "single",
+    "rxcui": "72143",
+    "name": "raloxifene"
+  },
+  "72236": {
+    "type": "single",
+    "rxcui": "72236",
+    "name": "fosphenytoin"
+  },
+  "72257": {
+    "type": "single",
+    "rxcui": "72257",
+    "name": "interferon beta-1b"
+  },
+  "72302": {
+    "type": "single",
+    "rxcui": "72302",
+    "name": "ropinirole"
+  },
+  "72435": {
+    "type": "single",
+    "rxcui": "72435",
+    "name": "anakinra"
+  },
+  "72610": {
+    "type": "single",
+    "rxcui": "72610",
+    "name": "troglitazone"
+  },
+  "72625": {
+    "type": "single",
+    "rxcui": "72625",
+    "name": "duloxetine"
+  },
+  "72901": {
+    "type": "single",
+    "rxcui": "72901",
+    "name": "ferumoxides"
+  },
+  "72937": {
+    "type": "single",
+    "rxcui": "72937",
+    "name": "tolcapone"
+  },
+  "72962": {
+    "type": "single",
+    "rxcui": "72962",
+    "name": "docetaxel"
+  },
+  "72965": {
+    "type": "single",
+    "rxcui": "72965",
+    "name": "letrozole"
+  },
+  "73032": {
+    "type": "single",
+    "rxcui": "73032",
+    "name": "remifentanil"
+  },
+  "73044": {
+    "type": "single",
+    "rxcui": "73044",
+    "name": "repaglinide"
+  },
+  "73056": {
+    "type": "single",
+    "rxcui": "73056",
+    "name": "risedronate"
+  },
+  "73137": {
+    "type": "single",
+    "rxcui": "73137",
+    "name": "tirofiban"
+  },
+  "73178": {
+    "type": "single",
+    "rxcui": "73178",
+    "name": "iloperidone"
+  },
+  "73494": {
+    "type": "single",
+    "rxcui": "73494",
+    "name": "telmisartan"
+  },
+  "73645": {
+    "type": "single",
+    "rxcui": "73645",
+    "name": "valacyclovir"
+  },
+  "73689": {
+    "type": "single",
+    "rxcui": "73689",
+    "name": "febuxostat"
+  },
+  "73710": {
+    "type": "single",
+    "rxcui": "73710",
+    "name": "paricalcitol"
+  },
+  "74667": {
+    "type": "single",
+    "rxcui": "74667",
+    "name": "zaleplon"
+  },
+  "75207": {
+    "type": "single",
+    "rxcui": "75207",
+    "name": "bosentan"
+  },
+  "75635": {
+    "type": "single",
+    "rxcui": "75635",
+    "name": "eptifibatide"
+  },
+  "75917": {
+    "type": "single",
+    "rxcui": "75917",
+    "name": "interferon beta-1a"
+  },
+  "76895": {
+    "type": "single",
+    "rxcui": "76895",
+    "name": "reteplase"
+  },
+  "77492": {
+    "type": "single",
+    "rxcui": "77492",
+    "name": "tamsulosin"
+  },
+  "77655": {
+    "type": "single",
+    "rxcui": "77655",
+    "name": "zoledronic acid"
+  },
+  "77754": {
+    "type": "single",
+    "rxcui": "77754",
+    "name": "ferumoxsil"
+  },
+  "78484": {
+    "type": "single",
+    "rxcui": "78484",
+    "name": "danaparoid"
+  },
+  "78903": {
+    "type": "single",
+    "rxcui": "78903",
+    "name": "capreomycin"
+  },
+  "81864": {
+    "type": "single",
+    "rxcui": "81864",
+    "name": "alitretinoin"
+  },
+  "82003": {
+    "type": "single",
+    "rxcui": "82003",
+    "name": "docusate"
+  },
+  "82088": {
+    "type": "single",
+    "rxcui": "82088",
+    "name": "Plantago seed"
+  },
+  "82122": {
+    "type": "single",
+    "rxcui": "82122",
+    "name": "levofloxacin"
+  },
+  "82819": {
+    "type": "single",
+    "rxcui": "82819",
+    "name": "acamprosate"
+  },
+  "83008": {
+    "type": "single",
+    "rxcui": "83008",
+    "name": "bicalutamide"
+  },
+  "83171": {
+    "type": "single",
+    "rxcui": "83171",
+    "name": "cidofovir"
+  },
+  "83367": {
+    "type": "single",
+    "rxcui": "83367",
+    "name": "atorvastatin"
+  },
+  "83395": {
+    "type": "single",
+    "rxcui": "83395",
+    "name": "saquinavir"
+  },
+  "83515": {
+    "type": "single",
+    "rxcui": "83515",
+    "name": "eprosartan"
+  },
+  "83682": {
+    "type": "single",
+    "rxcui": "83682",
+    "name": "cefditoren"
+  },
+  "83719": {
+    "type": "single",
+    "rxcui": "83719",
+    "name": "grepafloxacin"
+  },
+  "83816": {
+    "type": "single",
+    "rxcui": "83816",
+    "name": "delavirdine"
+  },
+  "83818": {
+    "type": "single",
+    "rxcui": "83818",
+    "name": "irbesartan"
+  },
+  "83929": {
+    "type": "single",
+    "rxcui": "83929",
+    "name": "abciximab"
+  },
+  "83947": {
+    "type": "single",
+    "rxcui": "83947",
+    "name": "tazarotene"
+  },
+  "84108": {
+    "type": "single",
+    "rxcui": "84108",
+    "name": "rosiglitazone"
+  },
+  "84857": {
+    "type": "single",
+    "rxcui": "84857",
+    "name": "anastrozole"
+  },
+  "84959": {
+    "type": "single",
+    "rxcui": "84959",
+    "name": "imiglucerase"
+  },
+  "84990": {
+    "type": "single",
+    "rxcui": "84990",
+    "name": "gadobutrol"
+  },
+  "85248": {
+    "type": "single",
+    "rxcui": "85248",
+    "name": "alosetron"
+  },
+  "85762": {
+    "type": "single",
+    "rxcui": "85762",
+    "name": "ritonavir"
+  },
+  "85763": {
+    "type": "single",
+    "rxcui": "85763",
+    "name": "fomivirsen"
+  },
+  "86009": {
+    "type": "single",
+    "rxcui": "86009",
+    "name": "insulin lispro"
+  },
+  "87636": {
+    "type": "single",
+    "rxcui": "87636",
+    "name": "fexofenadine"
+  },
+  "87866": {
+    "type": "single",
+    "rxcui": "87866",
+    "name": "ardeparin"
+  },
+  "88014": {
+    "type": "single",
+    "rxcui": "88014",
+    "name": "rizatriptan"
+  },
+  "88249": {
+    "type": "single",
+    "rxcui": "88249",
+    "name": "montelukast"
+  },
+  "89013": {
+    "type": "single",
+    "rxcui": "89013",
+    "name": "aripiprazole"
+  },
+  "89778": {
+    "type": "single",
+    "rxcui": "89778",
+    "name": "ecothiopate"
+  },
+  "89781": {
+    "type": "single",
+    "rxcui": "89781",
+    "name": "belladonna extract, USP"
+  },
+  "89784": {
+    "type": "single",
+    "rxcui": "89784",
+    "name": "isopropamide"
+  },
+  "89785": {
+    "type": "single",
+    "rxcui": "89785",
+    "name": "methscopolamine"
+  },
+  "89886": {
+    "type": "single",
+    "rxcui": "89886",
+    "name": "rabies immune globulin, human"
+  },
+  "89887": {
+    "type": "single",
+    "rxcui": "89887",
+    "name": "Latrodectus mactans antivenin"
+  },
+  "89903": {
+    "type": "single",
+    "rxcui": "89903",
+    "name": "potassium gluconate"
+  },
+  "90176": {
+    "type": "single",
+    "rxcui": "90176",
+    "name": "iron"
+  },
+  "91311": {
+    "type": "single",
+    "rxcui": "91311",
+    "name": "diflorasone"
+  },
+  "91601": {
+    "type": "single",
+    "rxcui": "1011",
+    "name": "lymphocyte immune globulin, anti-thymocyte globulin"
+  },
+  "100213": {
+    "type": "single",
+    "rxcui": "100213",
+    "name": "Bifidobacterium infantis"
+  },
+  "103468": {
+    "type": "single",
+    "rxcui": "5492",
+    "name": "hydrocortisone"
+  },
+  "105694": {
+    "type": "single",
+    "rxcui": "105694",
+    "name": "epoetin alfa"
+  },
+  "105695": {
+    "type": "single",
+    "rxcui": "105695",
+    "name": "epoetin beta"
+  },
+  "107044": {
+    "type": "single",
+    "rxcui": "1011",
+    "name": "lymphocyte immune globulin, anti-thymocyte globulin"
+  },
+  "107770": {
+    "type": "single",
+    "rxcui": "107770",
+    "name": "mepenzolate"
+  },
+  "107771": {
+    "type": "single",
+    "rxcui": "107771",
+    "name": "demecarium"
+  },
+  "108088": {
+    "type": "single",
+    "rxcui": "108088",
+    "name": "alclometasone"
+  },
+  "108118": {
+    "type": "single",
+    "rxcui": "108118",
+    "name": "mometasone"
+  },
+  "114176": {
+    "type": "single",
+    "rxcui": "114176",
+    "name": "zuclopenthixol"
+  },
+  "114289": {
+    "type": "single",
+    "rxcui": "114289",
+    "name": "indinavir"
+  },
+  "114477": {
+    "type": "single",
+    "rxcui": "114477",
+    "name": "levetiracetam"
+  },
+  "114934": {
+    "type": "single",
+    "rxcui": "114934",
+    "name": "desirudin"
+  },
+  "114970": {
+    "type": "single",
+    "rxcui": "114970",
+    "name": "zafirlukast"
+  },
+  "114979": {
+    "type": "single",
+    "rxcui": "114979",
+    "name": "rabeprazole"
+  },
+  "115264": {
+    "type": "single",
+    "rxcui": "115264",
+    "name": "ibandronate"
+  },
+  "115552": {
+    "type": "single",
+    "rxcui": "115552",
+    "name": "trovafloxacin"
+  },
+  "115698": {
+    "type": "single",
+    "rxcui": "115698",
+    "name": "ziprasidone"
+  },
+  "117055": {
+    "type": "single",
+    "rxcui": "117055",
+    "name": "alemtuzumab"
+  },
+  "118886": {
+    "type": "single",
+    "rxcui": "118886",
+    "name": "verteporfin"
+  },
+  "119565": {
+    "type": "single",
+    "rxcui": "119565",
+    "name": "tolterodine"
+  },
+  "119771": {
+    "type": "single",
+    "rxcui": "119771",
+    "name": "doripenem"
+  },
+  "120608": {
+    "type": "single",
+    "rxcui": "120608",
+    "name": "peginterferon alfa-2a"
+  },
+  "121191": {
+    "type": "single",
+    "rxcui": "121191",
+    "name": "rituximab"
+  },
+  "121243": {
+    "type": "single",
+    "rxcui": "121243",
+    "name": "voriconazole"
+  },
+  "125933": {
+    "type": "single",
+    "rxcui": "125933",
+    "name": "cranberry preparation"
+  },
+  "132889": {
+    "type": "single",
+    "rxcui": "132889",
+    "name": "levonordefrin"
+  },
+  "134404": {
+    "type": "single",
+    "rxcui": "134404",
+    "name": "urofollitropin"
+  },
+  "134527": {
+    "type": "single",
+    "rxcui": "134527",
+    "name": "nelfinavir"
+  },
+  "134547": {
+    "type": "single",
+    "rxcui": "134547",
+    "name": "bendamustine"
+  },
+  "134615": {
+    "type": "single",
+    "rxcui": "134615",
+    "name": "brimonidine"
+  },
+  "134748": {
+    "type": "single",
+    "rxcui": "134748",
+    "name": "rasagiline"
+  },
+  "135056": {
+    "type": "single",
+    "rxcui": "135056",
+    "name": "lercanidipine"
+  },
+  "135091": {
+    "type": "single",
+    "rxcui": "135091",
+    "name": "mosapride"
+  },
+  "135391": {
+    "type": "single",
+    "rxcui": "135391",
+    "name": "olopatadine"
+  },
+  "135447": {
+    "type": "single",
+    "rxcui": "135447",
+    "name": "donepezil"
+  },
+  "135775": {
+    "type": "single",
+    "rxcui": "135775",
+    "name": "zolmitriptan"
+  },
+  "136198": {
+    "type": "single",
+    "rxcui": "136198",
+    "name": "darifenacin"
+  },
+  "136300": {
+    "type": "single",
+    "rxcui": "136300",
+    "name": "capromab pendetide"
+  },
+  "136411": {
+    "type": "single",
+    "rxcui": "136411",
+    "name": "sildenafil"
+  },
+  "138099": {
+    "type": "single",
+    "rxcui": "138099",
+    "name": "gemifloxacin"
+  },
+  "139462": {
+    "type": "single",
+    "rxcui": "139462",
+    "name": "moxifloxacin"
+  },
+  "139778": {
+    "type": "single",
+    "rxcui": "139778",
+    "name": "tegaserod"
+  },
+  "139825": {
+    "type": "single",
+    "rxcui": "139825",
+    "name": "insulin detemir"
+  },
+  "139896": {
+    "type": "single",
+    "rxcui": "139896",
+    "name": "enfuvirtide"
+  },
+  "139953": {
+    "type": "single",
+    "rxcui": "139953",
+    "name": "pramlintide"
+  },
+  "139994": {
+    "type": "single",
+    "rxcui": "139994",
+    "name": "oprelvekin"
+  },
+  "140108": {
+    "type": "single",
+    "rxcui": "140108",
+    "name": "caspofungin"
+  },
+  "140587": {
+    "type": "single",
+    "rxcui": "140587",
+    "name": "celecoxib"
+  },
+  "141366": {
+    "type": "single",
+    "rxcui": "141366",
+    "name": "naratriptan"
+  },
+  "141400": {
+    "type": "single",
+    "rxcui": "16521",
+    "name": "adefovir"
+  },
+  "141626": {
+    "type": "single",
+    "rxcui": "141626",
+    "name": "colesevelam"
+  },
+  "141704": {
+    "type": "single",
+    "rxcui": "141704",
+    "name": "everolimus"
+  },
+  "153970": {
+    "type": "single",
+    "rxcui": "153970",
+    "name": "hyoscyamine"
+  },
+  "155046": {
+    "type": "single",
+    "rxcui": "155046",
+    "name": "pentosan polysulfate"
+  },
+  "155080": {
+    "type": "single",
+    "rxcui": "155080",
+    "name": "methacholine"
+  },
+  "155122": {
+    "type": "single",
+    "rxcui": "155122",
+    "name": "phenolphthalein"
+  },
+  "177906": {
+    "type": "single",
+    "rxcui": "177906",
+    "name": "samarium Sm 153 lexidronam"
+  },
+  "183379": {
+    "type": "single",
+    "rxcui": "183379",
+    "name": "rivastigmine"
+  },
+  "187832": {
+    "type": "single",
+    "rxcui": "187832",
+    "name": "pregabalin"
+  },
+  "190376": {
+    "type": "single",
+    "rxcui": "190376",
+    "name": "linezolid"
+  },
+  "190521": {
+    "type": "single",
+    "rxcui": "190521",
+    "name": "abacavir"
+  },
+  "190548": {
+    "type": "single",
+    "rxcui": "190548",
+    "name": "tipranavir"
+  },
+  "191831": {
+    "type": "single",
+    "rxcui": "191831",
+    "name": "infliximab"
+  },
+  "194000": {
+    "type": "single",
+    "rxcui": "194000",
+    "name": "capecitabine"
+  },
+  "194337": {
+    "type": "single",
+    "rxcui": "194337",
+    "name": "vorinostat"
+  },
+  "194881": {
+    "type": "single",
+    "rxcui": "194881",
+    "name": "brinzolamide"
+  },
+  "195085": {
+    "type": "single",
+    "rxcui": "195085",
+    "name": "efavirenz"
+  },
+  "195088": {
+    "type": "single",
+    "rxcui": "195088",
+    "name": "lopinavir"
+  },
+  "196102": {
+    "type": "single",
+    "rxcui": "196102",
+    "name": "basiliximab"
+  },
+  "196319": {
+    "type": "single",
+    "rxcui": "196319",
+    "name": "palifermin"
+  },
+  "202912": {
+    "type": "single",
+    "rxcui": "202912",
+    "name": "interferon alfa-n1"
+  },
+  "214342": {
+    "type": "single",
+    "rxcui": "214342",
+    "name": "calcium acetate"
+  },
+  "214354": {
+    "type": "single",
+    "rxcui": "214354",
+    "name": "candesartan"
+  },
+  "214470": {
+    "type": "single",
+    "rxcui": "214470",
+    "name": "denileukin diftitox"
+  },
+  "214549": {
+    "type": "single",
+    "rxcui": "214549",
+    "name": "estrogens, esterified (USP)"
+  },
+  "214555": {
+    "type": "single",
+    "rxcui": "214555",
+    "name": "etanercept"
+  },
+  "214582": {
+    "type": "single",
+    "rxcui": "214582",
+    "name": "glatiramer"
+  },
+  "214824": {
+    "type": "single",
+    "rxcui": "214824",
+    "name": "sevelamer"
+  },
+  "220982": {
+    "type": "single",
+    "rxcui": "220982",
+    "name": "yohimbine"
+  },
+  "221050": {
+    "type": "single",
+    "rxcui": "221050",
+    "name": "BCG, live, Tice strain"
+  },
+  "221062": {
+    "type": "single",
+    "rxcui": "1009",
+    "name": "antithrombin III"
+  },
+  "221099": {
+    "type": "single",
+    "rxcui": "4249",
+    "name": "factor IX"
+  },
+  "224905": {
+    "type": "single",
+    "rxcui": "224905",
+    "name": "trastuzumab"
+  },
+  "227518": {
+    "type": "single",
+    "rxcui": "227518",
+    "name": "follicle stimulating hormone"
+  },
+  "228041": {
+    "type": "single",
+    "rxcui": "228041",
+    "name": "Echinacea preparation"
+  },
+  "228476": {
+    "type": "single",
+    "rxcui": "228476",
+    "name": "gatifloxacin"
+  },
+  "228656": {
+    "type": "single",
+    "rxcui": "228656",
+    "name": "amprenavir"
+  },
+  "228783": {
+    "type": "single",
+    "rxcui": "228783",
+    "name": "frovatriptan"
+  },
+  "228790": {
+    "type": "single",
+    "rxcui": "228790",
+    "name": "dutasteride"
+  },
+  "228833": {
+    "type": "single",
+    "rxcui": "228833",
+    "name": "gadoversetamide"
+  },
+  "229367": {
+    "type": "single",
+    "rxcui": "229367",
+    "name": "quinupristin"
+  },
+  "229369": {
+    "type": "single",
+    "rxcui": "229369",
+    "name": "dalfopristin"
+  },
+  "231049": {
+    "type": "single",
+    "rxcui": "231049",
+    "name": "eletriptan"
+  },
+  "232158": {
+    "type": "single",
+    "rxcui": "232158",
+    "name": "rofecoxib"
+  },
+  "233272": {
+    "type": "single",
+    "rxcui": "233272",
+    "name": "bexarotene"
+  },
+  "233603": {
+    "type": "single",
+    "rxcui": "233603",
+    "name": "clevidipine"
+  },
+  "233698": {
+    "type": "single",
+    "rxcui": "233698",
+    "name": "dronedarone"
+  },
+  "234416": {
+    "type": "single",
+    "rxcui": "234416",
+    "name": "lanthanum carbonate"
+  },
+  "235408": {
+    "type": "single",
+    "rxcui": "2353",
+    "name": "clorazepate"
+  },
+  "235473": {
+    "type": "single",
+    "rxcui": "5224",
+    "name": "heparin"
+  },
+  "235479": {
+    "type": "single",
+    "rxcui": "235479",
+    "name": "thyroid, porcine"
+  },
+  "235496": {
+    "type": "single",
+    "rxcui": "235496",
+    "name": "sodium phosphate, monobasic"
+  },
+  "236083": {
+    "type": "single",
+    "rxcui": "46041",
+    "name": "alendronate"
+  },
+  "236344": {
+    "type": "single",
+    "rxcui": "236344",
+    "name": "saw palmetto extract"
+  },
+  "236778": {
+    "type": "single",
+    "rxcui": "236778",
+    "name": "trospium"
+  },
+  "236782": {
+    "type": "single",
+    "rxcui": "236782",
+    "name": "Saccharomyces boulardii"
+  },
+  "236809": {
+    "type": "single",
+    "rxcui": "236809",
+    "name": "Ginkgo biloba extract"
+  },
+  "237027": {
+    "type": "single",
+    "rxcui": "237027",
+    "name": "loteprednol"
+  },
+  "237057": {
+    "type": "single",
+    "rxcui": "237057",
+    "name": "lepirudin"
+  },
+  "237159": {
+    "type": "single",
+    "rxcui": "237159",
+    "name": "levalbuterol"
+  },
+  "253149": {
+    "type": "single",
+    "rxcui": "4256",
+    "name": "factor VIIa"
+  },
+  "253182": {
+    "type": "single",
+    "rxcui": "253182",
+    "name": "insulin, regular, human"
+  },
+  "253206": {
+    "type": "single",
+    "rxcui": "253206",
+    "name": "valerian root extract"
+  },
+  "253337": {
+    "type": "single",
+    "rxcui": "253337",
+    "name": "bevacizumab"
+  },
+  "253453": {
+    "type": "single",
+    "rxcui": "253453",
+    "name": "peginterferon alfa-2b"
+  },
+  "258326": {
+    "type": "single",
+    "rxcui": "258326",
+    "name": "St. John's wort extract"
+  },
+  "258494": {
+    "type": "single",
+    "rxcui": "258494",
+    "name": "exemestane"
+  },
+  "259274": {
+    "type": "single",
+    "rxcui": "259274",
+    "name": "milk thistle seed extract"
+  },
+  "259280": {
+    "type": "single",
+    "rxcui": "259280",
+    "name": "tenecteplase"
+  },
+  "259346": {
+    "type": "single",
+    "rxcui": "24947",
+    "name": "ferrous sulfate"
+  },
+  "259453": {
+    "type": "single",
+    "rxcui": "259453",
+    "name": "levobupivacaine"
+  },
+  "260101": {
+    "type": "single",
+    "rxcui": "260101",
+    "name": "oseltamivir"
+  },
+  "261435": {
+    "type": "single",
+    "rxcui": "261435",
+    "name": "sodium ferric gluconate complex"
+  },
+  "262100": {
+    "type": "single",
+    "rxcui": "262100",
+    "name": "rapacuronium"
+  },
+  "262323": {
+    "type": "single",
+    "rxcui": "262323",
+    "name": "ibritumomab tiuxetan"
+  },
+  "263010": {
+    "type": "single",
+    "rxcui": "263010",
+    "name": "tositumomab"
+  },
+  "263034": {
+    "type": "single",
+    "rxcui": "263034",
+    "name": "panitumumab"
+  },
+  "265647": {
+    "type": "single",
+    "rxcui": "265647",
+    "name": "garlic preparation"
+  },
+  "266604": {
+    "type": "single",
+    "rxcui": "266604",
+    "name": "metyrosine"
+  },
+  "274332": {
+    "type": "single",
+    "rxcui": "274332",
+    "name": "nateglinide"
+  },
+  "274403": {
+    "type": "single",
+    "rxcui": "274403",
+    "name": "mecasermin"
+  },
+  "274771": {
+    "type": "single",
+    "rxcui": "274771",
+    "name": "nelarabine"
+  },
+  "274783": {
+    "type": "single",
+    "rxcui": "274783",
+    "name": "insulin glargine"
+  },
+  "274786": {
+    "type": "single",
+    "rxcui": "274786",
+    "name": "telithromycin"
+  },
+  "274964": {
+    "type": "single",
+    "rxcui": "274964",
+    "name": "ciclesonide"
+  },
+  "275635": {
+    "type": "single",
+    "rxcui": "275635",
+    "name": "desloratadine"
+  },
+  "275891": {
+    "type": "single",
+    "rxcui": "275891",
+    "name": "valganciclovir"
+  },
+  "276237": {
+    "type": "single",
+    "rxcui": "276237",
+    "name": "emtricitabine"
+  },
+  "278567": {
+    "type": "single",
+    "rxcui": "278567",
+    "name": "valdecoxib"
+  },
+  "278739": {
+    "type": "single",
+    "rxcui": "278739",
+    "name": "pegvisomant"
+  },
+  "279645": {
+    "type": "single",
+    "rxcui": "279645",
+    "name": "almotriptan"
+  },
+  "281890": {
+    "type": "single",
+    "rxcui": "10122",
+    "name": "strontium"
+  },
+  "282357": {
+    "type": "single",
+    "rxcui": "282357",
+    "name": "fulvestrant"
+  },
+  "282388": {
+    "type": "single",
+    "rxcui": "282388",
+    "name": "imatinib"
+  },
+  "282446": {
+    "type": "single",
+    "rxcui": "282446",
+    "name": "posaconazole"
+  },
+  "283742": {
+    "type": "single",
+    "rxcui": "283742",
+    "name": "esomeprazole"
+  },
+  "283753": {
+    "type": "single",
+    "rxcui": "283753",
+    "name": "perflutren"
+  },
+  "283809": {
+    "type": "single",
+    "rxcui": "283809",
+    "name": "travoprost"
+  },
+  "283810": {
+    "type": "single",
+    "rxcui": "283810",
+    "name": "bimatoprost"
+  },
+  "283821": {
+    "type": "single",
+    "rxcui": "283821",
+    "name": "rasburicase"
+  },
+  "283838": {
+    "type": "single",
+    "rxcui": "283838",
+    "name": "darbepoetin alfa"
+  },
+  "285228": {
+    "type": "single",
+    "rxcui": "285228",
+    "name": "kava preparation"
+  },
+  "285241": {
+    "type": "single",
+    "rxcui": "285241",
+    "name": "ginger extract"
+  },
+  "298665": {
+    "type": "single",
+    "rxcui": "298665",
+    "name": "nepafenac"
+  },
+  "298869": {
+    "type": "single",
+    "rxcui": "298869",
+    "name": "eplerenone"
+  },
+  "299635": {
+    "type": "single",
+    "rxcui": "299635",
+    "name": "alefacept"
+  },
+  "301542": {
+    "type": "single",
+    "rxcui": "301542",
+    "name": "rosuvastatin"
+  },
+  "301739": {
+    "type": "single",
+    "rxcui": "301739",
+    "name": "abarelix"
+  },
+  "302285": {
+    "type": "single",
+    "rxcui": "302285",
+    "name": "conivaptan"
+  },
+  "302379": {
+    "type": "single",
+    "rxcui": "302379",
+    "name": "omalizumab"
+  },
+  "304962": {
+    "type": "single",
+    "rxcui": "304962",
+    "name": "arformoterol"
+  },
+  "306266": {
+    "type": "single",
+    "rxcui": "306266",
+    "name": "entecavir"
+  },
+  "306674": {
+    "type": "single",
+    "rxcui": "306674",
+    "name": "vardenafil"
+  },
+  "307296": {
+    "type": "single",
+    "rxcui": "307296",
+    "name": "etoricoxib"
+  },
+  "314504": {
+    "type": "single",
+    "rxcui": "314504",
+    "name": "anti-inhibitor coagulant complex"
+  },
+  "314639": {
+    "type": "single",
+    "rxcui": "1310124",
+    "name": "gallium"
+  },
+  "318224": {
+    "type": "single",
+    "rxcui": "318224",
+    "name": "flaxseed extract"
+  },
+  "318341": {
+    "type": "single",
+    "rxcui": "318341",
+    "name": "cetuximab"
+  },
+  "319780": {
+    "type": "single",
+    "rxcui": "319780",
+    "name": "Capsicum extract"
+  },
+  "319864": {
+    "type": "single",
+    "rxcui": "319864",
+    "name": "cisatracurium"
+  },
+  "321064": {
+    "type": "single",
+    "rxcui": "321064",
+    "name": "olmesartan"
+  },
+  "321208": {
+    "type": "single",
+    "rxcui": "321208",
+    "name": "fondaparinux"
+  },
+  "321952": {
+    "type": "single",
+    "rxcui": "321952",
+    "name": "pimecrolimus"
+  },
+  "321988": {
+    "type": "single",
+    "rxcui": "321988",
+    "name": "escitalopram"
+  },
+  "322167": {
+    "type": "single",
+    "rxcui": "322167",
+    "name": "solifenacin"
+  },
+  "325526": {
+    "type": "single",
+    "rxcui": "325526",
+    "name": "ginseng preparation"
+  },
+  "325642": {
+    "type": "single",
+    "rxcui": "325642",
+    "name": "ertapenem"
+  },
+  "325646": {
+    "type": "single",
+    "rxcui": "325646",
+    "name": "aliskiren"
+  },
+  "325887": {
+    "type": "single",
+    "rxcui": "325887",
+    "name": "micafungin"
+  },
+  "326374": {
+    "type": "single",
+    "rxcui": "326374",
+    "name": "norelgestromin"
+  },
+  "327361": {
+    "type": "single",
+    "rxcui": "327361",
+    "name": "adalimumab"
+  },
+  "328134": {
+    "type": "single",
+    "rxcui": "328134",
+    "name": "gefitinib"
+  },
+  "333848": {
+    "type": "single",
+    "rxcui": "23066",
+    "name": "dihematoporphyrin ether"
+  },
+  "337068": {
+    "type": "single",
+    "rxcui": "337068",
+    "name": "methyl 5-aminolevulinate"
+  },
+  "337523": {
+    "type": "single",
+    "rxcui": "337523",
+    "name": "ixabepilone"
+  },
+  "337525": {
+    "type": "single",
+    "rxcui": "337525",
+    "name": "erlotinib"
+  },
+  "337623": {
+    "type": "single",
+    "rxcui": "337623",
+    "name": "dornase alfa"
+  },
+  "338036": {
+    "type": "single",
+    "rxcui": "338036",
+    "name": "pegfilgrastim"
+  },
+  "338817": {
+    "type": "single",
+    "rxcui": "338817",
+    "name": "agalsidase beta"
+  },
+  "340705": {
+    "type": "single",
+    "rxcui": "4986",
+    "name": "chorionic gonadotropin"
+  },
+  "341018": {
+    "type": "single",
+    "rxcui": "341018",
+    "name": "anidulafungin"
+  },
+  "341248": {
+    "type": "single",
+    "rxcui": "341248",
+    "name": "ezetimibe"
+  },
+  "342369": {
+    "type": "single",
+    "rxcui": "342369",
+    "name": "lenalidomide"
+  },
+  "342965": {
+    "type": "single",
+    "rxcui": "2221",
+    "name": "cellulose"
+  },
+  "343047": {
+    "type": "single",
+    "rxcui": "343047",
+    "name": "atazanavir"
+  },
+  "343048": {
+    "type": "single",
+    "rxcui": "343048",
+    "name": "treprostinil"
+  },
+  "352372": {
+    "type": "single",
+    "rxcui": "352372",
+    "name": "dexmethylphenidate"
+  },
+  "352374": {
+    "type": "single",
+    "rxcui": "352374",
+    "name": "drotrecogin alfa"
+  },
+  "353497": {
+    "type": "single",
+    "rxcui": "353497",
+    "name": "levobetaxolol"
+  },
+  "354770": {
+    "type": "single",
+    "rxcui": "354770",
+    "name": "natalizumab"
+  },
+  "356887": {
+    "type": "single",
+    "rxcui": "356887",
+    "name": "levocetirizine"
+  },
+  "356988": {
+    "type": "single",
+    "rxcui": "356988",
+    "name": "efalizumab"
+  },
+  "357977": {
+    "type": "single",
+    "rxcui": "357977",
+    "name": "sunitinib"
+  },
+  "358255": {
+    "type": "single",
+    "rxcui": "358255",
+    "name": "aprepitant"
+  },
+  "358257": {
+    "type": "single",
+    "rxcui": "358257",
+    "name": "tolvaptan"
+  },
+  "358258": {
+    "type": "single",
+    "rxcui": "358258",
+    "name": "bortezomib"
+  },
+  "358262": {
+    "type": "single",
+    "rxcui": "358262",
+    "name": "fosamprenavir"
+  },
+  "358263": {
+    "type": "single",
+    "rxcui": "358263",
+    "name": "tadalafil"
+  },
+  "358274": {
+    "type": "single",
+    "rxcui": "358274",
+    "name": "ambrisentan"
+  },
+  "384455": {
+    "type": "single",
+    "rxcui": "384455",
+    "name": "tigecycline"
+  },
+  "392491": {
+    "type": "combination",
+    "components": [
+      {
+        "rxcui": "6406",
+        "name": "lipase"
+      },
+      {
+        "rxcui": "743",
+        "name": "amylase"
+      },
+      {
+        "rxcui": "8031",
+        "name": "protease"
+      }
+    ]
+  },
+  "392509": {
+    "type": "single",
+    "rxcui": "392509",
+    "name": "laronidase"
+  },
+  "400008": {
+    "type": "single",
+    "rxcui": "400008",
+    "name": "insulin glulisine, human"
+  },
+  "402316": {
+    "type": "single",
+    "rxcui": "402316",
+    "name": "miglustat"
+  },
+  "407990": {
+    "type": "single",
+    "rxcui": "407990",
+    "name": "cinacalcet"
+  },
+  "460132": {
+    "type": "single",
+    "rxcui": "460132",
+    "name": "darunavir"
+  },
+  "461016": {
+    "type": "single",
+    "rxcui": "461016",
+    "name": "eszopiclone"
+  },
+  "473387": {
+    "type": "single",
+    "rxcui": "473387",
+    "name": "ferumoxytol"
+  },
+  "473837": {
+    "type": "single",
+    "rxcui": "473837",
+    "name": "telavancin"
+  },
+  "474128": {
+    "type": "single",
+    "rxcui": "474128",
+    "name": "telbivudine"
+  },
+  "475230": {
+    "type": "single",
+    "rxcui": "475230",
+    "name": "degarelix"
+  },
+  "475342": {
+    "type": "single",
+    "rxcui": "475342",
+    "name": "dasatinib"
+  },
+  "475968": {
+    "type": "single",
+    "rxcui": "475968",
+    "name": "liraglutide"
+  },
+  "475969": {
+    "type": "single",
+    "rxcui": "475969",
+    "name": "etravirine"
+  },
+  "476818": {
+    "type": "single",
+    "rxcui": "476818",
+    "name": "magnesium glycinate"
+  },
+  "477631": {
+    "type": "single",
+    "rxcui": "477631",
+    "name": "butabarbital"
+  },
+  "480167": {
+    "type": "single",
+    "rxcui": "480167",
+    "name": "lapatinib"
+  },
+  "480639": {
+    "type": "single",
+    "rxcui": "480639",
+    "name": "alvimopan"
+  },
+  "485576": {
+    "type": "single",
+    "rxcui": "39385",
+    "name": "varicella-zoster immune globulin"
+  },
+  "495881": {
+    "type": "single",
+    "rxcui": "495881",
+    "name": "sorafenib"
+  },
+  "498509": {
+    "type": "single",
+    "rxcui": "498509",
+    "name": "pegaptanib"
+  },
+  "544488": {
+    "type": "single",
+    "rxcui": "544488",
+    "name": "botulism immune globulin IV human"
+  },
+  "588250": {
+    "type": "single",
+    "rxcui": "588250",
+    "name": "milnacipran"
+  },
+  "591622": {
+    "type": "single",
+    "rxcui": "591622",
+    "name": "varenicline"
+  },
+  "591781": {
+    "type": "single",
+    "rxcui": "591781",
+    "name": "eculizumab"
+  },
+  "592464": {
+    "type": "single",
+    "rxcui": "592464",
+    "name": "articaine"
+  },
+  "593411": {
+    "type": "single",
+    "rxcui": "593411",
+    "name": "sitagliptin"
+  },
+  "595060": {
+    "type": "single",
+    "rxcui": "595060",
+    "name": "ranibizumab"
+  },
+  "596205": {
+    "type": "single",
+    "rxcui": "596205",
+    "name": "ramelteon"
+  },
+  "596554": {
+    "type": "single",
+    "rxcui": "596554",
+    "name": "vildagliptin"
+  },
+  "596723": {
+    "type": "single",
+    "rxcui": "596723",
+    "name": "cerivastatin"
+  },
+  "596724": {
+    "type": "single",
+    "rxcui": "596724",
+    "name": "anagrelide"
+  },
+  "597392": {
+    "type": "single",
+    "rxcui": "597392",
+    "name": "human vaccinia immune globulin"
+  },
+  "606396": {
+    "type": "single",
+    "rxcui": "606396",
+    "name": "secretin human, synthetic"
+  },
+  "612865": {
+    "type": "single",
+    "rxcui": "612865",
+    "name": "tocilizumab"
+  },
+  "612937": {
+    "type": "single",
+    "rxcui": "612937",
+    "name": "interferon alfa-n3"
+  },
+  "613391": {
+    "type": "single",
+    "rxcui": "613391",
+    "name": "prasugrel"
+  },
+  "614373": {
+    "type": "single",
+    "rxcui": "614373",
+    "name": "deferasirox"
+  },
+  "614391": {
+    "type": "single",
+    "rxcui": "614391",
+    "name": "abatacept"
+  },
+  "616739": {
+    "type": "single",
+    "rxcui": "616739",
+    "name": "rotigotine"
+  },
+  "616877": {
+    "type": "single",
+    "rxcui": "616877",
+    "name": "mecasermin rinfabate"
+  },
+  "620216": {
+    "type": "single",
+    "rxcui": "620216",
+    "name": "maraviroc"
+  },
+  "623033": {
+    "type": "single",
+    "rxcui": "623033",
+    "name": "lubiprostone"
+  },
+  "623400": {
+    "type": "single",
+    "rxcui": "623400",
+    "name": "lacosamide"
+  },
+  "640062": {
+    "type": "single",
+    "rxcui": "640062",
+    "name": "regadenoson"
+  },
+  "641465": {
+    "type": "single",
+    "rxcui": "641465",
+    "name": "armodafinil"
+  },
+  "642274": {
+    "type": "single",
+    "rxcui": "642274",
+    "name": "retapamulin"
+  },
+  "657797": {
+    "type": "single",
+    "rxcui": "657797",
+    "name": "temsirolimus"
+  },
+  "662019": {
+    "type": "single",
+    "rxcui": "662019",
+    "name": "pralatrexate"
+  },
+  "662281": {
+    "type": "single",
+    "rxcui": "662281",
+    "name": "nilotinib"
+  },
+  "679314": {
+    "type": "single",
+    "rxcui": "679314",
+    "name": "paliperidone"
+  },
+  "684879": {
+    "type": "single",
+    "rxcui": "684879",
+    "name": "pyridoxine"
+  },
+  "700810": {
+    "type": "single",
+    "rxcui": "700810",
+    "name": "lisdexamfetamine"
+  },
+  "709271": {
+    "type": "single",
+    "rxcui": "709271",
+    "name": "certolizumab pegol"
+  },
+  "711942": {
+    "type": "single",
+    "rxcui": "711942",
+    "name": "eltrombopag"
+  },
+  "712566": {
+    "type": "single",
+    "rxcui": "712566",
+    "name": "ofatumumab"
+  },
+  "714438": {
+    "type": "single",
+    "rxcui": "714438",
+    "name": "pazopanib"
+  },
+  "719872": {
+    "type": "single",
+    "rxcui": "719872",
+    "name": "raltegravir"
+  },
+  "720825": {
+    "type": "single",
+    "rxcui": "720825",
+    "name": "silodosin"
+  },
+  "723868": {
+    "type": "single",
+    "rxcui": "8834",
+    "name": "protein C"
+  },
+  "734064": {
+    "type": "single",
+    "rxcui": "734064",
+    "name": "desvenlafaxine"
+  },
+  "746741": {
+    "type": "single",
+    "rxcui": "746741",
+    "name": "pramipexole"
+  },
+  "753340": {
+    "type": "single",
+    "rxcui": "753340",
+    "name": "sapropterin"
+  },
+  "762817": {
+    "type": "single",
+    "rxcui": "762817",
+    "name": "rubella virus vaccine live (Wistar RA 27-3 strain)"
+  },
+  "763096": {
+    "type": "single",
+    "rxcui": "763096",
+    "name": "poliovirus vaccine inactivated, type 1 (Mahoney)"
+  },
+  "763450": {
+    "type": "single",
+    "rxcui": "763450",
+    "name": "rilonacept"
+  },
+  "784649": {
+    "type": "single",
+    "rxcui": "784649",
+    "name": "asenapine"
+  },
+  "787390": {
+    "type": "single",
+    "rxcui": "787390",
+    "name": "tapentadol"
+  },
+  "797195": {
+    "type": "single",
+    "rxcui": "797195",
+    "name": "fesoterodine"
+  },
+  "797752": {
+    "type": "single",
+    "rxcui": "797752",
+    "name": "hepatitis B surface antigen vaccine"
+  },
+  "798262": {
+    "type": "single",
+    "rxcui": "798262",
+    "name": "L1 protein, human papillomavirus type 11 vaccine"
+  },
+  "798306": {
+    "type": "single",
+    "rxcui": "798306",
+    "name": "tetanus toxoid vaccine, inactivated"
+  },
+  "798372": {
+    "type": "single",
+    "rxcui": "798372",
+    "name": "mumps virus vaccine live, Jeryl Lynn strain"
+  },
+  "804179": {
+    "type": "single",
+    "rxcui": "804179",
+    "name": "measles virus vaccine live, Enders' attenuated Edmonston strain"
+  },
+  "804187": {
+    "type": "single",
+    "rxcui": "804187",
+    "name": "yellow fever virus strain 17D-204 live antigen"
+  },
+  "805452": {
+    "type": "single",
+    "rxcui": "805452",
+    "name": "romiplostim"
+  },
+  "809864": {
+    "type": "single",
+    "rxcui": "1599832",
+    "name": "C1 esterase inhibitor"
+  },
+  "816346": {
+    "type": "single",
+    "rxcui": "816346",
+    "name": "dexlansoprazole"
+  },
+  "819300": {
+    "type": "single",
+    "rxcui": "819300",
+    "name": "golimumab"
+  },
+  "826072": {
+    "type": "single",
+    "rxcui": "11274",
+    "name": "von Willebrand factor"
+  },
+  "828682": {
+    "type": "single",
+    "rxcui": "828682",
+    "name": "fospropofol"
+  },
+  "847083": {
+    "type": "single",
+    "rxcui": "847083",
+    "name": "ustekinumab"
+  },
+  "847728": {
+    "type": "single",
+    "rxcui": "847728",
+    "name": "lumefantrine"
+  },
+  "853491": {
+    "type": "single",
+    "rxcui": "853491",
+    "name": "canakinumab"
+  },
+  "857974": {
+    "type": "single",
+    "rxcui": "857974",
+    "name": "saxagliptin"
+  },
+  "861634": {
+    "type": "single",
+    "rxcui": "861634",
+    "name": "pitavastatin"
+  },
+  "867357": {
+    "type": "single",
+    "rxcui": "867357",
+    "name": "Trichophyton mentagrophytes allergenic extract"
+  },
+  "877015": {
+    "type": "single",
+    "rxcui": "877015",
+    "name": "levoleucovorin"
+  },
+  "877510": {
+    "type": "single",
+    "rxcui": "877510",
+    "name": "romidepsin"
+  },
+  "885189": {
+    "type": "single",
+    "rxcui": "885189",
+    "name": "Crotalus scutulatus antivenin"
+  },
+  "897018": {
+    "type": "single",
+    "rxcui": "897018",
+    "name": "dalfampridine"
+  },
+  "898492": {
+    "type": "single",
+    "rxcui": "898492",
+    "name": "collagenase Clostridium histolyticum"
+  },
+  "974779": {
+    "type": "single",
+    "rxcui": "974779",
+    "name": "obinutuzumab"
+  },
+  "979384": {
+    "type": "single",
+    "rxcui": "979384",
+    "name": "North American coral snake antivenin"
+  },
+  "993449": {
+    "type": "single",
+    "rxcui": "993449",
+    "name": "denosumab"
+  },
+  "996051": {
+    "type": "single",
+    "rxcui": "996051",
+    "name": "cabazitaxel"
+  },
+  "997261": {
+    "type": "single",
+    "rxcui": "997261",
+    "name": "sipuleucel-T"
+  },
+  "997602": {
+    "type": "single",
+    "rxcui": "997602",
+    "name": "citicoline"
+  },
+  "1000112": {
+    "type": "single",
+    "rxcui": "6691",
+    "name": "medroxyprogesterone"
+  },
+  "1000577": {
+    "type": "single",
+    "rxcui": "1000577",
+    "name": "microcrystalline cellulose"
+  },
+  "1005921": {
+    "type": "single",
+    "rxcui": "1005921",
+    "name": "ulipristal"
+  },
+  "1010954": {
+    "type": "single",
+    "rxcui": "1010954",
+    "name": "licorice allergenic extract"
+  },
+  "1011426": {
+    "type": "single",
+    "rxcui": "1011426",
+    "name": "papaya allergenic extract"
+  },
+  "1011650": {
+    "type": "single",
+    "rxcui": "1011650",
+    "name": "pegloticase"
+  },
+  "1012892": {
+    "type": "single",
+    "rxcui": "1012892",
+    "name": "fingolimod"
+  },
+  "1025342": {
+    "type": "single",
+    "rxcui": "1592257",
+    "name": "levomefolate"
+  },
+  "1029441": {
+    "type": "combination",
+    "components": [
+      {
+        "rxcui": "29155",
+        "name": "magnesium carbonate"
+      },
+      {
+        "rxcui": "612",
+        "name": "aluminum hydroxide"
+      }
+    ]
+  },
+  "1037042": {
+    "type": "single",
+    "rxcui": "1037042",
+    "name": "dabigatran etexilate"
+  },
+  "1040004": {
+    "type": "single",
+    "rxcui": "1040004",
+    "name": "ceftaroline fosamil"
+  },
+  "1040028": {
+    "type": "single",
+    "rxcui": "1040028",
+    "name": "lurasidone"
+  },
+  "1044584": {
+    "type": "single",
+    "rxcui": "1044584",
+    "name": "tesamorelin"
+  },
+  "1045453": {
+    "type": "single",
+    "rxcui": "1045453",
+    "name": "eribulin"
+  },
+  "1085787": {
+    "type": "single",
+    "rxcui": "1085787",
+    "name": "butylscopolamine"
+  },
+  "1086769": {
+    "type": "single",
+    "rxcui": "1086769",
+    "name": "vilazodone"
+  },
+  "1091605": {
+    "type": "single",
+    "rxcui": "4271",
+    "name": "factor XIII"
+  },
+  "1091642": {
+    "type": "single",
+    "rxcui": "1091643",
+    "name": "azilsartan"
+  },
+  "1091643": {
+    "type": "single",
+    "rxcui": "1091643",
+    "name": "azilsartan"
+  },
+  "1091836": {
+    "type": "single",
+    "rxcui": "1091836",
+    "name": "roflumilast"
+  },
+  "1092437": {
+    "type": "single",
+    "rxcui": "1092437",
+    "name": "belimumab"
+  },
+  "1094833": {
+    "type": "single",
+    "rxcui": "1094833",
+    "name": "ipilimumab"
+  },
+  "1098413": {
+    "type": "single",
+    "rxcui": "1098413",
+    "name": "vandetanib"
+  },
+  "1100072": {
+    "type": "single",
+    "rxcui": "1100072",
+    "name": "abiraterone"
+  },
+  "1100699": {
+    "type": "single",
+    "rxcui": "1100699",
+    "name": "linagliptin"
+  },
+  "1102129": {
+    "type": "single",
+    "rxcui": "1102129",
+    "name": "boceprevir"
+  },
+  "1102261": {
+    "type": "single",
+    "rxcui": "1102261",
+    "name": "telaprevir"
+  },
+  "1102270": {
+    "type": "single",
+    "rxcui": "1102270",
+    "name": "rilpivirine"
+  },
+  "1111103": {
+    "type": "single",
+    "rxcui": "1111103",
+    "name": "fidaxomicin"
+  },
+  "1112973": {
+    "type": "single",
+    "rxcui": "1112973",
+    "name": "belatacept"
+  },
+  "1112990": {
+    "type": "single",
+    "rxcui": "1112990",
+    "name": "ezogabine"
+  },
+  "1114195": {
+    "type": "single",
+    "rxcui": "1114195",
+    "name": "rivaroxaban"
+  },
+  "1114326": {
+    "type": "single",
+    "rxcui": "1114326",
+    "name": "indacaterol"
+  },
+  "1114883": {
+    "type": "single",
+    "rxcui": "1114883",
+    "name": "turmeric extract"
+  },
+  "1116632": {
+    "type": "single",
+    "rxcui": "1116632",
+    "name": "ticagrelor"
+  },
+  "1147220": {
+    "type": "single",
+    "rxcui": "1147220",
+    "name": "vemurafenib"
+  },
+  "1147320": {
+    "type": "single",
+    "rxcui": "1147320",
+    "name": "brentuximab vedotin"
+  },
+  "1148138": {
+    "type": "single",
+    "rxcui": "1148138",
+    "name": "icatibant"
+  },
+  "1148495": {
+    "type": "single",
+    "rxcui": "1148495",
+    "name": "crizotinib"
+  },
+  "1193326": {
+    "type": "single",
+    "rxcui": "1193326",
+    "name": "ruxolitinib"
+  },
+  "1232150": {
+    "type": "single",
+    "rxcui": "1232150",
+    "name": "aflibercept"
+  },
+  "1242127": {
+    "type": "single",
+    "rxcui": "1242127",
+    "name": "glucarpidase"
+  },
+  "1242987": {
+    "type": "single",
+    "rxcui": "1242987",
+    "name": "vismodegib"
+  },
+  "1242999": {
+    "type": "single",
+    "rxcui": "1242999",
+    "name": "axitinib"
+  },
+  "1243041": {
+    "type": "single",
+    "rxcui": "1243041",
+    "name": "ivacaftor"
+  },
+  "1244607": {
+    "type": "single",
+    "rxcui": "1244607",
+    "name": "tafluprost"
+  },
+  "1248798": {
+    "type": "single",
+    "rxcui": "1248798",
+    "name": "peginesatide"
+  },
+  "1291301": {
+    "type": "single",
+    "rxcui": "1291301",
+    "name": "avanafil"
+  },
+  "1294580": {
+    "type": "single",
+    "rxcui": "1294580",
+    "name": "gemtuzumab ozogamicin"
+  },
+  "1294617": {
+    "type": "single",
+    "rxcui": "47181",
+    "name": "bismuth subcitrate"
+  },
+  "1298944": {
+    "type": "single",
+    "rxcui": "1298944",
+    "name": "pertuzumab"
+  },
+  "1299785": {
+    "type": "single",
+    "rxcui": "1099933",
+    "name": "adenovirus type 4 vaccine live"
+  },
+  "1299924": {
+    "type": "single",
+    "rxcui": "3755",
+    "name": "edetic acid"
+  },
+  "1300486": {
+    "type": "single",
+    "rxcui": "4257",
+    "name": "factor VIII"
+  },
+  "1300701": {
+    "type": "single",
+    "rxcui": "1300701",
+    "name": "lorcaserin"
+  },
+  "1300786": {
+    "type": "single",
+    "rxcui": "1300786",
+    "name": "mirabegron"
+  },
+  "1302966": {
+    "type": "single",
+    "rxcui": "1302966",
+    "name": "carfilzomib"
+  },
+  "1303098": {
+    "type": "single",
+    "rxcui": "1303098",
+    "name": "aclidinium"
+  },
+  "1306128": {
+    "type": "single",
+    "rxcui": "1306128",
+    "name": "aloe vera leaf extract"
+  },
+  "1306284": {
+    "type": "single",
+    "rxcui": "1306284",
+    "name": "cobicistat"
+  },
+  "1306286": {
+    "type": "single",
+    "rxcui": "1306286",
+    "name": "elvitegravir"
+  },
+  "1307298": {
+    "type": "single",
+    "rxcui": "1307298",
+    "name": "enzalutamide"
+  },
+  "1307404": {
+    "type": "single",
+    "rxcui": "1307404",
+    "name": "linaclotide"
+  },
+  "1307619": {
+    "type": "single",
+    "rxcui": "1307619",
+    "name": "bosutinib"
+  },
+  "1309226": {
+    "type": "single",
+    "rxcui": "1309226",
+    "name": "chamomile extract"
+  },
+  "1310520": {
+    "type": "single",
+    "rxcui": "1310520",
+    "name": "teriflunomide"
+  },
+  "1311089": {
+    "type": "single",
+    "rxcui": "1311089",
+    "name": "defibrotide"
+  },
+  "1311500": {
+    "type": "single",
+    "rxcui": "1311500",
+    "name": "mebrofenin"
+  },
+  "1311569": {
+    "type": "single",
+    "rxcui": "1311569",
+    "name": "tetrofosmin"
+  },
+  "1312397": {
+    "type": "single",
+    "rxcui": "1312397",
+    "name": "regorafenib"
+  },
+  "1313234": {
+    "type": "single",
+    "rxcui": "1313234",
+    "name": "triheptanoin"
+  },
+  "1314372": {
+    "type": "single",
+    "rxcui": "1362699",
+    "name": "indium"
+  },
+  "1314416": {
+    "type": "single",
+    "rxcui": "1314416",
+    "name": "levo-methamphetamine"
+  },
+  "1350209": {
+    "type": "single",
+    "rxcui": "1350209",
+    "name": "Frangula purshiana bark extract"
+  },
+  "1356552": {
+    "type": "single",
+    "rxcui": "1356552",
+    "name": "perampanel"
+  },
+  "1356715": {
+    "type": "single",
+    "rxcui": "42682",
+    "name": "etidronate"
+  },
+  "1357536": {
+    "type": "single",
+    "rxcui": "1357536",
+    "name": "tofacitinib"
+  },
+  "1361657": {
+    "type": "single",
+    "rxcui": "1546275",
+    "name": "iodide ion"
+  },
+  "1362737": {
+    "type": "single",
+    "rxcui": "1362737",
+    "name": "fluorodeoxyglucose F18"
+  },
+  "1363268": {
+    "type": "single",
+    "rxcui": "1363268",
+    "name": "cabozantinib"
+  },
+  "1364105": {
+    "type": "single",
+    "rxcui": "1364105",
+    "name": "pasireotide"
+  },
+  "1364289": {
+    "type": "single",
+    "rxcui": "1364290",
+    "name": "gadofosveset"
+  },
+  "1364295": {
+    "type": "single",
+    "rxcui": "1364295",
+    "name": "clove preparation"
+  },
+  "1364347": {
+    "type": "single",
+    "rxcui": "1364347",
+    "name": "ponatinib"
+  },
+  "1364430": {
+    "type": "single",
+    "rxcui": "1364430",
+    "name": "apixaban"
+  },
+  "1364468": {
+    "type": "single",
+    "rxcui": "1364468",
+    "name": "teduglutide"
+  },
+  "1364479": {
+    "type": "single",
+    "rxcui": "1364479",
+    "name": "lomitapide"
+  },
+  "1364504": {
+    "type": "single",
+    "rxcui": "1364504",
+    "name": "bedaquiline"
+  },
+  "1367839": {
+    "type": "single",
+    "rxcui": "1367839",
+    "name": "mipomersen"
+  },
+  "1368001": {
+    "type": "single",
+    "rxcui": "1368001",
+    "name": "alogliptin"
+  },
+  "1368451": {
+    "type": "single",
+    "rxcui": "1368451",
+    "name": "glycerol phenylbutyrate"
+  },
+  "1369713": {
+    "type": "single",
+    "rxcui": "1369713",
+    "name": "pomalidomide"
+  },
+  "1370971": {
+    "type": "single",
+    "rxcui": "1370971",
+    "name": "ospemifene"
+  },
+  "1371041": {
+    "type": "single",
+    "rxcui": "224905",
+    "name": "trastuzumab"
+  },
+  "1371967": {
+    "type": "single",
+    "rxcui": "1368950",
+    "name": "edetate calcium"
+  },
+  "1372255": {
+    "type": "single",
+    "rxcui": "1372255",
+    "name": "goldenseal extract"
+  },
+  "1373458": {
+    "type": "single",
+    "rxcui": "1373458",
+    "name": "canagliflozin"
+  },
+  "1373478": {
+    "type": "single",
+    "rxcui": "1373478",
+    "name": "dimethyl fumarate"
+  },
+  "1424174": {
+    "type": "single",
+    "rxcui": "1546450",
+    "name": "radium"
+  },
+  "1424884": {
+    "type": "single",
+    "rxcui": "1424884",
+    "name": "vilanterol"
+  },
+  "1424911": {
+    "type": "single",
+    "rxcui": "1424911",
+    "name": "dabrafenib"
+  },
+  "1425099": {
+    "type": "single",
+    "rxcui": "1425099",
+    "name": "trametinib"
+  },
+  "1426166": {
+    "type": "single",
+    "rxcui": "4262",
+    "name": "factor X"
+  },
+  "1426680": {
+    "type": "single",
+    "rxcui": "5666",
+    "name": "immunoglobulin G"
+  },
+  "1426872": {
+    "type": "single",
+    "rxcui": "1426872",
+    "name": "hexyl 5-aminolevulinate"
+  },
+  "1426874": {
+    "type": "single",
+    "rxcui": "2571854",
+    "name": "ioflupane"
+  },
+  "1427179": {
+    "type": "single",
+    "rxcui": "1009",
+    "name": "antithrombin III"
+  },
+  "1427222": {
+    "type": "single",
+    "rxcui": "1427222",
+    "name": "parathyroid hormone"
+  },
+  "1430438": {
+    "type": "single",
+    "rxcui": "1430438",
+    "name": "afatinib"
+  },
+  "1431738": {
+    "type": "single",
+    "rxcui": "1156",
+    "name": "asparaginase"
+  },
+  "1433212": {
+    "type": "single",
+    "rxcui": "1433212",
+    "name": "levomilnacipran"
+  },
+  "1433693": {
+    "type": "single",
+    "rxcui": "1433693",
+    "name": "ferric carboxymaltose"
+  },
+  "1433868": {
+    "type": "single",
+    "rxcui": "1433868",
+    "name": "dolutegravir"
+  },
+  "1439816": {
+    "type": "single",
+    "rxcui": "1439816",
+    "name": "riociguat"
+  },
+  "1440051": {
+    "type": "single",
+    "rxcui": "1440051",
+    "name": "lixisenatide"
+  },
+  "1440856": {
+    "type": "single",
+    "rxcui": "1440856",
+    "name": "cholic acid"
+  },
+  "1441386": {
+    "type": "single",
+    "rxcui": "1441386",
+    "name": "bazedoxifene"
+  },
+  "1442132": {
+    "type": "single",
+    "rxcui": "1442132",
+    "name": "macitentan"
+  },
+  "1442981": {
+    "type": "single",
+    "rxcui": "1442981",
+    "name": "ibrutinib"
+  },
+  "1455099": {
+    "type": "single",
+    "rxcui": "1455099",
+    "name": "vortioxetine"
+  },
+  "1482502": {
+    "type": "single",
+    "rxcui": "1482502",
+    "name": "eslicarbazepine"
+  },
+  "1482790": {
+    "type": "single",
+    "rxcui": "1482790",
+    "name": "simeprevir"
+  },
+  "1484911": {
+    "type": "single",
+    "rxcui": "1484911",
+    "name": "sofosbuvir"
+  },
+  "1487514": {
+    "type": "single",
+    "rxcui": "1487514",
+    "name": "umeclidinium"
+  },
+  "1488564": {
+    "type": "single",
+    "rxcui": "1488564",
+    "name": "dapagliflozin"
+  },
+  "1489913": {
+    "type": "single",
+    "rxcui": "1489913",
+    "name": "droxidopa"
+  },
+  "1490468": {
+    "type": "single",
+    "rxcui": "1490468",
+    "name": "tasimelteon"
+  },
+  "1491625": {
+    "type": "single",
+    "rxcui": "1491625",
+    "name": "metreleptin"
+  },
+  "1492300": {
+    "type": "single",
+    "rxcui": "1492300",
+    "name": "vaccinia virus strain New York City Board of Health live antigen"
+  },
+  "1492727": {
+    "type": "single",
+    "rxcui": "1492727",
+    "name": "apremilast"
+  },
+  "1494066": {
+    "type": "single",
+    "rxcui": "1494066",
+    "name": "miltefosine"
+  },
+  "1534763": {
+    "type": "single",
+    "rxcui": "1534763",
+    "name": "albiglutide"
+  },
+  "1535218": {
+    "type": "single",
+    "rxcui": "1535218",
+    "name": "siltuximab"
+  },
+  "1535457": {
+    "type": "single",
+    "rxcui": "1535457",
+    "name": "ceritinib"
+  },
+  "1535922": {
+    "type": "single",
+    "rxcui": "1535922",
+    "name": "ramucirumab"
+  },
+  "1537034": {
+    "type": "single",
+    "rxcui": "1537034",
+    "name": "vorapaxar"
+  },
+  "1538097": {
+    "type": "single",
+    "rxcui": "1538097",
+    "name": "vedolizumab"
+  },
+  "1539239": {
+    "type": "single",
+    "rxcui": "1539239",
+    "name": "dalbavancin"
+  },
+  "1540825": {
+    "type": "single",
+    "rxcui": "1540825",
+    "name": "tedizolid"
+  },
+  "1543543": {
+    "type": "single",
+    "rxcui": "1543543",
+    "name": "belinostat"
+  },
+  "1544460": {
+    "type": "single",
+    "rxcui": "1544460",
+    "name": "idelalisib"
+  },
+  "1545063": {
+    "type": "single",
+    "rxcui": "1545063",
+    "name": "tafamidis"
+  },
+  "1545653": {
+    "type": "single",
+    "rxcui": "1545653",
+    "name": "empagliflozin"
+  },
+  "1546059": {
+    "type": "single",
+    "rxcui": "1546059",
+    "name": "olodaterol"
+  },
+  "1546168": {
+    "type": "single",
+    "rxcui": "1546168",
+    "name": "peginterferon beta-1a"
+  },
+  "1546354": {
+    "type": "single",
+    "rxcui": "1546354",
+    "name": "2-mercaptoethanesulfonic acid"
+  },
+  "1546356": {
+    "type": "single",
+    "rxcui": "1546356",
+    "name": "dabigatran"
+  },
+  "1546386": {
+    "type": "single",
+    "rxcui": "1546386",
+    "name": "bromotheophylline"
+  },
+  "1546387": {
+    "type": "single",
+    "rxcui": "1546387",
+    "name": "carbamoylcholine"
+  },
+  "1546394": {
+    "type": "single",
+    "rxcui": "5933",
+    "name": "iodine"
+  },
+  "1546406": {
+    "type": "single",
+    "rxcui": "11473",
+    "name": "pamidronate"
+  },
+  "1546408": {
+    "type": "single",
+    "rxcui": "1546408",
+    "name": "unoprostone"
+  },
+  "1546425": {
+    "type": "single",
+    "rxcui": "1364533",
+    "name": "pyrophosphate"
+  },
+  "1546433": {
+    "type": "single",
+    "rxcui": "1546433",
+    "name": "monomethyl fumarate"
+  },
+  "1546438": {
+    "type": "single",
+    "rxcui": "1546438",
+    "name": "glycopyrronium"
+  },
+  "1546447": {
+    "type": "single",
+    "rxcui": "81647",
+    "name": "phenylbutyrate"
+  },
+  "1546448": {
+    "type": "single",
+    "rxcui": "1306068",
+    "name": "oxidronate"
+  },
+  "1546451": {
+    "type": "single",
+    "rxcui": "1546451",
+    "name": "iothalamic acid"
+  },
+  "1546457": {
+    "type": "single",
+    "rxcui": "1546458",
+    "name": "picosulfurate"
+  },
+  "1547099": {
+    "type": "single",
+    "rxcui": "1547099",
+    "name": "suvorexant"
+  },
+  "1547220": {
+    "type": "single",
+    "rxcui": "1547220",
+    "name": "eliglustat"
+  },
+  "1547545": {
+    "type": "single",
+    "rxcui": "1547545",
+    "name": "pembrolizumab"
+  },
+  "1547611": {
+    "type": "single",
+    "rxcui": "1547611",
+    "name": "oritavancin"
+  },
+  "1549330": {
+    "type": "single",
+    "rxcui": "1549330",
+    "name": "Coccidioides immitis spherule"
+  },
+  "1551291": {
+    "type": "single",
+    "rxcui": "1551291",
+    "name": "dulaglutide"
+  },
+  "1551777": {
+    "type": "single",
+    "rxcui": "1551777",
+    "name": "naloxegol"
+  },
+  "1552337": {
+    "type": "single",
+    "rxcui": "1552337",
+    "name": "netupitant"
+  },
+  "1591922": {
+    "type": "single",
+    "rxcui": "1591922",
+    "name": "ledipasvir"
+  },
+  "1592254": {
+    "type": "single",
+    "rxcui": "1592254",
+    "name": "pirfenidone"
+  },
+  "1592737": {
+    "type": "single",
+    "rxcui": "1592737",
+    "name": "nintedanib"
+  },
+  "1595589": {
+    "type": "single",
+    "rxcui": "1423803",
+    "name": "glyceryl phosphate"
+  },
+  "1596450": {
+    "type": "single",
+    "rxcui": "1596450",
+    "name": "gentamicin"
+  },
+  "1597258": {
+    "type": "single",
+    "rxcui": "1597258",
+    "name": "blinatumomab"
+  },
+  "1597371": {
+    "type": "single",
+    "rxcui": "1597371",
+    "name": "ombitasvir"
+  },
+  "1597373": {
+    "type": "single",
+    "rxcui": "1597373",
+    "name": "paritaprevir"
+  },
+  "1597381": {
+    "type": "single",
+    "rxcui": "1597381",
+    "name": "dasabuvir"
+  },
+  "1597582": {
+    "type": "single",
+    "rxcui": "1597582",
+    "name": "olaparib"
+  },
+  "1597609": {
+    "type": "single",
+    "rxcui": "1597609",
+    "name": "ceftolozane"
+  },
+  "1597876": {
+    "type": "single",
+    "rxcui": "1597876",
+    "name": "nivolumab"
+  },
+  "1599276": {
+    "type": "single",
+    "rxcui": "1599276",
+    "name": "sulfur hexafluoride"
+  },
+  "1599538": {
+    "type": "single",
+    "rxcui": "1599538",
+    "name": "edoxaban"
+  },
+  "1599788": {
+    "type": "single",
+    "rxcui": "1599788",
+    "name": "secukinumab"
+  },
+  "1599831": {
+    "type": "single",
+    "rxcui": "1599832",
+    "name": "C1 esterase inhibitor"
+  },
+  "1601374": {
+    "type": "single",
+    "rxcui": "1601374",
+    "name": "palbociclib"
+  },
+  "1603296": {
+    "type": "single",
+    "rxcui": "1603296",
+    "name": "lenvatinib"
+  },
+  "1603350": {
+    "type": "single",
+    "rxcui": "1603350",
+    "name": "panobinostat"
+  },
+  "1603834": {
+    "type": "single",
+    "rxcui": "1603834",
+    "name": "avibactam"
+  },
+  "1606218": {
+    "type": "single",
+    "rxcui": "1606218",
+    "name": "daclatasvir"
+  },
+  "1606274": {
+    "type": "single",
+    "rxcui": "1606274",
+    "name": "dinutuximab"
+  },
+  "1608322": {
+    "type": "single",
+    "rxcui": "1608322",
+    "name": "isavuconazonium"
+  },
+  "1649480": {
+    "type": "single",
+    "rxcui": "1649480",
+    "name": "ivabradine"
+  },
+  "1653781": {
+    "type": "single",
+    "rxcui": "1653781",
+    "name": "eluxadoline"
+  },
+  "1655922": {
+    "type": "single",
+    "rxcui": "1655922",
+    "name": "lumacaftor"
+  },
+  "1656052": {
+    "type": "single",
+    "rxcui": "1656052",
+    "name": "cangrelor"
+  },
+  "1656328": {
+    "type": "single",
+    "rxcui": "1656328",
+    "name": "sacubitril"
+  },
+  "1658314": {
+    "type": "single",
+    "rxcui": "1658314",
+    "name": "brexpiprazole"
+  },
+  "1659152": {
+    "type": "single",
+    "rxcui": "1659152",
+    "name": "alirocumab"
+  },
+  "1659191": {
+    "type": "single",
+    "rxcui": "1659191",
+    "name": "sonidegib"
+  },
+  "1665496": {
+    "type": "single",
+    "rxcui": "1665496",
+    "name": "rolapitant"
+  },
+  "1665509": {
+    "type": "single",
+    "rxcui": "1665509",
+    "name": "flibanserin"
+  },
+  "1665684": {
+    "type": "single",
+    "rxcui": "1665684",
+    "name": "evolocumab"
+  },
+  "1667655": {
+    "type": "single",
+    "rxcui": "1667655",
+    "name": "cariprazine"
+  },
+  "1670007": {
+    "type": "single",
+    "rxcui": "1670007",
+    "name": "insulin degludec"
+  },
+  "1670304": {
+    "type": "single",
+    "rxcui": "1670304",
+    "name": "tipiracil"
+  },
+  "1670383": {
+    "type": "single",
+    "rxcui": "1670383",
+    "name": "factor IX complex"
+  },
+  "1716203": {
+    "type": "single",
+    "rxcui": "1716203",
+    "name": "patiromer"
+  },
+  "1716278": {
+    "type": "single",
+    "rxcui": "1716278",
+    "name": "trabectedin"
+  },
+  "1721264": {
+    "type": "single",
+    "rxcui": "1316105",
+    "name": "herpesvirus 1, human"
+  },
+  "1721560": {
+    "type": "single",
+    "rxcui": "1721560",
+    "name": "osimertinib"
+  },
+  "1721947": {
+    "type": "single",
+    "rxcui": "1721947",
+    "name": "daratumumab"
+  },
+  "1722365": {
+    "type": "single",
+    "rxcui": "1722365",
+    "name": "cobimetinib"
+  },
+  "1723735": {
+    "type": "single",
+    "rxcui": "1723735",
+    "name": "ixazomib"
+  },
+  "1723738": {
+    "type": "single",
+    "rxcui": "1723738",
+    "name": "necitumumab"
+  },
+  "1724429": {
+    "type": "single",
+    "rxcui": "1362699",
+    "name": "indium"
+  },
+  "1726104": {
+    "type": "single",
+    "rxcui": "1726104",
+    "name": "elotuzumab"
+  },
+  "1726988": {
+    "type": "single",
+    "rxcui": "1726988",
+    "name": "sugammadex"
+  },
+  "1727455": {
+    "type": "single",
+    "rxcui": "1727455",
+    "name": "alectinib"
+  },
+  "1727875": {
+    "type": "single",
+    "rxcui": "1727875",
+    "name": "tetanus immune globulin"
+  },
+  "1729002": {
+    "type": "single",
+    "rxcui": "1729002",
+    "name": "selexipag"
+  },
+  "1731031": {
+    "type": "single",
+    "rxcui": "1731031",
+    "name": "lesinurad"
+  },
+  "1731071": {
+    "type": "single",
+    "rxcui": "1731071",
+    "name": "fosaprepitant"
+  },
+  "1734628": {
+    "type": "single",
+    "rxcui": "1734628",
+    "name": "elbasvir"
+  },
+  "1734630": {
+    "type": "single",
+    "rxcui": "1734630",
+    "name": "grazoprevir"
+  },
+  "1739745": {
+    "type": "single",
+    "rxcui": "1739745",
+    "name": "brivaracetam"
+  },
+  "1745099": {
+    "type": "single",
+    "rxcui": "1745099",
+    "name": "ixekizumab"
+  },
+  "1745257": {
+    "type": "single",
+    "rxcui": "203223",
+    "name": "digoxin antibodies Fab fragments"
+  },
+  "1747556": {
+    "type": "single",
+    "rxcui": "1747556",
+    "name": "venetoclax"
+  },
+  "1789837": {
+    "type": "single",
+    "rxcui": "35465",
+    "name": "Rho(D) immune globulin"
+  },
+  "1791685": {
+    "type": "single",
+    "rxcui": "1791685",
+    "name": "pimavanserin"
+  },
+  "1792776": {
+    "type": "single",
+    "rxcui": "1792776",
+    "name": "atezolizumab"
+  },
+  "1797118": {
+    "type": "single",
+    "rxcui": "1797118",
+    "name": "dotatate"
+  },
+  "1798288": {
+    "type": "single",
+    "rxcui": "1798288",
+    "name": "obeticholic acid"
+  },
+  "1799206": {
+    "type": "single",
+    "rxcui": "1799206",
+    "name": "velpatasvir"
+  },
+  "1812935": {
+    "type": "single",
+    "rxcui": "1812935",
+    "name": "Vibrio cholerae CVD 103-HGR strain live antigen"
+  },
+  "1855735": {
+    "type": "single",
+    "rxcui": "1855735",
+    "name": "olaratumab"
+  },
+  "1862579": {
+    "type": "single",
+    "rxcui": "1862579",
+    "name": "rucaparib"
+  },
+  "1872251": {
+    "type": "single",
+    "rxcui": "1872251",
+    "name": "brodalumab"
+  },
+  "1872441": {
+    "type": "single",
+    "rxcui": "1872441",
+    "name": "telotristat ethyl"
+  },
+  "1873752": {
+    "type": "single",
+    "rxcui": "1873752",
+    "name": "plecanatide"
+  },
+  "1873916": {
+    "type": "single",
+    "rxcui": "1873916",
+    "name": "ribociclib"
+  },
+  "1875534": {
+    "type": "single",
+    "rxcui": "1875534",
+    "name": "avelumab"
+  },
+  "1876119": {
+    "type": "single",
+    "rxcui": "1876119",
+    "name": "etelcalcetide"
+  },
+  "1876366": {
+    "type": "single",
+    "rxcui": "1876366",
+    "name": "ocrelizumab"
+  },
+  "1876376": {
+    "type": "single",
+    "rxcui": "1876376",
+    "name": "dupilumab"
+  },
+  "1876597": {
+    "type": "single",
+    "rxcui": "1876597",
+    "name": "naldemedine"
+  },
+  "1876905": {
+    "type": "single",
+    "rxcui": "1876905",
+    "name": "deutetrabenazine"
+  },
+  "1918219": {
+    "type": "single",
+    "rxcui": "1918219",
+    "name": "valbenazine"
+  },
+  "1918231": {
+    "type": "single",
+    "rxcui": "1918231",
+    "name": "niraparib"
+  },
+  "1919083": {
+    "type": "single",
+    "rxcui": "1919083",
+    "name": "midostaurin"
+  },
+  "1919503": {
+    "type": "single",
+    "rxcui": "1919503",
+    "name": "durvalumab"
+  },
+  "1921069": {
+    "type": "single",
+    "rxcui": "1921069",
+    "name": "abaloparatide"
+  },
+  "1921217": {
+    "type": "single",
+    "rxcui": "1921217",
+    "name": "brigatinib"
+  },
+  "1922448": {
+    "type": "single",
+    "rxcui": "1922448",
+    "name": "safinamide"
+  },
+  "1923319": {
+    "type": "single",
+    "rxcui": "1923319",
+    "name": "sarilumab"
+  },
+  "1927663": {
+    "type": "single",
+    "rxcui": "1927663",
+    "name": "delafloxacin"
+  },
+  "1927851": {
+    "type": "single",
+    "rxcui": "1927851",
+    "name": "betrixaban"
+  },
+  "1928588": {
+    "type": "single",
+    "rxcui": "1928588",
+    "name": "guselkumab"
+  },
+  "1939323": {
+    "type": "single",
+    "rxcui": "1939323",
+    "name": "voxilaprevir"
+  },
+  "1940332": {
+    "type": "single",
+    "rxcui": "1940332",
+    "name": "enasidenib"
+  },
+  "1940635": {
+    "type": "single",
+    "rxcui": "1940635",
+    "name": "glecaprevir"
+  },
+  "1940643": {
+    "type": "single",
+    "rxcui": "1940643",
+    "name": "neratinib"
+  },
+  "1942950": {
+    "type": "single",
+    "rxcui": "1942950",
+    "name": "inotuzumab ozogamicin"
+  },
+  "1945077": {
+    "type": "single",
+    "rxcui": "1945077",
+    "name": "copanlisib"
+  },
+  "1946825": {
+    "type": "single",
+    "rxcui": "1946825",
+    "name": "abemaciclib"
+  },
+  "1986438": {
+    "type": "single",
+    "rxcui": "1986438",
+    "name": "tisagenlecleucel"
+  },
+  "1986808": {
+    "type": "single",
+    "rxcui": "1986808",
+    "name": "acalabrutinib"
+  },
+  "1986820": {
+    "type": "single",
+    "rxcui": "1986821",
+    "name": "varicella zoster virus glycoprotein E"
+  },
+  "1987398": {
+    "type": "single",
+    "rxcui": "1987398",
+    "name": "axicabtagene ciloleucel"
+  },
+  "1988390": {
+    "type": "single",
+    "rxcui": "1988390",
+    "name": "latanoprostene bunod"
+  },
+  "1988648": {
+    "type": "single",
+    "rxcui": "1988648",
+    "name": "letermovir"
+  },
+  "1989794": {
+    "type": "single",
+    "rxcui": "1989794",
+    "name": "emicizumab"
+  },
+  "1991302": {
+    "type": "single",
+    "rxcui": "1991302",
+    "name": "semaglutide"
+  },
+  "1992672": {
+    "type": "single",
+    "rxcui": "1992672",
+    "name": "ertugliflozin"
+  },
+  "1997443": {
+    "type": "single",
+    "rxcui": "22178",
+    "name": "cytomegalovirus immune globulin"
+  },
+  "1999003": {
+    "type": "single",
+    "rxcui": "1999003",
+    "name": "angiotensin II"
+  },
+  "1999335": {
+    "type": "single",
+    "rxcui": "1797118",
+    "name": "dotatate"
+  },
+  "1999420": {
+    "type": "single",
+    "rxcui": "1999420",
+    "name": "macimorelin"
+  },
+  "1999574": {
+    "type": "single",
+    "rxcui": "1999574",
+    "name": "apalutamide"
+  },
+  "1999660": {
+    "type": "single",
+    "rxcui": "1999660",
+    "name": "bictegravir"
+  },
+  "2001352": {
+    "type": "single",
+    "rxcui": "2001352",
+    "name": "benzhydrocodone"
+  },
+  "2043855": {
+    "type": "single",
+    "rxcui": "2043855",
+    "name": "burosumab"
+  },
+  "2044417": {
+    "type": "single",
+    "rxcui": "1552337",
+    "name": "netupitant"
+  },
+  "2044896": {
+    "type": "single",
+    "rxcui": "2044896",
+    "name": "fostamatinib"
+  },
+  "2045371": {
+    "type": "single",
+    "rxcui": "2045371",
+    "name": "cannabidiol"
+  },
+  "2045726": {
+    "type": "single",
+    "rxcui": "2045726",
+    "name": "avatrombopag"
+  },
+  "2046360": {
+    "type": "single",
+    "rxcui": "2046360",
+    "name": "pegvaliase"
+  },
+  "2047232": {
+    "type": "single",
+    "rxcui": "2047232",
+    "name": "baricitinib"
+  },
+  "2047628": {
+    "type": "single",
+    "rxcui": "2047628",
+    "name": "sodium zirconium cyclosilicate"
+  },
+  "2049106": {
+    "type": "single",
+    "rxcui": "2049106",
+    "name": "encorafenib"
+  },
+  "2049122": {
+    "type": "single",
+    "rxcui": "2049122",
+    "name": "binimetinib"
+  },
+  "2049549": {
+    "type": "single",
+    "rxcui": "2049549",
+    "name": "plazomicin"
+  },
+  "2049846": {
+    "type": "single",
+    "rxcui": "2049846",
+    "name": "elagolix"
+  },
+  "2049873": {
+    "type": "single",
+    "rxcui": "2049873",
+    "name": "ivosidenib"
+  },
+  "2053436": {
+    "type": "single",
+    "rxcui": "2053436",
+    "name": "tildrakizumab"
+  },
+  "2054023": {
+    "type": "single",
+    "rxcui": "2054023",
+    "name": "tafenoquine"
+  },
+  "2054068": {
+    "type": "single",
+    "rxcui": "2054068",
+    "name": "mogamulizumab"
+  },
+  "2054252": {
+    "type": "single",
+    "rxcui": "2054252",
+    "name": "migalastat"
+  },
+  "2054968": {
+    "type": "single",
+    "rxcui": "2054968",
+    "name": "stiripentol"
+  },
+  "2054984": {
+    "type": "single",
+    "rxcui": "2054984",
+    "name": "lusutrombopag"
+  },
+  "2055755": {
+    "type": "single",
+    "rxcui": "2055755",
+    "name": "doravirine"
+  },
+  "2055906": {
+    "type": "single",
+    "rxcui": "2055906",
+    "name": "eravacycline"
+  },
+  "2058509": {
+    "type": "single",
+    "rxcui": "2058509",
+    "name": "duvelisib"
+  },
+  "2058826": {
+    "type": "single",
+    "rxcui": "2058826",
+    "name": "cemiplimab"
+  },
+  "2058849": {
+    "type": "single",
+    "rxcui": "2058849",
+    "name": "dacomitinib"
+  },
+  "2059018": {
+    "type": "single",
+    "rxcui": "2059018",
+    "name": "sarecycline"
+  },
+  "2059269": {
+    "type": "single",
+    "rxcui": "2059269",
+    "name": "omadacycline"
+  },
+  "2099289": {
+    "type": "single",
+    "rxcui": "2099289",
+    "name": "inotersen"
+  },
+  "2099295": {
+    "type": "single",
+    "rxcui": "2099295",
+    "name": "moxetumomab pasudotox"
+  },
+  "2099704": {
+    "type": "single",
+    "rxcui": "2099704",
+    "name": "talazoparib"
+  },
+  "2099995": {
+    "type": "single",
+    "rxcui": "2099995",
+    "name": "baloxavir marboxil"
+  },
+  "2102775": {
+    "type": "single",
+    "rxcui": "2102775",
+    "name": "revefenacin"
+  },
+  "2103164": {
+    "type": "single",
+    "rxcui": "2103164",
+    "name": "lorlatinib"
+  },
+  "2104604": {
+    "type": "single",
+    "rxcui": "2104604",
+    "name": "emapalumab"
+  },
+  "2105628": {
+    "type": "single",
+    "rxcui": "2105628",
+    "name": "larotrectinib"
+  },
+  "2105806": {
+    "type": "single",
+    "rxcui": "2105806",
+    "name": "gilteritinib"
+  },
+  "2105845": {
+    "type": "single",
+    "rxcui": "2105845",
+    "name": "glasdegib"
+  },
+  "2106338": {
+    "type": "single",
+    "rxcui": "2106338",
+    "name": "amifampridine"
+  },
+  "2107301": {
+    "type": "single",
+    "rxcui": "2107301",
+    "name": "ravulizumab"
+  },
+  "2107310": {
+    "type": "single",
+    "rxcui": "2107310",
+    "name": "prucalopride"
+  },
+  "2109055": {
+    "type": "single",
+    "rxcui": "2109055",
+    "name": "tagraxofusp"
+  },
+  "2110605": {
+    "type": "single",
+    "rxcui": "2110605",
+    "name": "caplacizumab"
+  },
+  "2118525": {
+    "type": "single",
+    "rxcui": "2118525",
+    "name": "triclabendazole"
+  },
+  "2119365": {
+    "type": "single",
+    "rxcui": "2119365",
+    "name": "esketamine"
+  },
+  "2121085": {
+    "type": "single",
+    "rxcui": "2121085",
+    "name": "siponimod"
+  },
+  "2121416": {
+    "type": "single",
+    "rxcui": "2121416",
+    "name": "calaspargase pegol"
+  },
+  "2121751": {
+    "type": "single",
+    "rxcui": "2121751",
+    "name": "solriamfetol"
+  },
+  "2121777": {
+    "type": "single",
+    "rxcui": "2121777",
+    "name": "brexanolone"
+  },
+  "2123125": {
+    "type": "single",
+    "rxcui": "2123125",
+    "name": "erdafitinib"
+  },
+  "2123126": {
+    "type": "single",
+    "rxcui": "2123126",
+    "name": "romosozumab"
+  },
+  "2166040": {
+    "type": "single",
+    "rxcui": "2166040",
+    "name": "risankizumab"
+  },
+  "2167673": {
+    "type": "single",
+    "rxcui": "2167673",
+    "name": "botulinum toxin type B"
+  },
+  "2169285": {
+    "type": "single",
+    "rxcui": "2169285",
+    "name": "alpelisib"
+  },
+  "2170226": {
+    "type": "single",
+    "rxcui": "2170226",
+    "name": "onasemnogene abeparvovec"
+  },
+  "2174090": {
+    "type": "single",
+    "rxcui": "2174090",
+    "name": "polatuzumab vedotin"
+  },
+  "2176312": {
+    "type": "single",
+    "rxcui": "2176312",
+    "name": "bremelanotide"
+  },
+  "2178390": {
+    "type": "single",
+    "rxcui": "2178390",
+    "name": "selinexor"
+  },
+  "2180325": {
+    "type": "single",
+    "rxcui": "2180325",
+    "name": "darolutamide"
+  },
+  "2181306": {
+    "type": "single",
+    "rxcui": "2181306",
+    "name": "methicillin"
+  },
+  "2183102": {
+    "type": "single",
+    "rxcui": "2183102",
+    "name": "pexidartinib"
+  },
+  "2196092": {
+    "type": "single",
+    "rxcui": "2196092",
+    "name": "upadacitinib"
+  },
+  "2197490": {
+    "type": "single",
+    "rxcui": "2197490",
+    "name": "fedratinib"
+  },
+  "2197862": {
+    "type": "single",
+    "rxcui": "2197862",
+    "name": "entrectinib"
+  },
+  "2197878": {
+    "type": "single",
+    "rxcui": "2197878",
+    "name": "pitolisant"
+  },
+  "2198359": {
+    "type": "single",
+    "rxcui": "2198359",
+    "name": "pretomanid"
+  },
+  "2198944": {
+    "type": "single",
+    "rxcui": "2198944",
+    "name": "lefamulin"
+  },
+  "2199015": {
+    "type": "single",
+    "rxcui": "2199015",
+    "name": "istradefylline"
+  },
+  "2205637": {
+    "type": "single",
+    "rxcui": "2205637",
+    "name": "trifarotene"
+  },
+  "2256930": {
+    "type": "single",
+    "rxcui": "2256930",
+    "name": "lasmiditan"
+  },
+  "2256951": {
+    "type": "single",
+    "rxcui": "2256951",
+    "name": "elexacaftor"
+  },
+  "2261783": {
+    "type": "single",
+    "rxcui": "2261783",
+    "name": "diroximel fumarate"
+  },
+  "2262435": {
+    "type": "single",
+    "rxcui": "2262435",
+    "name": "zanubrutinib"
+  },
+  "2264108": {
+    "type": "single",
+    "rxcui": "4385",
+    "name": "fibrinogen"
+  },
+  "2265678": {
+    "type": "single",
+    "rxcui": "2265678",
+    "name": "voxelotor"
+  },
+  "2265690": {
+    "type": "single",
+    "rxcui": "2265690",
+    "name": "cenobamate"
+  },
+  "2265702": {
+    "type": "single",
+    "rxcui": "2265702",
+    "name": "cefiderocol"
+  },
+  "2265712": {
+    "type": "single",
+    "rxcui": "2265712",
+    "name": "givosiran"
+  },
+  "2267582": {
+    "type": "single",
+    "rxcui": "224905",
+    "name": "trastuzumab"
+  },
+  "2268216": {
+    "type": "single",
+    "rxcui": "2268216",
+    "name": "ubrogepant"
+  },
+  "2272107": {
+    "type": "single",
+    "rxcui": "2272107",
+    "name": "avapritinib"
+  },
+  "2272403": {
+    "type": "single",
+    "rxcui": "2272403",
+    "name": "lemborexant"
+  },
+  "2274378": {
+    "type": "single",
+    "rxcui": "2274378",
+    "name": "tazemetostat"
+  },
+  "2274394": {
+    "type": "single",
+    "rxcui": "2274394",
+    "name": "ferric derisomaltose"
+  },
+  "2274803": {
+    "type": "single",
+    "rxcui": "2274803",
+    "name": "teprotumumab"
+  },
+  "2275602": {
+    "type": "single",
+    "rxcui": "2275602",
+    "name": "lumateperone"
+  },
+  "2277607": {
+    "type": "single",
+    "rxcui": "2268307",
+    "name": "enfortumab"
+  },
+  "2282018": {
+    "type": "single",
+    "rxcui": "2282018",
+    "name": "isatuximab"
+  },
+  "2282307": {
+    "type": "single",
+    "rxcui": "2282307",
+    "name": "rimegepant"
+  },
+  "2282403": {
+    "type": "single",
+    "rxcui": "2282403",
+    "name": "bempedoic acid"
+  },
+  "2284718": {
+    "type": "single",
+    "rxcui": "2284718",
+    "name": "remdesivir"
+  },
+  "2286252": {
+    "type": "single",
+    "rxcui": "2286252",
+    "name": "osilodrostat"
+  },
+  "2288236": {
+    "type": "single",
+    "rxcui": "2288236",
+    "name": "ozanimod"
+  },
+  "2289380": {
+    "type": "single",
+    "rxcui": "2289380",
+    "name": "selumetinib"
+  },
+  "2359268": {
+    "type": "single",
+    "rxcui": "2359268",
+    "name": "pemigatinib"
+  },
+  "2360232": {
+    "type": "single",
+    "rxcui": "2360231",
+    "name": "sacituzumab"
+  },
+  "2361285": {
+    "type": "single",
+    "rxcui": "2361285",
+    "name": "tucatinib"
+  },
+  "2362165": {
+    "type": "single",
+    "rxcui": "2362165",
+    "name": "capmatinib"
+  },
+  "2362167": {
+    "type": "single",
+    "rxcui": "2362167",
+    "name": "opicapone"
+  },
+  "2369389": {
+    "type": "single",
+    "rxcui": "2369389",
+    "name": "ripretinib"
+  },
+  "2370147": {
+    "type": "single",
+    "rxcui": "2370147",
+    "name": "selpercatinib"
+  },
+  "2373951": {
+    "type": "single",
+    "rxcui": "2373951",
+    "name": "inebilizumab"
+  },
+  "2374729": {
+    "type": "single",
+    "rxcui": "2374729",
+    "name": "lurbinectedin"
+  },
+  "2376944": {
+    "type": "single",
+    "rxcui": "2376944",
+    "name": "levamlodipine"
+  },
+  "2380373": {
+    "type": "single",
+    "rxcui": "2380373",
+    "name": "fostemsavir"
+  },
+  "2383941": {
+    "type": "single",
+    "rxcui": "2383941",
+    "name": "remimazolam"
+  },
+  "2384449": {
+    "type": "single",
+    "rxcui": "2384449",
+    "name": "cedazuridine"
+  },
+  "2387211": {
+    "type": "single",
+    "rxcui": "2387211",
+    "name": "tafasitamab"
+  },
+  "2387277": {
+    "type": "single",
+    "rxcui": "2387277",
+    "name": "brexucabtagene autoleucel"
+  },
+  "2387834": {
+    "type": "single",
+    "rxcui": "2387834",
+    "name": "belantamab mafodotin"
+  },
+  "2390935": {
+    "type": "single",
+    "rxcui": "2390935",
+    "name": "risdiplam"
+  },
+  "2391541": {
+    "type": "single",
+    "rxcui": "2391541",
+    "name": "satralizumab"
+  },
+  "2392230": {
+    "type": "single",
+    "rxcui": "2392230",
+    "name": "oliceridine"
+  },
+  "2394936": {
+    "type": "single",
+    "rxcui": "2394936",
+    "name": "pralsetinib"
+  },
+  "2396442": {
+    "type": "single",
+    "rxcui": "2396443",
+    "name": "dodatate"
+  },
+  "2467540": {
+    "type": "single",
+    "rxcui": "2467540",
+    "name": "berotralstat"
+  },
+  "2467553": {
+    "type": "single",
+    "rxcui": "2467553",
+    "name": "lonafarnib"
+  },
+  "2468230": {
+    "type": "single",
+    "rxcui": "2468231",
+    "name": "SARS-CoV-2 (COVID-19) vaccine, mRNA spike protein"
+  },
+  "2472254": {
+    "type": "single",
+    "rxcui": "2472254",
+    "name": "vibegron"
+  },
+  "2472778": {
+    "type": "single",
+    "rxcui": "2472778",
+    "name": "relugolix"
+  },
+  "2474039": {
+    "type": "single",
+    "rxcui": "2474039",
+    "name": "naxitamab"
+  },
+  "2475077": {
+    "type": "single",
+    "rxcui": "2475077",
+    "name": "cabotegravir"
+  },
+  "2475532": {
+    "type": "single",
+    "rxcui": "2475532",
+    "name": "abametapir"
+  },
+  "2479136": {
+    "type": "single",
+    "rxcui": "2479136",
+    "name": "lisocabtagene maraleucel"
+  },
+  "2531369": {
+    "type": "single",
+    "rxcui": "2531369",
+    "name": "melphalan flufenamide"
+  },
+  "2534233": {
+    "type": "single",
+    "rxcui": "2534233",
+    "name": "tivozanib"
+  },
+  "2557373": {
+    "type": "single",
+    "rxcui": "2557373",
+    "name": "somapacitan"
+  },
+  "2601723": {
+    "type": "single",
+    "rxcui": "2601723",
+    "name": "tirzepatide"
+  },
+  "2606543": {
+    "type": "single",
+    "rxcui": "2606543",
+    "name": "silver"
+  },
+  "2627044": {
+    "type": "single",
+    "rxcui": "2627044",
+    "name": "bexagliflozin"
+  }
+}

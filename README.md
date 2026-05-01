@@ -90,6 +90,11 @@ The goal is to show potential side-effect burden up front, such as hyperkalemia 
 - Matching is fast because it relies on local rules and predetermined indexes.
 - Once input is matched, interaction results update in real time.
 - Includes a deterministic local rule for acid-reduction drugs with gastric-acid-dependent medicines, surfaced as a Major absorption warning.
+- **Manage interactions** lets you filter which confidence classes appear in pairwise results:
+  - **Co-substrate pairs** — both drugs share a metabolic pathway (on by default)
+  - **Cumulative-stack pairs** — shared pharmacodynamic burden such as QT prolongation or bleeding risk (on by default)
+  - **Unverified pairs** — no confirmed local PK or PD mechanism traceable in the current annotation data (on by default)
+  - PK-confirmed, gastric pH, and chelation pairs are always shown regardless of filter settings.
 
 ### Pharmacogenomics
 

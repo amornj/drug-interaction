@@ -15,6 +15,7 @@ const DDINTER_INDEX_PATH = path.join(DDINTER_DIR, "index.json");
 const DDINTER_REPORT_PATH = path.join(DDINTER_DIR, "build-report.json");
 const OVERLAY_INDEX_PATH = path.join(OVERLAY_DIR, "index.json");
 const BRANDS_INDEX_PATH = path.join(BRANDS_DIR, "index.json");
+const INGREDIENT_MAP_PATH = path.join(ROOT, "lib", "data", "rxcui-ingredients.json");
 
 const DDINTER_CODES = ["A", "B", "C", "D", "G", "H", "J", "L", "M", "N", "P", "R", "S", "V"];
 const DDINTER_VERSION = "2.0";
@@ -309,6 +310,52 @@ function buildBrandRxcuiNames(brandEntries) {
   return map;
 }
 
+async function loadExistingIngredientMap() {
+  try {
+    const raw = await readFile(INGREDIENT_MAP_PATH, "utf8");
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+async function resolveIngredient(rxcui) {
+  try {
+    const url = `https://rxnav.nlm.nih.gov/REST/rxcui/${encodeURIComponent(rxcui)}/related.json?tty=IN`;
+    const json = await fetchJson(url);
+    const group = json.relatedGroup?.conceptGroup?.find((g) => g.tty === "IN");
+    const components = (group?.conceptProperties ?? [])
+      .filter((p) => p.rxcui && p.name)
+      .map((p) => ({ rxcui: p.rxcui, name: p.name }));
+
+    if (components.length === 0) return null;
+    if (components.length === 1) return { type: "single", ...components[0] };
+    return { type: "combination", components };
+  } catch {
+    return null;
+  }
+}
+
+async function buildIngredientMap(allRxcuis, existingMap) {
+  const map = existingMap ?? {};
+  const queue = [...allRxcuis].filter((rxcui) => !map[rxcui]);
+  const concurrency = 20;
+
+  async function worker() {
+    while (queue.length > 0) {
+      const rxcui = queue.shift();
+      if (!rxcui) return;
+      const result = await resolveIngredient(rxcui);
+      if (result) {
+        map[rxcui] = result;
+      }
+    }
+  }
+
+  await Promise.all(Array.from({ length: concurrency }, () => worker()));
+  return map;
+}
+
 async function main() {
   await mkdir(DDINTER_DIR, { recursive: true });
   await mkdir(OVERLAY_DIR, { recursive: true });
@@ -491,6 +538,48 @@ async function main() {
       null,
       2
     ) + "\n"
+  );
+
+  // Build or update RxCUI → ingredient map for fast local resolution
+  const ddinterIndex = JSON.parse(await readFile(DDINTER_INDEX_PATH, "utf8"));
+  const overlayIndex = JSON.parse(await readFile(OVERLAY_INDEX_PATH, "utf8"));
+  const brandsIndex = JSON.parse(await readFile(BRANDS_INDEX_PATH, "utf8"));
+
+  const allRxcuis = new Set();
+  Object.keys(ddinterIndex.rxcuiNames ?? {}).forEach((r) => allRxcuis.add(r));
+  Object.keys(ddinterIndex.pairIndex ?? {}).forEach((key) => {
+    const [a, b] = key.split("|");
+    if (a) allRxcuis.add(a);
+    if (b) allRxcuis.add(b);
+  });
+  for (const entry of overlayIndex.entries ?? []) {
+    allRxcuis.add(entry.pair[0]);
+    allRxcuis.add(entry.pair[1]);
+  }
+  for (const entry of brandsIndex.entries ?? []) {
+    for (const comp of entry.components) {
+      allRxcuis.add(comp.rxcui);
+    }
+  }
+
+  const existingIngredientMap = await loadExistingIngredientMap();
+  const ingredientMap = await buildIngredientMap(allRxcuis, existingIngredientMap);
+  await writeFile(
+    INGREDIENT_MAP_PATH,
+    JSON.stringify(ingredientMap, null, 2) + "\n"
+  );
+
+  console.log(
+    JSON.stringify(
+      {
+        ingredientMap: {
+          totalRxcuis: Object.keys(ingredientMap).length,
+          newlyResolved: Object.keys(ingredientMap).length - Object.keys(existingIngredientMap ?? {}).length,
+        },
+      },
+      null,
+      2
+    )
   );
 }
 

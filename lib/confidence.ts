@@ -88,10 +88,46 @@ export function classifyConfidence(
   return classifyInteractionConfidence(nameA, nameB).confidence;
 }
 
+// Idiosyncrasy clinical overlay pairs (immune-mediated, non-PK)
+const IDIOSYNCRASY_PAIRS: Array<{ drugs: [string, string]; mechanism: string; severity?: string }> = [
+  { drugs: ["clozapine", "methimazole"], mechanism: "Agranulocytosis", severity: "Major" },
+  { drugs: ["clozapine", "propylthiouracil"], mechanism: "Agranulocytosis", severity: "Major" },
+  { drugs: ["clozapine", "sulfasalazine"], mechanism: "Agranulocytosis", severity: "Major" },
+  { drugs: ["hydralazine", "procainamide"], mechanism: "Drug-induced lupus", severity: "Moderate" },
+];
+
+function getIdiosyncrasyPair(drugA: string, drugB: string): PkMechanism[] {
+  const normalizedA = normalizeDrugName(drugA);
+  const normalizedB = normalizeDrugName(drugB);
+  const mechanisms: PkMechanism[] = [];
+
+  for (const entry of IDIOSYNCRASY_PAIRS) {
+    const [d1, d2] = entry.drugs;
+    const n1 = normalizeDrugName(d1);
+    const n2 = normalizeDrugName(d2);
+    if (
+      (normalizedA.includes(n1) && normalizedB.includes(n2)) ||
+      (normalizedA.includes(n2) && normalizedB.includes(n1))
+    ) {
+      mechanisms.push({ kind: "idiosyncrasy", system: entry.mechanism });
+    }
+  }
+
+  return mechanisms;
+}
+
+const interactionConfidenceCache = new Map<string, ConfidenceClassification>();
+
 export function classifyInteractionConfidence(
   nameA: string,
   nameB: string
 ): ConfidenceClassification {
+  const cacheKey = [nameA, nameB].sort((a, b) => a.localeCompare(b)).join("|");
+  const cached = interactionConfidenceCache.get(cacheKey);
+  if (cached) {
+    return cached;
+  }
+
   const inhibSystemsA = uniqueSystemsFor(nameA, (label) => label.includes("Inh"));
   const inhibSystemsB = uniqueSystemsFor(nameB, (label) => label.includes("Inh"));
   const inducSystemsA = uniqueSystemsFor(
@@ -107,41 +143,15 @@ export function classifyInteractionConfidence(
 
   const pkMechanisms: PkMechanism[] = [];
 
-  // Idiosyncrasy clinical overlay pairs (immune-mediated, non-PK)
-  const IDIOSYNCRASY_PAIRS: Array<{ drugs: [string, string]; mechanism: string; severity?: string }> = [
-    { drugs: ["clozapine", "methimazole"], mechanism: "Agranulocytosis", severity: "Major" },
-    { drugs: ["clozapine", "propylthiouracil"], mechanism: "Agranulocytosis", severity: "Major" },
-    { drugs: ["clozapine", "sulfasalazine"], mechanism: "Agranulocytosis", severity: "Major" },
-    { drugs: ["hydralazine", "procainamide"], mechanism: "Drug-induced lupus", severity: "Moderate" },
-  ];
-
-  function getIdiosyncrasyPair(drugA: string, drugB: string): PkMechanism[] {
-    const normalizedA = normalizeDrugName(drugA);
-    const normalizedB = normalizeDrugName(drugB);
-    const mechanisms: PkMechanism[] = [];
-
-    for (const entry of IDIOSYNCRASY_PAIRS) {
-      const [d1, d2] = entry.drugs;
-      const n1 = normalizeDrugName(d1);
-      const n2 = normalizeDrugName(d2);
-      if (
-        (normalizedA.includes(n1) && normalizedB.includes(n2)) ||
-        (normalizedA.includes(n2) && normalizedB.includes(n1))
-      ) {
-        mechanisms.push({ kind: "idiosyncrasy", system: entry.mechanism });
-      }
-    }
-
-    return mechanisms;
-  }
-
   // Idiosyncrasy clinical overlays (non-PK, immune-mediated)
   const idiosyncrasyPairs = getIdiosyncrasyPair(nameA, nameB);
   if (idiosyncrasyPairs.length > 0) {
-    return {
-      confidence: "pk_confirmed",
+    const result = {
+      confidence: "pk_confirmed" as InteractionConfidence,
       pkMechanisms: idiosyncrasyPairs,
     };
+    interactionConfidenceCache.set(cacheKey, result);
+    return result;
   }
 
   for (const system of inhibSystemsA) {
@@ -165,10 +175,12 @@ export function classifyInteractionConfidence(
     }
   }
   if (pkMechanisms.length > 0) {
-    return {
-      confidence: "pk_confirmed",
+    const result = {
+      confidence: "pk_confirmed" as InteractionConfidence,
       pkMechanisms,
     };
+    interactionConfidenceCache.set(cacheKey, result);
+    return result;
   }
 
   const sharedSubstrateSystems = subSystemsA.filter((system) =>
@@ -180,26 +192,32 @@ export function classifyInteractionConfidence(
     ) &&
     hasCosubstrateSignal(nameA, nameB)
   ) {
-    return {
-      confidence: "pk_plausible",
+    const result = {
+      confidence: "pk_plausible" as InteractionConfidence,
       pkMechanisms: sharedSubstrateSystems.map((system) => ({
-        kind: "co_sub",
+        kind: "co_sub" as const,
         system,
       })),
     };
+    interactionConfidenceCache.set(cacheKey, result);
+    return result;
   }
 
   const stacksA = getStackDomainsForDrug(nameA);
   const stacksB = getStackDomainsForDrug(nameB);
   if (stacksA.some((domain) => stacksB.includes(domain))) {
-    return {
-      confidence: "pd_plausible",
+    const result = {
+      confidence: "pd_plausible" as InteractionConfidence,
       pkMechanisms: [],
     };
+    interactionConfidenceCache.set(cacheKey, result);
+    return result;
   }
 
-  return {
-    confidence: "unverified",
+  const result = {
+    confidence: "unverified" as InteractionConfidence,
     pkMechanisms: [],
   };
+  interactionConfidenceCache.set(cacheKey, result);
+  return result;
 }

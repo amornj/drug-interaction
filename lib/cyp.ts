@@ -2235,7 +2235,14 @@ function isClickableAnnotation(annotation: MetabolismAnnotation) {
   );
 }
 
+const drugMetabolismTagCache = new Map<string, DrugMetabolismTag[]>();
+
 export function getDrugMetabolismTags(name: string): DrugMetabolismTag[] {
+  const cached = drugMetabolismTagCache.get(name);
+  if (cached) {
+    return cached;
+  }
+
   const seen = new Set<string>();
   const tags: DrugMetabolismTag[] = [];
 
@@ -2265,6 +2272,7 @@ export function getDrugMetabolismTags(name: string): DrugMetabolismTag[] {
     }
   }
 
+  drugMetabolismTagCache.set(name, tags);
   return tags;
 }
 

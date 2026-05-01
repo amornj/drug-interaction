@@ -58,17 +58,63 @@ export const clinicalNameIndex: Array<{
   return index;
 })();
 
+// Build a fast lookup map: normalized name → overlays that include that name.
+// This reduces the O(n) scan to a small subset search.
+const clinicalOverlayByName = (() => {
+  const map = new Map<string, OverlayEntry[]>();
+  for (const { nameA, nameB, entry } of clinicalNameIndex) {
+    const normA = normalizeForMatch(nameA);
+    const normB = normalizeForMatch(nameB);
+    if (!map.has(normA)) map.set(normA, []);
+    if (!map.has(normB)) map.set(normB, []);
+    map.get(normA)!.push(entry);
+    // Avoid duplicate push when both names normalize to the same value
+    if (normB !== normA) {
+      map.get(normB)!.push(entry);
+    }
+  }
+  return map;
+})();
+
+const clinicalOverlayLookupCache = new Map<string, OverlayEntry | undefined>();
+
 export function lookupClinicalOverlayByNames(
   nameA: string,
   nameB: string
 ): OverlayEntry | undefined {
+  const cacheKey = `${nameA}|${nameB}`;
+  const cached = clinicalOverlayLookupCache.get(cacheKey);
+  if (cached !== undefined || clinicalOverlayLookupCache.has(cacheKey)) {
+    return cached;
+  }
+
+  const normA = normalizeForMatch(nameA);
+  const candidates = clinicalOverlayByName.get(normA);
+
+  if (candidates) {
+    for (const entry of candidates) {
+      const oNameA = getRxcuiName(entry.pair[0]) ?? "";
+      const oNameB = getRxcuiName(entry.pair[1]) ?? "";
+      const aMatchesB = namesMatch(nameA, oNameA) && namesMatch(nameB, oNameB);
+      const bMatchesA = namesMatch(nameA, oNameB) && namesMatch(nameB, oNameA);
+      if (aMatchesB || bMatchesA) {
+        clinicalOverlayLookupCache.set(cacheKey, entry);
+        return entry;
+      }
+    }
+  }
+
+  // Fallback: full scan for edge cases (e.g. fuzzy match not caught by exact-normalized index)
   for (const { nameA: oNameA, nameB: oNameB, entry } of clinicalNameIndex) {
     const aMatchesB = namesMatch(nameA, oNameA) && namesMatch(nameB, oNameB);
     const bMatchesA = namesMatch(nameA, oNameB) && namesMatch(nameB, oNameA);
     if (aMatchesB || bMatchesA) {
+      clinicalOverlayLookupCache.set(cacheKey, entry);
       return entry;
     }
   }
+
+  clinicalOverlayLookupCache.set(cacheKey, undefined);
   return undefined;
 }
 

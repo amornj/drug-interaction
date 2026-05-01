@@ -15,9 +15,9 @@ export type InteractionFilters = {
 };
 
 export const defaultInteractionFilters: InteractionFilters = {
-  showPkPlausible: false,
-  showPdPlausible: false,
-  showUnverified: false,
+  showPkPlausible: true,
+  showPdPlausible: true,
+  showUnverified: true,
 };
 
 export type Drug = {

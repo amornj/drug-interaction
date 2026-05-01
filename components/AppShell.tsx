@@ -60,13 +60,9 @@ export function AppShell() {
     const timer = window.setTimeout(async () => {
       setChecking(true);
       try {
-        const response = await fetch("/api/interactions/check", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ rxcuis }),
-        });
-        if (!response.ok) throw new Error("Request failed");
-        const json = (await response.json()) as InteractionCheckResponse;
+        // Client-side computation: no API round-trip.
+        const { checkInteractions } = await import("@/lib/interactions");
+        const json = checkInteractions(rxcuis);
         if (!cancelled) {
           setResult(json);
           setResultKey(expectedKey);
