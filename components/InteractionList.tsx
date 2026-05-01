@@ -72,9 +72,6 @@ export function InteractionList({
         const isClinicalOverlay = pair.sources.some(
           (source) => source.name === "Clinical overlay"
         );
-        const showConfidenceBadge =
-          pair.confidence !== "unverified" ||
-          pair.pkMechanisms.length > 0;
         const hasGastricPh = pair.pkMechanisms.some(
           (m) => m.kind === "gastric_ph"
         );
@@ -86,8 +83,19 @@ export function InteractionList({
         const genericMechanisms = pair.pkMechanisms.filter(
           (m) => m.kind !== "gastric_ph" && m.kind !== "chelation"
         );
+        const isIdiosyncrasyOnly =
+          genericMechanisms.length > 0 &&
+          genericMechanisms.every((m) => m.kind === "idiosyncrasy");
+        const showConfidenceBadge =
+          !isIdiosyncrasyOnly &&
+          (pair.confidence !== "unverified" ||
+            pair.pkMechanisms.length > 0);
         const genericSystems = [
-          ...new Set(genericMechanisms.map((m) => m.system)),
+          ...new Set(
+            genericMechanisms
+              .filter((m) => m.kind !== "idiosyncrasy")
+              .map((m) => m.system)
+          ),
         ];
         const severityToken =
           pair.severity === "Contraindicated"

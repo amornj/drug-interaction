@@ -970,3 +970,20 @@
   sources:
     - name: Clinical overlay
       version: "2026-04"
+
+# lamotrigine + valproate (28439 | 40254)
+# RxNorm resolves "valproate" to 40254, not 11118 (valproic acid).
+# Duplicate overlay so name-based resolution works for both RxCUIs.
+- pair: ["28439", "40254"]
+  severity: Major
+  verdict: >-
+    Valproate is a strong UGT inhibitor. Lamotrigine is metabolised via UGT.
+    Co-administration markedly increases lamotrigine exposure and raises
+    Stevens-Johnson syndrome / toxic epidermal necrolysis (SJS/TEN) risk.
+  mechanism_class: UGT inhibition
+  management: >-
+    Reduce lamotrigine dose by 50–75% when starting valproate; titrate
+    slowly and watch for rash, mucosal involvement, or fever.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
