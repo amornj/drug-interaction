@@ -26,7 +26,7 @@ The core checker is deterministic and local-first. No AI is involved in matching
 - Type multiple drugs in a single line.
 - Copy and paste a chunk of text that contains a medication list.
 - Remove existing drugs easily.
-- Accepts both generic names and commercial names, primarily using US formulation conventions.
+- Accepts both generic names and brand names, primarily using US formulation conventions.
 - Accepts combination pills and expands them into all matched ingredients.
 - In batch and paste mode, each matched term is resolved to ingredient-level generic names before being added.
 - Automatically rejects ingredients already present in the case when adding new input.
@@ -37,7 +37,7 @@ The core checker is deterministic and local-first. No AI is involved in matching
 ### Alias Dictionary
 
 - Supports a local custom alias dictionary.
-- Manual alias creation is useful for local shorthand, commercial products, and combination pills.
+- Manual alias creation is useful for local shorthand, brand-name products, and combination pills.
 - JSON export and import are the only backup / transfer methods.
 - This is manual work, but it is reliable and works well for combined products.
 

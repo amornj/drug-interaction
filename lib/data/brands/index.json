@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-01T12:57:16.711Z",
+  "generatedAt": "2026-05-01T14:10:16.009Z",
   "brandsVersion": "2026-04",
   "entries": [
     {
@@ -1916,6 +1916,91 @@
         {
           "rxcui": "grapefruit-juice",
           "name": "grapefruit juice"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Daxas",
+      "normalizedTerm": "daxas",
+      "components": [
+        {
+          "rxcui": "1091836",
+          "name": "roflumilast"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Puroxan",
+      "normalizedTerm": "puroxan",
+      "components": [
+        {
+          "rxcui": "23655",
+          "name": "doxofylline"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Darflox",
+      "normalizedTerm": "darflox",
+      "components": [
+        {
+          "rxcui": "135364",
+          "name": "prulifloxacin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Firialta",
+      "normalizedTerm": "firialta",
+      "components": [
+        {
+          "rxcui": "2562811",
+          "name": "finerenone"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Fexuclue",
+      "normalizedTerm": "fexuclue",
+      "components": [
+        {
+          "rxcui": "2703524",
+          "name": "fexuprazan"
         }
       ],
       "sources": [
@@ -26512,6 +26597,7 @@
     "21241": "clobazam",
     "21949": "cyclobenzaprine",
     "22759": "diacerein",
+    "23655": "doxofylline",
     "23684": "drotaverin",
     "24256": "fungal diastase",
     "24909": "iron sucrose",
@@ -26667,6 +26753,7 @@
     "135056": "lercanidipine",
     "135091": "mosapride",
     "135330": "serratiopeptidase",
+    "135364": "prulifloxacin",
     "135447": "donepezil",
     "136198": "darifenacin",
     "136411": "sildenafil",
@@ -26757,6 +26844,7 @@
     "1085787": "butylscopolamine",
     "1086769": "vilazodone",
     "1091643": "azilsartan",
+    "1091836": "roflumilast",
     "1100699": "linagliptin",
     "1114195": "rivaroxaban",
     "1116632": "ticagrelor",
@@ -26806,8 +26894,10 @@
     "2196092": "upadacitinib",
     "2272403": "lemborexant",
     "2282403": "bempedoic acid",
+    "2562811": "finerenone",
     "2601723": "tirzepatide",
     "2627044": "remogliflozin",
+    "2703524": "fexuprazan",
     "iodinated-contrast": "iodinated contrast",
     "grapefruit-juice": "grapefruit juice"
   }

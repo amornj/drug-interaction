@@ -904,3 +904,43 @@
   sources:
     - name: "Global brand overlay"
       version: "2026-04"
+
+- term: "Daxas"
+  components:
+    - rxcui: "1091836"
+      name: "roflumilast"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Puroxan"
+  components:
+    - rxcui: "23655"
+      name: "doxofylline"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Darflox"
+  components:
+    - rxcui: "135364"
+      name: "prulifloxacin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Firialta"
+  components:
+    - rxcui: "2562811"
+      name: "finerenone"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
+- term: "Fexuclue"
+  components:
+    - rxcui: "2703524"
+      name: "fexuprazan"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"

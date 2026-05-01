@@ -1677,7 +1677,42 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "CYP3A4", role: "Ind" },
     ],
   },
-  { match: "roflumilast", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "CYP1A2", role: "Sub" }] },
+  {
+    match: "doxofylline",
+    annotations: [
+      { system: "Hepatic", role: "Met", note: "extensive non-CYP hepatic metabolism; minimal CYP450 involvement unlike theophylline" },
+    ],
+  },
+  {
+    match: "finerenone",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major (~90%)" },
+      { system: "CYP2C8", role: "Sub", note: "minor (~10%)" },
+    ],
+  },
+  {
+    match: "fexuprazan",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major" },
+      { system: "CYP2B6", role: "Sub", note: "minor" },
+      { system: "CYP2C19", role: "Sub", note: "minor" },
+      { system: "CYP2D6", role: "Sub", note: "minor" },
+    ],
+  },
+  {
+    match: "prulifloxacin",
+    annotations: [
+      { system: "CYP450", role: "Sub", note: "minimal; prodrug converted to active ulifloxacin" },
+      { system: "UGT", role: "Sub", note: "glucuronidation" },
+    ],
+  },
+  {
+    match: "roflumilast",
+    annotations: [
+      { system: "CYP3A4", role: "Sub", note: "major; forms active N-oxide metabolite" },
+      { system: "CYP1A2", role: "Sub", note: "major; forms active N-oxide metabolite" },
+    ],
+  },
   {
     match: "rosiglitazone",
     annotations: [
