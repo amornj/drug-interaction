@@ -651,7 +651,7 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
   {
     match: "spironolactone",
     annotations: [
-      { system: "CYP3A4", role: "Mild Inh" },
+      { system: "CYP3A4", role: "Weak Inh" },
       { system: "P-gp", role: "Weak Ind" },
       { system: "EHC", role: "Sub" },
     ],

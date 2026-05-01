@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-01T14:10:16.009Z",
+  "generatedAt": "2026-05-01T15:07:04.413Z",
   "overlayVersion": "2026-04",
   "entries": [
     {
@@ -91773,16 +91773,73 @@
       "file": "clinical.yaml"
     },
     {
-      "key": "28439|40254",
+      "key": "11118|28439",
       "pair": [
-        "28439",
-        "40254"
+        "11118",
+        "28439"
       ],
       "suppress": false,
       "severity": "Major",
       "verdict": "Valproate is a strong UGT inhibitor. Lamotrigine is metabolised via UGT. Co-administration markedly increases lamotrigine exposure and raises Stevens-Johnson syndrome / toxic epidermal necrolysis (SJS/TEN) risk.",
       "mechanism_class": "UGT inhibition",
       "management": "Reduce lamotrigine dose by 50–75% when starting valproate; titrate slowly and watch for rash, mucosal involvement, or fever.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "2626|6835",
+      "pair": [
+        "2626",
+        "6835"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Clozapine with methimazole increases agranulocytosis risk through idiosyncratic immune-mediated mechanism.",
+      "mechanism_class": "Idiosyncratic agranulocytosis",
+      "management": "Avoid combination when possible. Monitor absolute neutrophil count closely.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "2626|8794",
+      "pair": [
+        "2626",
+        "8794"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Clozapine with propylthiouracil increases agranulocytosis risk through idiosyncratic immune-mediated mechanism.",
+      "mechanism_class": "Idiosyncratic agranulocytosis",
+      "management": "Avoid combination when possible. Monitor absolute neutrophil count closely.",
+      "sources": [
+        {
+          "name": "Clinical overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "clinical.yaml"
+    },
+    {
+      "key": "2626|9524",
+      "pair": [
+        "2626",
+        "9524"
+      ],
+      "suppress": false,
+      "severity": "Major",
+      "verdict": "Clozapine with sulfasalazine increases agranulocytosis risk through idiosyncratic immune-mediated mechanism.",
+      "mechanism_class": "Idiosyncratic agranulocytosis",
+      "management": "Avoid combination when possible. Monitor absolute neutrophil count closely.",
       "sources": [
         {
           "name": "Clinical overlay",

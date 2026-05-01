@@ -971,10 +971,9 @@
     - name: Clinical overlay
       version: "2026-04"
 
-# lamotrigine + valproate (28439 | 40254)
-# RxNorm resolves "valproate" to 40254, not 11118 (valproic acid).
-# Duplicate overlay so name-based resolution works for both RxCUIs.
-- pair: ["28439", "40254"]
+# lamotrigine + valproate (28439 | 11118)
+# Valproic acid is the RxCUI in DDInter data.
+- pair: ["28439", "11118"]
   severity: Major
   verdict: >-
     Valproate is a strong UGT inhibitor. Lamotrigine is metabolised via UGT.
@@ -984,6 +983,46 @@
   management: >-
     Reduce lamotrigine dose by 50–75% when starting valproate; titrate
     slowly and watch for rash, mucosal involvement, or fever.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+# ═════════════════════════════════════════════════════════════
+# Idiosyncrasy overlays — immune-mediated reactions
+# ═════════════════════════════════════════════════════════════
+
+- pair: ["2626", "6835"]
+  severity: Major
+  verdict: >-
+    Clozapine with methimazole increases agranulocytosis risk through
+    idiosyncratic immune-mediated mechanism.
+  mechanism_class: Idiosyncratic agranulocytosis
+  management: >-
+    Avoid combination when possible. Monitor absolute neutrophil count closely.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+- pair: ["2626", "8794"]
+  severity: Major
+  verdict: >-
+    Clozapine with propylthiouracil increases agranulocytosis risk through
+    idiosyncratic immune-mediated mechanism.
+  mechanism_class: Idiosyncratic agranulocytosis
+  management: >-
+    Avoid combination when possible. Monitor absolute neutrophil count closely.
+  sources:
+    - name: Clinical overlay
+      version: "2026-04"
+
+- pair: ["2626", "9524"]
+  severity: Major
+  verdict: >-
+    Clozapine with sulfasalazine increases agranulocytosis risk through
+    idiosyncratic immune-mediated mechanism.
+  mechanism_class: Idiosyncratic agranulocytosis
+  management: >-
+    Avoid combination when possible. Monitor absolute neutrophil count closely.
   sources:
     - name: Clinical overlay
       version: "2026-04"
