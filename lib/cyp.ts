@@ -1082,6 +1082,7 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
       { system: "Absorption", role: "Gastric acid dependent" },
     ],
   },
+  { match: "gemigliptin", annotations: [{ system: "CYP3A4", role: "Sub" }, { system: "Renal elim", role: "Major", note: "active form" }] },
   {
     match: "gilteritinib",
     annotations: [

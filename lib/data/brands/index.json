@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-01T15:07:04.413Z",
+  "generatedAt": "2026-05-02T17:22:22.811Z",
   "brandsVersion": "2026-04",
   "entries": [
     {
@@ -213,6 +213,23 @@
         {
           "rxcui": "1368001",
           "name": "alogliptin"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Global brand overlay",
+          "version": "2026-04"
+        }
+      ],
+      "file": "global.yaml"
+    },
+    {
+      "term": "Zemiglo",
+      "normalizedTerm": "zemiglo",
+      "components": [
+        {
+          "rxcui": "1382216",
+          "name": "gemigliptin"
         }
       ],
       "sources": [
@@ -26856,6 +26873,7 @@
     "1364430": "apixaban",
     "1368001": "alogliptin",
     "1373458": "canagliflozin",
+    "1382216": "gemigliptin",
     "1440051": "lixisenatide",
     "1441386": "bazedoxifene",
     "1442132": "macitentan",

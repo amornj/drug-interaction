@@ -102,6 +102,14 @@
     - name: "Global brand overlay"
       version: "2026-04"
 
+- term: "Zemiglo"
+  components:
+    - rxcui: "1382216"
+      name: "gemigliptin"
+  sources:
+    - name: "Global brand overlay"
+      version: "2026-04"
+
 - term: "Cozaar"
   components:
     - rxcui: "52175"
