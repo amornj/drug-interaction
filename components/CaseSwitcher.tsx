@@ -184,7 +184,7 @@ export function CaseSwitcher({
               }}
               className="block min-h-11 w-full border-b border-rule px-4 py-2.5 text-left text-[13px] text-ink hover:bg-surface"
             >
-              Manage interactions
+              Manage display
             </button>
             {active ? (
               <button

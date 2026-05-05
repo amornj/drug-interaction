@@ -139,6 +139,8 @@ export function AppShell() {
             pairs={visibleResult.pairs}
             stacks={stackWarnings}
             dataVersion={visibleResult.dataVersion}
+            drugs={active?.drugs ?? []}
+            showDrugList={active?.interactionFilters.showDrugList ?? false}
           />
         </section>
       ) : checking &&
@@ -319,7 +321,7 @@ export function AppShell() {
 
       <InteractionFilterModal
         open={interactionFilterOpen}
-        filters={active?.interactionFilters ?? { showPkPlausible: false, showPdPlausible: false, showUnverified: false }}
+        filters={active?.interactionFilters ?? { showPkPlausible: false, showPdPlausible: false, showUnverified: false, showDrugList: false }}
         onClose={() => setInteractionFilterOpen(false)}
         onChange={(filter, value) => {
           setInteractionFilter(filter, value);

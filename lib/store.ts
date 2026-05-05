@@ -12,12 +12,14 @@ export type InteractionFilters = {
   showPkPlausible: boolean;
   showPdPlausible: boolean;
   showUnverified: boolean;
+  showDrugList: boolean;
 };
 
 export const defaultInteractionFilters: InteractionFilters = {
-  showPkPlausible: true,
-  showPdPlausible: true,
-  showUnverified: true,
+  showPkPlausible: false,
+  showPdPlausible: false,
+  showUnverified: false,
+  showDrugList: false,
 };
 
 export type Drug = {

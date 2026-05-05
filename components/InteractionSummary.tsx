@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { InteractionPair, InteractionSeverity } from "@/lib/interaction-types";
+import type { Drug } from "@/lib/store";
 import { getStackHighYieldDrugs, type StackWarning } from "@/lib/stacks";
 
 function CopyPromptButton({ pairs }: { pairs: InteractionPair[] }) {
@@ -112,10 +113,14 @@ export function InteractionSummary({
   pairs,
   stacks = [],
   dataVersion,
+  drugs = [],
+  showDrugList = false,
 }: {
   pairs: InteractionPair[];
   stacks?: StackWarning[];
   dataVersion: string;
+  drugs?: Drug[];
+  showDrugList?: boolean;
 }) {
   const [openStackDomain, setOpenStackDomain] = useState<StackWarning["domain"] | null>(null);
   const stackCount = stacks.length;
@@ -175,6 +180,22 @@ export function InteractionSummary({
       style={{ borderLeftColor: leftBorder }}
       aria-live="polite"
     >
+      {showDrugList && drugs.length > 0 ? (
+        <div className="border-b border-rule pb-3 mb-3">
+          <p className="eyebrow mb-2">Current drug list</p>
+          <div className="grid grid-cols-3 gap-x-3 gap-y-1">
+            {drugs.map((drug) => (
+              <span
+                key={drug.rxcui}
+                className="text-[13px] text-ink truncate"
+              >
+                {drug.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
       <div className="flex items-baseline justify-between gap-3">
         <p className="eyebrow">Summary</p>
       </div>

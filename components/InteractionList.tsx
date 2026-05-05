@@ -8,22 +8,20 @@ import {
   pkMechanismLabel,
   type InteractionCheckResponse,
 } from "@/lib/interaction-types";
+import type { InteractionFilters } from "@/lib/store";
 
 export function InteractionList({
   result,
   filters,
 }: {
   result: InteractionCheckResponse;
-  filters?: {
-    showPkPlausible: boolean;
-    showPdPlausible: boolean;
-    showUnverified: boolean;
-  };
+  filters?: InteractionFilters;
 }) {
   const effectiveFilters = filters ?? {
     showPkPlausible: false,
     showPdPlausible: false,
     showUnverified: false,
+    showDrugList: false,
   };
 
   const filteredPairs = result.pairs.filter((pair) => {
@@ -54,7 +52,7 @@ export function InteractionList({
         </p>
         <p className="mt-1 text-[14px] text-ink">
           {result.pairs.length > 0
-            ? "No interactions match your current filter settings. Toggle filters in Manage interactions to see more results."
+            ? "No interactions match your current filter settings. Toggle filters in Manage display to see more results."
             : "No known interactions found in current data sources."}
         </p>
         <p className="stamp mt-2">{result.dataVersion}</p>

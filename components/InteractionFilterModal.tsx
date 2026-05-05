@@ -38,7 +38,20 @@ export function InteractionFilterModal({
 
   if (!open) return null;
 
-  const items: {
+  const summaryItems: {
+    key: keyof InteractionFilters;
+    label: string;
+    description: string;
+  }[] = [
+    {
+      key: "showDrugList",
+      label: "Show drug list",
+      description:
+        "Display the current medication list inside the summary box.",
+    },
+  ];
+
+  const interactionItems: {
     key: keyof InteractionFilters;
     label: string;
     description: string;
@@ -63,6 +76,33 @@ export function InteractionFilterModal({
     },
   ];
 
+  function ToggleRow({
+    item,
+  }: {
+    item: (typeof summaryItems)[number];
+  }) {
+    return (
+      <label className="flex cursor-pointer items-start gap-3 py-3">
+        <div className="relative mt-0.5 shrink-0">
+          <input
+            type="checkbox"
+            className="peer sr-only"
+            checked={filters[item.key]}
+            onChange={(e) => onChange(item.key, e.target.checked)}
+          />
+          <div className="h-5 w-9 rounded-full border border-rule bg-surface transition-colors peer-checked:border-accent peer-checked:bg-accent" />
+          <div className="absolute top-0.5 left-0.5 h-4 w-4 rounded-full bg-paper shadow-sm transition-transform peer-checked:translate-x-4" />
+        </div>
+        <div>
+          <p className="text-[13.5px] text-ink">{item.label}</p>
+          <p className="mt-0.5 text-[11.5px] leading-snug text-ink-mute">
+            {item.description}
+          </p>
+        </div>
+      </label>
+    );
+  }
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 p-4">
       <div
@@ -71,38 +111,27 @@ export function InteractionFilterModal({
       >
         <div className="border-b border-rule px-5 py-4">
           <h2 className="font-serif text-[18px] italic text-ink">
-            Manage interactions
+            Manage display
           </h2>
           <p className="mt-1 text-[12px] leading-snug text-ink-mute">
-            Toggle which interaction classes appear in the pairwise results.
-            PK-confirmed, gastric pH, and chelation pairs are always shown.
+            Toggle which elements appear in the summary and interaction results.
           </p>
         </div>
-        <div className="px-5 py-3">
-          {items.map((item) => (
-            <label
-              key={item.key}
-              className="flex cursor-pointer items-start gap-3 py-3"
-            >
-              <div className="relative mt-0.5 shrink-0">
-                <input
-                  type="checkbox"
-                  className="peer sr-only"
-                  checked={filters[item.key]}
-                  onChange={(e) => onChange(item.key, e.target.checked)}
-                />
-                <div className="h-5 w-9 rounded-full border border-rule bg-surface transition-colors peer-checked:border-accent peer-checked:bg-accent" />
-                <div className="absolute top-0.5 left-0.5 h-4 w-4 rounded-full bg-paper shadow-sm transition-transform peer-checked:translate-x-4" />
-              </div>
-              <div>
-                <p className="text-[13.5px] text-ink">{item.label}</p>
-                <p className="mt-0.5 text-[11.5px] leading-snug text-ink-mute">
-                  {item.description}
-                </p>
-              </div>
-            </label>
+
+        <div className="border-b border-rule px-5 py-3">
+          <p className="eyebrow mb-1">Manage Summary box</p>
+          {summaryItems.map((item) => (
+            <ToggleRow key={item.key} item={item} />
           ))}
         </div>
+
+        <div className="px-5 py-3">
+          <p className="eyebrow mb-1">Manage interactions</p>
+          {interactionItems.map((item) => (
+            <ToggleRow key={item.key} item={item} />
+          ))}
+        </div>
+
         <div className="flex justify-end border-t border-rule px-5 py-3">
           <button
             type="button"
