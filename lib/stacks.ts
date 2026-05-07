@@ -457,6 +457,7 @@ const stackRules: StackRule[] = [
       "repaglinide",
       "nateglinide",
       "linezolid",
+      "gatifloxacin",
     ],
     highRiskMatches: [
       "insulin",
@@ -468,6 +469,7 @@ const stackRules: StackRule[] = [
       "repaglinide",
       "nateglinide",
       "linezolid",
+      "gatifloxacin",
     ],
     summary: (matched) =>
       `Hypoglycemia-risk drugs are stacking: ${matched.join(", ")}. Recheck glucose trend, meal intake, and renal function before keeping the full regimen.`,
@@ -511,6 +513,7 @@ const stackRules: StackRule[] = [
       "olanzapine",
       "quetiapine",
       "risperidone",
+      "gatifloxacin",
     ],
     highRiskMatches: [
       "prednisone",
@@ -521,6 +524,7 @@ const stackRules: StackRule[] = [
       "tacrolimus",
       "olanzapine",
       "quetiapine",
+      "gatifloxacin",
     ],
     summary: (matched) =>
       `Hyperglycemia-promoting drugs are stacking: ${matched.join(", ")}. Recheck glucose monitoring needs and whether temporary diabetes-regimen adjustment is required.`,

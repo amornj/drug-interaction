@@ -639,6 +639,7 @@ export const METABOLISM_ENTRIES: MetabolismEntry[] = [
   { match: "azithromycin", annotations: [{ system: "P-gp", role: "Sub" }] },
   { match: "vancomycin", nti: true, annotations: [{ system: "Renal elim", role: "Major" }] },
   { match: "levofloxacin", annotations: [{ system: "Renal elim", role: "Major" }] },
+  { match: "gatifloxacin", annotations: [{ system: "Renal elim", role: "Major" }] },
 
   // Anticonvulsants
   { match: "levetiracetam", annotations: [{ system: "Renal elim", role: "Major" }] },
